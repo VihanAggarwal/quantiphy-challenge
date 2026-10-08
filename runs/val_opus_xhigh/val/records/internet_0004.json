@@ -1,0 +1,598 @@
+{
+ "video_id": "internet_0004",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfpEjFBmQBWXPj28yXZJX",
+ "model": "claude-opus-5-5",
+ "effort": "xhigh",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "xhigh",
+  "frames": 16,
+  "max_frames": 32
+ },
+ "ts": "2026-10-08T05:46:33+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_01Szq6kt5H7s68P5RmBfFqn4",
+ "custom_id": "internet_0004",
+ "usage": {
+  "input_tokens": 9572,
+  "output_tokens": 9894,
+  "cache_creation_input_tokens": 4317,
+  "cache_read_input_tokens": 0,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.128877,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "internet_0004",
+  "fps": 25.0,
+  "fps_from_container": false,
+  "video_type": "S2MC",
+  "n_frames_total": 428,
+  "scale": 1.0,
+  "image_size": [
+   854,
+   480
+  ],
+  "frames": [
+   0,
+   28,
+   57,
+   85,
+   114,
+   142,
+   171,
+   199,
+   228,
+   256,
+   285,
+   313,
+   342,
+   370,
+   399,
+   427
+  ],
+  "questions": [
+   {
+    "qid": 2161,
+    "target_unit": "cm",
+    "prior": "ruler calibre = 1 cm"
+   },
+   {
+    "qid": 2162,
+    "target_unit": "cm",
+    "prior": "ruler calibre = 1 cm"
+   },
+   {
+    "qid": 2163,
+    "target_unit": "cm/s",
+    "prior": "ruler calibre = 1 cm"
+   },
+   {
+    "qid": 2164,
+    "target_unit": "cm/s",
+    "prior": "ruler calibre = 1 cm"
+   }
+  ]
+ },
+ "raw_text": "{\"questions\":[{\"qid\":2161,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"wood block\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"horizontal\",\"value_si\":null,\"unit\":\"cm\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"ruler\"],\"dimension\":\"calibre (1 cm tick spacing)\",\"time\":null,\"window\":null,\"axis\":\"horizontal\",\"value_si\":0.01,\"unit\":\"\"},\"depth\":[],\"notes\":\"Length taken as the horizontal width of the board's end face. The ruler's cm ticks are too fine to resolve clearly, so the scale is estimated from the ruler's mm-tick texture (about 46 px/cm).\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"ruler\",\"obs\":[{\"frame\":28,\"point\":null,\"extent\":[[300,196],[346,196]],\"box\":[0,160,668,206]},{\"frame\":57,\"point\":null,\"extent\":[[300,200],[346,200]],\"box\":[0,180,660,212]},{\"frame\":85,\"point\":null,\"extent\":[[300,206],[346,206]],\"box\":[0,180,666,214]}]},{\"role\":\"target\",\"object\":\"wood block\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[187,258],[675,258]],\"box\":[187,207,675,309]},{\"frame\":114,\"point\":null,\"extent\":[[187,260],[674,260]],\"box\":[187,209,674,309]},{\"frame\":142,\"point\":null,\"extent\":[[187,258],[674,258]],\"box\":[187,208,674,309]},{\"frame\":28,\"point\":null,\"extent\":[[185,262],[675,262]],\"box\":[185,207,675,315]}]}],\"direct_answer\":10.6,\"confidence\":0.35},{\"qid\":2162,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"wood block\"],\"dimension\":\"thickness\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":null,\"unit\":\"cm\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"ruler\"],\"dimension\":\"calibre (1 cm tick spacing)\",\"time\":null,\"window\":null,\"axis\":\"horizontal\",\"value_si\":0.01,\"unit\":\"\"},\"depth\":[],\"notes\":\"Thickness is the vertical height of the board's end face.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"ruler\",\"obs\":[]},{\"role\":\"target\",\"object\":\"wood block\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[430,208],[430,308]],\"box\":[187,207,675,309]},{\"frame\":114,\"point\":null,\"extent\":[[430,209],[430,308]],\"box\":[187,209,674,309]},{\"frame\":142,\"point\":null,\"extent\":[[430,208],[430,308]],\"box\":[187,208,674,309]},{\"frame\":28,\"point\":null,\"extent\":[[430,208],[430,313]],\"box\":[185,207,675,315]}]}],\"direct_answer\":2.2,\"confidence\":0.35},{\"qid\":2163,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"pencil tip\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"cm/s\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"ruler\"],\"dimension\":\"calibre (1 cm tick spacing)\",\"time\":null,\"window\":null,\"axis\":\"horizontal\",\"value_si\":0.01,\"unit\":\"\"},\"depth\":[],\"notes\":\"The pencil tip is visible only in frames 57 and 85; the average is taken over that interval as it moves right to left along the ruler.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"ruler\",\"obs\":[]},{\"role\":\"target\",\"object\":\"pencil tip\",\"obs\":[{\"frame\":57,\"point\":[662,207],\"extent\":null,\"box\":null},{\"frame\":85,\"point\":[112,210],\"extent\":null,\"box\":null}]}],\"direct_answer\":10.7,\"confidence\":0.25},{\"qid\":2164,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"jigsaw\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"horizontal\",\"value_si\":null,\"unit\":\"cm/s\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"ruler\"],\"dimension\":\"calibre (1 cm tick spacing)\",\"time\":null,\"window\":null,\"axis\":\"horizontal\",\"value_si\":0.01,\"unit\":\"\"},\"depth\":[],\"notes\":\"The saw is tracked by the centre of its blade-guide roller while cutting from left to right, frames 171-427.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"ruler\",\"obs\":[]},{\"role\":\"target\",\"object\":\"jigsaw\",\"obs\":[{\"frame\":171,\"point\":[97,183],\"extent\":null,\"box\":null},{\"frame\":199,\"point\":[143,190],\"extent\":null,\"box\":null},{\"frame\":228,\"point\":[170,200],\"extent\":null,\"box\":null},{\"frame\":256,\"point\":[218,200],\"extent\":null,\"box\":null},{\"frame\":285,\"point\":[296,197],\"extent\":null,\"box\":null},{\"frame\":313,\"point\":[396,198],\"extent\":null,\"box\":null},{\"frame\":342,\"point\":[471,200],\"extent\":null,\"box\":null},{\"frame\":370,\"point\":[541,203],\"extent\":null,\"box\":null},{\"frame\":399,\"point\":[613,205],\"extent\":null,\"box\":null},{\"frame\":427,\"point\":[660,192],\"extent\":null,\"box\":null}]}],\"direct_answer\":1.2,\"confidence\":0.25}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 2161,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "wood block"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "horizontal",
+      "value_si": null,
+      "unit": "cm"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "ruler"
+      ],
+      "dimension": "calibre (1 cm tick spacing)",
+      "time": null,
+      "window": null,
+      "axis": "horizontal",
+      "value_si": 0.01,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Length taken as the horizontal width of the board's end face. The ruler's cm ticks are too fine to resolve clearly, so the scale is estimated from the ruler's mm-tick texture (about 46 px/cm)."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "ruler",
+      "obs": [
+       {
+        "frame": 28,
+        "point": null,
+        "extent": [
+         [
+          300,
+          196
+         ],
+         [
+          346,
+          196
+         ]
+        ],
+        "box": [
+         0,
+         160,
+         668,
+         206
+        ]
+       },
+       {
+        "frame": 57,
+        "point": null,
+        "extent": [
+         [
+          300,
+          200
+         ],
+         [
+          346,
+          200
+         ]
+        ],
+        "box": [
+         0,
+         180,
+         660,
+         212
+        ]
+       },
+       {
+        "frame": 85,
+        "point": null,
+        "extent": [
+         [
+          300,
+          206
+         ],
+         [
+          346,
+          206
+         ]
+        ],
+        "box": [
+         0,
+         180,
+         666,
+         214
+        ]
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "wood block",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          187,
+          258
+         ],
+         [
+          675,
+          258
+         ]
+        ],
+        "box": [
+         187,
+         207,
+         675,
+         309
+        ]
+       },
+       {
+        "frame": 114,
+        "point": null,
+        "extent": [
+         [
+          187,
+          260
+         ],
+         [
+          674,
+          260
+         ]
+        ],
+        "box": [
+         187,
+         209,
+         674,
+         309
+        ]
+       },
+       {
+        "frame": 142,
+        "point": null,
+        "extent": [
+         [
+          187,
+          258
+         ],
+         [
+          674,
+          258
+         ]
+        ],
+        "box": [
+         187,
+         208,
+         674,
+         309
+        ]
+       },
+       {
+        "frame": 28,
+        "point": null,
+        "extent": [
+         [
+          185,
+          262
+         ],
+         [
+          675,
+          262
+         ]
+        ],
+        "box": [
+         185,
+         207,
+         675,
+         315
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 10.6,
+    "confidence": 0.35
+   },
+   {
+    "qid": 2162,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "wood block"
+      ],
+      "dimension": "thickness",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": null,
+      "unit": "cm"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "ruler"
+      ],
+      "dimension": "calibre (1 cm tick spacing)",
+      "time": null,
+      "window": null,
+      "axis": "horizontal",
+      "value_si": 0.01,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Thickness is the vertical height of the board's end face."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "ruler",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "wood block",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          430,
+          208
+         ],
+         [
+          430,
+          308
+         ]
+        ],
+        "box": [
+         187,
+         207,
+         675,
+         309
+        ]
+       },
+       {
+        "frame": 114,
+        "point": null,
+        "extent": [
+         [
+          430,
+          209
+         ],
+         [
+          430,
+          308
+         ]
+        ],
+        "box": [
+         187,
+         209,
+         674,
+         309
+        ]
+       },
+       {
+        "frame": 142,
+        "point": null,
+        "extent": [
+         [
+          430,
+          208
+         ],
+         [
+          430,
+          308
+         ]
+        ],
+        "box": [
+         187,
+         208,
+         674,
+         309
+        ]
+       },
+       {
+        "frame": 28,
+        "point": null,
+        "extent": [
+         [
+          430,
+          208
+         ],
+         [
+          430,
+          313
+         ]
+        ],
+        "box": [
+         185,
+         207,
+         675,
+         315
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 2.2,
+    "confidence": 0.35
+   },
+   {
+    "qid": 2163,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "pencil tip"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "cm/s"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "ruler"
+      ],
+      "dimension": "calibre (1 cm tick spacing)",
+      "time": null,
+      "window": null,
+      "axis": "horizontal",
+      "value_si": 0.01,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "The pencil tip is visible only in frames 57 and 85; the average is taken over that interval as it moves right to left along the ruler."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "ruler",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "pencil tip",
+      "obs": [
+       {
+        "frame": 57,
+        "point": [
+         662,
+         207
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 85,
+        "point": [
+         112,
+         210
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     }
+    ],
+    "direct_answer": 10.7,
+    "confidence": 0.25
+   },
+   {
+    "qid": 2164,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "jigsaw"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "horizontal",
+      "value_si": null,
+      "unit": "cm/s"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "ruler"
+      ],
+      "dimension": "calibre (1 cm tick spacing)",
+      "time": null,
+      "window": null,
+      "axis": "horizontal",
+      "value_si": 0.01,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "The saw is tracked by the centre of its blade-guide roller while cutting from left to right, frames 171-427."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "ruler",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "jigsaw",
+      "obs": [
+       {
+        "frame": 171,
+        "point": [
+         97,
+         183
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 199,
+        "point": [
+         143,
+         190
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 228,
+        "point": [
+         170,
+         200
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 256,
+        "point": [
+         218,
+         200
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 285,
+        "point": [
+         296,
+         197
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 313,
+        "point": [
+         396,
+         198
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 342,
+        "point": [
+         471,
+         200
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 370,
+        "point": [
+         541,
+         203
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 399,
+        "point": [
+         613,
+         205
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 427,
+        "point": [
+         660,
+         192
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     }
+    ],
+    "direct_answer": 1.2,
+    "confidence": 0.25
+   }
+  ]
+ }
+}

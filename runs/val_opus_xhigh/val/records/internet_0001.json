@@ -1,0 +1,676 @@
+{
+ "video_id": "internet_0001",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfpBjoQQaxY8JQC6KLBuV",
+ "model": "claude-opus-5-5",
+ "effort": "xhigh",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "xhigh",
+  "frames": 16,
+  "max_frames": 32
+ },
+ "ts": "2026-10-08T05:46:33+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_01Szq6kt5H7s68P5RmBfFqn4",
+ "custom_id": "internet_0001",
+ "usage": {
+  "input_tokens": 9475,
+  "output_tokens": 4168,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 4317,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.061062,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "internet_0001",
+  "fps": 24.0,
+  "fps_from_container": false,
+  "video_type": "S2SC",
+  "n_frames_total": 31,
+  "scale": 1.0,
+  "image_size": [
+   854,
+   480
+  ],
+  "frames": [
+   0,
+   2,
+   4,
+   6,
+   8,
+   10,
+   12,
+   14,
+   16,
+   18,
+   20,
+   22,
+   24,
+   26,
+   28,
+   30
+  ],
+  "questions": [
+   {
+    "qid": 2151,
+    "target_unit": "m",
+    "prior": "lane width = 3.66 m"
+   },
+   {
+    "qid": 2152,
+    "target_unit": "m",
+    "prior": "lane width = 3.66 m"
+   },
+   {
+    "qid": 2153,
+    "target_unit": "m/s",
+    "prior": "lane width = 3.66 m"
+   }
+  ]
+ },
+ "raw_text": "{\"questions\":[{\"qid\":2151,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"black car\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"lane\"],\"dimension\":\"width\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":3.66,\"unit\":\"\"},\"depth\":[],\"notes\":\"Lane width measured between adjacent dashed lane-line centres; lanes vary 68-73 px.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"lane\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[420,290],[420,358]],\"box\":null},{\"frame\":8,\"point\":null,\"extent\":[[420,219],[420,290]],\"box\":null},{\"frame\":16,\"point\":null,\"extent\":[[400,147],[400,219]],\"box\":null},{\"frame\":24,\"point\":null,\"extent\":[[470,358],[470,431.5]],\"box\":null},{\"frame\":30,\"point\":null,\"extent\":[[400,79],[400,147]],\"box\":null}]},{\"role\":\"target\",\"object\":\"black car\",\"obs\":[{\"frame\":6,\"point\":null,\"extent\":[[211,325],[320,325]],\"box\":[211,304,320,346]},{\"frame\":12,\"point\":null,\"extent\":[[375,327],[479,327]],\"box\":[375,306,479,348]},{\"frame\":18,\"point\":null,\"extent\":[[535,329],[642,329]],\"box\":[535,308,642,350]},{\"frame\":22,\"point\":null,\"extent\":[[641,330],[752,330]],\"box\":[641,308,752,352]},{\"frame\":24,\"point\":null,\"extent\":[[697,331],[807,331]],\"box\":[697,309,807,353]}]}],\"direct_answer\":5.6,\"confidence\":0.6},{\"qid\":2152,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"black car\"],\"dimension\":\"width\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"lane\"],\"dimension\":\"width\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":3.66,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"lane\",\"obs\":[]},{\"role\":\"target\",\"object\":\"black car\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[100,300],[100,343]],\"box\":[48,300,157,343]},{\"frame\":6,\"point\":null,\"extent\":[[265,304],[265,346]],\"box\":[211,304,320,346]},{\"frame\":12,\"point\":null,\"extent\":[[425,306],[425,348]],\"box\":[375,306,479,348]},{\"frame\":18,\"point\":null,\"extent\":[[588,308],[588,350]],\"box\":[535,308,642,350]},{\"frame\":24,\"point\":null,\"extent\":[[750,309],[750,352]],\"box\":[697,309,807,353]}]}],\"direct_answer\":2.2,\"confidence\":0.5},{\"qid\":2153,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"black car\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"lane\"],\"dimension\":\"width\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":3.66,\"unit\":\"\"},\"depth\":[],\"notes\":\"Average over the clip while the car is fully visible.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"lane\",\"obs\":[]},{\"role\":\"target\",\"object\":\"black car\",\"obs\":[{\"frame\":0,\"point\":[102.5,321.5],\"extent\":null,\"box\":[48,300,157,343]},{\"frame\":2,\"point\":[156.5,323],\"extent\":null,\"box\":[102,302,211,344]},{\"frame\":4,\"point\":[210,324],\"extent\":null,\"box\":[156,303,264,345]},{\"frame\":6,\"point\":[265.5,325],\"extent\":null,\"box\":[211,304,320,346]},{\"frame\":8,\"point\":[318.5,326],\"extent\":null,\"box\":[266,305,371,347]},{\"frame\":10,\"point\":[373,326],\"extent\":null,\"box\":[320,305,426,347]},{\"frame\":12,\"point\":[427,327],\"extent\":null,\"box\":[375,306,479,348]},{\"frame\":14,\"point\":[481,327.5],\"extent\":null,\"box\":[430,306,532,349]},{\"frame\":16,\"point\":[535,328.5],\"extent\":null,\"box\":[484,307,586,350]},{\"frame\":18,\"point\":[588.5,329],\"extent\":null,\"box\":[535,308,642,350]},{\"frame\":20,\"point\":[642,329.5],\"extent\":null,\"box\":[588,308,696,351]},{\"frame\":22,\"point\":[696.5,330],\"extent\":null,\"box\":[641,308,752,352]},{\"frame\":24,\"point\":[752,331],\"extent\":null,\"box\":[697,309,807,353]}]}],\"direct_answer\":33.8,\"confidence\":0.6}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 2151,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "black car"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "lane"
+      ],
+      "dimension": "width",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 3.66,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Lane width measured between adjacent dashed lane-line centres; lanes vary 68-73 px."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "lane",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          420,
+          290
+         ],
+         [
+          420,
+          358
+         ]
+        ],
+        "box": null
+       },
+       {
+        "frame": 8,
+        "point": null,
+        "extent": [
+         [
+          420,
+          219
+         ],
+         [
+          420,
+          290
+         ]
+        ],
+        "box": null
+       },
+       {
+        "frame": 16,
+        "point": null,
+        "extent": [
+         [
+          400,
+          147
+         ],
+         [
+          400,
+          219
+         ]
+        ],
+        "box": null
+       },
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          470,
+          358
+         ],
+         [
+          470,
+          431.5
+         ]
+        ],
+        "box": null
+       },
+       {
+        "frame": 30,
+        "point": null,
+        "extent": [
+         [
+          400,
+          79
+         ],
+         [
+          400,
+          147
+         ]
+        ],
+        "box": null
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "black car",
+      "obs": [
+       {
+        "frame": 6,
+        "point": null,
+        "extent": [
+         [
+          211,
+          325
+         ],
+         [
+          320,
+          325
+         ]
+        ],
+        "box": [
+         211,
+         304,
+         320,
+         346
+        ]
+       },
+       {
+        "frame": 12,
+        "point": null,
+        "extent": [
+         [
+          375,
+          327
+         ],
+         [
+          479,
+          327
+         ]
+        ],
+        "box": [
+         375,
+         306,
+         479,
+         348
+        ]
+       },
+       {
+        "frame": 18,
+        "point": null,
+        "extent": [
+         [
+          535,
+          329
+         ],
+         [
+          642,
+          329
+         ]
+        ],
+        "box": [
+         535,
+         308,
+         642,
+         350
+        ]
+       },
+       {
+        "frame": 22,
+        "point": null,
+        "extent": [
+         [
+          641,
+          330
+         ],
+         [
+          752,
+          330
+         ]
+        ],
+        "box": [
+         641,
+         308,
+         752,
+         352
+        ]
+       },
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          697,
+          331
+         ],
+         [
+          807,
+          331
+         ]
+        ],
+        "box": [
+         697,
+         309,
+         807,
+         353
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 5.6,
+    "confidence": 0.6
+   },
+   {
+    "qid": 2152,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "black car"
+      ],
+      "dimension": "width",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "lane"
+      ],
+      "dimension": "width",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 3.66,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "lane",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "black car",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          100,
+          300
+         ],
+         [
+          100,
+          343
+         ]
+        ],
+        "box": [
+         48,
+         300,
+         157,
+         343
+        ]
+       },
+       {
+        "frame": 6,
+        "point": null,
+        "extent": [
+         [
+          265,
+          304
+         ],
+         [
+          265,
+          346
+         ]
+        ],
+        "box": [
+         211,
+         304,
+         320,
+         346
+        ]
+       },
+       {
+        "frame": 12,
+        "point": null,
+        "extent": [
+         [
+          425,
+          306
+         ],
+         [
+          425,
+          348
+         ]
+        ],
+        "box": [
+         375,
+         306,
+         479,
+         348
+        ]
+       },
+       {
+        "frame": 18,
+        "point": null,
+        "extent": [
+         [
+          588,
+          308
+         ],
+         [
+          588,
+          350
+         ]
+        ],
+        "box": [
+         535,
+         308,
+         642,
+         350
+        ]
+       },
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          750,
+          309
+         ],
+         [
+          750,
+          352
+         ]
+        ],
+        "box": [
+         697,
+         309,
+         807,
+         353
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 2.2,
+    "confidence": 0.5
+   },
+   {
+    "qid": 2153,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "black car"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "lane"
+      ],
+      "dimension": "width",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 3.66,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Average over the clip while the car is fully visible."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "lane",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "black car",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         102.5,
+         321.5
+        ],
+        "extent": null,
+        "box": [
+         48,
+         300,
+         157,
+         343
+        ]
+       },
+       {
+        "frame": 2,
+        "point": [
+         156.5,
+         323
+        ],
+        "extent": null,
+        "box": [
+         102,
+         302,
+         211,
+         344
+        ]
+       },
+       {
+        "frame": 4,
+        "point": [
+         210,
+         324
+        ],
+        "extent": null,
+        "box": [
+         156,
+         303,
+         264,
+         345
+        ]
+       },
+       {
+        "frame": 6,
+        "point": [
+         265.5,
+         325
+        ],
+        "extent": null,
+        "box": [
+         211,
+         304,
+         320,
+         346
+        ]
+       },
+       {
+        "frame": 8,
+        "point": [
+         318.5,
+         326
+        ],
+        "extent": null,
+        "box": [
+         266,
+         305,
+         371,
+         347
+        ]
+       },
+       {
+        "frame": 10,
+        "point": [
+         373,
+         326
+        ],
+        "extent": null,
+        "box": [
+         320,
+         305,
+         426,
+         347
+        ]
+       },
+       {
+        "frame": 12,
+        "point": [
+         427,
+         327
+        ],
+        "extent": null,
+        "box": [
+         375,
+         306,
+         479,
+         348
+        ]
+       },
+       {
+        "frame": 14,
+        "point": [
+         481,
+         327.5
+        ],
+        "extent": null,
+        "box": [
+         430,
+         306,
+         532,
+         349
+        ]
+       },
+       {
+        "frame": 16,
+        "point": [
+         535,
+         328.5
+        ],
+        "extent": null,
+        "box": [
+         484,
+         307,
+         586,
+         350
+        ]
+       },
+       {
+        "frame": 18,
+        "point": [
+         588.5,
+         329
+        ],
+        "extent": null,
+        "box": [
+         535,
+         308,
+         642,
+         350
+        ]
+       },
+       {
+        "frame": 20,
+        "point": [
+         642,
+         329.5
+        ],
+        "extent": null,
+        "box": [
+         588,
+         308,
+         696,
+         351
+        ]
+       },
+       {
+        "frame": 22,
+        "point": [
+         696.5,
+         330
+        ],
+        "extent": null,
+        "box": [
+         641,
+         308,
+         752,
+         352
+        ]
+       },
+       {
+        "frame": 24,
+        "point": [
+         752,
+         331
+        ],
+        "extent": null,
+        "box": [
+         697,
+         309,
+         807,
+         353
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 33.8,
+    "confidence": 0.6
+   }
+  ]
+ }
+}

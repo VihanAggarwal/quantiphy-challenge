@@ -1,0 +1,555 @@
+{
+ "video_id": "captured_0041x",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfpBiWuwHU5a6govCqKjk",
+ "model": "claude-opus-5-5",
+ "effort": "xhigh",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "xhigh",
+  "frames": 16,
+  "max_frames": 32
+ },
+ "ts": "2026-10-08T05:46:33+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_01Szq6kt5H7s68P5RmBfFqn4",
+ "custom_id": "captured_0041x",
+ "usage": {
+  "input_tokens": 11430,
+  "output_tokens": 19063,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 4317,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.213922,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "captured_0041x",
+  "fps": 24.0,
+  "fps_from_container": false,
+  "video_type": "V3SX",
+  "n_frames_total": 49,
+  "scale": 1.0,
+  "image_size": [
+   854,
+   480
+  ],
+  "frames": [
+   0,
+   3,
+   6,
+   10,
+   13,
+   16,
+   19,
+   22,
+   26,
+   29,
+   32,
+   34,
+   35,
+   36,
+   38,
+   41,
+   42,
+   45,
+   48
+  ],
+  "questions": [
+   {
+    "qid": 2915,
+    "target_unit": "cm",
+    "prior": "velocity of the soccer ball at 1.5s = 5.21 m/s"
+   },
+   {
+    "qid": 2916,
+    "target_unit": "m",
+    "prior": "velocity of the soccer ball at 1.5s = 5.21 m/s"
+   },
+   {
+    "qid": 2917,
+    "target_unit": "m",
+    "prior": "velocity of the soccer ball at 1.5s = 5.21 m/s"
+   }
+  ]
+ },
+ "raw_text": "{\"questions\":[{\"qid\":2915,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"soccer ball\"],\"dimension\":\"diameter\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"cm\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"soccer ball\"],\"dimension\":\"\",\"time\":1.5,\"window\":null,\"axis\":\"any\",\"value_si\":5.21,\"unit\":\"\"},\"depth\":[{\"object\":\"soccer ball\",\"distance_m\":2.544,\"time\":1.5},{\"object\":\"soccer ball\",\"distance_m\":2.074,\"time\":1.6}],\"notes\":\"Ball moves mostly toward the camera after the kick, so lateral image motion is small. Diameter is measured across the motion blur (horizontally) at frames 36 and 38, using a focal length of about 427 px, which is uncertain.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"soccer ball\",\"obs\":[{\"frame\":0,\"point\":[382,354],\"extent\":null,\"box\":[369,341,395,367]},{\"frame\":3,\"point\":[382,354],\"extent\":null,\"box\":[369,341,395,367]},{\"frame\":6,\"point\":[382,354],\"extent\":null,\"box\":[369,341,395,367]},{\"frame\":10,\"point\":[382,354],\"extent\":null,\"box\":[369,341,395,367]},{\"frame\":13,\"point\":[382,354],\"extent\":null,\"box\":[369,341,395,367]},{\"frame\":16,\"point\":[382,354],\"extent\":null,\"box\":[369,341,395,367]},{\"frame\":19,\"point\":[382,354],\"extent\":null,\"box\":[369,341,395,367]},{\"frame\":22,\"point\":[382,354],\"extent\":null,\"box\":[369,341,395,367]},{\"frame\":26,\"point\":[382,354],\"extent\":null,\"box\":[369,341,395,367]},{\"frame\":29,\"point\":[382,354],\"extent\":null,\"box\":[369,341,395,367]},{\"frame\":32,\"point\":[382,354],\"extent\":null,\"box\":[369,341,395,367]},{\"frame\":34,\"point\":[384,362.5],\"extent\":null,\"box\":[369,345,399,380]},{\"frame\":35,\"point\":[386,376],\"extent\":null,\"box\":[371,355,401,397]},{\"frame\":36,\"point\":[390,408],\"extent\":null,\"box\":[373,383,407,433]},{\"frame\":38,\"point\":[396.5,440.5],\"extent\":null,\"box\":[375,411,418,470]}]},{\"role\":\"target\",\"object\":\"soccer ball\",\"obs\":[{\"frame\":36,\"point\":null,\"extent\":[[374,408],[406,408]],\"box\":[373,383,407,433]},{\"frame\":38,\"point\":null,\"extent\":[[376.5,440.5],[417,440.5]],\"box\":[375,411,418,470]}]}],\"direct_answer\":20.5,\"confidence\":0.35},{\"qid\":2916,\"spec\":{\"target\":{\"kind\":\"displacement\",\"objects\":[\"soccer ball\"],\"dimension\":\"\",\"time\":null,\"window\":[1.5,1.6],\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"soccer ball\"],\"dimension\":\"\",\"time\":1.5,\"window\":null,\"axis\":\"any\",\"value_si\":5.21,\"unit\":\"\"},\"depth\":[{\"object\":\"soccer ball\",\"distance_m\":2.544,\"time\":1.5},{\"object\":\"soccer ball\",\"distance_m\":2.074,\"time\":1.6}],\"notes\":\"The 0.47 m change in camera distance dominates; lateral motion adds a little. t=1.6s lies between frames 38 and 39.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"soccer ball\",\"obs\":[]},{\"role\":\"target\",\"object\":\"soccer ball\",\"obs\":[]}],\"direct_answer\":0.49,\"confidence\":0.55},{\"qid\":2917,\"spec\":{\"target\":{\"kind\":\"distance\",\"objects\":[\"soccer ball\",\"person\"],\"dimension\":\"\",\"time\":1.5,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"soccer ball\"],\"dimension\":\"\",\"time\":1.5,\"window\":null,\"axis\":\"any\",\"value_si\":5.21,\"unit\":\"\"},\"depth\":[{\"object\":\"soccer ball\",\"distance_m\":2.544,\"time\":1.5},{\"object\":\"soccer ball\",\"distance_m\":2.074,\"time\":1.6}],\"notes\":\"Person's camera distance is not given; measured centre to centre (person body centre), and the person is assumed to be about 3 m from the camera, near the ball's rest spot. It is ambiguous whether the distance is to the person's centre or to the feet.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"soccer ball\",\"obs\":[]},{\"role\":\"target\",\"object\":\"soccer ball\",\"obs\":[]},{\"role\":\"target2\",\"object\":\"person\",\"obs\":[{\"frame\":35,\"point\":[412,252],\"extent\":null,\"box\":[365,135,452,372]},{\"frame\":36,\"point\":[415,252],\"extent\":null,\"box\":[371,134,454,372]},{\"frame\":38,\"point\":[418,252],\"extent\":null,\"box\":[380,132,456,372]}]}],\"direct_answer\":1.0,\"confidence\":0.25}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 2915,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "soccer ball"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "cm"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "soccer ball"
+      ],
+      "dimension": "",
+      "time": 1.5,
+      "window": null,
+      "axis": "any",
+      "value_si": 5.21,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "soccer ball",
+       "distance_m": 2.544,
+       "time": 1.5
+      },
+      {
+       "object": "soccer ball",
+       "distance_m": 2.074,
+       "time": 1.6
+      }
+     ],
+     "notes": "Ball moves mostly toward the camera after the kick, so lateral image motion is small. Diameter is measured across the motion blur (horizontally) at frames 36 and 38, using a focal length of about 427 px, which is uncertain."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "soccer ball",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         382,
+         354
+        ],
+        "extent": null,
+        "box": [
+         369,
+         341,
+         395,
+         367
+        ]
+       },
+       {
+        "frame": 3,
+        "point": [
+         382,
+         354
+        ],
+        "extent": null,
+        "box": [
+         369,
+         341,
+         395,
+         367
+        ]
+       },
+       {
+        "frame": 6,
+        "point": [
+         382,
+         354
+        ],
+        "extent": null,
+        "box": [
+         369,
+         341,
+         395,
+         367
+        ]
+       },
+       {
+        "frame": 10,
+        "point": [
+         382,
+         354
+        ],
+        "extent": null,
+        "box": [
+         369,
+         341,
+         395,
+         367
+        ]
+       },
+       {
+        "frame": 13,
+        "point": [
+         382,
+         354
+        ],
+        "extent": null,
+        "box": [
+         369,
+         341,
+         395,
+         367
+        ]
+       },
+       {
+        "frame": 16,
+        "point": [
+         382,
+         354
+        ],
+        "extent": null,
+        "box": [
+         369,
+         341,
+         395,
+         367
+        ]
+       },
+       {
+        "frame": 19,
+        "point": [
+         382,
+         354
+        ],
+        "extent": null,
+        "box": [
+         369,
+         341,
+         395,
+         367
+        ]
+       },
+       {
+        "frame": 22,
+        "point": [
+         382,
+         354
+        ],
+        "extent": null,
+        "box": [
+         369,
+         341,
+         395,
+         367
+        ]
+       },
+       {
+        "frame": 26,
+        "point": [
+         382,
+         354
+        ],
+        "extent": null,
+        "box": [
+         369,
+         341,
+         395,
+         367
+        ]
+       },
+       {
+        "frame": 29,
+        "point": [
+         382,
+         354
+        ],
+        "extent": null,
+        "box": [
+         369,
+         341,
+         395,
+         367
+        ]
+       },
+       {
+        "frame": 32,
+        "point": [
+         382,
+         354
+        ],
+        "extent": null,
+        "box": [
+         369,
+         341,
+         395,
+         367
+        ]
+       },
+       {
+        "frame": 34,
+        "point": [
+         384,
+         362.5
+        ],
+        "extent": null,
+        "box": [
+         369,
+         345,
+         399,
+         380
+        ]
+       },
+       {
+        "frame": 35,
+        "point": [
+         386,
+         376
+        ],
+        "extent": null,
+        "box": [
+         371,
+         355,
+         401,
+         397
+        ]
+       },
+       {
+        "frame": 36,
+        "point": [
+         390,
+         408
+        ],
+        "extent": null,
+        "box": [
+         373,
+         383,
+         407,
+         433
+        ]
+       },
+       {
+        "frame": 38,
+        "point": [
+         396.5,
+         440.5
+        ],
+        "extent": null,
+        "box": [
+         375,
+         411,
+         418,
+         470
+        ]
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "soccer ball",
+      "obs": [
+       {
+        "frame": 36,
+        "point": null,
+        "extent": [
+         [
+          374,
+          408
+         ],
+         [
+          406,
+          408
+         ]
+        ],
+        "box": [
+         373,
+         383,
+         407,
+         433
+        ]
+       },
+       {
+        "frame": 38,
+        "point": null,
+        "extent": [
+         [
+          376.5,
+          440.5
+         ],
+         [
+          417,
+          440.5
+         ]
+        ],
+        "box": [
+         375,
+         411,
+         418,
+         470
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 20.5,
+    "confidence": 0.35
+   },
+   {
+    "qid": 2916,
+    "spec": {
+     "target": {
+      "kind": "displacement",
+      "objects": [
+       "soccer ball"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": [
+       1.5,
+       1.6
+      ],
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "soccer ball"
+      ],
+      "dimension": "",
+      "time": 1.5,
+      "window": null,
+      "axis": "any",
+      "value_si": 5.21,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "soccer ball",
+       "distance_m": 2.544,
+       "time": 1.5
+      },
+      {
+       "object": "soccer ball",
+       "distance_m": 2.074,
+       "time": 1.6
+      }
+     ],
+     "notes": "The 0.47 m change in camera distance dominates; lateral motion adds a little. t=1.6s lies between frames 38 and 39."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "soccer ball",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "soccer ball",
+      "obs": []
+     }
+    ],
+    "direct_answer": 0.49,
+    "confidence": 0.55
+   },
+   {
+    "qid": 2917,
+    "spec": {
+     "target": {
+      "kind": "distance",
+      "objects": [
+       "soccer ball",
+       "person"
+      ],
+      "dimension": "",
+      "time": 1.5,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "soccer ball"
+      ],
+      "dimension": "",
+      "time": 1.5,
+      "window": null,
+      "axis": "any",
+      "value_si": 5.21,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "soccer ball",
+       "distance_m": 2.544,
+       "time": 1.5
+      },
+      {
+       "object": "soccer ball",
+       "distance_m": 2.074,
+       "time": 1.6
+      }
+     ],
+     "notes": "Person's camera distance is not given; measured centre to centre (person body centre), and the person is assumed to be about 3 m from the camera, near the ball's rest spot. It is ambiguous whether the distance is to the person's centre or to the feet."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "soccer ball",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "soccer ball",
+      "obs": []
+     },
+     {
+      "role": "target2",
+      "object": "person",
+      "obs": [
+       {
+        "frame": 35,
+        "point": [
+         412,
+         252
+        ],
+        "extent": null,
+        "box": [
+         365,
+         135,
+         452,
+         372
+        ]
+       },
+       {
+        "frame": 36,
+        "point": [
+         415,
+         252
+        ],
+        "extent": null,
+        "box": [
+         371,
+         134,
+         454,
+         372
+        ]
+       },
+       {
+        "frame": 38,
+        "point": [
+         418,
+         252
+        ],
+        "extent": null,
+        "box": [
+         380,
+         132,
+         456,
+         372
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 1.0,
+    "confidence": 0.25
+   }
+  ]
+ }
+}

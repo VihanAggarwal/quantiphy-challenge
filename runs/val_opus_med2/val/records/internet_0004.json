@@ -1,0 +1,545 @@
+{
+ "video_id": "internet_0004",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfpEGR6KUe1M8a6hiTF15",
+ "model": "claude-opus-5-5",
+ "effort": "medium",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "medium",
+  "frames": 16,
+  "max_frames": 32
+ },
+ "ts": "2026-10-08T05:39:00+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_01VdoVV86K4wf3fw7iVBPVZe",
+ "custom_id": "internet_0004",
+ "usage": {
+  "input_tokens": 9572,
+  "output_tokens": 2359,
+  "cache_creation_input_tokens": 4317,
+  "cache_read_input_tokens": 0,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.053526,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "internet_0004",
+  "fps": 25.0,
+  "fps_from_container": false,
+  "video_type": "S2MC",
+  "n_frames_total": 428,
+  "scale": 1.0,
+  "image_size": [
+   854,
+   480
+  ],
+  "frames": [
+   0,
+   28,
+   57,
+   85,
+   114,
+   142,
+   171,
+   199,
+   228,
+   256,
+   285,
+   313,
+   342,
+   370,
+   399,
+   427
+  ],
+  "questions": [
+   {
+    "qid": 2161,
+    "target_unit": "cm",
+    "prior": "ruler calibre = 1 cm"
+   },
+   {
+    "qid": 2162,
+    "target_unit": "cm",
+    "prior": "ruler calibre = 1 cm"
+   },
+   {
+    "qid": 2163,
+    "target_unit": "cm/s",
+    "prior": "ruler calibre = 1 cm"
+   },
+   {
+    "qid": 2164,
+    "target_unit": "cm/s",
+    "prior": "ruler calibre = 1 cm"
+   }
+  ]
+ },
+ "raw_text": "{\"questions\":[{\"qid\":2161,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"wood block\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"horizontal\",\"value_si\":null,\"unit\":\"cm\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"ruler\"],\"dimension\":\"1 cm graduation\",\"time\":null,\"window\":null,\"axis\":\"horizontal\",\"value_si\":0.01,\"unit\":\"\"},\"depth\":[],\"notes\":\"Ruler 1 cm spacing estimated from mm ticks (~5 px/mm).\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"ruler\",\"obs\":[{\"frame\":28,\"point\":null,\"extent\":[[400,190],[450,190]],\"box\":null},{\"frame\":85,\"point\":null,\"extent\":[[400,197],[450,197]],\"box\":null}]},{\"role\":\"target\",\"object\":\"wood block\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[188,258],[673,258]],\"box\":[186,200,675,310]},{\"frame\":28,\"point\":null,\"extent\":[[186,262],[673,262]],\"box\":[184,207,675,315]},{\"frame\":114,\"point\":null,\"extent\":[[188,258],[673,258]],\"box\":[186,205,675,310]},{\"frame\":142,\"point\":null,\"extent\":[[188,258],[673,258]],\"box\":[186,205,675,310]}]}],\"direct_answer\":9.7,\"confidence\":0.4},{\"qid\":2162,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"wood block\"],\"dimension\":\"thickness\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":null,\"unit\":\"cm\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"ruler\"],\"dimension\":\"1 cm graduation\",\"time\":null,\"window\":null,\"axis\":\"horizontal\",\"value_si\":0.01,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"ruler\",\"obs\":[]},{\"role\":\"target\",\"object\":\"wood block thickness\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[430,208],[430,308]],\"box\":null},{\"frame\":28,\"point\":null,\"extent\":[[430,208],[430,313]],\"box\":null},{\"frame\":114,\"point\":null,\"extent\":[[430,210],[430,308]],\"box\":null},{\"frame\":142,\"point\":null,\"extent\":[[430,210],[430,308]],\"box\":null}]}],\"direct_answer\":2.0,\"confidence\":0.4},{\"qid\":2163,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"pencil tip\"],\"dimension\":\"\",\"time\":null,\"window\":[2.28,3.4],\"axis\":\"horizontal\",\"value_si\":null,\"unit\":\"cm/s\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"ruler\"],\"dimension\":\"1 cm graduation\",\"time\":null,\"window\":null,\"axis\":\"horizontal\",\"value_si\":0.01,\"unit\":\"\"},\"depth\":[],\"notes\":\"Pencil motion window estimated from sampled frames.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"ruler\",\"obs\":[]},{\"role\":\"target\",\"object\":\"pencil tip\",\"obs\":[{\"frame\":57,\"point\":[660,205],\"extent\":null,\"box\":null},{\"frame\":85,\"point\":[108,208],\"extent\":null,\"box\":null}]}],\"direct_answer\":9.9,\"confidence\":0.25},{\"qid\":2164,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"saw\"],\"dimension\":\"\",\"time\":null,\"window\":[7.96,17.08],\"axis\":\"horizontal\",\"value_si\":null,\"unit\":\"cm/s\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"ruler\"],\"dimension\":\"1 cm graduation\",\"time\":null,\"window\":null,\"axis\":\"horizontal\",\"value_si\":0.01,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"ruler\",\"obs\":[]},{\"role\":\"target\",\"object\":\"saw roller wheel\",\"obs\":[{\"frame\":199,\"point\":[145,190],\"extent\":null,\"box\":null},{\"frame\":228,\"point\":[170,200],\"extent\":null,\"box\":null},{\"frame\":256,\"point\":[215,200],\"extent\":null,\"box\":null},{\"frame\":285,\"point\":[295,195],\"extent\":null,\"box\":null},{\"frame\":313,\"point\":[395,198],\"extent\":null,\"box\":null},{\"frame\":342,\"point\":[470,200],\"extent\":null,\"box\":null},{\"frame\":370,\"point\":[540,203],\"extent\":null,\"box\":null},{\"frame\":399,\"point\":[610,203],\"extent\":null,\"box\":null},{\"frame\":427,\"point\":[660,190],\"extent\":null,\"box\":null}]}],\"direct_answer\":1.13,\"confidence\":0.3}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 2161,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "wood block"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "horizontal",
+      "value_si": null,
+      "unit": "cm"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "ruler"
+      ],
+      "dimension": "1 cm graduation",
+      "time": null,
+      "window": null,
+      "axis": "horizontal",
+      "value_si": 0.01,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Ruler 1 cm spacing estimated from mm ticks (~5 px/mm)."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "ruler",
+      "obs": [
+       {
+        "frame": 28,
+        "point": null,
+        "extent": [
+         [
+          400,
+          190
+         ],
+         [
+          450,
+          190
+         ]
+        ],
+        "box": null
+       },
+       {
+        "frame": 85,
+        "point": null,
+        "extent": [
+         [
+          400,
+          197
+         ],
+         [
+          450,
+          197
+         ]
+        ],
+        "box": null
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "wood block",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          188,
+          258
+         ],
+         [
+          673,
+          258
+         ]
+        ],
+        "box": [
+         186,
+         200,
+         675,
+         310
+        ]
+       },
+       {
+        "frame": 28,
+        "point": null,
+        "extent": [
+         [
+          186,
+          262
+         ],
+         [
+          673,
+          262
+         ]
+        ],
+        "box": [
+         184,
+         207,
+         675,
+         315
+        ]
+       },
+       {
+        "frame": 114,
+        "point": null,
+        "extent": [
+         [
+          188,
+          258
+         ],
+         [
+          673,
+          258
+         ]
+        ],
+        "box": [
+         186,
+         205,
+         675,
+         310
+        ]
+       },
+       {
+        "frame": 142,
+        "point": null,
+        "extent": [
+         [
+          188,
+          258
+         ],
+         [
+          673,
+          258
+         ]
+        ],
+        "box": [
+         186,
+         205,
+         675,
+         310
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 9.7,
+    "confidence": 0.4
+   },
+   {
+    "qid": 2162,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "wood block"
+      ],
+      "dimension": "thickness",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": null,
+      "unit": "cm"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "ruler"
+      ],
+      "dimension": "1 cm graduation",
+      "time": null,
+      "window": null,
+      "axis": "horizontal",
+      "value_si": 0.01,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "ruler",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "wood block thickness",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          430,
+          208
+         ],
+         [
+          430,
+          308
+         ]
+        ],
+        "box": null
+       },
+       {
+        "frame": 28,
+        "point": null,
+        "extent": [
+         [
+          430,
+          208
+         ],
+         [
+          430,
+          313
+         ]
+        ],
+        "box": null
+       },
+       {
+        "frame": 114,
+        "point": null,
+        "extent": [
+         [
+          430,
+          210
+         ],
+         [
+          430,
+          308
+         ]
+        ],
+        "box": null
+       },
+       {
+        "frame": 142,
+        "point": null,
+        "extent": [
+         [
+          430,
+          210
+         ],
+         [
+          430,
+          308
+         ]
+        ],
+        "box": null
+       }
+      ]
+     }
+    ],
+    "direct_answer": 2.0,
+    "confidence": 0.4
+   },
+   {
+    "qid": 2163,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "pencil tip"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": [
+       2.28,
+       3.4
+      ],
+      "axis": "horizontal",
+      "value_si": null,
+      "unit": "cm/s"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "ruler"
+      ],
+      "dimension": "1 cm graduation",
+      "time": null,
+      "window": null,
+      "axis": "horizontal",
+      "value_si": 0.01,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Pencil motion window estimated from sampled frames."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "ruler",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "pencil tip",
+      "obs": [
+       {
+        "frame": 57,
+        "point": [
+         660,
+         205
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 85,
+        "point": [
+         108,
+         208
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     }
+    ],
+    "direct_answer": 9.9,
+    "confidence": 0.25
+   },
+   {
+    "qid": 2164,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "saw"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": [
+       7.96,
+       17.08
+      ],
+      "axis": "horizontal",
+      "value_si": null,
+      "unit": "cm/s"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "ruler"
+      ],
+      "dimension": "1 cm graduation",
+      "time": null,
+      "window": null,
+      "axis": "horizontal",
+      "value_si": 0.01,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "ruler",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "saw roller wheel",
+      "obs": [
+       {
+        "frame": 199,
+        "point": [
+         145,
+         190
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 228,
+        "point": [
+         170,
+         200
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 256,
+        "point": [
+         215,
+         200
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 285,
+        "point": [
+         295,
+         195
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 313,
+        "point": [
+         395,
+         198
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 342,
+        "point": [
+         470,
+         200
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 370,
+        "point": [
+         540,
+         203
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 399,
+        "point": [
+         610,
+         203
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 427,
+        "point": [
+         660,
+         190
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     }
+    ],
+    "direct_answer": 1.13,
+    "confidence": 0.3
+   }
+  ]
+ }
+}
