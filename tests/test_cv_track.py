@@ -327,6 +327,21 @@ def test_load_specs_formats(tmp_path):
     assert list(cv.load_specs(tmp_path / "s.json")) == [14]
 
 
+def test_load_specs_parses_depth_text_for_old_claude_records(tmp_path):
+    # a run_claude record made before meta stored depth_info: the questions' texts fill it in
+    sp = QuestionSpec(12, Q("size", ["boat"], dimension="length", unit="m"), Q("size", ["mast"], value_si=3.0))
+    body = {k: v for k, v in sp.to_dict().items() if k not in ("qid", "is_3d")}
+    meta = {"video_id": "v2", "fps": 10.0, "video_type": "V3SC", "n_frames_total": 30, "scale": 1.0,
+            "image_size": [640, 480], "frames": [0], "questions": [{"qid": 12, "target_unit": "m",
+                                                                    "prior": "height of the mast = 3m"}]}
+    rec = {"video_id": "v2", "status": "ok", "meta": meta,
+           "parsed": {"questions": [{"qid": 12, "spec": body, "tracks": [], "direct_answer": 1.0}]}}
+    (tmp_path / "v2.json").write_text(json.dumps(rec))
+    assert cv.load_specs(tmp_path)[12].depth == []
+    got = cv.load_specs(tmp_path, depth_texts={12: "distance_boat_camera = 4.5m"})[12]
+    assert [(e.object, e.distance_m) for e in got.depth] == [("boat", 4.5)]
+
+
 # ---------------------------------------------------------------- end to end with fake models
 
 CAM = Camera()

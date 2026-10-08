@@ -65,7 +65,7 @@ from pathlib import Path
 import cv2
 import numpy as np
 
-from qp.claude_annotate import to_annotations, video_fps
+from qp.claude_annotate import to_annotations, video_fps, with_depth_info
 from qp.spec import Obs, Quantity, QuestionSpec, RoleTrack
 
 DETECTOR_MODELS = {"gdino": "IDEA-Research/grounding-dino-base",
@@ -527,10 +527,12 @@ def spec_times(specs) -> list[float]:
     return ts
 
 
-def load_specs(path) -> dict[int, QuestionSpec]:
+def load_specs(path, depth_texts: dict[int, str] | None = None) -> dict[int, QuestionSpec]:
     """QuestionSpecs from a folder or file: run_open_vlm spec records ({"questions": {qid: {"spec"}}}),
     run_claude records ({"parsed": {"questions": [{"qid", "spec"}]}}), a list / dict of spec dicts,
-    or JSONL. Unreadable entries are skipped."""
+    or JSONL. Unreadable entries are skipped. depth_texts ({qid: depth_info text}, e.g. from the
+    questions table): fills run_claude records made before meta stored that text, so their depth
+    lists are parsed from it exactly as in Track A (run_claude.prepare_records)."""
     p = Path(path)
     files = sorted([*p.glob("*.json"), *p.glob("*.jsonl")]) if p.is_dir() else [p]
     out: dict[int, QuestionSpec] = {}
@@ -542,20 +544,22 @@ def load_specs(path) -> dict[int, QuestionSpec]:
         except (OSError, ValueError):
             continue
         for it in items:
-            _collect_specs(it, out)
+            _collect_specs(it, out, depth_texts=depth_texts or {})
     return out
 
 
-def _collect_specs(obj, out: dict, qid=None) -> None:
+def _collect_specs(obj, out: dict, qid=None, depth_texts: dict | None = None) -> None:
+    depth_texts = depth_texts or {}
     if isinstance(obj, list):
         for v in obj:
-            _collect_specs(v, out, qid)
+            _collect_specs(v, out, qid, depth_texts)
         return
     if not isinstance(obj, dict):
         return
     if isinstance(obj.get("parsed"), dict) and isinstance(obj.get("meta"), dict):  # a run_claude record:
         try:  # its specs as Track A uses them (prior value from the text, unit from the question, is_3d)
-            out.update({q: a.spec for q, a in to_annotations(obj["parsed"], obj["meta"]).items()})
+            rec = with_depth_info(obj, depth_texts)
+            out.update({q: a.spec for q, a in to_annotations(rec["parsed"], rec["meta"]).items()})
         except (KeyError, TypeError, ValueError):
             pass
         return
@@ -568,11 +572,11 @@ def _collect_specs(obj, out: dict, qid=None) -> None:
                 pass
         return
     if isinstance(obj.get("spec"), dict):
-        _collect_specs(obj["spec"], out, obj.get("qid", qid))
+        _collect_specs(obj["spec"], out, obj.get("qid", qid), depth_texts)
         return
     for k, v in obj.items():
         if k not in ("tracks", "raw", "raw_text", "meta", "usage", "objects"):
-            _collect_specs(v, out, int(k) if str(k).isdigit() else qid)
+            _collect_specs(v, out, int(k) if str(k).isdigit() else qid, depth_texts)
 
 
 # --------------------------------------------------------------------------- video

@@ -104,6 +104,8 @@ class RoleTrack:
     object: str
     obs: list[Obs]
     source: str = ""               # "claude", "qwen3vl", "owlv2+sam2", ...
+    depth_name: str = ""           # 3D: the depth_info object this track is (source's link; "" = by name)
+    range_m: float | None = None   # 3D: source's estimate of the camera range when depth_info has none
 
     def to_dict(self) -> dict:
         return asdict(self)
@@ -111,7 +113,8 @@ class RoleTrack:
     @staticmethod
     def from_dict(d: dict) -> "RoleTrack":
         return RoleTrack(role=d["role"], object=d["object"], source=d.get("source", ""),
-                         obs=[Obs(**o) for o in d["obs"]])
+                         obs=[Obs(**o) for o in d["obs"]], depth_name=d.get("depth_name", "") or "",
+                         range_m=d.get("range_m"))
 
 
 @dataclass

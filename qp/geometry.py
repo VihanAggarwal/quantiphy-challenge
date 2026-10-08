@@ -9,13 +9,20 @@ px/s^2 (time is known, so one length scale serves every kind).
 3D (spec.is_3d and depth entries): pinhole camera, principal point at the image centre, unknown
 focal length f [px]. A depth_info distance is the object's Euclidean range r (DEPTH_IS_RANGE;
 else optical-axis Z): pixel (u, v) back-projects to P = Z * ray, ray = ((u-cx)/f, (v-cy)/f, 1),
-Z = r/|ray|. Sizes are fronto-parallel at depth Z: L = len_px * Z / f. Entries match objects by fuzzy name
-(match_depth) and are linearly inter/extrapolated in time. f is solved (log-f scan + bisection)
-so the prior computed in 3D equals its value; the target uses its own range, so radial motion
-counts. Missing depths are flagged: prior -> scene median range; target -> target2's, else the
-prior's median range, else the scene median. Bad or missing f -> 60 deg FOV. A prior that hardly
-depends on f (motion along the line of sight, |d ln q / d ln f| < 0.3) is flagged
-"f_ill_conditioned" and its f kept only within 25-100 deg FOV.
+Z = r/|ray|. Sizes are fronto-parallel at depth Z: L = len_px * Z / f, except a size whose two ends
+depth_info lists separately ("slope far" / "slope near"), which uses each end's range
+(_endpoint_size). Entries match objects by the track's depth_name (an annotator's explicit link),
+else by fuzzy name (match_depth), and are linearly inter/extrapolated in time. An object with fewer
+than 2 timed entries follows its apparent size when its boxes show a clear, smooth change
+(looming: range ~ 1 / box size, _loom), so radial motion is not lost. f is solved (log-f scan +
+bisection) so the prior computed in 3D equals its value; with a known camera
+(solve(camera_fov_deg=...)) f is instead the MAP estimate of a tight prior around that camera
+and the prior's measurement (_map_f). The target uses its own range, so radial motion counts.
+Missing depths are flagged: prior -> the annotator's range estimate (range_m), else the scene
+median range; target -> its range_m, else target2's, else the prior's median range, else the
+scene median. Bad or missing f -> the camera's FOV, else 60 deg. A prior that hardly depends on f
+(motion along the line of sight, |d ln q / d ln f| < 0.3) is flagged "f_ill_conditioned" and its
+f kept only within 25-100 deg FOV.
 
 Motion: robust (outlier-dropping) local polynomial fits of position vs time, degree 2, raised to
 3-4 only when an F-test says the extra terms pay off (curved paths):
@@ -63,11 +70,24 @@ DEPTH_MATCH_MIN = 0.5           # minimum name score to use a depth_info entry f
 NAME_STRICT = 0.6               # track-by-name for a two-object distance: one shared word of two
                                 # ("black ball" vs "ball") is another instance, not a match
 SNR_MIN = 5.0                   # a prior's motion must exceed SNR_MIN x its noise (see _motion)
-PX_NOISE_FLOOR = 0.5            # px, least noise assumed on a track (noise-free / quantised input)
+PX_NOISE_FLOOR = 1.0            # px, least noise assumed on a prior track (annotators are good to ~1 px:
+                                # a prior moving <= 10 px is noise-dominated and must not set the scale)
 GRAVITY_BORROW_MIN = 6          # obs needed to try the target's own track as the falling object
 F_SENS_MIN = 0.3                # |d ln(prior) / d ln f| below this: f is ill-conditioned ...
 FOV_ILL_RANGE_DEG = (25.0, 100.0)  # ... and then kept only within this horizontal FOV
 FRAME_WIDTH_RANGE_M = (1e-4, 1e5)  # 2D: a scale making the frame width leave this range is rejected
+CAM_SIG_LOG_F = 0.05            # known camera (solve(camera_fov_deg=...)): sd of log f around it ...
+PRIOR_SIG_LOG = 0.20            # ... combined with the prior's measurement (sd of log measured/stated)
+LOOM_MIN_BOXES = 3              # looming (depth from apparent size) needs this many untruncated boxes,
+LOOM_MIN_SPAN_S = 0.2           # ... spanning this long,
+LOOM_MIN_CHANGE = 0.08          # ... a smoothed change of log box size of at least this,
+LOOM_SNR = 4.0                  # ... and at least this many times the residual sd (flapping wings, gait)
+LOOM_BORDER_PX = 2.0            # a box this close to the frame edge is truncated: not a size cue
+_QUAL_H = {"left", "right"}     # depth-entry qualifiers ("desk left"/"desk right", "slope far"/"slope near")
+_QUAL_V = {"near", "far", "front", "back", "closest", "farthest", "nearest", "top", "bottom", "upper", "lower"}
+_QUAL_OPPOSITE = [({"left"}, {"right"}), ({"far", "back", "farthest"}, {"near", "front", "closest", "nearest"}),
+                  ({"top", "upper"}, {"bottom", "lower"})]   # the two ends of one object: one qualifier each
+_QUAL_PART = {"end", "tower", "edge", "corner", "side"}
 
 
 class _Fail(Exception):
@@ -98,6 +118,9 @@ class _Obj:
 
     def __init__(self, track: RoleTrack, flags: set[str]):
         self.name, self.flags, self.rows = str(track.object or ""), flags, []
+        self.depth_name = str(getattr(track, "depth_name", "") or "")
+        rng = _num(getattr(track, "range_m", None))
+        self.range_m = rng if rng is not None and rng > 0 else None
         for o in track.obs or []:
             o = Obs(**o) if isinstance(o, dict) else o
             t = _num(getattr(o, "t", None))
@@ -413,7 +436,8 @@ def _measure(q: Quantity, a: _Obj | None, b: _Obj | None, va: _View, vb: _View,
 
 _STOP = {"the", "a", "an", "of", "and", "to", "from", "in", "on", "at", "with", "camera",
          "distance", "between", "object"}
-_SYN = {"human": "person", "man": "person", "men": "person", "woman": "person", "women": "person",
+_SYN = {"step": "stair", "staircase": "stair", "stairway": "stair", "stairstep": "stair",
+        "human": "person", "man": "person", "men": "person", "woman": "person", "women": "person",
         "people": "person", "pedestrian": "person", "boy": "person", "girl": "person",
         "player": "person", "walker": "person", "bike": "bicycle", "bycicle": "bicycle",
         "cyclist": "bicycle", "vehicle": "car", "automobile": "car"}
@@ -428,7 +452,8 @@ def _singular(w: str) -> str:
 
 
 def _tokens(name: str) -> list[str]:
-    words = re.findall(r"[a-z0-9]+", str(name or "").lower())
+    name = re.sub(r"([a-z])([A-Z])", r"\1 \2", str(name or ""))  # camelCase: yellowCarLeftFrontTire
+    words = re.findall(r"[a-z0-9]+", name.lower())
     return [_SYN.get(s, s) for s in (_singular(w) for w in words if w not in _STOP)]
 
 
@@ -439,13 +464,16 @@ def _tok_eq(a: str, b: str) -> bool:
 def name_score(a: str, b: str) -> float:
     """Fuzzy object-name similarity in [0, 1]: token overlap (typos, plurals, synonyms such as
     human/person); with no shared token, the share of the shorter joined name found inside the
-    longer one ("pingpong" vs "ping pong ball")."""
+    longer one ("pingpong" vs "ping pong ball"); 1 when the names differ only in spacing ("blue
+    shoppingbag" vs "blue shopping bag")."""
     A, B = dict.fromkeys(_tokens(a)), dict.fromkeys(_tokens(b))  # ordered sets
     if not A or not B:
         return 0.0
+    ja, jb = "".join(A), "".join(B)
+    if ja == jb:
+        return 1.0
     m = sum(any(_tok_eq(x, y) for y in B) for x in A)
     score = m / (len(A) + len(B) - m)
-    ja, jb = "".join(A), "".join(B)
     if m == 0 and min(len(ja), len(jb)) >= 4 and (ja in jb or jb in ja):  # compounds
         score = max(score, min(len(ja), len(jb)) / max(len(ja), len(jb)))
     return score
@@ -458,6 +486,7 @@ class DepthFn:
     def __init__(self, groups: list[tuple[str, list[tuple[float | None, float]]]]):
         self.names = [g[0] for g in groups]
         self.values = [d for g in groups for _, d in g[1]]
+        self.pairs = [p for g in groups for p in g[1]]
         self._parts = [self._interp(pairs) for _, pairs in groups]
 
     @staticmethod
@@ -562,7 +591,134 @@ def _sensitivity(fn, f: float) -> float:
         return math.nan
 
 
-def _solve_3d(target, prior, pa, pb, ta, tb, groups, image_size, flags, debug, tol, flight=False):
+def _map_f(fn, value: float, width: float, f_cam: float) -> float | None:
+    """Focal length (px) maximising  N(log f; log f_cam, CAM_SIG_LOG_F) x N(log(fn(f)/value); 0, PRIOR_SIG_LOG):
+    a known camera is trusted unless the prior pins f down much more tightly; None if fn never evaluates."""
+    half = width / 2
+    lf = np.linspace(math.log(half / math.tan(math.radians(65))), math.log(half / math.tan(math.radians(2))), 121)
+    cost = np.full(len(lf), np.inf)
+    for i, x in enumerate(lf):
+        try:
+            q = fn(math.exp(x))
+        except (_Fail, ValueError, FloatingPointError, np.linalg.LinAlgError, ZeroDivisionError):
+            continue
+        if q > 0 and math.isfinite(q):
+            cost[i] = ((x - math.log(f_cam)) / CAM_SIG_LOG_F) ** 2 + (math.log(q / value) / PRIOR_SIG_LOG) ** 2
+    i = int(np.argmin(cost))
+    if not math.isfinite(cost[i]):
+        return None
+    x = lf[i]
+    if 0 < i < len(lf) - 1 and np.isfinite(cost[i - 1:i + 2]).all():  # parabolic refinement
+        a, b, c = cost[i - 1], cost[i], cost[i + 1]
+        if a - 2 * b + c > 0:
+            x += 0.5 * (a - c) / (a - 2 * b + c) * (lf[1] - lf[0])
+    return math.exp(x)
+
+
+class _LoomFn:
+    """Range vs time from apparent size: Z(t) = r(t) / s(t), s the smoothed box size; r = d * s at the
+    depth anchors (one anchor or an untimed distance: constant)."""
+
+    def __init__(self, base, ts, logs, anchors):
+        self.names, self.values = getattr(base, "names", []), getattr(base, "values", [])
+        self.ts, self.logs = ts, logs
+        timed = sorted((t, d) for t, d in anchors if t is not None)
+        if timed:
+            self.at = np.array([a[0] for a in timed])
+            self.ar = np.array([d * self._s(a)[0] for a, d in timed])
+        else:
+            self.at = np.zeros(1)
+            self.ar = np.array([float(np.mean([d for _, d in anchors])) * float(np.exp(np.median(logs)))])
+
+    def _s(self, t):
+        t = np.atleast_1d(np.asarray(t, float))
+        return np.exp(np.interp(np.clip(t, self.ts[0], self.ts[-1]), self.ts, self.logs))
+
+    def __call__(self, t):
+        t = np.atleast_1d(np.asarray(t, float))
+        return np.interp(t, self.at, self.ar) / self._s(t)
+
+
+def _box_sizes(obj: _Obj, W: float, H: float) -> tuple[np.ndarray, np.ndarray]:
+    """(t, sqrt(box area)) of the untruncated boxes of a track."""
+    out = []
+    for t, _, _, b in obj.rows:
+        if b is None:
+            continue
+        w, h = b[2] - b[0], b[3] - b[1]
+        if w > 0 and h > 0 and min(b[0], b[1]) > LOOM_BORDER_PX and b[2] < W - LOOM_BORDER_PX \
+                and b[3] < H - LOOM_BORDER_PX:
+            out.append((t, math.sqrt(w * h)))
+    return np.array([o[0] for o in out]), np.array([o[1] for o in out])
+
+
+def _loom(fn, obj: _Obj | None, anchors, same_name: list[_Obj], W: float, H: float, debug: dict, label: str):
+    """Depth fn of an object whose depth_info gives no motion in depth (< 2 timed entries, or an assumed
+    constant), made to follow its apparent size (looming) when its boxes show a clear, smooth change:
+    otherwise radial motion is invisible to the solver. Boxes come from the object's own track or the
+    same-name track with the most of them."""
+    if obj is None or len({t for t, _ in anchors if t is not None}) >= 2:
+        return fn
+    t, s = max((_box_sizes(o, W, H) for o in [obj, *same_name]), key=lambda ts: len(ts[0]))
+    if len(np.unique(t)) < LOOM_MIN_BOXES or np.ptp(t) < LOOM_MIN_SPAN_S:
+        return fn
+    ls = np.log(s)
+    ts = np.linspace(t.min(), t.max(), 60)
+    sm = np.array([_local(t, ls[:, None], x, SPEED_HALF_WIN, max_deg=2)[0][0] for x in ts])
+    resid = ls - np.interp(t, ts, sm)
+    sd = 1.4826 * float(np.median(np.abs(resid - np.median(resid))))
+    if np.ptp(sm) < max(LOOM_MIN_CHANGE, LOOM_SNR * sd):
+        return fn
+    debug[f"loom_{label}"] = round(float(np.ptp(sm)), 3)
+    return _LoomFn(fn, ts, sm, anchors)
+
+
+def _endpoint_size(target: Quantity, ta: _Obj | None, groups, f: float, c, flags: set[str], debug: dict):
+    """Size of an object listed in depth_info at its two ends ("slope far"/"slope near", "desk left"/
+    "desk right") when its extents run along that axis (image x for left/right, y for near/far/top/
+    bottom): each endpoint at its own range, L^2 = d1^2 + d2^2 - 2 d1 d2 cos(angle between the rays)
+    (symmetric in d1, d2, so the endpoint-to-entry assignment does not matter). None otherwise.
+    Ends are named noun-first with one qualifier each, from one opposite pair; a qualifier in front
+    ("near person"/"far person", "left bench seat") names separate instances, as does an asked name
+    that contains an entry's whole name ("left person"), and a track's depth_name links one entry."""
+    if target.kind != "size" or ta is None or ta.depth_name:  # an explicit link names ONE entry
+        return None
+    base = set(_tokens(" ".join(target.objects[:1]) or ta.name))
+    hits = []
+    for g in groups:
+        toks = _tokens(g[0])
+        if not toks or toks[0] in _QUAL_H | _QUAL_V:  # "far streetlight", "left bench seat": an instance
+            continue
+        quals = set(toks) & (_QUAL_H | _QUAL_V)
+        rest = [x for x in toks if x not in quals]
+        if base and quals and rest and set(rest) <= base | _QUAL_PART:
+            if set(toks) <= base:  # the asked name is this entry's own ("left person" vs "person left")
+                return None
+            hits.append((float(np.median([d for _, d in g[1]])), quals))
+    if len(hits) != 2 or not any((hits[0][1] == {a} and hits[1][1] == {b}) or (hits[0][1] == {b} and hits[1][1] == {a})
+                                 for x, y in _QUAL_OPPOSITE for a in x for b in y):
+        return None  # not two opposite ends ("desktop corner far right" vs "desktop corner near": a diagonal)
+    horiz = hits[0][1] <= _QUAL_H
+    vert = not horiz
+    (d1, _), (d2, _) = hits
+    c = np.asarray(c, float)
+    out = []
+    for _, _, e, _ in ta.rows:
+        if e is None:
+            continue
+        if (horiz and abs(e[2] - e[0]) < abs(e[3] - e[1])) or (vert and abs(e[3] - e[1]) < abs(e[2] - e[0])):
+            return None
+        ra, rb = np.r_[(e[:2] - c) / f, 1.0], np.r_[(e[2:] - c) / f, 1.0]
+        cos = float(ra @ rb / np.linalg.norm(ra) / np.linalg.norm(rb))
+        out.append(math.sqrt(max(d1 * d1 + d2 * d2 - 2 * d1 * d2 * cos, 0.0)))
+    if not out:
+        return None
+    flags.add("size_from_endpoint_depths")
+    return float(np.median(out))
+
+
+def _solve_3d(target, prior, pa, pb, ta, tb, groups, image_size, flags, debug, tol, flight=False,
+              camera_fov_deg=None, objs=None):
     """3D answer in SI: focal length from the prior (see module docstring), then the target."""
     W, H = (_num(x) for x in image_size)
     if not W or not H or W <= 0 or H <= 0:
@@ -571,26 +727,52 @@ def _solve_3d(target, prior, pa, pb, ta, tb, groups, image_size, flags, debug, t
     z_med = float(np.median([np.median([d for _, d in g[1]]) for g in groups]))
 
     def depth(obj, names, label):
-        fn = match_depth([obj.name if obj else "", *names], groups)
+        """The object's depth_info entries: by the annotator's explicit link (depth_name), else by name."""
+        fn = match_depth([obj.depth_name], groups) if obj is not None and obj.depth_name else None
+        if fn is None:
+            fn = match_depth([obj.name if obj else "", *names], groups)
         if fn is not None:
             debug[f"depth_{label}"] = fn.names
         return fn
 
+    def estimate(obj, label):
+        """Constant range from the annotator's own estimate (no depth_info entry), else None."""
+        if obj is None or obj.range_m is None:
+            return None
+        flags.add(f"{label}_depth_claude_estimate")
+        return loom(_const(obj.range_m), obj, [(None, obj.range_m)], label)
+
+    others = list((objs or {}).values())
+
+    def loom(fn, obj, anchors, label):
+        key = obj.name.strip().lower() if obj is not None else None
+        same = [o for o in others if o is not obj and o.name.strip().lower() == key]
+        return _loom(fn, obj, anchors, same, W, H, debug, label)
+
     rpa = depth(pa, prior.objects[:1], "prior")
-    rpb = depth(pb, prior.objects[1:2], "prior2") or rpa
+    rpb = depth(pb, prior.objects[1:2], "prior2")
     prior_has_depth = rpa is not None
     if not prior_has_depth:
-        flags.add("prior_depth_assumed_scene_median")
-        rpa = rpb = _const(z_med)
+        rpa = estimate(pa, "prior")
+        if rpa is None:
+            flags.add("prior_depth_assumed_scene_median")
+            rpa = loom(_const(z_med), pa, [(None, z_med)], "prior")
+    else:
+        rpa = loom(rpa, pa, rpa.pairs, "prior")
+    rpb = loom(rpb, pb, rpb.pairs, "prior2") if rpb is not None else (estimate(pb, "prior2") or rpa)
 
-    f_def = (W / 2) / math.tan(math.radians(DEFAULT_FOV_DEG) / 2)
+    f_def = (W / 2) / math.tan(math.radians(camera_fov_deg or DEFAULT_FOV_DEG) / 2)
     f, method = None, "3d_default_focal"
     try:
         def fn(f: float) -> float:
             return _measure(prior, pa, pb, _View(f, c, rpa), _View(f, c, rpb), set(), tol, "prior")
 
         fn(f_def)  # structural failures (missing track, too few obs, prior below noise) surface here
-        f = _solve_f(fn, prior.value_si, W, f_def)
+        if camera_fov_deg:
+            flags.add("f_camera_prior")
+            f = _map_f(fn, prior.value_si, W, f_def)
+        else:
+            f = _solve_f(fn, prior.value_si, W, f_def)
         fov_ok = FOV_RANGE_DEG
         if f is not None:
             debug["f_sensitivity"] = sens = _sensitivity(fn, f)
@@ -616,23 +798,32 @@ def _solve_3d(target, prior, pa, pb, ta, tb, groups, image_size, flags, debug, t
 
     rta = depth(ta, target.objects[:1], "target")
     rtb = depth(tb, target.objects[1:2], "target2")
+    rta = loom(rta, ta, rta.pairs, "target") if rta is not None else estimate(ta, "target")
+    rtb = loom(rtb, tb, rtb.pairs, "target2") if rtb is not None else estimate(tb, "target2")
     if rta is None and rtb is not None:
         flags.add("target_depth_from_target2")
         rta = rtb
     if rta is None:
-        if prior_has_depth and pa is not None and pa.rows:
-            flags.add("target_depth_from_prior")
-            rta = _const(np.median(rpa(np.array([r[0] for r in pa.rows]))))
+        if ta is not None and pa is not None and ta.name.strip().lower() == pa.name.strip().lower():
+            flags.add("target_depth_from_prior")  # same object: its (possibly looming) prior depth
+            rta = rpa
         else:
-            flags.add("target_depth_scene_median")
-            rta = _const(z_med)
+            if prior_has_depth and pa is not None and pa.rows:
+                flags.add("target_depth_from_prior")
+                z0 = float(np.median(rpa(np.array([r[0] for r in pa.rows]))))
+            else:
+                flags.add("target_depth_scene_median")
+                z0 = z_med
+            rta = loom(_const(z0), ta, [(None, z0)], "target")
     if rtb is None and tb is not None:
         flags.add("target2_depth_from_target")
     rtb = rtb or rta
     for key, obj, rng in (("prior", pa, rpa), ("target", ta, rta), ("target2", tb, rtb)):
         if obj is not None and obj.rows:  # median range used over the track, for debugging
             debug[f"range_{key}_m"] = float(np.median(rng(np.array([r[0] for r in obj.rows]))))
-    value = _measure(target, ta, tb, _View(f, c, rta), _View(f, c, rtb), flags, tol, "target", flight)
+    value = _endpoint_size(target, ta, groups, f, c, flags, debug)
+    if value is None:
+        value = _measure(target, ta, tb, _View(f, c, rta), _View(f, c, rtb), flags, tol, "target", flight)
     debug["target_measured_si"] = value
     return value, method
 
@@ -656,10 +847,36 @@ def _role(objs: dict[str, _Obj], role: str, names: list[str], flags: set[str], e
     return None
 
 
+def _compatible(a: str, b: str) -> bool:
+    """Two names that can denote the same object: one's words all among the other's, or (no shared
+    word) one joined name inside the other ("basketball" / "ball")."""
+    A, B = set(_tokens(a)), set(_tokens(b))
+    if not A or not B:
+        return False
+    if A <= B or B <= A:
+        return True
+    ja, jb = "".join(_tokens(a)), "".join(_tokens(b))
+    return not A & B and min(len(ja), len(jb)) >= 4 and (ja in jb or jb in ja)
+
+
 def _camera_distance(target: Quantity, ta: _Obj | None, groups, flags: set[str]) -> float:
+    """Range of the target read from depth_info (at target.time, else the median entry). The asked
+    object must be listed, so a name below DEPTH_MATCH_MIN is still taken when exactly one entry
+    shares part of it and nothing in the two names conflicts: one name's words all in the other's
+    ("small red ball" vs "ball") or one joined name inside the other ("basketball" vs "ball"), not
+    a shared word with different modifiers ("red car" vs "blue car"). Flag camera_distance_weak_match."""
     if not groups:
         raise _Fail("no_depth_info")
-    fn = match_depth([ta.name if ta else "", *target.objects], groups)
+    names = [ta.depth_name if ta else "", ta.name if ta else "", *target.objects]
+    fn = match_depth(names, groups)
+    if fn is None:
+        scores = [max((name_score(n, g[0]) for n in names if n), default=0.0) for g in groups]
+        best = max(scores, default=0.0)
+        if best > 0 and sum(abs(x - best) <= 1e-9 for x in scores) == 1:
+            g = groups[scores.index(best)]
+            if any(_compatible(n, g[0]) for n in names if n):
+                flags.add("camera_distance_weak_match")
+                fn = DepthFn([g])
     if fn is None:
         raise _Fail("no_depth_for_target")
     t = _num(target.time)
@@ -680,7 +897,7 @@ def _to_unit(v: float, q: Quantity, flags: set[str]) -> float:
     return v / scale
 
 
-def _solve(spec: QuestionSpec, tracks, image_size, fps, flags: set[str], debug: dict):
+def _solve(spec: QuestionSpec, tracks, image_size, fps, flags: set[str], debug: dict, camera_fov_deg=None):
     fps = _num(fps)
     tol = max(2.0 / fps if fps and fps > 0 else 0.0, 0.1)
     objs: dict[str, _Obj] = {}
@@ -709,7 +926,8 @@ def _solve(spec: QuestionSpec, tracks, image_size, fps, flags: set[str], debug: 
     pb = _role(objs, "prior2", prior.objects[1:2], flags, exclude=[pa], min_score=by_name(prior))
     debug["tracks"] = {r: len(o.rows) for r, o in objs.items()}
     if spec.is_3d and groups:
-        return _solve_3d(target, prior, pa, pb, ta, tb, groups, image_size, flags, debug, tol, gravity)
+        return _solve_3d(target, prior, pa, pb, ta, tb, groups, image_size, flags, debug, tol, gravity,
+                         camera_fov_deg, objs)
     if spec.is_3d:
         flags.add("3d_without_depth")
     view = _View()
@@ -730,9 +948,11 @@ def _solve(spec: QuestionSpec, tracks, image_size, fps, flags: set[str], debug: 
 
 
 def solve(spec: QuestionSpec, tracks: list[RoleTrack], image_size: tuple[int, int],
-          fps: float) -> Answer:
+          fps: float, camera_fov_deg: float | None = None) -> Answer:
     """Answer `spec` from pixel tracks. image_size is (width, height) of the ORIGINAL frames;
-    the value is in spec.target.unit (SI when the unit is empty/unknown), None if unsolvable."""
+    the value is in spec.target.unit (SI when the unit is empty/unknown), None if unsolvable.
+    camera_fov_deg: the camera's horizontal field of view when known (3D only): f is then the MAP
+    estimate around it given the prior (flag f_camera_prior) instead of fitted to the prior alone."""
     flags: set[str] = set()
     debug: dict = {}
     srcs = sorted({str((t.get("source") if isinstance(t, dict) else getattr(t, "source", "")) or "")
@@ -741,7 +961,7 @@ def solve(spec: QuestionSpec, tracks: list[RoleTrack], image_size: tuple[int, in
     ans = Answer(qid=int(qid) if qid is not None else -1, value=None,
                  source="geometry" + (":" + "+".join(srcs) if srcs else ""))
     try:
-        value_si, ans.method = _solve(spec, tracks, image_size, fps, flags, debug)
+        value_si, ans.method = _solve(spec, tracks, image_size, fps, flags, debug, camera_fov_deg)
         value = _to_unit(value_si, spec.target, flags)
         if not (math.isfinite(value) and value > 0 and value_si > 1e-9):  # 1e-9 SI: numerically zero
             raise _Fail("invalid_value")

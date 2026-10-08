@@ -1,6 +1,7 @@
 import base64
 import importlib.util
 import json
+import math
 import re
 import sys
 import types
@@ -456,7 +457,7 @@ def test_sync_run_records_ledger_and_csv(workspace):
     led = budget.entries()
     assert len(led) == 2 and all(e["mode"] == "sync" for e in led)
     assert budget.spent() == pytest.approx(2 * (0.004 + 0.04 + 0.0001))
-    assert list(res.columns) == ["id", "parsed_value", "geo_value", "direct_value", "method", "flags"]
+    assert list(res.columns) == ["id", "parsed_value", "geo_value", "direct_value", "method", "flags", "geo_method"]
     assert res.set_index("id").parsed_value.to_dict() == {101: 102.5, 102: 103.5, 103: 104.5}
     assert set(res.method) == {"direct"} and all("no_geometry_module" in f for f in res["flags"])
     assert (workspace.root / "runs" / "fake" / "qs.csv").exists()
@@ -759,7 +760,17 @@ def test_cached_records_with_other_settings_are_refused(workspace):
     rc.main(_argv(workspace, "--name", "fake_high", "--effort", "high"), client=client)
     assert len(client.streamed) == 2
     rec = rc.load_records(workspace.root / "runs" / "fake_high" / "qs" / "records")["vid_a"]
-    assert rec["config"] == {"model": ca.MODEL, "effort": "high", "frames": 4, "max_frames": 32}
+    assert rec["config"] == {"model": ca.MODEL, "effort": "high", "frames": 4, "max_frames": 32,
+                             "prompt_version": "v1", "max_side": ca.MAX_SIDE}
+    # records without prompt_version / max_side are v1 at native size: a v2 run must not reuse them
+    legacy = rc.load_records(out / "records")
+    for rec in legacy.values():
+        rec["config"] = {k: v for k, v in rec["config"].items() if k not in ("prompt_version", "max_side")}
+        rc.save_record(out / "records", rec)
+    with pytest.raises(SystemExit, match="prompt_version v1 vs v2"):
+        rc.main(_argv(workspace, "--prompt-version", "v2"), client=client)
+    rc.main(_argv(workspace), client=client)  # v1 (the default) still replays them
+    assert len(client.streamed) == 2
 
 
 def test_output_estimate_by_effort_and_calibration():
@@ -771,3 +782,198 @@ def test_output_estimate_by_effort_and_calibration():
                       "meta": {"questions": [1, 2]}} for i in range(3)}
     assert rc.output_per_question(cfg, recs) == (4500, "observed on 3 videos")
     assert rc.output_per_question(cfg, dict(list(recs.items())[:2]))[0] == 1000  # too few to calibrate
+
+
+# --------------------------------------------------------------------------- depth info / prior text
+
+@pytest.mark.parametrize("text,expected", [
+    ("t=1.5s, distance_tennis_ball_camera = 1.1830m", [("tennis ball", 1.183, 1.5)]),
+    ("t = 0.5s, distance_gift_box_camera = 9.741m\ndistance_white_box_camera = 2.0820m",
+     [("gift box", 9.741, 0.5), ("white box", 2.082, None)]),
+    ("t=1.92s (max rebounce), distance_ball_camera=1.5795m", [("ball", 1.5795, 1.92)]),
+    ("t=0.2s, distance_ball_camera=0.8715s", [("ball", 0.8715, 0.2)]),            # unit typo "s" -> m
+    ("t=0.5s distance_bowling_ball_camera = 9.391m", [("bowling ball", 9.391, 0.5)]),
+    ("t =1s, distance_center_of _the_truck_camera = 19.525m", [("center of the truck", 19.525, 1.0)]),
+    ("distance_camera_B1sign = 23.44m", [("b1sign", 23.44, None)]),
+    ("t=0.5s, distance_yellowCarLeftFrontTire_camera = 11.38m,", [("yellow car left front tire", 11.38, 0.5)]),
+    ("distance_the_pedestal_of_the_central _sculpture_and_camera = 5.963m",
+     [("pedestal of the central sculpture", 5.963, None)]),
+    ("distance_the_nearest_freestanding_art_display_panel = 11.874 m",
+     [("nearest freestanding art display panel", 11.874, None)]),
+    ("", []), (None, []),
+])
+def test_parse_depth_info(text, expected):
+    got = ca.parse_depth_info(text)
+    assert [(e.object, e.distance_m, e.time) for e in got] == expected
+
+
+def test_parse_depth_info_on_every_dataset_text():
+    from qp.data import load_test, load_validation
+    try:
+        frames = [load_validation(), load_test()]
+    except (StopIteration, FileNotFoundError, ValueError):
+        pytest.skip("dataset not downloaded")
+    texts = {t for df in frames for t in df.depth_info if t.strip()}
+    assert texts
+    for t in texts:  # one entry per line naming a distance, every distance positive
+        lines = [x for x in t.splitlines() if "distance" in x.lower()]
+        got = ca.parse_depth_info(t)
+        assert len(got) == len(lines) and all(e.distance_m > 0 and e.object for e in got), t
+
+
+@pytest.mark.parametrize("text,expected", [
+    ("acceleration of the orange car = -2.86m/s^2", (2.86, "A")),
+    ("acceleration of the box before 0.6s = 9.8m/s", (9.8, "V")),   # unit as written; prior_dimension fixes it
+])
+def test_prior_si_signs(text, expected):
+    v, dim = ca.prior_si(text)
+    assert v == pytest.approx(expected[0]) and dim == expected[1]
+
+
+def test_prior_dimension_unit_typos():
+    assert ca.prior_dimension("acceleration of the trolley = 1.507m/s", "V") == "A"
+    assert ca.prior_dimension("gravity acc = 9.8m/s", "V") == "A"
+    assert ca.prior_dimension("speed of the speedboat = 3m/s", "V") == "V"
+    assert ca.prior_dimension("length of the speedboat = 3m", "L") == "L"
+    assert ca.prior_dimension("speed of the accelerating car = 3m/s", "V") == "V"
+
+
+@pytest.mark.parametrize("text,t_end,expected", [
+    ("acceleration of the typewriter before 0.45s = 9.8m/s^2", 3.0, (None, [0.0, 0.45])),
+    ("acceleration of the box after 0.75s = 2.338m/s^2", 3.0, (None, [0.75, 3.0])),
+    ("acceleration of the box after 0.75s = 2.338m/s^2", None, None),
+    ("acceleration of the acorn from 2.00s to 2.30s = 0.77m/s^2", 3.0, (None, [2.0, 2.3])),
+    ("speed of the car at 1.5s = 3m/s", 3.0, None),
+    ("speed of the person in the black shirt = 1m/s", 3.0, None),
+])
+def test_prior_time_span(text, t_end, expected):
+    assert ca.prior_time_span(text, t_end) == expected
+
+
+def _prior_case(prior_text, model_prior, n_frames=31, depth=None):
+    meta = dict(META, scale=1.0, n_frames_total=n_frames, video_type="A3SC" if depth is not None else "V2SC",
+                questions=[{"qid": 7, "target_unit": "m", "prior": prior_text, "depth_info": depth or ""}])
+    parsed = {"questions": [{"qid": 7, "spec": {"target": _q("size", ["box"], "height", unit="m"),
+                                                "prior": model_prior, "depth": [], "notes": ""},
+                             "tracks": [], "direct_answer": 1.0, "confidence": 0.5}]}
+    return ca.to_annotations(parsed, meta)[7]
+
+
+def test_to_annotations_prior_typos_signs_and_windows():
+    a = _prior_case("acceleration of the box before 0.6s = 9.8m/s", _q("speed", ["box"], time=0.6, value_si=9.8))
+    assert a.spec.prior.kind == "acceleration" and a.spec.prior.value_si == 9.8
+    assert a.spec.prior.window == [0.0, 0.6] and a.spec.prior.time is None
+    assert {"prior_unit_typo", "prior_window_from_text"} <= set(a.flags)
+    a = _prior_case("acceleration of the orange car = -2.86m/s^2", _q("acceleration", ["car"], value_si=-2.86))
+    assert a.spec.prior.value_si == pytest.approx(2.86) and "prior_value_model_mismatch" not in a.flags
+    a = _prior_case("acceleration of the box after 0.75s = 2.338m/s^2", _q("acceleration", ["box"], value_si=2.338))
+    assert a.spec.prior.window == [0.75, 3.0]   # last frame of 31 at 10 fps
+    a = _prior_case("thing = -3 furlongs", _q("acceleration", ["box"], value_si=-3.0))
+    assert a.spec.prior.value_si == 3.0 and "prior_value_unverified" in a.flags
+
+
+def test_to_annotations_depth_from_text_when_model_omits_it():
+    depth = "t=0.5s, distance_ball_camera = 2.0m\ndistance_box_camera = 3.0m"
+    a = _prior_case("diameter of the ball = 0.21m", _q("size", ["ball"], value_si=0.21), depth=depth)
+    assert [(e.object, e.distance_m, e.time) for e in a.spec.depth] == [("ball", 2.0, 0.5), ("box", 3.0, None)]
+    assert "model_depth_empty" in a.flags and "no_depth" not in a.flags
+
+
+def test_reuse_for_a_distance_needs_an_obs_near_its_time():
+    meta = dict(META, scale=1.0, frames=[0, 5, 11, 12, 13, 29], video_type="V2SC",
+                questions=[{"qid": 1, "target_unit": "cm", "prior": "x = 1m"},
+                           {"qid": 2, "target_unit": "m", "prior": "x = 1m"}])
+    parsed = {"questions": [
+        {"qid": 1, "spec": {"target": _q("size", ["ball"], "diameter"), "prior": _q("size", ["x"], value_si=1.0),
+                            "depth": [], "notes": ""},
+         "tracks": [{"role": "target", "object": "ball", "obs": [_obs(0, box=[0, 0, 4, 4]), _obs(5, box=[1, 1, 5, 5])]}],
+         "direct_answer": 1.0, "confidence": 0.5},
+        {"qid": 2, "spec": {"target": _q("distance", ["ball", "box"], time=2.5), "prior": _q("size", ["x"], value_si=1.0),
+                            "depth": [], "notes": ""},
+         "tracks": [{"role": "target", "object": "ball", "obs": []}], "direct_answer": 1.0, "confidence": 0.5}]}
+    a = ca.to_annotations(parsed, meta)[2]
+    assert "reuse_unavailable" in a.flags and a.tracks[0].obs == []   # obs at 0-0.5 s, asked at 2.5 s
+    parsed["questions"][1]["spec"]["target"]["time"] = 0.4
+    a = ca.to_annotations(parsed, meta)[2]
+    assert "reused_track" in a.flags and len(a.tracks[0].obs) == 2
+
+
+# --------------------------------------------------------------------------- prompt v2
+
+def test_schema_v2_valid_and_strict():
+    jsonschema = pytest.importorskip("jsonschema")
+    jsonschema.Draft202012Validator.check_schema(ca.SCHEMA_V2)
+    for node in _walk(ca.SCHEMA_V2):
+        if node.get("type") == "object":
+            assert node["additionalProperties"] is False and set(node["required"]) == set(node["properties"])
+    question = ca.SCHEMA_V2["properties"]["questions"]["items"]
+    assert "derivation" in question["required"]
+    assert {"depth_name", "range_m", "range_basis"} <= set(question["properties"]["tracks"]["items"]["required"])
+    sample = json.loads(json.dumps(SAMPLE))
+    for q in sample["questions"]:
+        q["derivation"] = ""
+        for tr in q["tracks"]:
+            tr.update(depth_name="", range_m=None, range_basis="")
+    jsonschema.validate(sample, ca.SCHEMA_V2)
+    with pytest.raises(jsonschema.ValidationError):
+        jsonschema.validate(SAMPLE, ca.SCHEMA_V2)   # v1 answers lack the v2 fields
+
+
+def test_v1_request_is_unchanged_by_v2_options(workspace):
+    rows = _rows(workspace, "vid_b")
+    p1, m1 = ca.build_request(rows, n_uniform=2, max_frames=32)
+    assert p1["system"][0]["text"] == ca.SYSTEM and p1["output_config"]["format"]["schema"] == ca.SCHEMA
+    assert p1["max_tokens"] == 12000 + 4000 and "Camera:" not in p1["messages"][0]["content"][0]["text"]
+    assert m1["prompt_version"] == "v1" and m1["questions"][0]["depth_info"].startswith("t=0.5s")
+
+
+def test_v2_request(workspace, tmp_path):
+    rows = _rows(workspace, "vid_b").assign(video_source="lab")
+    params, meta = ca.build_request(rows, n_uniform=2, prompt_version="v2")
+    assert params["system"][0]["text"] == ca.SYSTEM_V2 and params["output_config"]["format"]["schema"] == ca.SCHEMA_V2
+    assert params["max_tokens"] == 12000 + 5000 and meta["prompt_version"] == "v2"
+    head = params["messages"][0]["content"][0]["text"]
+    assert "field of view about 84 deg" in head and f"{32 / math.tan(math.radians(42)):.0f} px" in head
+    assert meta["frames"] == list(range(30))     # a 30-frame clip fits in 44: every frame
+    assert "Camera:" not in ca.build_request(rows.assign(video_source="simulation"), 2,
+                                             prompt_version="v2")[0]["messages"][0]["content"][0]["text"]
+    big = make_video(tmp_path / "big.mp4", n=12, w=1920, h=1080)
+    _, meta = ca.build_request(rows.assign(video_path=str(big)), 2, prompt_version="v2")
+    assert meta["scale"] == pytest.approx(1280 / 1920) and meta["image_size"] == [1920, 1080]
+    with pytest.raises(ValueError):
+        ca.build_request(rows, prompt_version="v3")
+
+
+def test_select_frames_v2_bursts_uniform_and_cap():
+    idx = ca.select_frames_v2(300, 30, [1.0, 7.5], n_uniform=16, max_frames=44)
+    assert len(idx) == 44 and idx == sorted(set(idx))
+    assert {27, 28, 29, 30, 31, 32, 33} <= set(idx) and {222, 225, 228} <= set(idx)   # +-3 frames at 1.0 s, 7.5 s
+    assert ca.select_frames_v2(20, 30, [0.3], max_frames=44) == list(range(20))
+    assert ca.select_frames_v2(20, 30, [0.3], max_frames=44, skip_first=True) == list(range(1, 20))
+    long = ca.select_frames_v2(17 * 24, 24, [], n_uniform=16, max_frames=44)
+    assert len(long) == 44 and max(np.diff(long)) <= 13            # a frame at least every ~0.5 s (32 uniform max)
+    assert 0 not in ca.select_frames_v2(300, 30, [0.0], max_frames=44, skip_first=True)
+    assert ca.mentioned_times_v2(["at time1.75 s", "from 0.5 to 5.53 in meters"]) == [0.5, 1.75, 5.53]
+
+
+def test_frozen_first_frame(tmp_path):
+    path = tmp_path / "frozen.mp4"
+    vw = cv2.VideoWriter(str(path), cv2.VideoWriter_fourcc(*"mp4v"), FPS, (64, 48))
+    for i in [1, 1, 2, 3, 4, 5]:   # frame 0 repeats frame 1, then the disc moves
+        img = np.full((48, 64, 3), 40, np.uint8)
+        cv2.circle(img, (8 + 8 * i, 24), 5, (255, 255, 255), -1)
+        vw.write(img)
+    vw.release()
+    assert ca.frozen_first_frame(str(path))
+    assert not ca.frozen_first_frame(str(make_video(tmp_path / "moving.mp4")))
+    assert not ca.frozen_first_frame(str(tmp_path / "missing.mp4"))
+
+
+def test_to_annotations_v2_track_links():
+    sample = json.loads(json.dumps(SAMPLE))
+    sample["questions"][0]["tracks"][1].update(depth_name="ball", range_m=None, range_basis="")
+    sample["questions"][0]["tracks"][0].update(depth_name="", range_m=2.5, range_basis="next to the box")
+    a = ca.to_annotations(sample, META)[101]
+    assert a.tracks[1].depth_name == "ball" and a.tracks[1].range_m is None
+    assert a.tracks[0].depth_name == "" and a.tracks[0].range_m == 2.5
+    assert ca.to_annotations(SAMPLE, META)[101].tracks[0].depth_name == ""   # v1 answers: no links

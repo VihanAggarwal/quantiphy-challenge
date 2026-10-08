@@ -590,3 +590,157 @@ def test_radial_motion_prior_flags_ill_conditioned_focal():
     assert ans.method == "3d_focal_from_prior" and rel(ans.value, 3.0) < 0.02   # exact data: f kept (60 deg)
     ans = run(spec(*CASES_3D["size->size"][:2], STATIC_DEPTH, True), _p((P3, "prior"), (CAR3, "target")))
     assert "f_ill_conditioned" not in ans.flags and ans.debug["f_sensitivity"] == pytest.approx(1.0, abs=0.01)
+
+
+# ---------------------------------------------------------------- known camera, looming, endpoints, names
+
+def test_camera_prior_pins_focal_when_prior_is_weak():
+    # a one-frame size prior 10% off: fitted alone it moves f by 10%; with the known camera f stays put
+    cam84 = Camera(fov_deg=84.0)
+    tracks = [track(P3, "prior", T[:1], cam84), track(CAR3, "target", T, cam84)]
+    sp = spec(Q("size", ["car"], unit="m"), Q("size", ["person"], dimension="height", value_si=1.98),
+              STATIC_DEPTH, True)
+    free = solve(sp, tracks, cam84.size, FPS)
+    known = solve(sp, tracks, cam84.size, FPS, camera_fov_deg=84.0)
+    assert "f_camera_prior" in known.flags and "f_camera_prior" not in free.flags
+    assert rel(free.value, 4.5) > 0.08                     # follows the (wrong) prior
+    assert rel(known.debug["f_px"], cam84.f) < 0.03 and rel(known.value, 4.5) < 0.03
+    # an exact prior agrees with the camera: same answer either way
+    sp_ok = spec(Q("size", ["car"], unit="m"), HEIGHT_PRIOR, STATIC_DEPTH, True)
+    assert rel(solve(sp_ok, tracks, cam84.size, FPS, camera_fov_deg=84.0).value, 4.5) < 0.01
+
+
+def test_camera_prior_is_the_fallback_focal():
+    # no prior track: f defaults to the known camera instead of 60 deg
+    cam84 = Camera(fov_deg=84.0)
+    ans = solve(spec(Q("size", ["car"], unit="m"), HEIGHT_PRIOR, STATIC_DEPTH, True),
+                [track(CAR3, "target", T, cam84)], cam84.size, FPS, camera_fov_deg=84.0)
+    assert "default_focal" in ans.flags and rel(ans.value, 4.5) < 0.01
+
+
+APPROACH = Body("astronaut", ballistic([0.3, 0.2, 9.0], [0.2, 0.0, -2.0]), size=1.8, angle=math.pi / 2)
+
+
+def test_looming_recovers_radial_motion_from_box_size():
+    # one depth entry (t=1 s) for an object walking toward the camera: its boxes grow ~2x
+    depth = depth_entries(APPROACH, [1.0]) + depth_entries(P3, name="human")
+    sp = spec(Q("speed", ["astronaut"], time=1.0, unit="m/s"), HEIGHT_PRIOR, depth, True)
+    walker = track(APPROACH, "target", T, CAM, box=True)
+    ans = run(sp, [track(P3, "prior", T, CAM), walker])
+    assert "loom_target" in ans.debug and rel(ans.value, APPROACH.speed(1.0)) < 0.05, (ans.value, ans.debug)
+    no_box = run(sp, [track(P3, "prior", T, CAM), track(APPROACH, "target", T, CAM)])
+    assert "loom_target" not in no_box.debug and no_box.value < 0.3 * APPROACH.speed(1.0)  # radial part lost
+
+
+def test_looming_ignores_flat_or_noisy_sizes_and_timed_depths():
+    walker = Body("cart", ballistic([-2.0, 0.5, 10.0], [1.2, 0.0, 0.0]), size=1.7, angle=math.pi / 2)
+    sp = spec(Q("speed", ["cart"], time=1.0, unit="m/s"), HEIGHT_PRIOR,
+              depth_entries(walker, [1.0]) + depth_entries(P3, name="human"), True)
+    ans = run(sp, [track(P3, "prior", T, CAM), track(walker, "target", T, CAM, box=True, noise_px=1.0)])
+    assert "loom_target" not in ans.debug and rel(ans.value, 1.2) < 0.05
+    sp2 = spec(Q("speed", ["astronaut"], time=1.0, unit="m/s"), HEIGHT_PRIOR,
+               depth_entries(APPROACH, [0.0, 2.0]) + depth_entries(P3, name="human"), True)
+    ans = run(sp2, [track(P3, "prior", T, CAM), track(APPROACH, "target", T, CAM, box=True)])
+    assert "loom_target" not in ans.debug   # 2 timed entries: depth_info's own motion is used
+
+
+def test_size_between_two_listed_ends_uses_each_range():
+    # a slope from (0, 0.15, 1.10) to (0, 0.05, 1.35): mostly along the line of sight
+    near, far = np.array([0.0, 0.15, 1.10]), np.array([0.0, 0.05, 1.35])
+    slope = Body("slope", static((near + far) / 2), size=0.0)
+    uv = CAM.project([far, near])
+    obs = [Obs(t=float(t), extent=uv.tolist()) for t in T[:3]]
+    depth = [DepthEntry("slope far", float(np.linalg.norm(far))), DepthEntry("slope near", float(np.linalg.norm(near))),
+             *depth_entries(P3, name="human")]
+    sp = spec(Q("size", ["slope"], dimension="length", unit="cm"), HEIGHT_PRIOR, depth, True)
+    ans = run(sp, [track(P3, "prior", T, CAM), RoleTrack("target", "slope", obs)])
+    assert "size_from_endpoint_depths" in ans.flags
+    assert rel(ans.value, float(np.linalg.norm(far - near)) * 100) < 0.01
+    # the width of the slope (an extent across, x) stays fronto-parallel
+    side = [Obs(t=0.0, extent=[[400.0, 300.0], [460.0, 300.0]])]
+    w = run(spec(Q("size", ["slope"], dimension="width", unit="cm"), HEIGHT_PRIOR, depth, True),
+            [track(P3, "prior", T, CAM), RoleTrack("target", "slope", side)])
+    assert "size_from_endpoint_depths" not in w.flags and w.value is not None
+    assert slope.name == "slope"
+
+
+@pytest.mark.parametrize("ends,target,extent", [
+    (("far streetlight", "near streetlight"), "streetlight", [[700.0, 100.0], [700.0, 400.0]]),  # 2 instances
+    (("left bench seat", "right bench seat"), "bench seat", [[500.0, 400.0], [800.0, 410.0]]),
+    (("far person", "near person"), "person", [[500.0, 200.0], [500.0, 600.0]]),
+    (("person left", "person right"), "left person", [[500.0, 300.0], [700.0, 300.0]]),  # names one entry
+    (("desktop corner far right", "desktop corner near"), "desktop", [[500.0, 300.0], [600.0, 500.0]]),  # diagonal
+])
+def test_endpoint_size_ignores_separate_instances(ends, target, extent):
+    depth = [DepthEntry(ends[0], 3.0), DepthEntry(ends[1], 2.0), *depth_entries(P3, name="human")]
+    sp = spec(Q("size", [target], dimension="height", unit="m"), HEIGHT_PRIOR, depth, True)
+    ans = solve(sp, [track(P3, "prior", T, CAM), RoleTrack("target", target, [Obs(t=0.0, extent=extent)])],
+                CAM.size, FPS, camera_fov_deg=84.0)
+    assert "size_from_endpoint_depths" not in ans.flags and ans.value is not None
+
+
+def test_endpoint_size_skipped_when_the_track_links_one_entry():
+    depth = [DepthEntry("slope far", 1.35), DepthEntry("slope near", 1.10), *depth_entries(P3, name="human")]
+    sp = spec(Q("size", ["slope"], dimension="length", unit="m"), HEIGHT_PRIOR, depth, True)
+    tgt = RoleTrack("target", "slope", [Obs(t=0.0, extent=[[400.0, 200.0], [410.0, 400.0]])])
+    assert "size_from_endpoint_depths" in run(sp, [track(P3, "prior", T, CAM), tgt]).flags
+    tgt.depth_name = "slope_far"
+    assert "size_from_endpoint_depths" not in run(sp, [track(P3, "prior", T, CAM), tgt]).flags
+
+
+@pytest.mark.parametrize("a,b,expected", [
+    ("wooden steps", "stairs", 0.5), ("staircase", "stairs", 1.0),
+    ("yellow car left front tire", "yellowCarLeftFrontTire", 1.0),
+    ("blue shoppingbag", "blue shopping bag", 1.0), ("green car", "white car", 1 / 3),
+])
+def test_name_score_synonyms_camel_case_and_spacing(a, b, expected):
+    assert name_score(a, b) == pytest.approx(expected)
+
+
+def test_camera_distance_takes_the_only_partial_match():
+    depth = [DepthEntry("ball", 2.0, 0.0), DepthEntry("ball", 3.0, 2.0), DepthEntry("table left", 1.0)]
+    prior = Q("size", ["x"], value_si=1.0)
+    ans = run(spec(Q("camera_distance", ["basketball"], time=1.0, unit="m"), prior, depth, True), [])
+    assert ans.value == pytest.approx(2.5) and "camera_distance_weak_match" in ans.flags
+    two = [DepthEntry("blue ball", 2.0), DepthEntry("green ball", 5.0)]   # equally partial: no guess
+    ans = run(spec(Q("camera_distance", ["red ball"], unit="m"), prior, two, True), [])
+    assert ans.value is None and "no_depth_for_target" in ans.flags
+    other = [DepthEntry("blue car", 4.0), DepthEntry("tree", 9.0)]   # a shared word, conflicting modifier
+    ans = run(spec(Q("camera_distance", ["red car"], unit="m"), prior, other, True), [])
+    assert ans.value is None and "no_depth_for_target" in ans.flags
+    plain = [DepthEntry("car", 4.0), DepthEntry("tree", 9.0)]        # no conflict: the only car
+    ans = run(spec(Q("camera_distance", ["small red car"], unit="m"), prior, plain, True), [])
+    assert ans.value == pytest.approx(4.0) and "camera_distance_weak_match" in ans.flags
+
+
+def test_track_depth_name_and_range_estimate():
+    # the target's name does not match its entry; the annotator links it (depth_name)
+    depth = depth_entries(P3, name="human") + depth_entries(CAR3, name="vehicle_parked")
+    tgt = track(CAR3, "target", T, CAM)
+    tgt.object = "red sedan"
+    sp = spec(Q("size", ["red sedan"], unit="m"), HEIGHT_PRIOR, depth, True)
+    ans = run(sp, [track(P3, "prior", T, CAM), tgt])
+    assert "target_depth_from_prior" in ans.flags and rel(ans.value, 4.5) > 0.2    # wrong range assumed
+    tgt.depth_name = "vehicle_parked"
+    ans = run(sp, [track(P3, "prior", T, CAM), tgt])
+    assert ans.debug["depth_target"] == ["vehicle_parked"] and rel(ans.value, 4.5) < 0.01
+    # no entry at all: the annotator's range estimate is used (and flagged), before the prior's range
+    tgt.depth_name, tgt.range_m = "", CAR3.range(0)
+    ans = run(spec(Q("size", ["red sedan"], unit="m"), HEIGHT_PRIOR, depth_entries(P3, name="human"), True),
+              [track(P3, "prior", T, CAM), tgt])
+    assert "target_depth_claude_estimate" in ans.flags and "target_depth_from_prior" not in ans.flags
+    assert rel(ans.value, 4.5) < 0.01
+
+
+def test_prior_motion_within_one_px_noise_floor_is_rejected():
+    # a 2-point prior track moving 6 px in total (one-pixel annotation noise is ~15% of it)
+    slow = Body("pedestrian", ballistic([0.0, 0.5, Z], [0.027, 0.0, 0.0]), size=1.7, angle=math.pi / 2)
+    pts = track(slow, "prior", [0.0, 3.0], CAM)
+    assert 4.0 < abs(pts.obs[1].point[0] - pts.obs[0].point[0]) < 10.0
+    sp = spec(Q("size", ["car"], unit="m"), Q("speed", ["pedestrian"], value_si=0.027))
+    ans = run(sp, [pts, track(CAR, "target", T, CAM)])
+    assert ans.value is None and "prior_motion_below_noise" in ans.flags
+    fast = track(Body("pedestrian", ballistic([-1.0, 0.5, Z], [0.4, 0.0, 0.0])), "prior", [0.0, 3.0], CAM)
+    ans = run(spec(Q("size", ["car"], unit="m"), Q("speed", ["pedestrian"], value_si=0.4)),
+              [fast, track(CAR, "target", T, CAM)])
+    assert rel(ans.value, 4.5) < 0.01   # 89 px of motion: accepted

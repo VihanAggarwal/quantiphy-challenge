@@ -11,6 +11,7 @@ Every loader returns a DataFrame with the same columns:
     question         str
     prior            str    free-text prior, e.g. "length of boat = 3.62m"
     depth_info       str    free text, present for 3D questions ("" otherwise)
+    video_source     str    "lab" | "simulation" | "internet" | "segmentation" ("" if unknown)
     category         str    official key inference_type[0] + video_type[1]: S2 | D2 | S3 | D3
     target_unit      str    unit the question asks for ("m", "cm/s", "m/s^2", ...) or ""
     answer           float  ground truth (validation only)
@@ -73,10 +74,11 @@ def _finalize(df: pd.DataFrame, video_root: Path) -> pd.DataFrame:
     df["fps"] = pd.to_numeric(df["fps"], errors="coerce")
     df["video_path"] = [str(index.get(v, "")) for v in df["video_id"]]
     df["depth_info"] = df.get("depth_info", pd.Series([""] * len(df))).fillna("").astype(str)
+    df["video_source"] = df.get("video_source", pd.Series([""] * len(df))).fillna("").astype(str)
     df["category"] = [category(i, v) for i, v in zip(df["inference_type"], df["video_type"])]
     df["target_unit"] = [target_unit(q) for q in df["question"]]
     cols = ["qid", "video_id", "video_path", "video_type", "fps", "inference_type",
-            "question", "prior", "depth_info", "category", "target_unit"]
+            "question", "prior", "depth_info", "video_source", "category", "target_unit"]
     if "answer" in df.columns:
         cols.append("answer")
     return df[cols].reset_index(drop=True)

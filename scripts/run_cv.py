@@ -77,7 +77,8 @@ def save_json(path: Path, obj) -> None:
 
 def get_specs(args, df: pd.DataFrame) -> tuple[dict[int, QuestionSpec], set[int]]:
     """Specs per qid and the qids whose spec came from the rule-based fallback."""
-    specs = {} if args.specs == "rules" else cv.load_specs(args.specs)
+    texts = {int(q): str(t or "") for q, t in zip(df["qid"], df.get("depth_info", [""] * len(df)))}
+    specs = {} if args.specs == "rules" else cv.load_specs(args.specs, depth_texts=texts)
     missing = [r for r in df.itertuples() if int(r.qid) not in specs]
     ruled = set()
     if missing and (args.specs == "rules" or not args.no_rule_fallback):

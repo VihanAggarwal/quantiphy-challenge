@@ -8,10 +8,11 @@
 
 Writes under <runs>/<name>/<split>/ (<runs> = --out-root, env QP_RUNS, else runs/): records/<video_id>.json
 (raw text, parsed JSON, usage, cost, settings, frame metadata) and batch.json (batch mode), then
-<runs>/<name>/<split>.csv with columns id, parsed_value (geometry value if valid and plausible, else
-Claude's direct answer), geo_value, direct_value, method, flags. Cached videos are skipped; failed or partial ones
-(refusal, max_tokens, missing qids, errored, expired ...) are retried only with --retry-failed. Cached
-records made with other settings (model, effort, frames) make the run refuse: use a new --name.
+<runs>/<name>/<split>.csv with columns id, parsed_value (geometry or Claude's direct answer, picked by
+qp.combine --rule), geo_value, direct_value, method, flags, geo_method. Cached videos are skipped; failed or
+partial ones (refusal, max_tokens, missing qids, errored, expired ...) are retried only with --retry-failed.
+Cached records made with other settings (model, effort, frames, prompt version, frame size cap) make the run
+refuse: use a new --name. Rerunning a fully cached run sends nothing and re-scores it with the current code.
 
 Budget: every response's usage is appended to budget/ledger.jsonl (env QP_LEDGER). The run refuses to
 start when its expected cost would push spend past the cap (QP_BUDGET_USD), and every request is held
@@ -43,18 +44,23 @@ import pandas as pd
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from qp import budget  # noqa: E402
 from qp import claude_annotate as ca  # noqa: E402
+from qp import combine  # noqa: E402
+from qp import refine  # noqa: E402
 from qp.data import ROOT, _finalize, load_split  # noqa: E402
 from qp.mra import score  # noqa: E402
 from qp.spec import KIND_DIM  # noqa: E402
 
 OK, PARTIAL = "ok", "partial"
 USABLE = (OK, PARTIAL)                 # records whose annotations are used
-CONFIG_KEYS = ("model", "effort", "frames", "max_frames")  # settings a cached record must match
+CONFIG_KEYS = ("model", "effort", "frames", "max_frames", "prompt_version", "max_side")  # a cached record must match
+LEGACY_CONFIG = {"prompt_version": "v1", "max_side": ca.MAX_SIDE}  # records / batches made before these settings
 EST_OUTPUT_PER_QUESTION = {"low": 1500, "medium": 2500, "high": 4000, "xhigh": 6000, "max": 8000}
 INPUT_MARGIN = 1.25                    # worst case: input estimate error + system-prompt cache writes
-GEO_MAX_SI = {"L": 1e4, "V": 1e3, "A": 1e3}   # m, m/s, m/s^2: a geometry answer beyond this is a blow-up
-MAX_DISAGREE = 10.0                    # geometry this many times off the direct answer: use the direct one
-                                       # (same policy as run_open_vlm.py's geometry step)
+GEO_MAX_SI = combine.GEO_MAX_SI       # m, m/s, m/s^2: a geometry answer beyond this is a blow-up
+MAX_DISAGREE = combine.MAX_DISAGREE   # geometry this many times off the direct answer: use the direct one
+REFINE_PRIORS = True                   # refine motion-prior tracks with optical flow (qp.refine)
+LAB_FOV_DEG = ca.LAB_FOV_DEG             # horizontal FOV of the lab camera (all video_source "lab" clips):
+                                       # a prior on f for qp.geometry (GT-implied 76-90 deg on 6 val videos)
 
 
 def load_env() -> None:
@@ -92,7 +98,14 @@ def run_config(cfg) -> dict:
 
 
 def max_tokens_for(rows: pd.DataFrame, cfg) -> int:
-    return cfg.max_tokens or ca.default_max_tokens(len(rows))
+    return cfg.max_tokens or ca.default_max_tokens(len(rows), getattr(cfg, "prompt_version", "v1"))
+
+
+def request_for(rows: pd.DataFrame, cfg, conf: dict | None = None) -> tuple[dict, dict]:
+    """ca.build_request with this run's settings (or a stored batch's `conf`)."""
+    c = {**run_config(cfg), "max_tokens": cfg.max_tokens, **(conf or {})}
+    return ca.build_request(rows, c["frames"], c["max_frames"], c["effort"], c["max_tokens"], c["model"],
+                            prompt_version=c.get("prompt_version") or "v1", max_side=c.get("max_side") or 0)
 
 
 # --------------------------------------------------------------------------- records
@@ -153,7 +166,7 @@ def todo_videos(groups: dict[str, pd.DataFrame], records: dict[str, dict], retry
 
 def config_diff(rec: dict, cfg) -> dict:
     """{setting: (record's, this run's)} for settings a cached record differs in (unknown ones skipped)."""
-    have = {"model": rec.get("model"), "effort": rec.get("effort"), **(rec.get("config") or {})}
+    have = {"model": rec.get("model"), "effort": rec.get("effort"), **LEGACY_CONFIG, **(rec.get("config") or {})}
     cur = run_config(cfg)
     return {k: (have[k], cur[k]) for k in CONFIG_KEYS if have.get(k) is not None and have[k] != cur[k]}
 
@@ -172,13 +185,15 @@ def _image_tokens(w: int, h: int) -> int:
 
 
 def _request_shape(rows: pd.DataFrame, cfg) -> tuple[int, int, int]:
-    """(n_frames, w, h) a video's request will have, without decoding frames."""
+    """(n_frames, w, h) a video's request will have (w, h as sent, after the max_side cap), without
+    decoding the frames sent."""
     first = rows.iloc[0]
     n_total, w, h = ca.video_info(str(first.video_path))
     fps, _ = ca.video_fps(first.fps, str(first.video_path))
-    texts = [t for r in rows.itertuples() for t in (r.question, r.prior, r.depth_info)]
-    idxs = ca.select_frames(n_total, fps, ca.mentioned_times(texts), cfg.frames, cfg.max_frames)
-    return len(idxs), w, h
+    version = getattr(cfg, "prompt_version", "v1") or "v1"
+    idxs, _ = ca.frame_plan(rows, n_total, fps, cfg.frames, cfg.max_frames or ca.default_max_frames(version), version)
+    scale = min(1.0, (getattr(cfg, "max_side", 0) or ca.default_max_side(version)) / max(w, h, 1))
+    return len(idxs), round(w * scale), round(h * scale)
 
 
 def output_per_question(cfg, records: dict[str, dict]) -> tuple[int, str]:
@@ -210,8 +225,7 @@ def estimate(client, groups: dict[str, pd.DataFrame], todo: list[str], cfg, reco
     params = meta = None
     for v in list(shapes):
         try:
-            params, meta = ca.build_request(groups[v], cfg.frames, cfg.max_frames, cfg.effort,
-                                            cfg.max_tokens, cfg.model)
+            params, meta = request_for(groups[v], cfg)
             break
         except Exception as e:  # noqa: BLE001
             skipped[v] = f"{type(e).__name__}: {e}"
@@ -290,7 +304,7 @@ def run_sync(client, groups, todo, cfg, rec_dir: Path, est: dict) -> None:
 
     def work(vid: str) -> dict:
         rows = groups[vid]
-        params, meta = ca.build_request(rows, cfg.frames, cfg.max_frames, cfg.effort, cfg.max_tokens, cfg.model)
+        params, meta = request_for(rows, cfg)
         with budget.reserve(est["worst"][vid]):  # worst case, so concurrent requests cannot pass the cap
             msg, request_id = call(client, params)
             usd = budget.price(msg.usage, cfg.model)
@@ -360,9 +374,8 @@ def _entry_meta(entry: dict, vid: str, cfg, split_groups: dict | None) -> dict |
         return entry["meta"][vid]
     if not split_groups or vid not in split_groups:
         return None
-    conf = {**run_config(cfg), **(entry.get("config") or {})}
-    return ca.build_request(split_groups[vid], conf["frames"], conf["max_frames"], conf["effort"],
-                            0, conf["model"])[1]
+    stored = entry.get("config") or {}
+    return request_for(split_groups[vid], cfg, {**({**LEGACY_CONFIG, **stored} if stored else {}), "max_tokens": 0})[1]
 
 
 def collect(client, entry: dict, cfg, rec_dir: Path, split_groups: dict | None = None) -> Counter:
@@ -463,7 +476,7 @@ def submit(client, groups, vids: list[str], cfg, state_path: Path, state: dict, 
             break
         rows = groups[vid]
         try:
-            params, meta = ca.build_request(rows, cfg.frames, cfg.max_frames, cfg.effort, cfg.max_tokens, cfg.model)
+            params, meta = request_for(rows, cfg)
         except Exception as e:  # noqa: BLE001 - skip the video, keep the others
             print(f"  skipping {vid}: {type(e).__name__}: {e}")
             continue
@@ -517,15 +530,36 @@ def _valid(v) -> bool:
     return v is not None and isinstance(v, (int, float)) and math.isfinite(v) and v > 0
 
 
-def build_results(df: pd.DataFrame, records: dict[str, dict]) -> pd.DataFrame:
-    """One row per question: geometry value when the solver returns a valid one, else direct. A geometry
-    value beyond GEO_MAX_SI or more than MAX_DISAGREE times off the direct answer is replaced by the
-    direct one (flags geo_rejected_implausible / geo_rejected_disagree; geo_value keeps it)."""
+def prepare_records(df: pd.DataFrame, records: dict[str, dict]) -> dict[str, dict]:
+    """Records with meta completed from the questions table (copies; records on disk are untouched):
+    each question's depth_info, from which the depth list is parsed (records made before it was
+    stored in meta lack it)."""
+    texts = {int(q): str(t or "") for q, t in zip(df["qid"], df.get("depth_info", [""] * len(df)))}
+    return {vid: ca.with_depth_info(rec, texts) for vid, rec in records.items()}
+
+
+def build_results(df: pd.DataFrame, records: dict[str, dict], rule: str = combine.DEFAULT_RULE) -> pd.DataFrame:
+    """One row per question: the geometry answer (qp.geometry.solve; lab videos with the known lab
+    camera, LAB_FOV_DEG) or Claude's direct answer, picked by qp.combine.choose(rule): a geometry value
+    beyond GEO_MAX_SI (geo_rejected_implausible) or more than MAX_DISAGREE times off the direct answer
+    is never used, and in 3D the rule routes to the direct answer where the geometry rests on assumed
+    depths or an unknown camera. geo_value / direct_value keep both."""
     try:
         from qp.geometry import solve
     except ImportError:
         solve = None
+    records = prepare_records(df, records)
     anns = ca.load_annotations(records)
+    if REFINE_PRIORS:  # optical-flow refinement of motion-prior tracks (needs the local videos)
+        rows = [r for r in df.itertuples() if getattr(r, "video_path", "") and int(r.qid) in anns
+                and (records.get(r.video_id) or {}).get("meta")]
+        try:
+            refine.refine_annotations(
+                anns, {int(r.qid): str(r.video_path) for r in rows},
+                {int(r.qid): (float(records[r.video_id]["meta"]["fps"]),
+                              tuple(records[r.video_id]["meta"]["image_size"])) for r in rows})
+        except Exception as e:  # noqa: BLE001 - refinement is optional; the annotator tracks stand
+            print(f"prior refinement skipped: {type(e).__name__}: {e}")
     out = []
     for r in df.itertuples():
         a, rec = anns.get(int(r.qid)), records.get(r.video_id, {})
@@ -533,39 +567,30 @@ def build_results(df: pd.DataFrame, records: dict[str, dict]) -> pd.DataFrame:
             status = rec.get("status", "not_run")
             out.append({"id": int(r.qid), "parsed_value": math.nan, "geo_value": math.nan,
                         "direct_value": math.nan, "method": "missing",
-                        "flags": status if status not in USABLE else "qid_not_in_response"})
+                        "flags": status if status not in USABLE else "qid_not_in_response", "geo_method": ""})
             continue
         flags, geo, method, geo_si = list(a.flags), None, "", None
+        source = str(getattr(r, "video_source", "") or "")
         if solve is None:
             flags.append("no_geometry_module")
         else:
             try:
-                ans = solve(a.spec, a.tracks, tuple(rec["meta"]["image_size"]), float(rec["meta"]["fps"]))
+                fov = LAB_FOV_DEG if source in combine.CAMERA_SOURCES and a.spec.is_3d else None
+                ans = solve(a.spec, a.tracks, tuple(rec["meta"]["image_size"]), float(rec["meta"]["fps"]),
+                            **({"camera_fov_deg": fov} if fov else {}))
                 geo, method, geo_si = ans.value, ans.method, ans.debug.get("value_si")
                 flags += [f"geo:{f}" for f in ans.flags]
             except Exception as e:  # noqa: BLE001 - one bad question must not stop the run
                 flags.append(f"geo_error:{type(e).__name__}")
         direct = a.direct_answer
-        use_geo = _valid(geo)
-        if use_geo and _valid(geo_si) and geo_si > GEO_MAX_SI.get(KIND_DIM.get(a.spec.target.kind, "L"), math.inf):
+        if _valid(geo) and _valid(geo_si) and geo_si > GEO_MAX_SI.get(KIND_DIM.get(a.spec.target.kind, "L"), math.inf):
             flags.append("geo_rejected_implausible")
-            use_geo = False
-        ratio = max(geo / direct, direct / geo) if use_geo and _valid(direct) else 1.0
-        if ratio > 3:
-            flags.append("geo_direct_disagree")
-        if ratio > MAX_DISAGREE:
-            flags.append("geo_rejected_disagree")
-            use_geo = False
-        if use_geo:
-            value, how = geo, f"geometry:{method}" if method else "geometry"
-        elif _valid(direct):
-            value, how = direct, "direct"
-        else:
-            value, how = math.nan, "none"
+        value, how, added = combine.choose(geo, direct, flags, a.spec.is_3d, source, method, rule)
         out.append({"id": int(r.qid), "parsed_value": value, "geo_value": geo if _valid(geo) else math.nan,
                     "direct_value": direct if _valid(direct) else math.nan, "method": how,
-                    "flags": ";".join(sorted(set(flags)))})
-    return pd.DataFrame(out, columns=["id", "parsed_value", "geo_value", "direct_value", "method", "flags"])
+                    "flags": ";".join(sorted(set(flags + added))), "geo_method": method or ""})
+    return pd.DataFrame(out, columns=["id", "parsed_value", "geo_value", "direct_value", "method", "flags",
+                                      "geo_method"])
 
 
 def report(df: pd.DataFrame, res: pd.DataFrame, records: dict[str, dict]) -> None:
@@ -601,7 +626,18 @@ def parse_args(argv=None):
     ap.add_argument("--model", default=ca.MODEL)
     ap.add_argument("--effort", choices=["low", "medium", "high", "xhigh", "max"], default="medium")
     ap.add_argument("--frames", type=int, default=16, help="uniform frames per video")
-    ap.add_argument("--max-frames", type=int, default=32, help="cap incl. frames at mentioned times")
+    ap.add_argument("--max-frames", type=int, default=0,
+                    help="cap incl. frames at mentioned times (0 = by prompt version: v1 32, v2 44)")
+    ap.add_argument("--prompt-version", choices=list(ca.PROMPT_VERSIONS), default="v1",
+                    help="request format (qp.claude_annotate): v1 = original prompt / frames; v2 = linked depth "
+                         "names, range estimates, stricter extent and motion rules, frame bursts at asked times, "
+                         "lab camera focal length. Recorded in the run config: runs cannot mix versions. "
+                         "v2 is not validated yet: compare a full v2 val run (medium effort, also a "
+                         "--max-side 2576 ablation) video by video with the v1 runs before using it on test")
+    ap.add_argument("--rule", choices=list(combine.RULES), default=combine.DEFAULT_RULE,
+                    help="answer selection between geometry and Claude's direct answer (qp.combine; no API effect)")
+    ap.add_argument("--max-side", type=int, default=0,
+                    help="long-edge cap of sent frames in px (0 = by prompt version: v1 2576, v2 1280)")
     ap.add_argument("--max-tokens", type=int, default=0, help="0 = 12k + 4k per question (max 64k)")
     ap.add_argument("--mode", choices=["sync", "batch"], default="sync")
     ap.add_argument("--limit-videos", type=int, default=0, help="only the first N videos")
@@ -623,6 +659,8 @@ def parse_args(argv=None):
     args = ap.parse_args(argv)
     if not args.split and not args.csv:
         ap.error("one of --split or --csv is required")
+    args.max_frames = args.max_frames or ca.default_max_frames(args.prompt_version)
+    args.max_side = args.max_side or ca.default_max_side(args.prompt_version)
     return args
 
 
@@ -694,7 +732,7 @@ def main(argv=None, client=None) -> pd.DataFrame | None:
             run_sync(client, groups, est["todo"], args, rec_dir, est)
 
     records = load_records(rec_dir)
-    res = build_results(df, records)
+    res = build_results(df, records, args.rule)
     out_csv = runs_root / args.name / f"{args.label}.csv"
     res.to_csv(out_csv, index=False)
     print(f"wrote {out_csv}")

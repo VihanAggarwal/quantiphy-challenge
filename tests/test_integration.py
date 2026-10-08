@@ -269,9 +269,22 @@ def test_track_a_end_to_end(claude_ws, monkeypatch, capsys):
     want = {qid: (ans, sc["type"][1]) for sc in SCENES.values() for qid, _, _, ans, *_ in sc["questions"]}
     for qid, (ans, dim) in want.items():
         r = res.loc[qid]
-        assert r.parsed_value == pytest.approx(ans, rel=0.03), (qid, r.to_dict())
+        assert r.geo_value == pytest.approx(ans, rel=0.03), (qid, r.to_dict())
         assert r.direct_value == pytest.approx(ans * 1.1, rel=1e-3)
+        if dim == "2":
+            assert r.parsed_value == r.geo_value and r.method == "geometry:2d_scale", (qid, r["flags"])
+        else:  # default rule: 3D of a video without a known camera (simulation) -> Claude's direct answer
+            assert r.parsed_value == r.direct_value and "geo_3d_no_camera" in r["flags"], (qid, r["flags"])
+            assert r.geo_method == "3d_focal_from_prior"
+    # the geometry-first rule answers everything from the tracks (same records: nothing is sent)
+    n_req = len(client.requests)
+    geo_res = rc.main([*argv, "--rule", "geo"], client=client).set_index("id")
+    assert len(client.requests) == n_req
+    for qid, (ans, dim) in want.items():
+        r = geo_res.loc[qid]
+        assert r.parsed_value == pytest.approx(ans, rel=0.03), (qid, r.to_dict())
         assert r.method == ("geometry:2d_scale" if dim == "2" else "geometry:3d_focal_from_prior"), (qid, r["flags"])
+    res = rc.main(argv, client=client).set_index("id")  # back to the default rule's CSV
     assert all("reused_track" in res["flags"][q] for q in (1, 2, 31))
     assert "prior_axis_gravity" in res["flags"][21]               # gravity prior made vertical for the solver
 
@@ -290,8 +303,9 @@ def test_track_a_end_to_end(claude_ws, monkeypatch, capsys):
     gt, _ = rc.load_questions(rc.parse_args(argv))
     table = _score_table(_script("score"), gt, [str(out_csv)], monkeypatch, capsys)
     row = table.loc[str(out_csv)]
-    assert float(row.MRA) == pytest.approx(1.0) and int(row.missing) == 0
-    assert all(float(row[c]) == pytest.approx(1.0) for c in ("S2", "D2", "S3", "D3"))
+    assert int(row.missing) == 0  # 3D answers are the (10% off) direct ones: 0.8 each, 2D exact
+    assert float(row.S2) == pytest.approx(1.0) and float(row.D2) == pytest.approx(1.0)
+    assert all(0.8 - 1e-9 <= float(row[c]) < 1.0 for c in ("S3", "D3"))
     sub = _submit(_script("make_submission"), out_csv, [*sorted(want), 999], claude_ws.root / "sub.csv", monkeypatch)
     vals = sub.set_index("id").parsed_value
     assert vals[999] == 1.0 and all(vals[q] == pytest.approx(res.parsed_value[q]) for q in want)
