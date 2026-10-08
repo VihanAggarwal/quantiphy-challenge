@@ -1,0 +1,756 @@
+{
+ "video_id": "simulation_0190_segmented",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfpqGjs1P6B7rgWxCK7e7",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 854
+ },
+ "ts": "2026-10-08T17:09:48+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_01SmLRdd1f81Bv4cEJSXfSE9",
+ "custom_id": "simulation_0190_segmented",
+ "usage": {
+  "input_tokens": 13071,
+  "output_tokens": 2810,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 4317,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.054674,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0190_segmented",
+  "fps": 120.0,
+  "fps_from_container": false,
+  "video_type": "S2MX",
+  "n_frames_total": 401,
+  "scale": 0.44479166666666664,
+  "image_size": [
+   1920,
+   1079
+  ],
+  "frames": [
+   0,
+   12,
+   27,
+   53,
+   80,
+   107,
+   108,
+   120,
+   132,
+   133,
+   160,
+   187,
+   213,
+   228,
+   240,
+   252,
+   267,
+   293,
+   320,
+   347,
+   373,
+   400
+  ],
+  "questions": [
+   {
+    "qid": 1908,
+    "target_unit": "m",
+    "prior": "width of the box = 1.33m",
+    "depth_info": ""
+   },
+   {
+    "qid": 1909,
+    "target_unit": "m",
+    "prior": "width of the box = 1.33m",
+    "depth_info": ""
+   },
+   {
+    "qid": 1910,
+    "target_unit": "m",
+    "prior": "width of the box = 1.33m",
+    "depth_info": ""
+   },
+   {
+    "qid": 1911,
+    "target_unit": "m/s",
+    "prior": "width of the box = 1.33m",
+    "depth_info": ""
+   },
+   {
+    "qid": 1912,
+    "target_unit": "m/s",
+    "prior": "width of the box = 1.33m",
+    "depth_info": ""
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":1908,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"truck\"],\"dimension\":\"height\",\"time\":0,\"window\":null,\"axis\":\"vertical\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"box\"],\"dimension\":\"width\",\"time\":null,\"window\":null,\"axis\":\"horizontal\",\"value_si\":1.33,\"unit\":\"\"},\"depth\":[],\"notes\":\"Truck height measured from top of cargo body to bottom of wheels at t=0.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"box\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[358,110],[484,110]],\"box\":[358,73,484,150]},{\"frame\":120,\"point\":null,\"extent\":[[358,105],[484,105]],\"box\":[358,68,484,144]},{\"frame\":240,\"point\":null,\"extent\":[[358,95],[484,95]],\"box\":[358,58,484,133]},{\"frame\":400,\"point\":null,\"extent\":[[358,80],[484,80]],\"box\":[358,44,484,116]}]},{\"role\":\"target\",\"object\":\"truck\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[420,152],[420,463]],\"box\":[294,152,546,463]}]}],\"direct_answer\":3.28,\"confidence\":0.6},{\"qid\":1909,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"truck\"],\"dimension\":\"width\",\"time\":null,\"window\":null,\"axis\":\"horizontal\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"box\"],\"dimension\":\"width\",\"time\":null,\"window\":null,\"axis\":\"horizontal\",\"value_si\":1.33,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"box\",\"obs\":[]},{\"role\":\"target\",\"object\":\"truck\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[294,260],[546,260]],\"box\":[294,152,546,463]},{\"frame\":120,\"point\":null,\"extent\":[[294,260],[546,260]],\"box\":[294,145,546,463]},{\"frame\":240,\"point\":null,\"extent\":[[294,250],[546,250]],\"box\":[294,136,546,463]},{\"frame\":400,\"point\":null,\"extent\":[[294,240],[546,240]],\"box\":[294,116,546,463]}]}],\"direct_answer\":2.66,\"confidence\":0.7},{\"qid\":1910,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"box\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"box\"],\"dimension\":\"width\",\"time\":null,\"window\":null,\"axis\":\"horizontal\",\"value_si\":1.33,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"box\",\"obs\":[]},{\"role\":\"target\",\"object\":\"box\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[400,73],[400,150]],\"box\":[358,73,484,150]},{\"frame\":120,\"point\":null,\"extent\":[[400,68],[400,144]],\"box\":[358,68,484,144]},{\"frame\":240,\"point\":null,\"extent\":[[400,58],[400,133]],\"box\":[358,58,484,133]},{\"frame\":400,\"point\":null,\"extent\":[[400,44],[400,116]],\"box\":[358,44,484,116]}]}],\"direct_answer\":0.8,\"confidence\":0.6},{\"qid\":1911,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"box\"],\"dimension\":\"\",\"time\":1.0,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"box\"],\"dimension\":\"width\",\"time\":null,\"window\":null,\"axis\":\"horizontal\",\"value_si\":1.33,\"unit\":\"\"},\"depth\":[],\"notes\":\"Box rises slowly with the truck body.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"box\",\"obs\":[]},{\"role\":\"target\",\"object\":\"box\",\"obs\":[{\"frame\":0,\"point\":[421,150],\"extent\":null,\"box\":null},{\"frame\":53,\"point\":[421,148.5],\"extent\":null,\"box\":null},{\"frame\":80,\"point\":[421,147],\"extent\":null,\"box\":null},{\"frame\":107,\"point\":[421,144.5],\"extent\":null,\"box\":null},{\"frame\":120,\"point\":[421,144],\"extent\":null,\"box\":null},{\"frame\":132,\"point\":[421,143],\"extent\":null,\"box\":null},{\"frame\":160,\"point\":[421,141],\"extent\":null,\"box\":null},{\"frame\":187,\"point\":[421,138],\"extent\":null,\"box\":null},{\"frame\":213,\"point\":[421,136],\"extent\":null,\"box\":null},{\"frame\":228,\"point\":[421,134],\"extent\":null,\"box\":null},{\"frame\":240,\"point\":[421,133],\"extent\":null,\"box\":null},{\"frame\":252,\"point\":[421,132],\"extent\":null,\"box\":null},{\"frame\":267,\"point\":[421,131],\"extent\":null,\"box\":null},{\"frame\":293,\"point\":[421,128],\"extent\":null,\"box\":null},{\"frame\":320,\"point\":[421,125],\"extent\":null,\"box\":null},{\"frame\":347,\"point\":[421,122],\"extent\":null,\"box\":null},{\"frame\":373,\"point\":[421,119],\"extent\":null,\"box\":null},{\"frame\":400,\"point\":[421,116],\"extent\":null,\"box\":null}]}],\"direct_answer\":0.095,\"confidence\":0.35},{\"qid\":1912,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"box\"],\"dimension\":\"\",\"time\":2.0,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"box\"],\"dimension\":\"width\",\"time\":null,\"window\":null,\"axis\":\"horizontal\",\"value_si\":1.33,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"box\",\"obs\":[]},{\"role\":\"target\",\"object\":\"box\",\"obs\":[]}],\"direct_answer\":0.115,\"confidence\":0.35}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 1908,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "truck"
+      ],
+      "dimension": "height",
+      "time": 0,
+      "window": null,
+      "axis": "vertical",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "box"
+      ],
+      "dimension": "width",
+      "time": null,
+      "window": null,
+      "axis": "horizontal",
+      "value_si": 1.33,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Truck height measured from top of cargo body to bottom of wheels at t=0."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "box",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          358,
+          110
+         ],
+         [
+          484,
+          110
+         ]
+        ],
+        "box": [
+         358,
+         73,
+         484,
+         150
+        ]
+       },
+       {
+        "frame": 120,
+        "point": null,
+        "extent": [
+         [
+          358,
+          105
+         ],
+         [
+          484,
+          105
+         ]
+        ],
+        "box": [
+         358,
+         68,
+         484,
+         144
+        ]
+       },
+       {
+        "frame": 240,
+        "point": null,
+        "extent": [
+         [
+          358,
+          95
+         ],
+         [
+          484,
+          95
+         ]
+        ],
+        "box": [
+         358,
+         58,
+         484,
+         133
+        ]
+       },
+       {
+        "frame": 400,
+        "point": null,
+        "extent": [
+         [
+          358,
+          80
+         ],
+         [
+          484,
+          80
+         ]
+        ],
+        "box": [
+         358,
+         44,
+         484,
+         116
+        ]
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "truck",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          420,
+          152
+         ],
+         [
+          420,
+          463
+         ]
+        ],
+        "box": [
+         294,
+         152,
+         546,
+         463
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 3.28,
+    "confidence": 0.6
+   },
+   {
+    "qid": 1909,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "truck"
+      ],
+      "dimension": "width",
+      "time": null,
+      "window": null,
+      "axis": "horizontal",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "box"
+      ],
+      "dimension": "width",
+      "time": null,
+      "window": null,
+      "axis": "horizontal",
+      "value_si": 1.33,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "box",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "truck",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          294,
+          260
+         ],
+         [
+          546,
+          260
+         ]
+        ],
+        "box": [
+         294,
+         152,
+         546,
+         463
+        ]
+       },
+       {
+        "frame": 120,
+        "point": null,
+        "extent": [
+         [
+          294,
+          260
+         ],
+         [
+          546,
+          260
+         ]
+        ],
+        "box": [
+         294,
+         145,
+         546,
+         463
+        ]
+       },
+       {
+        "frame": 240,
+        "point": null,
+        "extent": [
+         [
+          294,
+          250
+         ],
+         [
+          546,
+          250
+         ]
+        ],
+        "box": [
+         294,
+         136,
+         546,
+         463
+        ]
+       },
+       {
+        "frame": 400,
+        "point": null,
+        "extent": [
+         [
+          294,
+          240
+         ],
+         [
+          546,
+          240
+         ]
+        ],
+        "box": [
+         294,
+         116,
+         546,
+         463
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 2.66,
+    "confidence": 0.7
+   },
+   {
+    "qid": 1910,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "box"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "box"
+      ],
+      "dimension": "width",
+      "time": null,
+      "window": null,
+      "axis": "horizontal",
+      "value_si": 1.33,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "box",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "box",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          400,
+          73
+         ],
+         [
+          400,
+          150
+         ]
+        ],
+        "box": [
+         358,
+         73,
+         484,
+         150
+        ]
+       },
+       {
+        "frame": 120,
+        "point": null,
+        "extent": [
+         [
+          400,
+          68
+         ],
+         [
+          400,
+          144
+         ]
+        ],
+        "box": [
+         358,
+         68,
+         484,
+         144
+        ]
+       },
+       {
+        "frame": 240,
+        "point": null,
+        "extent": [
+         [
+          400,
+          58
+         ],
+         [
+          400,
+          133
+         ]
+        ],
+        "box": [
+         358,
+         58,
+         484,
+         133
+        ]
+       },
+       {
+        "frame": 400,
+        "point": null,
+        "extent": [
+         [
+          400,
+          44
+         ],
+         [
+          400,
+          116
+         ]
+        ],
+        "box": [
+         358,
+         44,
+         484,
+         116
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 0.8,
+    "confidence": 0.6
+   },
+   {
+    "qid": 1911,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "box"
+      ],
+      "dimension": "",
+      "time": 1.0,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "box"
+      ],
+      "dimension": "width",
+      "time": null,
+      "window": null,
+      "axis": "horizontal",
+      "value_si": 1.33,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Box rises slowly with the truck body."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "box",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "box",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         421,
+         150
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 53,
+        "point": [
+         421,
+         148.5
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 80,
+        "point": [
+         421,
+         147
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 107,
+        "point": [
+         421,
+         144.5
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 120,
+        "point": [
+         421,
+         144
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 132,
+        "point": [
+         421,
+         143
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 160,
+        "point": [
+         421,
+         141
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 187,
+        "point": [
+         421,
+         138
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 213,
+        "point": [
+         421,
+         136
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 228,
+        "point": [
+         421,
+         134
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 240,
+        "point": [
+         421,
+         133
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 252,
+        "point": [
+         421,
+         132
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 267,
+        "point": [
+         421,
+         131
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 293,
+        "point": [
+         421,
+         128
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 320,
+        "point": [
+         421,
+         125
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 347,
+        "point": [
+         421,
+         122
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 373,
+        "point": [
+         421,
+         119
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 400,
+        "point": [
+         421,
+         116
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     }
+    ],
+    "direct_answer": 0.095,
+    "confidence": 0.35
+   },
+   {
+    "qid": 1912,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "box"
+      ],
+      "dimension": "",
+      "time": 2.0,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "box"
+      ],
+      "dimension": "width",
+      "time": null,
+      "window": null,
+      "axis": "horizontal",
+      "value_si": 1.33,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "box",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "box",
+      "obs": []
+     }
+    ],
+    "direct_answer": 0.115,
+    "confidence": 0.35
+   }
+  ]
+ }
+}

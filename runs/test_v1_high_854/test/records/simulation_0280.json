@@ -1,0 +1,495 @@
+{
+ "video_id": "simulation_0280",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfprR44UfxdrMkqAtPcFX",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 854
+ },
+ "ts": "2026-10-08T17:02:28+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_014b6hUtpWseWVd7Ff4g8gtq",
+ "custom_id": "simulation_0280",
+ "usage": {
+  "input_tokens": 11802,
+  "output_tokens": 2209,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 4317,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.046126,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0280",
+  "fps": 24.0,
+  "fps_from_container": false,
+  "video_type": "S2SC",
+  "n_frames_total": 72,
+  "scale": 0.22239583333333332,
+  "image_size": [
+   3840,
+   2158
+  ],
+  "frames": [
+   0,
+   5,
+   9,
+   10,
+   12,
+   14,
+   19,
+   22,
+   24,
+   26,
+   28,
+   33,
+   38,
+   43,
+   47,
+   52,
+   57,
+   62,
+   66,
+   71
+  ],
+  "questions": [
+   {
+    "qid": 986,
+    "target_unit": "m/s",
+    "prior": "length of the whale = 19.17m",
+    "depth_info": ""
+   },
+   {
+    "qid": 987,
+    "target_unit": "m",
+    "prior": "length of the whale = 19.17m",
+    "depth_info": ""
+   },
+   {
+    "qid": 988,
+    "target_unit": "m",
+    "prior": "length of the whale = 19.17m",
+    "depth_info": ""
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":986,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"whale\"],\"dimension\":\"\",\"time\":1.0,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"whale\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":19.17,\"unit\":\"\"},\"depth\":[],\"notes\":\"Whale length taken snout to tail tip when whale fully in frame.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"whale\",\"obs\":[{\"frame\":47,\"point\":null,\"extent\":[[82.5,180.5],[850.0,240.0]],\"box\":[82.5,133.0,850.0,301.0]},{\"frame\":52,\"point\":null,\"extent\":[[68.5,180.0],[840.0,190.0]],\"box\":[68.5,131.0,840.0,307.0]},{\"frame\":57,\"point\":null,\"extent\":[[56.0,178.0],[822.0,140.0]],\"box\":[56.0,120.0,822.0,314.0]}]},{\"role\":\"target\",\"object\":\"whale snout\",\"obs\":[{\"frame\":0,\"point\":[206.5,180.0],\"extent\":null,\"box\":null},{\"frame\":5,\"point\":[194.5,180.0],\"extent\":null,\"box\":null},{\"frame\":9,\"point\":[184.5,180.0],\"extent\":null,\"box\":null},{\"frame\":10,\"point\":[181.5,180.0],\"extent\":null,\"box\":null},{\"frame\":12,\"point\":[176.5,180.0],\"extent\":null,\"box\":null},{\"frame\":14,\"point\":[170.5,180.0],\"extent\":null,\"box\":null},{\"frame\":19,\"point\":[157.5,180.0],\"extent\":null,\"box\":null},{\"frame\":22,\"point\":[149.5,180.0],\"extent\":null,\"box\":null},{\"frame\":24,\"point\":[145.0,180.0],\"extent\":null,\"box\":null},{\"frame\":26,\"point\":[139.5,180.0],\"extent\":null,\"box\":null},{\"frame\":28,\"point\":[134.5,180.0],\"extent\":null,\"box\":null},{\"frame\":33,\"point\":[121.0,180.0],\"extent\":null,\"box\":null},{\"frame\":38,\"point\":[107.5,180.0],\"extent\":null,\"box\":null},{\"frame\":43,\"point\":[94.5,180.0],\"extent\":null,\"box\":null},{\"frame\":47,\"point\":[82.5,180.0],\"extent\":null,\"box\":null},{\"frame\":52,\"point\":[68.5,180.0],\"extent\":null,\"box\":null}]}],\"direct_answer\":1.52,\"confidence\":0.6},{\"qid\":987,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"whale\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"whale\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":19.17,\"unit\":\"\"},\"depth\":[],\"notes\":\"Height taken as body depth (back to belly), excluding flipper.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"whale\",\"obs\":[]},{\"role\":\"target\",\"object\":\"whale\",\"obs\":[{\"frame\":47,\"point\":null,\"extent\":[[300.0,134.0],[300.0,248.0]],\"box\":[82.5,133.0,850.0,301.0]},{\"frame\":52,\"point\":null,\"extent\":[[300.0,134.0],[300.0,248.0]],\"box\":[68.5,131.0,840.0,307.0]},{\"frame\":43,\"point\":null,\"extent\":[[320.0,134.0],[320.0,248.0]],\"box\":[94.5,133.0,854.0,296.0]}]}],\"direct_answer\":2.85,\"confidence\":0.35},{\"qid\":988,\"spec\":{\"target\":{\"kind\":\"displacement\",\"objects\":[\"whale\"],\"dimension\":\"\",\"time\":null,\"window\":[0.5,1.0],\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"whale\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":19.17,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"whale\",\"obs\":[]},{\"role\":\"target\",\"object\":\"whale snout\",\"obs\":[]}],\"direct_answer\":0.77,\"confidence\":0.55}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 986,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "whale"
+      ],
+      "dimension": "",
+      "time": 1.0,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "whale"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 19.17,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Whale length taken snout to tail tip when whale fully in frame."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "whale",
+      "obs": [
+       {
+        "frame": 47,
+        "point": null,
+        "extent": [
+         [
+          82.5,
+          180.5
+         ],
+         [
+          850.0,
+          240.0
+         ]
+        ],
+        "box": [
+         82.5,
+         133.0,
+         850.0,
+         301.0
+        ]
+       },
+       {
+        "frame": 52,
+        "point": null,
+        "extent": [
+         [
+          68.5,
+          180.0
+         ],
+         [
+          840.0,
+          190.0
+         ]
+        ],
+        "box": [
+         68.5,
+         131.0,
+         840.0,
+         307.0
+        ]
+       },
+       {
+        "frame": 57,
+        "point": null,
+        "extent": [
+         [
+          56.0,
+          178.0
+         ],
+         [
+          822.0,
+          140.0
+         ]
+        ],
+        "box": [
+         56.0,
+         120.0,
+         822.0,
+         314.0
+        ]
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "whale snout",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         206.5,
+         180.0
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 5,
+        "point": [
+         194.5,
+         180.0
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 9,
+        "point": [
+         184.5,
+         180.0
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 10,
+        "point": [
+         181.5,
+         180.0
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 12,
+        "point": [
+         176.5,
+         180.0
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 14,
+        "point": [
+         170.5,
+         180.0
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 19,
+        "point": [
+         157.5,
+         180.0
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 22,
+        "point": [
+         149.5,
+         180.0
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 24,
+        "point": [
+         145.0,
+         180.0
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 26,
+        "point": [
+         139.5,
+         180.0
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 28,
+        "point": [
+         134.5,
+         180.0
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 33,
+        "point": [
+         121.0,
+         180.0
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 38,
+        "point": [
+         107.5,
+         180.0
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 43,
+        "point": [
+         94.5,
+         180.0
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 47,
+        "point": [
+         82.5,
+         180.0
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 52,
+        "point": [
+         68.5,
+         180.0
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     }
+    ],
+    "direct_answer": 1.52,
+    "confidence": 0.6
+   },
+   {
+    "qid": 987,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "whale"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "whale"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 19.17,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Height taken as body depth (back to belly), excluding flipper."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "whale",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "whale",
+      "obs": [
+       {
+        "frame": 47,
+        "point": null,
+        "extent": [
+         [
+          300.0,
+          134.0
+         ],
+         [
+          300.0,
+          248.0
+         ]
+        ],
+        "box": [
+         82.5,
+         133.0,
+         850.0,
+         301.0
+        ]
+       },
+       {
+        "frame": 52,
+        "point": null,
+        "extent": [
+         [
+          300.0,
+          134.0
+         ],
+         [
+          300.0,
+          248.0
+         ]
+        ],
+        "box": [
+         68.5,
+         131.0,
+         840.0,
+         307.0
+        ]
+       },
+       {
+        "frame": 43,
+        "point": null,
+        "extent": [
+         [
+          320.0,
+          134.0
+         ],
+         [
+          320.0,
+          248.0
+         ]
+        ],
+        "box": [
+         94.5,
+         133.0,
+         854.0,
+         296.0
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 2.85,
+    "confidence": 0.35
+   },
+   {
+    "qid": 988,
+    "spec": {
+     "target": {
+      "kind": "displacement",
+      "objects": [
+       "whale"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": [
+       0.5,
+       1.0
+      ],
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "whale"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 19.17,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "whale",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "whale snout",
+      "obs": []
+     }
+    ],
+    "direct_answer": 0.77,
+    "confidence": 0.55
+   }
+  ]
+ }
+}

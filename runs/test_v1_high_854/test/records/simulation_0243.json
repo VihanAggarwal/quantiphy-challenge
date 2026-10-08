@@ -1,0 +1,459 @@
+{
+ "video_id": "simulation_0243",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfpwECaTyF1mbW9GMBfHh",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 854
+ },
+ "ts": "2026-10-08T17:01:21+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_01M1yMGBb4cJ9XTrAwux87yk",
+ "custom_id": "simulation_0243",
+ "usage": {
+  "input_tokens": 9488,
+  "output_tokens": 2182,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 4317,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.041228,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0243",
+  "fps": 30.0,
+  "fps_from_container": false,
+  "video_type": "V2MC",
+  "n_frames_total": 75,
+  "scale": 0.44479166666666664,
+  "image_size": [
+   1079,
+   1920
+  ],
+  "frames": [
+   0,
+   5,
+   10,
+   15,
+   20,
+   25,
+   30,
+   35,
+   39,
+   44,
+   49,
+   54,
+   59,
+   64,
+   69,
+   74
+  ],
+  "questions": [
+   {
+    "qid": 817,
+    "target_unit": "m",
+    "prior": "speed of the antelope = 1.277m/s",
+    "depth_info": ""
+   },
+   {
+    "qid": 818,
+    "target_unit": "m",
+    "prior": "speed of the antelope = 1.277m/s",
+    "depth_info": ""
+   },
+   {
+    "qid": 819,
+    "target_unit": "m",
+    "prior": "speed of the antelope = 1.277m/s",
+    "depth_info": ""
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":817,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"antelope\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"antelope\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":1.277,\"unit\":\"\"},\"depth\":[],\"notes\":\"Height taken from hooves to top of horns.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"antelope\",\"obs\":[{\"frame\":0,\"point\":[225,545],\"extent\":null,\"box\":null},{\"frame\":15,\"point\":[262,540],\"extent\":null,\"box\":null},{\"frame\":30,\"point\":[318,545],\"extent\":null,\"box\":null},{\"frame\":44,\"point\":[355,548],\"extent\":null,\"box\":null},{\"frame\":59,\"point\":[400,545],\"extent\":null,\"box\":null},{\"frame\":74,\"point\":[445,548],\"extent\":null,\"box\":null}]},{\"role\":\"target\",\"object\":\"antelope\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[185,505],[185,688]],\"box\":[68,505,248,688]},{\"frame\":39,\"point\":null,\"extent\":[[300,507],[300,688]],\"box\":[150,507,360,688]},{\"frame\":74,\"point\":null,\"extent\":[[410,505],[410,687]],\"box\":[245,505,462,687]}]}],\"direct_answer\":2.62,\"confidence\":0.4},{\"qid\":818,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"antelope\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"horizontal\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"antelope\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":1.277,\"unit\":\"\"},\"depth\":[],\"notes\":\"Length from snout to tail base.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"antelope\",\"obs\":[]},{\"role\":\"target\",\"object\":\"antelope\",\"obs\":[{\"frame\":39,\"point\":null,\"extent\":[[200,578],[357,568]],\"box\":[150,507,360,688]},{\"frame\":59,\"point\":null,\"extent\":[[243,578],[402,568]],\"box\":[205,505,415,688]},{\"frame\":74,\"point\":null,\"extent\":[[288,580],[447,570]],\"box\":[245,505,462,687]}]}],\"direct_answer\":2.25,\"confidence\":0.35},{\"qid\":819,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"tree on the left\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"antelope\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":1.277,\"unit\":\"\"},\"depth\":[],\"notes\":\"Tree base hidden by bushes; ground level estimated.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"antelope\",\"obs\":[]},{\"role\":\"target\",\"object\":\"tree on the left\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[52,165],[38,685]],\"box\":[0,165,205,685]},{\"frame\":39,\"point\":null,\"extent\":[[52,165],[38,685]],\"box\":[0,165,205,685]},{\"frame\":74,\"point\":null,\"extent\":[[52,165],[38,685]],\"box\":[0,165,205,685]}]}],\"direct_answer\":7.5,\"confidence\":0.3}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 817,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "antelope"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "antelope"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 1.277,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Height taken from hooves to top of horns."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "antelope",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         225,
+         545
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 15,
+        "point": [
+         262,
+         540
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 30,
+        "point": [
+         318,
+         545
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 44,
+        "point": [
+         355,
+         548
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 59,
+        "point": [
+         400,
+         545
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 74,
+        "point": [
+         445,
+         548
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "antelope",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          185,
+          505
+         ],
+         [
+          185,
+          688
+         ]
+        ],
+        "box": [
+         68,
+         505,
+         248,
+         688
+        ]
+       },
+       {
+        "frame": 39,
+        "point": null,
+        "extent": [
+         [
+          300,
+          507
+         ],
+         [
+          300,
+          688
+         ]
+        ],
+        "box": [
+         150,
+         507,
+         360,
+         688
+        ]
+       },
+       {
+        "frame": 74,
+        "point": null,
+        "extent": [
+         [
+          410,
+          505
+         ],
+         [
+          410,
+          687
+         ]
+        ],
+        "box": [
+         245,
+         505,
+         462,
+         687
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 2.62,
+    "confidence": 0.4
+   },
+   {
+    "qid": 818,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "antelope"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "horizontal",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "antelope"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 1.277,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Length from snout to tail base."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "antelope",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "antelope",
+      "obs": [
+       {
+        "frame": 39,
+        "point": null,
+        "extent": [
+         [
+          200,
+          578
+         ],
+         [
+          357,
+          568
+         ]
+        ],
+        "box": [
+         150,
+         507,
+         360,
+         688
+        ]
+       },
+       {
+        "frame": 59,
+        "point": null,
+        "extent": [
+         [
+          243,
+          578
+         ],
+         [
+          402,
+          568
+         ]
+        ],
+        "box": [
+         205,
+         505,
+         415,
+         688
+        ]
+       },
+       {
+        "frame": 74,
+        "point": null,
+        "extent": [
+         [
+          288,
+          580
+         ],
+         [
+          447,
+          570
+         ]
+        ],
+        "box": [
+         245,
+         505,
+         462,
+         687
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 2.25,
+    "confidence": 0.35
+   },
+   {
+    "qid": 819,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "tree on the left"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "antelope"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 1.277,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Tree base hidden by bushes; ground level estimated."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "antelope",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "tree on the left",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          52,
+          165
+         ],
+         [
+          38,
+          685
+         ]
+        ],
+        "box": [
+         0,
+         165,
+         205,
+         685
+        ]
+       },
+       {
+        "frame": 39,
+        "point": null,
+        "extent": [
+         [
+          52,
+          165
+         ],
+         [
+          38,
+          685
+         ]
+        ],
+        "box": [
+         0,
+         165,
+         205,
+         685
+        ]
+       },
+       {
+        "frame": 74,
+        "point": null,
+        "extent": [
+         [
+          52,
+          165
+         ],
+         [
+          38,
+          685
+         ]
+        ],
+        "box": [
+         0,
+         165,
+         205,
+         685
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 7.5,
+    "confidence": 0.3
+   }
+  ]
+ }
+}

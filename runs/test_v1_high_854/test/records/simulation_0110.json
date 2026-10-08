@@ -1,0 +1,522 @@
+{
+ "video_id": "simulation_0110",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfptxcUUJ58FM333asi7i",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 854
+ },
+ "ts": "2026-10-08T17:09:47+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_01Lkr5fafFQ29117PFGuAg4s",
+ "custom_id": "simulation_0110",
+ "usage": {
+  "input_tokens": 12571,
+  "output_tokens": 6142,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 4317,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.086994,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0110",
+  "fps": 24.0,
+  "fps_from_container": false,
+  "video_type": "V3MX",
+  "n_frames_total": 72,
+  "scale": 0.44479166666666664,
+  "image_size": [
+   1920,
+   1079
+  ],
+  "frames": [
+   0,
+   5,
+   9,
+   14,
+   19,
+   22,
+   24,
+   26,
+   28,
+   33,
+   38,
+   43,
+   46,
+   47,
+   48,
+   50,
+   52,
+   57,
+   62,
+   66,
+   71
+  ],
+  "questions": [
+   {
+    "qid": 1379,
+    "target_unit": "m",
+    "prior": "speed of the red blood cell = 4.7833 m/s",
+    "depth_info": "t=1.0s, distance_left_red_blood_cell_camera = 17.9557 m\nt=2.0s, distance_left_red_blood_cell_camera = 22.7150 m"
+   },
+   {
+    "qid": 1380,
+    "target_unit": "m",
+    "prior": "speed of the red blood cell = 4.7833 m/s",
+    "depth_info": "t=1.0s, distance_left_red_blood_cell_and_camera = 17.9557 m\nt=2.0s, distance_left_red_blood_cell_and_camera = 22.7150 m"
+   },
+   {
+    "qid": 1381,
+    "target_unit": "m",
+    "prior": "speed of the red blood cell = 4.7833 m/s",
+    "depth_info": "t=1.0s, distance_left_red_blood_cell_and_camera = 17.9557 m\nt=2.0s, distance_left_red_blood_cell_and_camera = 22.7150 m"
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":1379,\"spec\":{\"target\":{\"kind\":\"distance\",\"objects\":[\"left red blood cell\",\"right red blood cell\"],\"dimension\":\"\",\"time\":1.0,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"left red blood cell\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":4.7833,\"unit\":\"\"},\"depth\":[{\"object\":\"left red blood cell\",\"distance_m\":17.9557,\"time\":1.0},{\"object\":\"left red blood cell\",\"distance_m\":22.715,\"time\":2.0}],\"notes\":\"Prior speed assumed to refer to the left cell (consistent with its depth rate). Both cells appear at nearly the same depth; distance taken centre to centre.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"left red blood cell\",\"obs\":[{\"frame\":0,\"point\":[363,261],\"extent\":null,\"box\":[290,220,436,302]},{\"frame\":9,\"point\":[345.5,254],\"extent\":null,\"box\":[280,218,411,290]},{\"frame\":24,\"point\":[321,242],\"extent\":null,\"box\":[266,212,376,271]},{\"frame\":33,\"point\":[310,236],\"extent\":null,\"box\":[260,210,360,262]},{\"frame\":48,\"point\":[295.5,230.5],\"extent\":null,\"box\":[252,208,339,253]},{\"frame\":71,\"point\":[279,224],\"extent\":null,\"box\":[243,205,315,243]}]},{\"role\":\"target\",\"object\":\"left red blood cell\",\"obs\":[{\"frame\":24,\"point\":[321,242],\"extent\":null,\"box\":[266,212,376,271]}]},{\"role\":\"target2\",\"object\":\"right red blood cell\",\"obs\":[{\"frame\":24,\"point\":[522,244],\"extent\":null,\"box\":[468,215,576,274]}]}],\"direct_answer\":3.05,\"confidence\":0.4},{\"qid\":1380,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"red blood cell\"],\"dimension\":\"thickness\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"left red blood cell\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":4.7833,\"unit\":\"\"},\"depth\":[{\"object\":\"left red blood cell\",\"distance_m\":17.9557,\"time\":1.0},{\"object\":\"left red blood cell\",\"distance_m\":22.715,\"time\":2.0}],\"notes\":\"Thickness partially foreshortened by camera elevation; measured on left cell side wall.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"left red blood cell\",\"obs\":[]},{\"role\":\"target\",\"object\":\"left red blood cell\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[360,264],[360,302]],\"box\":[290,220,436,302]},{\"frame\":24,\"point\":null,\"extent\":[[320,244],[320,271]],\"box\":[266,212,376,271]},{\"frame\":48,\"point\":null,\"extent\":[[295,232],[295,253]],\"box\":[252,208,339,253]}]}],\"direct_answer\":0.45,\"confidence\":0.25},{\"qid\":1381,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"red blood cell\"],\"dimension\":\"diameter\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"left red blood cell\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":4.7833,\"unit\":\"\"},\"depth\":[{\"object\":\"left red blood cell\",\"distance_m\":17.9557,\"time\":1.0},{\"object\":\"left red blood cell\",\"distance_m\":22.715,\"time\":2.0}],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"left red blood cell\",\"obs\":[]},{\"role\":\"target\",\"object\":\"left red blood cell\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[290,262],[436,262]],\"box\":[290,220,436,302]},{\"frame\":24,\"point\":null,\"extent\":[[266,241],[376,241]],\"box\":[266,212,376,271]},{\"frame\":48,\"point\":null,\"extent\":[[252,230],[339,230]],\"box\":[252,208,339,253]},{\"frame\":71,\"point\":null,\"extent\":[[243,224],[315,224]],\"box\":[243,205,315,243]}]}],\"direct_answer\":1.66,\"confidence\":0.45}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 1379,
+    "spec": {
+     "target": {
+      "kind": "distance",
+      "objects": [
+       "left red blood cell",
+       "right red blood cell"
+      ],
+      "dimension": "",
+      "time": 1.0,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "left red blood cell"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 4.7833,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "left red blood cell",
+       "distance_m": 17.9557,
+       "time": 1.0
+      },
+      {
+       "object": "left red blood cell",
+       "distance_m": 22.715,
+       "time": 2.0
+      }
+     ],
+     "notes": "Prior speed assumed to refer to the left cell (consistent with its depth rate). Both cells appear at nearly the same depth; distance taken centre to centre."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "left red blood cell",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         363,
+         261
+        ],
+        "extent": null,
+        "box": [
+         290,
+         220,
+         436,
+         302
+        ]
+       },
+       {
+        "frame": 9,
+        "point": [
+         345.5,
+         254
+        ],
+        "extent": null,
+        "box": [
+         280,
+         218,
+         411,
+         290
+        ]
+       },
+       {
+        "frame": 24,
+        "point": [
+         321,
+         242
+        ],
+        "extent": null,
+        "box": [
+         266,
+         212,
+         376,
+         271
+        ]
+       },
+       {
+        "frame": 33,
+        "point": [
+         310,
+         236
+        ],
+        "extent": null,
+        "box": [
+         260,
+         210,
+         360,
+         262
+        ]
+       },
+       {
+        "frame": 48,
+        "point": [
+         295.5,
+         230.5
+        ],
+        "extent": null,
+        "box": [
+         252,
+         208,
+         339,
+         253
+        ]
+       },
+       {
+        "frame": 71,
+        "point": [
+         279,
+         224
+        ],
+        "extent": null,
+        "box": [
+         243,
+         205,
+         315,
+         243
+        ]
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "left red blood cell",
+      "obs": [
+       {
+        "frame": 24,
+        "point": [
+         321,
+         242
+        ],
+        "extent": null,
+        "box": [
+         266,
+         212,
+         376,
+         271
+        ]
+       }
+      ]
+     },
+     {
+      "role": "target2",
+      "object": "right red blood cell",
+      "obs": [
+       {
+        "frame": 24,
+        "point": [
+         522,
+         244
+        ],
+        "extent": null,
+        "box": [
+         468,
+         215,
+         576,
+         274
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 3.05,
+    "confidence": 0.4
+   },
+   {
+    "qid": 1380,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "red blood cell"
+      ],
+      "dimension": "thickness",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "left red blood cell"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 4.7833,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "left red blood cell",
+       "distance_m": 17.9557,
+       "time": 1.0
+      },
+      {
+       "object": "left red blood cell",
+       "distance_m": 22.715,
+       "time": 2.0
+      }
+     ],
+     "notes": "Thickness partially foreshortened by camera elevation; measured on left cell side wall."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "left red blood cell",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "left red blood cell",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          360,
+          264
+         ],
+         [
+          360,
+          302
+         ]
+        ],
+        "box": [
+         290,
+         220,
+         436,
+         302
+        ]
+       },
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          320,
+          244
+         ],
+         [
+          320,
+          271
+         ]
+        ],
+        "box": [
+         266,
+         212,
+         376,
+         271
+        ]
+       },
+       {
+        "frame": 48,
+        "point": null,
+        "extent": [
+         [
+          295,
+          232
+         ],
+         [
+          295,
+          253
+         ]
+        ],
+        "box": [
+         252,
+         208,
+         339,
+         253
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 0.45,
+    "confidence": 0.25
+   },
+   {
+    "qid": 1381,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "red blood cell"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "left red blood cell"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 4.7833,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "left red blood cell",
+       "distance_m": 17.9557,
+       "time": 1.0
+      },
+      {
+       "object": "left red blood cell",
+       "distance_m": 22.715,
+       "time": 2.0
+      }
+     ],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "left red blood cell",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "left red blood cell",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          290,
+          262
+         ],
+         [
+          436,
+          262
+         ]
+        ],
+        "box": [
+         290,
+         220,
+         436,
+         302
+        ]
+       },
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          266,
+          241
+         ],
+         [
+          376,
+          241
+         ]
+        ],
+        "box": [
+         266,
+         212,
+         376,
+         271
+        ]
+       },
+       {
+        "frame": 48,
+        "point": null,
+        "extent": [
+         [
+          252,
+          230
+         ],
+         [
+          339,
+          230
+         ]
+        ],
+        "box": [
+         252,
+         208,
+         339,
+         253
+        ]
+       },
+       {
+        "frame": 71,
+        "point": null,
+        "extent": [
+         [
+          243,
+          224
+         ],
+         [
+          315,
+          224
+         ]
+        ],
+        "box": [
+         243,
+         205,
+         315,
+         243
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 1.66,
+    "confidence": 0.45
+   }
+  ]
+ }
+}

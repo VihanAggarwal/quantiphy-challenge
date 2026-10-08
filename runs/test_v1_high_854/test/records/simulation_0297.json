@@ -1,0 +1,307 @@
+{
+ "video_id": "simulation_0297",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfprW7Ds8t3L6pVNqET1q",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 854
+ },
+ "ts": "2026-10-08T17:02:28+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_014b6hUtpWseWVd7Ff4g8gtq",
+ "custom_id": "simulation_0297",
+ "usage": {
+  "input_tokens": 11684,
+  "output_tokens": 1251,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 4317,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.03631,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0297",
+  "fps": 24.0,
+  "fps_from_container": false,
+  "video_type": "V2SC",
+  "n_frames_total": 72,
+  "scale": 0.33359375,
+  "image_size": [
+   2560,
+   1439
+  ],
+  "frames": [
+   0,
+   5,
+   9,
+   10,
+   12,
+   14,
+   19,
+   22,
+   24,
+   26,
+   28,
+   33,
+   38,
+   43,
+   47,
+   52,
+   57,
+   62,
+   66,
+   71
+  ],
+  "questions": [
+   {
+    "qid": 1033,
+    "target_unit": "m",
+    "prior": "speed of the jellyfish = 1.75m/s",
+    "depth_info": ""
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":1033,\"spec\":{\"target\":{\"kind\":\"displacement\",\"objects\":[\"jellyfish\"],\"dimension\":\"\",\"time\":null,\"window\":[0.5,1.0],\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"jellyfish\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":1.75,\"unit\":\"\"},\"depth\":[],\"notes\":\"Jellyfish moves at roughly constant speed to the right; prior speed taken as the average over the clip.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"jellyfish\",\"obs\":[{\"frame\":0,\"point\":[197,248],\"extent\":null,\"box\":null},{\"frame\":5,\"point\":[225,248],\"extent\":null,\"box\":null},{\"frame\":9,\"point\":[252,252],\"extent\":null,\"box\":null},{\"frame\":10,\"point\":[258,252],\"extent\":null,\"box\":null},{\"frame\":12,\"point\":[273,252],\"extent\":null,\"box\":null},{\"frame\":14,\"point\":[288,252],\"extent\":null,\"box\":null},{\"frame\":19,\"point\":[322,253],\"extent\":null,\"box\":null},{\"frame\":22,\"point\":[344,252],\"extent\":null,\"box\":null},{\"frame\":24,\"point\":[357,252],\"extent\":null,\"box\":null},{\"frame\":26,\"point\":[372,252],\"extent\":null,\"box\":null},{\"frame\":28,\"point\":[386,251],\"extent\":null,\"box\":null},{\"frame\":33,\"point\":[420,252],\"extent\":null,\"box\":null},{\"frame\":38,\"point\":[455,252],\"extent\":null,\"box\":null},{\"frame\":43,\"point\":[489,252],\"extent\":null,\"box\":null},{\"frame\":47,\"point\":[518,248],\"extent\":null,\"box\":null},{\"frame\":52,\"point\":[552,250],\"extent\":null,\"box\":null},{\"frame\":57,\"point\":[587,251],\"extent\":null,\"box\":null},{\"frame\":62,\"point\":[624,252],\"extent\":null,\"box\":null},{\"frame\":66,\"point\":[652,252],\"extent\":null,\"box\":null},{\"frame\":71,\"point\":[688,251],\"extent\":null,\"box\":null}]},{\"role\":\"target\",\"object\":\"jellyfish\",\"obs\":[]}],\"direct_answer\":0.88,\"confidence\":0.8}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 1033,
+    "spec": {
+     "target": {
+      "kind": "displacement",
+      "objects": [
+       "jellyfish"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": [
+       0.5,
+       1.0
+      ],
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "jellyfish"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 1.75,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Jellyfish moves at roughly constant speed to the right; prior speed taken as the average over the clip."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "jellyfish",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         197,
+         248
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 5,
+        "point": [
+         225,
+         248
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 9,
+        "point": [
+         252,
+         252
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 10,
+        "point": [
+         258,
+         252
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 12,
+        "point": [
+         273,
+         252
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 14,
+        "point": [
+         288,
+         252
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 19,
+        "point": [
+         322,
+         253
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 22,
+        "point": [
+         344,
+         252
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 24,
+        "point": [
+         357,
+         252
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 26,
+        "point": [
+         372,
+         252
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 28,
+        "point": [
+         386,
+         251
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 33,
+        "point": [
+         420,
+         252
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 38,
+        "point": [
+         455,
+         252
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 43,
+        "point": [
+         489,
+         252
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 47,
+        "point": [
+         518,
+         248
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 52,
+        "point": [
+         552,
+         250
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 57,
+        "point": [
+         587,
+         251
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 62,
+        "point": [
+         624,
+         252
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 66,
+        "point": [
+         652,
+         252
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 71,
+        "point": [
+         688,
+         251
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "jellyfish",
+      "obs": []
+     }
+    ],
+    "direct_answer": 0.88,
+    "confidence": 0.8
+   }
+  ]
+ }
+}

@@ -1,0 +1,393 @@
+{
+ "video_id": "simulation_0201",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011Cfq7PySP3Vi98N8MFhscw",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 854
+ },
+ "ts": "2026-10-08T17:15:55+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_01VkRABjAWPjX4v5rz3uiYPm",
+ "custom_id": "simulation_0201",
+ "usage": {
+  "input_tokens": 14143,
+  "output_tokens": 2466,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 4317,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.053378,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0201",
+  "fps": 60.0,
+  "fps_from_container": false,
+  "video_type": "A3SS",
+  "n_frames_total": 14,
+  "scale": 0.33359375,
+  "image_size": [
+   2560,
+   2560
+  ],
+  "frames": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   12,
+   13
+  ],
+  "questions": [
+   {
+    "qid": 1445,
+    "target_unit": "m/s",
+    "prior": "acceleration of the droplet = 9.7m/s^2",
+    "depth_info": "t=0s, distance_droplet_camera = 0.156m   \nt=0.1s, distance_droplet_camera = 0.186m"
+   },
+   {
+    "qid": 1446,
+    "target_unit": "m/s",
+    "prior": "acceleration of the droplet = 9.7m/s^2",
+    "depth_info": "t=0s, distance_droplet_camera = 0.156m   \nt=0.1s, distance_droplet_camera = 0.186m"
+   },
+   {
+    "qid": 1447,
+    "target_unit": "m/s",
+    "prior": "acceleration of the droplet = 9.7m/s^2",
+    "depth_info": "t=0s, distance_droplet_camera = 0.156m   \nt=0.1s, distance_droplet_camera = 0.186m"
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":1445,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"droplet\"],\"dimension\":\"\",\"time\":0.2,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"droplet\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":9.7,\"unit\":\"\"},\"depth\":[{\"object\":\"droplet\",\"distance_m\":0.156,\"time\":0},{\"object\":\"droplet\",\"distance_m\":0.186,\"time\":0.1}],\"notes\":\"Droplet leaves frame after ~0.15s; speed at 0.2s extrapolated assuming free fall from rest near t=0.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"droplet\",\"obs\":[{\"frame\":0,\"point\":[350,276],\"extent\":null,\"box\":[331,250,370,302]},{\"frame\":1,\"point\":[350,287],\"extent\":null,\"box\":[331,262,371,313]},{\"frame\":2,\"point\":[352,313],\"extent\":null,\"box\":[333,287,372,341]},{\"frame\":3,\"point\":[354,357],\"extent\":null,\"box\":[335,333,374,383]},{\"frame\":4,\"point\":[357,417],\"extent\":null,\"box\":[338,393,376,441]},{\"frame\":5,\"point\":[360,486],\"extent\":null,\"box\":[342,463,378,510]},{\"frame\":6,\"point\":[362,563],\"extent\":null,\"box\":[346,541,380,586]},{\"frame\":7,\"point\":[366,645],\"extent\":null,\"box\":[352,624,382,665]},{\"frame\":8,\"point\":[370,728],\"extent\":null,\"box\":[357,710,384,746]},{\"frame\":9,\"point\":[375,810],\"extent\":null,\"box\":[362,793,389,826]}]},{\"role\":\"target\",\"object\":\"droplet\",\"obs\":[]}],\"direct_answer\":1.94,\"confidence\":0.5},{\"qid\":1446,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"droplet\"],\"dimension\":\"\",\"time\":0.05,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"droplet\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":9.7,\"unit\":\"\"},\"depth\":[{\"object\":\"droplet\",\"distance_m\":0.156,\"time\":0},{\"object\":\"droplet\",\"distance_m\":0.186,\"time\":0.1}],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"droplet\",\"obs\":[]},{\"role\":\"target\",\"object\":\"droplet\",\"obs\":[]}],\"direct_answer\":0.49,\"confidence\":0.45},{\"qid\":1447,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"droplet\"],\"dimension\":\"\",\"time\":0.1,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"droplet\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":9.7,\"unit\":\"\"},\"depth\":[{\"object\":\"droplet\",\"distance_m\":0.156,\"time\":0},{\"object\":\"droplet\",\"distance_m\":0.186,\"time\":0.1}],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"droplet\",\"obs\":[]},{\"role\":\"target\",\"object\":\"droplet\",\"obs\":[]}],\"direct_answer\":0.97,\"confidence\":0.5}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 1445,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "droplet"
+      ],
+      "dimension": "",
+      "time": 0.2,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "droplet"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": 9.7,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "droplet",
+       "distance_m": 0.156,
+       "time": 0
+      },
+      {
+       "object": "droplet",
+       "distance_m": 0.186,
+       "time": 0.1
+      }
+     ],
+     "notes": "Droplet leaves frame after ~0.15s; speed at 0.2s extrapolated assuming free fall from rest near t=0."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "droplet",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         350,
+         276
+        ],
+        "extent": null,
+        "box": [
+         331,
+         250,
+         370,
+         302
+        ]
+       },
+       {
+        "frame": 1,
+        "point": [
+         350,
+         287
+        ],
+        "extent": null,
+        "box": [
+         331,
+         262,
+         371,
+         313
+        ]
+       },
+       {
+        "frame": 2,
+        "point": [
+         352,
+         313
+        ],
+        "extent": null,
+        "box": [
+         333,
+         287,
+         372,
+         341
+        ]
+       },
+       {
+        "frame": 3,
+        "point": [
+         354,
+         357
+        ],
+        "extent": null,
+        "box": [
+         335,
+         333,
+         374,
+         383
+        ]
+       },
+       {
+        "frame": 4,
+        "point": [
+         357,
+         417
+        ],
+        "extent": null,
+        "box": [
+         338,
+         393,
+         376,
+         441
+        ]
+       },
+       {
+        "frame": 5,
+        "point": [
+         360,
+         486
+        ],
+        "extent": null,
+        "box": [
+         342,
+         463,
+         378,
+         510
+        ]
+       },
+       {
+        "frame": 6,
+        "point": [
+         362,
+         563
+        ],
+        "extent": null,
+        "box": [
+         346,
+         541,
+         380,
+         586
+        ]
+       },
+       {
+        "frame": 7,
+        "point": [
+         366,
+         645
+        ],
+        "extent": null,
+        "box": [
+         352,
+         624,
+         382,
+         665
+        ]
+       },
+       {
+        "frame": 8,
+        "point": [
+         370,
+         728
+        ],
+        "extent": null,
+        "box": [
+         357,
+         710,
+         384,
+         746
+        ]
+       },
+       {
+        "frame": 9,
+        "point": [
+         375,
+         810
+        ],
+        "extent": null,
+        "box": [
+         362,
+         793,
+         389,
+         826
+        ]
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "droplet",
+      "obs": []
+     }
+    ],
+    "direct_answer": 1.94,
+    "confidence": 0.5
+   },
+   {
+    "qid": 1446,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "droplet"
+      ],
+      "dimension": "",
+      "time": 0.05,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "droplet"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": 9.7,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "droplet",
+       "distance_m": 0.156,
+       "time": 0
+      },
+      {
+       "object": "droplet",
+       "distance_m": 0.186,
+       "time": 0.1
+      }
+     ],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "droplet",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "droplet",
+      "obs": []
+     }
+    ],
+    "direct_answer": 0.49,
+    "confidence": 0.45
+   },
+   {
+    "qid": 1447,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "droplet"
+      ],
+      "dimension": "",
+      "time": 0.1,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "droplet"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": 9.7,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "droplet",
+       "distance_m": 0.156,
+       "time": 0
+      },
+      {
+       "object": "droplet",
+       "distance_m": 0.186,
+       "time": 0.1
+      }
+     ],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "droplet",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "droplet",
+      "obs": []
+     }
+    ],
+    "direct_answer": 0.97,
+    "confidence": 0.5
+   }
+  ]
+ }
+}

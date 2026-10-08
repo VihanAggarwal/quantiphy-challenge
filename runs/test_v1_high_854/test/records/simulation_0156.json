@@ -1,0 +1,683 @@
+{
+ "video_id": "simulation_0156",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfpyTiYrt1wwNAjde1BYf",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 854
+ },
+ "ts": "2026-10-08T17:05:36+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_019AL58i4xaJ3z5B8eH4maJp",
+ "custom_id": "simulation_0156",
+ "usage": {
+  "input_tokens": 10702,
+  "output_tokens": 3102,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 4317,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.052856,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0156",
+  "fps": 24.0,
+  "fps_from_container": false,
+  "video_type": "V2MS",
+  "n_frames_total": 48,
+  "scale": 0.44479166666666664,
+  "image_size": [
+   1920,
+   1079
+  ],
+  "frames": [
+   0,
+   3,
+   6,
+   9,
+   13,
+   16,
+   19,
+   22,
+   24,
+   25,
+   26,
+   28,
+   31,
+   34,
+   38,
+   41,
+   44,
+   47
+  ],
+  "questions": [
+   {
+    "qid": 357,
+    "target_unit": "m",
+    "prior": "speed of the shark = 7 m/s",
+    "depth_info": ""
+   },
+   {
+    "qid": 358,
+    "target_unit": "m",
+    "prior": "speed of the shark = 7 m/s",
+    "depth_info": ""
+   },
+   {
+    "qid": 359,
+    "target_unit": "m/s",
+    "prior": "speed of the shark = 7 m/s",
+    "depth_info": ""
+   },
+   {
+    "qid": 360,
+    "target_unit": "m",
+    "prior": "speed of the shark = 7 m/s",
+    "depth_info": ""
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":357,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"shark\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"shark\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":7,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"shark\",\"obs\":[{\"frame\":0,\"point\":[793,140],\"extent\":null,\"box\":null},{\"frame\":3,\"point\":[715,140],\"extent\":null,\"box\":null},{\"frame\":6,\"point\":[638,140],\"extent\":null,\"box\":null},{\"frame\":9,\"point\":[561,138],\"extent\":null,\"box\":null},{\"frame\":13,\"point\":[459,136],\"extent\":null,\"box\":null},{\"frame\":16,\"point\":[384,136],\"extent\":null,\"box\":null},{\"frame\":19,\"point\":[307,140],\"extent\":null,\"box\":null},{\"frame\":22,\"point\":[243,143],\"extent\":null,\"box\":null},{\"frame\":24,\"point\":[178,141],\"extent\":null,\"box\":null},{\"frame\":25,\"point\":[150,141],\"extent\":null,\"box\":null},{\"frame\":26,\"point\":[128,141],\"extent\":null,\"box\":null},{\"frame\":28,\"point\":[75,141],\"extent\":null,\"box\":null}]},{\"role\":\"target\",\"object\":\"shark\",\"obs\":[{\"frame\":19,\"point\":null,\"extent\":[[307,140],[712,90]],\"box\":[307,72,714,192]},{\"frame\":22,\"point\":null,\"extent\":[[243,143],[633,90]],\"box\":[243,72,634,192]},{\"frame\":24,\"point\":null,\"extent\":[[178,141],[580,90]],\"box\":[178,72,581,192]},{\"frame\":26,\"point\":null,\"extent\":[[128,141],[527,91]],\"box\":[128,72,528,192]},{\"frame\":28,\"point\":null,\"extent\":[[75,141],[475,92]],\"box\":[75,72,476,192]}]}],\"direct_answer\":4.59,\"confidence\":0.6},{\"qid\":358,\"spec\":{\"target\":{\"kind\":\"displacement\",\"objects\":[\"shark\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"shark\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":7,\"unit\":\"\"},\"depth\":[],\"notes\":\"No time window given; assumed whole clip.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"shark\",\"obs\":[]},{\"role\":\"target\",\"object\":\"shark\",\"obs\":[]}],\"direct_answer\":13.7,\"confidence\":0.45},{\"qid\":359,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"turtle\"],\"dimension\":\"\",\"time\":1.0,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"shark\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":7,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"shark\",\"obs\":[]},{\"role\":\"target\",\"object\":\"turtle\",\"obs\":[{\"frame\":16,\"point\":[650,240],\"extent\":null,\"box\":null},{\"frame\":19,\"point\":[626,240],\"extent\":null,\"box\":null},{\"frame\":22,\"point\":[605,239],\"extent\":null,\"box\":null},{\"frame\":24,\"point\":[584,236],\"extent\":null,\"box\":null},{\"frame\":25,\"point\":[574,234],\"extent\":null,\"box\":null},{\"frame\":26,\"point\":[564,233],\"extent\":null,\"box\":null},{\"frame\":28,\"point\":[545,232],\"extent\":null,\"box\":null},{\"frame\":31,\"point\":[515,232],\"extent\":null,\"box\":null},{\"frame\":34,\"point\":[486,233],\"extent\":null,\"box\":null},{\"frame\":38,\"point\":[447,236],\"extent\":null,\"box\":null},{\"frame\":41,\"point\":[412,240],\"extent\":null,\"box\":null},{\"frame\":44,\"point\":[383,236],\"extent\":null,\"box\":null},{\"frame\":47,\"point\":[355,232],\"extent\":null,\"box\":null}]}],\"direct_answer\":2.74,\"confidence\":0.5},{\"qid\":360,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"turtle\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"shark\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":7,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"shark\",\"obs\":[]},{\"role\":\"target\",\"object\":\"turtle\",\"obs\":[{\"frame\":34,\"point\":null,\"extent\":[[483,236],[612,262]],\"box\":[480,220,613,294]},{\"frame\":38,\"point\":null,\"extent\":[[444,238],[573,262]],\"box\":[440,220,574,278]},{\"frame\":41,\"point\":null,\"extent\":[[410,245],[545,262]],\"box\":[408,220,546,278]},{\"frame\":44,\"point\":null,\"extent\":[[381,236],[515,262]],\"box\":[380,219,516,278]}]}],\"direct_answer\":1.52,\"confidence\":0.5}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 357,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "shark"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "shark"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 7,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "shark",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         793,
+         140
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 3,
+        "point": [
+         715,
+         140
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 6,
+        "point": [
+         638,
+         140
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 9,
+        "point": [
+         561,
+         138
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 13,
+        "point": [
+         459,
+         136
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 16,
+        "point": [
+         384,
+         136
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 19,
+        "point": [
+         307,
+         140
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 22,
+        "point": [
+         243,
+         143
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 24,
+        "point": [
+         178,
+         141
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 25,
+        "point": [
+         150,
+         141
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 26,
+        "point": [
+         128,
+         141
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 28,
+        "point": [
+         75,
+         141
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "shark",
+      "obs": [
+       {
+        "frame": 19,
+        "point": null,
+        "extent": [
+         [
+          307,
+          140
+         ],
+         [
+          712,
+          90
+         ]
+        ],
+        "box": [
+         307,
+         72,
+         714,
+         192
+        ]
+       },
+       {
+        "frame": 22,
+        "point": null,
+        "extent": [
+         [
+          243,
+          143
+         ],
+         [
+          633,
+          90
+         ]
+        ],
+        "box": [
+         243,
+         72,
+         634,
+         192
+        ]
+       },
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          178,
+          141
+         ],
+         [
+          580,
+          90
+         ]
+        ],
+        "box": [
+         178,
+         72,
+         581,
+         192
+        ]
+       },
+       {
+        "frame": 26,
+        "point": null,
+        "extent": [
+         [
+          128,
+          141
+         ],
+         [
+          527,
+          91
+         ]
+        ],
+        "box": [
+         128,
+         72,
+         528,
+         192
+        ]
+       },
+       {
+        "frame": 28,
+        "point": null,
+        "extent": [
+         [
+          75,
+          141
+         ],
+         [
+          475,
+          92
+         ]
+        ],
+        "box": [
+         75,
+         72,
+         476,
+         192
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 4.59,
+    "confidence": 0.6
+   },
+   {
+    "qid": 358,
+    "spec": {
+     "target": {
+      "kind": "displacement",
+      "objects": [
+       "shark"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "shark"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 7,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "No time window given; assumed whole clip."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "shark",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "shark",
+      "obs": []
+     }
+    ],
+    "direct_answer": 13.7,
+    "confidence": 0.45
+   },
+   {
+    "qid": 359,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "turtle"
+      ],
+      "dimension": "",
+      "time": 1.0,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "shark"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 7,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "shark",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "turtle",
+      "obs": [
+       {
+        "frame": 16,
+        "point": [
+         650,
+         240
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 19,
+        "point": [
+         626,
+         240
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 22,
+        "point": [
+         605,
+         239
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 24,
+        "point": [
+         584,
+         236
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 25,
+        "point": [
+         574,
+         234
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 26,
+        "point": [
+         564,
+         233
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 28,
+        "point": [
+         545,
+         232
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 31,
+        "point": [
+         515,
+         232
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 34,
+        "point": [
+         486,
+         233
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 38,
+        "point": [
+         447,
+         236
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 41,
+        "point": [
+         412,
+         240
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 44,
+        "point": [
+         383,
+         236
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 47,
+        "point": [
+         355,
+         232
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     }
+    ],
+    "direct_answer": 2.74,
+    "confidence": 0.5
+   },
+   {
+    "qid": 360,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "turtle"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "shark"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 7,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "shark",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "turtle",
+      "obs": [
+       {
+        "frame": 34,
+        "point": null,
+        "extent": [
+         [
+          483,
+          236
+         ],
+         [
+          612,
+          262
+         ]
+        ],
+        "box": [
+         480,
+         220,
+         613,
+         294
+        ]
+       },
+       {
+        "frame": 38,
+        "point": null,
+        "extent": [
+         [
+          444,
+          238
+         ],
+         [
+          573,
+          262
+         ]
+        ],
+        "box": [
+         440,
+         220,
+         574,
+         278
+        ]
+       },
+       {
+        "frame": 41,
+        "point": null,
+        "extent": [
+         [
+          410,
+          245
+         ],
+         [
+          545,
+          262
+         ]
+        ],
+        "box": [
+         408,
+         220,
+         546,
+         278
+        ]
+       },
+       {
+        "frame": 44,
+        "point": null,
+        "extent": [
+         [
+          381,
+          236
+         ],
+         [
+          515,
+          262
+         ]
+        ],
+        "box": [
+         380,
+         219,
+         516,
+         278
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 1.52,
+    "confidence": 0.5
+   }
+  ]
+ }
+}

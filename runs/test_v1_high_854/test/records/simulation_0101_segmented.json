@@ -1,0 +1,755 @@
+{
+ "video_id": "simulation_0101_segmented",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfprrezNfeYMXsEhRJMrS",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 854
+ },
+ "ts": "2026-10-08T17:22:06+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_01MS9n87X5KQKoNuAy4MdC7u",
+ "custom_id": "simulation_0101_segmented",
+ "usage": {
+  "input_tokens": 9634,
+  "output_tokens": 3073,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 4317,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.05043,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0101_segmented",
+  "fps": 24.0,
+  "fps_from_container": false,
+  "video_type": "A2MX",
+  "n_frames_total": 73,
+  "scale": 0.44479166666666664,
+  "image_size": [
+   1920,
+   1079
+  ],
+  "frames": [
+   0,
+   5,
+   10,
+   14,
+   19,
+   24,
+   29,
+   34,
+   38,
+   43,
+   48,
+   53,
+   58,
+   62,
+   67,
+   72
+  ],
+  "questions": [
+   {
+    "qid": 1796,
+    "target_unit": "m/s",
+    "prior": "acceleration of the shark = 1m/s^2",
+    "depth_info": ""
+   },
+   {
+    "qid": 1797,
+    "target_unit": "m/s",
+    "prior": "acceleration of the shark = 1m/s^2",
+    "depth_info": ""
+   },
+   {
+    "qid": 1798,
+    "target_unit": "m",
+    "prior": "acceleration of the shark = 1m/s^2",
+    "depth_info": ""
+   },
+   {
+    "qid": 1799,
+    "target_unit": "m",
+    "prior": "acceleration of the shark = 1m/s^2",
+    "depth_info": ""
+   },
+   {
+    "qid": 1800,
+    "target_unit": "m",
+    "prior": "acceleration of the shark = 1m/s^2",
+    "depth_info": ""
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":1796,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"shark\"],\"dimension\":\"\",\"time\":0,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"shark\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":1,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"shark\",\"obs\":[{\"frame\":0,\"point\":[677,402],\"extent\":null,\"box\":null},{\"frame\":5,\"point\":[664,402],\"extent\":null,\"box\":null},{\"frame\":10,\"point\":[646,402],\"extent\":null,\"box\":null},{\"frame\":14,\"point\":[630,402],\"extent\":null,\"box\":null},{\"frame\":19,\"point\":[609,402],\"extent\":null,\"box\":null},{\"frame\":24,\"point\":[585,402],\"extent\":null,\"box\":null},{\"frame\":29,\"point\":[561,402],\"extent\":null,\"box\":null},{\"frame\":34,\"point\":[535,402],\"extent\":null,\"box\":null},{\"frame\":38,\"point\":[512,402],\"extent\":null,\"box\":null},{\"frame\":43,\"point\":[483,402],\"extent\":null,\"box\":null},{\"frame\":48,\"point\":[452,402],\"extent\":null,\"box\":null},{\"frame\":53,\"point\":[419,402],\"extent\":null,\"box\":null},{\"frame\":58,\"point\":[385,402],\"extent\":null,\"box\":null},{\"frame\":62,\"point\":[356,402],\"extent\":null,\"box\":null},{\"frame\":67,\"point\":[318,402],\"extent\":null,\"box\":null},{\"frame\":72,\"point\":[279,402],\"extent\":null,\"box\":null}]},{\"role\":\"target\",\"object\":\"shark\",\"obs\":[]}],\"direct_answer\":1.78,\"confidence\":0.6},{\"qid\":1797,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"boat\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"shark\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":1,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"shark\",\"obs\":[]},{\"role\":\"target\",\"object\":\"boat\",\"obs\":[{\"frame\":0,\"point\":[666,160],\"extent\":null,\"box\":null},{\"frame\":10,\"point\":[596,160],\"extent\":null,\"box\":null},{\"frame\":24,\"point\":[484,160],\"extent\":null,\"box\":null},{\"frame\":34,\"point\":[405,160],\"extent\":null,\"box\":null},{\"frame\":48,\"point\":[293,160],\"extent\":null,\"box\":null},{\"frame\":58,\"point\":[213,160],\"extent\":null,\"box\":null},{\"frame\":72,\"point\":[102,160],\"extent\":null,\"box\":null}]}],\"direct_answer\":4.65,\"confidence\":0.55},{\"qid\":1798,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"boat\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"shark\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":1,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"shark\",\"obs\":[]},{\"role\":\"target\",\"object\":\"boat\",\"obs\":[{\"frame\":34,\"point\":null,\"extent\":[[405,160],[784,235]],\"box\":[405,160,784,284]},{\"frame\":48,\"point\":null,\"extent\":[[293,160],[672,235]],\"box\":[293,160,672,284]},{\"frame\":72,\"point\":null,\"extent\":[[102,160],[481,235]],\"box\":[102,160,481,285]}]}],\"direct_answer\":9.4,\"confidence\":0.5},{\"qid\":1799,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"shark\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"shark\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":1,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"shark\",\"obs\":[]},{\"role\":\"target\",\"object\":\"shark\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[677,404],[801,400]],\"box\":[677,379,801,424]},{\"frame\":24,\"point\":null,\"extent\":[[585,404],[708,400]],\"box\":[585,379,708,424]},{\"frame\":48,\"point\":null,\"extent\":[[452,404],[575,400]],\"box\":[452,379,575,424]},{\"frame\":72,\"point\":null,\"extent\":[[279,404],[403,400]],\"box\":[279,379,403,424]}]}],\"direct_answer\":3.07,\"confidence\":0.55},{\"qid\":1800,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"shark\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"shark\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":1,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"shark\",\"obs\":[]},{\"role\":\"target\",\"object\":\"shark\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[730,379],[730,424]],\"box\":[677,379,801,424]},{\"frame\":24,\"point\":null,\"extent\":[[636,379],[636,424]],\"box\":[585,379,708,424]},{\"frame\":48,\"point\":null,\"extent\":[[503,379],[503,424]],\"box\":[452,379,575,424]},{\"frame\":72,\"point\":null,\"extent\":[[330,379],[330,424]],\"box\":[279,379,403,424]}]}],\"direct_answer\":1.11,\"confidence\":0.45}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 1796,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "shark"
+      ],
+      "dimension": "",
+      "time": 0,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "shark"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 1,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "shark",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         677,
+         402
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 5,
+        "point": [
+         664,
+         402
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 10,
+        "point": [
+         646,
+         402
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 14,
+        "point": [
+         630,
+         402
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 19,
+        "point": [
+         609,
+         402
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 24,
+        "point": [
+         585,
+         402
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 29,
+        "point": [
+         561,
+         402
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 34,
+        "point": [
+         535,
+         402
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 38,
+        "point": [
+         512,
+         402
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 43,
+        "point": [
+         483,
+         402
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 48,
+        "point": [
+         452,
+         402
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 53,
+        "point": [
+         419,
+         402
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 58,
+        "point": [
+         385,
+         402
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 62,
+        "point": [
+         356,
+         402
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 67,
+        "point": [
+         318,
+         402
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 72,
+        "point": [
+         279,
+         402
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "shark",
+      "obs": []
+     }
+    ],
+    "direct_answer": 1.78,
+    "confidence": 0.6
+   },
+   {
+    "qid": 1797,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "boat"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "shark"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 1,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "shark",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "boat",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         666,
+         160
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 10,
+        "point": [
+         596,
+         160
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 24,
+        "point": [
+         484,
+         160
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 34,
+        "point": [
+         405,
+         160
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 48,
+        "point": [
+         293,
+         160
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 58,
+        "point": [
+         213,
+         160
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 72,
+        "point": [
+         102,
+         160
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     }
+    ],
+    "direct_answer": 4.65,
+    "confidence": 0.55
+   },
+   {
+    "qid": 1798,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "boat"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "shark"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 1,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "shark",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "boat",
+      "obs": [
+       {
+        "frame": 34,
+        "point": null,
+        "extent": [
+         [
+          405,
+          160
+         ],
+         [
+          784,
+          235
+         ]
+        ],
+        "box": [
+         405,
+         160,
+         784,
+         284
+        ]
+       },
+       {
+        "frame": 48,
+        "point": null,
+        "extent": [
+         [
+          293,
+          160
+         ],
+         [
+          672,
+          235
+         ]
+        ],
+        "box": [
+         293,
+         160,
+         672,
+         284
+        ]
+       },
+       {
+        "frame": 72,
+        "point": null,
+        "extent": [
+         [
+          102,
+          160
+         ],
+         [
+          481,
+          235
+         ]
+        ],
+        "box": [
+         102,
+         160,
+         481,
+         285
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 9.4,
+    "confidence": 0.5
+   },
+   {
+    "qid": 1799,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "shark"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "shark"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 1,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "shark",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "shark",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          677,
+          404
+         ],
+         [
+          801,
+          400
+         ]
+        ],
+        "box": [
+         677,
+         379,
+         801,
+         424
+        ]
+       },
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          585,
+          404
+         ],
+         [
+          708,
+          400
+         ]
+        ],
+        "box": [
+         585,
+         379,
+         708,
+         424
+        ]
+       },
+       {
+        "frame": 48,
+        "point": null,
+        "extent": [
+         [
+          452,
+          404
+         ],
+         [
+          575,
+          400
+         ]
+        ],
+        "box": [
+         452,
+         379,
+         575,
+         424
+        ]
+       },
+       {
+        "frame": 72,
+        "point": null,
+        "extent": [
+         [
+          279,
+          404
+         ],
+         [
+          403,
+          400
+         ]
+        ],
+        "box": [
+         279,
+         379,
+         403,
+         424
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 3.07,
+    "confidence": 0.55
+   },
+   {
+    "qid": 1800,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "shark"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "shark"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 1,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "shark",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "shark",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          730,
+          379
+         ],
+         [
+          730,
+          424
+         ]
+        ],
+        "box": [
+         677,
+         379,
+         801,
+         424
+        ]
+       },
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          636,
+          379
+         ],
+         [
+          636,
+          424
+         ]
+        ],
+        "box": [
+         585,
+         379,
+         708,
+         424
+        ]
+       },
+       {
+        "frame": 48,
+        "point": null,
+        "extent": [
+         [
+          503,
+          379
+         ],
+         [
+          503,
+          424
+         ]
+        ],
+        "box": [
+         452,
+         379,
+         575,
+         424
+        ]
+       },
+       {
+        "frame": 72,
+        "point": null,
+        "extent": [
+         [
+          330,
+          379
+         ],
+         [
+          330,
+          424
+         ]
+        ],
+        "box": [
+         279,
+         379,
+         403,
+         424
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 1.11,
+    "confidence": 0.45
+   }
+  ]
+ }
+}

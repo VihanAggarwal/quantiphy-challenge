@@ -1,0 +1,600 @@
+{
+ "video_id": "simulation_0129",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011Cfptf668uuGgEPvfZZjSY",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 854
+ },
+ "ts": "2026-10-08T16:53:50+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_01EK6rwK1z62Nk1x6w7FZeFC",
+ "custom_id": "simulation_0129",
+ "usage": {
+  "input_tokens": 9493,
+  "output_tokens": 2286,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 4317,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.042278,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0129",
+  "fps": 24.0,
+  "fps_from_container": false,
+  "video_type": "A2MC",
+  "n_frames_total": 40,
+  "scale": 0.44479166666666664,
+  "image_size": [
+   1920,
+   1079
+  ],
+  "frames": [
+   0,
+   3,
+   5,
+   8,
+   10,
+   13,
+   16,
+   18,
+   21,
+   23,
+   26,
+   29,
+   31,
+   34,
+   36,
+   39
+  ],
+  "questions": [
+   {
+    "qid": 298,
+    "target_unit": "m",
+    "prior": "gravity acceleration = 9.8m/s^2",
+    "depth_info": ""
+   },
+   {
+    "qid": 299,
+    "target_unit": "m",
+    "prior": "gravity acceleration = 9.8m/s^2",
+    "depth_info": ""
+   },
+   {
+    "qid": 300,
+    "target_unit": "m",
+    "prior": "gravity acceleration = 9.8m/s^2",
+    "depth_info": ""
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":298,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"ball\"],\"dimension\":\"diameter\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"ball\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":9.8,\"unit\":\"\"},\"depth\":[],\"notes\":\"Ball falls from rest near top; fitted ~226 px/s^2.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"ball\",\"obs\":[{\"frame\":0,\"point\":[425,38],\"extent\":null,\"box\":null},{\"frame\":3,\"point\":[425,40],\"extent\":null,\"box\":null},{\"frame\":5,\"point\":[425,43],\"extent\":null,\"box\":null},{\"frame\":8,\"point\":[425,49],\"extent\":null,\"box\":null},{\"frame\":10,\"point\":[425,57],\"extent\":null,\"box\":null},{\"frame\":13,\"point\":[425,70],\"extent\":null,\"box\":null},{\"frame\":16,\"point\":[425,88],\"extent\":null,\"box\":null},{\"frame\":18,\"point\":[425,101],\"extent\":null,\"box\":null},{\"frame\":21,\"point\":[425,124],\"extent\":null,\"box\":null},{\"frame\":23,\"point\":[425,142],\"extent\":null,\"box\":null},{\"frame\":26,\"point\":[425,170],\"extent\":null,\"box\":null},{\"frame\":29,\"point\":[425,203],\"extent\":null,\"box\":null},{\"frame\":31,\"point\":[425,227],\"extent\":null,\"box\":null},{\"frame\":34,\"point\":[425,265],\"extent\":null,\"box\":null},{\"frame\":36,\"point\":[425,292],\"extent\":null,\"box\":null}]},{\"role\":\"target\",\"object\":\"ball\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[420,38],[430,38]],\"box\":[420,33,430,43]},{\"frame\":23,\"point\":null,\"extent\":[[420,142],[430,142]],\"box\":[420,137,430,147]},{\"frame\":26,\"point\":null,\"extent\":[[420,170],[430,170]],\"box\":[420,165,430,175]},{\"frame\":31,\"point\":null,\"extent\":[[420,227],[430,227]],\"box\":[420,222,430,232]}]}],\"direct_answer\":0.43,\"confidence\":0.5},{\"qid\":299,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"forklift\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"ball\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":9.8,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"ball\",\"obs\":[]},{\"role\":\"target\",\"object\":\"forklift\",\"obs\":[{\"frame\":16,\"point\":null,\"extent\":[[70,398],[185,398]],\"box\":[70,322,185,413]},{\"frame\":23,\"point\":null,\"extent\":[[126,398],[240,398]],\"box\":[126,322,240,413]},{\"frame\":29,\"point\":null,\"extent\":[[190,398],[303,398]],\"box\":[190,322,303,413]},{\"frame\":36,\"point\":null,\"extent\":[[283,398],[395,398]],\"box\":[283,322,395,413]}]}],\"direct_answer\":4.9,\"confidence\":0.5},{\"qid\":300,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"forklift\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"ball\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":9.8,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"ball\",\"obs\":[]},{\"role\":\"target\",\"object\":\"forklift\",\"obs\":[{\"frame\":16,\"point\":null,\"extent\":[[130,322],[130,413]],\"box\":[70,322,185,413]},{\"frame\":23,\"point\":null,\"extent\":[[185,322],[185,413]],\"box\":[126,322,240,413]},{\"frame\":29,\"point\":null,\"extent\":[[248,322],[248,413]],\"box\":[190,322,303,413]},{\"frame\":36,\"point\":null,\"extent\":[[340,323],[340,413]],\"box\":[283,322,395,413]}]}],\"direct_answer\":3.9,\"confidence\":0.5}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 298,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "ball"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "ball"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": 9.8,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Ball falls from rest near top; fitted ~226 px/s^2."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "ball",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         425,
+         38
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 3,
+        "point": [
+         425,
+         40
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 5,
+        "point": [
+         425,
+         43
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 8,
+        "point": [
+         425,
+         49
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 10,
+        "point": [
+         425,
+         57
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 13,
+        "point": [
+         425,
+         70
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 16,
+        "point": [
+         425,
+         88
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 18,
+        "point": [
+         425,
+         101
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 21,
+        "point": [
+         425,
+         124
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 23,
+        "point": [
+         425,
+         142
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 26,
+        "point": [
+         425,
+         170
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 29,
+        "point": [
+         425,
+         203
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 31,
+        "point": [
+         425,
+         227
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 34,
+        "point": [
+         425,
+         265
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 36,
+        "point": [
+         425,
+         292
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "ball",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          420,
+          38
+         ],
+         [
+          430,
+          38
+         ]
+        ],
+        "box": [
+         420,
+         33,
+         430,
+         43
+        ]
+       },
+       {
+        "frame": 23,
+        "point": null,
+        "extent": [
+         [
+          420,
+          142
+         ],
+         [
+          430,
+          142
+         ]
+        ],
+        "box": [
+         420,
+         137,
+         430,
+         147
+        ]
+       },
+       {
+        "frame": 26,
+        "point": null,
+        "extent": [
+         [
+          420,
+          170
+         ],
+         [
+          430,
+          170
+         ]
+        ],
+        "box": [
+         420,
+         165,
+         430,
+         175
+        ]
+       },
+       {
+        "frame": 31,
+        "point": null,
+        "extent": [
+         [
+          420,
+          227
+         ],
+         [
+          430,
+          227
+         ]
+        ],
+        "box": [
+         420,
+         222,
+         430,
+         232
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 0.43,
+    "confidence": 0.5
+   },
+   {
+    "qid": 299,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "forklift"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "ball"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": 9.8,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "ball",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "forklift",
+      "obs": [
+       {
+        "frame": 16,
+        "point": null,
+        "extent": [
+         [
+          70,
+          398
+         ],
+         [
+          185,
+          398
+         ]
+        ],
+        "box": [
+         70,
+         322,
+         185,
+         413
+        ]
+       },
+       {
+        "frame": 23,
+        "point": null,
+        "extent": [
+         [
+          126,
+          398
+         ],
+         [
+          240,
+          398
+         ]
+        ],
+        "box": [
+         126,
+         322,
+         240,
+         413
+        ]
+       },
+       {
+        "frame": 29,
+        "point": null,
+        "extent": [
+         [
+          190,
+          398
+         ],
+         [
+          303,
+          398
+         ]
+        ],
+        "box": [
+         190,
+         322,
+         303,
+         413
+        ]
+       },
+       {
+        "frame": 36,
+        "point": null,
+        "extent": [
+         [
+          283,
+          398
+         ],
+         [
+          395,
+          398
+         ]
+        ],
+        "box": [
+         283,
+         322,
+         395,
+         413
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 4.9,
+    "confidence": 0.5
+   },
+   {
+    "qid": 300,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "forklift"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "ball"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": 9.8,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "ball",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "forklift",
+      "obs": [
+       {
+        "frame": 16,
+        "point": null,
+        "extent": [
+         [
+          130,
+          322
+         ],
+         [
+          130,
+          413
+         ]
+        ],
+        "box": [
+         70,
+         322,
+         185,
+         413
+        ]
+       },
+       {
+        "frame": 23,
+        "point": null,
+        "extent": [
+         [
+          185,
+          322
+         ],
+         [
+          185,
+          413
+         ]
+        ],
+        "box": [
+         126,
+         322,
+         240,
+         413
+        ]
+       },
+       {
+        "frame": 29,
+        "point": null,
+        "extent": [
+         [
+          248,
+          322
+         ],
+         [
+          248,
+          413
+         ]
+        ],
+        "box": [
+         190,
+         322,
+         303,
+         413
+        ]
+       },
+       {
+        "frame": 36,
+        "point": null,
+        "extent": [
+         [
+          340,
+          323
+         ],
+         [
+          340,
+          413
+         ]
+        ],
+        "box": [
+         283,
+         322,
+         395,
+         413
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 3.9,
+    "confidence": 0.5
+   }
+  ]
+ }
+}

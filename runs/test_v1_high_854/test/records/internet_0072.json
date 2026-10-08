@@ -1,0 +1,646 @@
+{
+ "video_id": "internet_0072",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011Cfq72sVsA5P7n42rbj3zd",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 854
+ },
+ "ts": "2026-10-08T16:43:22+00:00",
+ "mode": "sync",
+ "request_id": "req_011Cfq72sB1bTYZRHjFbiguX",
+ "usage": {
+  "input_tokens": 10758,
+  "output_tokens": 3017,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 4317,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.104235,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "internet_0072",
+  "fps": 30.0,
+  "fps_from_container": false,
+  "video_type": "S2SS",
+  "n_frames_total": 39,
+  "scale": 0.22239583333333332,
+  "image_size": [
+   2158,
+   3840
+  ],
+  "frames": [
+   0,
+   3,
+   5,
+   8,
+   10,
+   12,
+   13,
+   15,
+   18,
+   20,
+   23,
+   25,
+   27,
+   28,
+   30,
+   33,
+   35,
+   38
+  ],
+  "questions": [
+   {
+    "qid": 3271,
+    "target_unit": "cm",
+    "prior": "lenth of the credit card = 8.56 cm",
+    "depth_info": ""
+   },
+   {
+    "qid": 3272,
+    "target_unit": "cm/s",
+    "prior": "lenth of the credit card = 8.56 cm",
+    "depth_info": ""
+   },
+   {
+    "qid": 3273,
+    "target_unit": "cm/s",
+    "prior": "lenth of the credit card = 8.56 cm",
+    "depth_info": ""
+   },
+   {
+    "qid": 3274,
+    "target_unit": "cm/s^2",
+    "prior": "lenth of the credit card = 8.56 cm",
+    "depth_info": ""
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":3271,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"credit card\"],\"dimension\":\"width\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"cm\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"credit card\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.0856,\"unit\":\"\"},\"depth\":[],\"notes\":\"'lenth' typo for length; width taken as the short side of the card\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"credit card\",\"obs\":[{\"frame\":28,\"point\":null,\"extent\":[[213,470],[308,470]],\"box\":[213,438,308,502]},{\"frame\":30,\"point\":null,\"extent\":[[211,465],[304,465]],\"box\":[211,433,304,497]},{\"frame\":35,\"point\":null,\"extent\":[[207,458],[302,458]],\"box\":[207,425,302,491]},{\"frame\":38,\"point\":null,\"extent\":[[207,457],[301,457]],\"box\":[207,424,301,490]}]},{\"role\":\"target\",\"object\":\"credit card\",\"obs\":[{\"frame\":28,\"point\":null,\"extent\":[[240,438],[240,502]],\"box\":[213,438,308,502]},{\"frame\":30,\"point\":null,\"extent\":[[237,433],[237,497]],\"box\":[211,433,304,497]},{\"frame\":35,\"point\":null,\"extent\":[[234,425],[234,491]],\"box\":[207,425,302,491]},{\"frame\":38,\"point\":null,\"extent\":[[233,424],[233,490]],\"box\":[207,424,301,490]}]}],\"direct_answer\":5.9,\"confidence\":0.55},{\"qid\":3272,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"credit card\"],\"dimension\":\"\",\"time\":0.5,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"cm/s\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"credit card\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.0856,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"credit card\",\"obs\":[]},{\"role\":\"target\",\"object\":\"credit card\",\"obs\":[{\"frame\":8,\"point\":[356,624.5],\"extent\":null,\"box\":[315,589,397,660]},{\"frame\":10,\"point\":[339,594],\"extent\":null,\"box\":[297,560,381,628]},{\"frame\":12,\"point\":[325,571],\"extent\":null,\"box\":[283,537,367,605]},{\"frame\":13,\"point\":[318,558.5],\"extent\":null,\"box\":[276,525,360,592]},{\"frame\":15,\"point\":[304,537],\"extent\":null,\"box\":[260,504,348,570]},{\"frame\":18,\"point\":[286.5,513],\"extent\":null,\"box\":[241,481,332,545]},{\"frame\":20,\"point\":[279,500.5],\"extent\":null,\"box\":[233,468,325,533]},{\"frame\":23,\"point\":[270,486.5],\"extent\":null,\"box\":[224,454,316,519]},{\"frame\":25,\"point\":[266.5,479],\"extent\":null,\"box\":[220,447,313,511]},{\"frame\":27,\"point\":[262,473],\"extent\":null,\"box\":[215,441,309,505]},{\"frame\":28,\"point\":[260.5,470],\"extent\":null,\"box\":[213,438,308,502]},{\"frame\":30,\"point\":[257.5,465],\"extent\":null,\"box\":[211,433,304,497]},{\"frame\":33,\"point\":[255.5,460.5],\"extent\":null,\"box\":[208,428,303,493]},{\"frame\":35,\"point\":[254.5,458],\"extent\":null,\"box\":[207,425,302,491]},{\"frame\":38,\"point\":[254,457],\"extent\":null,\"box\":[207,424,301,490]}]}],\"direct_answer\":31,\"confidence\":0.4},{\"qid\":3273,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"credit card\"],\"dimension\":\"\",\"time\":1.0,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"cm/s\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"credit card\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.0856,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"credit card\",\"obs\":[]},{\"role\":\"target\",\"object\":\"credit card\",\"obs\":[]}],\"direct_answer\":6.2,\"confidence\":0.3},{\"qid\":3274,\"spec\":{\"target\":{\"kind\":\"acceleration\",\"objects\":[\"credit card\"],\"dimension\":\"\",\"time\":0.5,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"cm/s^2\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"credit card\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.0856,\"unit\":\"\"},\"depth\":[],\"notes\":\"card decelerating; magnitude given\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"credit card\",\"obs\":[]},{\"role\":\"target\",\"object\":\"credit card\",\"obs\":[]}],\"direct_answer\":70,\"confidence\":0.2}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 3271,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "credit card"
+      ],
+      "dimension": "width",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "cm"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "credit card"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.0856,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "'lenth' typo for length; width taken as the short side of the card"
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "credit card",
+      "obs": [
+       {
+        "frame": 28,
+        "point": null,
+        "extent": [
+         [
+          213,
+          470
+         ],
+         [
+          308,
+          470
+         ]
+        ],
+        "box": [
+         213,
+         438,
+         308,
+         502
+        ]
+       },
+       {
+        "frame": 30,
+        "point": null,
+        "extent": [
+         [
+          211,
+          465
+         ],
+         [
+          304,
+          465
+         ]
+        ],
+        "box": [
+         211,
+         433,
+         304,
+         497
+        ]
+       },
+       {
+        "frame": 35,
+        "point": null,
+        "extent": [
+         [
+          207,
+          458
+         ],
+         [
+          302,
+          458
+         ]
+        ],
+        "box": [
+         207,
+         425,
+         302,
+         491
+        ]
+       },
+       {
+        "frame": 38,
+        "point": null,
+        "extent": [
+         [
+          207,
+          457
+         ],
+         [
+          301,
+          457
+         ]
+        ],
+        "box": [
+         207,
+         424,
+         301,
+         490
+        ]
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "credit card",
+      "obs": [
+       {
+        "frame": 28,
+        "point": null,
+        "extent": [
+         [
+          240,
+          438
+         ],
+         [
+          240,
+          502
+         ]
+        ],
+        "box": [
+         213,
+         438,
+         308,
+         502
+        ]
+       },
+       {
+        "frame": 30,
+        "point": null,
+        "extent": [
+         [
+          237,
+          433
+         ],
+         [
+          237,
+          497
+         ]
+        ],
+        "box": [
+         211,
+         433,
+         304,
+         497
+        ]
+       },
+       {
+        "frame": 35,
+        "point": null,
+        "extent": [
+         [
+          234,
+          425
+         ],
+         [
+          234,
+          491
+         ]
+        ],
+        "box": [
+         207,
+         425,
+         302,
+         491
+        ]
+       },
+       {
+        "frame": 38,
+        "point": null,
+        "extent": [
+         [
+          233,
+          424
+         ],
+         [
+          233,
+          490
+         ]
+        ],
+        "box": [
+         207,
+         424,
+         301,
+         490
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 5.9,
+    "confidence": 0.55
+   },
+   {
+    "qid": 3272,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "credit card"
+      ],
+      "dimension": "",
+      "time": 0.5,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "cm/s"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "credit card"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.0856,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "credit card",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "credit card",
+      "obs": [
+       {
+        "frame": 8,
+        "point": [
+         356,
+         624.5
+        ],
+        "extent": null,
+        "box": [
+         315,
+         589,
+         397,
+         660
+        ]
+       },
+       {
+        "frame": 10,
+        "point": [
+         339,
+         594
+        ],
+        "extent": null,
+        "box": [
+         297,
+         560,
+         381,
+         628
+        ]
+       },
+       {
+        "frame": 12,
+        "point": [
+         325,
+         571
+        ],
+        "extent": null,
+        "box": [
+         283,
+         537,
+         367,
+         605
+        ]
+       },
+       {
+        "frame": 13,
+        "point": [
+         318,
+         558.5
+        ],
+        "extent": null,
+        "box": [
+         276,
+         525,
+         360,
+         592
+        ]
+       },
+       {
+        "frame": 15,
+        "point": [
+         304,
+         537
+        ],
+        "extent": null,
+        "box": [
+         260,
+         504,
+         348,
+         570
+        ]
+       },
+       {
+        "frame": 18,
+        "point": [
+         286.5,
+         513
+        ],
+        "extent": null,
+        "box": [
+         241,
+         481,
+         332,
+         545
+        ]
+       },
+       {
+        "frame": 20,
+        "point": [
+         279,
+         500.5
+        ],
+        "extent": null,
+        "box": [
+         233,
+         468,
+         325,
+         533
+        ]
+       },
+       {
+        "frame": 23,
+        "point": [
+         270,
+         486.5
+        ],
+        "extent": null,
+        "box": [
+         224,
+         454,
+         316,
+         519
+        ]
+       },
+       {
+        "frame": 25,
+        "point": [
+         266.5,
+         479
+        ],
+        "extent": null,
+        "box": [
+         220,
+         447,
+         313,
+         511
+        ]
+       },
+       {
+        "frame": 27,
+        "point": [
+         262,
+         473
+        ],
+        "extent": null,
+        "box": [
+         215,
+         441,
+         309,
+         505
+        ]
+       },
+       {
+        "frame": 28,
+        "point": [
+         260.5,
+         470
+        ],
+        "extent": null,
+        "box": [
+         213,
+         438,
+         308,
+         502
+        ]
+       },
+       {
+        "frame": 30,
+        "point": [
+         257.5,
+         465
+        ],
+        "extent": null,
+        "box": [
+         211,
+         433,
+         304,
+         497
+        ]
+       },
+       {
+        "frame": 33,
+        "point": [
+         255.5,
+         460.5
+        ],
+        "extent": null,
+        "box": [
+         208,
+         428,
+         303,
+         493
+        ]
+       },
+       {
+        "frame": 35,
+        "point": [
+         254.5,
+         458
+        ],
+        "extent": null,
+        "box": [
+         207,
+         425,
+         302,
+         491
+        ]
+       },
+       {
+        "frame": 38,
+        "point": [
+         254,
+         457
+        ],
+        "extent": null,
+        "box": [
+         207,
+         424,
+         301,
+         490
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 31,
+    "confidence": 0.4
+   },
+   {
+    "qid": 3273,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "credit card"
+      ],
+      "dimension": "",
+      "time": 1.0,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "cm/s"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "credit card"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.0856,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "credit card",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "credit card",
+      "obs": []
+     }
+    ],
+    "direct_answer": 6.2,
+    "confidence": 0.3
+   },
+   {
+    "qid": 3274,
+    "spec": {
+     "target": {
+      "kind": "acceleration",
+      "objects": [
+       "credit card"
+      ],
+      "dimension": "",
+      "time": 0.5,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "cm/s^2"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "credit card"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.0856,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "card decelerating; magnitude given"
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "credit card",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "credit card",
+      "obs": []
+     }
+    ],
+    "direct_answer": 70,
+    "confidence": 0.2
+   }
+  ]
+ }
+}

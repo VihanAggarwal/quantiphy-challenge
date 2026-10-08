@@ -1,0 +1,513 @@
+{
+ "video_id": "simulation_0282",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011Cfpt7N4S7YG2Gp69NafvN",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 854
+ },
+ "ts": "2026-10-08T17:02:28+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_014b6hUtpWseWVd7Ff4g8gtq",
+ "custom_id": "simulation_0282",
+ "usage": {
+  "input_tokens": 11813,
+  "output_tokens": 2041,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 4317,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.044468,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0282",
+  "fps": 24.0,
+  "fps_from_container": false,
+  "video_type": "V2SS",
+  "n_frames_total": 72,
+  "scale": 0.33359375,
+  "image_size": [
+   2560,
+   1439
+  ],
+  "frames": [
+   0,
+   5,
+   9,
+   10,
+   12,
+   14,
+   19,
+   22,
+   24,
+   26,
+   28,
+   33,
+   38,
+   43,
+   47,
+   52,
+   57,
+   62,
+   66,
+   71
+  ],
+  "questions": [
+   {
+    "qid": 992,
+    "target_unit": "m",
+    "prior": "speed of the dragon = 1.29m/s",
+    "depth_info": ""
+   },
+   {
+    "qid": 993,
+    "target_unit": "m",
+    "prior": "speed of the dragon = 1.29m/s",
+    "depth_info": ""
+   },
+   {
+    "qid": 994,
+    "target_unit": "m",
+    "prior": "speed of the dragon = 1.29m/s",
+    "depth_info": ""
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":992,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"dragon\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"dragon\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":1.29,\"unit\":\"\"},\"depth\":[],\"notes\":\"The prior speed is taken as the average over the clip. The body length is measured nose to tail tip.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"dragon\",\"obs\":[{\"frame\":0,\"point\":[722,237],\"extent\":null,\"box\":null},{\"frame\":5,\"point\":[674,238],\"extent\":null,\"box\":null},{\"frame\":9,\"point\":[627,240],\"extent\":null,\"box\":null},{\"frame\":10,\"point\":[614,241],\"extent\":null,\"box\":null},{\"frame\":12,\"point\":[592,241],\"extent\":null,\"box\":null},{\"frame\":14,\"point\":[570,241],\"extent\":null,\"box\":null},{\"frame\":19,\"point\":[516,241],\"extent\":null,\"box\":null},{\"frame\":22,\"point\":[483,240],\"extent\":null,\"box\":null},{\"frame\":24,\"point\":[460,240],\"extent\":null,\"box\":null},{\"frame\":26,\"point\":[438,237],\"extent\":null,\"box\":null},{\"frame\":28,\"point\":[417,237],\"extent\":null,\"box\":null},{\"frame\":33,\"point\":[357,234],\"extent\":null,\"box\":null},{\"frame\":38,\"point\":[300,233],\"extent\":null,\"box\":null},{\"frame\":43,\"point\":[245,233],\"extent\":null,\"box\":null},{\"frame\":47,\"point\":[196,234],\"extent\":null,\"box\":null},{\"frame\":52,\"point\":[141,236],\"extent\":null,\"box\":null},{\"frame\":57,\"point\":[86,237],\"extent\":null,\"box\":null},{\"frame\":62,\"point\":[28,236],\"extent\":null,\"box\":null}]},{\"role\":\"target\",\"object\":\"dragon body\",\"obs\":[{\"frame\":12,\"point\":null,\"extent\":[[592,241],[770,239]],\"box\":[557,113,770,378]},{\"frame\":14,\"point\":null,\"extent\":[[568,241],[743,242]],\"box\":[552,112,743,386]},{\"frame\":38,\"point\":null,\"extent\":[[300,233],[470,235]],\"box\":[288,86,470,380]}]}],\"direct_answer\":0.84,\"confidence\":0.5},{\"qid\":993,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"dragon\"],\"dimension\":\"wingspan\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"dragon\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":1.29,\"unit\":\"\"},\"depth\":[],\"notes\":\"The wingspan is measured at frames where the wings are fully spread.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"dragon\",\"obs\":[]},{\"role\":\"target\",\"object\":\"dragon wings\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[760,68],[742,412]],\"box\":[718,68,854,412]},{\"frame\":26,\"point\":null,\"extent\":[[478,66],[465,409]],\"box\":[430,66,593,409]},{\"frame\":28,\"point\":null,\"extent\":[[382,82],[382,386]],\"box\":[380,82,578,386]}]}],\"direct_answer\":1.63,\"confidence\":0.45},{\"qid\":994,\"spec\":{\"target\":{\"kind\":\"displacement\",\"objects\":[\"dragon\"],\"dimension\":\"\",\"time\":null,\"window\":[0.5,1.0],\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"dragon\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":1.29,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"dragon\",\"obs\":[]},{\"role\":\"target\",\"object\":\"dragon\",\"obs\":[]}],\"direct_answer\":0.64,\"confidence\":0.7}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 992,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "dragon"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "dragon"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 1.29,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "The prior speed is taken as the average over the clip. The body length is measured nose to tail tip."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "dragon",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         722,
+         237
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 5,
+        "point": [
+         674,
+         238
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 9,
+        "point": [
+         627,
+         240
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 10,
+        "point": [
+         614,
+         241
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 12,
+        "point": [
+         592,
+         241
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 14,
+        "point": [
+         570,
+         241
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 19,
+        "point": [
+         516,
+         241
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 22,
+        "point": [
+         483,
+         240
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 24,
+        "point": [
+         460,
+         240
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 26,
+        "point": [
+         438,
+         237
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 28,
+        "point": [
+         417,
+         237
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 33,
+        "point": [
+         357,
+         234
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 38,
+        "point": [
+         300,
+         233
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 43,
+        "point": [
+         245,
+         233
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 47,
+        "point": [
+         196,
+         234
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 52,
+        "point": [
+         141,
+         236
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 57,
+        "point": [
+         86,
+         237
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 62,
+        "point": [
+         28,
+         236
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "dragon body",
+      "obs": [
+       {
+        "frame": 12,
+        "point": null,
+        "extent": [
+         [
+          592,
+          241
+         ],
+         [
+          770,
+          239
+         ]
+        ],
+        "box": [
+         557,
+         113,
+         770,
+         378
+        ]
+       },
+       {
+        "frame": 14,
+        "point": null,
+        "extent": [
+         [
+          568,
+          241
+         ],
+         [
+          743,
+          242
+         ]
+        ],
+        "box": [
+         552,
+         112,
+         743,
+         386
+        ]
+       },
+       {
+        "frame": 38,
+        "point": null,
+        "extent": [
+         [
+          300,
+          233
+         ],
+         [
+          470,
+          235
+         ]
+        ],
+        "box": [
+         288,
+         86,
+         470,
+         380
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 0.84,
+    "confidence": 0.5
+   },
+   {
+    "qid": 993,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "dragon"
+      ],
+      "dimension": "wingspan",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "dragon"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 1.29,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "The wingspan is measured at frames where the wings are fully spread."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "dragon",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "dragon wings",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          760,
+          68
+         ],
+         [
+          742,
+          412
+         ]
+        ],
+        "box": [
+         718,
+         68,
+         854,
+         412
+        ]
+       },
+       {
+        "frame": 26,
+        "point": null,
+        "extent": [
+         [
+          478,
+          66
+         ],
+         [
+          465,
+          409
+         ]
+        ],
+        "box": [
+         430,
+         66,
+         593,
+         409
+        ]
+       },
+       {
+        "frame": 28,
+        "point": null,
+        "extent": [
+         [
+          382,
+          82
+         ],
+         [
+          382,
+          386
+         ]
+        ],
+        "box": [
+         380,
+         82,
+         578,
+         386
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 1.63,
+    "confidence": 0.45
+   },
+   {
+    "qid": 994,
+    "spec": {
+     "target": {
+      "kind": "displacement",
+      "objects": [
+       "dragon"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": [
+       0.5,
+       1.0
+      ],
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "dragon"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 1.29,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "dragon",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "dragon",
+      "obs": []
+     }
+    ],
+    "direct_answer": 0.64,
+    "confidence": 0.7
+   }
+  ]
+ }
+}

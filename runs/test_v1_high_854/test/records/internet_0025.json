@@ -1,0 +1,581 @@
+{
+ "video_id": "internet_0025",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011Cfq7GJabGstYWj1EHG4UA",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 854
+ },
+ "ts": "2026-10-08T17:01:24+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_01PjbQ7PFhZmxz7ogDdS6Ldo",
+ "custom_id": "internet_0025",
+ "usage": {
+  "input_tokens": 11223,
+  "output_tokens": 2234,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 4317,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.045218,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "internet_0025",
+  "fps": 30.0,
+  "fps_from_container": false,
+  "video_type": "S2SC",
+  "n_frames_total": 473,
+  "scale": 0.44479166666666664,
+  "image_size": [
+   1920,
+   1079
+  ],
+  "frames": [
+   0,
+   31,
+   63,
+   94,
+   126,
+   147,
+   150,
+   153,
+   157,
+   189,
+   220,
+   252,
+   283,
+   315,
+   346,
+   378,
+   409,
+   441,
+   472
+  ],
+  "questions": [
+   {
+    "qid": 2127,
+    "target_unit": "m",
+    "prior": "height of the boatman = 1.75m",
+    "depth_info": ""
+   },
+   {
+    "qid": 2128,
+    "target_unit": "m/s",
+    "prior": "height of the boatman = 1.75m",
+    "depth_info": ""
+   },
+   {
+    "qid": 2129,
+    "target_unit": "m",
+    "prior": "height of the boatman = 1.75m",
+    "depth_info": ""
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":2127,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"canoe\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"boatman\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":1.75,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"boatman\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[330,267],[330,292]],\"box\":[325,267,337,292]},{\"frame\":94,\"point\":null,\"extent\":[[362,266],[362,290]],\"box\":[357,266,368,290]},{\"frame\":150,\"point\":null,\"extent\":[[378,266],[378,290]],\"box\":[373,266,384,290]},{\"frame\":252,\"point\":null,\"extent\":[[417,265],[417,289]],\"box\":[412,265,423,289]},{\"frame\":409,\"point\":null,\"extent\":[[476,270],[476,293]],\"box\":[471,270,483,293]}]},{\"role\":\"target\",\"object\":\"canoe\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[311,295],[468,284]],\"box\":[311,283,468,300]},{\"frame\":150,\"point\":null,\"extent\":[[360,293],[516,278]],\"box\":[360,278,516,298]},{\"frame\":220,\"point\":null,\"extent\":[[387,293],[541,279]],\"box\":[387,279,541,298]},{\"frame\":472,\"point\":null,\"extent\":[[485,295],[636,280]],\"box\":[485,280,636,300]}]}],\"direct_answer\":11.3,\"confidence\":0.45},{\"qid\":2128,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"canoe\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"boatman\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":1.75,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"boatman\",\"obs\":[]},{\"role\":\"target\",\"object\":\"canoe bow\",\"obs\":[{\"frame\":0,\"point\":[468,284],\"extent\":null,\"box\":null},{\"frame\":31,\"point\":[479,283],\"extent\":null,\"box\":null},{\"frame\":63,\"point\":[489,282],\"extent\":null,\"box\":null},{\"frame\":94,\"point\":[498,281],\"extent\":null,\"box\":null},{\"frame\":126,\"point\":[508,279],\"extent\":null,\"box\":null},{\"frame\":147,\"point\":[515,278],\"extent\":null,\"box\":null},{\"frame\":150,\"point\":[516,278],\"extent\":null,\"box\":null},{\"frame\":153,\"point\":[517,278],\"extent\":null,\"box\":null},{\"frame\":157,\"point\":[518,279],\"extent\":null,\"box\":null},{\"frame\":189,\"point\":[530,279],\"extent\":null,\"box\":null},{\"frame\":220,\"point\":[541,279],\"extent\":null,\"box\":null},{\"frame\":252,\"point\":[553,278],\"extent\":null,\"box\":null},{\"frame\":283,\"point\":[564,279],\"extent\":null,\"box\":null},{\"frame\":315,\"point\":[574,279],\"extent\":null,\"box\":null},{\"frame\":346,\"point\":[586,280],\"extent\":null,\"box\":null},{\"frame\":378,\"point\":[598,281],\"extent\":null,\"box\":null},{\"frame\":409,\"point\":[611,281],\"extent\":null,\"box\":null},{\"frame\":441,\"point\":[625,281],\"extent\":null,\"box\":null},{\"frame\":472,\"point\":[636,280],\"extent\":null,\"box\":null}]}],\"direct_answer\":0.78,\"confidence\":0.4},{\"qid\":2129,\"spec\":{\"target\":{\"kind\":\"displacement\",\"objects\":[\"canoe\"],\"dimension\":\"\",\"time\":null,\"window\":[0,5],\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"boatman\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":1.75,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"boatman\",\"obs\":[]},{\"role\":\"target\",\"object\":\"canoe bow\",\"obs\":[]}],\"direct_answer\":3.5,\"confidence\":0.4}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 2127,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "canoe"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "boatman"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 1.75,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "boatman",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          330,
+          267
+         ],
+         [
+          330,
+          292
+         ]
+        ],
+        "box": [
+         325,
+         267,
+         337,
+         292
+        ]
+       },
+       {
+        "frame": 94,
+        "point": null,
+        "extent": [
+         [
+          362,
+          266
+         ],
+         [
+          362,
+          290
+         ]
+        ],
+        "box": [
+         357,
+         266,
+         368,
+         290
+        ]
+       },
+       {
+        "frame": 150,
+        "point": null,
+        "extent": [
+         [
+          378,
+          266
+         ],
+         [
+          378,
+          290
+         ]
+        ],
+        "box": [
+         373,
+         266,
+         384,
+         290
+        ]
+       },
+       {
+        "frame": 252,
+        "point": null,
+        "extent": [
+         [
+          417,
+          265
+         ],
+         [
+          417,
+          289
+         ]
+        ],
+        "box": [
+         412,
+         265,
+         423,
+         289
+        ]
+       },
+       {
+        "frame": 409,
+        "point": null,
+        "extent": [
+         [
+          476,
+          270
+         ],
+         [
+          476,
+          293
+         ]
+        ],
+        "box": [
+         471,
+         270,
+         483,
+         293
+        ]
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "canoe",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          311,
+          295
+         ],
+         [
+          468,
+          284
+         ]
+        ],
+        "box": [
+         311,
+         283,
+         468,
+         300
+        ]
+       },
+       {
+        "frame": 150,
+        "point": null,
+        "extent": [
+         [
+          360,
+          293
+         ],
+         [
+          516,
+          278
+         ]
+        ],
+        "box": [
+         360,
+         278,
+         516,
+         298
+        ]
+       },
+       {
+        "frame": 220,
+        "point": null,
+        "extent": [
+         [
+          387,
+          293
+         ],
+         [
+          541,
+          279
+         ]
+        ],
+        "box": [
+         387,
+         279,
+         541,
+         298
+        ]
+       },
+       {
+        "frame": 472,
+        "point": null,
+        "extent": [
+         [
+          485,
+          295
+         ],
+         [
+          636,
+          280
+         ]
+        ],
+        "box": [
+         485,
+         280,
+         636,
+         300
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 11.3,
+    "confidence": 0.45
+   },
+   {
+    "qid": 2128,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "canoe"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "boatman"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 1.75,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "boatman",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "canoe bow",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         468,
+         284
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 31,
+        "point": [
+         479,
+         283
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 63,
+        "point": [
+         489,
+         282
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 94,
+        "point": [
+         498,
+         281
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 126,
+        "point": [
+         508,
+         279
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 147,
+        "point": [
+         515,
+         278
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 150,
+        "point": [
+         516,
+         278
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 153,
+        "point": [
+         517,
+         278
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 157,
+        "point": [
+         518,
+         279
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 189,
+        "point": [
+         530,
+         279
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 220,
+        "point": [
+         541,
+         279
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 252,
+        "point": [
+         553,
+         278
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 283,
+        "point": [
+         564,
+         279
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 315,
+        "point": [
+         574,
+         279
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 346,
+        "point": [
+         586,
+         280
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 378,
+        "point": [
+         598,
+         281
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 409,
+        "point": [
+         611,
+         281
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 441,
+        "point": [
+         625,
+         281
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 472,
+        "point": [
+         636,
+         280
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     }
+    ],
+    "direct_answer": 0.78,
+    "confidence": 0.4
+   },
+   {
+    "qid": 2129,
+    "spec": {
+     "target": {
+      "kind": "displacement",
+      "objects": [
+       "canoe"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": [
+       0,
+       5
+      ],
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "boatman"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 1.75,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "boatman",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "canoe bow",
+      "obs": []
+     }
+    ],
+    "direct_answer": 3.5,
+    "confidence": 0.4
+   }
+  ]
+ }
+}

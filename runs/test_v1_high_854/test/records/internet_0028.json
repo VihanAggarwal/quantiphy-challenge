@@ -1,0 +1,344 @@
+{
+ "video_id": "internet_0028",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011Cfq6iy1Fes2B69yWdEsdB",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 854
+ },
+ "ts": "2026-10-08T16:39:15+00:00",
+ "mode": "sync",
+ "request_id": "req_011Cfq6ixfAKU8dBwdzjnoMh",
+ "usage": {
+  "input_tokens": 9440,
+  "output_tokens": 1834,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 4317,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.075303,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "internet_0028",
+  "fps": 24.0,
+  "fps_from_container": false,
+  "video_type": "V2MC",
+  "n_frames_total": 93,
+  "scale": 0.22239583333333332,
+  "image_size": [
+   3840,
+   2158
+  ],
+  "frames": [
+   0,
+   6,
+   12,
+   18,
+   25,
+   31,
+   37,
+   43,
+   49,
+   55,
+   61,
+   67,
+   74,
+   80,
+   86,
+   92
+  ],
+  "questions": [
+   {
+    "qid": 2995,
+    "target_unit": "m",
+    "prior": "velocity of the conveyer belt = 0.5 m/s",
+    "depth_info": ""
+   },
+   {
+    "qid": 2996,
+    "target_unit": "m",
+    "prior": "velocity of the conveyer belt = 0.5 m/s",
+    "depth_info": ""
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":2995,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"blue and grey bag\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"conveyer belt\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.5,\"unit\":\"\"},\"depth\":[],\"notes\":\"Belt speed measured by tracking orange suitcase luggage tag, which moves with the belt.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"orange suitcase tag\",\"obs\":[{\"frame\":25,\"point\":[62,354],\"extent\":null,\"box\":null},{\"frame\":31,\"point\":[167,354],\"extent\":null,\"box\":null},{\"frame\":37,\"point\":[269,352],\"extent\":null,\"box\":null},{\"frame\":43,\"point\":[371,350],\"extent\":null,\"box\":null},{\"frame\":49,\"point\":[470,349],\"extent\":null,\"box\":null},{\"frame\":55,\"point\":[567,348],\"extent\":null,\"box\":null},{\"frame\":61,\"point\":[666,348],\"extent\":null,\"box\":null},{\"frame\":67,\"point\":[761,346],\"extent\":null,\"box\":null}]},{\"role\":\"target\",\"object\":\"blue and grey bag\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[110,360],[688,400]],\"box\":[110,228,688,480]},{\"frame\":6,\"point\":null,\"extent\":[[205,360],[785,395]],\"box\":[205,230,785,480]}]}],\"direct_answer\":0.73,\"confidence\":0.5},{\"qid\":2996,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"orange suitcase\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"conveyer belt\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.5,\"unit\":\"\"},\"depth\":[],\"notes\":\"Only horizontal extent of suitcase fully visible; measured body without handle.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"orange suitcase tag\",\"obs\":[]},{\"role\":\"target\",\"object\":\"orange suitcase\",\"obs\":[{\"frame\":43,\"point\":null,\"extent\":[[95,340],[577,340]],\"box\":[95,207,577,480]},{\"frame\":49,\"point\":null,\"extent\":[[185,340],[668,340]],\"box\":[185,207,668,480]},{\"frame\":55,\"point\":null,\"extent\":[[283,340],[767,340]],\"box\":[283,207,767,480]}]}],\"direct_answer\":0.61,\"confidence\":0.45}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 2995,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "blue and grey bag"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "conveyer belt"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.5,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Belt speed measured by tracking orange suitcase luggage tag, which moves with the belt."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "orange suitcase tag",
+      "obs": [
+       {
+        "frame": 25,
+        "point": [
+         62,
+         354
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 31,
+        "point": [
+         167,
+         354
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 37,
+        "point": [
+         269,
+         352
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 43,
+        "point": [
+         371,
+         350
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 49,
+        "point": [
+         470,
+         349
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 55,
+        "point": [
+         567,
+         348
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 61,
+        "point": [
+         666,
+         348
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 67,
+        "point": [
+         761,
+         346
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "blue and grey bag",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          110,
+          360
+         ],
+         [
+          688,
+          400
+         ]
+        ],
+        "box": [
+         110,
+         228,
+         688,
+         480
+        ]
+       },
+       {
+        "frame": 6,
+        "point": null,
+        "extent": [
+         [
+          205,
+          360
+         ],
+         [
+          785,
+          395
+         ]
+        ],
+        "box": [
+         205,
+         230,
+         785,
+         480
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 0.73,
+    "confidence": 0.5
+   },
+   {
+    "qid": 2996,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "orange suitcase"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "conveyer belt"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.5,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Only horizontal extent of suitcase fully visible; measured body without handle."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "orange suitcase tag",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "orange suitcase",
+      "obs": [
+       {
+        "frame": 43,
+        "point": null,
+        "extent": [
+         [
+          95,
+          340
+         ],
+         [
+          577,
+          340
+         ]
+        ],
+        "box": [
+         95,
+         207,
+         577,
+         480
+        ]
+       },
+       {
+        "frame": 49,
+        "point": null,
+        "extent": [
+         [
+          185,
+          340
+         ],
+         [
+          668,
+          340
+         ]
+        ],
+        "box": [
+         185,
+         207,
+         668,
+         480
+        ]
+       },
+       {
+        "frame": 55,
+        "point": null,
+        "extent": [
+         [
+          283,
+          340
+         ],
+         [
+          767,
+          340
+         ]
+        ],
+        "box": [
+         283,
+         207,
+         767,
+         480
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 0.61,
+    "confidence": 0.45
+   }
+  ]
+ }
+}

@@ -1,0 +1,902 @@
+{
+ "video_id": "simulation_0257",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfptCcVES4EdmyETLQXLr",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 854
+ },
+ "ts": "2026-10-08T17:01:21+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_01M1yMGBb4cJ9XTrAwux87yk",
+ "custom_id": "simulation_0257",
+ "usage": {
+  "input_tokens": 12148,
+  "output_tokens": 3485,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 4317,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.059578,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0257",
+  "fps": 30.0,
+  "fps_from_container": false,
+  "video_type": "A2MC",
+  "n_frames_total": 40,
+  "scale": 0.44479166666666664,
+  "image_size": [
+   1920,
+   1079
+  ],
+  "frames": [
+   0,
+   3,
+   5,
+   6,
+   8,
+   9,
+   10,
+   12,
+   13,
+   15,
+   16,
+   18,
+   21,
+   23,
+   26,
+   29,
+   31,
+   34,
+   36,
+   39
+  ],
+  "questions": [
+   {
+    "qid": 883,
+    "target_unit": "m",
+    "prior": "acceleration of the plant before 0.5s = 9.8m/s^2",
+    "depth_info": ""
+   },
+   {
+    "qid": 884,
+    "target_unit": "m",
+    "prior": "acceleration of the plant before 0.5s = 9.8m/s^2",
+    "depth_info": ""
+   },
+   {
+    "qid": 885,
+    "target_unit": "m",
+    "prior": "acceleration of the plant before 0.5s = 9.8m/s^2",
+    "depth_info": ""
+   },
+   {
+    "qid": 886,
+    "target_unit": "m",
+    "prior": "acceleration of the plant before 0.5s = 9.8m/s^2",
+    "depth_info": ""
+   },
+   {
+    "qid": 887,
+    "target_unit": "m",
+    "prior": "acceleration of the plant before 0.5s = 9.8m/s^2",
+    "depth_info": ""
+   },
+   {
+    "qid": 888,
+    "target_unit": "m/s",
+    "prior": "acceleration of the plant before 0.5s = 9.8m/s^2",
+    "depth_info": ""
+   },
+   {
+    "qid": 889,
+    "target_unit": "m/s",
+    "prior": "acceleration of the plant before 0.5s = 9.8m/s^2",
+    "depth_info": ""
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":883,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"plant\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"plant\"],\"dimension\":\"\",\"time\":null,\"window\":[0,0.5],\"axis\":\"vertical\",\"value_si\":9.8,\"unit\":\"\"},\"depth\":[],\"notes\":\"Plant falls from rest from t=0 and lands on the table at about t=0.5s.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"plant\",\"obs\":[{\"frame\":0,\"point\":[474,27],\"extent\":null,\"box\":[464,11,484,42]},{\"frame\":3,\"point\":[474,40],\"extent\":null,\"box\":[464,25,484,55]},{\"frame\":5,\"point\":[474,65],\"extent\":null,\"box\":[464,51,484,79]},{\"frame\":6,\"point\":[474,82],\"extent\":null,\"box\":[464,68,484,97]},{\"frame\":8,\"point\":[474,126],\"extent\":null,\"box\":[464,111,484,141]},{\"frame\":9,\"point\":[474,151],\"extent\":null,\"box\":[464,137,484,165]},{\"frame\":10,\"point\":[474,180],\"extent\":null,\"box\":[464,166,484,194]},{\"frame\":12,\"point\":[474,249],\"extent\":null,\"box\":[464,235,484,263]},{\"frame\":13,\"point\":[474,287],\"extent\":null,\"box\":[464,273,484,301]}]},{\"role\":\"target\",\"object\":\"plant\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[474,11],[474,41]],\"box\":[464,11,484,41]},{\"frame\":9,\"point\":null,\"extent\":[[474,137],[474,165]],\"box\":[464,137,484,165]},{\"frame\":12,\"point\":null,\"extent\":[[474,235],[474,263]],\"box\":[464,235,484,263]},{\"frame\":15,\"point\":null,\"extent\":[[474,359],[474,387]],\"box\":[465,359,484,387]}]}],\"direct_answer\":0.1,\"confidence\":0.5},{\"qid\":884,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"plant\"],\"dimension\":\"diameter\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"plant\"],\"dimension\":\"\",\"time\":null,\"window\":[0,0.5],\"axis\":\"vertical\",\"value_si\":9.8,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"plant\",\"obs\":[]},{\"role\":\"target\",\"object\":\"plant\",\"obs\":[{\"frame\":9,\"point\":null,\"extent\":[[464.5,152],[483.5,152]],\"box\":[464,137,484,165]},{\"frame\":12,\"point\":null,\"extent\":[[464.5,250],[483.5,250]],\"box\":[464,235,484,263]},{\"frame\":15,\"point\":null,\"extent\":[[465,374],[484,374]],\"box\":[465,359,484,387]}]}],\"direct_answer\":0.067,\"confidence\":0.45},{\"qid\":885,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"table\"],\"dimension\":\"width\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"plant\"],\"dimension\":\"\",\"time\":null,\"window\":[0,0.5],\"axis\":\"vertical\",\"value_si\":9.8,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"plant\",\"obs\":[]},{\"role\":\"target\",\"object\":\"table\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[231,395],[685,395]],\"box\":[231,385,685,480]},{\"frame\":15,\"point\":null,\"extent\":[[231,395],[685,395]],\"box\":[231,385,685,480]},{\"frame\":39,\"point\":null,\"extent\":[[231,395],[685,395]],\"box\":[231,385,685,480]}]}],\"direct_answer\":1.59,\"confidence\":0.55},{\"qid\":886,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"AC\"],\"dimension\":\"width\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"plant\"],\"dimension\":\"\",\"time\":null,\"window\":[0,0.5],\"axis\":\"vertical\",\"value_si\":9.8,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"plant\",\"obs\":[]},{\"role\":\"target\",\"object\":\"AC\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[59,345],[284,345]],\"box\":[59,337,284,480]},{\"frame\":15,\"point\":null,\"extent\":[[59,345],[284,345]],\"box\":[59,337,284,480]},{\"frame\":39,\"point\":null,\"extent\":[[59,345],[284,345]],\"box\":[59,337,284,480]}]}],\"direct_answer\":0.79,\"confidence\":0.55},{\"qid\":887,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"phone\"],\"dimension\":\"width\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"plant\"],\"dimension\":\"\",\"time\":null,\"window\":[0,0.5],\"axis\":\"vertical\",\"value_si\":9.8,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"plant\",\"obs\":[]},{\"role\":\"target\",\"object\":\"phone\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[507,385],[527,385]],\"box\":[507,383,527,388]},{\"frame\":15,\"point\":null,\"extent\":[[507,385],[527,385]],\"box\":[507,383,527,388]},{\"frame\":39,\"point\":null,\"extent\":[[507,385],[527,385]],\"box\":[507,383,527,388]}]}],\"direct_answer\":0.07,\"confidence\":0.4},{\"qid\":888,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"plant\"],\"dimension\":\"\",\"time\":0.2,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"plant\"],\"dimension\":\"\",\"time\":null,\"window\":[0,0.5],\"axis\":\"vertical\",\"value_si\":9.8,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"plant\",\"obs\":[]},{\"role\":\"target\",\"object\":\"plant\",\"obs\":[]}],\"direct_answer\":1.95,\"confidence\":0.75},{\"qid\":889,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"plant\"],\"dimension\":\"\",\"time\":0.4,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"plant\"],\"dimension\":\"\",\"time\":null,\"window\":[0,0.5],\"axis\":\"vertical\",\"value_si\":9.8,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"plant\",\"obs\":[]},{\"role\":\"target\",\"object\":\"plant\",\"obs\":[]}],\"direct_answer\":3.9,\"confidence\":0.75}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 883,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "plant"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "plant"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": [
+       0,
+       0.5
+      ],
+      "axis": "vertical",
+      "value_si": 9.8,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Plant falls from rest from t=0 and lands on the table at about t=0.5s."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "plant",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         474,
+         27
+        ],
+        "extent": null,
+        "box": [
+         464,
+         11,
+         484,
+         42
+        ]
+       },
+       {
+        "frame": 3,
+        "point": [
+         474,
+         40
+        ],
+        "extent": null,
+        "box": [
+         464,
+         25,
+         484,
+         55
+        ]
+       },
+       {
+        "frame": 5,
+        "point": [
+         474,
+         65
+        ],
+        "extent": null,
+        "box": [
+         464,
+         51,
+         484,
+         79
+        ]
+       },
+       {
+        "frame": 6,
+        "point": [
+         474,
+         82
+        ],
+        "extent": null,
+        "box": [
+         464,
+         68,
+         484,
+         97
+        ]
+       },
+       {
+        "frame": 8,
+        "point": [
+         474,
+         126
+        ],
+        "extent": null,
+        "box": [
+         464,
+         111,
+         484,
+         141
+        ]
+       },
+       {
+        "frame": 9,
+        "point": [
+         474,
+         151
+        ],
+        "extent": null,
+        "box": [
+         464,
+         137,
+         484,
+         165
+        ]
+       },
+       {
+        "frame": 10,
+        "point": [
+         474,
+         180
+        ],
+        "extent": null,
+        "box": [
+         464,
+         166,
+         484,
+         194
+        ]
+       },
+       {
+        "frame": 12,
+        "point": [
+         474,
+         249
+        ],
+        "extent": null,
+        "box": [
+         464,
+         235,
+         484,
+         263
+        ]
+       },
+       {
+        "frame": 13,
+        "point": [
+         474,
+         287
+        ],
+        "extent": null,
+        "box": [
+         464,
+         273,
+         484,
+         301
+        ]
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "plant",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          474,
+          11
+         ],
+         [
+          474,
+          41
+         ]
+        ],
+        "box": [
+         464,
+         11,
+         484,
+         41
+        ]
+       },
+       {
+        "frame": 9,
+        "point": null,
+        "extent": [
+         [
+          474,
+          137
+         ],
+         [
+          474,
+          165
+         ]
+        ],
+        "box": [
+         464,
+         137,
+         484,
+         165
+        ]
+       },
+       {
+        "frame": 12,
+        "point": null,
+        "extent": [
+         [
+          474,
+          235
+         ],
+         [
+          474,
+          263
+         ]
+        ],
+        "box": [
+         464,
+         235,
+         484,
+         263
+        ]
+       },
+       {
+        "frame": 15,
+        "point": null,
+        "extent": [
+         [
+          474,
+          359
+         ],
+         [
+          474,
+          387
+         ]
+        ],
+        "box": [
+         465,
+         359,
+         484,
+         387
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 0.1,
+    "confidence": 0.5
+   },
+   {
+    "qid": 884,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "plant"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "plant"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": [
+       0,
+       0.5
+      ],
+      "axis": "vertical",
+      "value_si": 9.8,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "plant",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "plant",
+      "obs": [
+       {
+        "frame": 9,
+        "point": null,
+        "extent": [
+         [
+          464.5,
+          152
+         ],
+         [
+          483.5,
+          152
+         ]
+        ],
+        "box": [
+         464,
+         137,
+         484,
+         165
+        ]
+       },
+       {
+        "frame": 12,
+        "point": null,
+        "extent": [
+         [
+          464.5,
+          250
+         ],
+         [
+          483.5,
+          250
+         ]
+        ],
+        "box": [
+         464,
+         235,
+         484,
+         263
+        ]
+       },
+       {
+        "frame": 15,
+        "point": null,
+        "extent": [
+         [
+          465,
+          374
+         ],
+         [
+          484,
+          374
+         ]
+        ],
+        "box": [
+         465,
+         359,
+         484,
+         387
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 0.067,
+    "confidence": 0.45
+   },
+   {
+    "qid": 885,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "table"
+      ],
+      "dimension": "width",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "plant"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": [
+       0,
+       0.5
+      ],
+      "axis": "vertical",
+      "value_si": 9.8,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "plant",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "table",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          231,
+          395
+         ],
+         [
+          685,
+          395
+         ]
+        ],
+        "box": [
+         231,
+         385,
+         685,
+         480
+        ]
+       },
+       {
+        "frame": 15,
+        "point": null,
+        "extent": [
+         [
+          231,
+          395
+         ],
+         [
+          685,
+          395
+         ]
+        ],
+        "box": [
+         231,
+         385,
+         685,
+         480
+        ]
+       },
+       {
+        "frame": 39,
+        "point": null,
+        "extent": [
+         [
+          231,
+          395
+         ],
+         [
+          685,
+          395
+         ]
+        ],
+        "box": [
+         231,
+         385,
+         685,
+         480
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 1.59,
+    "confidence": 0.55
+   },
+   {
+    "qid": 886,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "AC"
+      ],
+      "dimension": "width",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "plant"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": [
+       0,
+       0.5
+      ],
+      "axis": "vertical",
+      "value_si": 9.8,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "plant",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "AC",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          59,
+          345
+         ],
+         [
+          284,
+          345
+         ]
+        ],
+        "box": [
+         59,
+         337,
+         284,
+         480
+        ]
+       },
+       {
+        "frame": 15,
+        "point": null,
+        "extent": [
+         [
+          59,
+          345
+         ],
+         [
+          284,
+          345
+         ]
+        ],
+        "box": [
+         59,
+         337,
+         284,
+         480
+        ]
+       },
+       {
+        "frame": 39,
+        "point": null,
+        "extent": [
+         [
+          59,
+          345
+         ],
+         [
+          284,
+          345
+         ]
+        ],
+        "box": [
+         59,
+         337,
+         284,
+         480
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 0.79,
+    "confidence": 0.55
+   },
+   {
+    "qid": 887,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "phone"
+      ],
+      "dimension": "width",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "plant"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": [
+       0,
+       0.5
+      ],
+      "axis": "vertical",
+      "value_si": 9.8,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "plant",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "phone",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          507,
+          385
+         ],
+         [
+          527,
+          385
+         ]
+        ],
+        "box": [
+         507,
+         383,
+         527,
+         388
+        ]
+       },
+       {
+        "frame": 15,
+        "point": null,
+        "extent": [
+         [
+          507,
+          385
+         ],
+         [
+          527,
+          385
+         ]
+        ],
+        "box": [
+         507,
+         383,
+         527,
+         388
+        ]
+       },
+       {
+        "frame": 39,
+        "point": null,
+        "extent": [
+         [
+          507,
+          385
+         ],
+         [
+          527,
+          385
+         ]
+        ],
+        "box": [
+         507,
+         383,
+         527,
+         388
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 0.07,
+    "confidence": 0.4
+   },
+   {
+    "qid": 888,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "plant"
+      ],
+      "dimension": "",
+      "time": 0.2,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "plant"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": [
+       0,
+       0.5
+      ],
+      "axis": "vertical",
+      "value_si": 9.8,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "plant",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "plant",
+      "obs": []
+     }
+    ],
+    "direct_answer": 1.95,
+    "confidence": 0.75
+   },
+   {
+    "qid": 889,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "plant"
+      ],
+      "dimension": "",
+      "time": 0.4,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "plant"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": [
+       0,
+       0.5
+      ],
+      "axis": "vertical",
+      "value_si": 9.8,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "plant",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "plant",
+      "obs": []
+     }
+    ],
+    "direct_answer": 3.9,
+    "confidence": 0.75
+   }
+  ]
+ }
+}

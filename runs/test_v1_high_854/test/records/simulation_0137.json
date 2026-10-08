@@ -1,0 +1,571 @@
+{
+ "video_id": "simulation_0137",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfptCXoxJFndfNk6shg6H",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 854
+ },
+ "ts": "2026-10-08T16:53:50+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_01EK6rwK1z62Nk1x6w7FZeFC",
+ "custom_id": "simulation_0137",
+ "usage": {
+  "input_tokens": 10708,
+  "output_tokens": 2704,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 4317,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.048888,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0137",
+  "fps": 60.0,
+  "fps_from_container": false,
+  "video_type": "V2MC",
+  "n_frames_total": 100,
+  "scale": 0.44479166666666664,
+  "image_size": [
+   1920,
+   1079
+  ],
+  "frames": [
+   0,
+   7,
+   13,
+   20,
+   26,
+   33,
+   40,
+   46,
+   53,
+   54,
+   59,
+   60,
+   66,
+   73,
+   79,
+   86,
+   92,
+   99
+  ],
+  "questions": [
+   {
+    "qid": 331,
+    "target_unit": "m",
+    "prior": "speed of the bird = 9.146m/s",
+    "depth_info": ""
+   },
+   {
+    "qid": 332,
+    "target_unit": "m",
+    "prior": "speed of the bird = 9.146m/s",
+    "depth_info": ""
+   },
+   {
+    "qid": 333,
+    "target_unit": "m",
+    "prior": "speed of the bird = 9.146m/s",
+    "depth_info": ""
+   },
+   {
+    "qid": 334,
+    "target_unit": "m",
+    "prior": "speed of the bird = 9.146m/s",
+    "depth_info": ""
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":331,\"spec\":{\"target\":{\"kind\":\"path_length\",\"objects\":[\"bird\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"bird\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":9.146,\"unit\":\"\"},\"depth\":[],\"notes\":\"Bird is hidden against the sun at frame 0; it is assumed to fly at constant speed for the whole clip.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"bird\",\"obs\":[{\"frame\":7,\"point\":[32,263],\"extent\":null,\"box\":null},{\"frame\":13,\"point\":[70,221],\"extent\":null,\"box\":null},{\"frame\":20,\"point\":[119,186],\"extent\":null,\"box\":null},{\"frame\":26,\"point\":[162,149],\"extent\":null,\"box\":null},{\"frame\":33,\"point\":[217,125],\"extent\":null,\"box\":null},{\"frame\":40,\"point\":[272,93],\"extent\":null,\"box\":null},{\"frame\":46,\"point\":[322,81],\"extent\":null,\"box\":null},{\"frame\":53,\"point\":[381,65],\"extent\":null,\"box\":null},{\"frame\":54,\"point\":[390,62],\"extent\":null,\"box\":null},{\"frame\":59,\"point\":[433,56],\"extent\":null,\"box\":null},{\"frame\":60,\"point\":[441,55],\"extent\":null,\"box\":null},{\"frame\":66,\"point\":[493,54],\"extent\":null,\"box\":null},{\"frame\":73,\"point\":[554,60],\"extent\":null,\"box\":null},{\"frame\":79,\"point\":[605,70],\"extent\":null,\"box\":null},{\"frame\":86,\"point\":[663,88],\"extent\":null,\"box\":null},{\"frame\":92,\"point\":[712,106],\"extent\":null,\"box\":null},{\"frame\":99,\"point\":[768,132],\"extent\":null,\"box\":null}]},{\"role\":\"target\",\"object\":\"bird\",\"obs\":[]}],\"direct_answer\":15.09,\"confidence\":0.6},{\"qid\":332,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"house\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"horizontal\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"bird\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":9.146,\"unit\":\"\"},\"depth\":[],\"notes\":\"Length is taken as the horizontal width including the roof eaves.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"bird\",\"obs\":[]},{\"role\":\"target\",\"object\":\"house\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[256,300],[631,300]],\"box\":[256,232,631,425]},{\"frame\":40,\"point\":null,\"extent\":[[256,300],[631,300]],\"box\":[256,232,631,425]},{\"frame\":99,\"point\":null,\"extent\":[[256,300],[631,300]],\"box\":[256,232,631,425]}]}],\"direct_answer\":6.49,\"confidence\":0.5},{\"qid\":333,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"house\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"bird\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":9.146,\"unit\":\"\"},\"depth\":[],\"notes\":\"Height is measured from the roof ridge to the base of the house.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"bird\",\"obs\":[]},{\"role\":\"target\",\"object\":\"house\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[443,232],[443,425]],\"box\":[256,232,631,425]},{\"frame\":40,\"point\":null,\"extent\":[[443,232],[443,425]],\"box\":[256,232,631,425]},{\"frame\":99,\"point\":null,\"extent\":[[443,232],[443,425]],\"box\":[256,232,631,425]}]}],\"direct_answer\":3.34,\"confidence\":0.5},{\"qid\":334,\"spec\":{\"target\":{\"kind\":\"distance\",\"objects\":[\"bird\",\"roof\"],\"dimension\":\"\",\"time\":1.0,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"bird\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":9.146,\"unit\":\"\"},\"depth\":[],\"notes\":\"Distance is measured to the top edge of the roof directly below the bird.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"bird\",\"obs\":[]},{\"role\":\"target\",\"object\":\"bird\",\"obs\":[]},{\"role\":\"target2\",\"object\":\"roof\",\"obs\":[{\"frame\":60,\"point\":[441,232],\"extent\":null,\"box\":[256,232,631,304]}]}],\"direct_answer\":3.06,\"confidence\":0.4}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 331,
+    "spec": {
+     "target": {
+      "kind": "path_length",
+      "objects": [
+       "bird"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "bird"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 9.146,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Bird is hidden against the sun at frame 0; it is assumed to fly at constant speed for the whole clip."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "bird",
+      "obs": [
+       {
+        "frame": 7,
+        "point": [
+         32,
+         263
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 13,
+        "point": [
+         70,
+         221
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 20,
+        "point": [
+         119,
+         186
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 26,
+        "point": [
+         162,
+         149
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 33,
+        "point": [
+         217,
+         125
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 40,
+        "point": [
+         272,
+         93
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 46,
+        "point": [
+         322,
+         81
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 53,
+        "point": [
+         381,
+         65
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 54,
+        "point": [
+         390,
+         62
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 59,
+        "point": [
+         433,
+         56
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 60,
+        "point": [
+         441,
+         55
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 66,
+        "point": [
+         493,
+         54
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 73,
+        "point": [
+         554,
+         60
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 79,
+        "point": [
+         605,
+         70
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 86,
+        "point": [
+         663,
+         88
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 92,
+        "point": [
+         712,
+         106
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 99,
+        "point": [
+         768,
+         132
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "bird",
+      "obs": []
+     }
+    ],
+    "direct_answer": 15.09,
+    "confidence": 0.6
+   },
+   {
+    "qid": 332,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "house"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "horizontal",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "bird"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 9.146,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Length is taken as the horizontal width including the roof eaves."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "bird",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "house",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          256,
+          300
+         ],
+         [
+          631,
+          300
+         ]
+        ],
+        "box": [
+         256,
+         232,
+         631,
+         425
+        ]
+       },
+       {
+        "frame": 40,
+        "point": null,
+        "extent": [
+         [
+          256,
+          300
+         ],
+         [
+          631,
+          300
+         ]
+        ],
+        "box": [
+         256,
+         232,
+         631,
+         425
+        ]
+       },
+       {
+        "frame": 99,
+        "point": null,
+        "extent": [
+         [
+          256,
+          300
+         ],
+         [
+          631,
+          300
+         ]
+        ],
+        "box": [
+         256,
+         232,
+         631,
+         425
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 6.49,
+    "confidence": 0.5
+   },
+   {
+    "qid": 333,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "house"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "bird"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 9.146,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Height is measured from the roof ridge to the base of the house."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "bird",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "house",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          443,
+          232
+         ],
+         [
+          443,
+          425
+         ]
+        ],
+        "box": [
+         256,
+         232,
+         631,
+         425
+        ]
+       },
+       {
+        "frame": 40,
+        "point": null,
+        "extent": [
+         [
+          443,
+          232
+         ],
+         [
+          443,
+          425
+         ]
+        ],
+        "box": [
+         256,
+         232,
+         631,
+         425
+        ]
+       },
+       {
+        "frame": 99,
+        "point": null,
+        "extent": [
+         [
+          443,
+          232
+         ],
+         [
+          443,
+          425
+         ]
+        ],
+        "box": [
+         256,
+         232,
+         631,
+         425
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 3.34,
+    "confidence": 0.5
+   },
+   {
+    "qid": 334,
+    "spec": {
+     "target": {
+      "kind": "distance",
+      "objects": [
+       "bird",
+       "roof"
+      ],
+      "dimension": "",
+      "time": 1.0,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "bird"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 9.146,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Distance is measured to the top edge of the roof directly below the bird."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "bird",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "bird",
+      "obs": []
+     },
+     {
+      "role": "target2",
+      "object": "roof",
+      "obs": [
+       {
+        "frame": 60,
+        "point": [
+         441,
+         232
+        ],
+        "extent": null,
+        "box": [
+         256,
+         232,
+         631,
+         304
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 3.06,
+    "confidence": 0.4
+   }
+  ]
+ }
+}

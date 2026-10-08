@@ -1,0 +1,509 @@
+{
+ "video_id": "internet_0021",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011Cfq1J7hrXTmwSKF8v8Pw6",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 854
+ },
+ "ts": "2026-10-08T17:01:24+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_01PjbQ7PFhZmxz7ogDdS6Ldo",
+ "custom_id": "internet_0021",
+ "usage": {
+  "input_tokens": 11805,
+  "output_tokens": 2080,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 4317,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.044842,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "internet_0021",
+  "fps": 25.0,
+  "fps_from_container": false,
+  "video_type": "S2MC",
+  "n_frames_total": 107,
+  "scale": 0.22239583333333332,
+  "image_size": [
+   3840,
+   2158
+  ],
+  "frames": [
+   0,
+   2,
+   7,
+   14,
+   21,
+   28,
+   35,
+   42,
+   48,
+   49,
+   50,
+   52,
+   57,
+   64,
+   71,
+   78,
+   85,
+   92,
+   99,
+   106
+  ],
+  "questions": [
+   {
+    "qid": 2104,
+    "target_unit": "m/s",
+    "prior": "length of the airplane = 40m ",
+    "depth_info": ""
+   },
+   {
+    "qid": 2105,
+    "target_unit": "m",
+    "prior": "length of the airplane = 40m ",
+    "depth_info": ""
+   },
+   {
+    "qid": 2106,
+    "target_unit": "m",
+    "prior": "length of the airplane = 40m ",
+    "depth_info": ""
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":2104,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"airplane\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"airplane\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":40,\"unit\":\"\"},\"depth\":[],\"notes\":\"Apparent airplane length grows from ~71 px to ~88 px over the clip (approach/perspective); average speed over visible frames.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"airplane\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[356,188],[427,193]],\"box\":[356,182,427,203]},{\"frame\":28,\"point\":null,\"extent\":[[470,186],[544,192]],\"box\":[470,180,544,202]},{\"frame\":50,\"point\":null,\"extent\":[[567,187],[646,192]],\"box\":[567,180,646,202]},{\"frame\":57,\"point\":null,\"extent\":[[600,186],[681,191]],\"box\":[600,180,681,202]}]},{\"role\":\"target\",\"object\":\"airplane\",\"obs\":[{\"frame\":0,\"point\":[391.5,193],\"extent\":null,\"box\":[356,182,427,203]},{\"frame\":2,\"point\":[399,193],\"extent\":null,\"box\":null},{\"frame\":7,\"point\":[418.5,193],\"extent\":null,\"box\":null},{\"frame\":14,\"point\":[447,193],\"extent\":null,\"box\":null},{\"frame\":21,\"point\":[476,193],\"extent\":null,\"box\":null},{\"frame\":28,\"point\":[507,193],\"extent\":null,\"box\":null},{\"frame\":35,\"point\":[538,192],\"extent\":null,\"box\":null},{\"frame\":42,\"point\":[569,192],\"extent\":null,\"box\":null},{\"frame\":48,\"point\":[597,192],\"extent\":null,\"box\":null},{\"frame\":49,\"point\":[602,192],\"extent\":null,\"box\":null},{\"frame\":50,\"point\":[606.5,192],\"extent\":null,\"box\":[567,180,646,202]},{\"frame\":52,\"point\":[616,192],\"extent\":null,\"box\":null},{\"frame\":57,\"point\":[640.5,191],\"extent\":null,\"box\":null},{\"frame\":64,\"point\":[675,190],\"extent\":null,\"box\":null},{\"frame\":71,\"point\":[710,189],\"extent\":null,\"box\":null},{\"frame\":78,\"point\":[747,188],\"extent\":null,\"box\":null},{\"frame\":85,\"point\":[785,187],\"extent\":null,\"box\":[741,176,829,199]}]}],\"direct_answer\":62,\"confidence\":0.45},{\"qid\":2105,\"spec\":{\"target\":{\"kind\":\"distance\",\"objects\":[\"airplane\",\"roof top\"],\"dimension\":\"\",\"time\":0,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"airplane\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":40,\"unit\":\"\"},\"depth\":[],\"notes\":\"Roof top interpreted as the roof of the tall dark building directly below the airplane.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"airplane\",\"obs\":[]},{\"role\":\"target\",\"object\":\"airplane\",\"obs\":[{\"frame\":0,\"point\":[391.5,193],\"extent\":null,\"box\":[356,182,427,203]}]},{\"role\":\"target2\",\"object\":\"roof top\",\"obs\":[{\"frame\":0,\"point\":[391.5,315],\"extent\":null,\"box\":null}]}],\"direct_answer\":68,\"confidence\":0.4},{\"qid\":2106,\"spec\":{\"target\":{\"kind\":\"displacement\",\"objects\":[\"airplane\"],\"dimension\":\"\",\"time\":null,\"window\":[0,2.0],\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"airplane\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":40,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"airplane\",\"obs\":[]},{\"role\":\"target\",\"object\":\"airplane\",\"obs\":[]}],\"direct_answer\":118,\"confidence\":0.5}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 2104,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "airplane"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "airplane"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 40,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Apparent airplane length grows from ~71 px to ~88 px over the clip (approach/perspective); average speed over visible frames."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "airplane",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          356,
+          188
+         ],
+         [
+          427,
+          193
+         ]
+        ],
+        "box": [
+         356,
+         182,
+         427,
+         203
+        ]
+       },
+       {
+        "frame": 28,
+        "point": null,
+        "extent": [
+         [
+          470,
+          186
+         ],
+         [
+          544,
+          192
+         ]
+        ],
+        "box": [
+         470,
+         180,
+         544,
+         202
+        ]
+       },
+       {
+        "frame": 50,
+        "point": null,
+        "extent": [
+         [
+          567,
+          187
+         ],
+         [
+          646,
+          192
+         ]
+        ],
+        "box": [
+         567,
+         180,
+         646,
+         202
+        ]
+       },
+       {
+        "frame": 57,
+        "point": null,
+        "extent": [
+         [
+          600,
+          186
+         ],
+         [
+          681,
+          191
+         ]
+        ],
+        "box": [
+         600,
+         180,
+         681,
+         202
+        ]
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "airplane",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         391.5,
+         193
+        ],
+        "extent": null,
+        "box": [
+         356,
+         182,
+         427,
+         203
+        ]
+       },
+       {
+        "frame": 2,
+        "point": [
+         399,
+         193
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 7,
+        "point": [
+         418.5,
+         193
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 14,
+        "point": [
+         447,
+         193
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 21,
+        "point": [
+         476,
+         193
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 28,
+        "point": [
+         507,
+         193
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 35,
+        "point": [
+         538,
+         192
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 42,
+        "point": [
+         569,
+         192
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 48,
+        "point": [
+         597,
+         192
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 49,
+        "point": [
+         602,
+         192
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 50,
+        "point": [
+         606.5,
+         192
+        ],
+        "extent": null,
+        "box": [
+         567,
+         180,
+         646,
+         202
+        ]
+       },
+       {
+        "frame": 52,
+        "point": [
+         616,
+         192
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 57,
+        "point": [
+         640.5,
+         191
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 64,
+        "point": [
+         675,
+         190
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 71,
+        "point": [
+         710,
+         189
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 78,
+        "point": [
+         747,
+         188
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 85,
+        "point": [
+         785,
+         187
+        ],
+        "extent": null,
+        "box": [
+         741,
+         176,
+         829,
+         199
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 62,
+    "confidence": 0.45
+   },
+   {
+    "qid": 2105,
+    "spec": {
+     "target": {
+      "kind": "distance",
+      "objects": [
+       "airplane",
+       "roof top"
+      ],
+      "dimension": "",
+      "time": 0,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "airplane"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 40,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Roof top interpreted as the roof of the tall dark building directly below the airplane."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "airplane",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "airplane",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         391.5,
+         193
+        ],
+        "extent": null,
+        "box": [
+         356,
+         182,
+         427,
+         203
+        ]
+       }
+      ]
+     },
+     {
+      "role": "target2",
+      "object": "roof top",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         391.5,
+         315
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     }
+    ],
+    "direct_answer": 68,
+    "confidence": 0.4
+   },
+   {
+    "qid": 2106,
+    "spec": {
+     "target": {
+      "kind": "displacement",
+      "objects": [
+       "airplane"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": [
+       0,
+       2.0
+      ],
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "airplane"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 40,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "airplane",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "airplane",
+      "obs": []
+     }
+    ],
+    "direct_answer": 118,
+    "confidence": 0.5
+   }
+  ]
+ }
+}

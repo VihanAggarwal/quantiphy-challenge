@@ -1,0 +1,610 @@
+{
+ "video_id": "simulation_0195",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfpqqPGBhC1BhFWkmDWrG",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 854
+ },
+ "ts": "2026-10-08T16:53:54+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_01LWB5sKM2kFw12KwfTvTdoH",
+ "custom_id": "simulation_0195",
+ "usage": {
+  "input_tokens": 12013,
+  "output_tokens": 3388,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 4317,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.058338,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0195",
+  "fps": 30.0,
+  "fps_from_container": false,
+  "video_type": "V3MS",
+  "n_frames_total": 100,
+  "scale": 0.44479166666666664,
+  "image_size": [
+   1920,
+   1079
+  ],
+  "frames": [
+   0,
+   3,
+   7,
+   13,
+   20,
+   26,
+   33,
+   40,
+   46,
+   53,
+   59,
+   66,
+   73,
+   79,
+   86,
+   87,
+   90,
+   92,
+   93,
+   99
+  ],
+  "questions": [
+   {
+    "qid": 1554,
+    "target_unit": "m",
+    "prior": "Callisto's model speed = 0.627 m/s",
+    "depth_info": "t=0s, distance_small_Callisto_camera = 13.004m   \nt =3s, distance_small_Callisto_camera = 13.856m\ndistance_big_europa_camera = 16.549m"
+   },
+   {
+    "qid": 1555,
+    "target_unit": "m",
+    "prior": "Callisto's model speed = 0.627 m/s",
+    "depth_info": "t=0s, distance_small_Callisto_camera = 13.004m   \nt =3s, distance_small_Callisto_camera = 13.856m\ndistance_big_europa_camera = 16.549m"
+   },
+   {
+    "qid": 1556,
+    "target_unit": "m",
+    "prior": "Callisto's model speed = 0.627 m/s",
+    "depth_info": "t=0s, distance_small_Callisto_camera = 13.004m   \nt =3s, distance_small_Callisto_camera = 13.856m\ndistance_big_europa_camera = 16.549m"
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":1554,\"spec\":{\"target\":{\"kind\":\"distance\",\"objects\":[\"Callisto orbit\"],\"dimension\":\"diameter\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"Callisto\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.627,\"unit\":\"\"},\"depth\":[{\"object\":\"Callisto\",\"distance_m\":13.004,\"time\":0},{\"object\":\"Callisto\",\"distance_m\":13.856,\"time\":3},{\"object\":\"Jupiter\",\"distance_m\":16.549,\"time\":null}],\"notes\":\"Depth info calls the big central body 'europa'; it is the Jupiter model. Orbit diameter estimated from 3D reconstruction of Callisto relative to Jupiter centre (radius ~4.1 m).\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"Callisto\",\"obs\":[{\"frame\":0,\"point\":[501.5,390.5],\"extent\":null,\"box\":null},{\"frame\":3,\"point\":[507,389.5],\"extent\":null,\"box\":null},{\"frame\":7,\"point\":[514,388.5],\"extent\":null,\"box\":null},{\"frame\":13,\"point\":[525.5,386.5],\"extent\":null,\"box\":null},{\"frame\":20,\"point\":[538,384],\"extent\":null,\"box\":null},{\"frame\":26,\"point\":[548.5,382],\"extent\":null,\"box\":null},{\"frame\":33,\"point\":[560.5,379],\"extent\":null,\"box\":null},{\"frame\":40,\"point\":[572,376.5],\"extent\":null,\"box\":null},{\"frame\":46,\"point\":[581.5,373.5],\"extent\":null,\"box\":null},{\"frame\":53,\"point\":[593,370],\"extent\":null,\"box\":null},{\"frame\":59,\"point\":[602,367],\"extent\":null,\"box\":null},{\"frame\":66,\"point\":[612.5,363.5],\"extent\":null,\"box\":null},{\"frame\":73,\"point\":[622.5,359.5],\"extent\":null,\"box\":null},{\"frame\":79,\"point\":[630.5,356],\"extent\":null,\"box\":null},{\"frame\":86,\"point\":[639.5,352],\"extent\":null,\"box\":null},{\"frame\":87,\"point\":[641,351.5],\"extent\":null,\"box\":null},{\"frame\":90,\"point\":[645,349.5],\"extent\":null,\"box\":null},{\"frame\":92,\"point\":[647.5,348],\"extent\":null,\"box\":null},{\"frame\":93,\"point\":[649,347.5],\"extent\":null,\"box\":null},{\"frame\":99,\"point\":[656,343.5],\"extent\":null,\"box\":null}]},{\"role\":\"target\",\"object\":\"Callisto\",\"obs\":[]},{\"role\":\"target2\",\"object\":\"Jupiter\",\"obs\":[{\"frame\":0,\"point\":[419,218],\"extent\":null,\"box\":[357,155,481,280]},{\"frame\":90,\"point\":[419,218],\"extent\":null,\"box\":[357,155,481,280]}]}],\"direct_answer\":8.2,\"confidence\":0.3},{\"qid\":1555,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"Callisto\"],\"dimension\":\"diameter\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"Callisto\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.627,\"unit\":\"\"},\"depth\":[{\"object\":\"Callisto\",\"distance_m\":13.004,\"time\":0},{\"object\":\"Callisto\",\"distance_m\":13.856,\"time\":3},{\"object\":\"Jupiter\",\"distance_m\":16.549,\"time\":null}],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"Callisto\",\"obs\":[]},{\"role\":\"target\",\"object\":\"Callisto\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[496.5,390.5],[506.5,390.5]],\"box\":[496.5,385.5,506.5,395.5]},{\"frame\":3,\"point\":null,\"extent\":[[502,389.5],[512,389.5]],\"box\":[502,384.5,512,394.5]},{\"frame\":90,\"point\":null,\"extent\":[[640,349.5],[650,349.5]],\"box\":[640,344.5,650,354.5]}]}],\"direct_answer\":0.11,\"confidence\":0.3},{\"qid\":1556,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"Jupiter\"],\"dimension\":\"diameter\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"Callisto\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.627,\"unit\":\"\"},\"depth\":[{\"object\":\"Callisto\",\"distance_m\":13.004,\"time\":0},{\"object\":\"Callisto\",\"distance_m\":13.856,\"time\":3},{\"object\":\"Jupiter\",\"distance_m\":16.549,\"time\":null}],\"notes\":\"Depth info labels the central body 'big europa'; treated as the Jupiter model.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"Callisto\",\"obs\":[]},{\"role\":\"target\",\"object\":\"Jupiter\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[357,218],[481,218]],\"box\":[357,155,481,280]},{\"frame\":46,\"point\":null,\"extent\":[[357,218],[481,218]],\"box\":[357,155,481,280]},{\"frame\":90,\"point\":null,\"extent\":[[357,218],[481,218]],\"box\":[357,155,481,280]}]}],\"direct_answer\":1.72,\"confidence\":0.35}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 1554,
+    "spec": {
+     "target": {
+      "kind": "distance",
+      "objects": [
+       "Callisto orbit"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "Callisto"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.627,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "Callisto",
+       "distance_m": 13.004,
+       "time": 0
+      },
+      {
+       "object": "Callisto",
+       "distance_m": 13.856,
+       "time": 3
+      },
+      {
+       "object": "Jupiter",
+       "distance_m": 16.549,
+       "time": null
+      }
+     ],
+     "notes": "Depth info calls the big central body 'europa'; it is the Jupiter model. Orbit diameter estimated from 3D reconstruction of Callisto relative to Jupiter centre (radius ~4.1 m)."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "Callisto",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         501.5,
+         390.5
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 3,
+        "point": [
+         507,
+         389.5
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 7,
+        "point": [
+         514,
+         388.5
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 13,
+        "point": [
+         525.5,
+         386.5
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 20,
+        "point": [
+         538,
+         384
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 26,
+        "point": [
+         548.5,
+         382
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 33,
+        "point": [
+         560.5,
+         379
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 40,
+        "point": [
+         572,
+         376.5
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 46,
+        "point": [
+         581.5,
+         373.5
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 53,
+        "point": [
+         593,
+         370
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 59,
+        "point": [
+         602,
+         367
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 66,
+        "point": [
+         612.5,
+         363.5
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 73,
+        "point": [
+         622.5,
+         359.5
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 79,
+        "point": [
+         630.5,
+         356
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 86,
+        "point": [
+         639.5,
+         352
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 87,
+        "point": [
+         641,
+         351.5
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 90,
+        "point": [
+         645,
+         349.5
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 92,
+        "point": [
+         647.5,
+         348
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 93,
+        "point": [
+         649,
+         347.5
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 99,
+        "point": [
+         656,
+         343.5
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "Callisto",
+      "obs": []
+     },
+     {
+      "role": "target2",
+      "object": "Jupiter",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         419,
+         218
+        ],
+        "extent": null,
+        "box": [
+         357,
+         155,
+         481,
+         280
+        ]
+       },
+       {
+        "frame": 90,
+        "point": [
+         419,
+         218
+        ],
+        "extent": null,
+        "box": [
+         357,
+         155,
+         481,
+         280
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 8.2,
+    "confidence": 0.3
+   },
+   {
+    "qid": 1555,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "Callisto"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "Callisto"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.627,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "Callisto",
+       "distance_m": 13.004,
+       "time": 0
+      },
+      {
+       "object": "Callisto",
+       "distance_m": 13.856,
+       "time": 3
+      },
+      {
+       "object": "Jupiter",
+       "distance_m": 16.549,
+       "time": null
+      }
+     ],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "Callisto",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "Callisto",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          496.5,
+          390.5
+         ],
+         [
+          506.5,
+          390.5
+         ]
+        ],
+        "box": [
+         496.5,
+         385.5,
+         506.5,
+         395.5
+        ]
+       },
+       {
+        "frame": 3,
+        "point": null,
+        "extent": [
+         [
+          502,
+          389.5
+         ],
+         [
+          512,
+          389.5
+         ]
+        ],
+        "box": [
+         502,
+         384.5,
+         512,
+         394.5
+        ]
+       },
+       {
+        "frame": 90,
+        "point": null,
+        "extent": [
+         [
+          640,
+          349.5
+         ],
+         [
+          650,
+          349.5
+         ]
+        ],
+        "box": [
+         640,
+         344.5,
+         650,
+         354.5
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 0.11,
+    "confidence": 0.3
+   },
+   {
+    "qid": 1556,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "Jupiter"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "Callisto"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.627,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "Callisto",
+       "distance_m": 13.004,
+       "time": 0
+      },
+      {
+       "object": "Callisto",
+       "distance_m": 13.856,
+       "time": 3
+      },
+      {
+       "object": "Jupiter",
+       "distance_m": 16.549,
+       "time": null
+      }
+     ],
+     "notes": "Depth info labels the central body 'big europa'; treated as the Jupiter model."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "Callisto",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "Jupiter",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          357,
+          218
+         ],
+         [
+          481,
+          218
+         ]
+        ],
+        "box": [
+         357,
+         155,
+         481,
+         280
+        ]
+       },
+       {
+        "frame": 46,
+        "point": null,
+        "extent": [
+         [
+          357,
+          218
+         ],
+         [
+          481,
+          218
+         ]
+        ],
+        "box": [
+         357,
+         155,
+         481,
+         280
+        ]
+       },
+       {
+        "frame": 90,
+        "point": null,
+        "extent": [
+         [
+          357,
+          218
+         ],
+         [
+          481,
+          218
+         ]
+        ],
+        "box": [
+         357,
+         155,
+         481,
+         280
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 1.72,
+    "confidence": 0.35
+   }
+  ]
+ }
+}

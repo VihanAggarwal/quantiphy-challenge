@@ -1,0 +1,533 @@
+{
+ "video_id": "simulation_0145_segmented",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfprgjP1tN9gxaVQ7gZPa",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 854
+ },
+ "ts": "2026-10-08T17:22:06+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_01MS9n87X5KQKoNuAy4MdC7u",
+ "custom_id": "simulation_0145_segmented",
+ "usage": {
+  "input_tokens": 9576,
+  "output_tokens": 3102,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 4317,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.050604,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0145_segmented",
+  "fps": 24.0,
+  "fps_from_container": false,
+  "video_type": "S2MX",
+  "n_frames_total": 29,
+  "scale": 0.44479166666666664,
+  "image_size": [
+   1920,
+   1079
+  ],
+  "frames": [
+   0,
+   2,
+   4,
+   6,
+   7,
+   9,
+   11,
+   13,
+   15,
+   17,
+   19,
+   21,
+   22,
+   24,
+   26,
+   28
+  ],
+  "questions": [
+   {
+    "qid": 1849,
+    "target_unit": "m",
+    "prior": "length of the rocket = 2.9m",
+    "depth_info": ""
+   },
+   {
+    "qid": 1850,
+    "target_unit": "m/s",
+    "prior": "length of the rocket = 2.9m",
+    "depth_info": ""
+   },
+   {
+    "qid": 1851,
+    "target_unit": "m/s",
+    "prior": "length of the rocket = 2.9m",
+    "depth_info": ""
+   },
+   {
+    "qid": 1852,
+    "target_unit": "m/s^2",
+    "prior": "length of the rocket = 2.9m",
+    "depth_info": ""
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":1849,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"tire\"],\"dimension\":\"diameter\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"rocket\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":2.9,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"rocket\",\"obs\":[{\"frame\":15,\"point\":null,\"extent\":[[313,104],[389,165]],\"box\":[313,104,389,165]},{\"frame\":17,\"point\":null,\"extent\":[[279,77],[355,138]],\"box\":[279,77,355,138]},{\"frame\":19,\"point\":null,\"extent\":[[243,47],[320,110]],\"box\":[243,47,320,110]},{\"frame\":21,\"point\":null,\"extent\":[[202,14],[282,79]],\"box\":[202,14,282,79]}]},{\"role\":\"target\",\"object\":\"tire\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[290.5,363.5],[336.5,363.5]],\"box\":[290.5,341,336.5,386]},{\"frame\":15,\"point\":null,\"extent\":[[290.5,363.5],[336.5,363.5]],\"box\":[290.5,341,336.5,386]},{\"frame\":28,\"point\":null,\"extent\":[[290.5,363.5],[336.5,363.5]],\"box\":[290.5,341,336.5,386]}]}],\"direct_answer\":1.35,\"confidence\":0.6},{\"qid\":1850,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"rocket\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"rocket\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":2.9,\"unit\":\"\"},\"depth\":[],\"notes\":\"average over the visible flight\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"rocket\",\"obs\":[]},{\"role\":\"target\",\"object\":\"rocket nose\",\"obs\":[{\"frame\":9,\"point\":[393,170],\"extent\":null,\"box\":null},{\"frame\":11,\"point\":[370,151],\"extent\":null,\"box\":null},{\"frame\":13,\"point\":[343,128],\"extent\":null,\"box\":null},{\"frame\":15,\"point\":[313,104],\"extent\":null,\"box\":null},{\"frame\":17,\"point\":[279,77],\"extent\":null,\"box\":null},{\"frame\":19,\"point\":[243,47],\"extent\":null,\"box\":null},{\"frame\":21,\"point\":[202,14],\"extent\":null,\"box\":null}]}],\"direct_answer\":15.4,\"confidence\":0.35},{\"qid\":1851,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"rocket\"],\"dimension\":\"\",\"time\":1.0,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"rocket\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":2.9,\"unit\":\"\"},\"depth\":[],\"notes\":\"tail point tracked since nose leaves frame\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"rocket\",\"obs\":[]},{\"role\":\"target\",\"object\":\"rocket tail\",\"obs\":[{\"frame\":15,\"point\":[389,165],\"extent\":null,\"box\":null},{\"frame\":17,\"point\":[355,138],\"extent\":null,\"box\":null},{\"frame\":19,\"point\":[320,110],\"extent\":null,\"box\":null},{\"frame\":21,\"point\":[282,79],\"extent\":null,\"box\":null},{\"frame\":22,\"point\":[261,62],\"extent\":null,\"box\":null},{\"frame\":24,\"point\":[218,28],\"extent\":null,\"box\":null}]}],\"direct_answer\":19.8,\"confidence\":0.45},{\"qid\":1852,\"spec\":{\"target\":{\"kind\":\"acceleration\",\"objects\":[\"rocket\"],\"dimension\":\"\",\"time\":1.0,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s^2\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"rocket\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":2.9,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"rocket\",\"obs\":[]},{\"role\":\"target\",\"object\":\"rocket tail\",\"obs\":[]}],\"direct_answer\":16.0,\"confidence\":0.25}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 1849,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "tire"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "rocket"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 2.9,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "rocket",
+      "obs": [
+       {
+        "frame": 15,
+        "point": null,
+        "extent": [
+         [
+          313,
+          104
+         ],
+         [
+          389,
+          165
+         ]
+        ],
+        "box": [
+         313,
+         104,
+         389,
+         165
+        ]
+       },
+       {
+        "frame": 17,
+        "point": null,
+        "extent": [
+         [
+          279,
+          77
+         ],
+         [
+          355,
+          138
+         ]
+        ],
+        "box": [
+         279,
+         77,
+         355,
+         138
+        ]
+       },
+       {
+        "frame": 19,
+        "point": null,
+        "extent": [
+         [
+          243,
+          47
+         ],
+         [
+          320,
+          110
+         ]
+        ],
+        "box": [
+         243,
+         47,
+         320,
+         110
+        ]
+       },
+       {
+        "frame": 21,
+        "point": null,
+        "extent": [
+         [
+          202,
+          14
+         ],
+         [
+          282,
+          79
+         ]
+        ],
+        "box": [
+         202,
+         14,
+         282,
+         79
+        ]
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "tire",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          290.5,
+          363.5
+         ],
+         [
+          336.5,
+          363.5
+         ]
+        ],
+        "box": [
+         290.5,
+         341,
+         336.5,
+         386
+        ]
+       },
+       {
+        "frame": 15,
+        "point": null,
+        "extent": [
+         [
+          290.5,
+          363.5
+         ],
+         [
+          336.5,
+          363.5
+         ]
+        ],
+        "box": [
+         290.5,
+         341,
+         336.5,
+         386
+        ]
+       },
+       {
+        "frame": 28,
+        "point": null,
+        "extent": [
+         [
+          290.5,
+          363.5
+         ],
+         [
+          336.5,
+          363.5
+         ]
+        ],
+        "box": [
+         290.5,
+         341,
+         336.5,
+         386
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 1.35,
+    "confidence": 0.6
+   },
+   {
+    "qid": 1850,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "rocket"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "rocket"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 2.9,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "average over the visible flight"
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "rocket",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "rocket nose",
+      "obs": [
+       {
+        "frame": 9,
+        "point": [
+         393,
+         170
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 11,
+        "point": [
+         370,
+         151
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 13,
+        "point": [
+         343,
+         128
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 15,
+        "point": [
+         313,
+         104
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 17,
+        "point": [
+         279,
+         77
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 19,
+        "point": [
+         243,
+         47
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 21,
+        "point": [
+         202,
+         14
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     }
+    ],
+    "direct_answer": 15.4,
+    "confidence": 0.35
+   },
+   {
+    "qid": 1851,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "rocket"
+      ],
+      "dimension": "",
+      "time": 1.0,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "rocket"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 2.9,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "tail point tracked since nose leaves frame"
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "rocket",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "rocket tail",
+      "obs": [
+       {
+        "frame": 15,
+        "point": [
+         389,
+         165
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 17,
+        "point": [
+         355,
+         138
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 19,
+        "point": [
+         320,
+         110
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 21,
+        "point": [
+         282,
+         79
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 22,
+        "point": [
+         261,
+         62
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 24,
+        "point": [
+         218,
+         28
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     }
+    ],
+    "direct_answer": 19.8,
+    "confidence": 0.45
+   },
+   {
+    "qid": 1852,
+    "spec": {
+     "target": {
+      "kind": "acceleration",
+      "objects": [
+       "rocket"
+      ],
+      "dimension": "",
+      "time": 1.0,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s^2"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "rocket"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 2.9,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "rocket",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "rocket tail",
+      "obs": []
+     }
+    ],
+    "direct_answer": 16.0,
+    "confidence": 0.25
+   }
+  ]
+ }
+}

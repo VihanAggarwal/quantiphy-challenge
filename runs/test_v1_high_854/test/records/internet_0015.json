@@ -1,0 +1,739 @@
+{
+ "video_id": "internet_0015",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011Cfq8AtH5gwQVqJfdjhnsi",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 854
+ },
+ "ts": "2026-10-08T17:01:24+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_01PjbQ7PFhZmxz7ogDdS6Ldo",
+ "custom_id": "internet_0015",
+ "usage": {
+  "input_tokens": 11341,
+  "output_tokens": 3279,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 4317,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.055904,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "internet_0015",
+  "fps": 30.0,
+  "fps_from_container": false,
+  "video_type": "S2MC",
+  "n_frames_total": 143,
+  "scale": 0.44479166666666664,
+  "image_size": [
+   1920,
+   1079
+  ],
+  "frames": [
+   0,
+   9,
+   19,
+   27,
+   28,
+   30,
+   33,
+   38,
+   47,
+   57,
+   66,
+   76,
+   85,
+   95,
+   104,
+   114,
+   123,
+   133,
+   142
+  ],
+  "questions": [
+   {
+    "qid": 2075,
+    "target_unit": "m",
+    "prior": "lane width = 3.66m",
+    "depth_info": ""
+   },
+   {
+    "qid": 2076,
+    "target_unit": "m",
+    "prior": "lane width = 3.66m",
+    "depth_info": ""
+   },
+   {
+    "qid": 2077,
+    "target_unit": "m",
+    "prior": "lane width = 3.66m",
+    "depth_info": ""
+   },
+   {
+    "qid": 2078,
+    "target_unit": "m/s",
+    "prior": "lane width = 3.66m",
+    "depth_info": ""
+   },
+   {
+    "qid": 2079,
+    "target_unit": "m/s",
+    "prior": "lane width = 3.66m",
+    "depth_info": ""
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":2075,\"spec\":{\"target\":{\"kind\":\"distance\",\"objects\":[\"front white car\",\"black car\"],\"dimension\":\"\",\"time\":0,\"window\":null,\"axis\":\"horizontal\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"lane\"],\"dimension\":\"width\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":3.66,\"unit\":\"\"},\"depth\":[],\"notes\":\"Average centre-to-centre spacing of the 4 vehicles in the upper lane at t=0 (white car, black car, white car, motorcycle); averaged over 3 gaps.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"lane\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[100,231],[100,253]],\"box\":null},{\"frame\":66,\"point\":null,\"extent\":[[600,231],[600,253]],\"box\":null},{\"frame\":142,\"point\":null,\"extent\":[[400,231],[400,253]],\"box\":null}]},{\"role\":\"target\",\"object\":\"front white car\",\"obs\":[{\"frame\":0,\"point\":[213.5,241],\"extent\":null,\"box\":[200,236,227,247]}]},{\"role\":\"target2\",\"object\":\"black car\",\"obs\":[{\"frame\":0,\"point\":[394.5,240],\"extent\":null,\"box\":[381,235,408,246]}]}],\"direct_answer\":28.7,\"confidence\":0.4},{\"qid\":2076,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"black car\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"lane\"],\"dimension\":\"width\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":3.66,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"lane\",\"obs\":[]},{\"role\":\"target\",\"object\":\"black car\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[381,240],[407.5,240]],\"box\":[381,235,407.5,246]},{\"frame\":9,\"point\":null,\"extent\":[[334,239.5],[360,239.5]],\"box\":[334,234.5,360,245]},{\"frame\":19,\"point\":null,\"extent\":[[282,240],[308,240]],\"box\":[282,235,308,245.5]}]}],\"direct_answer\":4.25,\"confidence\":0.45},{\"qid\":2077,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"motorcycle\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"lane\"],\"dimension\":\"width\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":3.66,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"lane\",\"obs\":[]},{\"role\":\"target\",\"object\":\"motorcycle\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[737,241],[748,241]],\"box\":[737,238.5,748,244]},{\"frame\":30,\"point\":null,\"extent\":[[575.5,241],[586.5,241]],\"box\":[575.5,238.5,586.5,244]},{\"frame\":57,\"point\":null,\"extent\":[[434.5,240.5],[445.5,240.5]],\"box\":[434.5,238,445.5,243.5]}]}],\"direct_answer\":1.8,\"confidence\":0.35},{\"qid\":2078,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"motorcycle\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"lane\"],\"dimension\":\"width\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":3.66,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"lane\",\"obs\":[]},{\"role\":\"target\",\"object\":\"motorcycle\",\"obs\":[{\"frame\":0,\"point\":[742,241],\"extent\":null,\"box\":null},{\"frame\":9,\"point\":[693,240.5],\"extent\":null,\"box\":null},{\"frame\":19,\"point\":[641,240.5],\"extent\":null,\"box\":null},{\"frame\":27,\"point\":[597,240.5],\"extent\":null,\"box\":null},{\"frame\":28,\"point\":[592,240.5],\"extent\":null,\"box\":null},{\"frame\":30,\"point\":[581,241],\"extent\":null,\"box\":null},{\"frame\":33,\"point\":[566,241],\"extent\":null,\"box\":null},{\"frame\":38,\"point\":[539,240.5],\"extent\":null,\"box\":null},{\"frame\":47,\"point\":[491,240.5],\"extent\":null,\"box\":null},{\"frame\":57,\"point\":[440,240.5],\"extent\":null,\"box\":null},{\"frame\":66,\"point\":[390,240.5],\"extent\":null,\"box\":null},{\"frame\":76,\"point\":[338,240],\"extent\":null,\"box\":null},{\"frame\":85,\"point\":[289,240],\"extent\":null,\"box\":null}]}],\"direct_answer\":26.0,\"confidence\":0.55},{\"qid\":2079,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"white car ahead of motorcycle\"],\"dimension\":\"\",\"time\":1.0,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"lane\"],\"dimension\":\"width\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":3.66,\"unit\":\"\"},\"depth\":[],\"notes\":\"Car before the motorcycle = white car directly ahead of it in the same lane.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"lane\",\"obs\":[]},{\"role\":\"target\",\"object\":\"white car ahead of motorcycle\",\"obs\":[{\"frame\":0,\"point\":[579.5,240],\"extent\":null,\"box\":null},{\"frame\":9,\"point\":[532,240],\"extent\":null,\"box\":null},{\"frame\":19,\"point\":[480,240],\"extent\":null,\"box\":null},{\"frame\":27,\"point\":[437,240],\"extent\":null,\"box\":null},{\"frame\":28,\"point\":[432,240],\"extent\":null,\"box\":null},{\"frame\":30,\"point\":[422,240],\"extent\":null,\"box\":null},{\"frame\":33,\"point\":[406,240],\"extent\":null,\"box\":null},{\"frame\":38,\"point\":[380,240],\"extent\":null,\"box\":null},{\"frame\":47,\"point\":[334,240],\"extent\":null,\"box\":null},{\"frame\":57,\"point\":[281,240],\"extent\":null,\"box\":null}]}],\"direct_answer\":25.4,\"confidence\":0.55}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 2075,
+    "spec": {
+     "target": {
+      "kind": "distance",
+      "objects": [
+       "front white car",
+       "black car"
+      ],
+      "dimension": "",
+      "time": 0,
+      "window": null,
+      "axis": "horizontal",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "lane"
+      ],
+      "dimension": "width",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": 3.66,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Average centre-to-centre spacing of the 4 vehicles in the upper lane at t=0 (white car, black car, white car, motorcycle); averaged over 3 gaps."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "lane",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          100,
+          231
+         ],
+         [
+          100,
+          253
+         ]
+        ],
+        "box": null
+       },
+       {
+        "frame": 66,
+        "point": null,
+        "extent": [
+         [
+          600,
+          231
+         ],
+         [
+          600,
+          253
+         ]
+        ],
+        "box": null
+       },
+       {
+        "frame": 142,
+        "point": null,
+        "extent": [
+         [
+          400,
+          231
+         ],
+         [
+          400,
+          253
+         ]
+        ],
+        "box": null
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "front white car",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         213.5,
+         241
+        ],
+        "extent": null,
+        "box": [
+         200,
+         236,
+         227,
+         247
+        ]
+       }
+      ]
+     },
+     {
+      "role": "target2",
+      "object": "black car",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         394.5,
+         240
+        ],
+        "extent": null,
+        "box": [
+         381,
+         235,
+         408,
+         246
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 28.7,
+    "confidence": 0.4
+   },
+   {
+    "qid": 2076,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "black car"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "lane"
+      ],
+      "dimension": "width",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": 3.66,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "lane",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "black car",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          381,
+          240
+         ],
+         [
+          407.5,
+          240
+         ]
+        ],
+        "box": [
+         381,
+         235,
+         407.5,
+         246
+        ]
+       },
+       {
+        "frame": 9,
+        "point": null,
+        "extent": [
+         [
+          334,
+          239.5
+         ],
+         [
+          360,
+          239.5
+         ]
+        ],
+        "box": [
+         334,
+         234.5,
+         360,
+         245
+        ]
+       },
+       {
+        "frame": 19,
+        "point": null,
+        "extent": [
+         [
+          282,
+          240
+         ],
+         [
+          308,
+          240
+         ]
+        ],
+        "box": [
+         282,
+         235,
+         308,
+         245.5
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 4.25,
+    "confidence": 0.45
+   },
+   {
+    "qid": 2077,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "motorcycle"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "lane"
+      ],
+      "dimension": "width",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": 3.66,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "lane",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "motorcycle",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          737,
+          241
+         ],
+         [
+          748,
+          241
+         ]
+        ],
+        "box": [
+         737,
+         238.5,
+         748,
+         244
+        ]
+       },
+       {
+        "frame": 30,
+        "point": null,
+        "extent": [
+         [
+          575.5,
+          241
+         ],
+         [
+          586.5,
+          241
+         ]
+        ],
+        "box": [
+         575.5,
+         238.5,
+         586.5,
+         244
+        ]
+       },
+       {
+        "frame": 57,
+        "point": null,
+        "extent": [
+         [
+          434.5,
+          240.5
+         ],
+         [
+          445.5,
+          240.5
+         ]
+        ],
+        "box": [
+         434.5,
+         238,
+         445.5,
+         243.5
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 1.8,
+    "confidence": 0.35
+   },
+   {
+    "qid": 2078,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "motorcycle"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "lane"
+      ],
+      "dimension": "width",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": 3.66,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "lane",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "motorcycle",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         742,
+         241
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 9,
+        "point": [
+         693,
+         240.5
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 19,
+        "point": [
+         641,
+         240.5
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 27,
+        "point": [
+         597,
+         240.5
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 28,
+        "point": [
+         592,
+         240.5
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 30,
+        "point": [
+         581,
+         241
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 33,
+        "point": [
+         566,
+         241
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 38,
+        "point": [
+         539,
+         240.5
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 47,
+        "point": [
+         491,
+         240.5
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 57,
+        "point": [
+         440,
+         240.5
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 66,
+        "point": [
+         390,
+         240.5
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 76,
+        "point": [
+         338,
+         240
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 85,
+        "point": [
+         289,
+         240
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     }
+    ],
+    "direct_answer": 26.0,
+    "confidence": 0.55
+   },
+   {
+    "qid": 2079,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "white car ahead of motorcycle"
+      ],
+      "dimension": "",
+      "time": 1.0,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "lane"
+      ],
+      "dimension": "width",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": 3.66,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Car before the motorcycle = white car directly ahead of it in the same lane."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "lane",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "white car ahead of motorcycle",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         579.5,
+         240
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 9,
+        "point": [
+         532,
+         240
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 19,
+        "point": [
+         480,
+         240
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 27,
+        "point": [
+         437,
+         240
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 28,
+        "point": [
+         432,
+         240
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 30,
+        "point": [
+         422,
+         240
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 33,
+        "point": [
+         406,
+         240
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 38,
+        "point": [
+         380,
+         240
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 47,
+        "point": [
+         334,
+         240
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 57,
+        "point": [
+         281,
+         240
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     }
+    ],
+    "direct_answer": 25.4,
+    "confidence": 0.55
+   }
+  ]
+ }
+}

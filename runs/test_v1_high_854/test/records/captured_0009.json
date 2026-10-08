@@ -1,0 +1,665 @@
+{
+ "video_id": "captured_0009",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011Cfpzy4HSbDdHUSXcQhcQN",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 854
+ },
+ "ts": "2026-10-08T16:57:08+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_01BeD7r8Qz9KFETC5RLVDwAG",
+ "custom_id": "captured_0009",
+ "usage": {
+  "input_tokens": 12991,
+  "output_tokens": 9154,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 4317,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.117954,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "captured_0009",
+  "fps": 24.0,
+  "fps_from_container": false,
+  "video_type": "A3SC",
+  "n_frames_total": 49,
+  "scale": 0.6671875,
+  "image_size": [
+   1280,
+   719
+  ],
+  "frames": [
+   0,
+   2,
+   3,
+   6,
+   10,
+   13,
+   16,
+   19,
+   22,
+   26,
+   29,
+   32,
+   35,
+   38,
+   41,
+   42,
+   43,
+   44,
+   45,
+   46,
+   48
+  ],
+  "questions": [
+   {
+    "qid": 2176,
+    "target_unit": "cm",
+    "prior": "acceleration = 9.8 m/s^2",
+    "depth_info": "t=0.0s, distance_ball_camera = 1.3210m\nt=0.0s, distance_floor_camera = 2.0285m\nt=1.8s, distance_ball_camera = 1.5835m\nt=1.92s (max rebounce), distance_ball_camera=1.5795m"
+   },
+   {
+    "qid": 2177,
+    "target_unit": "cm",
+    "prior": "acceleration = 9.8 m/s^2",
+    "depth_info": "t=0.0s, distance_ball_camera = 1.3210m\nt=0.0s, distance_floor_camera = 2.0285m\nt=1.8s, distance_ball_camera = 1.5835m\nt=1.92s (max rebounce), distance_ball_camera=1.5795m"
+   },
+   {
+    "qid": 2178,
+    "target_unit": "cm",
+    "prior": "acceleration = 9.8 m/s^2",
+    "depth_info": "t=0.0s, distance_ball_camera = 1.3210m\nt=0.0s, distance_floor_camera = 2.0285m\nt=1.8s, distance_ball_camera = 1.5835m\nt=1.92s (max rebounce), distance_ball_camera=1.5795m"
+   },
+   {
+    "qid": 2179,
+    "target_unit": "m/s",
+    "prior": "acceleration = 9.8 m/s^2",
+    "depth_info": "t=0.0s, distance_ball_camera = 1.3210m\nt=0.0s, distance_floor_camera = 2.0285m\nt=1.8s, distance_ball_camera = 1.5835m\nt=1.92s (max rebounce), distance_ball_camera=1.5795m"
+   },
+   {
+    "qid": 2180,
+    "target_unit": "m",
+    "prior": "acceleration = 9.8 m/s^2",
+    "depth_info": "t=0.0s, distance_ball_camera = 1.3210m\nt=0.0s, distance_floor_camera = 2.0285m\nt=1.8s, distance_ball_camera = 1.5835m\nt=1.92s (max rebounce), distance_ball_camera=1.5795m"
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":2176,\"spec\":{\"target\":{\"kind\":\"distance\",\"objects\":[\"basketball\",\"floor\"],\"dimension\":\"\",\"time\":0,\"window\":null,\"axis\":\"vertical\",\"value_si\":null,\"unit\":\"cm\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"basketball\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":9.8,\"unit\":\"\"},\"depth\":[{\"object\":\"basketball\",\"distance_m\":1.321,\"time\":0},{\"object\":\"floor\",\"distance_m\":2.0285,\"time\":0},{\"object\":\"basketball\",\"distance_m\":1.5835,\"time\":1.8},{\"object\":\"basketball\",\"distance_m\":1.5795,\"time\":1.92}],\"notes\":\"Ambiguous whether height of ball bottom or centre; the gravity-derived scale is inconsistent with the ball-size scale (possible fps mismatch). The estimate uses the ball-size scale.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"basketball\",\"obs\":[{\"frame\":41,\"point\":[356,362],\"extent\":null,\"box\":[322,328,390,396]},{\"frame\":42,\"point\":[355,347],\"extent\":null,\"box\":[320,313,390,381]},{\"frame\":43,\"point\":[354,335],\"extent\":null,\"box\":[319,300,389,370]},{\"frame\":44,\"point\":[353,326],\"extent\":null,\"box\":[317,291,389,361]},{\"frame\":45,\"point\":[353,321],\"extent\":null,\"box\":[317,286,389,357]},{\"frame\":46,\"point\":[353,320],\"extent\":null,\"box\":[316,283,390,356]},{\"frame\":48,\"point\":[354,326],\"extent\":null,\"box\":[318,290,390,362]}]},{\"role\":\"target\",\"object\":\"basketball initial\",\"obs\":[{\"frame\":0,\"point\":[322,118],\"extent\":null,\"box\":[277,72,368,163]}]},{\"role\":\"target2\",\"object\":\"floor below ball\",\"obs\":[{\"frame\":0,\"point\":[364,456],\"extent\":null,\"box\":null}]}],\"direct_answer\":90,\"confidence\":0.3},{\"qid\":2177,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"basketball\"],\"dimension\":\"diameter\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"cm\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"basketball\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":9.8,\"unit\":\"\"},\"depth\":[{\"object\":\"basketball\",\"distance_m\":1.321,\"time\":0},{\"object\":\"floor\",\"distance_m\":2.0285,\"time\":0},{\"object\":\"basketball\",\"distance_m\":1.5835,\"time\":1.8},{\"object\":\"basketball\",\"distance_m\":1.5795,\"time\":1.92}],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"basketball\",\"obs\":[]},{\"role\":\"target\",\"object\":\"basketball\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[277,118],[368,118]],\"box\":[277,72,368,163]},{\"frame\":44,\"point\":null,\"extent\":[[317,326],[389,326]],\"box\":[317,291,389,361]},{\"frame\":46,\"point\":null,\"extent\":[[316,320],[390,320]],\"box\":[316,283,390,356]},{\"frame\":48,\"point\":null,\"extent\":[[318,326],[390,326]],\"box\":[318,290,390,362]}]}],\"direct_answer\":24,\"confidence\":0.5},{\"qid\":2178,\"spec\":{\"target\":{\"kind\":\"displacement\",\"objects\":[\"basketball\"],\"dimension\":\"\",\"time\":null,\"window\":[1.583,1.917],\"axis\":\"vertical\",\"value_si\":null,\"unit\":\"cm\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"basketball\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":9.8,\"unit\":\"\"},\"depth\":[{\"object\":\"basketball\",\"distance_m\":1.321,\"time\":0},{\"object\":\"floor\",\"distance_m\":2.0285,\"time\":0},{\"object\":\"basketball\",\"distance_m\":1.5835,\"time\":1.8},{\"object\":\"basketball\",\"distance_m\":1.5795,\"time\":1.92}],\"notes\":\"Rebound height taken as rise from floor contact (~frame 38) to apex (frame 46).\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"basketball\",\"obs\":[]},{\"role\":\"target\",\"object\":\"basketball rebound\",\"obs\":[{\"frame\":38,\"point\":[364,423],\"extent\":null,\"box\":[330,390,397,456]},{\"frame\":46,\"point\":[353,320],\"extent\":null,\"box\":[316,283,390,356]}]}],\"direct_answer\":31,\"confidence\":0.3},{\"qid\":2179,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"basketball\"],\"dimension\":\"\",\"time\":1.8,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"basketball\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":9.8,\"unit\":\"\"},\"depth\":[{\"object\":\"basketball\",\"distance_m\":1.321,\"time\":0},{\"object\":\"floor\",\"distance_m\":2.0285,\"time\":0},{\"object\":\"basketball\",\"distance_m\":1.5835,\"time\":1.8},{\"object\":\"basketball\",\"distance_m\":1.5795,\"time\":1.92}],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"basketball\",\"obs\":[]},{\"role\":\"target\",\"object\":\"basketball\",\"obs\":[]}],\"direct_answer\":0.95,\"confidence\":0.3},{\"qid\":2180,\"spec\":{\"target\":{\"kind\":\"camera_distance\",\"objects\":[\"basketball\"],\"dimension\":\"\",\"time\":1.8,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"basketball\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":9.8,\"unit\":\"\"},\"depth\":[{\"object\":\"basketball\",\"distance_m\":1.321,\"time\":0},{\"object\":\"floor\",\"distance_m\":2.0285,\"time\":0},{\"object\":\"basketball\",\"distance_m\":1.5835,\"time\":1.8},{\"object\":\"basketball\",\"distance_m\":1.5795,\"time\":1.92}],\"notes\":\"Read directly from depth info.\"},\"tracks\":[],\"direct_answer\":1.5835,\"confidence\":0.95}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 2176,
+    "spec": {
+     "target": {
+      "kind": "distance",
+      "objects": [
+       "basketball",
+       "floor"
+      ],
+      "dimension": "",
+      "time": 0,
+      "window": null,
+      "axis": "vertical",
+      "value_si": null,
+      "unit": "cm"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "basketball"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": 9.8,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "basketball",
+       "distance_m": 1.321,
+       "time": 0
+      },
+      {
+       "object": "floor",
+       "distance_m": 2.0285,
+       "time": 0
+      },
+      {
+       "object": "basketball",
+       "distance_m": 1.5835,
+       "time": 1.8
+      },
+      {
+       "object": "basketball",
+       "distance_m": 1.5795,
+       "time": 1.92
+      }
+     ],
+     "notes": "Ambiguous whether height of ball bottom or centre; the gravity-derived scale is inconsistent with the ball-size scale (possible fps mismatch). The estimate uses the ball-size scale."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "basketball",
+      "obs": [
+       {
+        "frame": 41,
+        "point": [
+         356,
+         362
+        ],
+        "extent": null,
+        "box": [
+         322,
+         328,
+         390,
+         396
+        ]
+       },
+       {
+        "frame": 42,
+        "point": [
+         355,
+         347
+        ],
+        "extent": null,
+        "box": [
+         320,
+         313,
+         390,
+         381
+        ]
+       },
+       {
+        "frame": 43,
+        "point": [
+         354,
+         335
+        ],
+        "extent": null,
+        "box": [
+         319,
+         300,
+         389,
+         370
+        ]
+       },
+       {
+        "frame": 44,
+        "point": [
+         353,
+         326
+        ],
+        "extent": null,
+        "box": [
+         317,
+         291,
+         389,
+         361
+        ]
+       },
+       {
+        "frame": 45,
+        "point": [
+         353,
+         321
+        ],
+        "extent": null,
+        "box": [
+         317,
+         286,
+         389,
+         357
+        ]
+       },
+       {
+        "frame": 46,
+        "point": [
+         353,
+         320
+        ],
+        "extent": null,
+        "box": [
+         316,
+         283,
+         390,
+         356
+        ]
+       },
+       {
+        "frame": 48,
+        "point": [
+         354,
+         326
+        ],
+        "extent": null,
+        "box": [
+         318,
+         290,
+         390,
+         362
+        ]
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "basketball initial",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         322,
+         118
+        ],
+        "extent": null,
+        "box": [
+         277,
+         72,
+         368,
+         163
+        ]
+       }
+      ]
+     },
+     {
+      "role": "target2",
+      "object": "floor below ball",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         364,
+         456
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     }
+    ],
+    "direct_answer": 90,
+    "confidence": 0.3
+   },
+   {
+    "qid": 2177,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "basketball"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "cm"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "basketball"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": 9.8,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "basketball",
+       "distance_m": 1.321,
+       "time": 0
+      },
+      {
+       "object": "floor",
+       "distance_m": 2.0285,
+       "time": 0
+      },
+      {
+       "object": "basketball",
+       "distance_m": 1.5835,
+       "time": 1.8
+      },
+      {
+       "object": "basketball",
+       "distance_m": 1.5795,
+       "time": 1.92
+      }
+     ],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "basketball",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "basketball",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          277,
+          118
+         ],
+         [
+          368,
+          118
+         ]
+        ],
+        "box": [
+         277,
+         72,
+         368,
+         163
+        ]
+       },
+       {
+        "frame": 44,
+        "point": null,
+        "extent": [
+         [
+          317,
+          326
+         ],
+         [
+          389,
+          326
+         ]
+        ],
+        "box": [
+         317,
+         291,
+         389,
+         361
+        ]
+       },
+       {
+        "frame": 46,
+        "point": null,
+        "extent": [
+         [
+          316,
+          320
+         ],
+         [
+          390,
+          320
+         ]
+        ],
+        "box": [
+         316,
+         283,
+         390,
+         356
+        ]
+       },
+       {
+        "frame": 48,
+        "point": null,
+        "extent": [
+         [
+          318,
+          326
+         ],
+         [
+          390,
+          326
+         ]
+        ],
+        "box": [
+         318,
+         290,
+         390,
+         362
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 24,
+    "confidence": 0.5
+   },
+   {
+    "qid": 2178,
+    "spec": {
+     "target": {
+      "kind": "displacement",
+      "objects": [
+       "basketball"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": [
+       1.583,
+       1.917
+      ],
+      "axis": "vertical",
+      "value_si": null,
+      "unit": "cm"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "basketball"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": 9.8,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "basketball",
+       "distance_m": 1.321,
+       "time": 0
+      },
+      {
+       "object": "floor",
+       "distance_m": 2.0285,
+       "time": 0
+      },
+      {
+       "object": "basketball",
+       "distance_m": 1.5835,
+       "time": 1.8
+      },
+      {
+       "object": "basketball",
+       "distance_m": 1.5795,
+       "time": 1.92
+      }
+     ],
+     "notes": "Rebound height taken as rise from floor contact (~frame 38) to apex (frame 46)."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "basketball",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "basketball rebound",
+      "obs": [
+       {
+        "frame": 38,
+        "point": [
+         364,
+         423
+        ],
+        "extent": null,
+        "box": [
+         330,
+         390,
+         397,
+         456
+        ]
+       },
+       {
+        "frame": 46,
+        "point": [
+         353,
+         320
+        ],
+        "extent": null,
+        "box": [
+         316,
+         283,
+         390,
+         356
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 31,
+    "confidence": 0.3
+   },
+   {
+    "qid": 2179,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "basketball"
+      ],
+      "dimension": "",
+      "time": 1.8,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "basketball"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": 9.8,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "basketball",
+       "distance_m": 1.321,
+       "time": 0
+      },
+      {
+       "object": "floor",
+       "distance_m": 2.0285,
+       "time": 0
+      },
+      {
+       "object": "basketball",
+       "distance_m": 1.5835,
+       "time": 1.8
+      },
+      {
+       "object": "basketball",
+       "distance_m": 1.5795,
+       "time": 1.92
+      }
+     ],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "basketball",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "basketball",
+      "obs": []
+     }
+    ],
+    "direct_answer": 0.95,
+    "confidence": 0.3
+   },
+   {
+    "qid": 2180,
+    "spec": {
+     "target": {
+      "kind": "camera_distance",
+      "objects": [
+       "basketball"
+      ],
+      "dimension": "",
+      "time": 1.8,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "basketball"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": 9.8,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "basketball",
+       "distance_m": 1.321,
+       "time": 0
+      },
+      {
+       "object": "floor",
+       "distance_m": 2.0285,
+       "time": 0
+      },
+      {
+       "object": "basketball",
+       "distance_m": 1.5835,
+       "time": 1.8
+      },
+      {
+       "object": "basketball",
+       "distance_m": 1.5795,
+       "time": 1.92
+      }
+     ],
+     "notes": "Read directly from depth info."
+    },
+    "tracks": [],
+    "direct_answer": 1.5835,
+    "confidence": 0.95
+   }
+  ]
+ }
+}

@@ -1,0 +1,600 @@
+{
+ "video_id": "simulation_0077",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfpqADp57e3yYpXiF8vY8",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 854
+ },
+ "ts": "2026-10-08T17:02:26+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_01XRoUdcv1JJmFFWwZHgai9d",
+ "custom_id": "simulation_0077",
+ "usage": {
+  "input_tokens": 12426,
+  "output_tokens": 2687,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 4317,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.052154,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0077",
+  "fps": 24.0,
+  "fps_from_container": false,
+  "video_type": "V2MX",
+  "n_frames_total": 72,
+  "scale": 0.44479166666666664,
+  "image_size": [
+   1920,
+   1079
+  ],
+  "frames": [
+   0,
+   5,
+   9,
+   14,
+   19,
+   22,
+   24,
+   26,
+   28,
+   33,
+   38,
+   43,
+   46,
+   47,
+   48,
+   50,
+   52,
+   57,
+   62,
+   66,
+   71
+  ],
+  "questions": [
+   {
+    "qid": 70,
+    "target_unit": "m/s",
+    "prior": "speed of the person in the black shirt = 1m/s",
+    "depth_info": ""
+   },
+   {
+    "qid": 71,
+    "target_unit": "m",
+    "prior": "speed of the person in the black shirt = 1m/s",
+    "depth_info": ""
+   },
+   {
+    "qid": 72,
+    "target_unit": "m",
+    "prior": "speed of the person in the black shirt = 1m/s",
+    "depth_info": ""
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":70,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"person in the white shirt\"],\"dimension\":\"\",\"time\":1.0,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"person in the black shirt\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":1.0,\"unit\":\"\"},\"depth\":[],\"notes\":\"Black-shirt speed taken as the average walking speed over the clip.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"person in the black shirt\",\"obs\":[{\"frame\":0,\"point\":[455,181],\"extent\":null,\"box\":null},{\"frame\":5,\"point\":[478,179],\"extent\":null,\"box\":null},{\"frame\":9,\"point\":[497,180],\"extent\":null,\"box\":null},{\"frame\":14,\"point\":[523,178],\"extent\":null,\"box\":null},{\"frame\":19,\"point\":[552,178],\"extent\":null,\"box\":null},{\"frame\":22,\"point\":[571,179],\"extent\":null,\"box\":null},{\"frame\":24,\"point\":[582,180],\"extent\":null,\"box\":null},{\"frame\":26,\"point\":[591,180],\"extent\":null,\"box\":null},{\"frame\":28,\"point\":[601,181],\"extent\":null,\"box\":null},{\"frame\":33,\"point\":[627,182],\"extent\":null,\"box\":null},{\"frame\":38,\"point\":[656,180],\"extent\":null,\"box\":null},{\"frame\":43,\"point\":[682,179],\"extent\":null,\"box\":null},{\"frame\":46,\"point\":[698,179],\"extent\":null,\"box\":null},{\"frame\":47,\"point\":[703,179],\"extent\":null,\"box\":null},{\"frame\":48,\"point\":[709,179],\"extent\":null,\"box\":null},{\"frame\":50,\"point\":[719,178],\"extent\":null,\"box\":null},{\"frame\":52,\"point\":[730,178],\"extent\":null,\"box\":null},{\"frame\":57,\"point\":[758,179],\"extent\":null,\"box\":null},{\"frame\":62,\"point\":[782,180],\"extent\":null,\"box\":null},{\"frame\":66,\"point\":[802,181],\"extent\":null,\"box\":null},{\"frame\":71,\"point\":[832,181],\"extent\":null,\"box\":null}]},{\"role\":\"target\",\"object\":\"person in the white shirt\",\"obs\":[{\"frame\":0,\"point\":[441,268],\"extent\":null,\"box\":null},{\"frame\":5,\"point\":[411,270],\"extent\":null,\"box\":null},{\"frame\":9,\"point\":[385,271],\"extent\":null,\"box\":null},{\"frame\":14,\"point\":[349,271],\"extent\":null,\"box\":null},{\"frame\":19,\"point\":[314,271],\"extent\":null,\"box\":null},{\"frame\":22,\"point\":[291,271],\"extent\":null,\"box\":null},{\"frame\":24,\"point\":[276,270],\"extent\":null,\"box\":null},{\"frame\":26,\"point\":[264,268],\"extent\":null,\"box\":null},{\"frame\":28,\"point\":[251,268],\"extent\":null,\"box\":null},{\"frame\":33,\"point\":[216,267],\"extent\":null,\"box\":null},{\"frame\":38,\"point\":[179,269],\"extent\":null,\"box\":null},{\"frame\":43,\"point\":[146,270],\"extent\":null,\"box\":null},{\"frame\":46,\"point\":[125,270],\"extent\":null,\"box\":null},{\"frame\":47,\"point\":[118,270],\"extent\":null,\"box\":null},{\"frame\":48,\"point\":[111,270],\"extent\":null,\"box\":null},{\"frame\":50,\"point\":[97,271],\"extent\":null,\"box\":null},{\"frame\":52,\"point\":[83,270],\"extent\":null,\"box\":null},{\"frame\":57,\"point\":[47,271],\"extent\":null,\"box\":null},{\"frame\":62,\"point\":[14,268],\"extent\":null,\"box\":null}]}],\"direct_answer\":1.31,\"confidence\":0.6},{\"qid\":71,\"spec\":{\"target\":{\"kind\":\"distance\",\"objects\":[\"person in the black shirt\",\"person in the white shirt\"],\"dimension\":\"\",\"time\":1.0,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"person in the black shirt\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":1.0,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"person in the black shirt\",\"obs\":[]},{\"role\":\"target\",\"object\":\"person in the black shirt\",\"obs\":[]},{\"role\":\"target2\",\"object\":\"person in the white shirt\",\"obs\":[]}],\"direct_answer\":2.49,\"confidence\":0.6},{\"qid\":72,\"spec\":{\"target\":{\"kind\":\"distance\",\"objects\":[\"person in the black shirt\",\"person in the white shirt\"],\"dimension\":\"\",\"time\":2.0,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"person in the black shirt\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":1.0,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"person in the black shirt\",\"obs\":[]},{\"role\":\"target\",\"object\":\"person in the black shirt\",\"obs\":[]},{\"role\":\"target2\",\"object\":\"person in the white shirt\",\"obs\":[]}],\"direct_answer\":4.73,\"confidence\":0.6}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 70,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "person in the white shirt"
+      ],
+      "dimension": "",
+      "time": 1.0,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "person in the black shirt"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 1.0,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Black-shirt speed taken as the average walking speed over the clip."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "person in the black shirt",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         455,
+         181
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 5,
+        "point": [
+         478,
+         179
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 9,
+        "point": [
+         497,
+         180
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 14,
+        "point": [
+         523,
+         178
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 19,
+        "point": [
+         552,
+         178
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 22,
+        "point": [
+         571,
+         179
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 24,
+        "point": [
+         582,
+         180
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 26,
+        "point": [
+         591,
+         180
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 28,
+        "point": [
+         601,
+         181
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 33,
+        "point": [
+         627,
+         182
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 38,
+        "point": [
+         656,
+         180
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 43,
+        "point": [
+         682,
+         179
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 46,
+        "point": [
+         698,
+         179
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 47,
+        "point": [
+         703,
+         179
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 48,
+        "point": [
+         709,
+         179
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 50,
+        "point": [
+         719,
+         178
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 52,
+        "point": [
+         730,
+         178
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 57,
+        "point": [
+         758,
+         179
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 62,
+        "point": [
+         782,
+         180
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 66,
+        "point": [
+         802,
+         181
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 71,
+        "point": [
+         832,
+         181
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "person in the white shirt",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         441,
+         268
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 5,
+        "point": [
+         411,
+         270
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 9,
+        "point": [
+         385,
+         271
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 14,
+        "point": [
+         349,
+         271
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 19,
+        "point": [
+         314,
+         271
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 22,
+        "point": [
+         291,
+         271
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 24,
+        "point": [
+         276,
+         270
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 26,
+        "point": [
+         264,
+         268
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 28,
+        "point": [
+         251,
+         268
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 33,
+        "point": [
+         216,
+         267
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 38,
+        "point": [
+         179,
+         269
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 43,
+        "point": [
+         146,
+         270
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 46,
+        "point": [
+         125,
+         270
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 47,
+        "point": [
+         118,
+         270
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 48,
+        "point": [
+         111,
+         270
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 50,
+        "point": [
+         97,
+         271
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 52,
+        "point": [
+         83,
+         270
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 57,
+        "point": [
+         47,
+         271
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 62,
+        "point": [
+         14,
+         268
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     }
+    ],
+    "direct_answer": 1.31,
+    "confidence": 0.6
+   },
+   {
+    "qid": 71,
+    "spec": {
+     "target": {
+      "kind": "distance",
+      "objects": [
+       "person in the black shirt",
+       "person in the white shirt"
+      ],
+      "dimension": "",
+      "time": 1.0,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "person in the black shirt"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 1.0,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "person in the black shirt",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "person in the black shirt",
+      "obs": []
+     },
+     {
+      "role": "target2",
+      "object": "person in the white shirt",
+      "obs": []
+     }
+    ],
+    "direct_answer": 2.49,
+    "confidence": 0.6
+   },
+   {
+    "qid": 72,
+    "spec": {
+     "target": {
+      "kind": "distance",
+      "objects": [
+       "person in the black shirt",
+       "person in the white shirt"
+      ],
+      "dimension": "",
+      "time": 2.0,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "person in the black shirt"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 1.0,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "person in the black shirt",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "person in the black shirt",
+      "obs": []
+     },
+     {
+      "role": "target2",
+      "object": "person in the white shirt",
+      "obs": []
+     }
+    ],
+    "direct_answer": 4.73,
+    "confidence": 0.6
+   }
+  ]
+ }
+}

@@ -1,0 +1,873 @@
+{
+ "video_id": "simulation_0140",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011Cfpq9pswBDbipbHpf8EtY",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 854
+ },
+ "ts": "2026-10-08T17:15:55+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_01VkRABjAWPjX4v5rz3uiYPm",
+ "custom_id": "simulation_0140",
+ "usage": {
+  "input_tokens": 13475,
+  "output_tokens": 4522,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 4317,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.072602,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0140",
+  "fps": 24.0,
+  "fps_from_container": false,
+  "video_type": "S3MC",
+  "n_frames_total": 100,
+  "scale": 0.44479166666666664,
+  "image_size": [
+   1920,
+   1079
+  ],
+  "frames": [
+   0,
+   2,
+   7,
+   10,
+   12,
+   13,
+   14,
+   20,
+   22,
+   24,
+   26,
+   33,
+   40,
+   46,
+   53,
+   59,
+   66,
+   73,
+   79,
+   86,
+   92,
+   99
+  ],
+  "questions": [
+   {
+    "qid": 1502,
+    "target_unit": "m",
+    "prior": "width of each window frame = 1.48m",
+    "depth_info": "t=0s, distance_bird_camera = 25.328m\nt=0.5s, distance_bird_camera = 24.899m\ndistance_neonsign_camera = 34.5m"
+   },
+   {
+    "qid": 1503,
+    "target_unit": "m",
+    "prior": "width of each window frame = 1.48m",
+    "depth_info": "t=0s, distance_bird_camera = 25.328m\nt=0.5s, distance_bird_camera = 24.899m\ndistance_neonsign_camera = 34.5m"
+   },
+   {
+    "qid": 1504,
+    "target_unit": "m",
+    "prior": "width of each window frame = 1.48m",
+    "depth_info": "t=0s, distance_bird_camera = 25.328m\nt=0.5s, distance_bird_camera = 24.899m\ndistance_neonsign_camera = 34.5m"
+   },
+   {
+    "qid": 1505,
+    "target_unit": "m",
+    "prior": "width of each window frame = 1.48m",
+    "depth_info": "t=0s, distance_bird_camera = 25.328m\nt=0.5s, distance_bird_camera = 24.899m\ndistance_neonsign_camera = 34.5m"
+   },
+   {
+    "qid": 1506,
+    "target_unit": "m",
+    "prior": "width of each window frame = 1.48m",
+    "depth_info": "t=0s, distance_bird_camera = 25.328m\nt=0.5s, distance_bird_camera = 24.899m\ndistance_neonsign_camera = 34.5m"
+   },
+   {
+    "qid": 1507,
+    "target_unit": "m/s",
+    "prior": "width of each window frame = 1.48m",
+    "depth_info": "t=0s, distance_bird_camera = 25.328m\nt=0.5s, distance_bird_camera = 24.899m\ndistance_neonsign_camera = 34.5m"
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":1502,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"window frame\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"window frame\"],\"dimension\":\"width\",\"time\":null,\"window\":null,\"axis\":\"horizontal\",\"value_si\":1.48,\"unit\":\"\"},\"depth\":[{\"object\":\"bird\",\"distance_m\":25.328,\"time\":0},{\"object\":\"bird\",\"distance_m\":24.899,\"time\":0.5},{\"object\":\"neon sign\",\"distance_m\":34.5,\"time\":null}],\"notes\":\"Window frames on the back wall (same depth as neon sign).\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"window frame\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[217.5,201.5],[266.5,201.5]],\"box\":[217.5,167.5,266.5,236.5]},{\"frame\":0,\"point\":null,\"extent\":[[379.5,201.5],[428.5,201.5]],\"box\":[379.5,167.5,428.5,236.5]},{\"frame\":0,\"point\":null,\"extent\":[[540.5,310.5],[589.5,310.5]],\"box\":[540.5,276.5,589.5,344.5]}]},{\"role\":\"target\",\"object\":\"window frame\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[242.0,167.5],[242.0,236.5]],\"box\":[217.5,167.5,266.5,236.5]},{\"frame\":0,\"point\":null,\"extent\":[[404.0,167.5],[404.0,236.5]],\"box\":[379.5,167.5,428.5,236.5]},{\"frame\":0,\"point\":null,\"extent\":[[565.0,276.5],[565.0,344.5]],\"box\":[540.5,276.5,589.5,344.5]}]}],\"direct_answer\":2.08,\"confidence\":0.6},{\"qid\":1503,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"neon sign\"],\"dimension\":\"width\",\"time\":null,\"window\":null,\"axis\":\"horizontal\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"window frame\"],\"dimension\":\"width\",\"time\":null,\"window\":null,\"axis\":\"horizontal\",\"value_si\":1.48,\"unit\":\"\"},\"depth\":[{\"object\":\"bird\",\"distance_m\":25.328,\"time\":0},{\"object\":\"bird\",\"distance_m\":24.899,\"time\":0.5},{\"object\":\"neon sign\",\"distance_m\":34.5,\"time\":null}],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"window frame\",\"obs\":[]},{\"role\":\"target\",\"object\":\"neon sign\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[285.0,139.0],[594.0,139.0]],\"box\":[285.0,119.0,594.0,158.0]},{\"frame\":40,\"point\":null,\"extent\":[[285.0,139.0],[594.0,139.0]],\"box\":[285.0,119.0,594.0,158.0]},{\"frame\":99,\"point\":null,\"extent\":[[285.0,139.0],[594.0,139.0]],\"box\":[285.0,119.0,594.0,158.0]}]}],\"direct_answer\":9.33,\"confidence\":0.55},{\"qid\":1504,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"neon sign\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"window frame\"],\"dimension\":\"width\",\"time\":null,\"window\":null,\"axis\":\"horizontal\",\"value_si\":1.48,\"unit\":\"\"},\"depth\":[{\"object\":\"bird\",\"distance_m\":25.328,\"time\":0},{\"object\":\"bird\",\"distance_m\":24.899,\"time\":0.5},{\"object\":\"neon sign\",\"distance_m\":34.5,\"time\":null}],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"window frame\",\"obs\":[]},{\"role\":\"target\",\"object\":\"neon sign\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[440.0,119.0],[440.0,158.0]],\"box\":[285.0,119.0,594.0,158.0]},{\"frame\":40,\"point\":null,\"extent\":[[440.0,119.0],[440.0,158.0]],\"box\":[285.0,119.0,594.0,158.0]},{\"frame\":99,\"point\":null,\"extent\":[[440.0,119.0],[440.0,158.0]],\"box\":[285.0,119.0,594.0,158.0]}]}],\"direct_answer\":1.18,\"confidence\":0.45},{\"qid\":1505,\"spec\":{\"target\":{\"kind\":\"distance\",\"objects\":[\"bird flight path\",\"neon sign wall\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"window frame\"],\"dimension\":\"width\",\"time\":null,\"window\":null,\"axis\":\"horizontal\",\"value_si\":1.48,\"unit\":\"\"},\"depth\":[{\"object\":\"bird\",\"distance_m\":25.328,\"time\":0},{\"object\":\"bird\",\"distance_m\":24.899,\"time\":0.5},{\"object\":\"neon sign\",\"distance_m\":34.5,\"time\":null}],\"notes\":\"Depth difference between wall and bird; bird depth varies slightly, average used.\"},\"tracks\":[],\"direct_answer\":9.4,\"confidence\":0.5},{\"qid\":1506,\"spec\":{\"target\":{\"kind\":\"path_length\",\"objects\":[\"bird\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"window frame\"],\"dimension\":\"width\",\"time\":null,\"window\":null,\"axis\":\"horizontal\",\"value_si\":1.48,\"unit\":\"\"},\"depth\":[{\"object\":\"bird\",\"distance_m\":25.328,\"time\":0},{\"object\":\"bird\",\"distance_m\":24.899,\"time\":0.5},{\"object\":\"neon sign\",\"distance_m\":34.5,\"time\":null}],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"window frame\",\"obs\":[]},{\"role\":\"target\",\"object\":\"bird\",\"obs\":[{\"frame\":0,\"point\":[95.0,368.0],\"extent\":null,\"box\":null},{\"frame\":2,\"point\":[96.0,367.0],\"extent\":null,\"box\":null},{\"frame\":7,\"point\":[122.0,347.0],\"extent\":null,\"box\":null},{\"frame\":10,\"point\":[143.0,328.0],\"extent\":null,\"box\":null},{\"frame\":12,\"point\":[150.0,316.0],\"extent\":null,\"box\":null},{\"frame\":13,\"point\":[152.0,309.0],\"extent\":null,\"box\":null},{\"frame\":14,\"point\":[157.0,303.0],\"extent\":null,\"box\":null},{\"frame\":20,\"point\":[190.0,280.0],\"extent\":null,\"box\":null},{\"frame\":22,\"point\":[203.0,268.0],\"extent\":null,\"box\":null},{\"frame\":24,\"point\":[215.0,258.0],\"extent\":null,\"box\":null},{\"frame\":26,\"point\":[232.0,248.0],\"extent\":null,\"box\":null},{\"frame\":33,\"point\":[277.0,228.0],\"extent\":null,\"box\":null},{\"frame\":46,\"point\":[362.0,190.0],\"extent\":null,\"box\":null},{\"frame\":59,\"point\":[455.0,165.0],\"extent\":null,\"box\":null},{\"frame\":66,\"point\":[515.0,148.0],\"extent\":null,\"box\":null},{\"frame\":79,\"point\":[604.0,178.0],\"extent\":null,\"box\":null},{\"frame\":92,\"point\":[697.0,212.0],\"extent\":null,\"box\":null},{\"frame\":99,\"point\":[740.0,232.0],\"extent\":null,\"box\":null}]}],\"direct_answer\":16.0,\"confidence\":0.3},{\"qid\":1507,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"bird\"],\"dimension\":\"\",\"time\":1.0,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"window frame\"],\"dimension\":\"width\",\"time\":null,\"window\":null,\"axis\":\"horizontal\",\"value_si\":1.48,\"unit\":\"\"},\"depth\":[{\"object\":\"bird\",\"distance_m\":25.328,\"time\":0},{\"object\":\"bird\",\"distance_m\":24.899,\"time\":0.5},{\"object\":\"neon sign\",\"distance_m\":34.5,\"time\":null}],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"window frame\",\"obs\":[]},{\"role\":\"target\",\"object\":\"bird\",\"obs\":[]}],\"direct_answer\":4.6,\"confidence\":0.35}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 1502,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "window frame"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "window frame"
+      ],
+      "dimension": "width",
+      "time": null,
+      "window": null,
+      "axis": "horizontal",
+      "value_si": 1.48,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "bird",
+       "distance_m": 25.328,
+       "time": 0
+      },
+      {
+       "object": "bird",
+       "distance_m": 24.899,
+       "time": 0.5
+      },
+      {
+       "object": "neon sign",
+       "distance_m": 34.5,
+       "time": null
+      }
+     ],
+     "notes": "Window frames on the back wall (same depth as neon sign)."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "window frame",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          217.5,
+          201.5
+         ],
+         [
+          266.5,
+          201.5
+         ]
+        ],
+        "box": [
+         217.5,
+         167.5,
+         266.5,
+         236.5
+        ]
+       },
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          379.5,
+          201.5
+         ],
+         [
+          428.5,
+          201.5
+         ]
+        ],
+        "box": [
+         379.5,
+         167.5,
+         428.5,
+         236.5
+        ]
+       },
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          540.5,
+          310.5
+         ],
+         [
+          589.5,
+          310.5
+         ]
+        ],
+        "box": [
+         540.5,
+         276.5,
+         589.5,
+         344.5
+        ]
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "window frame",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          242.0,
+          167.5
+         ],
+         [
+          242.0,
+          236.5
+         ]
+        ],
+        "box": [
+         217.5,
+         167.5,
+         266.5,
+         236.5
+        ]
+       },
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          404.0,
+          167.5
+         ],
+         [
+          404.0,
+          236.5
+         ]
+        ],
+        "box": [
+         379.5,
+         167.5,
+         428.5,
+         236.5
+        ]
+       },
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          565.0,
+          276.5
+         ],
+         [
+          565.0,
+          344.5
+         ]
+        ],
+        "box": [
+         540.5,
+         276.5,
+         589.5,
+         344.5
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 2.08,
+    "confidence": 0.6
+   },
+   {
+    "qid": 1503,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "neon sign"
+      ],
+      "dimension": "width",
+      "time": null,
+      "window": null,
+      "axis": "horizontal",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "window frame"
+      ],
+      "dimension": "width",
+      "time": null,
+      "window": null,
+      "axis": "horizontal",
+      "value_si": 1.48,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "bird",
+       "distance_m": 25.328,
+       "time": 0
+      },
+      {
+       "object": "bird",
+       "distance_m": 24.899,
+       "time": 0.5
+      },
+      {
+       "object": "neon sign",
+       "distance_m": 34.5,
+       "time": null
+      }
+     ],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "window frame",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "neon sign",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          285.0,
+          139.0
+         ],
+         [
+          594.0,
+          139.0
+         ]
+        ],
+        "box": [
+         285.0,
+         119.0,
+         594.0,
+         158.0
+        ]
+       },
+       {
+        "frame": 40,
+        "point": null,
+        "extent": [
+         [
+          285.0,
+          139.0
+         ],
+         [
+          594.0,
+          139.0
+         ]
+        ],
+        "box": [
+         285.0,
+         119.0,
+         594.0,
+         158.0
+        ]
+       },
+       {
+        "frame": 99,
+        "point": null,
+        "extent": [
+         [
+          285.0,
+          139.0
+         ],
+         [
+          594.0,
+          139.0
+         ]
+        ],
+        "box": [
+         285.0,
+         119.0,
+         594.0,
+         158.0
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 9.33,
+    "confidence": 0.55
+   },
+   {
+    "qid": 1504,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "neon sign"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "window frame"
+      ],
+      "dimension": "width",
+      "time": null,
+      "window": null,
+      "axis": "horizontal",
+      "value_si": 1.48,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "bird",
+       "distance_m": 25.328,
+       "time": 0
+      },
+      {
+       "object": "bird",
+       "distance_m": 24.899,
+       "time": 0.5
+      },
+      {
+       "object": "neon sign",
+       "distance_m": 34.5,
+       "time": null
+      }
+     ],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "window frame",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "neon sign",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          440.0,
+          119.0
+         ],
+         [
+          440.0,
+          158.0
+         ]
+        ],
+        "box": [
+         285.0,
+         119.0,
+         594.0,
+         158.0
+        ]
+       },
+       {
+        "frame": 40,
+        "point": null,
+        "extent": [
+         [
+          440.0,
+          119.0
+         ],
+         [
+          440.0,
+          158.0
+         ]
+        ],
+        "box": [
+         285.0,
+         119.0,
+         594.0,
+         158.0
+        ]
+       },
+       {
+        "frame": 99,
+        "point": null,
+        "extent": [
+         [
+          440.0,
+          119.0
+         ],
+         [
+          440.0,
+          158.0
+         ]
+        ],
+        "box": [
+         285.0,
+         119.0,
+         594.0,
+         158.0
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 1.18,
+    "confidence": 0.45
+   },
+   {
+    "qid": 1505,
+    "spec": {
+     "target": {
+      "kind": "distance",
+      "objects": [
+       "bird flight path",
+       "neon sign wall"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "window frame"
+      ],
+      "dimension": "width",
+      "time": null,
+      "window": null,
+      "axis": "horizontal",
+      "value_si": 1.48,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "bird",
+       "distance_m": 25.328,
+       "time": 0
+      },
+      {
+       "object": "bird",
+       "distance_m": 24.899,
+       "time": 0.5
+      },
+      {
+       "object": "neon sign",
+       "distance_m": 34.5,
+       "time": null
+      }
+     ],
+     "notes": "Depth difference between wall and bird; bird depth varies slightly, average used."
+    },
+    "tracks": [],
+    "direct_answer": 9.4,
+    "confidence": 0.5
+   },
+   {
+    "qid": 1506,
+    "spec": {
+     "target": {
+      "kind": "path_length",
+      "objects": [
+       "bird"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "window frame"
+      ],
+      "dimension": "width",
+      "time": null,
+      "window": null,
+      "axis": "horizontal",
+      "value_si": 1.48,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "bird",
+       "distance_m": 25.328,
+       "time": 0
+      },
+      {
+       "object": "bird",
+       "distance_m": 24.899,
+       "time": 0.5
+      },
+      {
+       "object": "neon sign",
+       "distance_m": 34.5,
+       "time": null
+      }
+     ],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "window frame",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "bird",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         95.0,
+         368.0
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 2,
+        "point": [
+         96.0,
+         367.0
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 7,
+        "point": [
+         122.0,
+         347.0
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 10,
+        "point": [
+         143.0,
+         328.0
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 12,
+        "point": [
+         150.0,
+         316.0
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 13,
+        "point": [
+         152.0,
+         309.0
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 14,
+        "point": [
+         157.0,
+         303.0
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 20,
+        "point": [
+         190.0,
+         280.0
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 22,
+        "point": [
+         203.0,
+         268.0
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 24,
+        "point": [
+         215.0,
+         258.0
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 26,
+        "point": [
+         232.0,
+         248.0
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 33,
+        "point": [
+         277.0,
+         228.0
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 46,
+        "point": [
+         362.0,
+         190.0
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 59,
+        "point": [
+         455.0,
+         165.0
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 66,
+        "point": [
+         515.0,
+         148.0
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 79,
+        "point": [
+         604.0,
+         178.0
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 92,
+        "point": [
+         697.0,
+         212.0
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 99,
+        "point": [
+         740.0,
+         232.0
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     }
+    ],
+    "direct_answer": 16.0,
+    "confidence": 0.3
+   },
+   {
+    "qid": 1507,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "bird"
+      ],
+      "dimension": "",
+      "time": 1.0,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "window frame"
+      ],
+      "dimension": "width",
+      "time": null,
+      "window": null,
+      "axis": "horizontal",
+      "value_si": 1.48,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "bird",
+       "distance_m": 25.328,
+       "time": 0
+      },
+      {
+       "object": "bird",
+       "distance_m": 24.899,
+       "time": 0.5
+      },
+      {
+       "object": "neon sign",
+       "distance_m": 34.5,
+       "time": null
+      }
+     ],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "window frame",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "bird",
+      "obs": []
+     }
+    ],
+    "direct_answer": 4.6,
+    "confidence": 0.35
+   }
+  ]
+ }
+}

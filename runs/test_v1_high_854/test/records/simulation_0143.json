@@ -1,0 +1,628 @@
+{
+ "video_id": "simulation_0143",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfpswhQVMvvUHeCBY4DKh",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 854
+ },
+ "ts": "2026-10-08T17:09:47+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_01Lkr5fafFQ29117PFGuAg4s",
+ "custom_id": "simulation_0143",
+ "usage": {
+  "input_tokens": 16042,
+  "output_tokens": 3537,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 4317,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.067886,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0143",
+  "fps": 24.0,
+  "fps_from_container": false,
+  "video_type": "S3MC",
+  "n_frames_total": 100,
+  "scale": 0.44479166666666664,
+  "image_size": [
+   1920,
+   1079
+  ],
+  "frames": [
+   0,
+   2,
+   7,
+   10,
+   12,
+   13,
+   14,
+   20,
+   22,
+   24,
+   26,
+   33,
+   40,
+   46,
+   48,
+   50,
+   53,
+   58,
+   59,
+   60,
+   62,
+   66,
+   73,
+   79,
+   86,
+   92,
+   99
+  ],
+  "questions": [
+   {
+    "qid": 1382,
+    "target_unit": "m",
+    "prior": "height of the man = 1.8m",
+    "depth_info": "t=0s, distance_man_camera = 7.21m   \nt=0.5s, distance_man_camera = 7.91m"
+   },
+   {
+    "qid": 1383,
+    "target_unit": "m/s",
+    "prior": "height of the man = 1.8m",
+    "depth_info": "t=0s, distance_man_camera = 7.21m   \nt=0.5s, distance_man_camera = 7.91m"
+   },
+   {
+    "qid": 1384,
+    "target_unit": "m/s",
+    "prior": "height of the man = 1.8m",
+    "depth_info": "t=0s, distance_man_camera = 7.21m   \nt=0.5s, distance_man_camera = 7.91m"
+   },
+   {
+    "qid": 1385,
+    "target_unit": "m/s^2",
+    "prior": "height of the man = 1.8m",
+    "depth_info": "t=0s, distance_man_camera = 7.21m   \nt=0.5s, distance_man_camera = 7.91m"
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":1382,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"floor tile\"],\"dimension\":\"side length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"man\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":1.8,\"unit\":\"\"},\"depth\":[{\"object\":\"man\",\"distance_m\":7.21,\"time\":0},{\"object\":\"man\",\"distance_m\":7.91,\"time\":0.5}],\"notes\":\"Tile edges are faint; the tile is measured near the man's feet at t=0.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"man\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[402,186],[402,370]],\"box\":[380,186,432,370]},{\"frame\":12,\"point\":null,\"extent\":[[346,190],[346,366]],\"box\":[318,190,380,366]}]},{\"role\":\"target\",\"object\":\"floor tile\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[375,372],[435,372]],\"box\":[375,360,435,385]}]}],\"direct_answer\":0.6,\"confidence\":0.2},{\"qid\":1383,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"man\"],\"dimension\":\"\",\"time\":1.0,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"man\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":1.8,\"unit\":\"\"},\"depth\":[{\"object\":\"man\",\"distance_m\":7.21,\"time\":0},{\"object\":\"man\",\"distance_m\":7.91,\"time\":0.5}],\"notes\":\"The man walks mostly away from the camera.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"man\",\"obs\":[]},{\"role\":\"target\",\"object\":\"man center\",\"obs\":[{\"frame\":0,\"point\":[405,280],\"extent\":null,\"box\":[380,186,432,370]},{\"frame\":12,\"point\":[348,278],\"extent\":null,\"box\":[318,190,380,366]},{\"frame\":20,\"point\":[322,276],\"extent\":null,\"box\":[290,198,356,360]},{\"frame\":22,\"point\":[316,276],\"extent\":null,\"box\":[288,197,345,350]},{\"frame\":24,\"point\":[313,274],\"extent\":null,\"box\":[288,195,340,352]},{\"frame\":26,\"point\":[308,274],\"extent\":null,\"box\":[280,195,334,350]},{\"frame\":33,\"point\":[293,272],\"extent\":null,\"box\":[266,202,322,344]},{\"frame\":40,\"point\":[302,272],\"extent\":null,\"box\":[280,204,326,340]},{\"frame\":46,\"point\":[312,268],\"extent\":null,\"box\":[288,207,334,326]},{\"frame\":48,\"point\":[318,268],\"extent\":null,\"box\":[302,206,340,326]},{\"frame\":50,\"point\":[323,268],\"extent\":null,\"box\":[300,205,346,326]},{\"frame\":53,\"point\":[331,270],\"extent\":null,\"box\":[310,208,358,327]},{\"frame\":58,\"point\":[340,266],\"extent\":null,\"box\":[318,210,362,318]},{\"frame\":59,\"point\":[342,266],\"extent\":null,\"box\":[320,210,362,316]},{\"frame\":60,\"point\":[344,266],\"extent\":null,\"box\":[326,210,362,316]},{\"frame\":62,\"point\":[348,264],\"extent\":null,\"box\":[330,208,366,316]},{\"frame\":66,\"point\":[355,262],\"extent\":null,\"box\":[338,208,376,316]}]}],\"direct_answer\":1.6,\"confidence\":0.3},{\"qid\":1384,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"man\"],\"dimension\":\"\",\"time\":2.0,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"man\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":1.8,\"unit\":\"\"},\"depth\":[{\"object\":\"man\",\"distance_m\":7.21,\"time\":0},{\"object\":\"man\",\"distance_m\":7.91,\"time\":0.5}],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"man\",\"obs\":[]},{\"role\":\"target\",\"object\":\"man center\",\"obs\":[]}],\"direct_answer\":1.7,\"confidence\":0.25},{\"qid\":1385,\"spec\":{\"target\":{\"kind\":\"acceleration\",\"objects\":[\"man\"],\"dimension\":\"\",\"time\":2.5,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s^2\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"man\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":1.8,\"unit\":\"\"},\"depth\":[{\"object\":\"man\",\"distance_m\":7.21,\"time\":0},{\"object\":\"man\",\"distance_m\":7.91,\"time\":0.5}],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"man\",\"obs\":[]},{\"role\":\"target\",\"object\":\"man center\",\"obs\":[]}],\"direct_answer\":0.3,\"confidence\":0.1}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 1382,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "floor tile"
+      ],
+      "dimension": "side length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "man"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": 1.8,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "man",
+       "distance_m": 7.21,
+       "time": 0
+      },
+      {
+       "object": "man",
+       "distance_m": 7.91,
+       "time": 0.5
+      }
+     ],
+     "notes": "Tile edges are faint; the tile is measured near the man's feet at t=0."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "man",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          402,
+          186
+         ],
+         [
+          402,
+          370
+         ]
+        ],
+        "box": [
+         380,
+         186,
+         432,
+         370
+        ]
+       },
+       {
+        "frame": 12,
+        "point": null,
+        "extent": [
+         [
+          346,
+          190
+         ],
+         [
+          346,
+          366
+         ]
+        ],
+        "box": [
+         318,
+         190,
+         380,
+         366
+        ]
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "floor tile",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          375,
+          372
+         ],
+         [
+          435,
+          372
+         ]
+        ],
+        "box": [
+         375,
+         360,
+         435,
+         385
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 0.6,
+    "confidence": 0.2
+   },
+   {
+    "qid": 1383,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "man"
+      ],
+      "dimension": "",
+      "time": 1.0,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "man"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": 1.8,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "man",
+       "distance_m": 7.21,
+       "time": 0
+      },
+      {
+       "object": "man",
+       "distance_m": 7.91,
+       "time": 0.5
+      }
+     ],
+     "notes": "The man walks mostly away from the camera."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "man",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "man center",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         405,
+         280
+        ],
+        "extent": null,
+        "box": [
+         380,
+         186,
+         432,
+         370
+        ]
+       },
+       {
+        "frame": 12,
+        "point": [
+         348,
+         278
+        ],
+        "extent": null,
+        "box": [
+         318,
+         190,
+         380,
+         366
+        ]
+       },
+       {
+        "frame": 20,
+        "point": [
+         322,
+         276
+        ],
+        "extent": null,
+        "box": [
+         290,
+         198,
+         356,
+         360
+        ]
+       },
+       {
+        "frame": 22,
+        "point": [
+         316,
+         276
+        ],
+        "extent": null,
+        "box": [
+         288,
+         197,
+         345,
+         350
+        ]
+       },
+       {
+        "frame": 24,
+        "point": [
+         313,
+         274
+        ],
+        "extent": null,
+        "box": [
+         288,
+         195,
+         340,
+         352
+        ]
+       },
+       {
+        "frame": 26,
+        "point": [
+         308,
+         274
+        ],
+        "extent": null,
+        "box": [
+         280,
+         195,
+         334,
+         350
+        ]
+       },
+       {
+        "frame": 33,
+        "point": [
+         293,
+         272
+        ],
+        "extent": null,
+        "box": [
+         266,
+         202,
+         322,
+         344
+        ]
+       },
+       {
+        "frame": 40,
+        "point": [
+         302,
+         272
+        ],
+        "extent": null,
+        "box": [
+         280,
+         204,
+         326,
+         340
+        ]
+       },
+       {
+        "frame": 46,
+        "point": [
+         312,
+         268
+        ],
+        "extent": null,
+        "box": [
+         288,
+         207,
+         334,
+         326
+        ]
+       },
+       {
+        "frame": 48,
+        "point": [
+         318,
+         268
+        ],
+        "extent": null,
+        "box": [
+         302,
+         206,
+         340,
+         326
+        ]
+       },
+       {
+        "frame": 50,
+        "point": [
+         323,
+         268
+        ],
+        "extent": null,
+        "box": [
+         300,
+         205,
+         346,
+         326
+        ]
+       },
+       {
+        "frame": 53,
+        "point": [
+         331,
+         270
+        ],
+        "extent": null,
+        "box": [
+         310,
+         208,
+         358,
+         327
+        ]
+       },
+       {
+        "frame": 58,
+        "point": [
+         340,
+         266
+        ],
+        "extent": null,
+        "box": [
+         318,
+         210,
+         362,
+         318
+        ]
+       },
+       {
+        "frame": 59,
+        "point": [
+         342,
+         266
+        ],
+        "extent": null,
+        "box": [
+         320,
+         210,
+         362,
+         316
+        ]
+       },
+       {
+        "frame": 60,
+        "point": [
+         344,
+         266
+        ],
+        "extent": null,
+        "box": [
+         326,
+         210,
+         362,
+         316
+        ]
+       },
+       {
+        "frame": 62,
+        "point": [
+         348,
+         264
+        ],
+        "extent": null,
+        "box": [
+         330,
+         208,
+         366,
+         316
+        ]
+       },
+       {
+        "frame": 66,
+        "point": [
+         355,
+         262
+        ],
+        "extent": null,
+        "box": [
+         338,
+         208,
+         376,
+         316
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 1.6,
+    "confidence": 0.3
+   },
+   {
+    "qid": 1384,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "man"
+      ],
+      "dimension": "",
+      "time": 2.0,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "man"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": 1.8,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "man",
+       "distance_m": 7.21,
+       "time": 0
+      },
+      {
+       "object": "man",
+       "distance_m": 7.91,
+       "time": 0.5
+      }
+     ],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "man",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "man center",
+      "obs": []
+     }
+    ],
+    "direct_answer": 1.7,
+    "confidence": 0.25
+   },
+   {
+    "qid": 1385,
+    "spec": {
+     "target": {
+      "kind": "acceleration",
+      "objects": [
+       "man"
+      ],
+      "dimension": "",
+      "time": 2.5,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s^2"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "man"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": 1.8,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "man",
+       "distance_m": 7.21,
+       "time": 0
+      },
+      {
+       "object": "man",
+       "distance_m": 7.91,
+       "time": 0.5
+      }
+     ],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "man",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "man center",
+      "obs": []
+     }
+    ],
+    "direct_answer": 0.3,
+    "confidence": 0.1
+   }
+  ]
+ }
+}

@@ -1,0 +1,473 @@
+{
+ "video_id": "simulation_0104",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfppvBDuP3TcuoTM1Lw5Z",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 854
+ },
+ "ts": "2026-10-08T17:06:39+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_016r6K9zxh6EpX5dn7cBW8KC",
+ "custom_id": "simulation_0104",
+ "usage": {
+  "input_tokens": 9519,
+  "output_tokens": 1951,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 4317,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.03898,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0104",
+  "fps": 24.0,
+  "fps_from_container": false,
+  "video_type": "V2MX",
+  "n_frames_total": 31,
+  "scale": 0.44479166666666664,
+  "image_size": [
+   1920,
+   1079
+  ],
+  "frames": [
+   0,
+   2,
+   4,
+   6,
+   8,
+   10,
+   12,
+   14,
+   16,
+   18,
+   20,
+   22,
+   24,
+   26,
+   28,
+   30
+  ],
+  "questions": [
+   {
+    "qid": 208,
+    "target_unit": "m",
+    "prior": "the lifting speed of the charging post = 0.2m/s",
+    "depth_info": ""
+   },
+   {
+    "qid": 209,
+    "target_unit": "m",
+    "prior": "the lifting speed of the charging post = 0.2m/s",
+    "depth_info": ""
+   },
+   {
+    "qid": 210,
+    "target_unit": "m",
+    "prior": "the lifting speed of the charging post = 0.2m/s",
+    "depth_info": ""
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":208,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"phone\"],\"dimension\":\"diagonal\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"charging post\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":0.2,\"unit\":\"\"},\"depth\":[],\"notes\":\"Phone seen edge-on; only its length is visible, used as proxy for diagonal.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"charging post\",\"obs\":[{\"frame\":0,\"point\":[427,436],\"extent\":null,\"box\":null},{\"frame\":2,\"point\":[427,425],\"extent\":null,\"box\":null},{\"frame\":4,\"point\":[427,404],\"extent\":null,\"box\":null},{\"frame\":6,\"point\":[427,382],\"extent\":null,\"box\":null},{\"frame\":8,\"point\":[427,361],\"extent\":null,\"box\":null},{\"frame\":10,\"point\":[427,340],\"extent\":null,\"box\":null},{\"frame\":12,\"point\":[427,318],\"extent\":null,\"box\":null},{\"frame\":14,\"point\":[427,297],\"extent\":null,\"box\":null},{\"frame\":16,\"point\":[427,276],\"extent\":null,\"box\":null},{\"frame\":18,\"point\":[427,254],\"extent\":null,\"box\":null},{\"frame\":20,\"point\":[427,233],\"extent\":null,\"box\":null},{\"frame\":22,\"point\":[427,212],\"extent\":null,\"box\":null},{\"frame\":24,\"point\":[427,191],\"extent\":null,\"box\":null},{\"frame\":26,\"point\":[427,169],\"extent\":null,\"box\":null}]},{\"role\":\"target\",\"object\":\"phone\",\"obs\":[{\"frame\":12,\"point\":null,\"extent\":[[307,311],[558,311]],\"box\":[307,307,558,316]},{\"frame\":18,\"point\":null,\"extent\":[[307,248],[558,248]],\"box\":[307,243,558,253]},{\"frame\":24,\"point\":null,\"extent\":[[307,184],[558,184]],\"box\":[307,180,558,189]}]}],\"direct_answer\":0.2,\"confidence\":0.4},{\"qid\":209,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"gray truncated cone\"],\"dimension\":\"diameter\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"charging post\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":0.2,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"charging post\",\"obs\":[]},{\"role\":\"target\",\"object\":\"gray truncated cone\",\"obs\":[{\"frame\":12,\"point\":null,\"extent\":[[364,333],[490,333]],\"box\":[364,331,490,352]},{\"frame\":18,\"point\":null,\"extent\":[[364,269],[490,269]],\"box\":[364,267,490,288]},{\"frame\":24,\"point\":null,\"extent\":[[364,206],[490,206]],\"box\":[364,204,490,225]}]}],\"direct_answer\":0.098,\"confidence\":0.5},{\"qid\":210,\"spec\":{\"target\":{\"kind\":\"displacement\",\"objects\":[\"charging post\"],\"dimension\":\"\",\"time\":null,\"window\":[0,0.5],\"axis\":\"vertical\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"charging post\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":0.2,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"charging post\",\"obs\":[]},{\"role\":\"target\",\"object\":\"charging post\",\"obs\":[]}],\"direct_answer\":0.095,\"confidence\":0.6}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 208,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "phone"
+      ],
+      "dimension": "diagonal",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "charging post"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": 0.2,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Phone seen edge-on; only its length is visible, used as proxy for diagonal."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "charging post",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         427,
+         436
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 2,
+        "point": [
+         427,
+         425
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 4,
+        "point": [
+         427,
+         404
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 6,
+        "point": [
+         427,
+         382
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 8,
+        "point": [
+         427,
+         361
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 10,
+        "point": [
+         427,
+         340
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 12,
+        "point": [
+         427,
+         318
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 14,
+        "point": [
+         427,
+         297
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 16,
+        "point": [
+         427,
+         276
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 18,
+        "point": [
+         427,
+         254
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 20,
+        "point": [
+         427,
+         233
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 22,
+        "point": [
+         427,
+         212
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 24,
+        "point": [
+         427,
+         191
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 26,
+        "point": [
+         427,
+         169
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "phone",
+      "obs": [
+       {
+        "frame": 12,
+        "point": null,
+        "extent": [
+         [
+          307,
+          311
+         ],
+         [
+          558,
+          311
+         ]
+        ],
+        "box": [
+         307,
+         307,
+         558,
+         316
+        ]
+       },
+       {
+        "frame": 18,
+        "point": null,
+        "extent": [
+         [
+          307,
+          248
+         ],
+         [
+          558,
+          248
+         ]
+        ],
+        "box": [
+         307,
+         243,
+         558,
+         253
+        ]
+       },
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          307,
+          184
+         ],
+         [
+          558,
+          184
+         ]
+        ],
+        "box": [
+         307,
+         180,
+         558,
+         189
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 0.2,
+    "confidence": 0.4
+   },
+   {
+    "qid": 209,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "gray truncated cone"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "charging post"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": 0.2,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "charging post",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "gray truncated cone",
+      "obs": [
+       {
+        "frame": 12,
+        "point": null,
+        "extent": [
+         [
+          364,
+          333
+         ],
+         [
+          490,
+          333
+         ]
+        ],
+        "box": [
+         364,
+         331,
+         490,
+         352
+        ]
+       },
+       {
+        "frame": 18,
+        "point": null,
+        "extent": [
+         [
+          364,
+          269
+         ],
+         [
+          490,
+          269
+         ]
+        ],
+        "box": [
+         364,
+         267,
+         490,
+         288
+        ]
+       },
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          364,
+          206
+         ],
+         [
+          490,
+          206
+         ]
+        ],
+        "box": [
+         364,
+         204,
+         490,
+         225
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 0.098,
+    "confidence": 0.5
+   },
+   {
+    "qid": 210,
+    "spec": {
+     "target": {
+      "kind": "displacement",
+      "objects": [
+       "charging post"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": [
+       0,
+       0.5
+      ],
+      "axis": "vertical",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "charging post"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": 0.2,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "charging post",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "charging post",
+      "obs": []
+     }
+    ],
+    "direct_answer": 0.095,
+    "confidence": 0.6
+   }
+  ]
+ }
+}

@@ -1,0 +1,782 @@
+{
+ "video_id": "simulation_0249",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011Cfq5b1js1QV4qpTYu8N2K",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 854
+ },
+ "ts": "2026-10-08T17:01:21+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_01M1yMGBb4cJ9XTrAwux87yk",
+ "custom_id": "simulation_0249",
+ "usage": {
+  "input_tokens": 10799,
+  "output_tokens": 3277,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 4317,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.0548,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0249",
+  "fps": 24.0,
+  "fps_from_container": false,
+  "video_type": "V2MS",
+  "n_frames_total": 50,
+  "scale": 0.44479166666666664,
+  "image_size": [
+   1920,
+   1079
+  ],
+  "frames": [
+   0,
+   3,
+   7,
+   10,
+   13,
+   16,
+   20,
+   22,
+   23,
+   24,
+   26,
+   29,
+   33,
+   36,
+   39,
+   42,
+   46,
+   49
+  ],
+  "questions": [
+   {
+    "qid": 842,
+    "target_unit": "m",
+    "prior": "speed of the horse at the back = 0.874m/s",
+    "depth_info": ""
+   },
+   {
+    "qid": 843,
+    "target_unit": "m/s",
+    "prior": "speed of the horse at the back = 0.874m/s",
+    "depth_info": ""
+   },
+   {
+    "qid": 844,
+    "target_unit": "m",
+    "prior": "speed of the horse at the back = 0.874m/s",
+    "depth_info": ""
+   },
+   {
+    "qid": 845,
+    "target_unit": "m",
+    "prior": "speed of the horse at the back = 0.874m/s",
+    "depth_info": ""
+   },
+   {
+    "qid": 846,
+    "target_unit": "m/s",
+    "prior": "speed of the horse at the back = 0.874m/s",
+    "depth_info": ""
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":842,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"horse at the back\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"horse at the back\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.874,\"unit\":\"\"},\"depth\":[],\"notes\":\"Horse at the back = dark brown horse (upper left). Frame 49 appears to reset its position; excluded.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"horse at the back\",\"obs\":[{\"frame\":0,\"point\":[225.5,152],\"extent\":null,\"box\":[225,138,335,167]},{\"frame\":7,\"point\":[238,152],\"extent\":null,\"box\":null},{\"frame\":13,\"point\":[251,151],\"extent\":null,\"box\":null},{\"frame\":20,\"point\":[265,150],\"extent\":null,\"box\":null},{\"frame\":24,\"point\":[272,151],\"extent\":null,\"box\":null},{\"frame\":29,\"point\":[276,152],\"extent\":null,\"box\":null},{\"frame\":33,\"point\":[286,152],\"extent\":null,\"box\":null},{\"frame\":39,\"point\":[303,152],\"extent\":null,\"box\":null},{\"frame\":46,\"point\":[315,152],\"extent\":null,\"box\":[315,139,427,167]}]},{\"role\":\"target\",\"object\":\"horse at the back\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[225,152],[335,150]],\"box\":[225,138,335,167]},{\"frame\":24,\"point\":null,\"extent\":[[272,151],[381,148]],\"box\":[272,137,381,166]},{\"frame\":46,\"point\":null,\"extent\":[[315,152],[427,149]],\"box\":[315,139,427,167]}]}],\"direct_answer\":2.03,\"confidence\":0.6},{\"qid\":843,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"horse in the front\"],\"dimension\":\"\",\"time\":1.0,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"horse at the back\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.874,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"horse at the back\",\"obs\":[]},{\"role\":\"target\",\"object\":\"horse in the front\",\"obs\":[{\"frame\":0,\"point\":[505,222],\"extent\":null,\"box\":null},{\"frame\":16,\"point\":[557,215],\"extent\":null,\"box\":null},{\"frame\":20,\"point\":[572,215],\"extent\":null,\"box\":null},{\"frame\":22,\"point\":[578,215],\"extent\":null,\"box\":null},{\"frame\":23,\"point\":[583,215],\"extent\":null,\"box\":null},{\"frame\":24,\"point\":[588,215],\"extent\":null,\"box\":null},{\"frame\":26,\"point\":[594,218],\"extent\":null,\"box\":null},{\"frame\":29,\"point\":[602,221],\"extent\":null,\"box\":null},{\"frame\":33,\"point\":[617,223],\"extent\":null,\"box\":null},{\"frame\":46,\"point\":[667,216],\"extent\":null,\"box\":null}]}],\"direct_answer\":1.56,\"confidence\":0.45},{\"qid\":844,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"horse in the front\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"horse at the back\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.874,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"horse at the back\",\"obs\":[]},{\"role\":\"target\",\"object\":\"horse in the front\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[375,217],[506,223]],\"box\":[375,204,506,239]},{\"frame\":24,\"point\":null,\"extent\":[[460,216],[590,215]],\"box\":[460,201,590,237]},{\"frame\":46,\"point\":null,\"extent\":[[534,216],[668,216]],\"box\":[534,198,668,234]}]}],\"direct_answer\":2.43,\"confidence\":0.55},{\"qid\":845,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"rabbit\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"horse at the back\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.874,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"horse at the back\",\"obs\":[]},{\"role\":\"target\",\"object\":\"rabbit\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[485,270],[509,270]],\"box\":[485,265,509,276]},{\"frame\":24,\"point\":null,\"extent\":[[564,270],[589,270]],\"box\":[564,265,589,276]},{\"frame\":46,\"point\":null,\"extent\":[[639,270],[663,270]],\"box\":[639,265,663,276]}]}],\"direct_answer\":0.44,\"confidence\":0.45},{\"qid\":846,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"rabbit\"],\"dimension\":\"\",\"time\":1.0,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"horse at the back\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.874,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"horse at the back\",\"obs\":[]},{\"role\":\"target\",\"object\":\"rabbit\",\"obs\":[{\"frame\":0,\"point\":[497,270],\"extent\":null,\"box\":null},{\"frame\":16,\"point\":[551,270],\"extent\":null,\"box\":null},{\"frame\":20,\"point\":[564,270],\"extent\":null,\"box\":null},{\"frame\":22,\"point\":[570,270],\"extent\":null,\"box\":null},{\"frame\":23,\"point\":[572,270],\"extent\":null,\"box\":null},{\"frame\":24,\"point\":[576,270],\"extent\":null,\"box\":null},{\"frame\":26,\"point\":[585,270],\"extent\":null,\"box\":null},{\"frame\":29,\"point\":[595,270],\"extent\":null,\"box\":null},{\"frame\":33,\"point\":[606,270],\"extent\":null,\"box\":null},{\"frame\":46,\"point\":[651,270],\"extent\":null,\"box\":null}]}],\"direct_answer\":1.53,\"confidence\":0.45}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 842,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "horse at the back"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "horse at the back"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.874,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Horse at the back = dark brown horse (upper left). Frame 49 appears to reset its position; excluded."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "horse at the back",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         225.5,
+         152
+        ],
+        "extent": null,
+        "box": [
+         225,
+         138,
+         335,
+         167
+        ]
+       },
+       {
+        "frame": 7,
+        "point": [
+         238,
+         152
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 13,
+        "point": [
+         251,
+         151
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 20,
+        "point": [
+         265,
+         150
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 24,
+        "point": [
+         272,
+         151
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 29,
+        "point": [
+         276,
+         152
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 33,
+        "point": [
+         286,
+         152
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 39,
+        "point": [
+         303,
+         152
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 46,
+        "point": [
+         315,
+         152
+        ],
+        "extent": null,
+        "box": [
+         315,
+         139,
+         427,
+         167
+        ]
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "horse at the back",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          225,
+          152
+         ],
+         [
+          335,
+          150
+         ]
+        ],
+        "box": [
+         225,
+         138,
+         335,
+         167
+        ]
+       },
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          272,
+          151
+         ],
+         [
+          381,
+          148
+         ]
+        ],
+        "box": [
+         272,
+         137,
+         381,
+         166
+        ]
+       },
+       {
+        "frame": 46,
+        "point": null,
+        "extent": [
+         [
+          315,
+          152
+         ],
+         [
+          427,
+          149
+         ]
+        ],
+        "box": [
+         315,
+         139,
+         427,
+         167
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 2.03,
+    "confidence": 0.6
+   },
+   {
+    "qid": 843,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "horse in the front"
+      ],
+      "dimension": "",
+      "time": 1.0,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "horse at the back"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.874,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "horse at the back",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "horse in the front",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         505,
+         222
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 16,
+        "point": [
+         557,
+         215
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 20,
+        "point": [
+         572,
+         215
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 22,
+        "point": [
+         578,
+         215
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 23,
+        "point": [
+         583,
+         215
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 24,
+        "point": [
+         588,
+         215
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 26,
+        "point": [
+         594,
+         218
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 29,
+        "point": [
+         602,
+         221
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 33,
+        "point": [
+         617,
+         223
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 46,
+        "point": [
+         667,
+         216
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     }
+    ],
+    "direct_answer": 1.56,
+    "confidence": 0.45
+   },
+   {
+    "qid": 844,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "horse in the front"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "horse at the back"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.874,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "horse at the back",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "horse in the front",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          375,
+          217
+         ],
+         [
+          506,
+          223
+         ]
+        ],
+        "box": [
+         375,
+         204,
+         506,
+         239
+        ]
+       },
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          460,
+          216
+         ],
+         [
+          590,
+          215
+         ]
+        ],
+        "box": [
+         460,
+         201,
+         590,
+         237
+        ]
+       },
+       {
+        "frame": 46,
+        "point": null,
+        "extent": [
+         [
+          534,
+          216
+         ],
+         [
+          668,
+          216
+         ]
+        ],
+        "box": [
+         534,
+         198,
+         668,
+         234
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 2.43,
+    "confidence": 0.55
+   },
+   {
+    "qid": 845,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "rabbit"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "horse at the back"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.874,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "horse at the back",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "rabbit",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          485,
+          270
+         ],
+         [
+          509,
+          270
+         ]
+        ],
+        "box": [
+         485,
+         265,
+         509,
+         276
+        ]
+       },
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          564,
+          270
+         ],
+         [
+          589,
+          270
+         ]
+        ],
+        "box": [
+         564,
+         265,
+         589,
+         276
+        ]
+       },
+       {
+        "frame": 46,
+        "point": null,
+        "extent": [
+         [
+          639,
+          270
+         ],
+         [
+          663,
+          270
+         ]
+        ],
+        "box": [
+         639,
+         265,
+         663,
+         276
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 0.44,
+    "confidence": 0.45
+   },
+   {
+    "qid": 846,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "rabbit"
+      ],
+      "dimension": "",
+      "time": 1.0,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "horse at the back"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.874,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "horse at the back",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "rabbit",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         497,
+         270
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 16,
+        "point": [
+         551,
+         270
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 20,
+        "point": [
+         564,
+         270
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 22,
+        "point": [
+         570,
+         270
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 23,
+        "point": [
+         572,
+         270
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 24,
+        "point": [
+         576,
+         270
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 26,
+        "point": [
+         585,
+         270
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 29,
+        "point": [
+         595,
+         270
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 33,
+        "point": [
+         606,
+         270
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 46,
+        "point": [
+         651,
+         270
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     }
+    ],
+    "direct_answer": 1.53,
+    "confidence": 0.45
+   }
+  ]
+ }
+}

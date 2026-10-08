@@ -1,0 +1,418 @@
+{
+ "video_id": "internet_0009",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011Cfq7GJf4FV8m1L7Qe3Xeq",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 854
+ },
+ "ts": "2026-10-08T17:06:42+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_01RgbCGaqsRz49vUhEJLUBnh",
+ "custom_id": "internet_0009",
+ "usage": {
+  "input_tokens": 9495,
+  "output_tokens": 2003,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 4317,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.039452,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "internet_0009",
+  "fps": 60.0,
+  "fps_from_container": false,
+  "video_type": "S2MC",
+  "n_frames_total": 111,
+  "scale": 0.22239583333333332,
+  "image_size": [
+   2158,
+   3840
+  ],
+  "frames": [
+   0,
+   7,
+   15,
+   22,
+   29,
+   37,
+   44,
+   51,
+   59,
+   66,
+   73,
+   81,
+   88,
+   95,
+   103,
+   110
+  ],
+  "questions": [
+   {
+    "qid": 2047,
+    "target_unit": "m",
+    "prior": "singles court width = 8.23m",
+    "depth_info": ""
+   },
+   {
+    "qid": 2048,
+    "target_unit": "m/s",
+    "prior": "singles court width = 8.23m",
+    "depth_info": ""
+   },
+   {
+    "qid": 2049,
+    "target_unit": "m",
+    "prior": "singles court width = 8.23m",
+    "depth_info": ""
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":2047,\"spec\":{\"target\":{\"kind\":\"distance\",\"objects\":[\"left player\",\"right player\"],\"dimension\":\"\",\"time\":0,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"singles court\"],\"dimension\":\"width\",\"time\":null,\"window\":null,\"axis\":\"horizontal\",\"value_si\":8.23,\"unit\":\"\"},\"depth\":[],\"notes\":\"Players are measured at their body centres.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"singles court\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[97,390],[396,390]],\"box\":null},{\"frame\":44,\"point\":null,\"extent\":[[97,390],[396,390]],\"box\":null},{\"frame\":110,\"point\":null,\"extent\":[[97,390],[396,390]],\"box\":null}]},{\"role\":\"target\",\"object\":\"left player\",\"obs\":[{\"frame\":0,\"point\":[147,337],\"extent\":null,\"box\":null}]},{\"role\":\"target2\",\"object\":\"right player\",\"obs\":[{\"frame\":0,\"point\":[329,213],\"extent\":null,\"box\":null}]}],\"direct_answer\":6.06,\"confidence\":0.6},{\"qid\":2048,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"tennis ball\"],\"dimension\":\"\",\"time\":null,\"window\":[0.733,1.1],\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"singles court\"],\"dimension\":\"width\",\"time\":null,\"window\":null,\"axis\":\"horizontal\",\"value_si\":8.23,\"unit\":\"\"},\"depth\":[],\"notes\":\"The ball is small and hard to see; the window is taken after the hit by the right player, while the ball flies toward the net.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"singles court\",\"obs\":[]},{\"role\":\"target\",\"object\":\"tennis ball\",\"obs\":[{\"frame\":44,\"point\":[307,338],\"extent\":null,\"box\":null},{\"frame\":59,\"point\":[349,476],\"extent\":null,\"box\":null},{\"frame\":66,\"point\":[368,587],\"extent\":null,\"box\":null},{\"frame\":81,\"point\":[400,750],\"extent\":null,\"box\":null}]}],\"direct_answer\":19,\"confidence\":0.3},{\"qid\":2049,\"spec\":{\"target\":{\"kind\":\"displacement\",\"objects\":[\"right player\"],\"dimension\":\"\",\"time\":null,\"window\":[0,1.833],\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"singles court\"],\"dimension\":\"width\",\"time\":null,\"window\":null,\"axis\":\"horizontal\",\"value_si\":8.23,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"singles court\",\"obs\":[]},{\"role\":\"target\",\"object\":\"right player\",\"obs\":[{\"frame\":0,\"point\":[329,213],\"extent\":null,\"box\":null},{\"frame\":15,\"point\":[325,240],\"extent\":null,\"box\":null},{\"frame\":29,\"point\":[323,256],\"extent\":null,\"box\":null},{\"frame\":44,\"point\":[326,274],\"extent\":null,\"box\":null},{\"frame\":59,\"point\":[327,296],\"extent\":null,\"box\":null},{\"frame\":73,\"point\":[324,306],\"extent\":null,\"box\":null},{\"frame\":88,\"point\":[321,316],\"extent\":null,\"box\":null},{\"frame\":103,\"point\":[322,318],\"extent\":null,\"box\":null},{\"frame\":110,\"point\":[322,318],\"extent\":null,\"box\":null}]}],\"direct_answer\":2.9,\"confidence\":0.45}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 2047,
+    "spec": {
+     "target": {
+      "kind": "distance",
+      "objects": [
+       "left player",
+       "right player"
+      ],
+      "dimension": "",
+      "time": 0,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "singles court"
+      ],
+      "dimension": "width",
+      "time": null,
+      "window": null,
+      "axis": "horizontal",
+      "value_si": 8.23,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Players are measured at their body centres."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "singles court",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          97,
+          390
+         ],
+         [
+          396,
+          390
+         ]
+        ],
+        "box": null
+       },
+       {
+        "frame": 44,
+        "point": null,
+        "extent": [
+         [
+          97,
+          390
+         ],
+         [
+          396,
+          390
+         ]
+        ],
+        "box": null
+       },
+       {
+        "frame": 110,
+        "point": null,
+        "extent": [
+         [
+          97,
+          390
+         ],
+         [
+          396,
+          390
+         ]
+        ],
+        "box": null
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "left player",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         147,
+         337
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     },
+     {
+      "role": "target2",
+      "object": "right player",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         329,
+         213
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     }
+    ],
+    "direct_answer": 6.06,
+    "confidence": 0.6
+   },
+   {
+    "qid": 2048,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "tennis ball"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": [
+       0.733,
+       1.1
+      ],
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "singles court"
+      ],
+      "dimension": "width",
+      "time": null,
+      "window": null,
+      "axis": "horizontal",
+      "value_si": 8.23,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "The ball is small and hard to see; the window is taken after the hit by the right player, while the ball flies toward the net."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "singles court",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "tennis ball",
+      "obs": [
+       {
+        "frame": 44,
+        "point": [
+         307,
+         338
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 59,
+        "point": [
+         349,
+         476
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 66,
+        "point": [
+         368,
+         587
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 81,
+        "point": [
+         400,
+         750
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     }
+    ],
+    "direct_answer": 19,
+    "confidence": 0.3
+   },
+   {
+    "qid": 2049,
+    "spec": {
+     "target": {
+      "kind": "displacement",
+      "objects": [
+       "right player"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": [
+       0,
+       1.833
+      ],
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "singles court"
+      ],
+      "dimension": "width",
+      "time": null,
+      "window": null,
+      "axis": "horizontal",
+      "value_si": 8.23,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "singles court",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "right player",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         329,
+         213
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 15,
+        "point": [
+         325,
+         240
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 29,
+        "point": [
+         323,
+         256
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 44,
+        "point": [
+         326,
+         274
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 59,
+        "point": [
+         327,
+         296
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 73,
+        "point": [
+         324,
+         306
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 88,
+        "point": [
+         321,
+         316
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 103,
+        "point": [
+         322,
+         318
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 110,
+        "point": [
+         322,
+         318
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     }
+    ],
+    "direct_answer": 2.9,
+    "confidence": 0.45
+   }
+  ]
+ }
+}

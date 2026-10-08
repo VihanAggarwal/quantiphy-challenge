@@ -1,0 +1,581 @@
+{
+ "video_id": "internet_0003_segmented",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011Cfq6ejHPdFvBrZz9VBdj9",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 854
+ },
+ "ts": "2026-10-08T16:38:23+00:00",
+ "mode": "sync",
+ "request_id": "req_011Cfq6eiw46bWWVBpwN5YB9",
+ "usage": {
+  "input_tokens": 9070,
+  "output_tokens": 2945,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 4317,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.096043,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "internet_0003_segmented",
+  "fps": 30.0,
+  "fps_from_container": false,
+  "video_type": "S2MC",
+  "n_frames_total": 48,
+  "scale": 0.6671875,
+  "image_size": [
+   1280,
+   674
+  ],
+  "frames": [
+   0,
+   3,
+   6,
+   9,
+   13,
+   16,
+   19,
+   22,
+   25,
+   28,
+   31,
+   34,
+   38,
+   41,
+   44,
+   47
+  ],
+  "questions": [
+   {
+    "qid": 2953,
+    "target_unit": "cm",
+    "prior": "money width = 7.5cm",
+    "depth_info": ""
+   },
+   {
+    "qid": 2954,
+    "target_unit": "cm",
+    "prior": "money width = 7.5cm",
+    "depth_info": ""
+   },
+   {
+    "qid": 2955,
+    "target_unit": "cm/s",
+    "prior": "money width = 7.5cm",
+    "depth_info": ""
+   },
+   {
+    "qid": 2956,
+    "target_unit": "cm",
+    "prior": "money width = 7.5cm",
+    "depth_info": ""
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":2953,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"pizza\"],\"dimension\":\"diameter\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"cm\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"money\"],\"dimension\":\"width\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.075,\"unit\":\"\"},\"depth\":[],\"notes\":\"Money width taken as the long side of the bill.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"money\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[601,250],[708,252]],\"box\":[601,228,708,272]},{\"frame\":9,\"point\":null,\"extent\":[[603,246],[709,248]],\"box\":[603,222,709,270]},{\"frame\":22,\"point\":null,\"extent\":[[598,236],[703,238]],\"box\":[598,213,703,260]},{\"frame\":38,\"point\":null,\"extent\":[[599,241],[704,243]],\"box\":[599,218,704,264]}]},{\"role\":\"target\",\"object\":\"pizza\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[268,265],[578,265]],\"box\":[268,118,578,415]},{\"frame\":22,\"point\":null,\"extent\":[[264,250],[580,250]],\"box\":[264,100,580,398]},{\"frame\":44,\"point\":null,\"extent\":[[268,255],[581,255]],\"box\":[268,102,581,398]}]}],\"direct_answer\":22,\"confidence\":0.45},{\"qid\":2954,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"wine glass\"],\"dimension\":\"diameter\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"cm\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"money\"],\"dimension\":\"width\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.075,\"unit\":\"\"},\"depth\":[],\"notes\":\"Diameter taken as the bowl width.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"money\",\"obs\":[]},{\"role\":\"target\",\"object\":\"wine glass\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[87,105],[188,105]],\"box\":[87,60,217,203]},{\"frame\":22,\"point\":null,\"extent\":[[83,95],[185,95]],\"box\":[83,40,214,187]},{\"frame\":44,\"point\":null,\"extent\":[[89,92],[191,92]],\"box\":[89,40,219,185]}]}],\"direct_answer\":7.1,\"confidence\":0.4},{\"qid\":2955,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"pizza cutter\"],\"dimension\":\"\",\"time\":0.2,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"cm/s\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"money\"],\"dimension\":\"width\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.075,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"money\",\"obs\":[]},{\"role\":\"target\",\"object\":\"pizza cutter\",\"obs\":[{\"frame\":0,\"point\":[340,177],\"extent\":null,\"box\":null},{\"frame\":3,\"point\":[353,188],\"extent\":null,\"box\":null},{\"frame\":6,\"point\":[370,203],\"extent\":null,\"box\":null},{\"frame\":9,\"point\":[398,226],\"extent\":null,\"box\":null},{\"frame\":13,\"point\":[421,243],\"extent\":null,\"box\":null}]}],\"direct_answer\":21,\"confidence\":0.35},{\"qid\":2956,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"pepperoni\"],\"dimension\":\"diameter\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"cm\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"money\"],\"dimension\":\"width\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.075,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"money\",\"obs\":[]},{\"role\":\"target\",\"object\":\"pepperoni\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[302,224],[340,224]],\"box\":[302,205,340,243]},{\"frame\":22,\"point\":null,\"extent\":[[298,207],[336,207]],\"box\":[298,188,336,226]},{\"frame\":44,\"point\":null,\"extent\":[[302,205],[340,205]],\"box\":[302,186,340,224]}]}],\"direct_answer\":2.7,\"confidence\":0.4}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 2953,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "pizza"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "cm"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "money"
+      ],
+      "dimension": "width",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.075,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Money width taken as the long side of the bill."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "money",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          601,
+          250
+         ],
+         [
+          708,
+          252
+         ]
+        ],
+        "box": [
+         601,
+         228,
+         708,
+         272
+        ]
+       },
+       {
+        "frame": 9,
+        "point": null,
+        "extent": [
+         [
+          603,
+          246
+         ],
+         [
+          709,
+          248
+         ]
+        ],
+        "box": [
+         603,
+         222,
+         709,
+         270
+        ]
+       },
+       {
+        "frame": 22,
+        "point": null,
+        "extent": [
+         [
+          598,
+          236
+         ],
+         [
+          703,
+          238
+         ]
+        ],
+        "box": [
+         598,
+         213,
+         703,
+         260
+        ]
+       },
+       {
+        "frame": 38,
+        "point": null,
+        "extent": [
+         [
+          599,
+          241
+         ],
+         [
+          704,
+          243
+         ]
+        ],
+        "box": [
+         599,
+         218,
+         704,
+         264
+        ]
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "pizza",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          268,
+          265
+         ],
+         [
+          578,
+          265
+         ]
+        ],
+        "box": [
+         268,
+         118,
+         578,
+         415
+        ]
+       },
+       {
+        "frame": 22,
+        "point": null,
+        "extent": [
+         [
+          264,
+          250
+         ],
+         [
+          580,
+          250
+         ]
+        ],
+        "box": [
+         264,
+         100,
+         580,
+         398
+        ]
+       },
+       {
+        "frame": 44,
+        "point": null,
+        "extent": [
+         [
+          268,
+          255
+         ],
+         [
+          581,
+          255
+         ]
+        ],
+        "box": [
+         268,
+         102,
+         581,
+         398
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 22,
+    "confidence": 0.45
+   },
+   {
+    "qid": 2954,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "wine glass"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "cm"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "money"
+      ],
+      "dimension": "width",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.075,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Diameter taken as the bowl width."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "money",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "wine glass",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          87,
+          105
+         ],
+         [
+          188,
+          105
+         ]
+        ],
+        "box": [
+         87,
+         60,
+         217,
+         203
+        ]
+       },
+       {
+        "frame": 22,
+        "point": null,
+        "extent": [
+         [
+          83,
+          95
+         ],
+         [
+          185,
+          95
+         ]
+        ],
+        "box": [
+         83,
+         40,
+         214,
+         187
+        ]
+       },
+       {
+        "frame": 44,
+        "point": null,
+        "extent": [
+         [
+          89,
+          92
+         ],
+         [
+          191,
+          92
+         ]
+        ],
+        "box": [
+         89,
+         40,
+         219,
+         185
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 7.1,
+    "confidence": 0.4
+   },
+   {
+    "qid": 2955,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "pizza cutter"
+      ],
+      "dimension": "",
+      "time": 0.2,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "cm/s"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "money"
+      ],
+      "dimension": "width",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.075,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "money",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "pizza cutter",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         340,
+         177
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 3,
+        "point": [
+         353,
+         188
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 6,
+        "point": [
+         370,
+         203
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 9,
+        "point": [
+         398,
+         226
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 13,
+        "point": [
+         421,
+         243
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     }
+    ],
+    "direct_answer": 21,
+    "confidence": 0.35
+   },
+   {
+    "qid": 2956,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "pepperoni"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "cm"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "money"
+      ],
+      "dimension": "width",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.075,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "money",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "pepperoni",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          302,
+          224
+         ],
+         [
+          340,
+          224
+         ]
+        ],
+        "box": [
+         302,
+         205,
+         340,
+         243
+        ]
+       },
+       {
+        "frame": 22,
+        "point": null,
+        "extent": [
+         [
+          298,
+          207
+         ],
+         [
+          336,
+          207
+         ]
+        ],
+        "box": [
+         298,
+         188,
+         336,
+         226
+        ]
+       },
+       {
+        "frame": 44,
+        "point": null,
+        "extent": [
+         [
+          302,
+          205
+         ],
+         [
+          340,
+          205
+         ]
+        ],
+        "box": [
+         302,
+         186,
+         340,
+         224
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 2.7,
+    "confidence": 0.4
+   }
+  ]
+ }
+}

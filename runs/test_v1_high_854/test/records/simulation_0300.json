@@ -1,0 +1,668 @@
+{
+ "video_id": "simulation_0300",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfpxhQzD6Su6ZYmg59zaJ",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 854
+ },
+ "ts": "2026-10-08T17:15:55+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_01VkRABjAWPjX4v5rz3uiYPm",
+ "custom_id": "simulation_0300",
+ "usage": {
+  "input_tokens": 12744,
+  "output_tokens": 6013,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 4317,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.08605,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0300",
+  "fps": 24.0,
+  "fps_from_container": false,
+  "video_type": "A3SX",
+  "n_frames_total": 72,
+  "scale": 0.33359375,
+  "image_size": [
+   2560,
+   1439
+  ],
+  "frames": [
+   0,
+   5,
+   9,
+   14,
+   19,
+   22,
+   24,
+   26,
+   28,
+   33,
+   38,
+   43,
+   46,
+   47,
+   48,
+   50,
+   52,
+   57,
+   62,
+   66,
+   71
+  ],
+  "questions": [
+   {
+    "qid": 1453,
+    "target_unit": "m/s",
+    "prior": "acceleration of the car = 5m/s^2",
+    "depth_info": "t = 1.0s, distance_car_camera = 17.8278 m\nt = 2.0s, distance_car_camera = 23.1989 m"
+   },
+   {
+    "qid": 1454,
+    "target_unit": "m/s",
+    "prior": "acceleration of the car = 5m/s^2",
+    "depth_info": "t = 1.0s, distance_car_camera = 17.8278 m\nt = 2.0s, distance_car_camera = 23.1989 m"
+   },
+   {
+    "qid": 1455,
+    "target_unit": "m",
+    "prior": "acceleration of the car = 5m/s^2",
+    "depth_info": "t = 1.0s, distance_car_camera = 17.8278 m\nt = 2.0s, distance_car_camera = 23.1989 m"
+   },
+   {
+    "qid": 1456,
+    "target_unit": "m",
+    "prior": "acceleration of the car = 5m/s^2",
+    "depth_info": "t = 1.0s, distance_car_camera = 17.8278 m\nt = 2.0s, distance_car_camera = 23.1989 m"
+   },
+   {
+    "qid": 1457,
+    "target_unit": "m",
+    "prior": "acceleration of the car = 5m/s^2",
+    "depth_info": "t = 1.0s, distance_car_camera = 17.8278 m\nt = 2.0s, distance_car_camera = 23.1989 m"
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":1453,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"car\"],\"dimension\":\"\",\"time\":1.0,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"car\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":5.0,\"unit\":\"\"},\"depth\":[{\"object\":\"car\",\"distance_m\":17.8278,\"time\":1.0},{\"object\":\"car\",\"distance_m\":23.1989,\"time\":2.0}],\"notes\":\"Car recedes from camera toward upper left; speed estimated from 3D displacement between t=1 and t=2 assuming f~1186 px.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"car\",\"obs\":[{\"frame\":0,\"point\":[684,418],\"extent\":null,\"box\":null},{\"frame\":9,\"point\":[665,407],\"extent\":null,\"box\":null},{\"frame\":14,\"point\":[640,393],\"extent\":null,\"box\":null},{\"frame\":19,\"point\":[607,377],\"extent\":null,\"box\":null},{\"frame\":22,\"point\":[582,362],\"extent\":null,\"box\":null},{\"frame\":24,\"point\":[565,355],\"extent\":null,\"box\":[543,306,810,450]},{\"frame\":26,\"point\":[548,343],\"extent\":null,\"box\":null},{\"frame\":28,\"point\":[530,333],\"extent\":null,\"box\":null},{\"frame\":33,\"point\":[481,308],\"extent\":null,\"box\":null},{\"frame\":38,\"point\":[430,281],\"extent\":null,\"box\":null},{\"frame\":43,\"point\":[380,254],\"extent\":null,\"box\":null},{\"frame\":46,\"point\":[349,236],\"extent\":null,\"box\":null},{\"frame\":48,\"point\":[330,226],\"extent\":null,\"box\":[320,193,497,282]},{\"frame\":50,\"point\":[310,214],\"extent\":null,\"box\":null},{\"frame\":52,\"point\":[292,204],\"extent\":null,\"box\":null},{\"frame\":57,\"point\":[243,178],\"extent\":null,\"box\":null},{\"frame\":62,\"point\":[200,153],\"extent\":null,\"box\":null},{\"frame\":66,\"point\":[166,136],\"extent\":null,\"box\":null},{\"frame\":71,\"point\":[128,116],\"extent\":null,\"box\":null}]},{\"role\":\"target\",\"object\":\"car\",\"obs\":[]}],\"direct_answer\":4.8,\"confidence\":0.45},{\"qid\":1454,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"car\"],\"dimension\":\"\",\"time\":2.0,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"car\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":5.0,\"unit\":\"\"},\"depth\":[{\"object\":\"car\",\"distance_m\":17.8278,\"time\":1.0},{\"object\":\"car\",\"distance_m\":23.1989,\"time\":2.0}],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"car\",\"obs\":[]},{\"role\":\"target\",\"object\":\"car\",\"obs\":[]}],\"direct_answer\":9.8,\"confidence\":0.5},{\"qid\":1455,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"car\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"car\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":5.0,\"unit\":\"\"},\"depth\":[{\"object\":\"car\",\"distance_m\":17.8278,\"time\":1.0},{\"object\":\"car\",\"distance_m\":23.1989,\"time\":2.0}],\"notes\":\"Length is foreshortened (car seen from behind/above).\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"car\",\"obs\":[]},{\"role\":\"target\",\"object\":\"car\",\"obs\":[{\"frame\":24,\"point\":null,\"extent\":[[545,345],[750,415]],\"box\":[543,306,810,450]},{\"frame\":48,\"point\":null,\"extent\":[[322,222],[440,262]],\"box\":[320,193,497,282]}]}],\"direct_answer\":4.8,\"confidence\":0.3},{\"qid\":1456,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"car\"],\"dimension\":\"width\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"car\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":5.0,\"unit\":\"\"},\"depth\":[{\"object\":\"car\",\"distance_m\":17.8278,\"time\":1.0},{\"object\":\"car\",\"distance_m\":23.1989,\"time\":2.0}],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"car\",\"obs\":[]},{\"role\":\"target\",\"object\":\"car\",\"obs\":[{\"frame\":48,\"point\":null,\"extent\":[[393,262],[492,252]],\"box\":[320,193,497,282]},{\"frame\":24,\"point\":null,\"extent\":[[680,415],[805,395]],\"box\":[543,306,810,450]}]}],\"direct_answer\":1.98,\"confidence\":0.4},{\"qid\":1457,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"car\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"car\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":5.0,\"unit\":\"\"},\"depth\":[{\"object\":\"car\",\"distance_m\":17.8278,\"time\":1.0},{\"object\":\"car\",\"distance_m\":23.1989,\"time\":2.0}],\"notes\":\"Height hard to see from elevated view.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"car\",\"obs\":[]},{\"role\":\"target\",\"object\":\"car\",\"obs\":[{\"frame\":48,\"point\":null,\"extent\":[[430,215],[430,270]],\"box\":[320,193,497,282]}]}],\"direct_answer\":1.15,\"confidence\":0.3}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 1453,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "car"
+      ],
+      "dimension": "",
+      "time": 1.0,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "car"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 5.0,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "car",
+       "distance_m": 17.8278,
+       "time": 1.0
+      },
+      {
+       "object": "car",
+       "distance_m": 23.1989,
+       "time": 2.0
+      }
+     ],
+     "notes": "Car recedes from camera toward upper left; speed estimated from 3D displacement between t=1 and t=2 assuming f~1186 px."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "car",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         684,
+         418
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 9,
+        "point": [
+         665,
+         407
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 14,
+        "point": [
+         640,
+         393
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 19,
+        "point": [
+         607,
+         377
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 22,
+        "point": [
+         582,
+         362
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 24,
+        "point": [
+         565,
+         355
+        ],
+        "extent": null,
+        "box": [
+         543,
+         306,
+         810,
+         450
+        ]
+       },
+       {
+        "frame": 26,
+        "point": [
+         548,
+         343
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 28,
+        "point": [
+         530,
+         333
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 33,
+        "point": [
+         481,
+         308
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 38,
+        "point": [
+         430,
+         281
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 43,
+        "point": [
+         380,
+         254
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 46,
+        "point": [
+         349,
+         236
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 48,
+        "point": [
+         330,
+         226
+        ],
+        "extent": null,
+        "box": [
+         320,
+         193,
+         497,
+         282
+        ]
+       },
+       {
+        "frame": 50,
+        "point": [
+         310,
+         214
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 52,
+        "point": [
+         292,
+         204
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 57,
+        "point": [
+         243,
+         178
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 62,
+        "point": [
+         200,
+         153
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 66,
+        "point": [
+         166,
+         136
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 71,
+        "point": [
+         128,
+         116
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "car",
+      "obs": []
+     }
+    ],
+    "direct_answer": 4.8,
+    "confidence": 0.45
+   },
+   {
+    "qid": 1454,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "car"
+      ],
+      "dimension": "",
+      "time": 2.0,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "car"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 5.0,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "car",
+       "distance_m": 17.8278,
+       "time": 1.0
+      },
+      {
+       "object": "car",
+       "distance_m": 23.1989,
+       "time": 2.0
+      }
+     ],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "car",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "car",
+      "obs": []
+     }
+    ],
+    "direct_answer": 9.8,
+    "confidence": 0.5
+   },
+   {
+    "qid": 1455,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "car"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "car"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 5.0,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "car",
+       "distance_m": 17.8278,
+       "time": 1.0
+      },
+      {
+       "object": "car",
+       "distance_m": 23.1989,
+       "time": 2.0
+      }
+     ],
+     "notes": "Length is foreshortened (car seen from behind/above)."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "car",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "car",
+      "obs": [
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          545,
+          345
+         ],
+         [
+          750,
+          415
+         ]
+        ],
+        "box": [
+         543,
+         306,
+         810,
+         450
+        ]
+       },
+       {
+        "frame": 48,
+        "point": null,
+        "extent": [
+         [
+          322,
+          222
+         ],
+         [
+          440,
+          262
+         ]
+        ],
+        "box": [
+         320,
+         193,
+         497,
+         282
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 4.8,
+    "confidence": 0.3
+   },
+   {
+    "qid": 1456,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "car"
+      ],
+      "dimension": "width",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "car"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 5.0,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "car",
+       "distance_m": 17.8278,
+       "time": 1.0
+      },
+      {
+       "object": "car",
+       "distance_m": 23.1989,
+       "time": 2.0
+      }
+     ],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "car",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "car",
+      "obs": [
+       {
+        "frame": 48,
+        "point": null,
+        "extent": [
+         [
+          393,
+          262
+         ],
+         [
+          492,
+          252
+         ]
+        ],
+        "box": [
+         320,
+         193,
+         497,
+         282
+        ]
+       },
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          680,
+          415
+         ],
+         [
+          805,
+          395
+         ]
+        ],
+        "box": [
+         543,
+         306,
+         810,
+         450
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 1.98,
+    "confidence": 0.4
+   },
+   {
+    "qid": 1457,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "car"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "car"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 5.0,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "car",
+       "distance_m": 17.8278,
+       "time": 1.0
+      },
+      {
+       "object": "car",
+       "distance_m": 23.1989,
+       "time": 2.0
+      }
+     ],
+     "notes": "Height hard to see from elevated view."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "car",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "car",
+      "obs": [
+       {
+        "frame": 48,
+        "point": null,
+        "extent": [
+         [
+          430,
+          215
+         ],
+         [
+          430,
+          270
+         ]
+        ],
+        "box": [
+         320,
+         193,
+         497,
+         282
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 1.15,
+    "confidence": 0.3
+   }
+  ]
+ }
+}

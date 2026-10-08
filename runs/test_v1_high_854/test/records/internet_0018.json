@@ -1,0 +1,380 @@
+{
+ "video_id": "internet_0018",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfpzyLoNCGgZAYTB3ogyv",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 854
+ },
+ "ts": "2026-10-08T17:01:24+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_01PjbQ7PFhZmxz7ogDdS6Ldo",
+ "custom_id": "internet_0018",
+ "usage": {
+  "input_tokens": 11221,
+  "output_tokens": 1781,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 4317,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.040684,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "internet_0018",
+  "fps": 30.0,
+  "fps_from_container": false,
+  "video_type": "S2MC",
+  "n_frames_total": 51,
+  "scale": 0.22239583333333332,
+  "image_size": [
+   3840,
+   2158
+  ],
+  "frames": [
+   0,
+   3,
+   7,
+   10,
+   13,
+   17,
+   20,
+   23,
+   27,
+   30,
+   33,
+   37,
+   40,
+   42,
+   43,
+   45,
+   47,
+   48,
+   50
+  ],
+  "questions": [
+   {
+    "qid": 2089,
+    "target_unit": "m",
+    "prior": "singles court width = 8.23m",
+    "depth_info": ""
+   },
+   {
+    "qid": 2090,
+    "target_unit": "m",
+    "prior": "singles court width = 8.23m",
+    "depth_info": ""
+   },
+   {
+    "qid": 2091,
+    "target_unit": "m/s",
+    "prior": "singles court width = 8.23m",
+    "depth_info": ""
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":2089,\"spec\":{\"target\":{\"kind\":\"distance\",\"objects\":[\"left player\",\"right player\"],\"dimension\":\"\",\"time\":0,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"singles court\"],\"dimension\":\"width\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":8.23,\"unit\":\"\"},\"depth\":[],\"notes\":\"Court width is measured between the singles sidelines. Player positions are taken at body centres.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"singles court\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[400,130],[400,335]],\"box\":[187,130,783,335]},{\"frame\":20,\"point\":null,\"extent\":[[400,129.5],[400,334]],\"box\":[187,129.5,783,334]},{\"frame\":50,\"point\":null,\"extent\":[[400,128],[400,333]],\"box\":[188,128,783,333]}]},{\"role\":\"target\",\"object\":\"left player\",\"obs\":[{\"frame\":0,\"point\":[176,143],\"extent\":null,\"box\":[166,135,190,151]}]},{\"role\":\"target2\",\"object\":\"right player\",\"obs\":[{\"frame\":0,\"point\":[811,261],\"extent\":null,\"box\":[795,251,828,271]}]}],\"direct_answer\":25.9,\"confidence\":0.6},{\"qid\":2090,\"spec\":{\"target\":{\"kind\":\"distance\",\"objects\":[\"benches\",\"court\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"singles court\"],\"dimension\":\"width\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":8.23,\"unit\":\"\"},\"depth\":[],\"notes\":\"Distance is taken from the bottom edge of the benches to the nearest (doubles) sideline of the court.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"singles court\",\"obs\":[]},{\"role\":\"target\",\"object\":\"benches\",\"obs\":[{\"frame\":0,\"point\":[492,19],\"extent\":null,\"box\":[430,0,556,19]}]},{\"role\":\"target2\",\"object\":\"court\",\"obs\":[{\"frame\":0,\"point\":[492,96],\"extent\":null,\"box\":null}]}],\"direct_answer\":3.1,\"confidence\":0.4},{\"qid\":2091,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"tennis ball\"],\"dimension\":\"\",\"time\":1.5,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"singles court\"],\"dimension\":\"width\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":8.23,\"unit\":\"\"},\"depth\":[],\"notes\":\"The ball is small and faint in the frames.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"singles court\",\"obs\":[]},{\"role\":\"target\",\"object\":\"tennis ball\",\"obs\":[{\"frame\":40,\"point\":[705,243],\"extent\":null,\"box\":null},{\"frame\":45,\"point\":[561,222],\"extent\":null,\"box\":null},{\"frame\":47,\"point\":[508,219],\"extent\":null,\"box\":null}]}],\"direct_answer\":33,\"confidence\":0.35}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 2089,
+    "spec": {
+     "target": {
+      "kind": "distance",
+      "objects": [
+       "left player",
+       "right player"
+      ],
+      "dimension": "",
+      "time": 0,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "singles court"
+      ],
+      "dimension": "width",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 8.23,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Court width is measured between the singles sidelines. Player positions are taken at body centres."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "singles court",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          400,
+          130
+         ],
+         [
+          400,
+          335
+         ]
+        ],
+        "box": [
+         187,
+         130,
+         783,
+         335
+        ]
+       },
+       {
+        "frame": 20,
+        "point": null,
+        "extent": [
+         [
+          400,
+          129.5
+         ],
+         [
+          400,
+          334
+         ]
+        ],
+        "box": [
+         187,
+         129.5,
+         783,
+         334
+        ]
+       },
+       {
+        "frame": 50,
+        "point": null,
+        "extent": [
+         [
+          400,
+          128
+         ],
+         [
+          400,
+          333
+         ]
+        ],
+        "box": [
+         188,
+         128,
+         783,
+         333
+        ]
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "left player",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         176,
+         143
+        ],
+        "extent": null,
+        "box": [
+         166,
+         135,
+         190,
+         151
+        ]
+       }
+      ]
+     },
+     {
+      "role": "target2",
+      "object": "right player",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         811,
+         261
+        ],
+        "extent": null,
+        "box": [
+         795,
+         251,
+         828,
+         271
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 25.9,
+    "confidence": 0.6
+   },
+   {
+    "qid": 2090,
+    "spec": {
+     "target": {
+      "kind": "distance",
+      "objects": [
+       "benches",
+       "court"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "singles court"
+      ],
+      "dimension": "width",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 8.23,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Distance is taken from the bottom edge of the benches to the nearest (doubles) sideline of the court."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "singles court",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "benches",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         492,
+         19
+        ],
+        "extent": null,
+        "box": [
+         430,
+         0,
+         556,
+         19
+        ]
+       }
+      ]
+     },
+     {
+      "role": "target2",
+      "object": "court",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         492,
+         96
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     }
+    ],
+    "direct_answer": 3.1,
+    "confidence": 0.4
+   },
+   {
+    "qid": 2091,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "tennis ball"
+      ],
+      "dimension": "",
+      "time": 1.5,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "singles court"
+      ],
+      "dimension": "width",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 8.23,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "The ball is small and faint in the frames."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "singles court",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "tennis ball",
+      "obs": [
+       {
+        "frame": 40,
+        "point": [
+         705,
+         243
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 45,
+        "point": [
+         561,
+         222
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 47,
+        "point": [
+         508,
+         219
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     }
+    ],
+    "direct_answer": 33,
+    "confidence": 0.35
+   }
+  ]
+ }
+}

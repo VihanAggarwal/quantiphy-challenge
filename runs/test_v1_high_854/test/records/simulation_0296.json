@@ -1,0 +1,571 @@
+{
+ "video_id": "simulation_0296",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfpsNHQvuxK93vWg2LyWu",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 854
+ },
+ "ts": "2026-10-08T17:02:28+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_014b6hUtpWseWVd7Ff4g8gtq",
+ "custom_id": "simulation_0296",
+ "usage": {
+  "input_tokens": 11824,
+  "output_tokens": 2625,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 4317,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.05033,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0296",
+  "fps": 24.0,
+  "fps_from_container": false,
+  "video_type": "V2SC",
+  "n_frames_total": 72,
+  "scale": 0.33359375,
+  "image_size": [
+   2560,
+   1439
+  ],
+  "frames": [
+   0,
+   5,
+   9,
+   10,
+   12,
+   14,
+   19,
+   22,
+   24,
+   26,
+   28,
+   33,
+   38,
+   43,
+   47,
+   52,
+   57,
+   62,
+   66,
+   71
+  ],
+  "questions": [
+   {
+    "qid": 1030,
+    "target_unit": "m",
+    "prior": "speed of the butterfly = 0.32m/s",
+    "depth_info": ""
+   },
+   {
+    "qid": 1031,
+    "target_unit": "m",
+    "prior": "speed of the butterfly = 0.32m/s",
+    "depth_info": ""
+   },
+   {
+    "qid": 1032,
+    "target_unit": "m",
+    "prior": "speed of the butterfly = 0.32m/s",
+    "depth_info": ""
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":1030,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"butterfly\"],\"dimension\":\"wingspan\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"butterfly\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.32,\"unit\":\"\"},\"depth\":[],\"notes\":\"Wingspan measured as the full open-wing extent, which runs vertically in the image.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"butterfly\",\"obs\":[{\"frame\":0,\"point\":[613,241],\"extent\":null,\"box\":null},{\"frame\":5,\"point\":[596,241],\"extent\":null,\"box\":null},{\"frame\":9,\"point\":[578,240],\"extent\":null,\"box\":null},{\"frame\":10,\"point\":[572,240],\"extent\":null,\"box\":null},{\"frame\":12,\"point\":[560,241],\"extent\":null,\"box\":null},{\"frame\":14,\"point\":[548,242],\"extent\":null,\"box\":null},{\"frame\":19,\"point\":[519,242],\"extent\":null,\"box\":null},{\"frame\":22,\"point\":[505,241],\"extent\":null,\"box\":null},{\"frame\":24,\"point\":[494,241],\"extent\":null,\"box\":null},{\"frame\":26,\"point\":[484,243],\"extent\":null,\"box\":null},{\"frame\":28,\"point\":[474,242],\"extent\":null,\"box\":null},{\"frame\":33,\"point\":[455,241],\"extent\":null,\"box\":null},{\"frame\":38,\"point\":[425,243],\"extent\":null,\"box\":null},{\"frame\":43,\"point\":[395,243],\"extent\":null,\"box\":null},{\"frame\":47,\"point\":[373,241],\"extent\":null,\"box\":null},{\"frame\":52,\"point\":[347,241],\"extent\":null,\"box\":null},{\"frame\":57,\"point\":[325,240],\"extent\":null,\"box\":null},{\"frame\":62,\"point\":[299,241],\"extent\":null,\"box\":null},{\"frame\":66,\"point\":[275,241],\"extent\":null,\"box\":null},{\"frame\":71,\"point\":[248,241],\"extent\":null,\"box\":null}]},{\"role\":\"target\",\"object\":\"butterfly\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[613,198],[613,283]],\"box\":[582,198,645,283]},{\"frame\":19,\"point\":null,\"extent\":[[519,198],[519,283]],\"box\":[488,198,552,283]},{\"frame\":38,\"point\":null,\"extent\":[[422,199],[422,285]],\"box\":[390,199,455,285]},{\"frame\":43,\"point\":null,\"extent\":[[397,199],[397,286]],\"box\":[364,199,428,286]}]}],\"direct_answer\":0.22,\"confidence\":0.5},{\"qid\":1031,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"butterfly\"],\"dimension\":\"wing length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"butterfly\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.32,\"unit\":\"\"},\"depth\":[],\"notes\":\"Wing length taken as the front-to-back wing extent, which runs horizontally in the image.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"butterfly\",\"obs\":[]},{\"role\":\"target\",\"object\":\"butterfly\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[582,240],[645,240]],\"box\":[582,198,645,283]},{\"frame\":19,\"point\":null,\"extent\":[[488,241],[552,241]],\"box\":[488,198,552,283]},{\"frame\":38,\"point\":null,\"extent\":[[390,242],[455,242]],\"box\":[390,199,455,285]},{\"frame\":52,\"point\":null,\"extent\":[[315,242],[382,242]],\"box\":[315,229,382,257]}]}],\"direct_answer\":0.165,\"confidence\":0.4},{\"qid\":1032,\"spec\":{\"target\":{\"kind\":\"displacement\",\"objects\":[\"butterfly\"],\"dimension\":\"\",\"time\":null,\"window\":[0.5,1.0],\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"butterfly\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.32,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"butterfly\",\"obs\":[]},{\"role\":\"target\",\"object\":\"butterfly\",\"obs\":[]}],\"direct_answer\":0.168,\"confidence\":0.6}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 1030,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "butterfly"
+      ],
+      "dimension": "wingspan",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "butterfly"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.32,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Wingspan measured as the full open-wing extent, which runs vertically in the image."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "butterfly",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         613,
+         241
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 5,
+        "point": [
+         596,
+         241
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 9,
+        "point": [
+         578,
+         240
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 10,
+        "point": [
+         572,
+         240
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 12,
+        "point": [
+         560,
+         241
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 14,
+        "point": [
+         548,
+         242
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 19,
+        "point": [
+         519,
+         242
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 22,
+        "point": [
+         505,
+         241
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 24,
+        "point": [
+         494,
+         241
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 26,
+        "point": [
+         484,
+         243
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 28,
+        "point": [
+         474,
+         242
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 33,
+        "point": [
+         455,
+         241
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 38,
+        "point": [
+         425,
+         243
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 43,
+        "point": [
+         395,
+         243
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 47,
+        "point": [
+         373,
+         241
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 52,
+        "point": [
+         347,
+         241
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 57,
+        "point": [
+         325,
+         240
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 62,
+        "point": [
+         299,
+         241
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 66,
+        "point": [
+         275,
+         241
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 71,
+        "point": [
+         248,
+         241
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "butterfly",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          613,
+          198
+         ],
+         [
+          613,
+          283
+         ]
+        ],
+        "box": [
+         582,
+         198,
+         645,
+         283
+        ]
+       },
+       {
+        "frame": 19,
+        "point": null,
+        "extent": [
+         [
+          519,
+          198
+         ],
+         [
+          519,
+          283
+         ]
+        ],
+        "box": [
+         488,
+         198,
+         552,
+         283
+        ]
+       },
+       {
+        "frame": 38,
+        "point": null,
+        "extent": [
+         [
+          422,
+          199
+         ],
+         [
+          422,
+          285
+         ]
+        ],
+        "box": [
+         390,
+         199,
+         455,
+         285
+        ]
+       },
+       {
+        "frame": 43,
+        "point": null,
+        "extent": [
+         [
+          397,
+          199
+         ],
+         [
+          397,
+          286
+         ]
+        ],
+        "box": [
+         364,
+         199,
+         428,
+         286
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 0.22,
+    "confidence": 0.5
+   },
+   {
+    "qid": 1031,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "butterfly"
+      ],
+      "dimension": "wing length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "butterfly"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.32,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Wing length taken as the front-to-back wing extent, which runs horizontally in the image."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "butterfly",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "butterfly",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          582,
+          240
+         ],
+         [
+          645,
+          240
+         ]
+        ],
+        "box": [
+         582,
+         198,
+         645,
+         283
+        ]
+       },
+       {
+        "frame": 19,
+        "point": null,
+        "extent": [
+         [
+          488,
+          241
+         ],
+         [
+          552,
+          241
+         ]
+        ],
+        "box": [
+         488,
+         198,
+         552,
+         283
+        ]
+       },
+       {
+        "frame": 38,
+        "point": null,
+        "extent": [
+         [
+          390,
+          242
+         ],
+         [
+          455,
+          242
+         ]
+        ],
+        "box": [
+         390,
+         199,
+         455,
+         285
+        ]
+       },
+       {
+        "frame": 52,
+        "point": null,
+        "extent": [
+         [
+          315,
+          242
+         ],
+         [
+          382,
+          242
+         ]
+        ],
+        "box": [
+         315,
+         229,
+         382,
+         257
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 0.165,
+    "confidence": 0.4
+   },
+   {
+    "qid": 1032,
+    "spec": {
+     "target": {
+      "kind": "displacement",
+      "objects": [
+       "butterfly"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": [
+       0.5,
+       1.0
+      ],
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "butterfly"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.32,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "butterfly",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "butterfly",
+      "obs": []
+     }
+    ],
+    "direct_answer": 0.168,
+    "confidence": 0.6
+   }
+  ]
+ }
+}

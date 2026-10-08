@@ -1,0 +1,515 @@
+{
+ "video_id": "simulation_0142",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfppvUMJ9HNMqfKmPisSv",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 854
+ },
+ "ts": "2026-10-08T16:53:50+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_01EK6rwK1z62Nk1x6w7FZeFC",
+ "custom_id": "simulation_0142",
+ "usage": {
+  "input_tokens": 9544,
+  "output_tokens": 2812,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 4317,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.04764,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0142",
+  "fps": 24.0,
+  "fps_from_container": false,
+  "video_type": "V2MC",
+  "n_frames_total": 80,
+  "scale": 0.44479166666666664,
+  "image_size": [
+   1920,
+   1079
+  ],
+  "frames": [
+   0,
+   5,
+   11,
+   16,
+   21,
+   26,
+   32,
+   37,
+   42,
+   47,
+   53,
+   58,
+   63,
+   68,
+   74,
+   79
+  ],
+  "questions": [
+   {
+    "qid": 335,
+    "target_unit": "m",
+    "prior": "walking speed = 1.693m/s",
+    "depth_info": ""
+   },
+   {
+    "qid": 336,
+    "target_unit": "m",
+    "prior": "walking speed = 1.693m/s",
+    "depth_info": ""
+   },
+   {
+    "qid": 337,
+    "target_unit": "m",
+    "prior": "walking speed = 1.693m/s",
+    "depth_info": ""
+   },
+   {
+    "qid": 338,
+    "target_unit": "m",
+    "prior": "walking speed = 1.693m/s",
+    "depth_info": ""
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":335,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"man\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"man\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"horizontal\",\"value_si\":1.693,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"man\",\"obs\":[{\"frame\":0,\"point\":[99,205],\"extent\":null,\"box\":null},{\"frame\":5,\"point\":[141,212],\"extent\":null,\"box\":null},{\"frame\":11,\"point\":[190,206],\"extent\":null,\"box\":null},{\"frame\":16,\"point\":[234,210],\"extent\":null,\"box\":null},{\"frame\":21,\"point\":[278,210],\"extent\":null,\"box\":null},{\"frame\":26,\"point\":[318,205],\"extent\":null,\"box\":null},{\"frame\":32,\"point\":[367,211],\"extent\":null,\"box\":null},{\"frame\":37,\"point\":[409,203],\"extent\":null,\"box\":null},{\"frame\":42,\"point\":[454,210],\"extent\":null,\"box\":null},{\"frame\":47,\"point\":[497,206],\"extent\":null,\"box\":null},{\"frame\":53,\"point\":[545,209],\"extent\":null,\"box\":null},{\"frame\":58,\"point\":[584,210],\"extent\":null,\"box\":null},{\"frame\":63,\"point\":[628,206],\"extent\":null,\"box\":null},{\"frame\":68,\"point\":[674,211],\"extent\":null,\"box\":null},{\"frame\":74,\"point\":[720,203],\"extent\":null,\"box\":null},{\"frame\":79,\"point\":[762,210],\"extent\":null,\"box\":null}]},{\"role\":\"target\",\"object\":\"man\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[97,184],[97,400]],\"box\":[63,184,122,401]},{\"frame\":37,\"point\":null,\"extent\":[[405,185],[405,398]],\"box\":[378,185,437,398]},{\"frame\":74,\"point\":null,\"extent\":[[715,184],[715,400]],\"box\":[684,184,740,401]}]}],\"direct_answer\":1.81,\"confidence\":0.6},{\"qid\":336,\"spec\":{\"target\":{\"kind\":\"path_length\",\"objects\":[\"man\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"man\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"horizontal\",\"value_si\":1.693,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"man\",\"obs\":[]},{\"role\":\"target\",\"object\":\"man\",\"obs\":[]}],\"direct_answer\":5.6,\"confidence\":0.7},{\"qid\":337,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"floor tile\"],\"dimension\":\"side length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"man\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"horizontal\",\"value_si\":1.693,\"unit\":\"\"},\"depth\":[],\"notes\":\"floor in perspective; tile measured near the man's walking line\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"man\",\"obs\":[]},{\"role\":\"target\",\"object\":\"floor tile\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[335,398],[410,398]],\"box\":[335,375,410,420]}]}],\"direct_answer\":0.62,\"confidence\":0.3},{\"qid\":338,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"room\"],\"dimension\":\"floor to ceiling height\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"man\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"horizontal\",\"value_si\":1.693,\"unit\":\"\"},\"depth\":[],\"notes\":\"ceiling partly out of frame; measured at back wall from floor line to ceiling edge\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"man\",\"obs\":[]},{\"role\":\"target\",\"object\":\"room\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[480,356],[480,130]],\"box\":null}]}],\"direct_answer\":2.6,\"confidence\":0.25}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 335,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "man"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "man"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "horizontal",
+      "value_si": 1.693,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "man",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         99,
+         205
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 5,
+        "point": [
+         141,
+         212
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 11,
+        "point": [
+         190,
+         206
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 16,
+        "point": [
+         234,
+         210
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 21,
+        "point": [
+         278,
+         210
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 26,
+        "point": [
+         318,
+         205
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 32,
+        "point": [
+         367,
+         211
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 37,
+        "point": [
+         409,
+         203
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 42,
+        "point": [
+         454,
+         210
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 47,
+        "point": [
+         497,
+         206
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 53,
+        "point": [
+         545,
+         209
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 58,
+        "point": [
+         584,
+         210
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 63,
+        "point": [
+         628,
+         206
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 68,
+        "point": [
+         674,
+         211
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 74,
+        "point": [
+         720,
+         203
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 79,
+        "point": [
+         762,
+         210
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "man",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          97,
+          184
+         ],
+         [
+          97,
+          400
+         ]
+        ],
+        "box": [
+         63,
+         184,
+         122,
+         401
+        ]
+       },
+       {
+        "frame": 37,
+        "point": null,
+        "extent": [
+         [
+          405,
+          185
+         ],
+         [
+          405,
+          398
+         ]
+        ],
+        "box": [
+         378,
+         185,
+         437,
+         398
+        ]
+       },
+       {
+        "frame": 74,
+        "point": null,
+        "extent": [
+         [
+          715,
+          184
+         ],
+         [
+          715,
+          400
+         ]
+        ],
+        "box": [
+         684,
+         184,
+         740,
+         401
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 1.81,
+    "confidence": 0.6
+   },
+   {
+    "qid": 336,
+    "spec": {
+     "target": {
+      "kind": "path_length",
+      "objects": [
+       "man"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "man"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "horizontal",
+      "value_si": 1.693,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "man",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "man",
+      "obs": []
+     }
+    ],
+    "direct_answer": 5.6,
+    "confidence": 0.7
+   },
+   {
+    "qid": 337,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "floor tile"
+      ],
+      "dimension": "side length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "man"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "horizontal",
+      "value_si": 1.693,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "floor in perspective; tile measured near the man's walking line"
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "man",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "floor tile",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          335,
+          398
+         ],
+         [
+          410,
+          398
+         ]
+        ],
+        "box": [
+         335,
+         375,
+         410,
+         420
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 0.62,
+    "confidence": 0.3
+   },
+   {
+    "qid": 338,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "room"
+      ],
+      "dimension": "floor to ceiling height",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "man"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "horizontal",
+      "value_si": 1.693,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "ceiling partly out of frame; measured at back wall from floor line to ceiling edge"
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "man",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "room",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          480,
+          356
+         ],
+         [
+          480,
+          130
+         ]
+        ],
+        "box": null
+       }
+      ]
+     }
+    ],
+    "direct_answer": 2.6,
+    "confidence": 0.25
+   }
+  ]
+ }
+}

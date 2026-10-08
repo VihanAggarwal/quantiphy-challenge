@@ -1,0 +1,679 @@
+{
+ "video_id": "captured_0001",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011Cfq1HUcfevutiG3dtnKKG",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 854
+ },
+ "ts": "2026-10-08T17:01:24+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_01PjbQ7PFhZmxz7ogDdS6Ldo",
+ "custom_id": "captured_0001",
+ "usage": {
+  "input_tokens": 12394,
+  "output_tokens": 4464,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 4317,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.06986,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "captured_0001",
+  "fps": 24.0,
+  "fps_from_container": false,
+  "video_type": "A3SS",
+  "n_frames_total": 49,
+  "scale": 0.6671875,
+  "image_size": [
+   1280,
+   719
+  ],
+  "frames": [
+   0,
+   2,
+   3,
+   6,
+   10,
+   13,
+   16,
+   19,
+   22,
+   26,
+   29,
+   32,
+   34,
+   35,
+   36,
+   38,
+   41,
+   42,
+   45,
+   48
+  ],
+  "questions": [
+   {
+    "qid": 2141,
+    "target_unit": "cm",
+    "prior": "t=1.6s, ball acceleration = 3.0m/s^2",
+    "depth_info": "t=0s, distance_ball_camera = 1.1075m\nt=1.5s, distance_ball_camera = 0.9120m\ndistance_slope_far_end_camera = 1.1360m\ndistance_slope_near_tower_camera = 0.8840m"
+   },
+   {
+    "qid": 2142,
+    "target_unit": "cm",
+    "prior": "t=1.6s, ball acceleration = 3.0m/s^2",
+    "depth_info": "t=0s, distance_ball_camera = 1.1075m\nt=1.5s, distance_ball_camera = 0.9120m\ndistance_slope_far_end_camera = 1.1360m\ndistance_slope_near_tower_camera = 0.8840m"
+   },
+   {
+    "qid": 2143,
+    "target_unit": "cm",
+    "prior": "t=1.6s, ball acceleration = 3.0m/s^2",
+    "depth_info": "t=0s, distance_ball_camera = 1.1075m\nt=1.5s, distance_ball_camera = 0.9120m\ndistance_slope_far_end_camera = 1.1360m\ndistance_slope_near_tower_camera = 0.8840m"
+   },
+   {
+    "qid": 2144,
+    "target_unit": "cm/s",
+    "prior": "t=1.6s, ball acceleration = 3.0m/s^2",
+    "depth_info": "t=0s, distance_ball_camera = 1.1075m\nt=1.5s, distance_ball_camera = 0.9120m\ndistance_slope_far_end_camera = 1.1360m\ndistance_slope_near_tower_camera = 0.8840m"
+   },
+   {
+    "qid": 2145,
+    "target_unit": "cm/s",
+    "prior": "t=1.6s, ball acceleration = 3.0m/s^2",
+    "depth_info": "t=0s, distance_ball_camera = 1.1075m\nt=1.5s, distance_ball_camera = 0.9120m\ndistance_slope_far_end_camera = 1.1360m\ndistance_slope_near_tower_camera = 0.8840m"
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":2141,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"ball\"],\"dimension\":\"diameter\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"cm\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"ball\"],\"dimension\":\"\",\"time\":1.6,\"window\":null,\"axis\":\"any\",\"value_si\":3.0,\"unit\":\"\"},\"depth\":[{\"object\":\"ball\",\"distance_m\":1.1075,\"time\":0.0},{\"object\":\"ball\",\"distance_m\":0.912,\"time\":1.5},{\"object\":\"slope far end\",\"distance_m\":1.136,\"time\":null},{\"object\":\"slope near tower\",\"distance_m\":0.884,\"time\":null}],\"notes\":\"Acceleration is along the slope (mostly in depth); scale estimated via focal length consistent with depths.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"ball\",\"obs\":[{\"frame\":29,\"point\":[442,222],\"extent\":null,\"box\":[427,207,457,237]},{\"frame\":32,\"point\":[443,230],\"extent\":null,\"box\":[428,215,459,246]},{\"frame\":34,\"point\":[443,244],\"extent\":null,\"box\":[427,228,459,261]},{\"frame\":35,\"point\":[443,254],\"extent\":null,\"box\":[426,237,460,272]},{\"frame\":36,\"point\":[442,280],\"extent\":null,\"box\":[424,262,461,299]},{\"frame\":38,\"point\":[440,312],\"extent\":null,\"box\":[420,292,460,332]},{\"frame\":41,\"point\":[437,331],\"extent\":null,\"box\":[411,306,462,357]},{\"frame\":42,\"point\":[435,333],\"extent\":null,\"box\":[409,307,461,359]}]},{\"role\":\"target\",\"object\":\"ball\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[428,222],[458,222]],\"box\":[428,207,458,237]},{\"frame\":6,\"point\":null,\"extent\":[[428,222],[458,222]],\"box\":[428,207,458,237]},{\"frame\":13,\"point\":null,\"extent\":[[428,222],[458,222]],\"box\":[428,207,458,237]}]}],\"direct_answer\":6.7,\"confidence\":0.4},{\"qid\":2142,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"slope\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"cm\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"ball\"],\"dimension\":\"\",\"time\":1.6,\"window\":null,\"axis\":\"any\",\"value_si\":3.0,\"unit\":\"\"},\"depth\":[{\"object\":\"ball\",\"distance_m\":1.1075,\"time\":0.0},{\"object\":\"ball\",\"distance_m\":0.912,\"time\":1.5},{\"object\":\"slope far end\",\"distance_m\":1.136,\"time\":null},{\"object\":\"slope near tower\",\"distance_m\":0.884,\"time\":null}],\"notes\":\"Slope length combines depth change and vertical drop.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"ball\",\"obs\":[]},{\"role\":\"target\",\"object\":\"slope\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[425,237],[425,330]],\"box\":[359,236,491,331]},{\"frame\":48,\"point\":null,\"extent\":[[425,237],[425,330]],\"box\":[359,236,491,331]}]}],\"direct_answer\":30.2,\"confidence\":0.35},{\"qid\":2143,\"spec\":{\"target\":{\"kind\":\"displacement\",\"objects\":[\"ball\"],\"dimension\":\"\",\"time\":null,\"window\":[0.0,1.5],\"axis\":\"any\",\"value_si\":null,\"unit\":\"cm\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"ball\"],\"dimension\":\"\",\"time\":1.6,\"window\":null,\"axis\":\"any\",\"value_si\":3.0,\"unit\":\"\"},\"depth\":[{\"object\":\"ball\",\"distance_m\":1.1075,\"time\":0.0},{\"object\":\"ball\",\"distance_m\":0.912,\"time\":1.5},{\"object\":\"slope far end\",\"distance_m\":1.136,\"time\":null},{\"object\":\"slope near tower\",\"distance_m\":0.884,\"time\":null}],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"ball\",\"obs\":[]},{\"role\":\"target\",\"object\":\"ball\",\"obs\":[{\"frame\":0,\"point\":[443,222],\"extent\":null,\"box\":[428,207,458,237]},{\"frame\":36,\"point\":[442,280],\"extent\":null,\"box\":[424,262,461,299]}]}],\"direct_answer\":22.6,\"confidence\":0.35},{\"qid\":2144,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"ball\"],\"dimension\":\"\",\"time\":1.5,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"cm/s\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"ball\"],\"dimension\":\"\",\"time\":1.6,\"window\":null,\"axis\":\"any\",\"value_si\":3.0,\"unit\":\"\"},\"depth\":[{\"object\":\"ball\",\"distance_m\":1.1075,\"time\":0.0},{\"object\":\"ball\",\"distance_m\":0.912,\"time\":1.5},{\"object\":\"slope far end\",\"distance_m\":1.136,\"time\":null},{\"object\":\"slope near tower\",\"distance_m\":0.884,\"time\":null}],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"ball\",\"obs\":[]},{\"role\":\"target\",\"object\":\"ball\",\"obs\":[]}],\"direct_answer\":116,\"confidence\":0.25},{\"qid\":2145,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"ball\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"cm/s\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"ball\"],\"dimension\":\"\",\"time\":1.6,\"window\":null,\"axis\":\"any\",\"value_si\":3.0,\"unit\":\"\"},\"depth\":[{\"object\":\"ball\",\"distance_m\":1.1075,\"time\":0.0},{\"object\":\"ball\",\"distance_m\":0.912,\"time\":1.5},{\"object\":\"slope far end\",\"distance_m\":1.136,\"time\":null},{\"object\":\"slope near tower\",\"distance_m\":0.884,\"time\":null}],\"notes\":\"End of slope reached around t~1.58s.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"ball\",\"obs\":[]},{\"role\":\"target\",\"object\":\"ball\",\"obs\":[]}],\"direct_answer\":134,\"confidence\":0.25}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 2141,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "ball"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "cm"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "ball"
+      ],
+      "dimension": "",
+      "time": 1.6,
+      "window": null,
+      "axis": "any",
+      "value_si": 3.0,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "ball",
+       "distance_m": 1.1075,
+       "time": 0.0
+      },
+      {
+       "object": "ball",
+       "distance_m": 0.912,
+       "time": 1.5
+      },
+      {
+       "object": "slope far end",
+       "distance_m": 1.136,
+       "time": null
+      },
+      {
+       "object": "slope near tower",
+       "distance_m": 0.884,
+       "time": null
+      }
+     ],
+     "notes": "Acceleration is along the slope (mostly in depth); scale estimated via focal length consistent with depths."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "ball",
+      "obs": [
+       {
+        "frame": 29,
+        "point": [
+         442,
+         222
+        ],
+        "extent": null,
+        "box": [
+         427,
+         207,
+         457,
+         237
+        ]
+       },
+       {
+        "frame": 32,
+        "point": [
+         443,
+         230
+        ],
+        "extent": null,
+        "box": [
+         428,
+         215,
+         459,
+         246
+        ]
+       },
+       {
+        "frame": 34,
+        "point": [
+         443,
+         244
+        ],
+        "extent": null,
+        "box": [
+         427,
+         228,
+         459,
+         261
+        ]
+       },
+       {
+        "frame": 35,
+        "point": [
+         443,
+         254
+        ],
+        "extent": null,
+        "box": [
+         426,
+         237,
+         460,
+         272
+        ]
+       },
+       {
+        "frame": 36,
+        "point": [
+         442,
+         280
+        ],
+        "extent": null,
+        "box": [
+         424,
+         262,
+         461,
+         299
+        ]
+       },
+       {
+        "frame": 38,
+        "point": [
+         440,
+         312
+        ],
+        "extent": null,
+        "box": [
+         420,
+         292,
+         460,
+         332
+        ]
+       },
+       {
+        "frame": 41,
+        "point": [
+         437,
+         331
+        ],
+        "extent": null,
+        "box": [
+         411,
+         306,
+         462,
+         357
+        ]
+       },
+       {
+        "frame": 42,
+        "point": [
+         435,
+         333
+        ],
+        "extent": null,
+        "box": [
+         409,
+         307,
+         461,
+         359
+        ]
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "ball",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          428,
+          222
+         ],
+         [
+          458,
+          222
+         ]
+        ],
+        "box": [
+         428,
+         207,
+         458,
+         237
+        ]
+       },
+       {
+        "frame": 6,
+        "point": null,
+        "extent": [
+         [
+          428,
+          222
+         ],
+         [
+          458,
+          222
+         ]
+        ],
+        "box": [
+         428,
+         207,
+         458,
+         237
+        ]
+       },
+       {
+        "frame": 13,
+        "point": null,
+        "extent": [
+         [
+          428,
+          222
+         ],
+         [
+          458,
+          222
+         ]
+        ],
+        "box": [
+         428,
+         207,
+         458,
+         237
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 6.7,
+    "confidence": 0.4
+   },
+   {
+    "qid": 2142,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "slope"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "cm"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "ball"
+      ],
+      "dimension": "",
+      "time": 1.6,
+      "window": null,
+      "axis": "any",
+      "value_si": 3.0,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "ball",
+       "distance_m": 1.1075,
+       "time": 0.0
+      },
+      {
+       "object": "ball",
+       "distance_m": 0.912,
+       "time": 1.5
+      },
+      {
+       "object": "slope far end",
+       "distance_m": 1.136,
+       "time": null
+      },
+      {
+       "object": "slope near tower",
+       "distance_m": 0.884,
+       "time": null
+      }
+     ],
+     "notes": "Slope length combines depth change and vertical drop."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "ball",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "slope",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          425,
+          237
+         ],
+         [
+          425,
+          330
+         ]
+        ],
+        "box": [
+         359,
+         236,
+         491,
+         331
+        ]
+       },
+       {
+        "frame": 48,
+        "point": null,
+        "extent": [
+         [
+          425,
+          237
+         ],
+         [
+          425,
+          330
+         ]
+        ],
+        "box": [
+         359,
+         236,
+         491,
+         331
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 30.2,
+    "confidence": 0.35
+   },
+   {
+    "qid": 2143,
+    "spec": {
+     "target": {
+      "kind": "displacement",
+      "objects": [
+       "ball"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": [
+       0.0,
+       1.5
+      ],
+      "axis": "any",
+      "value_si": null,
+      "unit": "cm"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "ball"
+      ],
+      "dimension": "",
+      "time": 1.6,
+      "window": null,
+      "axis": "any",
+      "value_si": 3.0,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "ball",
+       "distance_m": 1.1075,
+       "time": 0.0
+      },
+      {
+       "object": "ball",
+       "distance_m": 0.912,
+       "time": 1.5
+      },
+      {
+       "object": "slope far end",
+       "distance_m": 1.136,
+       "time": null
+      },
+      {
+       "object": "slope near tower",
+       "distance_m": 0.884,
+       "time": null
+      }
+     ],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "ball",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "ball",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         443,
+         222
+        ],
+        "extent": null,
+        "box": [
+         428,
+         207,
+         458,
+         237
+        ]
+       },
+       {
+        "frame": 36,
+        "point": [
+         442,
+         280
+        ],
+        "extent": null,
+        "box": [
+         424,
+         262,
+         461,
+         299
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 22.6,
+    "confidence": 0.35
+   },
+   {
+    "qid": 2144,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "ball"
+      ],
+      "dimension": "",
+      "time": 1.5,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "cm/s"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "ball"
+      ],
+      "dimension": "",
+      "time": 1.6,
+      "window": null,
+      "axis": "any",
+      "value_si": 3.0,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "ball",
+       "distance_m": 1.1075,
+       "time": 0.0
+      },
+      {
+       "object": "ball",
+       "distance_m": 0.912,
+       "time": 1.5
+      },
+      {
+       "object": "slope far end",
+       "distance_m": 1.136,
+       "time": null
+      },
+      {
+       "object": "slope near tower",
+       "distance_m": 0.884,
+       "time": null
+      }
+     ],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "ball",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "ball",
+      "obs": []
+     }
+    ],
+    "direct_answer": 116,
+    "confidence": 0.25
+   },
+   {
+    "qid": 2145,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "ball"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "cm/s"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "ball"
+      ],
+      "dimension": "",
+      "time": 1.6,
+      "window": null,
+      "axis": "any",
+      "value_si": 3.0,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "ball",
+       "distance_m": 1.1075,
+       "time": 0.0
+      },
+      {
+       "object": "ball",
+       "distance_m": 0.912,
+       "time": 1.5
+      },
+      {
+       "object": "slope far end",
+       "distance_m": 1.136,
+       "time": null
+      },
+      {
+       "object": "slope near tower",
+       "distance_m": 0.884,
+       "time": null
+      }
+     ],
+     "notes": "End of slope reached around t~1.58s."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "ball",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "ball",
+      "obs": []
+     }
+    ],
+    "direct_answer": 134,
+    "confidence": 0.25
+   }
+  ]
+ }
+}

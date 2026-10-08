@@ -1,0 +1,623 @@
+{
+ "video_id": "captured_0006s",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011Cfq1JkAq9x5CTg6jz1RYg",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 854
+ },
+ "ts": "2026-10-08T17:01:24+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_01PjbQ7PFhZmxz7ogDdS6Ldo",
+ "custom_id": "captured_0006s",
+ "usage": {
+  "input_tokens": 11002,
+  "output_tokens": 3693,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 4317,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.059366,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "captured_0006s",
+  "fps": 24.0,
+  "fps_from_container": false,
+  "video_type": "A3SS",
+  "n_frames_total": 49,
+  "scale": 0.6671875,
+  "image_size": [
+   1280,
+   719
+  ],
+  "frames": [
+   0,
+   3,
+   6,
+   10,
+   13,
+   16,
+   19,
+   22,
+   24,
+   26,
+   29,
+   31,
+   32,
+   35,
+   38,
+   42,
+   45,
+   48
+  ],
+  "questions": [
+   {
+    "qid": 2156,
+    "target_unit": "cm",
+    "prior": "acceleration = 9.8 m/s^2",
+    "depth_info": "t=1.0s, distance_ball_camera = 1.4020m\nt=1.2s, distance_ball_camera = 1.065m\n"
+   },
+   {
+    "qid": 2157,
+    "target_unit": "cm",
+    "prior": "acceleration = 9.8 m/s^2",
+    "depth_info": "t=1.0s, distance_ball_camera = 1.4020m\nt=1.2s, distance_ball_camera = 1.065m\n"
+   },
+   {
+    "qid": 2158,
+    "target_unit": "m/s",
+    "prior": "acceleration = 9.8 m/s^2",
+    "depth_info": "t=1.0s, distance_ball_camera = 1.4020m\nt=1.2s, distance_ball_camera = 1.065m\n"
+   },
+   {
+    "qid": 2159,
+    "target_unit": "cm",
+    "prior": "acceleration = 9.8 m/s^2",
+    "depth_info": "t=1.0s, distance_ball_camera = 1.4020m\nt=1.2s, distance_ball_camera = 1.065m\n"
+   },
+   {
+    "qid": 2160,
+    "target_unit": "m/s",
+    "prior": "acceleration = 9.8 m/s^2",
+    "depth_info": "t=1.0s, distance_ball_camera = 1.4020m\nt=1.2s, distance_ball_camera = 1.065m\n"
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":2156,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"toy\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"cm\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"toy\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":9.8,\"unit\":\"\"},\"depth\":[{\"object\":\"ball\",\"distance_m\":1.402,\"time\":1.0},{\"object\":\"ball\",\"distance_m\":1.065,\"time\":1.2}],\"notes\":\"depth refers to 'ball' = the toy; motion largely along depth\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"toy\",\"obs\":[{\"frame\":19,\"point\":[412,153],\"extent\":null,\"box\":[398,138,428,169]},{\"frame\":22,\"point\":[408,110],\"extent\":null,\"box\":[390,92,427,128]},{\"frame\":24,\"point\":[404,93],\"extent\":null,\"box\":[385,75,423,112]},{\"frame\":26,\"point\":[399,94],\"extent\":null,\"box\":[378,73,420,114]},{\"frame\":29,\"point\":[388,150],\"extent\":null,\"box\":[362,118,416,181]},{\"frame\":31,\"point\":[373,245],\"extent\":null,\"box\":[348,201,398,288]}]},{\"role\":\"target\",\"object\":\"toy\",\"obs\":[{\"frame\":24,\"point\":null,\"extent\":[[404,75],[404,112]],\"box\":[385,75,423,112]},{\"frame\":26,\"point\":null,\"extent\":[[399,73],[399,114]],\"box\":[378,73,420,114]},{\"frame\":29,\"point\":null,\"extent\":[[388,118],[388,181]],\"box\":[362,118,416,181]}]}],\"direct_answer\":8.0,\"confidence\":0.25},{\"qid\":2157,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"toy\"],\"dimension\":\"width\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"cm\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"toy\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":9.8,\"unit\":\"\"},\"depth\":[{\"object\":\"ball\",\"distance_m\":1.402,\"time\":1.0},{\"object\":\"ball\",\"distance_m\":1.065,\"time\":1.2}],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"toy\",\"obs\":[]},{\"role\":\"target\",\"object\":\"toy\",\"obs\":[{\"frame\":24,\"point\":null,\"extent\":[[385,93],[423,93]],\"box\":[385,75,423,112]},{\"frame\":26,\"point\":null,\"extent\":[[378,94],[420,94]],\"box\":[378,73,420,114]},{\"frame\":29,\"point\":null,\"extent\":[[362,150],[416,150]],\"box\":[362,118,416,181]}]}],\"direct_answer\":7.5,\"confidence\":0.25},{\"qid\":2158,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"toy\"],\"dimension\":\"\",\"time\":1.2,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"toy\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":9.8,\"unit\":\"\"},\"depth\":[{\"object\":\"ball\",\"distance_m\":1.402,\"time\":1.0},{\"object\":\"ball\",\"distance_m\":1.065,\"time\":1.2}],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"toy\",\"obs\":[]},{\"role\":\"target\",\"object\":\"toy\",\"obs\":[]}],\"direct_answer\":2.6,\"confidence\":0.25},{\"qid\":2159,\"spec\":{\"target\":{\"kind\":\"displacement\",\"objects\":[\"toy\"],\"dimension\":\"\",\"time\":null,\"window\":[1.0,1.2],\"axis\":\"any\",\"value_si\":null,\"unit\":\"cm\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"toy\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":9.8,\"unit\":\"\"},\"depth\":[{\"object\":\"ball\",\"distance_m\":1.402,\"time\":1.0},{\"object\":\"ball\",\"distance_m\":1.065,\"time\":1.2}],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"toy\",\"obs\":[]},{\"role\":\"target\",\"object\":\"toy\",\"obs\":[]}],\"direct_answer\":35.0,\"confidence\":0.4},{\"qid\":2160,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"toy\"],\"dimension\":\"\",\"time\":1.333,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"toy\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":9.8,\"unit\":\"\"},\"depth\":[{\"object\":\"ball\",\"distance_m\":1.402,\"time\":1.0},{\"object\":\"ball\",\"distance_m\":1.065,\"time\":1.2}],\"notes\":\"first desk contact around frame 32 (t~1.33s)\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"toy\",\"obs\":[]},{\"role\":\"target\",\"object\":\"toy\",\"obs\":[{\"frame\":29,\"point\":[388,150],\"extent\":null,\"box\":null},{\"frame\":31,\"point\":[373,245],\"extent\":null,\"box\":null},{\"frame\":32,\"point\":[364,295],\"extent\":null,\"box\":[337,264,392,325]}]}],\"direct_answer\":3.5,\"confidence\":0.2}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 2156,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "toy"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "cm"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "toy"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": 9.8,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "ball",
+       "distance_m": 1.402,
+       "time": 1.0
+      },
+      {
+       "object": "ball",
+       "distance_m": 1.065,
+       "time": 1.2
+      }
+     ],
+     "notes": "depth refers to 'ball' = the toy; motion largely along depth"
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "toy",
+      "obs": [
+       {
+        "frame": 19,
+        "point": [
+         412,
+         153
+        ],
+        "extent": null,
+        "box": [
+         398,
+         138,
+         428,
+         169
+        ]
+       },
+       {
+        "frame": 22,
+        "point": [
+         408,
+         110
+        ],
+        "extent": null,
+        "box": [
+         390,
+         92,
+         427,
+         128
+        ]
+       },
+       {
+        "frame": 24,
+        "point": [
+         404,
+         93
+        ],
+        "extent": null,
+        "box": [
+         385,
+         75,
+         423,
+         112
+        ]
+       },
+       {
+        "frame": 26,
+        "point": [
+         399,
+         94
+        ],
+        "extent": null,
+        "box": [
+         378,
+         73,
+         420,
+         114
+        ]
+       },
+       {
+        "frame": 29,
+        "point": [
+         388,
+         150
+        ],
+        "extent": null,
+        "box": [
+         362,
+         118,
+         416,
+         181
+        ]
+       },
+       {
+        "frame": 31,
+        "point": [
+         373,
+         245
+        ],
+        "extent": null,
+        "box": [
+         348,
+         201,
+         398,
+         288
+        ]
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "toy",
+      "obs": [
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          404,
+          75
+         ],
+         [
+          404,
+          112
+         ]
+        ],
+        "box": [
+         385,
+         75,
+         423,
+         112
+        ]
+       },
+       {
+        "frame": 26,
+        "point": null,
+        "extent": [
+         [
+          399,
+          73
+         ],
+         [
+          399,
+          114
+         ]
+        ],
+        "box": [
+         378,
+         73,
+         420,
+         114
+        ]
+       },
+       {
+        "frame": 29,
+        "point": null,
+        "extent": [
+         [
+          388,
+          118
+         ],
+         [
+          388,
+          181
+         ]
+        ],
+        "box": [
+         362,
+         118,
+         416,
+         181
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 8.0,
+    "confidence": 0.25
+   },
+   {
+    "qid": 2157,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "toy"
+      ],
+      "dimension": "width",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "cm"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "toy"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": 9.8,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "ball",
+       "distance_m": 1.402,
+       "time": 1.0
+      },
+      {
+       "object": "ball",
+       "distance_m": 1.065,
+       "time": 1.2
+      }
+     ],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "toy",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "toy",
+      "obs": [
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          385,
+          93
+         ],
+         [
+          423,
+          93
+         ]
+        ],
+        "box": [
+         385,
+         75,
+         423,
+         112
+        ]
+       },
+       {
+        "frame": 26,
+        "point": null,
+        "extent": [
+         [
+          378,
+          94
+         ],
+         [
+          420,
+          94
+         ]
+        ],
+        "box": [
+         378,
+         73,
+         420,
+         114
+        ]
+       },
+       {
+        "frame": 29,
+        "point": null,
+        "extent": [
+         [
+          362,
+          150
+         ],
+         [
+          416,
+          150
+         ]
+        ],
+        "box": [
+         362,
+         118,
+         416,
+         181
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 7.5,
+    "confidence": 0.25
+   },
+   {
+    "qid": 2158,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "toy"
+      ],
+      "dimension": "",
+      "time": 1.2,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "toy"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": 9.8,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "ball",
+       "distance_m": 1.402,
+       "time": 1.0
+      },
+      {
+       "object": "ball",
+       "distance_m": 1.065,
+       "time": 1.2
+      }
+     ],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "toy",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "toy",
+      "obs": []
+     }
+    ],
+    "direct_answer": 2.6,
+    "confidence": 0.25
+   },
+   {
+    "qid": 2159,
+    "spec": {
+     "target": {
+      "kind": "displacement",
+      "objects": [
+       "toy"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": [
+       1.0,
+       1.2
+      ],
+      "axis": "any",
+      "value_si": null,
+      "unit": "cm"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "toy"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": 9.8,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "ball",
+       "distance_m": 1.402,
+       "time": 1.0
+      },
+      {
+       "object": "ball",
+       "distance_m": 1.065,
+       "time": 1.2
+      }
+     ],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "toy",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "toy",
+      "obs": []
+     }
+    ],
+    "direct_answer": 35.0,
+    "confidence": 0.4
+   },
+   {
+    "qid": 2160,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "toy"
+      ],
+      "dimension": "",
+      "time": 1.333,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "toy"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": 9.8,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "ball",
+       "distance_m": 1.402,
+       "time": 1.0
+      },
+      {
+       "object": "ball",
+       "distance_m": 1.065,
+       "time": 1.2
+      }
+     ],
+     "notes": "first desk contact around frame 32 (t~1.33s)"
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "toy",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "toy",
+      "obs": [
+       {
+        "frame": 29,
+        "point": [
+         388,
+         150
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 31,
+        "point": [
+         373,
+         245
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 32,
+        "point": [
+         364,
+         295
+        ],
+        "extent": null,
+        "box": [
+         337,
+         264,
+         392,
+         325
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 3.5,
+    "confidence": 0.2
+   }
+  ]
+ }
+}

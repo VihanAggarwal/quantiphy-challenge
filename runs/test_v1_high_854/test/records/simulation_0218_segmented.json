@@ -1,0 +1,576 @@
+{
+ "video_id": "simulation_0218_segmented",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfpqtG8PpQKmF8NMrzYDE",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 854
+ },
+ "ts": "2026-10-08T17:09:48+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_01SmLRdd1f81Bv4cEJSXfSE9",
+ "custom_id": "simulation_0218_segmented",
+ "usage": {
+  "input_tokens": 9577,
+  "output_tokens": 2502,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 4317,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.044606,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0218_segmented",
+  "fps": 24.0,
+  "fps_from_container": false,
+  "video_type": "V2MX",
+  "n_frames_total": 50,
+  "scale": 0.44479166666666664,
+  "image_size": [
+   1920,
+   1079
+  ],
+  "frames": [
+   0,
+   3,
+   7,
+   10,
+   13,
+   16,
+   20,
+   23,
+   26,
+   29,
+   33,
+   36,
+   39,
+   42,
+   46,
+   49
+  ],
+  "questions": [
+   {
+    "qid": 1939,
+    "target_unit": "m",
+    "prior": "speed of the big robot = 5.924m/s",
+    "depth_info": ""
+   },
+   {
+    "qid": 1940,
+    "target_unit": "m",
+    "prior": "speed of the big robot = 5.924m/s",
+    "depth_info": ""
+   },
+   {
+    "qid": 1941,
+    "target_unit": "m",
+    "prior": "speed of the big robot = 5.924m/s",
+    "depth_info": ""
+   },
+   {
+    "qid": 1942,
+    "target_unit": "m",
+    "prior": "speed of the big robot = 5.924m/s",
+    "depth_info": ""
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":1939,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"big robot\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"horizontal\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"big robot\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"horizontal\",\"value_si\":5.924,\"unit\":\"\"},\"depth\":[],\"notes\":\"Length taken as rear of tracks to drill tip.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"big robot\",\"obs\":[{\"frame\":10,\"point\":[38,370],\"extent\":null,\"box\":null},{\"frame\":13,\"point\":[105,370],\"extent\":null,\"box\":null},{\"frame\":16,\"point\":[173,370],\"extent\":null,\"box\":null},{\"frame\":20,\"point\":[263,370],\"extent\":null,\"box\":null},{\"frame\":23,\"point\":[331,370],\"extent\":null,\"box\":null},{\"frame\":26,\"point\":[398,370],\"extent\":null,\"box\":null},{\"frame\":29,\"point\":[463,370],\"extent\":null,\"box\":null},{\"frame\":33,\"point\":[545,370],\"extent\":null,\"box\":null},{\"frame\":36,\"point\":[605,370],\"extent\":null,\"box\":null},{\"frame\":39,\"point\":[666,370],\"extent\":null,\"box\":null},{\"frame\":42,\"point\":[727,370],\"extent\":null,\"box\":null}]},{\"role\":\"target\",\"object\":\"big robot length\",\"obs\":[{\"frame\":20,\"point\":null,\"extent\":[[263,370],[545,290]],\"box\":[263,120,545,396]},{\"frame\":23,\"point\":null,\"extent\":[[331,370],[617,290]],\"box\":[331,120,617,396]},{\"frame\":26,\"point\":null,\"extent\":[[398,370],[689,290]],\"box\":[398,120,689,396]}]}],\"direct_answer\":3.24,\"confidence\":0.5},{\"qid\":1940,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"big robot\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"big robot\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"horizontal\",\"value_si\":5.924,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"big robot\",\"obs\":[]},{\"role\":\"target\",\"object\":\"big robot height\",\"obs\":[{\"frame\":20,\"point\":null,\"extent\":[[370,120],[370,396]],\"box\":[263,120,545,396]},{\"frame\":23,\"point\":null,\"extent\":[[438,120],[438,396]],\"box\":[331,120,617,396]},{\"frame\":26,\"point\":null,\"extent\":[[505,120],[505,396]],\"box\":[398,120,689,396]}]}],\"direct_answer\":3.12,\"confidence\":0.5},{\"qid\":1941,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"white line box\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"horizontal\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"big robot\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"horizontal\",\"value_si\":5.924,\"unit\":\"\"},\"depth\":[],\"notes\":\"Box only visible in last frame, perspective view.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"big robot\",\"obs\":[]},{\"role\":\"target\",\"object\":\"white line box\",\"obs\":[{\"frame\":49,\"point\":null,\"extent\":[[258,389],[768,389]],\"box\":[232,374,805,404]}]}],\"direct_answer\":5.78,\"confidence\":0.3},{\"qid\":1942,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"robot tire\"],\"dimension\":\"diameter\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"big robot\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"horizontal\",\"value_si\":5.924,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"big robot\",\"obs\":[]},{\"role\":\"target\",\"object\":\"robot tire\",\"obs\":[{\"frame\":23,\"point\":null,\"extent\":[[381,375],[414,375]],\"box\":[381,359,414,392]},{\"frame\":26,\"point\":null,\"extent\":[[448,375],[481,375]],\"box\":[448,359,481,392]},{\"frame\":20,\"point\":null,\"extent\":[[313,375],[346,375]],\"box\":[313,359,346,392]}]}],\"direct_answer\":0.37,\"confidence\":0.35}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 1939,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "big robot"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "horizontal",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "big robot"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "horizontal",
+      "value_si": 5.924,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Length taken as rear of tracks to drill tip."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "big robot",
+      "obs": [
+       {
+        "frame": 10,
+        "point": [
+         38,
+         370
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 13,
+        "point": [
+         105,
+         370
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 16,
+        "point": [
+         173,
+         370
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 20,
+        "point": [
+         263,
+         370
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 23,
+        "point": [
+         331,
+         370
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 26,
+        "point": [
+         398,
+         370
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 29,
+        "point": [
+         463,
+         370
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 33,
+        "point": [
+         545,
+         370
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 36,
+        "point": [
+         605,
+         370
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 39,
+        "point": [
+         666,
+         370
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 42,
+        "point": [
+         727,
+         370
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "big robot length",
+      "obs": [
+       {
+        "frame": 20,
+        "point": null,
+        "extent": [
+         [
+          263,
+          370
+         ],
+         [
+          545,
+          290
+         ]
+        ],
+        "box": [
+         263,
+         120,
+         545,
+         396
+        ]
+       },
+       {
+        "frame": 23,
+        "point": null,
+        "extent": [
+         [
+          331,
+          370
+         ],
+         [
+          617,
+          290
+         ]
+        ],
+        "box": [
+         331,
+         120,
+         617,
+         396
+        ]
+       },
+       {
+        "frame": 26,
+        "point": null,
+        "extent": [
+         [
+          398,
+          370
+         ],
+         [
+          689,
+          290
+         ]
+        ],
+        "box": [
+         398,
+         120,
+         689,
+         396
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 3.24,
+    "confidence": 0.5
+   },
+   {
+    "qid": 1940,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "big robot"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "big robot"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "horizontal",
+      "value_si": 5.924,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "big robot",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "big robot height",
+      "obs": [
+       {
+        "frame": 20,
+        "point": null,
+        "extent": [
+         [
+          370,
+          120
+         ],
+         [
+          370,
+          396
+         ]
+        ],
+        "box": [
+         263,
+         120,
+         545,
+         396
+        ]
+       },
+       {
+        "frame": 23,
+        "point": null,
+        "extent": [
+         [
+          438,
+          120
+         ],
+         [
+          438,
+          396
+         ]
+        ],
+        "box": [
+         331,
+         120,
+         617,
+         396
+        ]
+       },
+       {
+        "frame": 26,
+        "point": null,
+        "extent": [
+         [
+          505,
+          120
+         ],
+         [
+          505,
+          396
+         ]
+        ],
+        "box": [
+         398,
+         120,
+         689,
+         396
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 3.12,
+    "confidence": 0.5
+   },
+   {
+    "qid": 1941,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "white line box"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "horizontal",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "big robot"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "horizontal",
+      "value_si": 5.924,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Box only visible in last frame, perspective view."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "big robot",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "white line box",
+      "obs": [
+       {
+        "frame": 49,
+        "point": null,
+        "extent": [
+         [
+          258,
+          389
+         ],
+         [
+          768,
+          389
+         ]
+        ],
+        "box": [
+         232,
+         374,
+         805,
+         404
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 5.78,
+    "confidence": 0.3
+   },
+   {
+    "qid": 1942,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "robot tire"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "big robot"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "horizontal",
+      "value_si": 5.924,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "big robot",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "robot tire",
+      "obs": [
+       {
+        "frame": 23,
+        "point": null,
+        "extent": [
+         [
+          381,
+          375
+         ],
+         [
+          414,
+          375
+         ]
+        ],
+        "box": [
+         381,
+         359,
+         414,
+         392
+        ]
+       },
+       {
+        "frame": 26,
+        "point": null,
+        "extent": [
+         [
+          448,
+          375
+         ],
+         [
+          481,
+          375
+         ]
+        ],
+        "box": [
+         448,
+         359,
+         481,
+         392
+        ]
+       },
+       {
+        "frame": 20,
+        "point": null,
+        "extent": [
+         [
+          313,
+          375
+         ],
+         [
+          346,
+          375
+         ]
+        ],
+        "box": [
+         313,
+         359,
+         346,
+         392
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 0.37,
+    "confidence": 0.35
+   }
+  ]
+ }
+}

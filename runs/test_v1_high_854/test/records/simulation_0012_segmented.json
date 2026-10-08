@@ -1,0 +1,589 @@
+{
+ "video_id": "simulation_0012_segmented",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfptQfZcQFK4bDLfCwTCA",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 854
+ },
+ "ts": "2026-10-08T16:53:54+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_01LWB5sKM2kFw12KwfTvTdoH",
+ "custom_id": "simulation_0012_segmented",
+ "usage": {
+  "input_tokens": 15449,
+  "output_tokens": 2245,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 4317,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.05378,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0012_segmented",
+  "fps": 24.0,
+  "fps_from_container": false,
+  "video_type": "V2MX",
+  "n_frames_total": 61,
+  "scale": 0.43705220061412486,
+  "image_size": [
+   1920,
+   1954
+  ],
+  "frames": [
+   0,
+   4,
+   8,
+   12,
+   16,
+   20,
+   24,
+   28,
+   32,
+   36,
+   40,
+   44,
+   48,
+   52,
+   56,
+   60
+  ],
+  "questions": [
+   {
+    "qid": 1648,
+    "target_unit": "m",
+    "prior": "speed of the bird =6m/s",
+    "depth_info": ""
+   },
+   {
+    "qid": 1649,
+    "target_unit": "m",
+    "prior": "speed of the bird =6m/s",
+    "depth_info": ""
+   },
+   {
+    "qid": 1650,
+    "target_unit": "m",
+    "prior": "speed of the bird =6m/s",
+    "depth_info": ""
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":1648,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"house eaves\"],\"dimension\":\"width\",\"time\":null,\"window\":null,\"axis\":\"horizontal\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"bird\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":6.0,\"unit\":\"\"},\"depth\":[],\"notes\":\"Bird speed not constant; it is treated as the average speed over the clip.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"bird\",\"obs\":[{\"frame\":0,\"point\":[330,485],\"extent\":null,\"box\":null},{\"frame\":4,\"point\":[345,484],\"extent\":null,\"box\":null},{\"frame\":8,\"point\":[362,484],\"extent\":null,\"box\":null},{\"frame\":12,\"point\":[388,485],\"extent\":null,\"box\":null},{\"frame\":16,\"point\":[417,485],\"extent\":null,\"box\":null},{\"frame\":20,\"point\":[458,484],\"extent\":null,\"box\":null},{\"frame\":24,\"point\":[493,485],\"extent\":null,\"box\":null},{\"frame\":28,\"point\":[530,485],\"extent\":null,\"box\":null},{\"frame\":32,\"point\":[568,485],\"extent\":null,\"box\":null},{\"frame\":36,\"point\":[600,485],\"extent\":null,\"box\":null},{\"frame\":40,\"point\":[633,485],\"extent\":null,\"box\":null},{\"frame\":44,\"point\":[675,485],\"extent\":null,\"box\":null},{\"frame\":48,\"point\":[706,487],\"extent\":null,\"box\":null},{\"frame\":52,\"point\":[725,485],\"extent\":null,\"box\":null},{\"frame\":56,\"point\":[741,485],\"extent\":null,\"box\":null},{\"frame\":60,\"point\":[753,486],\"extent\":null,\"box\":null}]},{\"role\":\"target\",\"object\":\"house eaves\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[177,297],[605,288]],\"box\":[177,197,605,300]},{\"frame\":24,\"point\":null,\"extent\":[[183,295],[605,288]],\"box\":[183,197,605,300]},{\"frame\":48,\"point\":null,\"extent\":[[183,295],[605,288]],\"box\":[183,197,605,300]}]}],\"direct_answer\":15.2,\"confidence\":0.4},{\"qid\":1649,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"bird\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"bird\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":6.0,\"unit\":\"\"},\"depth\":[],\"notes\":\"Bird speed treated as clip average.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"bird\",\"obs\":[]},{\"role\":\"target\",\"object\":\"bird\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[299,485],[355,485]],\"box\":[299,431,355,540]},{\"frame\":16,\"point\":null,\"extent\":[[385,484],[443,484]],\"box\":[385,434,443,540]},{\"frame\":32,\"point\":null,\"extent\":[[537,484],[592,485]],\"box\":[537,434,594,541]},{\"frame\":48,\"point\":null,\"extent\":[[672,486],[727,486]],\"box\":[672,437,734,541]}]}],\"direct_answer\":1.99,\"confidence\":0.4},{\"qid\":1650,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"bird\"],\"dimension\":\"wingspan\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"bird\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":6.0,\"unit\":\"\"},\"depth\":[],\"notes\":\"Bird speed treated as clip average.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"bird\",\"obs\":[]},{\"role\":\"target\",\"object\":\"bird\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[346,431],[338,540]],\"box\":[299,431,355,540]},{\"frame\":16,\"point\":null,\"extent\":[[432,434],[430,540]],\"box\":[385,434,443,540]},{\"frame\":32,\"point\":null,\"extent\":[[590,434],[590,541]],\"box\":[537,434,594,541]},{\"frame\":48,\"point\":null,\"extent\":[[730,437],[730,541]],\"box\":[672,437,734,541]}]}],\"direct_answer\":3.8,\"confidence\":0.4}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 1648,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "house eaves"
+      ],
+      "dimension": "width",
+      "time": null,
+      "window": null,
+      "axis": "horizontal",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "bird"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 6.0,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Bird speed not constant; it is treated as the average speed over the clip."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "bird",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         330,
+         485
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 4,
+        "point": [
+         345,
+         484
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 8,
+        "point": [
+         362,
+         484
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 12,
+        "point": [
+         388,
+         485
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 16,
+        "point": [
+         417,
+         485
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 20,
+        "point": [
+         458,
+         484
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 24,
+        "point": [
+         493,
+         485
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 28,
+        "point": [
+         530,
+         485
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 32,
+        "point": [
+         568,
+         485
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 36,
+        "point": [
+         600,
+         485
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 40,
+        "point": [
+         633,
+         485
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 44,
+        "point": [
+         675,
+         485
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 48,
+        "point": [
+         706,
+         487
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 52,
+        "point": [
+         725,
+         485
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 56,
+        "point": [
+         741,
+         485
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 60,
+        "point": [
+         753,
+         486
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "house eaves",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          177,
+          297
+         ],
+         [
+          605,
+          288
+         ]
+        ],
+        "box": [
+         177,
+         197,
+         605,
+         300
+        ]
+       },
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          183,
+          295
+         ],
+         [
+          605,
+          288
+         ]
+        ],
+        "box": [
+         183,
+         197,
+         605,
+         300
+        ]
+       },
+       {
+        "frame": 48,
+        "point": null,
+        "extent": [
+         [
+          183,
+          295
+         ],
+         [
+          605,
+          288
+         ]
+        ],
+        "box": [
+         183,
+         197,
+         605,
+         300
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 15.2,
+    "confidence": 0.4
+   },
+   {
+    "qid": 1649,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "bird"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "bird"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 6.0,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Bird speed treated as clip average."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "bird",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "bird",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          299,
+          485
+         ],
+         [
+          355,
+          485
+         ]
+        ],
+        "box": [
+         299,
+         431,
+         355,
+         540
+        ]
+       },
+       {
+        "frame": 16,
+        "point": null,
+        "extent": [
+         [
+          385,
+          484
+         ],
+         [
+          443,
+          484
+         ]
+        ],
+        "box": [
+         385,
+         434,
+         443,
+         540
+        ]
+       },
+       {
+        "frame": 32,
+        "point": null,
+        "extent": [
+         [
+          537,
+          484
+         ],
+         [
+          592,
+          485
+         ]
+        ],
+        "box": [
+         537,
+         434,
+         594,
+         541
+        ]
+       },
+       {
+        "frame": 48,
+        "point": null,
+        "extent": [
+         [
+          672,
+          486
+         ],
+         [
+          727,
+          486
+         ]
+        ],
+        "box": [
+         672,
+         437,
+         734,
+         541
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 1.99,
+    "confidence": 0.4
+   },
+   {
+    "qid": 1650,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "bird"
+      ],
+      "dimension": "wingspan",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "bird"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 6.0,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Bird speed treated as clip average."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "bird",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "bird",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          346,
+          431
+         ],
+         [
+          338,
+          540
+         ]
+        ],
+        "box": [
+         299,
+         431,
+         355,
+         540
+        ]
+       },
+       {
+        "frame": 16,
+        "point": null,
+        "extent": [
+         [
+          432,
+          434
+         ],
+         [
+          430,
+          540
+         ]
+        ],
+        "box": [
+         385,
+         434,
+         443,
+         540
+        ]
+       },
+       {
+        "frame": 32,
+        "point": null,
+        "extent": [
+         [
+          590,
+          434
+         ],
+         [
+          590,
+          541
+         ]
+        ],
+        "box": [
+         537,
+         434,
+         594,
+         541
+        ]
+       },
+       {
+        "frame": 48,
+        "point": null,
+        "extent": [
+         [
+          730,
+          437
+         ],
+         [
+          730,
+          541
+         ]
+        ],
+        "box": [
+         672,
+         437,
+         734,
+         541
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 3.8,
+    "confidence": 0.4
+   }
+  ]
+ }
+}

@@ -1,0 +1,423 @@
+{
+ "video_id": "simulation_0283",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfprZ3n5mrAWgKGeDKwSt",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 854
+ },
+ "ts": "2026-10-08T17:02:28+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_014b6hUtpWseWVd7Ff4g8gtq",
+ "custom_id": "simulation_0283",
+ "usage": {
+  "input_tokens": 11745,
+  "output_tokens": 1857,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 4317,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.042492,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0283",
+  "fps": 24.0,
+  "fps_from_container": false,
+  "video_type": "S2SC",
+  "n_frames_total": 72,
+  "scale": 0.33359375,
+  "image_size": [
+   2560,
+   1439
+  ],
+  "frames": [
+   0,
+   5,
+   9,
+   10,
+   12,
+   14,
+   19,
+   22,
+   24,
+   26,
+   28,
+   33,
+   38,
+   43,
+   47,
+   52,
+   57,
+   62,
+   66,
+   71
+  ],
+  "questions": [
+   {
+    "qid": 995,
+    "target_unit": "m/s",
+    "prior": "length of the dragon = 0.75m",
+    "depth_info": ""
+   },
+   {
+    "qid": 996,
+    "target_unit": "m",
+    "prior": "length of the dragon = 0.75m",
+    "depth_info": ""
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":995,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"dragon\"],\"dimension\":\"\",\"time\":1.0,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"dragon\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.75,\"unit\":\"\"},\"depth\":[],\"notes\":\"Dragon flaps and turns; body-centre reference point is approximate.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"dragon\",\"obs\":[{\"frame\":9,\"point\":null,\"extent\":[[495,275],[678,245]],\"box\":[430,112,680,292]},{\"frame\":10,\"point\":null,\"extent\":[[483,275],[668,245]],\"box\":[422,120,670,295]},{\"frame\":26,\"point\":null,\"extent\":[[290,262],[460,277]],\"box\":[267,122,462,282]},{\"frame\":28,\"point\":null,\"extent\":[[266,268],[441,265]],\"box\":[207,88,443,282]},{\"frame\":33,\"point\":null,\"extent\":[[205,275],[387,242]],\"box\":[117,110,389,288]}]},{\"role\":\"target\",\"object\":\"dragon\",\"obs\":[{\"frame\":0,\"point\":[640,240],\"extent\":null,\"box\":null},{\"frame\":5,\"point\":[590,255],\"extent\":null,\"box\":null},{\"frame\":9,\"point\":[540,262],\"extent\":null,\"box\":null},{\"frame\":10,\"point\":[525,262],\"extent\":null,\"box\":null},{\"frame\":12,\"point\":[495,265],\"extent\":null,\"box\":null},{\"frame\":14,\"point\":[490,290],\"extent\":null,\"box\":null},{\"frame\":19,\"point\":[455,290],\"extent\":null,\"box\":null},{\"frame\":22,\"point\":[415,255],\"extent\":null,\"box\":null},{\"frame\":24,\"point\":[365,230],\"extent\":null,\"box\":null},{\"frame\":26,\"point\":[340,235],\"extent\":null,\"box\":null},{\"frame\":28,\"point\":[305,235],\"extent\":null,\"box\":null},{\"frame\":33,\"point\":[245,250],\"extent\":null,\"box\":null},{\"frame\":38,\"point\":[200,290],\"extent\":null,\"box\":null},{\"frame\":43,\"point\":[175,300],\"extent\":null,\"box\":null},{\"frame\":47,\"point\":[130,265],\"extent\":null,\"box\":null},{\"frame\":52,\"point\":[40,215],\"extent\":null,\"box\":null}]}],\"direct_answer\":1.8,\"confidence\":0.35},{\"qid\":996,\"spec\":{\"target\":{\"kind\":\"displacement\",\"objects\":[\"dragon\"],\"dimension\":\"\",\"time\":null,\"window\":[0.5,1.0],\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"dragon\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.75,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"dragon\",\"obs\":[]},{\"role\":\"target\",\"object\":\"dragon\",\"obs\":[]}],\"direct_answer\":0.57,\"confidence\":0.4}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 995,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "dragon"
+      ],
+      "dimension": "",
+      "time": 1.0,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "dragon"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.75,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Dragon flaps and turns; body-centre reference point is approximate."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "dragon",
+      "obs": [
+       {
+        "frame": 9,
+        "point": null,
+        "extent": [
+         [
+          495,
+          275
+         ],
+         [
+          678,
+          245
+         ]
+        ],
+        "box": [
+         430,
+         112,
+         680,
+         292
+        ]
+       },
+       {
+        "frame": 10,
+        "point": null,
+        "extent": [
+         [
+          483,
+          275
+         ],
+         [
+          668,
+          245
+         ]
+        ],
+        "box": [
+         422,
+         120,
+         670,
+         295
+        ]
+       },
+       {
+        "frame": 26,
+        "point": null,
+        "extent": [
+         [
+          290,
+          262
+         ],
+         [
+          460,
+          277
+         ]
+        ],
+        "box": [
+         267,
+         122,
+         462,
+         282
+        ]
+       },
+       {
+        "frame": 28,
+        "point": null,
+        "extent": [
+         [
+          266,
+          268
+         ],
+         [
+          441,
+          265
+         ]
+        ],
+        "box": [
+         207,
+         88,
+         443,
+         282
+        ]
+       },
+       {
+        "frame": 33,
+        "point": null,
+        "extent": [
+         [
+          205,
+          275
+         ],
+         [
+          387,
+          242
+         ]
+        ],
+        "box": [
+         117,
+         110,
+         389,
+         288
+        ]
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "dragon",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         640,
+         240
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 5,
+        "point": [
+         590,
+         255
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 9,
+        "point": [
+         540,
+         262
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 10,
+        "point": [
+         525,
+         262
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 12,
+        "point": [
+         495,
+         265
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 14,
+        "point": [
+         490,
+         290
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 19,
+        "point": [
+         455,
+         290
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 22,
+        "point": [
+         415,
+         255
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 24,
+        "point": [
+         365,
+         230
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 26,
+        "point": [
+         340,
+         235
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 28,
+        "point": [
+         305,
+         235
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 33,
+        "point": [
+         245,
+         250
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 38,
+        "point": [
+         200,
+         290
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 43,
+        "point": [
+         175,
+         300
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 47,
+        "point": [
+         130,
+         265
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 52,
+        "point": [
+         40,
+         215
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     }
+    ],
+    "direct_answer": 1.8,
+    "confidence": 0.35
+   },
+   {
+    "qid": 996,
+    "spec": {
+     "target": {
+      "kind": "displacement",
+      "objects": [
+       "dragon"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": [
+       0.5,
+       1.0
+      ],
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "dragon"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.75,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "dragon",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "dragon",
+      "obs": []
+     }
+    ],
+    "direct_answer": 0.57,
+    "confidence": 0.4
+   }
+  ]
+ }
+}

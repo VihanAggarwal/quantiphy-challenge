@@ -1,0 +1,457 @@
+{
+ "video_id": "simulation_0220",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfppvaKxfwkeABuunzkuM",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 854
+ },
+ "ts": "2026-10-08T16:53:52+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_01KU8pudkFSd53LhMaHHZ5xA",
+ "custom_id": "simulation_0220",
+ "usage": {
+  "input_tokens": 9432,
+  "output_tokens": 1738,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 4317,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.036676,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0220",
+  "fps": 24.0,
+  "fps_from_container": false,
+  "video_type": "V2MC",
+  "n_frames_total": 50,
+  "scale": 0.44479166666666664,
+  "image_size": [
+   1920,
+   1079
+  ],
+  "frames": [
+   0,
+   3,
+   7,
+   10,
+   13,
+   16,
+   20,
+   23,
+   26,
+   29,
+   33,
+   36,
+   39,
+   42,
+   46,
+   49
+  ],
+  "questions": [
+   {
+    "qid": 647,
+    "target_unit": "m",
+    "prior": "speed of the small robot = 0.82m/s",
+    "depth_info": ""
+   },
+   {
+    "qid": 648,
+    "target_unit": "m",
+    "prior": "speed of the small robot = 0.82m/s",
+    "depth_info": ""
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":647,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"parking space\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"horizontal\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"small robot\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.82,\"unit\":\"\"},\"depth\":[],\"notes\":\"Long side measured between the two transverse ground lines at mid-depth of the marked strip.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"small robot\",\"obs\":[{\"frame\":0,\"point\":[714,312],\"extent\":null,\"box\":null},{\"frame\":3,\"point\":[703,314],\"extent\":null,\"box\":null},{\"frame\":7,\"point\":[688,312],\"extent\":null,\"box\":null},{\"frame\":10,\"point\":[678,306],\"extent\":null,\"box\":null},{\"frame\":13,\"point\":[665,307],\"extent\":null,\"box\":null},{\"frame\":16,\"point\":[655,311],\"extent\":null,\"box\":null},{\"frame\":20,\"point\":[640,316],\"extent\":null,\"box\":null},{\"frame\":23,\"point\":[628,315],\"extent\":null,\"box\":null},{\"frame\":26,\"point\":[616,313],\"extent\":null,\"box\":null},{\"frame\":29,\"point\":[606,308],\"extent\":null,\"box\":null},{\"frame\":33,\"point\":[591,307],\"extent\":null,\"box\":null},{\"frame\":36,\"point\":[578,310],\"extent\":null,\"box\":null},{\"frame\":39,\"point\":[568,312],\"extent\":null,\"box\":null},{\"frame\":42,\"point\":[552,315],\"extent\":null,\"box\":null},{\"frame\":46,\"point\":[541,312],\"extent\":null,\"box\":null},{\"frame\":49,\"point\":[530,306],\"extent\":null,\"box\":null}]},{\"role\":\"target\",\"object\":\"parking space\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[258,389],[772,389]],\"box\":[240,375,800,403]},{\"frame\":20,\"point\":null,\"extent\":[[258,389],[772,389]],\"box\":[240,375,800,403]},{\"frame\":49,\"point\":null,\"extent\":[[258,389],[772,389]],\"box\":[240,375,800,403]}]}],\"direct_answer\":4.68,\"confidence\":0.4},{\"qid\":648,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"small robot\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"small robot\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.82,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"small robot\",\"obs\":[]},{\"role\":\"target\",\"object\":\"small robot\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[714,296],[714,427]],\"box\":[667,296,746,427]},{\"frame\":36,\"point\":null,\"extent\":[[578,292],[578,428]],\"box\":[535,292,612,428]},{\"frame\":46,\"point\":null,\"extent\":[[541,296],[541,432]],\"box\":[512,296,570,432]},{\"frame\":10,\"point\":null,\"extent\":[[678,290],[678,431]],\"box\":[650,290,705,431]}]}],\"direct_answer\":1.23,\"confidence\":0.5}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 647,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "parking space"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "horizontal",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "small robot"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.82,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Long side measured between the two transverse ground lines at mid-depth of the marked strip."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "small robot",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         714,
+         312
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 3,
+        "point": [
+         703,
+         314
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 7,
+        "point": [
+         688,
+         312
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 10,
+        "point": [
+         678,
+         306
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 13,
+        "point": [
+         665,
+         307
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 16,
+        "point": [
+         655,
+         311
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 20,
+        "point": [
+         640,
+         316
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 23,
+        "point": [
+         628,
+         315
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 26,
+        "point": [
+         616,
+         313
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 29,
+        "point": [
+         606,
+         308
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 33,
+        "point": [
+         591,
+         307
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 36,
+        "point": [
+         578,
+         310
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 39,
+        "point": [
+         568,
+         312
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 42,
+        "point": [
+         552,
+         315
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 46,
+        "point": [
+         541,
+         312
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 49,
+        "point": [
+         530,
+         306
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "parking space",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          258,
+          389
+         ],
+         [
+          772,
+          389
+         ]
+        ],
+        "box": [
+         240,
+         375,
+         800,
+         403
+        ]
+       },
+       {
+        "frame": 20,
+        "point": null,
+        "extent": [
+         [
+          258,
+          389
+         ],
+         [
+          772,
+          389
+         ]
+        ],
+        "box": [
+         240,
+         375,
+         800,
+         403
+        ]
+       },
+       {
+        "frame": 49,
+        "point": null,
+        "extent": [
+         [
+          258,
+          389
+         ],
+         [
+          772,
+          389
+         ]
+        ],
+        "box": [
+         240,
+         375,
+         800,
+         403
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 4.68,
+    "confidence": 0.4
+   },
+   {
+    "qid": 648,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "small robot"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "small robot"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.82,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "small robot",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "small robot",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          714,
+          296
+         ],
+         [
+          714,
+          427
+         ]
+        ],
+        "box": [
+         667,
+         296,
+         746,
+         427
+        ]
+       },
+       {
+        "frame": 36,
+        "point": null,
+        "extent": [
+         [
+          578,
+          292
+         ],
+         [
+          578,
+          428
+         ]
+        ],
+        "box": [
+         535,
+         292,
+         612,
+         428
+        ]
+       },
+       {
+        "frame": 46,
+        "point": null,
+        "extent": [
+         [
+          541,
+          296
+         ],
+         [
+          541,
+          432
+         ]
+        ],
+        "box": [
+         512,
+         296,
+         570,
+         432
+        ]
+       },
+       {
+        "frame": 10,
+        "point": null,
+        "extent": [
+         [
+          678,
+          290
+         ],
+         [
+          678,
+          431
+         ]
+        ],
+        "box": [
+         650,
+         290,
+         705,
+         431
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 1.23,
+    "confidence": 0.5
+   }
+  ]
+ }
+}

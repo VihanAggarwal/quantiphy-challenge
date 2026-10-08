@@ -1,0 +1,322 @@
+{
+ "video_id": "simulation_0154",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfptDPBZy4Yv2kCQ39hcF",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 854
+ },
+ "ts": "2026-10-08T16:53:50+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_01EK6rwK1z62Nk1x6w7FZeFC",
+ "custom_id": "simulation_0154",
+ "usage": {
+  "input_tokens": 9418,
+  "output_tokens": 1613,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 4317,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.035398,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0154",
+  "fps": 24.0,
+  "fps_from_container": false,
+  "video_type": "V2SC",
+  "n_frames_total": 48,
+  "scale": 0.44479166666666664,
+  "image_size": [
+   1920,
+   1079
+  ],
+  "frames": [
+   0,
+   3,
+   6,
+   9,
+   13,
+   16,
+   19,
+   22,
+   25,
+   28,
+   31,
+   34,
+   38,
+   41,
+   44,
+   47
+  ],
+  "questions": [
+   {
+    "qid": 353,
+    "target_unit": "m",
+    "prior": "speed of the shark = 7 m/s",
+    "depth_info": ""
+   },
+   {
+    "qid": 354,
+    "target_unit": "m",
+    "prior": "speed of the shark = 7 m/s",
+    "depth_info": ""
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":353,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"shark\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"shark\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":7,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"shark\",\"obs\":[{\"frame\":9,\"point\":[775,75],\"extent\":null,\"box\":null},{\"frame\":13,\"point\":[675,75],\"extent\":null,\"box\":null},{\"frame\":16,\"point\":[597,75],\"extent\":null,\"box\":null},{\"frame\":19,\"point\":[517,75],\"extent\":null,\"box\":null},{\"frame\":22,\"point\":[437,75],\"extent\":null,\"box\":null},{\"frame\":25,\"point\":[356,74],\"extent\":null,\"box\":null},{\"frame\":28,\"point\":[276,76],\"extent\":null,\"box\":null},{\"frame\":31,\"point\":[196,75],\"extent\":null,\"box\":null},{\"frame\":34,\"point\":[118,75],\"extent\":null,\"box\":null},{\"frame\":38,\"point\":[15,75],\"extent\":null,\"box\":null}]},{\"role\":\"target\",\"object\":\"shark\",\"obs\":[{\"frame\":16,\"point\":null,\"extent\":[[405,135],[806,92]],\"box\":[405,72,806,192]},{\"frame\":19,\"point\":null,\"extent\":[[325,135],[728,89]],\"box\":[325,72,728,192]},{\"frame\":22,\"point\":null,\"extent\":[[258,135],[647,89]],\"box\":[258,72,647,192]}]}],\"direct_answer\":4.3,\"confidence\":0.55},{\"qid\":354,\"spec\":{\"target\":{\"kind\":\"displacement\",\"objects\":[\"shark\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"shark\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":7,\"unit\":\"\"},\"depth\":[],\"notes\":\"No window given; assumed whole clip.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"shark\",\"obs\":[]},{\"role\":\"target\",\"object\":\"shark\",\"obs\":[]}],\"direct_answer\":13.7,\"confidence\":0.35}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 353,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "shark"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "shark"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 7,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "shark",
+      "obs": [
+       {
+        "frame": 9,
+        "point": [
+         775,
+         75
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 13,
+        "point": [
+         675,
+         75
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 16,
+        "point": [
+         597,
+         75
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 19,
+        "point": [
+         517,
+         75
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 22,
+        "point": [
+         437,
+         75
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 25,
+        "point": [
+         356,
+         74
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 28,
+        "point": [
+         276,
+         76
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 31,
+        "point": [
+         196,
+         75
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 34,
+        "point": [
+         118,
+         75
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 38,
+        "point": [
+         15,
+         75
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "shark",
+      "obs": [
+       {
+        "frame": 16,
+        "point": null,
+        "extent": [
+         [
+          405,
+          135
+         ],
+         [
+          806,
+          92
+         ]
+        ],
+        "box": [
+         405,
+         72,
+         806,
+         192
+        ]
+       },
+       {
+        "frame": 19,
+        "point": null,
+        "extent": [
+         [
+          325,
+          135
+         ],
+         [
+          728,
+          89
+         ]
+        ],
+        "box": [
+         325,
+         72,
+         728,
+         192
+        ]
+       },
+       {
+        "frame": 22,
+        "point": null,
+        "extent": [
+         [
+          258,
+          135
+         ],
+         [
+          647,
+          89
+         ]
+        ],
+        "box": [
+         258,
+         72,
+         647,
+         192
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 4.3,
+    "confidence": 0.55
+   },
+   {
+    "qid": 354,
+    "spec": {
+     "target": {
+      "kind": "displacement",
+      "objects": [
+       "shark"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "shark"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 7,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "No window given; assumed whole clip."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "shark",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "shark",
+      "obs": []
+     }
+    ],
+    "direct_answer": 13.7,
+    "confidence": 0.35
+   }
+  ]
+ }
+}

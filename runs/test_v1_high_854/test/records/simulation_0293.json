@@ -1,0 +1,571 @@
+{
+ "video_id": "simulation_0293",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfptNmSmmZUfzQCzGUN9B",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 854
+ },
+ "ts": "2026-10-08T17:02:28+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_014b6hUtpWseWVd7Ff4g8gtq",
+ "custom_id": "simulation_0293",
+ "usage": {
+  "input_tokens": 11822,
+  "output_tokens": 2489,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 4317,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.048966,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0293",
+  "fps": 24.0,
+  "fps_from_container": false,
+  "video_type": "V2SC",
+  "n_frames_total": 72,
+  "scale": 0.33359375,
+  "image_size": [
+   2560,
+   1439
+  ],
+  "frames": [
+   0,
+   5,
+   9,
+   10,
+   12,
+   14,
+   19,
+   22,
+   24,
+   26,
+   28,
+   33,
+   38,
+   43,
+   47,
+   52,
+   57,
+   62,
+   66,
+   71
+  ],
+  "questions": [
+   {
+    "qid": 1023,
+    "target_unit": "m",
+    "prior": "speed of the column below the drone =  0.96m/s",
+    "depth_info": ""
+   },
+   {
+    "qid": 1024,
+    "target_unit": "m",
+    "prior": "speed of the column below the drone =  0.96m/s",
+    "depth_info": ""
+   },
+   {
+    "qid": 1025,
+    "target_unit": "m",
+    "prior": "speed of the column below the drone =  0.96m/s",
+    "depth_info": ""
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":1023,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"column below the drone\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"column below the drone\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.96,\"unit\":\"\"},\"depth\":[],\"notes\":\"Length is ambiguous for a vertical cylinder; taken as the horizontal extent (diameter).\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"column below the drone\",\"obs\":[{\"frame\":0,\"point\":[445,318],\"extent\":null,\"box\":null},{\"frame\":5,\"point\":[445,307],\"extent\":null,\"box\":null},{\"frame\":9,\"point\":[445,298],\"extent\":null,\"box\":null},{\"frame\":10,\"point\":[445,296],\"extent\":null,\"box\":null},{\"frame\":12,\"point\":[445,293],\"extent\":null,\"box\":null},{\"frame\":14,\"point\":[445,290],\"extent\":null,\"box\":null},{\"frame\":19,\"point\":[445,280],\"extent\":null,\"box\":null},{\"frame\":22,\"point\":[445,272],\"extent\":null,\"box\":null},{\"frame\":24,\"point\":[445,267],\"extent\":null,\"box\":null},{\"frame\":26,\"point\":[445,264],\"extent\":null,\"box\":null},{\"frame\":28,\"point\":[445,259],\"extent\":null,\"box\":null},{\"frame\":33,\"point\":[445,246],\"extent\":null,\"box\":null},{\"frame\":38,\"point\":[445,236],\"extent\":null,\"box\":null},{\"frame\":43,\"point\":[445,223],\"extent\":null,\"box\":null},{\"frame\":47,\"point\":[445,213],\"extent\":null,\"box\":null},{\"frame\":52,\"point\":[445,202],\"extent\":null,\"box\":null},{\"frame\":57,\"point\":[445,189],\"extent\":null,\"box\":null},{\"frame\":62,\"point\":[445,179],\"extent\":null,\"box\":null},{\"frame\":66,\"point\":[445,168],\"extent\":null,\"box\":null},{\"frame\":71,\"point\":[445,156],\"extent\":null,\"box\":null}]},{\"role\":\"target\",\"object\":\"column below the drone\",\"obs\":[{\"frame\":38,\"point\":null,\"extent\":[[430.5,268],[459.5,268]],\"box\":[430.5,240,459.5,295]},{\"frame\":52,\"point\":null,\"extent\":[[430.5,233],[459.5,233]],\"box\":[430.5,206,459.5,261]},{\"frame\":62,\"point\":null,\"extent\":[[430.5,210],[459.5,210]],\"box\":[430.5,183,459.5,238]},{\"frame\":71,\"point\":null,\"extent\":[[430.5,190],[459.5,190]],\"box\":[430.5,163,459.5,218]}]}],\"direct_answer\":0.51,\"confidence\":0.3},{\"qid\":1024,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"column below the drone\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"column below the drone\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.96,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"column below the drone\",\"obs\":[]},{\"role\":\"target\",\"object\":\"column below the drone\",\"obs\":[{\"frame\":38,\"point\":null,\"extent\":[[445,240],[445,295]],\"box\":[430.5,240,459.5,295]},{\"frame\":52,\"point\":null,\"extent\":[[445,206],[445,261]],\"box\":[430.5,206,459.5,261]},{\"frame\":62,\"point\":null,\"extent\":[[445,183],[445,238]],\"box\":[430.5,183,459.5,238]},{\"frame\":71,\"point\":null,\"extent\":[[445,163],[445,218]],\"box\":[430.5,163,459.5,218]}]}],\"direct_answer\":0.96,\"confidence\":0.5},{\"qid\":1025,\"spec\":{\"target\":{\"kind\":\"displacement\",\"objects\":[\"column below the drone\"],\"dimension\":\"\",\"time\":null,\"window\":[0.5,1.0],\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"column below the drone\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.96,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"column below the drone\",\"obs\":[]},{\"role\":\"target\",\"object\":\"column below the drone\",\"obs\":[]}],\"direct_answer\":0.47,\"confidence\":0.6}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 1023,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "column below the drone"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "column below the drone"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.96,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Length is ambiguous for a vertical cylinder; taken as the horizontal extent (diameter)."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "column below the drone",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         445,
+         318
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 5,
+        "point": [
+         445,
+         307
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 9,
+        "point": [
+         445,
+         298
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 10,
+        "point": [
+         445,
+         296
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 12,
+        "point": [
+         445,
+         293
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 14,
+        "point": [
+         445,
+         290
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 19,
+        "point": [
+         445,
+         280
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 22,
+        "point": [
+         445,
+         272
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 24,
+        "point": [
+         445,
+         267
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 26,
+        "point": [
+         445,
+         264
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 28,
+        "point": [
+         445,
+         259
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 33,
+        "point": [
+         445,
+         246
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 38,
+        "point": [
+         445,
+         236
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 43,
+        "point": [
+         445,
+         223
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 47,
+        "point": [
+         445,
+         213
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 52,
+        "point": [
+         445,
+         202
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 57,
+        "point": [
+         445,
+         189
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 62,
+        "point": [
+         445,
+         179
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 66,
+        "point": [
+         445,
+         168
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 71,
+        "point": [
+         445,
+         156
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "column below the drone",
+      "obs": [
+       {
+        "frame": 38,
+        "point": null,
+        "extent": [
+         [
+          430.5,
+          268
+         ],
+         [
+          459.5,
+          268
+         ]
+        ],
+        "box": [
+         430.5,
+         240,
+         459.5,
+         295
+        ]
+       },
+       {
+        "frame": 52,
+        "point": null,
+        "extent": [
+         [
+          430.5,
+          233
+         ],
+         [
+          459.5,
+          233
+         ]
+        ],
+        "box": [
+         430.5,
+         206,
+         459.5,
+         261
+        ]
+       },
+       {
+        "frame": 62,
+        "point": null,
+        "extent": [
+         [
+          430.5,
+          210
+         ],
+         [
+          459.5,
+          210
+         ]
+        ],
+        "box": [
+         430.5,
+         183,
+         459.5,
+         238
+        ]
+       },
+       {
+        "frame": 71,
+        "point": null,
+        "extent": [
+         [
+          430.5,
+          190
+         ],
+         [
+          459.5,
+          190
+         ]
+        ],
+        "box": [
+         430.5,
+         163,
+         459.5,
+         218
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 0.51,
+    "confidence": 0.3
+   },
+   {
+    "qid": 1024,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "column below the drone"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "column below the drone"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.96,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "column below the drone",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "column below the drone",
+      "obs": [
+       {
+        "frame": 38,
+        "point": null,
+        "extent": [
+         [
+          445,
+          240
+         ],
+         [
+          445,
+          295
+         ]
+        ],
+        "box": [
+         430.5,
+         240,
+         459.5,
+         295
+        ]
+       },
+       {
+        "frame": 52,
+        "point": null,
+        "extent": [
+         [
+          445,
+          206
+         ],
+         [
+          445,
+          261
+         ]
+        ],
+        "box": [
+         430.5,
+         206,
+         459.5,
+         261
+        ]
+       },
+       {
+        "frame": 62,
+        "point": null,
+        "extent": [
+         [
+          445,
+          183
+         ],
+         [
+          445,
+          238
+         ]
+        ],
+        "box": [
+         430.5,
+         183,
+         459.5,
+         238
+        ]
+       },
+       {
+        "frame": 71,
+        "point": null,
+        "extent": [
+         [
+          445,
+          163
+         ],
+         [
+          445,
+          218
+         ]
+        ],
+        "box": [
+         430.5,
+         163,
+         459.5,
+         218
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 0.96,
+    "confidence": 0.5
+   },
+   {
+    "qid": 1025,
+    "spec": {
+     "target": {
+      "kind": "displacement",
+      "objects": [
+       "column below the drone"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": [
+       0.5,
+       1.0
+      ],
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "column below the drone"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.96,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "column below the drone",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "column below the drone",
+      "obs": []
+     }
+    ],
+    "direct_answer": 0.47,
+    "confidence": 0.6
+   }
+  ]
+ }
+}

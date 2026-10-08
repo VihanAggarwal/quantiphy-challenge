@@ -1,0 +1,551 @@
+{
+ "video_id": "simulation_0165",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfpzSBZ8XxbRr47jawN63",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 854
+ },
+ "ts": "2026-10-08T17:05:36+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_019AL58i4xaJ3z5B8eH4maJp",
+ "custom_id": "simulation_0165",
+ "usage": {
+  "input_tokens": 9494,
+  "output_tokens": 2143,
+  "cache_creation_input_tokens": 4317,
+  "cache_read_input_tokens": 0,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.05121,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0165",
+  "fps": 24.0,
+  "fps_from_container": false,
+  "video_type": "V2MC",
+  "n_frames_total": 80,
+  "scale": 0.44479166666666664,
+  "image_size": [
+   1920,
+   1079
+  ],
+  "frames": [
+   0,
+   5,
+   11,
+   16,
+   21,
+   26,
+   32,
+   37,
+   42,
+   47,
+   53,
+   58,
+   63,
+   68,
+   74,
+   79
+  ],
+  "questions": [
+   {
+    "qid": 386,
+    "target_unit": "m",
+    "prior": "speed of the bike = 5.52m/s",
+    "depth_info": ""
+   },
+   {
+    "qid": 387,
+    "target_unit": "m",
+    "prior": "speed of the bike = 5.52m/s",
+    "depth_info": ""
+   },
+   {
+    "qid": 388,
+    "target_unit": "m",
+    "prior": "speed of the bike = 5.52m/s",
+    "depth_info": ""
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":386,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"bike wheel\"],\"dimension\":\"diameter\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"bike\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":5.52,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"bike\",\"obs\":[{\"frame\":37,\"point\":[304,313],\"extent\":null,\"box\":[290,256,362,328]},{\"frame\":42,\"point\":[351,313],\"extent\":null,\"box\":[337,256,409,328]},{\"frame\":47,\"point\":[398,313],\"extent\":null,\"box\":[384,256,456,328]},{\"frame\":53,\"point\":[454,313],\"extent\":null,\"box\":[440,256,512,328]},{\"frame\":58,\"point\":[501,313],\"extent\":null,\"box\":[486,256,558,328]},{\"frame\":63,\"point\":[547,313],\"extent\":null,\"box\":[533,256,605,328]},{\"frame\":68,\"point\":[594,313],\"extent\":null,\"box\":[580,256,651,328]},{\"frame\":74,\"point\":[650,313],\"extent\":null,\"box\":[636,256,708,328]},{\"frame\":79,\"point\":[696,313],\"extent\":null,\"box\":[682,256,754,328]}]},{\"role\":\"target\",\"object\":\"bike wheel\",\"obs\":[{\"frame\":42,\"point\":null,\"extent\":[[337,313.5],[366,313.5]],\"box\":[337,299,366,328]},{\"frame\":53,\"point\":null,\"extent\":[[440,313.5],[469,313.5]],\"box\":[440,299,469,328]},{\"frame\":63,\"point\":null,\"extent\":[[533,313.5],[562,313.5]],\"box\":[533,299,562,328]},{\"frame\":74,\"point\":null,\"extent\":[[636,313.5],[665,313.5]],\"box\":[636,299,665,328]}]}],\"direct_answer\":0.71,\"confidence\":0.5},{\"qid\":387,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"road\"],\"dimension\":\"width\",\"time\":null,\"window\":null,\"axis\":\"horizontal\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"bike\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":5.52,\"unit\":\"\"},\"depth\":[],\"notes\":\"Road width measured horizontally at the bike's crossing line (y~315).\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"bike\",\"obs\":[]},{\"role\":\"target\",\"object\":\"road\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[316,315],[610,315]],\"box\":[316,268,610,330]},{\"frame\":79,\"point\":null,\"extent\":[[316,315],[610,315]],\"box\":[316,268,610,330]}]}],\"direct_answer\":7.25,\"confidence\":0.35},{\"qid\":388,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"bike\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"bike\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":5.52,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"bike\",\"obs\":[]},{\"role\":\"target\",\"object\":\"bike\",\"obs\":[{\"frame\":42,\"point\":null,\"extent\":[[337,313],[409,313]],\"box\":[337,256,409,328]},{\"frame\":53,\"point\":null,\"extent\":[[440,313],[512,313]],\"box\":[440,256,512,328]},{\"frame\":63,\"point\":null,\"extent\":[[533,313],[605,313]],\"box\":[533,256,605,328]},{\"frame\":74,\"point\":null,\"extent\":[[636,313],[708,313]],\"box\":[636,256,708,328]}]}],\"direct_answer\":1.77,\"confidence\":0.5}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 386,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "bike wheel"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "bike"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 5.52,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "bike",
+      "obs": [
+       {
+        "frame": 37,
+        "point": [
+         304,
+         313
+        ],
+        "extent": null,
+        "box": [
+         290,
+         256,
+         362,
+         328
+        ]
+       },
+       {
+        "frame": 42,
+        "point": [
+         351,
+         313
+        ],
+        "extent": null,
+        "box": [
+         337,
+         256,
+         409,
+         328
+        ]
+       },
+       {
+        "frame": 47,
+        "point": [
+         398,
+         313
+        ],
+        "extent": null,
+        "box": [
+         384,
+         256,
+         456,
+         328
+        ]
+       },
+       {
+        "frame": 53,
+        "point": [
+         454,
+         313
+        ],
+        "extent": null,
+        "box": [
+         440,
+         256,
+         512,
+         328
+        ]
+       },
+       {
+        "frame": 58,
+        "point": [
+         501,
+         313
+        ],
+        "extent": null,
+        "box": [
+         486,
+         256,
+         558,
+         328
+        ]
+       },
+       {
+        "frame": 63,
+        "point": [
+         547,
+         313
+        ],
+        "extent": null,
+        "box": [
+         533,
+         256,
+         605,
+         328
+        ]
+       },
+       {
+        "frame": 68,
+        "point": [
+         594,
+         313
+        ],
+        "extent": null,
+        "box": [
+         580,
+         256,
+         651,
+         328
+        ]
+       },
+       {
+        "frame": 74,
+        "point": [
+         650,
+         313
+        ],
+        "extent": null,
+        "box": [
+         636,
+         256,
+         708,
+         328
+        ]
+       },
+       {
+        "frame": 79,
+        "point": [
+         696,
+         313
+        ],
+        "extent": null,
+        "box": [
+         682,
+         256,
+         754,
+         328
+        ]
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "bike wheel",
+      "obs": [
+       {
+        "frame": 42,
+        "point": null,
+        "extent": [
+         [
+          337,
+          313.5
+         ],
+         [
+          366,
+          313.5
+         ]
+        ],
+        "box": [
+         337,
+         299,
+         366,
+         328
+        ]
+       },
+       {
+        "frame": 53,
+        "point": null,
+        "extent": [
+         [
+          440,
+          313.5
+         ],
+         [
+          469,
+          313.5
+         ]
+        ],
+        "box": [
+         440,
+         299,
+         469,
+         328
+        ]
+       },
+       {
+        "frame": 63,
+        "point": null,
+        "extent": [
+         [
+          533,
+          313.5
+         ],
+         [
+          562,
+          313.5
+         ]
+        ],
+        "box": [
+         533,
+         299,
+         562,
+         328
+        ]
+       },
+       {
+        "frame": 74,
+        "point": null,
+        "extent": [
+         [
+          636,
+          313.5
+         ],
+         [
+          665,
+          313.5
+         ]
+        ],
+        "box": [
+         636,
+         299,
+         665,
+         328
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 0.71,
+    "confidence": 0.5
+   },
+   {
+    "qid": 387,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "road"
+      ],
+      "dimension": "width",
+      "time": null,
+      "window": null,
+      "axis": "horizontal",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "bike"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 5.52,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Road width measured horizontally at the bike's crossing line (y~315)."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "bike",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "road",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          316,
+          315
+         ],
+         [
+          610,
+          315
+         ]
+        ],
+        "box": [
+         316,
+         268,
+         610,
+         330
+        ]
+       },
+       {
+        "frame": 79,
+        "point": null,
+        "extent": [
+         [
+          316,
+          315
+         ],
+         [
+          610,
+          315
+         ]
+        ],
+        "box": [
+         316,
+         268,
+         610,
+         330
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 7.25,
+    "confidence": 0.35
+   },
+   {
+    "qid": 388,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "bike"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "bike"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 5.52,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "bike",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "bike",
+      "obs": [
+       {
+        "frame": 42,
+        "point": null,
+        "extent": [
+         [
+          337,
+          313
+         ],
+         [
+          409,
+          313
+         ]
+        ],
+        "box": [
+         337,
+         256,
+         409,
+         328
+        ]
+       },
+       {
+        "frame": 53,
+        "point": null,
+        "extent": [
+         [
+          440,
+          313
+         ],
+         [
+          512,
+          313
+         ]
+        ],
+        "box": [
+         440,
+         256,
+         512,
+         328
+        ]
+       },
+       {
+        "frame": 63,
+        "point": null,
+        "extent": [
+         [
+          533,
+          313
+         ],
+         [
+          605,
+          313
+         ]
+        ],
+        "box": [
+         533,
+         256,
+         605,
+         328
+        ]
+       },
+       {
+        "frame": 74,
+        "point": null,
+        "extent": [
+         [
+          636,
+          313
+         ],
+         [
+          708,
+          313
+         ]
+        ],
+        "box": [
+         636,
+         256,
+         708,
+         328
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 1.77,
+    "confidence": 0.5
+   }
+  ]
+ }
+}

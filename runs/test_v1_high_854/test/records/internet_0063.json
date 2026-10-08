@@ -1,0 +1,654 @@
+{
+ "video_id": "internet_0063",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011Cfq6xTZ6NRrZFkHcc96mK",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 854
+ },
+ "ts": "2026-10-08T16:42:42+00:00",
+ "mode": "sync",
+ "request_id": "req_011Cfq6xTEEywkorHLVxp15Z",
+ "usage": {
+  "input_tokens": 12643,
+  "output_tokens": 4512,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 4317,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.141675,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "internet_0063",
+  "fps": 30.0,
+  "fps_from_container": false,
+  "video_type": "A2SS",
+  "n_frames_total": 94,
+  "scale": 0.44479166666666664,
+  "image_size": [
+   1920,
+   1079
+  ],
+  "frames": [
+   0,
+   6,
+   12,
+   19,
+   25,
+   31,
+   37,
+   42,
+   43,
+   45,
+   48,
+   50,
+   51,
+   54,
+   56,
+   62,
+   68,
+   74,
+   81,
+   87,
+   93
+  ],
+  "questions": [
+   {
+    "qid": 3207,
+    "target_unit": "cm",
+    "prior": "gravity acceleration = 9.8 m/s^2",
+    "depth_info": ""
+   },
+   {
+    "qid": 3208,
+    "target_unit": "cm",
+    "prior": "gravity acceleration = 9.8 m/s^2",
+    "depth_info": ""
+   },
+   {
+    "qid": 3209,
+    "target_unit": "m/s",
+    "prior": "gravity acceleration = 9.8 m/s^2",
+    "depth_info": ""
+   },
+   {
+    "qid": 3210,
+    "target_unit": "m/s",
+    "prior": "gravity acceleration = 9.8 m/s^2",
+    "depth_info": ""
+   },
+   {
+    "qid": 3211,
+    "target_unit": "m",
+    "prior": "gravity acceleration = 9.8 m/s^2",
+    "depth_info": ""
+   },
+   {
+    "qid": 3212,
+    "target_unit": "m",
+    "prior": "gravity acceleration = 9.8 m/s^2",
+    "depth_info": ""
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":3207,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"water bottle\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"cm\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"water bottle\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"horizontal\",\"value_si\":9.8,\"unit\":\"\"},\"depth\":[],\"notes\":\"Camera rotated 90 deg: floor is on the right, gravity points to +x in the image. Free fall approx frames 41-53.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"water bottle\",\"obs\":[{\"frame\":42,\"point\":[127,256],\"extent\":null,\"box\":[66,240,184,272]},{\"frame\":43,\"point\":[142,255],\"extent\":null,\"box\":[82,239,200,271]},{\"frame\":45,\"point\":[195,250],\"extent\":null,\"box\":[132,234,255,268]},{\"frame\":48,\"point\":[307,247],\"extent\":null,\"box\":[248,230,366,268]},{\"frame\":50,\"point\":[407,245],\"extent\":null,\"box\":[350,228,465,270]},{\"frame\":51,\"point\":[465,245],\"extent\":null,\"box\":[410,225,522,272]}]},{\"role\":\"target\",\"object\":\"water bottle height\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[55,256],[170,256]],\"box\":[55,239,170,273]},{\"frame\":12,\"point\":null,\"extent\":[[55,257],[168,257]],\"box\":[55,240,168,273]},{\"frame\":19,\"point\":null,\"extent\":[[53,257],[167,257]],\"box\":[53,240,167,273]},{\"frame\":25,\"point\":null,\"extent\":[[52,257],[166,257]],\"box\":[52,240,166,273]},{\"frame\":74,\"point\":null,\"extent\":[[679,32],[688,149]],\"box\":[660,32,704,149]}]}],\"direct_answer\":24.7,\"confidence\":0.45},{\"qid\":3208,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"water bottle\"],\"dimension\":\"diameter\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"cm\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"water bottle\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"horizontal\",\"value_si\":9.8,\"unit\":\"\"},\"depth\":[],\"notes\":\"Gravity along image x.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"water bottle\",\"obs\":[]},{\"role\":\"target\",\"object\":\"water bottle diameter\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[130,240.5],[130,272]],\"box\":[55,239,170,273]},{\"frame\":12,\"point\":null,\"extent\":[[130,241],[130,272]],\"box\":[55,240,168,273]},{\"frame\":25,\"point\":null,\"extent\":[[128,241],[128,272]],\"box\":[52,240,166,273]}]}],\"direct_answer\":6.7,\"confidence\":0.35},{\"qid\":3209,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"water bottle\"],\"dimension\":\"\",\"time\":1.5,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"water bottle\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"horizontal\",\"value_si\":9.8,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"water bottle\",\"obs\":[]},{\"role\":\"target\",\"object\":\"water bottle\",\"obs\":[]}],\"direct_answer\":1.9,\"confidence\":0.45},{\"qid\":3210,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"water bottle\"],\"dimension\":\"\",\"time\":1.7,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"water bottle\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"horizontal\",\"value_si\":9.8,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"water bottle\",\"obs\":[]},{\"role\":\"target\",\"object\":\"water bottle\",\"obs\":[]}],\"direct_answer\":3.85,\"confidence\":0.45},{\"qid\":3211,\"spec\":{\"target\":{\"kind\":\"displacement\",\"objects\":[\"water bottle\"],\"dimension\":\"\",\"time\":null,\"window\":[1.5,1.7],\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"water bottle\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"horizontal\",\"value_si\":9.8,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"water bottle\",\"obs\":[]},{\"role\":\"target\",\"object\":\"water bottle\",\"obs\":[]}],\"direct_answer\":0.575,\"confidence\":0.5},{\"qid\":3212,\"spec\":{\"target\":{\"kind\":\"distance\",\"objects\":[\"bottom of water bottle\",\"floor\"],\"dimension\":\"\",\"time\":1.5,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"water bottle\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"horizontal\",\"value_si\":9.8,\"unit\":\"\"},\"depth\":[],\"notes\":\"Floor is on the right side of the image (camera rotated); floor surface taken near x~645 where the bottle lands.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"water bottle\",\"obs\":[]},{\"role\":\"target\",\"object\":\"bottom of water bottle\",\"obs\":[{\"frame\":45,\"point\":[252,250],\"extent\":null,\"box\":null}]},{\"role\":\"target2\",\"object\":\"floor\",\"obs\":[{\"frame\":45,\"point\":[645,250],\"extent\":null,\"box\":null}]}],\"direct_answer\":0.84,\"confidence\":0.3}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 3207,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "water bottle"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "cm"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "water bottle"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "horizontal",
+      "value_si": 9.8,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Camera rotated 90 deg: floor is on the right, gravity points to +x in the image. Free fall approx frames 41-53."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "water bottle",
+      "obs": [
+       {
+        "frame": 42,
+        "point": [
+         127,
+         256
+        ],
+        "extent": null,
+        "box": [
+         66,
+         240,
+         184,
+         272
+        ]
+       },
+       {
+        "frame": 43,
+        "point": [
+         142,
+         255
+        ],
+        "extent": null,
+        "box": [
+         82,
+         239,
+         200,
+         271
+        ]
+       },
+       {
+        "frame": 45,
+        "point": [
+         195,
+         250
+        ],
+        "extent": null,
+        "box": [
+         132,
+         234,
+         255,
+         268
+        ]
+       },
+       {
+        "frame": 48,
+        "point": [
+         307,
+         247
+        ],
+        "extent": null,
+        "box": [
+         248,
+         230,
+         366,
+         268
+        ]
+       },
+       {
+        "frame": 50,
+        "point": [
+         407,
+         245
+        ],
+        "extent": null,
+        "box": [
+         350,
+         228,
+         465,
+         270
+        ]
+       },
+       {
+        "frame": 51,
+        "point": [
+         465,
+         245
+        ],
+        "extent": null,
+        "box": [
+         410,
+         225,
+         522,
+         272
+        ]
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "water bottle height",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          55,
+          256
+         ],
+         [
+          170,
+          256
+         ]
+        ],
+        "box": [
+         55,
+         239,
+         170,
+         273
+        ]
+       },
+       {
+        "frame": 12,
+        "point": null,
+        "extent": [
+         [
+          55,
+          257
+         ],
+         [
+          168,
+          257
+         ]
+        ],
+        "box": [
+         55,
+         240,
+         168,
+         273
+        ]
+       },
+       {
+        "frame": 19,
+        "point": null,
+        "extent": [
+         [
+          53,
+          257
+         ],
+         [
+          167,
+          257
+         ]
+        ],
+        "box": [
+         53,
+         240,
+         167,
+         273
+        ]
+       },
+       {
+        "frame": 25,
+        "point": null,
+        "extent": [
+         [
+          52,
+          257
+         ],
+         [
+          166,
+          257
+         ]
+        ],
+        "box": [
+         52,
+         240,
+         166,
+         273
+        ]
+       },
+       {
+        "frame": 74,
+        "point": null,
+        "extent": [
+         [
+          679,
+          32
+         ],
+         [
+          688,
+          149
+         ]
+        ],
+        "box": [
+         660,
+         32,
+         704,
+         149
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 24.7,
+    "confidence": 0.45
+   },
+   {
+    "qid": 3208,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "water bottle"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "cm"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "water bottle"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "horizontal",
+      "value_si": 9.8,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Gravity along image x."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "water bottle",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "water bottle diameter",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          130,
+          240.5
+         ],
+         [
+          130,
+          272
+         ]
+        ],
+        "box": [
+         55,
+         239,
+         170,
+         273
+        ]
+       },
+       {
+        "frame": 12,
+        "point": null,
+        "extent": [
+         [
+          130,
+          241
+         ],
+         [
+          130,
+          272
+         ]
+        ],
+        "box": [
+         55,
+         240,
+         168,
+         273
+        ]
+       },
+       {
+        "frame": 25,
+        "point": null,
+        "extent": [
+         [
+          128,
+          241
+         ],
+         [
+          128,
+          272
+         ]
+        ],
+        "box": [
+         52,
+         240,
+         166,
+         273
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 6.7,
+    "confidence": 0.35
+   },
+   {
+    "qid": 3209,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "water bottle"
+      ],
+      "dimension": "",
+      "time": 1.5,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "water bottle"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "horizontal",
+      "value_si": 9.8,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "water bottle",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "water bottle",
+      "obs": []
+     }
+    ],
+    "direct_answer": 1.9,
+    "confidence": 0.45
+   },
+   {
+    "qid": 3210,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "water bottle"
+      ],
+      "dimension": "",
+      "time": 1.7,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "water bottle"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "horizontal",
+      "value_si": 9.8,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "water bottle",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "water bottle",
+      "obs": []
+     }
+    ],
+    "direct_answer": 3.85,
+    "confidence": 0.45
+   },
+   {
+    "qid": 3211,
+    "spec": {
+     "target": {
+      "kind": "displacement",
+      "objects": [
+       "water bottle"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": [
+       1.5,
+       1.7
+      ],
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "water bottle"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "horizontal",
+      "value_si": 9.8,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "water bottle",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "water bottle",
+      "obs": []
+     }
+    ],
+    "direct_answer": 0.575,
+    "confidence": 0.5
+   },
+   {
+    "qid": 3212,
+    "spec": {
+     "target": {
+      "kind": "distance",
+      "objects": [
+       "bottom of water bottle",
+       "floor"
+      ],
+      "dimension": "",
+      "time": 1.5,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "water bottle"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "horizontal",
+      "value_si": 9.8,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Floor is on the right side of the image (camera rotated); floor surface taken near x~645 where the bottle lands."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "water bottle",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "bottom of water bottle",
+      "obs": [
+       {
+        "frame": 45,
+        "point": [
+         252,
+         250
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     },
+     {
+      "role": "target2",
+      "object": "floor",
+      "obs": [
+       {
+        "frame": 45,
+        "point": [
+         645,
+         250
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     }
+    ],
+    "direct_answer": 0.84,
+    "confidence": 0.3
+   }
+  ]
+ }
+}

@@ -1,0 +1,492 @@
+{
+ "video_id": "simulation_0020",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfpqHjYBroxvTVM6bZ3gd",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 854
+ },
+ "ts": "2026-10-08T17:02:26+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_01XRoUdcv1JJmFFWwZHgai9d",
+ "custom_id": "simulation_0020",
+ "usage": {
+  "input_tokens": 16922,
+  "output_tokens": 2696,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 4317,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.061236,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0020",
+  "fps": 30.0,
+  "fps_from_container": false,
+  "video_type": "A2MC",
+  "n_frames_total": 131,
+  "scale": 0.7907407407407407,
+  "image_size": [
+   1080,
+   1080
+  ],
+  "frames": [
+   0,
+   3,
+   9,
+   17,
+   26,
+   35,
+   43,
+   52,
+   61,
+   69,
+   78,
+   87,
+   95,
+   104,
+   113,
+   121,
+   130
+  ],
+  "questions": [
+   {
+    "qid": 8,
+    "target_unit": "m",
+    "prior": "gravity acc = 9.8m/s^2",
+    "depth_info": ""
+   },
+   {
+    "qid": 9,
+    "target_unit": "m/s",
+    "prior": "gravity acc = 9.8m/s^2",
+    "depth_info": ""
+   },
+   {
+    "qid": 10,
+    "target_unit": "m",
+    "prior": "gravity acc = 9.8m/s^2",
+    "depth_info": ""
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":8,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"person\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"ball\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":9.8,\"unit\":\"\"},\"depth\":[],\"notes\":\"Scale from ball free flight between release and hitting the hoop (frames 26-61).\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"ball\",\"obs\":[{\"frame\":26,\"point\":[581,415],\"extent\":null,\"box\":[569,403,593,427]},{\"frame\":35,\"point\":[509.5,380],\"extent\":null,\"box\":[497,368,522,392]},{\"frame\":43,\"point\":[437,361],\"extent\":null,\"box\":[425,349,449,373]},{\"frame\":52,\"point\":[360,354],\"extent\":null,\"box\":[348,342,372,366]},{\"frame\":61,\"point\":[294.5,354],\"extent\":null,\"box\":[282,342,307,366]}]},{\"role\":\"target\",\"object\":\"person\",\"obs\":[{\"frame\":52,\"point\":null,\"extent\":[[640,462],[640,628]],\"box\":[616,462,664,628]},{\"frame\":61,\"point\":null,\"extent\":[[640,462],[640,628]],\"box\":[616,462,664,628]},{\"frame\":78,\"point\":null,\"extent\":[[640,462],[640,628]],\"box\":[616,462,664,628]},{\"frame\":104,\"point\":null,\"extent\":[[640,462],[640,628]],\"box\":[616,462,664,628]}]}],\"direct_answer\":11.8,\"confidence\":0.4},{\"qid\":9,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"ball\"],\"dimension\":\"\",\"time\":0.0,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"ball\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":9.8,\"unit\":\"\"},\"depth\":[],\"notes\":\"At t=0 the ball is held by the player; motion is small.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"ball\",\"obs\":[]},{\"role\":\"target\",\"object\":\"ball\",\"obs\":[{\"frame\":0,\"point\":[590,550],\"extent\":null,\"box\":null},{\"frame\":3,\"point\":[588,549],\"extent\":null,\"box\":null},{\"frame\":9,\"point\":[577,493],\"extent\":null,\"box\":null},{\"frame\":17,\"point\":[628,442],\"extent\":null,\"box\":null}]}],\"direct_answer\":1.2,\"confidence\":0.15},{\"qid\":10,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"ball\"],\"dimension\":\"diameter\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"ball\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":9.8,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"ball\",\"obs\":[]},{\"role\":\"target\",\"object\":\"ball\",\"obs\":[{\"frame\":35,\"point\":null,\"extent\":[[497,380],[522,380]],\"box\":[497,368,522,392]},{\"frame\":43,\"point\":null,\"extent\":[[425,361],[449,361]],\"box\":[425,349,449,373]},{\"frame\":52,\"point\":null,\"extent\":[[348,354],[372,354]],\"box\":[348,342,372,366]},{\"frame\":61,\"point\":null,\"extent\":[[282,354],[307,354]],\"box\":[282,342,307,366]}]}],\"direct_answer\":1.72,\"confidence\":0.35}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 8,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "person"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "ball"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": 9.8,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Scale from ball free flight between release and hitting the hoop (frames 26-61)."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "ball",
+      "obs": [
+       {
+        "frame": 26,
+        "point": [
+         581,
+         415
+        ],
+        "extent": null,
+        "box": [
+         569,
+         403,
+         593,
+         427
+        ]
+       },
+       {
+        "frame": 35,
+        "point": [
+         509.5,
+         380
+        ],
+        "extent": null,
+        "box": [
+         497,
+         368,
+         522,
+         392
+        ]
+       },
+       {
+        "frame": 43,
+        "point": [
+         437,
+         361
+        ],
+        "extent": null,
+        "box": [
+         425,
+         349,
+         449,
+         373
+        ]
+       },
+       {
+        "frame": 52,
+        "point": [
+         360,
+         354
+        ],
+        "extent": null,
+        "box": [
+         348,
+         342,
+         372,
+         366
+        ]
+       },
+       {
+        "frame": 61,
+        "point": [
+         294.5,
+         354
+        ],
+        "extent": null,
+        "box": [
+         282,
+         342,
+         307,
+         366
+        ]
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "person",
+      "obs": [
+       {
+        "frame": 52,
+        "point": null,
+        "extent": [
+         [
+          640,
+          462
+         ],
+         [
+          640,
+          628
+         ]
+        ],
+        "box": [
+         616,
+         462,
+         664,
+         628
+        ]
+       },
+       {
+        "frame": 61,
+        "point": null,
+        "extent": [
+         [
+          640,
+          462
+         ],
+         [
+          640,
+          628
+         ]
+        ],
+        "box": [
+         616,
+         462,
+         664,
+         628
+        ]
+       },
+       {
+        "frame": 78,
+        "point": null,
+        "extent": [
+         [
+          640,
+          462
+         ],
+         [
+          640,
+          628
+         ]
+        ],
+        "box": [
+         616,
+         462,
+         664,
+         628
+        ]
+       },
+       {
+        "frame": 104,
+        "point": null,
+        "extent": [
+         [
+          640,
+          462
+         ],
+         [
+          640,
+          628
+         ]
+        ],
+        "box": [
+         616,
+         462,
+         664,
+         628
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 11.8,
+    "confidence": 0.4
+   },
+   {
+    "qid": 9,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "ball"
+      ],
+      "dimension": "",
+      "time": 0.0,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "ball"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": 9.8,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "At t=0 the ball is held by the player; motion is small."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "ball",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "ball",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         590,
+         550
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 3,
+        "point": [
+         588,
+         549
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 9,
+        "point": [
+         577,
+         493
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 17,
+        "point": [
+         628,
+         442
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     }
+    ],
+    "direct_answer": 1.2,
+    "confidence": 0.15
+   },
+   {
+    "qid": 10,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "ball"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "ball"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": 9.8,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "ball",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "ball",
+      "obs": [
+       {
+        "frame": 35,
+        "point": null,
+        "extent": [
+         [
+          497,
+          380
+         ],
+         [
+          522,
+          380
+         ]
+        ],
+        "box": [
+         497,
+         368,
+         522,
+         392
+        ]
+       },
+       {
+        "frame": 43,
+        "point": null,
+        "extent": [
+         [
+          425,
+          361
+         ],
+         [
+          449,
+          361
+         ]
+        ],
+        "box": [
+         425,
+         349,
+         449,
+         373
+        ]
+       },
+       {
+        "frame": 52,
+        "point": null,
+        "extent": [
+         [
+          348,
+          354
+         ],
+         [
+          372,
+          354
+         ]
+        ],
+        "box": [
+         348,
+         342,
+         372,
+         366
+        ]
+       },
+       {
+        "frame": 61,
+        "point": null,
+        "extent": [
+         [
+          282,
+          354
+         ],
+         [
+          307,
+          354
+         ]
+        ],
+        "box": [
+         282,
+         342,
+         307,
+         366
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 1.72,
+    "confidence": 0.35
+   }
+  ]
+ }
+}

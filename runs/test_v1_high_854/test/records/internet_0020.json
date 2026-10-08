@@ -1,0 +1,713 @@
+{
+ "video_id": "internet_0020",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfpzyLzH5Eope34xBiazH",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 854
+ },
+ "ts": "2026-10-08T17:01:24+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_01PjbQ7PFhZmxz7ogDdS6Ldo",
+ "custom_id": "internet_0020",
+ "usage": {
+  "input_tokens": 9696,
+  "output_tokens": 3218,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 4317,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.052004,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "internet_0020",
+  "fps": 25.0,
+  "fps_from_container": false,
+  "video_type": "S2MC",
+  "n_frames_total": 19,
+  "scale": 0.20849609375,
+  "image_size": [
+   4096,
+   2158
+  ],
+  "frames": [
+   0,
+   1,
+   2,
+   4,
+   5,
+   6,
+   7,
+   8,
+   10,
+   11,
+   12,
+   13,
+   14,
+   15,
+   16,
+   17,
+   18
+  ],
+  "questions": [
+   {
+    "qid": 2099,
+    "target_unit": "cm",
+    "prior": "height of the picked bottle = 11.7cm",
+    "depth_info": ""
+   },
+   {
+    "qid": 2100,
+    "target_unit": "cm",
+    "prior": "height of the picked bottle = 11.7cm",
+    "depth_info": ""
+   },
+   {
+    "qid": 2101,
+    "target_unit": "cm",
+    "prior": "height of the picked bottle = 11.7cm",
+    "depth_info": ""
+   },
+   {
+    "qid": 2102,
+    "target_unit": "cm/s",
+    "prior": "height of the picked bottle = 11.7cm",
+    "depth_info": ""
+   },
+   {
+    "qid": 2103,
+    "target_unit": "cm/s",
+    "prior": "height of the picked bottle = 11.7cm",
+    "depth_info": ""
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":2099,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"sink\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":null,\"unit\":\"cm\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"picked bottle\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.117,\"unit\":\"\"},\"depth\":[],\"notes\":\"Sink bottom is cut off by the frame edge.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"picked bottle\",\"obs\":[{\"frame\":4,\"point\":null,\"extent\":[[548,232],[548,348]],\"box\":[533,232,563,348]},{\"frame\":5,\"point\":null,\"extent\":[[548,228],[548,345]],\"box\":[533,228,563,345]},{\"frame\":6,\"point\":null,\"extent\":[[548,222],[548,342]],\"box\":[533,222,564,342]}]},{\"role\":\"target\",\"object\":\"sink\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[742,206],[742,450]],\"box\":[632,204,854,450]},{\"frame\":18,\"point\":null,\"extent\":[[745,208],[745,450]],\"box\":[636,207,854,450]},{\"frame\":10,\"point\":null,\"extent\":[[745,207],[745,450]],\"box\":[634,205,854,450]}]}],\"direct_answer\":24.9,\"confidence\":0.3},{\"qid\":2100,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"tray\"],\"dimension\":\"width\",\"time\":null,\"window\":null,\"axis\":\"horizontal\",\"value_si\":null,\"unit\":\"cm\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"picked bottle\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.117,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"picked bottle\",\"obs\":[]},{\"role\":\"target\",\"object\":\"tray\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[255,420],[622,420]],\"box\":[238,342,628,437]},{\"frame\":18,\"point\":null,\"extent\":[[259,420],[626,420]],\"box\":[242,344,632,438]},{\"frame\":10,\"point\":null,\"extent\":[[256,420],[623,420]],\"box\":[239,343,629,437]}]}],\"direct_answer\":37.3,\"confidence\":0.35},{\"qid\":2101,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"pump bottle\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":null,\"unit\":\"cm\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"picked bottle\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.117,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"picked bottle\",\"obs\":[]},{\"role\":\"target\",\"object\":\"pump bottle\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[474,193],[474,383]],\"box\":[445,193,508,383]},{\"frame\":18,\"point\":null,\"extent\":[[478,197],[478,386]],\"box\":[449,197,512,386]},{\"frame\":10,\"point\":null,\"extent\":[[476,195],[476,384]],\"box\":[447,195,510,384]}]}],\"direct_answer\":19.3,\"confidence\":0.35},{\"qid\":2102,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"picked bottle\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"cm/s\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"picked bottle\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.117,\"unit\":\"\"},\"depth\":[],\"notes\":\"Average over the clip while bottle visible.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"picked bottle\",\"obs\":[]},{\"role\":\"target\",\"object\":\"picked bottle\",\"obs\":[{\"frame\":0,\"point\":[545,290],\"extent\":null,\"box\":null},{\"frame\":1,\"point\":[545,290],\"extent\":null,\"box\":null},{\"frame\":2,\"point\":[545,290],\"extent\":null,\"box\":null},{\"frame\":4,\"point\":[548,285],\"extent\":null,\"box\":null},{\"frame\":5,\"point\":[548,275],\"extent\":null,\"box\":null},{\"frame\":6,\"point\":[548,265],\"extent\":null,\"box\":null},{\"frame\":7,\"point\":[548,255],\"extent\":null,\"box\":null},{\"frame\":8,\"point\":[550,240],\"extent\":null,\"box\":null},{\"frame\":10,\"point\":[550,190],\"extent\":null,\"box\":null},{\"frame\":11,\"point\":[550,168],\"extent\":null,\"box\":null},{\"frame\":12,\"point\":[553,145],\"extent\":null,\"box\":null},{\"frame\":13,\"point\":[558,115],\"extent\":null,\"box\":null},{\"frame\":14,\"point\":[565,80],\"extent\":null,\"box\":null},{\"frame\":15,\"point\":[575,50],\"extent\":null,\"box\":null},{\"frame\":16,\"point\":[583,25],\"extent\":null,\"box\":null},{\"frame\":17,\"point\":[590,10],\"extent\":null,\"box\":null}]}],\"direct_answer\":42.5,\"confidence\":0.25},{\"qid\":2103,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"picked bottle\"],\"dimension\":\"\",\"time\":0.5,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"cm/s\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"picked bottle\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.117,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"picked bottle\",\"obs\":[]},{\"role\":\"target\",\"object\":\"picked bottle\",\"obs\":[]}],\"direct_answer\":75.7,\"confidence\":0.25}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 2099,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "sink"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": null,
+      "unit": "cm"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "picked bottle"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.117,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Sink bottom is cut off by the frame edge."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "picked bottle",
+      "obs": [
+       {
+        "frame": 4,
+        "point": null,
+        "extent": [
+         [
+          548,
+          232
+         ],
+         [
+          548,
+          348
+         ]
+        ],
+        "box": [
+         533,
+         232,
+         563,
+         348
+        ]
+       },
+       {
+        "frame": 5,
+        "point": null,
+        "extent": [
+         [
+          548,
+          228
+         ],
+         [
+          548,
+          345
+         ]
+        ],
+        "box": [
+         533,
+         228,
+         563,
+         345
+        ]
+       },
+       {
+        "frame": 6,
+        "point": null,
+        "extent": [
+         [
+          548,
+          222
+         ],
+         [
+          548,
+          342
+         ]
+        ],
+        "box": [
+         533,
+         222,
+         564,
+         342
+        ]
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "sink",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          742,
+          206
+         ],
+         [
+          742,
+          450
+         ]
+        ],
+        "box": [
+         632,
+         204,
+         854,
+         450
+        ]
+       },
+       {
+        "frame": 18,
+        "point": null,
+        "extent": [
+         [
+          745,
+          208
+         ],
+         [
+          745,
+          450
+         ]
+        ],
+        "box": [
+         636,
+         207,
+         854,
+         450
+        ]
+       },
+       {
+        "frame": 10,
+        "point": null,
+        "extent": [
+         [
+          745,
+          207
+         ],
+         [
+          745,
+          450
+         ]
+        ],
+        "box": [
+         634,
+         205,
+         854,
+         450
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 24.9,
+    "confidence": 0.3
+   },
+   {
+    "qid": 2100,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "tray"
+      ],
+      "dimension": "width",
+      "time": null,
+      "window": null,
+      "axis": "horizontal",
+      "value_si": null,
+      "unit": "cm"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "picked bottle"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.117,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "picked bottle",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "tray",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          255,
+          420
+         ],
+         [
+          622,
+          420
+         ]
+        ],
+        "box": [
+         238,
+         342,
+         628,
+         437
+        ]
+       },
+       {
+        "frame": 18,
+        "point": null,
+        "extent": [
+         [
+          259,
+          420
+         ],
+         [
+          626,
+          420
+         ]
+        ],
+        "box": [
+         242,
+         344,
+         632,
+         438
+        ]
+       },
+       {
+        "frame": 10,
+        "point": null,
+        "extent": [
+         [
+          256,
+          420
+         ],
+         [
+          623,
+          420
+         ]
+        ],
+        "box": [
+         239,
+         343,
+         629,
+         437
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 37.3,
+    "confidence": 0.35
+   },
+   {
+    "qid": 2101,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "pump bottle"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": null,
+      "unit": "cm"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "picked bottle"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.117,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "picked bottle",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "pump bottle",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          474,
+          193
+         ],
+         [
+          474,
+          383
+         ]
+        ],
+        "box": [
+         445,
+         193,
+         508,
+         383
+        ]
+       },
+       {
+        "frame": 18,
+        "point": null,
+        "extent": [
+         [
+          478,
+          197
+         ],
+         [
+          478,
+          386
+         ]
+        ],
+        "box": [
+         449,
+         197,
+         512,
+         386
+        ]
+       },
+       {
+        "frame": 10,
+        "point": null,
+        "extent": [
+         [
+          476,
+          195
+         ],
+         [
+          476,
+          384
+         ]
+        ],
+        "box": [
+         447,
+         195,
+         510,
+         384
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 19.3,
+    "confidence": 0.35
+   },
+   {
+    "qid": 2102,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "picked bottle"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "cm/s"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "picked bottle"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.117,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Average over the clip while bottle visible."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "picked bottle",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "picked bottle",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         545,
+         290
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 1,
+        "point": [
+         545,
+         290
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 2,
+        "point": [
+         545,
+         290
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 4,
+        "point": [
+         548,
+         285
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 5,
+        "point": [
+         548,
+         275
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 6,
+        "point": [
+         548,
+         265
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 7,
+        "point": [
+         548,
+         255
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 8,
+        "point": [
+         550,
+         240
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 10,
+        "point": [
+         550,
+         190
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 11,
+        "point": [
+         550,
+         168
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 12,
+        "point": [
+         553,
+         145
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 13,
+        "point": [
+         558,
+         115
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 14,
+        "point": [
+         565,
+         80
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 15,
+        "point": [
+         575,
+         50
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 16,
+        "point": [
+         583,
+         25
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 17,
+        "point": [
+         590,
+         10
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     }
+    ],
+    "direct_answer": 42.5,
+    "confidence": 0.25
+   },
+   {
+    "qid": 2103,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "picked bottle"
+      ],
+      "dimension": "",
+      "time": 0.5,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "cm/s"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "picked bottle"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.117,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "picked bottle",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "picked bottle",
+      "obs": []
+     }
+    ],
+    "direct_answer": 75.7,
+    "confidence": 0.25
+   }
+  ]
+ }
+}

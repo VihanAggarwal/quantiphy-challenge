@@ -1,0 +1,545 @@
+{
+ "video_id": "simulation_0148",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfprSNgvi6EvvznbfPPiR",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 854
+ },
+ "ts": "2026-10-08T16:53:50+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_01EK6rwK1z62Nk1x6w7FZeFC",
+ "custom_id": "simulation_0148",
+ "usage": {
+  "input_tokens": 10847,
+  "output_tokens": 3291,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 4317,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.055036,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0148",
+  "fps": 24.0,
+  "fps_from_container": false,
+  "video_type": "S2MC",
+  "n_frames_total": 26,
+  "scale": 0.44479166666666664,
+  "image_size": [
+   1920,
+   1079
+  ],
+  "frames": [
+   0,
+   2,
+   3,
+   5,
+   7,
+   8,
+   10,
+   12,
+   13,
+   14,
+   15,
+   17,
+   18,
+   20,
+   22,
+   23,
+   24,
+   25
+  ],
+  "questions": [
+   {
+    "qid": 343,
+    "target_unit": "m/s",
+    "prior": "width of the side windows on this train (not the door windows) = 1.8m",
+    "depth_info": ""
+   },
+   {
+    "qid": 344,
+    "target_unit": "m/s",
+    "prior": "width of the side windows on this train (not the door windows) = 1.8m",
+    "depth_info": ""
+   },
+   {
+    "qid": 345,
+    "target_unit": "m/s^2",
+    "prior": "width of the side windows on this train (not the door windows) = 1.8m",
+    "depth_info": ""
+   },
+   {
+    "qid": 346,
+    "target_unit": "m",
+    "prior": "width of the side windows on this train (not the door windows) = 1.8m",
+    "depth_info": ""
+   },
+   {
+    "qid": 347,
+    "target_unit": "m",
+    "prior": "width of the side windows on this train (not the door windows) = 1.8m",
+    "depth_info": ""
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":343,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"train\"],\"dimension\":\"\",\"time\":1.0,\"window\":null,\"axis\":\"horizontal\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"train side window\"],\"dimension\":\"width\",\"time\":null,\"window\":null,\"axis\":\"horizontal\",\"value_si\":1.8,\"unit\":\"\"},\"depth\":[],\"notes\":\"Train has left the view by t=1s; speed extrapolated from visible motion (train appears to accelerate slightly).\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"train side window\",\"obs\":[{\"frame\":8,\"point\":null,\"extent\":[[252,265],[406,265]],\"box\":[252,203,406,327]},{\"frame\":14,\"point\":null,\"extent\":[[316,265],[474,265]],\"box\":[316,201,474,329]},{\"frame\":17,\"point\":null,\"extent\":[[281,265],[439,265]],\"box\":[281,201,439,329]},{\"frame\":15,\"point\":null,\"extent\":[[624,265],[782,265]],\"box\":[624,201,782,329]}]},{\"role\":\"target\",\"object\":\"train\",\"obs\":[{\"frame\":12,\"point\":[810,265],\"extent\":null,\"box\":null},{\"frame\":13,\"point\":[642,265],\"extent\":null,\"box\":null},{\"frame\":14,\"point\":[474,265],\"extent\":null,\"box\":null},{\"frame\":15,\"point\":[304,265],\"extent\":null,\"box\":null}]}],\"direct_answer\":48,\"confidence\":0.35},{\"qid\":344,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"train\"],\"dimension\":\"\",\"time\":0.5,\"window\":null,\"axis\":\"horizontal\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"train side window\"],\"dimension\":\"width\",\"time\":null,\"window\":null,\"axis\":\"horizontal\",\"value_si\":1.8,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"train side window\",\"obs\":[]},{\"role\":\"target\",\"object\":\"train\",\"obs\":[]}],\"direct_answer\":45.5,\"confidence\":0.5},{\"qid\":345,\"spec\":{\"target\":{\"kind\":\"acceleration\",\"objects\":[\"train\"],\"dimension\":\"\",\"time\":0.5,\"window\":null,\"axis\":\"horizontal\",\"value_si\":null,\"unit\":\"m/s^2\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"train side window\"],\"dimension\":\"width\",\"time\":null,\"window\":null,\"axis\":\"horizontal\",\"value_si\":1.8,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"train side window\",\"obs\":[]},{\"role\":\"target\",\"object\":\"train\",\"obs\":[]}],\"direct_answer\":9,\"confidence\":0.2},{\"qid\":346,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"train door\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"horizontal\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"train side window\"],\"dimension\":\"width\",\"time\":null,\"window\":null,\"axis\":\"horizontal\",\"value_si\":1.8,\"unit\":\"\"},\"depth\":[],\"notes\":\"Door 'length' interpreted as horizontal width of the double door.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"train side window\",\"obs\":[]},{\"role\":\"target\",\"object\":\"train door\",\"obs\":[{\"frame\":14,\"point\":null,\"extent\":[[558,290],[710,290]],\"box\":[558,200,710,378]},{\"frame\":8,\"point\":null,\"extent\":[[537,290],[639,290]],\"box\":[537,200,639,378]}]}],\"direct_answer\":1.72,\"confidence\":0.35},{\"qid\":347,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"white pillar\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"train side window\"],\"dimension\":\"width\",\"time\":null,\"window\":null,\"axis\":\"horizontal\",\"value_si\":1.8,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"train side window\",\"obs\":[]},{\"role\":\"target\",\"object\":\"white pillar\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[514,88],[514,383]],\"box\":[492,88,536,383]},{\"frame\":22,\"point\":null,\"extent\":[[514,88],[514,383]],\"box\":[492,88,536,383]},{\"frame\":25,\"point\":null,\"extent\":[[514,88],[514,383]],\"box\":[492,88,536,383]}]}],\"direct_answer\":3.38,\"confidence\":0.4}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 343,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "train"
+      ],
+      "dimension": "",
+      "time": 1.0,
+      "window": null,
+      "axis": "horizontal",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "train side window"
+      ],
+      "dimension": "width",
+      "time": null,
+      "window": null,
+      "axis": "horizontal",
+      "value_si": 1.8,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Train has left the view by t=1s; speed extrapolated from visible motion (train appears to accelerate slightly)."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "train side window",
+      "obs": [
+       {
+        "frame": 8,
+        "point": null,
+        "extent": [
+         [
+          252,
+          265
+         ],
+         [
+          406,
+          265
+         ]
+        ],
+        "box": [
+         252,
+         203,
+         406,
+         327
+        ]
+       },
+       {
+        "frame": 14,
+        "point": null,
+        "extent": [
+         [
+          316,
+          265
+         ],
+         [
+          474,
+          265
+         ]
+        ],
+        "box": [
+         316,
+         201,
+         474,
+         329
+        ]
+       },
+       {
+        "frame": 17,
+        "point": null,
+        "extent": [
+         [
+          281,
+          265
+         ],
+         [
+          439,
+          265
+         ]
+        ],
+        "box": [
+         281,
+         201,
+         439,
+         329
+        ]
+       },
+       {
+        "frame": 15,
+        "point": null,
+        "extent": [
+         [
+          624,
+          265
+         ],
+         [
+          782,
+          265
+         ]
+        ],
+        "box": [
+         624,
+         201,
+         782,
+         329
+        ]
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "train",
+      "obs": [
+       {
+        "frame": 12,
+        "point": [
+         810,
+         265
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 13,
+        "point": [
+         642,
+         265
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 14,
+        "point": [
+         474,
+         265
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 15,
+        "point": [
+         304,
+         265
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     }
+    ],
+    "direct_answer": 48,
+    "confidence": 0.35
+   },
+   {
+    "qid": 344,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "train"
+      ],
+      "dimension": "",
+      "time": 0.5,
+      "window": null,
+      "axis": "horizontal",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "train side window"
+      ],
+      "dimension": "width",
+      "time": null,
+      "window": null,
+      "axis": "horizontal",
+      "value_si": 1.8,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "train side window",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "train",
+      "obs": []
+     }
+    ],
+    "direct_answer": 45.5,
+    "confidence": 0.5
+   },
+   {
+    "qid": 345,
+    "spec": {
+     "target": {
+      "kind": "acceleration",
+      "objects": [
+       "train"
+      ],
+      "dimension": "",
+      "time": 0.5,
+      "window": null,
+      "axis": "horizontal",
+      "value_si": null,
+      "unit": "m/s^2"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "train side window"
+      ],
+      "dimension": "width",
+      "time": null,
+      "window": null,
+      "axis": "horizontal",
+      "value_si": 1.8,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "train side window",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "train",
+      "obs": []
+     }
+    ],
+    "direct_answer": 9,
+    "confidence": 0.2
+   },
+   {
+    "qid": 346,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "train door"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "horizontal",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "train side window"
+      ],
+      "dimension": "width",
+      "time": null,
+      "window": null,
+      "axis": "horizontal",
+      "value_si": 1.8,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Door 'length' interpreted as horizontal width of the double door."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "train side window",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "train door",
+      "obs": [
+       {
+        "frame": 14,
+        "point": null,
+        "extent": [
+         [
+          558,
+          290
+         ],
+         [
+          710,
+          290
+         ]
+        ],
+        "box": [
+         558,
+         200,
+         710,
+         378
+        ]
+       },
+       {
+        "frame": 8,
+        "point": null,
+        "extent": [
+         [
+          537,
+          290
+         ],
+         [
+          639,
+          290
+         ]
+        ],
+        "box": [
+         537,
+         200,
+         639,
+         378
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 1.72,
+    "confidence": 0.35
+   },
+   {
+    "qid": 347,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "white pillar"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "train side window"
+      ],
+      "dimension": "width",
+      "time": null,
+      "window": null,
+      "axis": "horizontal",
+      "value_si": 1.8,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "train side window",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "white pillar",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          514,
+          88
+         ],
+         [
+          514,
+          383
+         ]
+        ],
+        "box": [
+         492,
+         88,
+         536,
+         383
+        ]
+       },
+       {
+        "frame": 22,
+        "point": null,
+        "extent": [
+         [
+          514,
+          88
+         ],
+         [
+          514,
+          383
+         ]
+        ],
+        "box": [
+         492,
+         88,
+         536,
+         383
+        ]
+       },
+       {
+        "frame": 25,
+        "point": null,
+        "extent": [
+         [
+          514,
+          88
+         ],
+         [
+          514,
+          383
+         ]
+        ],
+        "box": [
+         492,
+         88,
+         536,
+         383
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 3.38,
+    "confidence": 0.4
+   }
+  ]
+ }
+}

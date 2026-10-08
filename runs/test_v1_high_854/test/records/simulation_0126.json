@@ -1,0 +1,702 @@
+{
+ "video_id": "simulation_0126",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011Cfpsb4cc5PDHb5jFXVtyU",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 854
+ },
+ "ts": "2026-10-08T16:53:50+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_01EK6rwK1z62Nk1x6w7FZeFC",
+ "custom_id": "simulation_0126",
+ "usage": {
+  "input_tokens": 13169,
+  "output_tokens": 3146,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 4317,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.05823,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0126",
+  "fps": 24.0,
+  "fps_from_container": false,
+  "video_type": "S2MS",
+  "n_frames_total": 72,
+  "scale": 0.4770949720670391,
+  "image_size": [
+   1079,
+   1790
+  ],
+  "frames": [
+   0,
+   5,
+   9,
+   10,
+   12,
+   14,
+   19,
+   24,
+   28,
+   33,
+   38,
+   43,
+   46,
+   47,
+   48,
+   50,
+   52,
+   57,
+   62,
+   66,
+   71
+  ],
+  "questions": [
+   {
+    "qid": 282,
+    "target_unit": "m",
+    "prior": "diameter of the puck = 0.074m",
+    "depth_info": ""
+   },
+   {
+    "qid": 283,
+    "target_unit": "m/s",
+    "prior": "diameter of the puck = 0.074m",
+    "depth_info": ""
+   },
+   {
+    "qid": 284,
+    "target_unit": "m/s",
+    "prior": "diameter of the puck = 0.074m",
+    "depth_info": ""
+   },
+   {
+    "qid": 285,
+    "target_unit": "m",
+    "prior": "diameter of the puck = 0.074m",
+    "depth_info": ""
+   },
+   {
+    "qid": 286,
+    "target_unit": "m",
+    "prior": "diameter of the puck = 0.074m",
+    "depth_info": ""
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":282,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"handle\"],\"dimension\":\"diameter\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"puck\"],\"dimension\":\"diameter\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.074,\"unit\":\"\"},\"depth\":[],\"notes\":\"Two handles; both appear the same size.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"puck\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[241,343.5],[272,343.5]],\"box\":[241,328,272,359]},{\"frame\":24,\"point\":null,\"extent\":[[241,611],[272,611]],\"box\":[241,595.5,272,626.5]},{\"frame\":57,\"point\":null,\"extent\":[[241,721],[272,721]],\"box\":[241,705.5,272,736.5]}]},{\"role\":\"target\",\"object\":\"handle\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[226.5,255],[280.5,255]],\"box\":[226.5,228,280.5,282]},{\"frame\":24,\"point\":null,\"extent\":[[226.5,358],[280.5,358]],\"box\":[226.5,331,280.5,385]},{\"frame\":71,\"point\":null,\"extent\":[[226.5,358],[280.5,358]],\"box\":[226.5,331,280.5,385]}]}],\"direct_answer\":0.129,\"confidence\":0.7},{\"qid\":283,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"puck\"],\"dimension\":\"\",\"time\":0.5,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"puck\"],\"dimension\":\"diameter\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.074,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"puck\",\"obs\":[]},{\"role\":\"target\",\"object\":\"puck\",\"obs\":[{\"frame\":9,\"point\":[256.5,436],\"extent\":null,\"box\":null},{\"frame\":10,\"point\":[256.5,449],\"extent\":null,\"box\":null},{\"frame\":12,\"point\":[256.5,473],\"extent\":null,\"box\":null},{\"frame\":14,\"point\":[256.5,495],\"extent\":null,\"box\":null},{\"frame\":19,\"point\":[256.5,553],\"extent\":null,\"box\":null},{\"frame\":24,\"point\":[256.5,611],\"extent\":null,\"box\":null},{\"frame\":28,\"point\":[256.5,658],\"extent\":null,\"box\":null},{\"frame\":33,\"point\":[256.5,716],\"extent\":null,\"box\":null},{\"frame\":38,\"point\":[256.5,774],\"extent\":null,\"box\":null},{\"frame\":43,\"point\":[256.5,783],\"extent\":null,\"box\":null},{\"frame\":46,\"point\":[256.5,770],\"extent\":null,\"box\":null},{\"frame\":47,\"point\":[256.5,766],\"extent\":null,\"box\":null},{\"frame\":48,\"point\":[256.5,762],\"extent\":null,\"box\":null},{\"frame\":50,\"point\":[256.5,753],\"extent\":null,\"box\":null},{\"frame\":52,\"point\":[256.5,744],\"extent\":null,\"box\":null},{\"frame\":57,\"point\":[256.5,721],\"extent\":null,\"box\":null},{\"frame\":62,\"point\":[256.5,700],\"extent\":null,\"box\":null},{\"frame\":66,\"point\":[256.5,682],\"extent\":null,\"box\":null},{\"frame\":71,\"point\":[256.5,659],\"extent\":null,\"box\":null}]}],\"direct_answer\":0.663,\"confidence\":0.7},{\"qid\":284,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"puck\"],\"dimension\":\"\",\"time\":2.0,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"puck\"],\"dimension\":\"diameter\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.074,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"puck\",\"obs\":[]},{\"role\":\"target\",\"object\":\"puck\",\"obs\":[]}],\"direct_answer\":0.25,\"confidence\":0.6},{\"qid\":285,\"spec\":{\"target\":{\"kind\":\"distance\",\"objects\":[\"handle\",\"right handle\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"horizontal\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"puck\"],\"dimension\":\"diameter\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.074,\"unit\":\"\"},\"depth\":[],\"notes\":\"Handles mostly static after t~0.4s.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"puck\",\"obs\":[]},{\"role\":\"target\",\"object\":\"handle\",\"obs\":[{\"frame\":24,\"point\":[253.5,358],\"extent\":null,\"box\":null},{\"frame\":48,\"point\":[253.5,358],\"extent\":null,\"box\":null}]},{\"role\":\"target2\",\"object\":\"right handle\",\"obs\":[{\"frame\":24,\"point\":[340.5,683],\"extent\":null,\"box\":[313.5,656,367.5,710]},{\"frame\":48,\"point\":[340.5,683],\"extent\":null,\"box\":[313.5,656,367.5,710]}]}],\"direct_answer\":0.208,\"confidence\":0.7},{\"qid\":286,\"spec\":{\"target\":{\"kind\":\"distance\",\"objects\":[\"puck\",\"right handle\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"puck\"],\"dimension\":\"diameter\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.074,\"unit\":\"\"},\"depth\":[],\"notes\":\"Minimum over time of center-to-center distance; occurs when puck at handle's height (~t=2.75s).\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"puck\",\"obs\":[]},{\"role\":\"target\",\"object\":\"puck\",\"obs\":[{\"frame\":66,\"point\":[256.5,682],\"extent\":null,\"box\":null}]},{\"role\":\"target2\",\"object\":\"right handle\",\"obs\":[{\"frame\":66,\"point\":[340.5,683],\"extent\":null,\"box\":null}]}],\"direct_answer\":0.2,\"confidence\":0.4}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 282,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "handle"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "puck"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.074,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Two handles; both appear the same size."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "puck",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          241,
+          343.5
+         ],
+         [
+          272,
+          343.5
+         ]
+        ],
+        "box": [
+         241,
+         328,
+         272,
+         359
+        ]
+       },
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          241,
+          611
+         ],
+         [
+          272,
+          611
+         ]
+        ],
+        "box": [
+         241,
+         595.5,
+         272,
+         626.5
+        ]
+       },
+       {
+        "frame": 57,
+        "point": null,
+        "extent": [
+         [
+          241,
+          721
+         ],
+         [
+          272,
+          721
+         ]
+        ],
+        "box": [
+         241,
+         705.5,
+         272,
+         736.5
+        ]
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "handle",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          226.5,
+          255
+         ],
+         [
+          280.5,
+          255
+         ]
+        ],
+        "box": [
+         226.5,
+         228,
+         280.5,
+         282
+        ]
+       },
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          226.5,
+          358
+         ],
+         [
+          280.5,
+          358
+         ]
+        ],
+        "box": [
+         226.5,
+         331,
+         280.5,
+         385
+        ]
+       },
+       {
+        "frame": 71,
+        "point": null,
+        "extent": [
+         [
+          226.5,
+          358
+         ],
+         [
+          280.5,
+          358
+         ]
+        ],
+        "box": [
+         226.5,
+         331,
+         280.5,
+         385
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 0.129,
+    "confidence": 0.7
+   },
+   {
+    "qid": 283,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "puck"
+      ],
+      "dimension": "",
+      "time": 0.5,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "puck"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.074,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "puck",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "puck",
+      "obs": [
+       {
+        "frame": 9,
+        "point": [
+         256.5,
+         436
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 10,
+        "point": [
+         256.5,
+         449
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 12,
+        "point": [
+         256.5,
+         473
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 14,
+        "point": [
+         256.5,
+         495
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 19,
+        "point": [
+         256.5,
+         553
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 24,
+        "point": [
+         256.5,
+         611
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 28,
+        "point": [
+         256.5,
+         658
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 33,
+        "point": [
+         256.5,
+         716
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 38,
+        "point": [
+         256.5,
+         774
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 43,
+        "point": [
+         256.5,
+         783
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 46,
+        "point": [
+         256.5,
+         770
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 47,
+        "point": [
+         256.5,
+         766
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 48,
+        "point": [
+         256.5,
+         762
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 50,
+        "point": [
+         256.5,
+         753
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 52,
+        "point": [
+         256.5,
+         744
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 57,
+        "point": [
+         256.5,
+         721
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 62,
+        "point": [
+         256.5,
+         700
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 66,
+        "point": [
+         256.5,
+         682
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 71,
+        "point": [
+         256.5,
+         659
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     }
+    ],
+    "direct_answer": 0.663,
+    "confidence": 0.7
+   },
+   {
+    "qid": 284,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "puck"
+      ],
+      "dimension": "",
+      "time": 2.0,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "puck"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.074,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "puck",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "puck",
+      "obs": []
+     }
+    ],
+    "direct_answer": 0.25,
+    "confidence": 0.6
+   },
+   {
+    "qid": 285,
+    "spec": {
+     "target": {
+      "kind": "distance",
+      "objects": [
+       "handle",
+       "right handle"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "horizontal",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "puck"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.074,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Handles mostly static after t~0.4s."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "puck",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "handle",
+      "obs": [
+       {
+        "frame": 24,
+        "point": [
+         253.5,
+         358
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 48,
+        "point": [
+         253.5,
+         358
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     },
+     {
+      "role": "target2",
+      "object": "right handle",
+      "obs": [
+       {
+        "frame": 24,
+        "point": [
+         340.5,
+         683
+        ],
+        "extent": null,
+        "box": [
+         313.5,
+         656,
+         367.5,
+         710
+        ]
+       },
+       {
+        "frame": 48,
+        "point": [
+         340.5,
+         683
+        ],
+        "extent": null,
+        "box": [
+         313.5,
+         656,
+         367.5,
+         710
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 0.208,
+    "confidence": 0.7
+   },
+   {
+    "qid": 286,
+    "spec": {
+     "target": {
+      "kind": "distance",
+      "objects": [
+       "puck",
+       "right handle"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "puck"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.074,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Minimum over time of center-to-center distance; occurs when puck at handle's height (~t=2.75s)."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "puck",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "puck",
+      "obs": [
+       {
+        "frame": 66,
+        "point": [
+         256.5,
+         682
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     },
+     {
+      "role": "target2",
+      "object": "right handle",
+      "obs": [
+       {
+        "frame": 66,
+        "point": [
+         340.5,
+         683
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     }
+    ],
+    "direct_answer": 0.2,
+    "confidence": 0.4
+   }
+  ]
+ }
+}

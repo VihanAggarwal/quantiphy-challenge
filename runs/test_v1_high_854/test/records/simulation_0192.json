@@ -1,0 +1,655 @@
+{
+ "video_id": "simulation_0192",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011Cfpsw9TcicDvXMtVjPzKz",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 854
+ },
+ "ts": "2026-10-08T17:22:03+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_01NQ75mfF7UkeBS7WmECXRt4",
+ "custom_id": "simulation_0192",
+ "usage": {
+  "input_tokens": 13689,
+  "output_tokens": 2836,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 4317,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.05617,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0192",
+  "fps": 120.0,
+  "fps_from_container": false,
+  "video_type": "A2MS",
+  "n_frames_total": 200,
+  "scale": 0.44479166666666664,
+  "image_size": [
+   1920,
+   1079
+  ],
+  "frames": [
+   0,
+   12,
+   13,
+   24,
+   27,
+   36,
+   40,
+   48,
+   53,
+   60,
+   66,
+   72,
+   80,
+   84,
+   93,
+   106,
+   119,
+   133,
+   146,
+   159,
+   172,
+   186,
+   199
+  ],
+  "questions": [
+   {
+    "qid": 473,
+    "target_unit": "m",
+    "prior": "acceleration of the box before 0.6s = 9.8m/s",
+    "depth_info": ""
+   },
+   {
+    "qid": 474,
+    "target_unit": "m",
+    "prior": "acceleration of the box before 0.6s = 9.8m/s",
+    "depth_info": ""
+   },
+   {
+    "qid": 475,
+    "target_unit": "m",
+    "prior": "acceleration of the box before 0.6s = 9.8m/s",
+    "depth_info": ""
+   },
+   {
+    "qid": 476,
+    "target_unit": "m/s",
+    "prior": "acceleration of the box before 0.6s = 9.8m/s",
+    "depth_info": ""
+   },
+   {
+    "qid": 477,
+    "target_unit": "m/s",
+    "prior": "acceleration of the box before 0.6s = 9.8m/s",
+    "depth_info": ""
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":473,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"box\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"box\"],\"dimension\":\"\",\"time\":null,\"window\":[0,0.6],\"axis\":\"vertical\",\"value_si\":9.8,\"unit\":\"\"},\"depth\":[],\"notes\":\"Prior unit written as m/s; interpreted as 9.8 m/s^2 free-fall acceleration before landing (~0.48s).\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"box\",\"obs\":[{\"frame\":0,\"point\":[421,131],\"extent\":null,\"box\":[358,26,484,131]},{\"frame\":12,\"point\":[421,134],\"extent\":null,\"box\":[358,29,484,134]},{\"frame\":13,\"point\":[421,136],\"extent\":null,\"box\":[358,31,484,136]},{\"frame\":24,\"point\":[421,146],\"extent\":null,\"box\":[358,42,484,146]},{\"frame\":27,\"point\":[421,151],\"extent\":null,\"box\":[358,47,484,151]},{\"frame\":36,\"point\":[421,167],\"extent\":null,\"box\":[358,66,484,167]},{\"frame\":40,\"point\":[421,174],\"extent\":null,\"box\":[358,74,484,174]},{\"frame\":48,\"point\":[421,191],\"extent\":null,\"box\":[358,95,484,191]},{\"frame\":53,\"point\":[421,207],\"extent\":null,\"box\":[358,114,484,207]}]},{\"role\":\"target\",\"object\":\"box height\",\"obs\":[{\"frame\":72,\"point\":null,\"extent\":[[421,142],[421,234]],\"box\":[358,137,484,234]},{\"frame\":93,\"point\":null,\"extent\":[[421,142],[421,234]],\"box\":[358,137,484,234]},{\"frame\":146,\"point\":null,\"extent\":[[421,142],[421,234]],\"box\":[358,137,484,234]}]}],\"direct_answer\":1.21,\"confidence\":0.45},{\"qid\":474,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"truck\"],\"dimension\":\"width\",\"time\":null,\"window\":null,\"axis\":\"horizontal\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"box\"],\"dimension\":\"\",\"time\":null,\"window\":[0,0.6],\"axis\":\"vertical\",\"value_si\":9.8,\"unit\":\"\"},\"depth\":[],\"notes\":\"Prior unit typo m/s -> m/s^2.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"box\",\"obs\":[]},{\"role\":\"target\",\"object\":\"truck\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[294,350],[546,350]],\"box\":[294,236,546,465]},{\"frame\":72,\"point\":null,\"extent\":[[294,350],[546,350]],\"box\":[294,236,546,465]},{\"frame\":199,\"point\":null,\"extent\":[[294,350],[546,350]],\"box\":[294,236,546,465]}]}],\"direct_answer\":3.29,\"confidence\":0.5},{\"qid\":475,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"box\"],\"dimension\":\"width\",\"time\":null,\"window\":null,\"axis\":\"horizontal\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"box\"],\"dimension\":\"\",\"time\":null,\"window\":[0,0.6],\"axis\":\"vertical\",\"value_si\":9.8,\"unit\":\"\"},\"depth\":[],\"notes\":\"Prior unit typo m/s -> m/s^2.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"box\",\"obs\":[]},{\"role\":\"target\",\"object\":\"box width\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[358,80],[484,80]],\"box\":[358,26,484,131]},{\"frame\":72,\"point\":null,\"extent\":[[358,190],[484,190]],\"box\":[358,137,484,234]},{\"frame\":146,\"point\":null,\"extent\":[[358,190],[484,190]],\"box\":[358,137,484,234]}]}],\"direct_answer\":1.65,\"confidence\":0.5},{\"qid\":476,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"box\"],\"dimension\":\"\",\"time\":0.2,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"box\"],\"dimension\":\"\",\"time\":null,\"window\":[0,0.6],\"axis\":\"vertical\",\"value_si\":9.8,\"unit\":\"\"},\"depth\":[],\"notes\":\"Prior unit typo m/s -> m/s^2; box released from rest at t~0.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"box\",\"obs\":[]},{\"role\":\"target\",\"object\":\"box\",\"obs\":[]}],\"direct_answer\":1.96,\"confidence\":0.7},{\"qid\":477,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"box\"],\"dimension\":\"\",\"time\":0.4,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"box\"],\"dimension\":\"\",\"time\":null,\"window\":[0,0.6],\"axis\":\"vertical\",\"value_si\":9.8,\"unit\":\"\"},\"depth\":[],\"notes\":\"Prior unit typo m/s -> m/s^2; box released from rest at t~0.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"box\",\"obs\":[]},{\"role\":\"target\",\"object\":\"box\",\"obs\":[]}],\"direct_answer\":3.92,\"confidence\":0.7}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 473,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "box"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "box"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": [
+       0,
+       0.6
+      ],
+      "axis": "vertical",
+      "value_si": 9.8,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Prior unit written as m/s; interpreted as 9.8 m/s^2 free-fall acceleration before landing (~0.48s)."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "box",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         421,
+         131
+        ],
+        "extent": null,
+        "box": [
+         358,
+         26,
+         484,
+         131
+        ]
+       },
+       {
+        "frame": 12,
+        "point": [
+         421,
+         134
+        ],
+        "extent": null,
+        "box": [
+         358,
+         29,
+         484,
+         134
+        ]
+       },
+       {
+        "frame": 13,
+        "point": [
+         421,
+         136
+        ],
+        "extent": null,
+        "box": [
+         358,
+         31,
+         484,
+         136
+        ]
+       },
+       {
+        "frame": 24,
+        "point": [
+         421,
+         146
+        ],
+        "extent": null,
+        "box": [
+         358,
+         42,
+         484,
+         146
+        ]
+       },
+       {
+        "frame": 27,
+        "point": [
+         421,
+         151
+        ],
+        "extent": null,
+        "box": [
+         358,
+         47,
+         484,
+         151
+        ]
+       },
+       {
+        "frame": 36,
+        "point": [
+         421,
+         167
+        ],
+        "extent": null,
+        "box": [
+         358,
+         66,
+         484,
+         167
+        ]
+       },
+       {
+        "frame": 40,
+        "point": [
+         421,
+         174
+        ],
+        "extent": null,
+        "box": [
+         358,
+         74,
+         484,
+         174
+        ]
+       },
+       {
+        "frame": 48,
+        "point": [
+         421,
+         191
+        ],
+        "extent": null,
+        "box": [
+         358,
+         95,
+         484,
+         191
+        ]
+       },
+       {
+        "frame": 53,
+        "point": [
+         421,
+         207
+        ],
+        "extent": null,
+        "box": [
+         358,
+         114,
+         484,
+         207
+        ]
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "box height",
+      "obs": [
+       {
+        "frame": 72,
+        "point": null,
+        "extent": [
+         [
+          421,
+          142
+         ],
+         [
+          421,
+          234
+         ]
+        ],
+        "box": [
+         358,
+         137,
+         484,
+         234
+        ]
+       },
+       {
+        "frame": 93,
+        "point": null,
+        "extent": [
+         [
+          421,
+          142
+         ],
+         [
+          421,
+          234
+         ]
+        ],
+        "box": [
+         358,
+         137,
+         484,
+         234
+        ]
+       },
+       {
+        "frame": 146,
+        "point": null,
+        "extent": [
+         [
+          421,
+          142
+         ],
+         [
+          421,
+          234
+         ]
+        ],
+        "box": [
+         358,
+         137,
+         484,
+         234
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 1.21,
+    "confidence": 0.45
+   },
+   {
+    "qid": 474,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "truck"
+      ],
+      "dimension": "width",
+      "time": null,
+      "window": null,
+      "axis": "horizontal",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "box"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": [
+       0,
+       0.6
+      ],
+      "axis": "vertical",
+      "value_si": 9.8,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Prior unit typo m/s -> m/s^2."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "box",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "truck",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          294,
+          350
+         ],
+         [
+          546,
+          350
+         ]
+        ],
+        "box": [
+         294,
+         236,
+         546,
+         465
+        ]
+       },
+       {
+        "frame": 72,
+        "point": null,
+        "extent": [
+         [
+          294,
+          350
+         ],
+         [
+          546,
+          350
+         ]
+        ],
+        "box": [
+         294,
+         236,
+         546,
+         465
+        ]
+       },
+       {
+        "frame": 199,
+        "point": null,
+        "extent": [
+         [
+          294,
+          350
+         ],
+         [
+          546,
+          350
+         ]
+        ],
+        "box": [
+         294,
+         236,
+         546,
+         465
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 3.29,
+    "confidence": 0.5
+   },
+   {
+    "qid": 475,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "box"
+      ],
+      "dimension": "width",
+      "time": null,
+      "window": null,
+      "axis": "horizontal",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "box"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": [
+       0,
+       0.6
+      ],
+      "axis": "vertical",
+      "value_si": 9.8,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Prior unit typo m/s -> m/s^2."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "box",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "box width",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          358,
+          80
+         ],
+         [
+          484,
+          80
+         ]
+        ],
+        "box": [
+         358,
+         26,
+         484,
+         131
+        ]
+       },
+       {
+        "frame": 72,
+        "point": null,
+        "extent": [
+         [
+          358,
+          190
+         ],
+         [
+          484,
+          190
+         ]
+        ],
+        "box": [
+         358,
+         137,
+         484,
+         234
+        ]
+       },
+       {
+        "frame": 146,
+        "point": null,
+        "extent": [
+         [
+          358,
+          190
+         ],
+         [
+          484,
+          190
+         ]
+        ],
+        "box": [
+         358,
+         137,
+         484,
+         234
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 1.65,
+    "confidence": 0.5
+   },
+   {
+    "qid": 476,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "box"
+      ],
+      "dimension": "",
+      "time": 0.2,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "box"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": [
+       0,
+       0.6
+      ],
+      "axis": "vertical",
+      "value_si": 9.8,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Prior unit typo m/s -> m/s^2; box released from rest at t~0."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "box",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "box",
+      "obs": []
+     }
+    ],
+    "direct_answer": 1.96,
+    "confidence": 0.7
+   },
+   {
+    "qid": 477,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "box"
+      ],
+      "dimension": "",
+      "time": 0.4,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "box"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": [
+       0,
+       0.6
+      ],
+      "axis": "vertical",
+      "value_si": 9.8,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Prior unit typo m/s -> m/s^2; box released from rest at t~0."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "box",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "box",
+      "obs": []
+     }
+    ],
+    "direct_answer": 3.92,
+    "confidence": 0.7
+   }
+  ]
+ }
+}

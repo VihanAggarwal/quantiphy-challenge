@@ -1,0 +1,572 @@
+{
+ "video_id": "simulation_0243_segmented",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfprxRMVujwYyjKFTxmqv",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 854
+ },
+ "ts": "2026-10-08T17:09:48+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_01SmLRdd1f81Bv4cEJSXfSE9",
+ "custom_id": "simulation_0243_segmented",
+ "usage": {
+  "input_tokens": 9492,
+  "output_tokens": 2637,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 4317,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.045786,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0243_segmented",
+  "fps": 30.0,
+  "fps_from_container": false,
+  "video_type": "V2MX",
+  "n_frames_total": 75,
+  "scale": 0.44479166666666664,
+  "image_size": [
+   1079,
+   1920
+  ],
+  "frames": [
+   0,
+   5,
+   10,
+   15,
+   20,
+   25,
+   30,
+   35,
+   39,
+   44,
+   49,
+   54,
+   59,
+   64,
+   69,
+   74
+  ],
+  "questions": [
+   {
+    "qid": 1977,
+    "target_unit": "m",
+    "prior": "speed of the deer = 1.277m/s",
+    "depth_info": ""
+   },
+   {
+    "qid": 1978,
+    "target_unit": "m",
+    "prior": "speed of the deer = 1.277m/s",
+    "depth_info": ""
+   },
+   {
+    "qid": 1979,
+    "target_unit": "m",
+    "prior": "speed of the deer = 1.277m/s",
+    "depth_info": ""
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":1977,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"deer\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"deer\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":1.277,\"unit\":\"\"},\"depth\":[],\"notes\":\"Height taken from hooves to top of horns/ears.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"deer\",\"obs\":[{\"frame\":0,\"point\":[247,567],\"extent\":null,\"box\":null},{\"frame\":5,\"point\":[260,563],\"extent\":null,\"box\":null},{\"frame\":10,\"point\":[276,565],\"extent\":null,\"box\":null},{\"frame\":15,\"point\":[290,566],\"extent\":null,\"box\":null},{\"frame\":20,\"point\":[305,566],\"extent\":null,\"box\":null},{\"frame\":25,\"point\":[318,563],\"extent\":null,\"box\":null},{\"frame\":30,\"point\":[334,563],\"extent\":null,\"box\":null},{\"frame\":35,\"point\":[348,566],\"extent\":null,\"box\":null},{\"frame\":39,\"point\":[358,566],\"extent\":null,\"box\":null},{\"frame\":44,\"point\":[371,564],\"extent\":null,\"box\":null},{\"frame\":49,\"point\":[389,564],\"extent\":null,\"box\":null},{\"frame\":54,\"point\":[403,564],\"extent\":null,\"box\":null},{\"frame\":59,\"point\":[416,565],\"extent\":null,\"box\":null},{\"frame\":64,\"point\":[430,563],\"extent\":null,\"box\":null},{\"frame\":69,\"point\":[447,563],\"extent\":null,\"box\":null},{\"frame\":74,\"point\":[462,565],\"extent\":null,\"box\":null}]},{\"role\":\"target\",\"object\":\"deer\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[205,507],[205,688]],\"box\":[65,507,247,688]},{\"frame\":30,\"point\":null,\"extent\":[[290,508],[290,689]],\"box\":[110,508,334,689]},{\"frame\":59,\"point\":[0,0],\"extent\":[[375,505],[375,688]],\"box\":[207,505,416,688]},{\"frame\":74,\"point\":null,\"extent\":[[425,503],[425,688]],\"box\":[244,503,462,688]}]}],\"direct_answer\":2.71,\"confidence\":0.45},{\"qid\":1978,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"deer\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"horizontal\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"deer\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":1.277,\"unit\":\"\"},\"depth\":[],\"notes\":\"Length taken nose to rump (tail excluded).\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"deer\",\"obs\":[]},{\"role\":\"target\",\"object\":\"deer\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[95,585],[247,567]],\"box\":[65,507,247,688]},{\"frame\":30,\"point\":null,\"extent\":[[182,585],[334,563]],\"box\":[110,508,334,689]},{\"frame\":74,\"point\":null,\"extent\":[[300,585],[462,565]],\"box\":[244,503,462,688]}]}],\"direct_answer\":2.3,\"confidence\":0.35},{\"qid\":1979,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"tree\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"deer\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":1.277,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"deer\",\"obs\":[]},{\"role\":\"target\",\"object\":\"tree\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[52,163],[35,607]],\"box\":[0,163,205,607]},{\"frame\":30,\"point\":null,\"extent\":[[52,163],[35,607]],\"box\":[0,163,210,607]},{\"frame\":74,\"point\":null,\"extent\":[[52,163],[35,607]],\"box\":[0,163,222,607]}]}],\"direct_answer\":6.5,\"confidence\":0.5}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 1977,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "deer"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "deer"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 1.277,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Height taken from hooves to top of horns/ears."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "deer",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         247,
+         567
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 5,
+        "point": [
+         260,
+         563
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 10,
+        "point": [
+         276,
+         565
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 15,
+        "point": [
+         290,
+         566
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 20,
+        "point": [
+         305,
+         566
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 25,
+        "point": [
+         318,
+         563
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 30,
+        "point": [
+         334,
+         563
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 35,
+        "point": [
+         348,
+         566
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 39,
+        "point": [
+         358,
+         566
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 44,
+        "point": [
+         371,
+         564
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 49,
+        "point": [
+         389,
+         564
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 54,
+        "point": [
+         403,
+         564
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 59,
+        "point": [
+         416,
+         565
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 64,
+        "point": [
+         430,
+         563
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 69,
+        "point": [
+         447,
+         563
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 74,
+        "point": [
+         462,
+         565
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "deer",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          205,
+          507
+         ],
+         [
+          205,
+          688
+         ]
+        ],
+        "box": [
+         65,
+         507,
+         247,
+         688
+        ]
+       },
+       {
+        "frame": 30,
+        "point": null,
+        "extent": [
+         [
+          290,
+          508
+         ],
+         [
+          290,
+          689
+         ]
+        ],
+        "box": [
+         110,
+         508,
+         334,
+         689
+        ]
+       },
+       {
+        "frame": 59,
+        "point": [
+         0,
+         0
+        ],
+        "extent": [
+         [
+          375,
+          505
+         ],
+         [
+          375,
+          688
+         ]
+        ],
+        "box": [
+         207,
+         505,
+         416,
+         688
+        ]
+       },
+       {
+        "frame": 74,
+        "point": null,
+        "extent": [
+         [
+          425,
+          503
+         ],
+         [
+          425,
+          688
+         ]
+        ],
+        "box": [
+         244,
+         503,
+         462,
+         688
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 2.71,
+    "confidence": 0.45
+   },
+   {
+    "qid": 1978,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "deer"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "horizontal",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "deer"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 1.277,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Length taken nose to rump (tail excluded)."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "deer",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "deer",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          95,
+          585
+         ],
+         [
+          247,
+          567
+         ]
+        ],
+        "box": [
+         65,
+         507,
+         247,
+         688
+        ]
+       },
+       {
+        "frame": 30,
+        "point": null,
+        "extent": [
+         [
+          182,
+          585
+         ],
+         [
+          334,
+          563
+         ]
+        ],
+        "box": [
+         110,
+         508,
+         334,
+         689
+        ]
+       },
+       {
+        "frame": 74,
+        "point": null,
+        "extent": [
+         [
+          300,
+          585
+         ],
+         [
+          462,
+          565
+         ]
+        ],
+        "box": [
+         244,
+         503,
+         462,
+         688
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 2.3,
+    "confidence": 0.35
+   },
+   {
+    "qid": 1979,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "tree"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "deer"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 1.277,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "deer",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "tree",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          52,
+          163
+         ],
+         [
+          35,
+          607
+         ]
+        ],
+        "box": [
+         0,
+         163,
+         205,
+         607
+        ]
+       },
+       {
+        "frame": 30,
+        "point": null,
+        "extent": [
+         [
+          52,
+          163
+         ],
+         [
+          35,
+          607
+         ]
+        ],
+        "box": [
+         0,
+         163,
+         210,
+         607
+        ]
+       },
+       {
+        "frame": 74,
+        "point": null,
+        "extent": [
+         [
+          52,
+          163
+         ],
+         [
+          35,
+          607
+         ]
+        ],
+        "box": [
+         0,
+         163,
+         222,
+         607
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 6.5,
+    "confidence": 0.5
+   }
+  ]
+ }
+}

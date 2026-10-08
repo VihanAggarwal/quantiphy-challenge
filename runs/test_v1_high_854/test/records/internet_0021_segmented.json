@@ -1,0 +1,503 @@
+{
+ "video_id": "internet_0021_segmented",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011Cfq6hP2pbSCrm5RMSQ6KR",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 854
+ },
+ "ts": "2026-10-08T16:38:54+00:00",
+ "mode": "sync",
+ "request_id": "req_011Cfq6hNaXjbxcrHcxiFe3t",
+ "usage": {
+  "input_tokens": 11233,
+  "output_tokens": 2118,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 4317,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.088155,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "internet_0021_segmented",
+  "fps": 30.0,
+  "fps_from_container": false,
+  "video_type": "S2SS",
+  "n_frames_total": 107,
+  "scale": 1.0,
+  "image_size": [
+   850,
+   478
+  ],
+  "frames": [
+   0,
+   3,
+   7,
+   14,
+   21,
+   28,
+   35,
+   42,
+   49,
+   57,
+   60,
+   63,
+   64,
+   71,
+   78,
+   85,
+   92,
+   99,
+   106
+  ],
+  "questions": [
+   {
+    "qid": 2978,
+    "target_unit": "m/s",
+    "prior": "length of the airplane = 40m",
+    "depth_info": ""
+   },
+   {
+    "qid": 2979,
+    "target_unit": "m",
+    "prior": "length of the airplane = 40m",
+    "depth_info": ""
+   },
+   {
+    "qid": 2980,
+    "target_unit": "m",
+    "prior": "length of the airplane = 40m",
+    "depth_info": ""
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":2978,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"airplane\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"airplane\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":40,\"unit\":\"\"},\"depth\":[],\"notes\":\"Average over the clip while the plane is visible; the camera pans slightly.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"airplane\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[356,187],[425,192]],\"box\":[355,182,426,201]},{\"frame\":3,\"point\":null,\"extent\":[[367,186],[436,191]],\"box\":[366,181,437,200]},{\"frame\":14,\"point\":null,\"extent\":[[411,185],[481,191]],\"box\":[410,180,482,200]},{\"frame\":28,\"point\":null,\"extent\":[[469,184],[542,190]],\"box\":[468,180,543,200]},{\"frame\":49,\"point\":null,\"extent\":[[561,184],[639,191]],\"box\":[560,179,640,200]}]},{\"role\":\"target\",\"object\":\"airplane\",\"obs\":[{\"frame\":0,\"point\":[390.5,192],\"extent\":null,\"box\":null},{\"frame\":3,\"point\":[401.5,191],\"extent\":null,\"box\":null},{\"frame\":7,\"point\":[417.5,190],\"extent\":null,\"box\":null},{\"frame\":14,\"point\":[446,190],\"extent\":null,\"box\":null},{\"frame\":21,\"point\":[476,190],\"extent\":null,\"box\":null},{\"frame\":28,\"point\":[506,189],\"extent\":null,\"box\":null},{\"frame\":35,\"point\":[537,188],\"extent\":null,\"box\":null},{\"frame\":42,\"point\":[568,188],\"extent\":null,\"box\":null},{\"frame\":49,\"point\":[600,190],\"extent\":null,\"box\":null},{\"frame\":57,\"point\":[638,189],\"extent\":null,\"box\":null},{\"frame\":60,\"point\":[653,190],\"extent\":null,\"box\":null},{\"frame\":63,\"point\":[668,189],\"extent\":null,\"box\":null},{\"frame\":64,\"point\":[673,189],\"extent\":null,\"box\":null},{\"frame\":71,\"point\":[708,188],\"extent\":null,\"box\":null},{\"frame\":78,\"point\":[745,187],\"extent\":null,\"box\":null},{\"frame\":85,\"point\":[783,186],\"extent\":null,\"box\":null}]}],\"direct_answer\":81,\"confidence\":0.5},{\"qid\":2979,\"spec\":{\"target\":{\"kind\":\"distance\",\"objects\":[\"airplane\",\"roof top\"],\"dimension\":\"\",\"time\":0,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"airplane\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":40,\"unit\":\"\"},\"depth\":[],\"notes\":\"Roof top assumed to be the building roof directly below the airplane.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"airplane\",\"obs\":[]},{\"role\":\"target\",\"object\":\"airplane\",\"obs\":[{\"frame\":0,\"point\":[390.5,192],\"extent\":null,\"box\":[355,182,426,201]}]},{\"role\":\"target2\",\"object\":\"roof top\",\"obs\":[{\"frame\":0,\"point\":[390.5,316],\"extent\":null,\"box\":null}]}],\"direct_answer\":72,\"confidence\":0.3},{\"qid\":2980,\"spec\":{\"target\":{\"kind\":\"displacement\",\"objects\":[\"airplane\"],\"dimension\":\"\",\"time\":null,\"window\":[0,2.0],\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"airplane\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":40,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"airplane\",\"obs\":[]},{\"role\":\"target\",\"object\":\"airplane\",\"obs\":[]}],\"direct_answer\":152,\"confidence\":0.55}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 2978,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "airplane"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "airplane"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 40,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Average over the clip while the plane is visible; the camera pans slightly."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "airplane",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          356,
+          187
+         ],
+         [
+          425,
+          192
+         ]
+        ],
+        "box": [
+         355,
+         182,
+         426,
+         201
+        ]
+       },
+       {
+        "frame": 3,
+        "point": null,
+        "extent": [
+         [
+          367,
+          186
+         ],
+         [
+          436,
+          191
+         ]
+        ],
+        "box": [
+         366,
+         181,
+         437,
+         200
+        ]
+       },
+       {
+        "frame": 14,
+        "point": null,
+        "extent": [
+         [
+          411,
+          185
+         ],
+         [
+          481,
+          191
+         ]
+        ],
+        "box": [
+         410,
+         180,
+         482,
+         200
+        ]
+       },
+       {
+        "frame": 28,
+        "point": null,
+        "extent": [
+         [
+          469,
+          184
+         ],
+         [
+          542,
+          190
+         ]
+        ],
+        "box": [
+         468,
+         180,
+         543,
+         200
+        ]
+       },
+       {
+        "frame": 49,
+        "point": null,
+        "extent": [
+         [
+          561,
+          184
+         ],
+         [
+          639,
+          191
+         ]
+        ],
+        "box": [
+         560,
+         179,
+         640,
+         200
+        ]
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "airplane",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         390.5,
+         192
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 3,
+        "point": [
+         401.5,
+         191
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 7,
+        "point": [
+         417.5,
+         190
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 14,
+        "point": [
+         446,
+         190
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 21,
+        "point": [
+         476,
+         190
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 28,
+        "point": [
+         506,
+         189
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 35,
+        "point": [
+         537,
+         188
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 42,
+        "point": [
+         568,
+         188
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 49,
+        "point": [
+         600,
+         190
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 57,
+        "point": [
+         638,
+         189
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 60,
+        "point": [
+         653,
+         190
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 63,
+        "point": [
+         668,
+         189
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 64,
+        "point": [
+         673,
+         189
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 71,
+        "point": [
+         708,
+         188
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 78,
+        "point": [
+         745,
+         187
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 85,
+        "point": [
+         783,
+         186
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     }
+    ],
+    "direct_answer": 81,
+    "confidence": 0.5
+   },
+   {
+    "qid": 2979,
+    "spec": {
+     "target": {
+      "kind": "distance",
+      "objects": [
+       "airplane",
+       "roof top"
+      ],
+      "dimension": "",
+      "time": 0,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "airplane"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 40,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Roof top assumed to be the building roof directly below the airplane."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "airplane",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "airplane",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         390.5,
+         192
+        ],
+        "extent": null,
+        "box": [
+         355,
+         182,
+         426,
+         201
+        ]
+       }
+      ]
+     },
+     {
+      "role": "target2",
+      "object": "roof top",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         390.5,
+         316
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     }
+    ],
+    "direct_answer": 72,
+    "confidence": 0.3
+   },
+   {
+    "qid": 2980,
+    "spec": {
+     "target": {
+      "kind": "displacement",
+      "objects": [
+       "airplane"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": [
+       0,
+       2.0
+      ],
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "airplane"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 40,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "airplane",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "airplane",
+      "obs": []
+     }
+    ],
+    "direct_answer": 152,
+    "confidence": 0.55
+   }
+  ]
+ }
+}

@@ -1,0 +1,808 @@
+{
+ "video_id": "simulation_0239_segmented",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfpqmJu8sJ6jKDX89vr9j",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 854
+ },
+ "ts": "2026-10-08T17:09:48+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_01SmLRdd1f81Bv4cEJSXfSE9",
+ "custom_id": "simulation_0239_segmented",
+ "usage": {
+  "input_tokens": 9630,
+  "output_tokens": 3022,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 4317,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.049912,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0239_segmented",
+  "fps": 24.0,
+  "fps_from_container": false,
+  "video_type": "V2MX",
+  "n_frames_total": 50,
+  "scale": 0.44479166666666664,
+  "image_size": [
+   1920,
+   1079
+  ],
+  "frames": [
+   0,
+   3,
+   7,
+   10,
+   13,
+   16,
+   20,
+   23,
+   26,
+   29,
+   33,
+   36,
+   39,
+   42,
+   46,
+   49
+  ],
+  "questions": [
+   {
+    "qid": 1972,
+    "target_unit": "m",
+    "prior": "speed of the brown horse = 0.874m/s",
+    "depth_info": ""
+   },
+   {
+    "qid": 1973,
+    "target_unit": "m",
+    "prior": "speed of the brown horse = 0.874m/s",
+    "depth_info": ""
+   },
+   {
+    "qid": 1974,
+    "target_unit": "m",
+    "prior": "speed of the brown horse = 0.874m/s",
+    "depth_info": ""
+   },
+   {
+    "qid": 1975,
+    "target_unit": "m/s",
+    "prior": "speed of the brown horse = 0.874m/s",
+    "depth_info": ""
+   },
+   {
+    "qid": 1976,
+    "target_unit": "m",
+    "prior": "speed of the brown horse = 0.874m/s",
+    "depth_info": ""
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":1972,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"brown horse\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"brown horse\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.874,\"unit\":\"\"},\"depth\":[],\"notes\":\"Brown horse appears reset at frame 49; speed from frames 0-46.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"brown horse\",\"obs\":[{\"frame\":0,\"point\":[372,346],\"extent\":null,\"box\":null},{\"frame\":3,\"point\":[376,346],\"extent\":null,\"box\":null},{\"frame\":7,\"point\":[380,346],\"extent\":null,\"box\":null},{\"frame\":10,\"point\":[384,346],\"extent\":null,\"box\":null},{\"frame\":13,\"point\":[386,346],\"extent\":null,\"box\":null},{\"frame\":16,\"point\":[390,346],\"extent\":null,\"box\":null},{\"frame\":20,\"point\":[395,346],\"extent\":null,\"box\":null},{\"frame\":23,\"point\":[400,346],\"extent\":null,\"box\":null},{\"frame\":26,\"point\":[405,346],\"extent\":null,\"box\":null},{\"frame\":29,\"point\":[407,346],\"extent\":null,\"box\":null},{\"frame\":33,\"point\":[412,346],\"extent\":null,\"box\":null},{\"frame\":36,\"point\":[414,346],\"extent\":null,\"box\":null},{\"frame\":39,\"point\":[418,346],\"extent\":null,\"box\":null},{\"frame\":42,\"point\":[422,346],\"extent\":null,\"box\":null},{\"frame\":46,\"point\":[428,346],\"extent\":null,\"box\":null}]},{\"role\":\"target\",\"object\":\"brown horse\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[308,345],[372,345]],\"box\":[308,335,372,357]},{\"frame\":23,\"point\":null,\"extent\":[[335,345],[400,345]],\"box\":[335,336,400,355]},{\"frame\":46,\"point\":null,\"extent\":[[362,346],[428,346]],\"box\":[362,336,428,357]}]}],\"direct_answer\":1.92,\"confidence\":0.5},{\"qid\":1973,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"house\"],\"dimension\":\"width\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"brown horse\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.874,\"unit\":\"\"},\"depth\":[],\"notes\":\"Width taken as horizontal extent of house.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"brown horse\",\"obs\":[]},{\"role\":\"target\",\"object\":\"house\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[275,170],[632,170]],\"box\":[275,12,632,330]},{\"frame\":49,\"point\":null,\"extent\":[[275,170],[632,170]],\"box\":[275,12,632,330]}]}],\"direct_answer\":10.7,\"confidence\":0.3},{\"qid\":1974,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"house\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"brown horse\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.874,\"unit\":\"\"},\"depth\":[],\"notes\":\"Length ambiguous; taken as vertical extent.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"brown horse\",\"obs\":[]},{\"role\":\"target\",\"object\":\"house\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[452,12],[452,330]],\"box\":[275,12,632,330]},{\"frame\":49,\"point\":null,\"extent\":[[452,12],[452,330]],\"box\":[275,12,632,330]}]}],\"direct_answer\":9.5,\"confidence\":0.25},{\"qid\":1975,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"white horse\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"brown horse\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.874,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"brown horse\",\"obs\":[]},{\"role\":\"target\",\"object\":\"white horse\",\"obs\":[{\"frame\":0,\"point\":[475,388],\"extent\":null,\"box\":null},{\"frame\":3,\"point\":[481,388],\"extent\":null,\"box\":null},{\"frame\":7,\"point\":[490,388],\"extent\":null,\"box\":null},{\"frame\":10,\"point\":[496,386],\"extent\":null,\"box\":null},{\"frame\":13,\"point\":[502,385],\"extent\":null,\"box\":null},{\"frame\":16,\"point\":[508,385],\"extent\":null,\"box\":null},{\"frame\":20,\"point\":[516,384],\"extent\":null,\"box\":null},{\"frame\":23,\"point\":[522,385],\"extent\":null,\"box\":null},{\"frame\":26,\"point\":[529,386],\"extent\":null,\"box\":null},{\"frame\":29,\"point\":[535,387],\"extent\":null,\"box\":null},{\"frame\":33,\"point\":[543,389],\"extent\":null,\"box\":null},{\"frame\":36,\"point\":[549,390],\"extent\":null,\"box\":null},{\"frame\":39,\"point\":[556,389],\"extent\":null,\"box\":null},{\"frame\":42,\"point\":[562,388],\"extent\":null,\"box\":null},{\"frame\":46,\"point\":[570,385],\"extent\":null,\"box\":null},{\"frame\":49,\"point\":[577,385],\"extent\":null,\"box\":null}]}],\"direct_answer\":1.46,\"confidence\":0.45},{\"qid\":1976,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"white horse\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"brown horse\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.874,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"brown horse\",\"obs\":[]},{\"role\":\"target\",\"object\":\"white horse\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[398,385],[475,388]],\"box\":[398,373,475,395]},{\"frame\":23,\"point\":null,\"extent\":[[444,382],[522,385]],\"box\":[444,373,522,394]},{\"frame\":49,\"point\":null,\"extent\":[[497,380],[577,385]],\"box\":[497,372,577,393]}]}],\"direct_answer\":2.33,\"confidence\":0.45}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 1972,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "brown horse"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "brown horse"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.874,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Brown horse appears reset at frame 49; speed from frames 0-46."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "brown horse",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         372,
+         346
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 3,
+        "point": [
+         376,
+         346
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 7,
+        "point": [
+         380,
+         346
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 10,
+        "point": [
+         384,
+         346
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 13,
+        "point": [
+         386,
+         346
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 16,
+        "point": [
+         390,
+         346
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 20,
+        "point": [
+         395,
+         346
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 23,
+        "point": [
+         400,
+         346
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 26,
+        "point": [
+         405,
+         346
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 29,
+        "point": [
+         407,
+         346
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 33,
+        "point": [
+         412,
+         346
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 36,
+        "point": [
+         414,
+         346
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 39,
+        "point": [
+         418,
+         346
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 42,
+        "point": [
+         422,
+         346
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 46,
+        "point": [
+         428,
+         346
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "brown horse",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          308,
+          345
+         ],
+         [
+          372,
+          345
+         ]
+        ],
+        "box": [
+         308,
+         335,
+         372,
+         357
+        ]
+       },
+       {
+        "frame": 23,
+        "point": null,
+        "extent": [
+         [
+          335,
+          345
+         ],
+         [
+          400,
+          345
+         ]
+        ],
+        "box": [
+         335,
+         336,
+         400,
+         355
+        ]
+       },
+       {
+        "frame": 46,
+        "point": null,
+        "extent": [
+         [
+          362,
+          346
+         ],
+         [
+          428,
+          346
+         ]
+        ],
+        "box": [
+         362,
+         336,
+         428,
+         357
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 1.92,
+    "confidence": 0.5
+   },
+   {
+    "qid": 1973,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "house"
+      ],
+      "dimension": "width",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "brown horse"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.874,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Width taken as horizontal extent of house."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "brown horse",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "house",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          275,
+          170
+         ],
+         [
+          632,
+          170
+         ]
+        ],
+        "box": [
+         275,
+         12,
+         632,
+         330
+        ]
+       },
+       {
+        "frame": 49,
+        "point": null,
+        "extent": [
+         [
+          275,
+          170
+         ],
+         [
+          632,
+          170
+         ]
+        ],
+        "box": [
+         275,
+         12,
+         632,
+         330
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 10.7,
+    "confidence": 0.3
+   },
+   {
+    "qid": 1974,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "house"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "brown horse"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.874,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Length ambiguous; taken as vertical extent."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "brown horse",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "house",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          452,
+          12
+         ],
+         [
+          452,
+          330
+         ]
+        ],
+        "box": [
+         275,
+         12,
+         632,
+         330
+        ]
+       },
+       {
+        "frame": 49,
+        "point": null,
+        "extent": [
+         [
+          452,
+          12
+         ],
+         [
+          452,
+          330
+         ]
+        ],
+        "box": [
+         275,
+         12,
+         632,
+         330
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 9.5,
+    "confidence": 0.25
+   },
+   {
+    "qid": 1975,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "white horse"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "brown horse"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.874,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "brown horse",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "white horse",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         475,
+         388
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 3,
+        "point": [
+         481,
+         388
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 7,
+        "point": [
+         490,
+         388
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 10,
+        "point": [
+         496,
+         386
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 13,
+        "point": [
+         502,
+         385
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 16,
+        "point": [
+         508,
+         385
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 20,
+        "point": [
+         516,
+         384
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 23,
+        "point": [
+         522,
+         385
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 26,
+        "point": [
+         529,
+         386
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 29,
+        "point": [
+         535,
+         387
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 33,
+        "point": [
+         543,
+         389
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 36,
+        "point": [
+         549,
+         390
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 39,
+        "point": [
+         556,
+         389
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 42,
+        "point": [
+         562,
+         388
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 46,
+        "point": [
+         570,
+         385
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 49,
+        "point": [
+         577,
+         385
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     }
+    ],
+    "direct_answer": 1.46,
+    "confidence": 0.45
+   },
+   {
+    "qid": 1976,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "white horse"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "brown horse"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.874,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "brown horse",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "white horse",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          398,
+          385
+         ],
+         [
+          475,
+          388
+         ]
+        ],
+        "box": [
+         398,
+         373,
+         475,
+         395
+        ]
+       },
+       {
+        "frame": 23,
+        "point": null,
+        "extent": [
+         [
+          444,
+          382
+         ],
+         [
+          522,
+          385
+         ]
+        ],
+        "box": [
+         444,
+         373,
+         522,
+         394
+        ]
+       },
+       {
+        "frame": 49,
+        "point": null,
+        "extent": [
+         [
+          497,
+          380
+         ],
+         [
+          577,
+          385
+         ]
+        ],
+        "box": [
+         497,
+         372,
+         577,
+         393
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 2.33,
+    "confidence": 0.45
+   }
+  ]
+ }
+}

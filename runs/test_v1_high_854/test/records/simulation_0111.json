@@ -1,0 +1,589 @@
+{
+ "video_id": "simulation_0111",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfpqP9krSJEXthUiyemKN",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 854
+ },
+ "ts": "2026-10-08T17:06:39+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_016r6K9zxh6EpX5dn7cBW8KC",
+ "custom_id": "simulation_0111",
+ "usage": {
+  "input_tokens": 9475,
+  "output_tokens": 2061,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 4317,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.039992,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0111",
+  "fps": 24.0,
+  "fps_from_container": false,
+  "video_type": "V2MC",
+  "n_frames_total": 211,
+  "scale": 0.4169921875,
+  "image_size": [
+   1175,
+   2048
+  ],
+  "frames": [
+   0,
+   14,
+   28,
+   42,
+   56,
+   70,
+   84,
+   98,
+   112,
+   126,
+   140,
+   154,
+   168,
+   182,
+   196,
+   210
+  ],
+  "questions": [
+   {
+    "qid": 224,
+    "target_unit": "m",
+    "prior": "speed of the boat = 2m/s",
+    "depth_info": ""
+   },
+   {
+    "qid": 225,
+    "target_unit": "m",
+    "prior": "speed of the boat = 2m/s",
+    "depth_info": ""
+   },
+   {
+    "qid": 226,
+    "target_unit": "m",
+    "prior": "speed of the boat = 2m/s",
+    "depth_info": ""
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":224,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"boat\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"boat\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":2.0,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"boat\",\"obs\":[{\"frame\":14,\"point\":[263.5,145.5],\"extent\":null,\"box\":[246,95,281,196]},{\"frame\":28,\"point\":[263.5,177.5],\"extent\":null,\"box\":[246,127,281,228]},{\"frame\":42,\"point\":[263.5,209.5],\"extent\":null,\"box\":[246,159,281,260]},{\"frame\":56,\"point\":[263.5,241.5],\"extent\":null,\"box\":[246,191,281,292]},{\"frame\":70,\"point\":[263.5,273.5],\"extent\":null,\"box\":[246,223,281,324]},{\"frame\":210,\"point\":[263.5,595],\"extent\":null,\"box\":[246,545,281,645]}]},{\"role\":\"target\",\"object\":\"boat\",\"obs\":[{\"frame\":14,\"point\":null,\"extent\":[[263.5,95],[263.5,196]],\"box\":[246,95,281,196]},{\"frame\":28,\"point\":null,\"extent\":[[263.5,127],[263.5,228]],\"box\":[246,127,281,228]},{\"frame\":42,\"point\":null,\"extent\":[[263.5,159],[263.5,260]],\"box\":[246,159,281,260]},{\"frame\":56,\"point\":null,\"extent\":[[263.5,191],[263.5,292]],\"box\":[246,191,281,292]},{\"frame\":210,\"point\":null,\"extent\":[[263.5,545],[263.5,645]],\"box\":[246,545,281,645]}]}],\"direct_answer\":3.68,\"confidence\":0.6},{\"qid\":225,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"boat\"],\"dimension\":\"width\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"boat\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":2.0,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"boat\",\"obs\":[]},{\"role\":\"target\",\"object\":\"boat\",\"obs\":[{\"frame\":14,\"point\":null,\"extent\":[[246,145.5],[281,145.5]],\"box\":[246,95,281,196]},{\"frame\":28,\"point\":null,\"extent\":[[246,177.5],[281,177.5]],\"box\":[246,127,281,228]},{\"frame\":42,\"point\":null,\"extent\":[[246,209.5],[281,209.5]],\"box\":[246,159,281,260]},{\"frame\":56,\"point\":null,\"extent\":[[246,241.5],[281,241.5]],\"box\":[246,191,281,292]},{\"frame\":210,\"point\":null,\"extent\":[[246,595],[281,595]],\"box\":[246,545,281,645]}]}],\"direct_answer\":1.27,\"confidence\":0.5},{\"qid\":226,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"bridge\"],\"dimension\":\"width\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"boat\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":2.0,\"unit\":\"\"},\"depth\":[],\"notes\":\"Bridge width taken as deck width along the canal direction (perpendicular to span).\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"boat\",\"obs\":[]},{\"role\":\"target\",\"object\":\"bridge\",\"obs\":[{\"frame\":14,\"point\":null,\"extent\":[[245,330],[245,520]],\"box\":[5,320,485,540]},{\"frame\":70,\"point\":null,\"extent\":[[245,330],[245,520]],\"box\":[5,320,485,540]},{\"frame\":140,\"point\":null,\"extent\":[[245,330],[245,520]],\"box\":[5,320,485,540]},{\"frame\":210,\"point\":null,\"extent\":[[245,330],[245,520]],\"box\":[5,320,485,540]}]}],\"direct_answer\":6.9,\"confidence\":0.4}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 224,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "boat"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "boat"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 2.0,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "boat",
+      "obs": [
+       {
+        "frame": 14,
+        "point": [
+         263.5,
+         145.5
+        ],
+        "extent": null,
+        "box": [
+         246,
+         95,
+         281,
+         196
+        ]
+       },
+       {
+        "frame": 28,
+        "point": [
+         263.5,
+         177.5
+        ],
+        "extent": null,
+        "box": [
+         246,
+         127,
+         281,
+         228
+        ]
+       },
+       {
+        "frame": 42,
+        "point": [
+         263.5,
+         209.5
+        ],
+        "extent": null,
+        "box": [
+         246,
+         159,
+         281,
+         260
+        ]
+       },
+       {
+        "frame": 56,
+        "point": [
+         263.5,
+         241.5
+        ],
+        "extent": null,
+        "box": [
+         246,
+         191,
+         281,
+         292
+        ]
+       },
+       {
+        "frame": 70,
+        "point": [
+         263.5,
+         273.5
+        ],
+        "extent": null,
+        "box": [
+         246,
+         223,
+         281,
+         324
+        ]
+       },
+       {
+        "frame": 210,
+        "point": [
+         263.5,
+         595
+        ],
+        "extent": null,
+        "box": [
+         246,
+         545,
+         281,
+         645
+        ]
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "boat",
+      "obs": [
+       {
+        "frame": 14,
+        "point": null,
+        "extent": [
+         [
+          263.5,
+          95
+         ],
+         [
+          263.5,
+          196
+         ]
+        ],
+        "box": [
+         246,
+         95,
+         281,
+         196
+        ]
+       },
+       {
+        "frame": 28,
+        "point": null,
+        "extent": [
+         [
+          263.5,
+          127
+         ],
+         [
+          263.5,
+          228
+         ]
+        ],
+        "box": [
+         246,
+         127,
+         281,
+         228
+        ]
+       },
+       {
+        "frame": 42,
+        "point": null,
+        "extent": [
+         [
+          263.5,
+          159
+         ],
+         [
+          263.5,
+          260
+         ]
+        ],
+        "box": [
+         246,
+         159,
+         281,
+         260
+        ]
+       },
+       {
+        "frame": 56,
+        "point": null,
+        "extent": [
+         [
+          263.5,
+          191
+         ],
+         [
+          263.5,
+          292
+         ]
+        ],
+        "box": [
+         246,
+         191,
+         281,
+         292
+        ]
+       },
+       {
+        "frame": 210,
+        "point": null,
+        "extent": [
+         [
+          263.5,
+          545
+         ],
+         [
+          263.5,
+          645
+         ]
+        ],
+        "box": [
+         246,
+         545,
+         281,
+         645
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 3.68,
+    "confidence": 0.6
+   },
+   {
+    "qid": 225,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "boat"
+      ],
+      "dimension": "width",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "boat"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 2.0,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "boat",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "boat",
+      "obs": [
+       {
+        "frame": 14,
+        "point": null,
+        "extent": [
+         [
+          246,
+          145.5
+         ],
+         [
+          281,
+          145.5
+         ]
+        ],
+        "box": [
+         246,
+         95,
+         281,
+         196
+        ]
+       },
+       {
+        "frame": 28,
+        "point": null,
+        "extent": [
+         [
+          246,
+          177.5
+         ],
+         [
+          281,
+          177.5
+         ]
+        ],
+        "box": [
+         246,
+         127,
+         281,
+         228
+        ]
+       },
+       {
+        "frame": 42,
+        "point": null,
+        "extent": [
+         [
+          246,
+          209.5
+         ],
+         [
+          281,
+          209.5
+         ]
+        ],
+        "box": [
+         246,
+         159,
+         281,
+         260
+        ]
+       },
+       {
+        "frame": 56,
+        "point": null,
+        "extent": [
+         [
+          246,
+          241.5
+         ],
+         [
+          281,
+          241.5
+         ]
+        ],
+        "box": [
+         246,
+         191,
+         281,
+         292
+        ]
+       },
+       {
+        "frame": 210,
+        "point": null,
+        "extent": [
+         [
+          246,
+          595
+         ],
+         [
+          281,
+          595
+         ]
+        ],
+        "box": [
+         246,
+         545,
+         281,
+         645
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 1.27,
+    "confidence": 0.5
+   },
+   {
+    "qid": 226,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "bridge"
+      ],
+      "dimension": "width",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "boat"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 2.0,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Bridge width taken as deck width along the canal direction (perpendicular to span)."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "boat",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "bridge",
+      "obs": [
+       {
+        "frame": 14,
+        "point": null,
+        "extent": [
+         [
+          245,
+          330
+         ],
+         [
+          245,
+          520
+         ]
+        ],
+        "box": [
+         5,
+         320,
+         485,
+         540
+        ]
+       },
+       {
+        "frame": 70,
+        "point": null,
+        "extent": [
+         [
+          245,
+          330
+         ],
+         [
+          245,
+          520
+         ]
+        ],
+        "box": [
+         5,
+         320,
+         485,
+         540
+        ]
+       },
+       {
+        "frame": 140,
+        "point": null,
+        "extent": [
+         [
+          245,
+          330
+         ],
+         [
+          245,
+          520
+         ]
+        ],
+        "box": [
+         5,
+         320,
+         485,
+         540
+        ]
+       },
+       {
+        "frame": 210,
+        "point": null,
+        "extent": [
+         [
+          245,
+          330
+         ],
+         [
+          245,
+          520
+         ]
+        ],
+        "box": [
+         5,
+         320,
+         485,
+         540
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 6.9,
+    "confidence": 0.4
+   }
+  ]
+ }
+}

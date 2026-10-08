@@ -1,0 +1,341 @@
+{
+ "video_id": "internet_0010",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011Cfpzy2nQCtf2BqB518MGw",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 854
+ },
+ "ts": "2026-10-08T17:06:42+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_01RgbCGaqsRz49vUhEJLUBnh",
+ "custom_id": "internet_0010",
+ "usage": {
+  "input_tokens": 11155,
+  "output_tokens": 1842,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 4317,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.041162,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "internet_0010",
+  "fps": 30.0,
+  "fps_from_container": false,
+  "video_type": "S2MC",
+  "n_frames_total": 97,
+  "scale": 0.22239583333333332,
+  "image_size": [
+   3840,
+   2158
+  ],
+  "frames": [
+   0,
+   6,
+   13,
+   19,
+   26,
+   32,
+   38,
+   45,
+   51,
+   57,
+   58,
+   60,
+   63,
+   64,
+   70,
+   77,
+   83,
+   90,
+   96
+  ],
+  "questions": [
+   {
+    "qid": 2050,
+    "target_unit": "cm",
+    "prior": "basketball diameter = 24cm",
+    "depth_info": ""
+   },
+   {
+    "qid": 2051,
+    "target_unit": "cm/s",
+    "prior": "basketball diameter = 24cm",
+    "depth_info": ""
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":2050,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"shooter\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":null,\"unit\":\"cm\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"basketball\"],\"dimension\":\"diameter\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.24,\"unit\":\"\"},\"depth\":[],\"notes\":\"Shooter assumed to be the grey-shirt player who shoots around 1.7s.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"basketball\",\"obs\":[{\"frame\":6,\"point\":null,\"extent\":[[278.5,361],[287.5,361]],\"box\":[278.5,356.5,287.5,365.5]},{\"frame\":51,\"point\":null,\"extent\":[[320.5,248],[329.5,248]],\"box\":[320.5,243.5,329.5,252.5]},{\"frame\":77,\"point\":null,\"extent\":[[489.5,193],[498.5,193]],\"box\":[489.5,188.5,498.5,197.5]}]},{\"role\":\"target\",\"object\":\"shooter\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[262,323],[258,390]],\"box\":[248,323,280,391]},{\"frame\":6,\"point\":null,\"extent\":[[258,322],[255,392]],\"box\":[247,322,280,393]},{\"frame\":13,\"point\":null,\"extent\":[[266,322],[262,390]],\"box\":[250,322,288,391]}]}],\"direct_answer\":179,\"confidence\":0.4},{\"qid\":2051,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"basketball\"],\"dimension\":\"\",\"time\":2.0,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"cm/s\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"basketball\"],\"dimension\":\"diameter\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.24,\"unit\":\"\"},\"depth\":[],\"notes\":\"Camera pans slightly; ball in flight toward hoop.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"basketball\",\"obs\":[]},{\"role\":\"target\",\"object\":\"basketball flight\",\"obs\":[{\"frame\":51,\"point\":[325,248],\"extent\":null,\"box\":null},{\"frame\":60,\"point\":[388,203],\"extent\":null,\"box\":null},{\"frame\":63,\"point\":[399,199],\"extent\":null,\"box\":null},{\"frame\":64,\"point\":[406,197],\"extent\":null,\"box\":null},{\"frame\":77,\"point\":[494,193],\"extent\":null,\"box\":null}]}],\"direct_answer\":600,\"confidence\":0.25}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 2050,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "shooter"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": null,
+      "unit": "cm"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "basketball"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.24,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Shooter assumed to be the grey-shirt player who shoots around 1.7s."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "basketball",
+      "obs": [
+       {
+        "frame": 6,
+        "point": null,
+        "extent": [
+         [
+          278.5,
+          361
+         ],
+         [
+          287.5,
+          361
+         ]
+        ],
+        "box": [
+         278.5,
+         356.5,
+         287.5,
+         365.5
+        ]
+       },
+       {
+        "frame": 51,
+        "point": null,
+        "extent": [
+         [
+          320.5,
+          248
+         ],
+         [
+          329.5,
+          248
+         ]
+        ],
+        "box": [
+         320.5,
+         243.5,
+         329.5,
+         252.5
+        ]
+       },
+       {
+        "frame": 77,
+        "point": null,
+        "extent": [
+         [
+          489.5,
+          193
+         ],
+         [
+          498.5,
+          193
+         ]
+        ],
+        "box": [
+         489.5,
+         188.5,
+         498.5,
+         197.5
+        ]
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "shooter",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          262,
+          323
+         ],
+         [
+          258,
+          390
+         ]
+        ],
+        "box": [
+         248,
+         323,
+         280,
+         391
+        ]
+       },
+       {
+        "frame": 6,
+        "point": null,
+        "extent": [
+         [
+          258,
+          322
+         ],
+         [
+          255,
+          392
+         ]
+        ],
+        "box": [
+         247,
+         322,
+         280,
+         393
+        ]
+       },
+       {
+        "frame": 13,
+        "point": null,
+        "extent": [
+         [
+          266,
+          322
+         ],
+         [
+          262,
+          390
+         ]
+        ],
+        "box": [
+         250,
+         322,
+         288,
+         391
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 179,
+    "confidence": 0.4
+   },
+   {
+    "qid": 2051,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "basketball"
+      ],
+      "dimension": "",
+      "time": 2.0,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "cm/s"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "basketball"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.24,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Camera pans slightly; ball in flight toward hoop."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "basketball",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "basketball flight",
+      "obs": [
+       {
+        "frame": 51,
+        "point": [
+         325,
+         248
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 60,
+        "point": [
+         388,
+         203
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 63,
+        "point": [
+         399,
+         199
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 64,
+        "point": [
+         406,
+         197
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 77,
+        "point": [
+         494,
+         193
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     }
+    ],
+    "direct_answer": 600,
+    "confidence": 0.25
+   }
+  ]
+ }
+}

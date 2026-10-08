@@ -1,0 +1,966 @@
+{
+ "video_id": "simulation_0235",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfprJxCq8Le9SipD5To5p",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 854
+ },
+ "ts": "2026-10-08T16:53:52+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_01KU8pudkFSd53LhMaHHZ5xA",
+ "custom_id": "simulation_0235",
+ "usage": {
+  "input_tokens": 12173,
+  "output_tokens": 4019,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 4317,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.064968,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0235",
+  "fps": 24.0,
+  "fps_from_container": false,
+  "video_type": "S2MS",
+  "n_frames_total": 50,
+  "scale": 0.44479166666666664,
+  "image_size": [
+   1920,
+   1079
+  ],
+  "frames": [
+   0,
+   3,
+   7,
+   10,
+   12,
+   13,
+   14,
+   16,
+   20,
+   23,
+   26,
+   29,
+   33,
+   34,
+   36,
+   38,
+   39,
+   42,
+   46,
+   49
+  ],
+  "questions": [
+   {
+    "qid": 768,
+    "target_unit": "m",
+    "prior": "diameter of the basketball = 0.282m",
+    "depth_info": ""
+   },
+   {
+    "qid": 769,
+    "target_unit": "m",
+    "prior": "diameter of the basketball = 0.282m",
+    "depth_info": ""
+   },
+   {
+    "qid": 770,
+    "target_unit": "m",
+    "prior": "diameter of the basketball = 0.282m",
+    "depth_info": ""
+   },
+   {
+    "qid": 771,
+    "target_unit": "m",
+    "prior": "diameter of the basketball = 0.282m",
+    "depth_info": ""
+   },
+   {
+    "qid": 772,
+    "target_unit": "m/s",
+    "prior": "diameter of the basketball = 0.282m",
+    "depth_info": ""
+   },
+   {
+    "qid": 773,
+    "target_unit": "m/s^2",
+    "prior": "diameter of the basketball = 0.282m",
+    "depth_info": ""
+   },
+   {
+    "qid": 774,
+    "target_unit": "m/s",
+    "prior": "diameter of the basketball = 0.282m",
+    "depth_info": ""
+   },
+   {
+    "qid": 775,
+    "target_unit": "m/s^2",
+    "prior": "diameter of the basketball = 0.282m",
+    "depth_info": ""
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":768,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"trophy\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"basketball\"],\"dimension\":\"diameter\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.282,\"unit\":\"\"},\"depth\":[],\"notes\":\"Trophy height measured including its pedestal base.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"basketball\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[380,217],[428,217]],\"box\":[380,193,428,241]},{\"frame\":10,\"point\":null,\"extent\":[[380,246.5],[428,246.5]],\"box\":[380,222.5,428,270.5]},{\"frame\":36,\"point\":null,\"extent\":[[380,263.5],[428,263.5]],\"box\":[380,239.5,428,287.5]},{\"frame\":46,\"point\":null,\"extent\":[[380,219],[428,219]],\"box\":[380,195,428,243]}]},{\"role\":\"target\",\"object\":\"trophy\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[524.5,224],[524.5,416]],\"box\":[504,224,545,416]},{\"frame\":20,\"point\":null,\"extent\":[[524.5,224],[524.5,416]],\"box\":[504,224,545,416]},{\"frame\":40,\"point\":null,\"extent\":[[524.5,224],[524.5,416]],\"box\":[504,224,545,416]}]}],\"direct_answer\":1.13,\"confidence\":0.6},{\"qid\":769,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"window pane\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"horizontal\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"basketball\"],\"dimension\":\"diameter\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.282,\"unit\":\"\"},\"depth\":[],\"notes\":\"Length taken as horizontal width of one pane.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"basketball\",\"obs\":[]},{\"role\":\"target\",\"object\":\"window pane\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[57,56],[145,56]],\"box\":[57,22,145,90]},{\"frame\":0,\"point\":null,\"extent\":[[167,56],[255,56]],\"box\":[167,22,255,90]},{\"frame\":0,\"point\":null,\"extent\":[[561,56],[651,56]],\"box\":[561,22,651,90]}]}],\"direct_answer\":0.52,\"confidence\":0.55},{\"qid\":770,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"window pane\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"basketball\"],\"dimension\":\"diameter\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.282,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"basketball\",\"obs\":[]},{\"role\":\"target\",\"object\":\"window pane\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[100,22],[100,90]],\"box\":[57,22,145,90]},{\"frame\":0,\"point\":null,\"extent\":[[211,110],[211,179]],\"box\":[167,110,255,179]},{\"frame\":0,\"point\":null,\"extent\":[[606,22],[606,90]],\"box\":[561,22,651,90]}]}],\"direct_answer\":0.4,\"confidence\":0.55},{\"qid\":771,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"green wall section\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"basketball\"],\"dimension\":\"diameter\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.282,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"basketball\",\"obs\":[]},{\"role\":\"target\",\"object\":\"green wall section\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[200,196],[200,403]],\"box\":[0,196,854,403]},{\"frame\":49,\"point\":null,\"extent\":[[700,196],[700,403]],\"box\":[0,196,854,403]}]}],\"direct_answer\":1.22,\"confidence\":0.55},{\"qid\":772,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"basketball\"],\"dimension\":\"\",\"time\":0.5,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"basketball\"],\"dimension\":\"diameter\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.282,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"basketball\",\"obs\":[]},{\"role\":\"target\",\"object\":\"basketball\",\"obs\":[{\"frame\":0,\"point\":[404,217],\"extent\":null,\"box\":null},{\"frame\":3,\"point\":[404,219],\"extent\":null,\"box\":null},{\"frame\":7,\"point\":[404,231],\"extent\":null,\"box\":null},{\"frame\":10,\"point\":[404,246.5],\"extent\":null,\"box\":null},{\"frame\":12,\"point\":[404,260],\"extent\":null,\"box\":null},{\"frame\":13,\"point\":[404,267.5],\"extent\":null,\"box\":null},{\"frame\":14,\"point\":[404,275],\"extent\":null,\"box\":null},{\"frame\":16,\"point\":[404,294],\"extent\":null,\"box\":null},{\"frame\":20,\"point\":[404,336],\"extent\":null,\"box\":null},{\"frame\":23,\"point\":[404,374.5],\"extent\":null,\"box\":null},{\"frame\":26,\"point\":[404,362.5],\"extent\":null,\"box\":null},{\"frame\":29,\"point\":[404,327],\"extent\":null,\"box\":null},{\"frame\":33,\"point\":[404,287.5],\"extent\":null,\"box\":null},{\"frame\":34,\"point\":[404,279],\"extent\":null,\"box\":null},{\"frame\":36,\"point\":[404,263.5],\"extent\":null,\"box\":null},{\"frame\":38,\"point\":[404,250],\"extent\":null,\"box\":null},{\"frame\":39,\"point\":[404,244.5],\"extent\":null,\"box\":null},{\"frame\":42,\"point\":[404,230.5],\"extent\":null,\"box\":null},{\"frame\":46,\"point\":[404,219],\"extent\":null,\"box\":null},{\"frame\":49,\"point\":[404,217],\"extent\":null,\"box\":null}]}],\"direct_answer\":1.03,\"confidence\":0.5},{\"qid\":773,\"spec\":{\"target\":{\"kind\":\"acceleration\",\"objects\":[\"basketball\"],\"dimension\":\"\",\"time\":0.5,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s^2\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"basketball\"],\"dimension\":\"diameter\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.282,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"basketball\",\"obs\":[]},{\"role\":\"target\",\"object\":\"basketball\",\"obs\":[]}],\"direct_answer\":2.0,\"confidence\":0.45},{\"qid\":774,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"basketball\"],\"dimension\":\"\",\"time\":1.5,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"basketball\"],\"dimension\":\"diameter\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.282,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"basketball\",\"obs\":[]},{\"role\":\"target\",\"object\":\"basketball\",\"obs\":[]}],\"direct_answer\":1.03,\"confidence\":0.5},{\"qid\":775,\"spec\":{\"target\":{\"kind\":\"acceleration\",\"objects\":[\"basketball\"],\"dimension\":\"\",\"time\":1.5,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s^2\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"basketball\"],\"dimension\":\"diameter\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.282,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"basketball\",\"obs\":[]},{\"role\":\"target\",\"object\":\"basketball\",\"obs\":[]}],\"direct_answer\":2.0,\"confidence\":0.45}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 768,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "trophy"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "basketball"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.282,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Trophy height measured including its pedestal base."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "basketball",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          380,
+          217
+         ],
+         [
+          428,
+          217
+         ]
+        ],
+        "box": [
+         380,
+         193,
+         428,
+         241
+        ]
+       },
+       {
+        "frame": 10,
+        "point": null,
+        "extent": [
+         [
+          380,
+          246.5
+         ],
+         [
+          428,
+          246.5
+         ]
+        ],
+        "box": [
+         380,
+         222.5,
+         428,
+         270.5
+        ]
+       },
+       {
+        "frame": 36,
+        "point": null,
+        "extent": [
+         [
+          380,
+          263.5
+         ],
+         [
+          428,
+          263.5
+         ]
+        ],
+        "box": [
+         380,
+         239.5,
+         428,
+         287.5
+        ]
+       },
+       {
+        "frame": 46,
+        "point": null,
+        "extent": [
+         [
+          380,
+          219
+         ],
+         [
+          428,
+          219
+         ]
+        ],
+        "box": [
+         380,
+         195,
+         428,
+         243
+        ]
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "trophy",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          524.5,
+          224
+         ],
+         [
+          524.5,
+          416
+         ]
+        ],
+        "box": [
+         504,
+         224,
+         545,
+         416
+        ]
+       },
+       {
+        "frame": 20,
+        "point": null,
+        "extent": [
+         [
+          524.5,
+          224
+         ],
+         [
+          524.5,
+          416
+         ]
+        ],
+        "box": [
+         504,
+         224,
+         545,
+         416
+        ]
+       },
+       {
+        "frame": 40,
+        "point": null,
+        "extent": [
+         [
+          524.5,
+          224
+         ],
+         [
+          524.5,
+          416
+         ]
+        ],
+        "box": [
+         504,
+         224,
+         545,
+         416
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 1.13,
+    "confidence": 0.6
+   },
+   {
+    "qid": 769,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "window pane"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "horizontal",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "basketball"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.282,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Length taken as horizontal width of one pane."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "basketball",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "window pane",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          57,
+          56
+         ],
+         [
+          145,
+          56
+         ]
+        ],
+        "box": [
+         57,
+         22,
+         145,
+         90
+        ]
+       },
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          167,
+          56
+         ],
+         [
+          255,
+          56
+         ]
+        ],
+        "box": [
+         167,
+         22,
+         255,
+         90
+        ]
+       },
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          561,
+          56
+         ],
+         [
+          651,
+          56
+         ]
+        ],
+        "box": [
+         561,
+         22,
+         651,
+         90
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 0.52,
+    "confidence": 0.55
+   },
+   {
+    "qid": 770,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "window pane"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "basketball"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.282,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "basketball",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "window pane",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          100,
+          22
+         ],
+         [
+          100,
+          90
+         ]
+        ],
+        "box": [
+         57,
+         22,
+         145,
+         90
+        ]
+       },
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          211,
+          110
+         ],
+         [
+          211,
+          179
+         ]
+        ],
+        "box": [
+         167,
+         110,
+         255,
+         179
+        ]
+       },
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          606,
+          22
+         ],
+         [
+          606,
+          90
+         ]
+        ],
+        "box": [
+         561,
+         22,
+         651,
+         90
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 0.4,
+    "confidence": 0.55
+   },
+   {
+    "qid": 771,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "green wall section"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "basketball"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.282,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "basketball",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "green wall section",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          200,
+          196
+         ],
+         [
+          200,
+          403
+         ]
+        ],
+        "box": [
+         0,
+         196,
+         854,
+         403
+        ]
+       },
+       {
+        "frame": 49,
+        "point": null,
+        "extent": [
+         [
+          700,
+          196
+         ],
+         [
+          700,
+          403
+         ]
+        ],
+        "box": [
+         0,
+         196,
+         854,
+         403
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 1.22,
+    "confidence": 0.55
+   },
+   {
+    "qid": 772,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "basketball"
+      ],
+      "dimension": "",
+      "time": 0.5,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "basketball"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.282,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "basketball",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "basketball",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         404,
+         217
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 3,
+        "point": [
+         404,
+         219
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 7,
+        "point": [
+         404,
+         231
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 10,
+        "point": [
+         404,
+         246.5
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 12,
+        "point": [
+         404,
+         260
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 13,
+        "point": [
+         404,
+         267.5
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 14,
+        "point": [
+         404,
+         275
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 16,
+        "point": [
+         404,
+         294
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 20,
+        "point": [
+         404,
+         336
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 23,
+        "point": [
+         404,
+         374.5
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 26,
+        "point": [
+         404,
+         362.5
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 29,
+        "point": [
+         404,
+         327
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 33,
+        "point": [
+         404,
+         287.5
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 34,
+        "point": [
+         404,
+         279
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 36,
+        "point": [
+         404,
+         263.5
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 38,
+        "point": [
+         404,
+         250
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 39,
+        "point": [
+         404,
+         244.5
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 42,
+        "point": [
+         404,
+         230.5
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 46,
+        "point": [
+         404,
+         219
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 49,
+        "point": [
+         404,
+         217
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     }
+    ],
+    "direct_answer": 1.03,
+    "confidence": 0.5
+   },
+   {
+    "qid": 773,
+    "spec": {
+     "target": {
+      "kind": "acceleration",
+      "objects": [
+       "basketball"
+      ],
+      "dimension": "",
+      "time": 0.5,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s^2"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "basketball"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.282,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "basketball",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "basketball",
+      "obs": []
+     }
+    ],
+    "direct_answer": 2.0,
+    "confidence": 0.45
+   },
+   {
+    "qid": 774,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "basketball"
+      ],
+      "dimension": "",
+      "time": 1.5,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "basketball"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.282,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "basketball",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "basketball",
+      "obs": []
+     }
+    ],
+    "direct_answer": 1.03,
+    "confidence": 0.5
+   },
+   {
+    "qid": 775,
+    "spec": {
+     "target": {
+      "kind": "acceleration",
+      "objects": [
+       "basketball"
+      ],
+      "dimension": "",
+      "time": 1.5,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s^2"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "basketball"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.282,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "basketball",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "basketball",
+      "obs": []
+     }
+    ],
+    "direct_answer": 2.0,
+    "confidence": 0.45
+   }
+  ]
+ }
+}

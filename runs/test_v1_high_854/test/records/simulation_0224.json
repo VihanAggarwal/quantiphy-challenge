@@ -1,0 +1,754 @@
+{
+ "video_id": "simulation_0224",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfprnwRyepZ5NrB6dMKCJ",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 854
+ },
+ "ts": "2026-10-08T16:53:52+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_01KU8pudkFSd53LhMaHHZ5xA",
+ "custom_id": "simulation_0224",
+ "usage": {
+  "input_tokens": 13294,
+  "output_tokens": 4047,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 4317,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.06749,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0224",
+  "fps": 24.0,
+  "fps_from_container": false,
+  "video_type": "S2MC",
+  "n_frames_total": 45,
+  "scale": 0.44479166666666664,
+  "image_size": [
+   1920,
+   1079
+  ],
+  "frames": [
+   0,
+   3,
+   6,
+   9,
+   10,
+   12,
+   14,
+   15,
+   18,
+   21,
+   22,
+   23,
+   24,
+   26,
+   29,
+   32,
+   34,
+   35,
+   36,
+   38,
+   41,
+   44
+  ],
+  "questions": [
+   {
+    "qid": 689,
+    "target_unit": "m",
+    "prior": "diameter of one chinese chess = 0.097m",
+    "depth_info": ""
+   },
+   {
+    "qid": 690,
+    "target_unit": "m/s",
+    "prior": "diameter of one chinese chess = 0.097m",
+    "depth_info": ""
+   },
+   {
+    "qid": 691,
+    "target_unit": "m/s^2",
+    "prior": "diameter of one chinese chess = 0.097m",
+    "depth_info": ""
+   },
+   {
+    "qid": 692,
+    "target_unit": "m/s",
+    "prior": "diameter of one chinese chess = 0.097m",
+    "depth_info": ""
+   },
+   {
+    "qid": 693,
+    "target_unit": "m/s^2",
+    "prior": "diameter of one chinese chess = 0.097m",
+    "depth_info": ""
+   },
+   {
+    "qid": 694,
+    "target_unit": "m/s",
+    "prior": "diameter of one chinese chess = 0.097m",
+    "depth_info": ""
+   },
+   {
+    "qid": 695,
+    "target_unit": "m/s^2",
+    "prior": "diameter of one chinese chess = 0.097m",
+    "depth_info": ""
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":689,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"chinese chess board\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"chess piece\"],\"dimension\":\"diameter\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.097,\"unit\":\"\"},\"depth\":[],\"notes\":\"Board is tilted; length measured along the inclined top edge.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"chess piece\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[533.5,235],[558.5,235]],\"box\":[533.5,228.5,558.5,243]},{\"frame\":3,\"point\":null,\"extent\":[[533.5,235],[558.5,235]],\"box\":[533.5,228.5,558.5,243]},{\"frame\":12,\"point\":null,\"extent\":[[505.5,250],[530.5,250]],\"box\":[505.5,243,530.5,257]},{\"frame\":24,\"point\":null,\"extent\":[[414.5,294],[439.5,294]],\"box\":[414.5,287,439.5,301]}]},{\"role\":\"target\",\"object\":\"chinese chess board\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[190,420],[615,218]],\"box\":[188,216,632,480]},{\"frame\":24,\"point\":null,\"extent\":[[190,420],[615,218]],\"box\":[188,216,632,480]},{\"frame\":44,\"point\":null,\"extent\":[[190,420],[615,218]],\"box\":[188,216,632,480]}]}],\"direct_answer\":1.83,\"confidence\":0.4},{\"qid\":690,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"chess piece\"],\"dimension\":\"\",\"time\":0.5,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"chess piece\"],\"dimension\":\"diameter\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.097,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"chess piece\",\"obs\":[]},{\"role\":\"target\",\"object\":\"chess piece\",\"obs\":[{\"frame\":0,\"point\":[546,235],\"extent\":null,\"box\":null},{\"frame\":3,\"point\":[546,235],\"extent\":null,\"box\":null},{\"frame\":6,\"point\":[541,237.5],\"extent\":null,\"box\":null},{\"frame\":9,\"point\":[532,241.5],\"extent\":null,\"box\":null},{\"frame\":10,\"point\":[527,244.5],\"extent\":null,\"box\":null},{\"frame\":12,\"point\":[518,249.5],\"extent\":null,\"box\":null},{\"frame\":14,\"point\":[509,254],\"extent\":null,\"box\":null},{\"frame\":15,\"point\":[504,256.5],\"extent\":null,\"box\":null},{\"frame\":18,\"point\":[485,265],\"extent\":null,\"box\":null},{\"frame\":21,\"point\":[461,276.5],\"extent\":null,\"box\":null},{\"frame\":22,\"point\":[453,280.5],\"extent\":null,\"box\":null},{\"frame\":23,\"point\":[437,288.5],\"extent\":null,\"box\":null},{\"frame\":24,\"point\":[428,293],\"extent\":null,\"box\":null},{\"frame\":26,\"point\":[413,300],\"extent\":null,\"box\":null},{\"frame\":29,\"point\":[381,316],\"extent\":null,\"box\":null},{\"frame\":32,\"point\":[347,333],\"extent\":null,\"box\":null},{\"frame\":34,\"point\":[310,349],\"extent\":null,\"box\":null},{\"frame\":35,\"point\":[306,350],\"extent\":null,\"box\":null},{\"frame\":36,\"point\":[294,356],\"extent\":null,\"box\":null},{\"frame\":38,\"point\":[260,372],\"extent\":null,\"box\":null}]}],\"direct_answer\":0.49,\"confidence\":0.35},{\"qid\":691,\"spec\":{\"target\":{\"kind\":\"acceleration\",\"objects\":[\"chess piece\"],\"dimension\":\"\",\"time\":0.5,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s^2\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"chess piece\"],\"dimension\":\"diameter\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.097,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"chess piece\",\"obs\":[]},{\"role\":\"target\",\"object\":\"chess piece\",\"obs\":[]}],\"direct_answer\":0.99,\"confidence\":0.35},{\"qid\":692,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"chess piece\"],\"dimension\":\"\",\"time\":1.0,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"chess piece\"],\"dimension\":\"diameter\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.097,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"chess piece\",\"obs\":[]},{\"role\":\"target\",\"object\":\"chess piece\",\"obs\":[]}],\"direct_answer\":0.99,\"confidence\":0.35},{\"qid\":693,\"spec\":{\"target\":{\"kind\":\"acceleration\",\"objects\":[\"chess piece\"],\"dimension\":\"\",\"time\":1.0,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s^2\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"chess piece\"],\"dimension\":\"diameter\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.097,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"chess piece\",\"obs\":[]},{\"role\":\"target\",\"object\":\"chess piece\",\"obs\":[]}],\"direct_answer\":0.99,\"confidence\":0.35},{\"qid\":694,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"chess piece\"],\"dimension\":\"\",\"time\":1.5,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"chess piece\"],\"dimension\":\"diameter\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.097,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"chess piece\",\"obs\":[]},{\"role\":\"target\",\"object\":\"chess piece\",\"obs\":[]}],\"direct_answer\":1.48,\"confidence\":0.35},{\"qid\":695,\"spec\":{\"target\":{\"kind\":\"acceleration\",\"objects\":[\"chess piece\"],\"dimension\":\"\",\"time\":1.5,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s^2\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"chess piece\"],\"dimension\":\"diameter\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.097,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"chess piece\",\"obs\":[]},{\"role\":\"target\",\"object\":\"chess piece\",\"obs\":[]}],\"direct_answer\":0.99,\"confidence\":0.35}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 689,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "chinese chess board"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "chess piece"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.097,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Board is tilted; length measured along the inclined top edge."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "chess piece",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          533.5,
+          235
+         ],
+         [
+          558.5,
+          235
+         ]
+        ],
+        "box": [
+         533.5,
+         228.5,
+         558.5,
+         243
+        ]
+       },
+       {
+        "frame": 3,
+        "point": null,
+        "extent": [
+         [
+          533.5,
+          235
+         ],
+         [
+          558.5,
+          235
+         ]
+        ],
+        "box": [
+         533.5,
+         228.5,
+         558.5,
+         243
+        ]
+       },
+       {
+        "frame": 12,
+        "point": null,
+        "extent": [
+         [
+          505.5,
+          250
+         ],
+         [
+          530.5,
+          250
+         ]
+        ],
+        "box": [
+         505.5,
+         243,
+         530.5,
+         257
+        ]
+       },
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          414.5,
+          294
+         ],
+         [
+          439.5,
+          294
+         ]
+        ],
+        "box": [
+         414.5,
+         287,
+         439.5,
+         301
+        ]
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "chinese chess board",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          190,
+          420
+         ],
+         [
+          615,
+          218
+         ]
+        ],
+        "box": [
+         188,
+         216,
+         632,
+         480
+        ]
+       },
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          190,
+          420
+         ],
+         [
+          615,
+          218
+         ]
+        ],
+        "box": [
+         188,
+         216,
+         632,
+         480
+        ]
+       },
+       {
+        "frame": 44,
+        "point": null,
+        "extent": [
+         [
+          190,
+          420
+         ],
+         [
+          615,
+          218
+         ]
+        ],
+        "box": [
+         188,
+         216,
+         632,
+         480
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 1.83,
+    "confidence": 0.4
+   },
+   {
+    "qid": 690,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "chess piece"
+      ],
+      "dimension": "",
+      "time": 0.5,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "chess piece"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.097,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "chess piece",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "chess piece",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         546,
+         235
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 3,
+        "point": [
+         546,
+         235
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 6,
+        "point": [
+         541,
+         237.5
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 9,
+        "point": [
+         532,
+         241.5
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 10,
+        "point": [
+         527,
+         244.5
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 12,
+        "point": [
+         518,
+         249.5
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 14,
+        "point": [
+         509,
+         254
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 15,
+        "point": [
+         504,
+         256.5
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 18,
+        "point": [
+         485,
+         265
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 21,
+        "point": [
+         461,
+         276.5
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 22,
+        "point": [
+         453,
+         280.5
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 23,
+        "point": [
+         437,
+         288.5
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 24,
+        "point": [
+         428,
+         293
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 26,
+        "point": [
+         413,
+         300
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 29,
+        "point": [
+         381,
+         316
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 32,
+        "point": [
+         347,
+         333
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 34,
+        "point": [
+         310,
+         349
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 35,
+        "point": [
+         306,
+         350
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 36,
+        "point": [
+         294,
+         356
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 38,
+        "point": [
+         260,
+         372
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     }
+    ],
+    "direct_answer": 0.49,
+    "confidence": 0.35
+   },
+   {
+    "qid": 691,
+    "spec": {
+     "target": {
+      "kind": "acceleration",
+      "objects": [
+       "chess piece"
+      ],
+      "dimension": "",
+      "time": 0.5,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s^2"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "chess piece"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.097,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "chess piece",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "chess piece",
+      "obs": []
+     }
+    ],
+    "direct_answer": 0.99,
+    "confidence": 0.35
+   },
+   {
+    "qid": 692,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "chess piece"
+      ],
+      "dimension": "",
+      "time": 1.0,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "chess piece"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.097,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "chess piece",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "chess piece",
+      "obs": []
+     }
+    ],
+    "direct_answer": 0.99,
+    "confidence": 0.35
+   },
+   {
+    "qid": 693,
+    "spec": {
+     "target": {
+      "kind": "acceleration",
+      "objects": [
+       "chess piece"
+      ],
+      "dimension": "",
+      "time": 1.0,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s^2"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "chess piece"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.097,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "chess piece",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "chess piece",
+      "obs": []
+     }
+    ],
+    "direct_answer": 0.99,
+    "confidence": 0.35
+   },
+   {
+    "qid": 694,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "chess piece"
+      ],
+      "dimension": "",
+      "time": 1.5,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "chess piece"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.097,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "chess piece",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "chess piece",
+      "obs": []
+     }
+    ],
+    "direct_answer": 1.48,
+    "confidence": 0.35
+   },
+   {
+    "qid": 695,
+    "spec": {
+     "target": {
+      "kind": "acceleration",
+      "objects": [
+       "chess piece"
+      ],
+      "dimension": "",
+      "time": 1.5,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s^2"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "chess piece"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.097,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "chess piece",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "chess piece",
+      "obs": []
+     }
+    ],
+    "direct_answer": 0.99,
+    "confidence": 0.35
+   }
+  ]
+ }
+}

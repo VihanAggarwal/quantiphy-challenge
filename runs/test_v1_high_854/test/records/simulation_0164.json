@@ -1,0 +1,634 @@
+{
+ "video_id": "simulation_0164",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011Cfpq9NLWSrUsiacT5dxMe",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 854
+ },
+ "ts": "2026-10-08T17:09:47+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_01Lkr5fafFQ29117PFGuAg4s",
+ "custom_id": "simulation_0164",
+ "usage": {
+  "input_tokens": 12058,
+  "output_tokens": 3855,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 4317,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.063098,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0164",
+  "fps": 24.0,
+  "fps_from_container": false,
+  "video_type": "S3MC",
+  "n_frames_total": 66,
+  "scale": 0.44479166666666664,
+  "image_size": [
+   1920,
+   1079
+  ],
+  "frames": [
+   0,
+   4,
+   9,
+   10,
+   12,
+   13,
+   14,
+   17,
+   22,
+   24,
+   26,
+   30,
+   35,
+   39,
+   43,
+   48,
+   52,
+   56,
+   61,
+   65
+  ],
+  "questions": [
+   {
+    "qid": 1386,
+    "target_unit": "m/s",
+    "prior": "diameter of the ball = 0.21m",
+    "depth_info": "t=0.5s distance_bowling_ball_camera = 9.391m"
+   },
+   {
+    "qid": 1387,
+    "target_unit": "m/s^2",
+    "prior": "diameter of the ball = 0.21m",
+    "depth_info": "t=0.5s distance_bowling_ball_camera = 9.391m"
+   },
+   {
+    "qid": 1388,
+    "target_unit": "m/s",
+    "prior": "diameter of the ball = 0.21m",
+    "depth_info": "t=0.5s distance_bowling_ball_camera = 9.391m"
+   },
+   {
+    "qid": 1389,
+    "target_unit": "m/s^2",
+    "prior": "diameter of the ball = 0.21m",
+    "depth_info": "t=0.5s distance_bowling_ball_camera = 9.391m"
+   },
+   {
+    "qid": 1390,
+    "target_unit": "m",
+    "prior": "diameter of the ball = 0.21m",
+    "depth_info": "t=0.5s distance_bowling_ball_camera = 9.391m"
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":1386,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"ball\"],\"dimension\":\"\",\"time\":0.5,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"ball\"],\"dimension\":\"diameter\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.21,\"unit\":\"\"},\"depth\":[{\"object\":\"bowling ball\",\"distance_m\":9.391,\"time\":0.5}],\"notes\":\"Ball recedes in depth; speed includes depth component.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"ball\",\"obs\":[{\"frame\":12,\"point\":null,\"extent\":[[177.5,286.0],[215.5,286.0]],\"box\":[177.5,267.0,215.5,305.0]},{\"frame\":13,\"point\":null,\"extent\":[[201.5,285.0],[238.5,285.0]],\"box\":[201.5,266.5,238.5,303.5]},{\"frame\":14,\"point\":null,\"extent\":[[223.5,284.0],[260.5,284.0]],\"box\":[223.5,265.5,260.5,302.5]}]},{\"role\":\"target\",\"object\":\"ball\",\"obs\":[{\"frame\":9,\"point\":[120.0,293.0],\"extent\":null,\"box\":[100.0,273.0,140.0,313.0]},{\"frame\":10,\"point\":[145.0,290.0],\"extent\":null,\"box\":[126.0,271.0,164.0,309.0]},{\"frame\":12,\"point\":[196.5,286.0],\"extent\":null,\"box\":[177.5,267.0,215.5,305.0]},{\"frame\":13,\"point\":[220.0,285.0],\"extent\":null,\"box\":[201.5,266.5,238.5,303.5]},{\"frame\":14,\"point\":[242.0,284.0],\"extent\":null,\"box\":[223.5,265.5,260.5,302.5]},{\"frame\":17,\"point\":[311.0,277.0],\"extent\":null,\"box\":[293.0,259.0,329.0,295.0]},{\"frame\":22,\"point\":[412.0,268.0],\"extent\":null,\"box\":[396.0,252.0,428.0,284.0]},{\"frame\":24,\"point\":[446.5,265.5],\"extent\":null,\"box\":[431.0,250.0,462.0,281.0]},{\"frame\":26,\"point\":[484.0,261.5],\"extent\":null,\"box\":[469.0,246.5,499.0,276.5]},{\"frame\":30,\"point\":[549.0,257.0],\"extent\":null,\"box\":[535.0,243.0,563.0,271.0]},{\"frame\":35,\"point\":[626.0,252.0],\"extent\":null,\"box\":[611.0,237.0,641.0,267.0]}]}],\"direct_answer\":4.8,\"confidence\":0.3},{\"qid\":1387,\"spec\":{\"target\":{\"kind\":\"acceleration\",\"objects\":[\"ball\"],\"dimension\":\"\",\"time\":0.5,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s^2\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"ball\"],\"dimension\":\"diameter\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.21,\"unit\":\"\"},\"depth\":[{\"object\":\"bowling ball\",\"distance_m\":9.391,\"time\":0.5}],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"ball\",\"obs\":[]},{\"role\":\"target\",\"object\":\"ball\",\"obs\":[]}],\"direct_answer\":0.3,\"confidence\":0.15},{\"qid\":1388,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"ball\"],\"dimension\":\"\",\"time\":1.0,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"ball\"],\"dimension\":\"diameter\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.21,\"unit\":\"\"},\"depth\":[{\"object\":\"bowling ball\",\"distance_m\":9.391,\"time\":0.5}],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"ball\",\"obs\":[]},{\"role\":\"target\",\"object\":\"ball\",\"obs\":[]}],\"direct_answer\":4.7,\"confidence\":0.3},{\"qid\":1389,\"spec\":{\"target\":{\"kind\":\"acceleration\",\"objects\":[\"ball\"],\"dimension\":\"\",\"time\":1.0,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s^2\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"ball\"],\"dimension\":\"diameter\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.21,\"unit\":\"\"},\"depth\":[{\"object\":\"bowling ball\",\"distance_m\":9.391,\"time\":0.5}],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"ball\",\"obs\":[]},{\"role\":\"target\",\"object\":\"ball\",\"obs\":[]}],\"direct_answer\":0.3,\"confidence\":0.15},{\"qid\":1390,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"bowling pin\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"ball\"],\"dimension\":\"diameter\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.21,\"unit\":\"\"},\"depth\":[{\"object\":\"bowling ball\",\"distance_m\":9.391,\"time\":0.5}],\"notes\":\"Pin depth not given; compared with ball diameter when ball reaches pins (frame 39).\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"ball\",\"obs\":[]},{\"role\":\"target\",\"object\":\"bowling pin\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[710.5,214.5],[710.5,260.0]],\"box\":[704.0,214.5,717.0,260.0]},{\"frame\":4,\"point\":null,\"extent\":[[710.5,214.5],[710.5,260.0]],\"box\":[704.0,214.5,717.0,260.0]},{\"frame\":9,\"point\":null,\"extent\":[[710.5,214.5],[710.5,260.0]],\"box\":[704.0,214.5,717.0,260.0]}]}],\"direct_answer\":0.39,\"confidence\":0.4}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 1386,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "ball"
+      ],
+      "dimension": "",
+      "time": 0.5,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "ball"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.21,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "bowling ball",
+       "distance_m": 9.391,
+       "time": 0.5
+      }
+     ],
+     "notes": "Ball recedes in depth; speed includes depth component."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "ball",
+      "obs": [
+       {
+        "frame": 12,
+        "point": null,
+        "extent": [
+         [
+          177.5,
+          286.0
+         ],
+         [
+          215.5,
+          286.0
+         ]
+        ],
+        "box": [
+         177.5,
+         267.0,
+         215.5,
+         305.0
+        ]
+       },
+       {
+        "frame": 13,
+        "point": null,
+        "extent": [
+         [
+          201.5,
+          285.0
+         ],
+         [
+          238.5,
+          285.0
+         ]
+        ],
+        "box": [
+         201.5,
+         266.5,
+         238.5,
+         303.5
+        ]
+       },
+       {
+        "frame": 14,
+        "point": null,
+        "extent": [
+         [
+          223.5,
+          284.0
+         ],
+         [
+          260.5,
+          284.0
+         ]
+        ],
+        "box": [
+         223.5,
+         265.5,
+         260.5,
+         302.5
+        ]
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "ball",
+      "obs": [
+       {
+        "frame": 9,
+        "point": [
+         120.0,
+         293.0
+        ],
+        "extent": null,
+        "box": [
+         100.0,
+         273.0,
+         140.0,
+         313.0
+        ]
+       },
+       {
+        "frame": 10,
+        "point": [
+         145.0,
+         290.0
+        ],
+        "extent": null,
+        "box": [
+         126.0,
+         271.0,
+         164.0,
+         309.0
+        ]
+       },
+       {
+        "frame": 12,
+        "point": [
+         196.5,
+         286.0
+        ],
+        "extent": null,
+        "box": [
+         177.5,
+         267.0,
+         215.5,
+         305.0
+        ]
+       },
+       {
+        "frame": 13,
+        "point": [
+         220.0,
+         285.0
+        ],
+        "extent": null,
+        "box": [
+         201.5,
+         266.5,
+         238.5,
+         303.5
+        ]
+       },
+       {
+        "frame": 14,
+        "point": [
+         242.0,
+         284.0
+        ],
+        "extent": null,
+        "box": [
+         223.5,
+         265.5,
+         260.5,
+         302.5
+        ]
+       },
+       {
+        "frame": 17,
+        "point": [
+         311.0,
+         277.0
+        ],
+        "extent": null,
+        "box": [
+         293.0,
+         259.0,
+         329.0,
+         295.0
+        ]
+       },
+       {
+        "frame": 22,
+        "point": [
+         412.0,
+         268.0
+        ],
+        "extent": null,
+        "box": [
+         396.0,
+         252.0,
+         428.0,
+         284.0
+        ]
+       },
+       {
+        "frame": 24,
+        "point": [
+         446.5,
+         265.5
+        ],
+        "extent": null,
+        "box": [
+         431.0,
+         250.0,
+         462.0,
+         281.0
+        ]
+       },
+       {
+        "frame": 26,
+        "point": [
+         484.0,
+         261.5
+        ],
+        "extent": null,
+        "box": [
+         469.0,
+         246.5,
+         499.0,
+         276.5
+        ]
+       },
+       {
+        "frame": 30,
+        "point": [
+         549.0,
+         257.0
+        ],
+        "extent": null,
+        "box": [
+         535.0,
+         243.0,
+         563.0,
+         271.0
+        ]
+       },
+       {
+        "frame": 35,
+        "point": [
+         626.0,
+         252.0
+        ],
+        "extent": null,
+        "box": [
+         611.0,
+         237.0,
+         641.0,
+         267.0
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 4.8,
+    "confidence": 0.3
+   },
+   {
+    "qid": 1387,
+    "spec": {
+     "target": {
+      "kind": "acceleration",
+      "objects": [
+       "ball"
+      ],
+      "dimension": "",
+      "time": 0.5,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s^2"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "ball"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.21,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "bowling ball",
+       "distance_m": 9.391,
+       "time": 0.5
+      }
+     ],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "ball",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "ball",
+      "obs": []
+     }
+    ],
+    "direct_answer": 0.3,
+    "confidence": 0.15
+   },
+   {
+    "qid": 1388,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "ball"
+      ],
+      "dimension": "",
+      "time": 1.0,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "ball"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.21,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "bowling ball",
+       "distance_m": 9.391,
+       "time": 0.5
+      }
+     ],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "ball",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "ball",
+      "obs": []
+     }
+    ],
+    "direct_answer": 4.7,
+    "confidence": 0.3
+   },
+   {
+    "qid": 1389,
+    "spec": {
+     "target": {
+      "kind": "acceleration",
+      "objects": [
+       "ball"
+      ],
+      "dimension": "",
+      "time": 1.0,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s^2"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "ball"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.21,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "bowling ball",
+       "distance_m": 9.391,
+       "time": 0.5
+      }
+     ],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "ball",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "ball",
+      "obs": []
+     }
+    ],
+    "direct_answer": 0.3,
+    "confidence": 0.15
+   },
+   {
+    "qid": 1390,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "bowling pin"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "ball"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.21,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "bowling ball",
+       "distance_m": 9.391,
+       "time": 0.5
+      }
+     ],
+     "notes": "Pin depth not given; compared with ball diameter when ball reaches pins (frame 39)."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "ball",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "bowling pin",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          710.5,
+          214.5
+         ],
+         [
+          710.5,
+          260.0
+         ]
+        ],
+        "box": [
+         704.0,
+         214.5,
+         717.0,
+         260.0
+        ]
+       },
+       {
+        "frame": 4,
+        "point": null,
+        "extent": [
+         [
+          710.5,
+          214.5
+         ],
+         [
+          710.5,
+          260.0
+         ]
+        ],
+        "box": [
+         704.0,
+         214.5,
+         717.0,
+         260.0
+        ]
+       },
+       {
+        "frame": 9,
+        "point": null,
+        "extent": [
+         [
+          710.5,
+          214.5
+         ],
+         [
+          710.5,
+          260.0
+         ]
+        ],
+        "box": [
+         704.0,
+         214.5,
+         717.0,
+         260.0
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 0.39,
+    "confidence": 0.4
+   }
+  ]
+ }
+}

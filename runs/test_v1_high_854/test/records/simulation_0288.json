@@ -1,0 +1,531 @@
+{
+ "video_id": "simulation_0288",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfprfcwHrGosoN7M5b69q",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 854
+ },
+ "ts": "2026-10-08T17:02:28+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_014b6hUtpWseWVd7Ff4g8gtq",
+ "custom_id": "simulation_0288",
+ "usage": {
+  "input_tokens": 11804,
+  "output_tokens": 2168,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 4317,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.04572,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0288",
+  "fps": 24.0,
+  "fps_from_container": false,
+  "video_type": "V2SS",
+  "n_frames_total": 72,
+  "scale": 0.33359375,
+  "image_size": [
+   2560,
+   1439
+  ],
+  "frames": [
+   0,
+   5,
+   9,
+   10,
+   12,
+   14,
+   19,
+   22,
+   24,
+   26,
+   28,
+   33,
+   38,
+   43,
+   47,
+   52,
+   57,
+   62,
+   66,
+   71
+  ],
+  "questions": [
+   {
+    "qid": 1009,
+    "target_unit": "m",
+    "prior": "speed of the fish = 0.67m/s",
+    "depth_info": ""
+   },
+   {
+    "qid": 1010,
+    "target_unit": "m",
+    "prior": "speed of the fish = 0.67m/s",
+    "depth_info": ""
+   },
+   {
+    "qid": 1011,
+    "target_unit": "m",
+    "prior": "speed of the fish = 0.67m/s",
+    "depth_info": ""
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":1009,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"fish\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"fish\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.67,\"unit\":\"\"},\"depth\":[],\"notes\":\"Speed assumed average over clip.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"fish\",\"obs\":[{\"frame\":0,\"point\":[680,244],\"extent\":null,\"box\":null},{\"frame\":5,\"point\":[648,245],\"extent\":null,\"box\":null},{\"frame\":9,\"point\":[617,246],\"extent\":null,\"box\":null},{\"frame\":10,\"point\":[610,247],\"extent\":null,\"box\":null},{\"frame\":12,\"point\":[594,248],\"extent\":null,\"box\":null},{\"frame\":14,\"point\":[578,250],\"extent\":null,\"box\":null},{\"frame\":19,\"point\":[541,246],\"extent\":null,\"box\":null},{\"frame\":22,\"point\":[516,240],\"extent\":null,\"box\":null},{\"frame\":24,\"point\":[502,238],\"extent\":null,\"box\":null},{\"frame\":26,\"point\":[487,236],\"extent\":null,\"box\":null},{\"frame\":28,\"point\":[471,234],\"extent\":null,\"box\":null},{\"frame\":33,\"point\":[432,228],\"extent\":null,\"box\":null},{\"frame\":38,\"point\":[389,224],\"extent\":null,\"box\":null},{\"frame\":43,\"point\":[344,222],\"extent\":null,\"box\":null},{\"frame\":47,\"point\":[309,226],\"extent\":null,\"box\":null},{\"frame\":52,\"point\":[284,236],\"extent\":null,\"box\":null},{\"frame\":57,\"point\":[245,234],\"extent\":null,\"box\":null},{\"frame\":62,\"point\":[206,236],\"extent\":null,\"box\":null},{\"frame\":66,\"point\":[175,238],\"extent\":null,\"box\":null},{\"frame\":71,\"point\":[142,240],\"extent\":null,\"box\":null}]},{\"role\":\"target\",\"object\":\"fish\",\"obs\":[{\"frame\":62,\"point\":null,\"extent\":[[206,238],[426,253]],\"box\":[206,204,426,282]},{\"frame\":66,\"point\":null,\"extent\":[[175,240],[395,252]],\"box\":[175,204,395,282]},{\"frame\":71,\"point\":null,\"extent\":[[142,241],[362,248]],\"box\":[142,204,362,284]}]}],\"direct_answer\":0.81,\"confidence\":0.6},{\"qid\":1010,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"fish\"],\"dimension\":\"width\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"fish\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.67,\"unit\":\"\"},\"depth\":[],\"notes\":\"Width taken as body width excluding fins.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"fish\",\"obs\":[]},{\"role\":\"target\",\"object\":\"fish\",\"obs\":[{\"frame\":62,\"point\":null,\"extent\":[[245,219],[245,262]],\"box\":[206,219,426,262]},{\"frame\":66,\"point\":null,\"extent\":[[213,220],[213,263]],\"box\":[175,220,395,263]},{\"frame\":71,\"point\":null,\"extent\":[[180,222],[180,264]],\"box\":[142,222,362,264]}]}],\"direct_answer\":0.155,\"confidence\":0.4},{\"qid\":1011,\"spec\":{\"target\":{\"kind\":\"displacement\",\"objects\":[\"fish\"],\"dimension\":\"\",\"time\":null,\"window\":[0.5,1.0],\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"fish\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.67,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"fish\",\"obs\":[]},{\"role\":\"target\",\"object\":\"fish\",\"obs\":[]}],\"direct_answer\":0.34,\"confidence\":0.6}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 1009,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "fish"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "fish"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.67,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Speed assumed average over clip."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "fish",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         680,
+         244
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 5,
+        "point": [
+         648,
+         245
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 9,
+        "point": [
+         617,
+         246
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 10,
+        "point": [
+         610,
+         247
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 12,
+        "point": [
+         594,
+         248
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 14,
+        "point": [
+         578,
+         250
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 19,
+        "point": [
+         541,
+         246
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 22,
+        "point": [
+         516,
+         240
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 24,
+        "point": [
+         502,
+         238
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 26,
+        "point": [
+         487,
+         236
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 28,
+        "point": [
+         471,
+         234
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 33,
+        "point": [
+         432,
+         228
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 38,
+        "point": [
+         389,
+         224
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 43,
+        "point": [
+         344,
+         222
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 47,
+        "point": [
+         309,
+         226
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 52,
+        "point": [
+         284,
+         236
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 57,
+        "point": [
+         245,
+         234
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 62,
+        "point": [
+         206,
+         236
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 66,
+        "point": [
+         175,
+         238
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 71,
+        "point": [
+         142,
+         240
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "fish",
+      "obs": [
+       {
+        "frame": 62,
+        "point": null,
+        "extent": [
+         [
+          206,
+          238
+         ],
+         [
+          426,
+          253
+         ]
+        ],
+        "box": [
+         206,
+         204,
+         426,
+         282
+        ]
+       },
+       {
+        "frame": 66,
+        "point": null,
+        "extent": [
+         [
+          175,
+          240
+         ],
+         [
+          395,
+          252
+         ]
+        ],
+        "box": [
+         175,
+         204,
+         395,
+         282
+        ]
+       },
+       {
+        "frame": 71,
+        "point": null,
+        "extent": [
+         [
+          142,
+          241
+         ],
+         [
+          362,
+          248
+         ]
+        ],
+        "box": [
+         142,
+         204,
+         362,
+         284
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 0.81,
+    "confidence": 0.6
+   },
+   {
+    "qid": 1010,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "fish"
+      ],
+      "dimension": "width",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "fish"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.67,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Width taken as body width excluding fins."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "fish",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "fish",
+      "obs": [
+       {
+        "frame": 62,
+        "point": null,
+        "extent": [
+         [
+          245,
+          219
+         ],
+         [
+          245,
+          262
+         ]
+        ],
+        "box": [
+         206,
+         219,
+         426,
+         262
+        ]
+       },
+       {
+        "frame": 66,
+        "point": null,
+        "extent": [
+         [
+          213,
+          220
+         ],
+         [
+          213,
+          263
+         ]
+        ],
+        "box": [
+         175,
+         220,
+         395,
+         263
+        ]
+       },
+       {
+        "frame": 71,
+        "point": null,
+        "extent": [
+         [
+          180,
+          222
+         ],
+         [
+          180,
+          264
+         ]
+        ],
+        "box": [
+         142,
+         222,
+         362,
+         264
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 0.155,
+    "confidence": 0.4
+   },
+   {
+    "qid": 1011,
+    "spec": {
+     "target": {
+      "kind": "displacement",
+      "objects": [
+       "fish"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": [
+       0.5,
+       1.0
+      ],
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "fish"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.67,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "fish",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "fish",
+      "obs": []
+     }
+    ],
+    "direct_answer": 0.34,
+    "confidence": 0.6
+   }
+  ]
+ }
+}

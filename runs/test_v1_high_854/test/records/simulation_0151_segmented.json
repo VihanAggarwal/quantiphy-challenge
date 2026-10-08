@@ -1,0 +1,755 @@
+{
+ "video_id": "simulation_0151_segmented",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfpzyCZ2Qhjn187XNxHqY",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 854
+ },
+ "ts": "2026-10-08T17:06:42+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_01RgbCGaqsRz49vUhEJLUBnh",
+ "custom_id": "simulation_0151_segmented",
+ "usage": {
+  "input_tokens": 12229,
+  "output_tokens": 4666,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 4317,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.07155,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0151_segmented",
+  "fps": 24.0,
+  "fps_from_container": false,
+  "video_type": "S3MX",
+  "n_frames_total": 42,
+  "scale": 0.44479166666666664,
+  "image_size": [
+   1920,
+   1079
+  ],
+  "frames": [
+   0,
+   3,
+   5,
+   8,
+   10,
+   11,
+   12,
+   14,
+   16,
+   19,
+   22,
+   24,
+   25,
+   26,
+   27,
+   30,
+   33,
+   36,
+   38,
+   41
+  ],
+  "questions": [
+   {
+    "qid": 2011,
+    "target_unit": "m",
+    "prior": "diameter of the tire of the yellow car = 0.764m\ndiameter of the tire of the blue car = 0.369m",
+    "depth_info": "t=0.5s, distance_yellowCarLeftFrontTire_camera = 11.38m"
+   },
+   {
+    "qid": 2012,
+    "target_unit": "m/s",
+    "prior": "diameter of the tire of the yellow car = 0.764m\ndiameter of the tire of the blue car = 0.369m",
+    "depth_info": "t=0.5s, distance_yellowCarLeftFrontTire_camera = 11.38m"
+   },
+   {
+    "qid": 2013,
+    "target_unit": "m/s^2",
+    "prior": "diameter of the tire of the yellow car = 0.764m\ndiameter of the tire of the blue car = 0.369m",
+    "depth_info": "t=0.5s, distance_yellowCarLeftFrontTire_camera = 11.38m"
+   },
+   {
+    "qid": 2014,
+    "target_unit": "m/s",
+    "prior": "diameter of the tire of the yellow car = 0.764m\ndiameter of the tire of the blue car = 0.369m",
+    "depth_info": "t=0.5s, distance_yellowCarLeftFrontTire_camera = 11.38m"
+   },
+   {
+    "qid": 2015,
+    "target_unit": "m/s^2",
+    "prior": "diameter of the tire of the yellow car = 0.764m\ndiameter of the tire of the blue car = 0.369m",
+    "depth_info": "t=0.5s, distance_yellowCarLeftFrontTire_camera = 11.38m"
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":2011,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"blue car\"],\"dimension\":\"width\",\"time\":null,\"window\":null,\"axis\":\"horizontal\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"blue car tire\"],\"dimension\":\"diameter\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.369,\"unit\":\"\"},\"depth\":[{\"object\":\"yellow car left front tire\",\"distance_m\":11.38,\"time\":0.5}],\"notes\":\"Width interpreted as the front-to-back horizontal extent of the blue cart in side view; blue car tire prior used for scale at its depth.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"blue car tire\",\"obs\":[{\"frame\":33,\"point\":null,\"extent\":[[479.5,347],[515,347]],\"box\":[479.5,329,515,365]},{\"frame\":36,\"point\":null,\"extent\":[[435.5,347],[471,347]],\"box\":[435.5,329,471,365]},{\"frame\":38,\"point\":null,\"extent\":[[407.5,347],[443,347]],\"box\":[407.5,329,443,365]},{\"frame\":41,\"point\":null,\"extent\":[[367.5,347],[403,347]],\"box\":[367.5,329,403,365]}]},{\"role\":\"target\",\"object\":\"blue car\",\"obs\":[{\"frame\":33,\"point\":null,\"extent\":[[380,320],[521,320]],\"box\":[380,218,544,364]},{\"frame\":36,\"point\":null,\"extent\":[[336,320],[477,320]],\"box\":[336,218,501,364]},{\"frame\":38,\"point\":null,\"extent\":[[308,320],[449,320]],\"box\":[308,218,473,364]},{\"frame\":41,\"point\":null,\"extent\":[[268,320],[413,320]],\"box\":[268,218,434,364]}]}],\"direct_answer\":1.5,\"confidence\":0.45},{\"qid\":2012,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"yellow car\"],\"dimension\":\"\",\"time\":1.0,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"yellow car tire\"],\"dimension\":\"diameter\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.764,\"unit\":\"\"},\"depth\":[{\"object\":\"yellow car left front tire\",\"distance_m\":11.38,\"time\":0.5}],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"yellow car tire\",\"obs\":[{\"frame\":22,\"point\":null,\"extent\":[[325.5,351],[408,351]],\"box\":[325.5,310,408,392]},{\"frame\":24,\"point\":null,\"extent\":[[239,351],[321.5,351]],\"box\":[239,310,321.5,392]},{\"frame\":25,\"point\":null,\"extent\":[[195,351],[277.5,351]],\"box\":[195,310,277.5,392]},{\"frame\":26,\"point\":null,\"extent\":[[150,351],[232.5,351]],\"box\":[150,310,232.5,392]}]},{\"role\":\"target\",\"object\":\"yellow car\",\"obs\":[{\"frame\":10,\"point\":[790,350],\"extent\":null,\"box\":null},{\"frame\":11,\"point\":[766,350],\"extent\":null,\"box\":null},{\"frame\":12,\"point\":[736,349],\"extent\":null,\"box\":null},{\"frame\":14,\"point\":[672,351],\"extent\":null,\"box\":null},{\"frame\":16,\"point\":[605,351],\"extent\":null,\"box\":null},{\"frame\":19,\"point\":[490,351],\"extent\":null,\"box\":null},{\"frame\":22,\"point\":[367,351],\"extent\":null,\"box\":null},{\"frame\":24,\"point\":[280,351],\"extent\":null,\"box\":null},{\"frame\":25,\"point\":[236,351],\"extent\":null,\"box\":null},{\"frame\":26,\"point\":[191,351],\"extent\":null,\"box\":null},{\"frame\":27,\"point\":[147,351],\"extent\":null,\"box\":null}]}],\"direct_answer\":9.7,\"confidence\":0.5},{\"qid\":2013,\"spec\":{\"target\":{\"kind\":\"acceleration\",\"objects\":[\"yellow car\"],\"dimension\":\"\",\"time\":1.0,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s^2\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"yellow car tire\"],\"dimension\":\"diameter\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.764,\"unit\":\"\"},\"depth\":[{\"object\":\"yellow car left front tire\",\"distance_m\":11.38,\"time\":0.5}],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"yellow car tire\",\"obs\":[]},{\"role\":\"target\",\"object\":\"yellow car\",\"obs\":[]}],\"direct_answer\":6.0,\"confidence\":0.3},{\"qid\":2014,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"blue car\"],\"dimension\":\"\",\"time\":1.0,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"blue car tire\"],\"dimension\":\"diameter\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.369,\"unit\":\"\"},\"depth\":[{\"object\":\"yellow car left front tire\",\"distance_m\":11.38,\"time\":0.5}],\"notes\":\"Blue car occluded by yellow car at t=1s; speed extrapolated from neighbouring frames.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"blue car tire\",\"obs\":[]},{\"role\":\"target\",\"object\":\"blue car\",\"obs\":[{\"frame\":27,\"point\":[588,345],\"extent\":null,\"box\":null},{\"frame\":30,\"point\":[541,347],\"extent\":null,\"box\":null},{\"frame\":33,\"point\":[497,347],\"extent\":null,\"box\":null},{\"frame\":36,\"point\":[453,347],\"extent\":null,\"box\":null},{\"frame\":38,\"point\":[425,347],\"extent\":null,\"box\":null},{\"frame\":41,\"point\":[385,347],\"extent\":null,\"box\":null}]}],\"direct_answer\":4.1,\"confidence\":0.35},{\"qid\":2015,\"spec\":{\"target\":{\"kind\":\"acceleration\",\"objects\":[\"blue car\"],\"dimension\":\"\",\"time\":1.0,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s^2\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"blue car tire\"],\"dimension\":\"diameter\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.369,\"unit\":\"\"},\"depth\":[{\"object\":\"yellow car left front tire\",\"distance_m\":11.38,\"time\":0.5}],\"notes\":\"Blue car appears to decelerate slightly; magnitude reported.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"blue car tire\",\"obs\":[]},{\"role\":\"target\",\"object\":\"blue car\",\"obs\":[]}],\"direct_answer\":1.3,\"confidence\":0.2}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 2011,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "blue car"
+      ],
+      "dimension": "width",
+      "time": null,
+      "window": null,
+      "axis": "horizontal",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "blue car tire"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.369,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "yellow car left front tire",
+       "distance_m": 11.38,
+       "time": 0.5
+      }
+     ],
+     "notes": "Width interpreted as the front-to-back horizontal extent of the blue cart in side view; blue car tire prior used for scale at its depth."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "blue car tire",
+      "obs": [
+       {
+        "frame": 33,
+        "point": null,
+        "extent": [
+         [
+          479.5,
+          347
+         ],
+         [
+          515,
+          347
+         ]
+        ],
+        "box": [
+         479.5,
+         329,
+         515,
+         365
+        ]
+       },
+       {
+        "frame": 36,
+        "point": null,
+        "extent": [
+         [
+          435.5,
+          347
+         ],
+         [
+          471,
+          347
+         ]
+        ],
+        "box": [
+         435.5,
+         329,
+         471,
+         365
+        ]
+       },
+       {
+        "frame": 38,
+        "point": null,
+        "extent": [
+         [
+          407.5,
+          347
+         ],
+         [
+          443,
+          347
+         ]
+        ],
+        "box": [
+         407.5,
+         329,
+         443,
+         365
+        ]
+       },
+       {
+        "frame": 41,
+        "point": null,
+        "extent": [
+         [
+          367.5,
+          347
+         ],
+         [
+          403,
+          347
+         ]
+        ],
+        "box": [
+         367.5,
+         329,
+         403,
+         365
+        ]
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "blue car",
+      "obs": [
+       {
+        "frame": 33,
+        "point": null,
+        "extent": [
+         [
+          380,
+          320
+         ],
+         [
+          521,
+          320
+         ]
+        ],
+        "box": [
+         380,
+         218,
+         544,
+         364
+        ]
+       },
+       {
+        "frame": 36,
+        "point": null,
+        "extent": [
+         [
+          336,
+          320
+         ],
+         [
+          477,
+          320
+         ]
+        ],
+        "box": [
+         336,
+         218,
+         501,
+         364
+        ]
+       },
+       {
+        "frame": 38,
+        "point": null,
+        "extent": [
+         [
+          308,
+          320
+         ],
+         [
+          449,
+          320
+         ]
+        ],
+        "box": [
+         308,
+         218,
+         473,
+         364
+        ]
+       },
+       {
+        "frame": 41,
+        "point": null,
+        "extent": [
+         [
+          268,
+          320
+         ],
+         [
+          413,
+          320
+         ]
+        ],
+        "box": [
+         268,
+         218,
+         434,
+         364
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 1.5,
+    "confidence": 0.45
+   },
+   {
+    "qid": 2012,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "yellow car"
+      ],
+      "dimension": "",
+      "time": 1.0,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "yellow car tire"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.764,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "yellow car left front tire",
+       "distance_m": 11.38,
+       "time": 0.5
+      }
+     ],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "yellow car tire",
+      "obs": [
+       {
+        "frame": 22,
+        "point": null,
+        "extent": [
+         [
+          325.5,
+          351
+         ],
+         [
+          408,
+          351
+         ]
+        ],
+        "box": [
+         325.5,
+         310,
+         408,
+         392
+        ]
+       },
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          239,
+          351
+         ],
+         [
+          321.5,
+          351
+         ]
+        ],
+        "box": [
+         239,
+         310,
+         321.5,
+         392
+        ]
+       },
+       {
+        "frame": 25,
+        "point": null,
+        "extent": [
+         [
+          195,
+          351
+         ],
+         [
+          277.5,
+          351
+         ]
+        ],
+        "box": [
+         195,
+         310,
+         277.5,
+         392
+        ]
+       },
+       {
+        "frame": 26,
+        "point": null,
+        "extent": [
+         [
+          150,
+          351
+         ],
+         [
+          232.5,
+          351
+         ]
+        ],
+        "box": [
+         150,
+         310,
+         232.5,
+         392
+        ]
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "yellow car",
+      "obs": [
+       {
+        "frame": 10,
+        "point": [
+         790,
+         350
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 11,
+        "point": [
+         766,
+         350
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 12,
+        "point": [
+         736,
+         349
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 14,
+        "point": [
+         672,
+         351
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 16,
+        "point": [
+         605,
+         351
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 19,
+        "point": [
+         490,
+         351
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 22,
+        "point": [
+         367,
+         351
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 24,
+        "point": [
+         280,
+         351
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 25,
+        "point": [
+         236,
+         351
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 26,
+        "point": [
+         191,
+         351
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 27,
+        "point": [
+         147,
+         351
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     }
+    ],
+    "direct_answer": 9.7,
+    "confidence": 0.5
+   },
+   {
+    "qid": 2013,
+    "spec": {
+     "target": {
+      "kind": "acceleration",
+      "objects": [
+       "yellow car"
+      ],
+      "dimension": "",
+      "time": 1.0,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s^2"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "yellow car tire"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.764,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "yellow car left front tire",
+       "distance_m": 11.38,
+       "time": 0.5
+      }
+     ],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "yellow car tire",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "yellow car",
+      "obs": []
+     }
+    ],
+    "direct_answer": 6.0,
+    "confidence": 0.3
+   },
+   {
+    "qid": 2014,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "blue car"
+      ],
+      "dimension": "",
+      "time": 1.0,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "blue car tire"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.369,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "yellow car left front tire",
+       "distance_m": 11.38,
+       "time": 0.5
+      }
+     ],
+     "notes": "Blue car occluded by yellow car at t=1s; speed extrapolated from neighbouring frames."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "blue car tire",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "blue car",
+      "obs": [
+       {
+        "frame": 27,
+        "point": [
+         588,
+         345
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 30,
+        "point": [
+         541,
+         347
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 33,
+        "point": [
+         497,
+         347
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 36,
+        "point": [
+         453,
+         347
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 38,
+        "point": [
+         425,
+         347
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 41,
+        "point": [
+         385,
+         347
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     }
+    ],
+    "direct_answer": 4.1,
+    "confidence": 0.35
+   },
+   {
+    "qid": 2015,
+    "spec": {
+     "target": {
+      "kind": "acceleration",
+      "objects": [
+       "blue car"
+      ],
+      "dimension": "",
+      "time": 1.0,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s^2"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "blue car tire"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.369,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "yellow car left front tire",
+       "distance_m": 11.38,
+       "time": 0.5
+      }
+     ],
+     "notes": "Blue car appears to decelerate slightly; magnitude reported."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "blue car tire",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "blue car",
+      "obs": []
+     }
+    ],
+    "direct_answer": 1.3,
+    "confidence": 0.2
+   }
+  ]
+ }
+}

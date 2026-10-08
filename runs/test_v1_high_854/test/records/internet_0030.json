@@ -1,0 +1,593 @@
+{
+ "video_id": "internet_0030",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011Cfq6j3yeu126Zt1wsV1KS",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 854
+ },
+ "ts": "2026-10-08T16:39:20+00:00",
+ "mode": "sync",
+ "request_id": "req_011Cfq6j3MCJ1AAiJUemhRBu",
+ "usage": {
+  "input_tokens": 11419,
+  "output_tokens": 2608,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 4317,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.098699,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "internet_0030",
+  "fps": 30.0,
+  "fps_from_container": false,
+  "video_type": "S2SC",
+  "n_frames_total": 42,
+  "scale": 0.44479166666666664,
+  "image_size": [
+   1920,
+   1079
+  ],
+  "frames": [
+   0,
+   3,
+   5,
+   8,
+   11,
+   12,
+   14,
+   15,
+   16,
+   18,
+   19,
+   22,
+   25,
+   27,
+   30,
+   33,
+   36,
+   38,
+   41
+  ],
+  "questions": [
+   {
+    "qid": 3003,
+    "target_unit": "m",
+    "prior": "length of the speedboat = 3.2 m",
+    "depth_info": ""
+   },
+   {
+    "qid": 3004,
+    "target_unit": "m",
+    "prior": "length of the speedboat = 3.2 m",
+    "depth_info": ""
+   },
+   {
+    "qid": 3005,
+    "target_unit": "m/s",
+    "prior": "length of the speedboat = 3.2 m",
+    "depth_info": ""
+   },
+   {
+    "qid": 3006,
+    "target_unit": "m/s",
+    "prior": "length of the speedboat = 3.2 m",
+    "depth_info": ""
+   },
+   {
+    "qid": 3007,
+    "target_unit": "m/s^2",
+    "prior": "length of the speedboat = 3.2 m",
+    "depth_info": ""
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":3003,\"spec\":{\"target\":{\"kind\":\"displacement\",\"objects\":[\"speedboat\"],\"dimension\":\"\",\"time\":null,\"window\":[0.5,1.0],\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"speedboat\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":3.2,\"unit\":\"\"},\"depth\":[],\"notes\":\"Camera pans slightly to the right; pixel displacement used.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"speedboat\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[178,219],[270,217]],\"box\":[178,197,270,231]},{\"frame\":15,\"point\":null,\"extent\":[[276,222],[365,216]],\"box\":[276,197,365,230]},{\"frame\":30,\"point\":null,\"extent\":[[372,222],[457,216]],\"box\":[372,198,457,230]},{\"frame\":41,\"point\":null,\"extent\":[[441,222],[524,217]],\"box\":[441,198,524,230]}]},{\"role\":\"target\",\"object\":\"speedboat bow\",\"obs\":[{\"frame\":0,\"point\":[270,217],\"extent\":null,\"box\":null},{\"frame\":3,\"point\":[290,217],\"extent\":null,\"box\":null},{\"frame\":5,\"point\":[302,217],\"extent\":null,\"box\":null},{\"frame\":8,\"point\":[321,217],\"extent\":null,\"box\":null},{\"frame\":11,\"point\":[340,216],\"extent\":null,\"box\":null},{\"frame\":12,\"point\":[346,216],\"extent\":null,\"box\":null},{\"frame\":14,\"point\":[357,216],\"extent\":null,\"box\":null},{\"frame\":15,\"point\":[365,216],\"extent\":null,\"box\":null},{\"frame\":16,\"point\":[371,216],\"extent\":null,\"box\":null},{\"frame\":18,\"point\":[384,216],\"extent\":null,\"box\":null},{\"frame\":19,\"point\":[390,216],\"extent\":null,\"box\":null},{\"frame\":22,\"point\":[408,216],\"extent\":null,\"box\":null},{\"frame\":25,\"point\":[427,216],\"extent\":null,\"box\":null},{\"frame\":27,\"point\":[439,216],\"extent\":null,\"box\":null},{\"frame\":30,\"point\":[457,216],\"extent\":null,\"box\":null},{\"frame\":33,\"point\":[476,216],\"extent\":null,\"box\":null},{\"frame\":36,\"point\":[494,216],\"extent\":null,\"box\":null},{\"frame\":38,\"point\":[506,216],\"extent\":null,\"box\":null},{\"frame\":41,\"point\":[524,217],\"extent\":null,\"box\":null}]}],\"direct_answer\":3.35,\"confidence\":0.6},{\"qid\":3004,\"spec\":{\"target\":{\"kind\":\"displacement\",\"objects\":[\"speedboat\"],\"dimension\":\"\",\"time\":null,\"window\":[0.5,1.37],\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"speedboat\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":3.2,\"unit\":\"\"},\"depth\":[],\"notes\":\"1.37s taken as last frame (41).\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"speedboat\",\"obs\":[]},{\"role\":\"target\",\"object\":\"speedboat bow\",\"obs\":[]}],\"direct_answer\":5.78,\"confidence\":0.6},{\"qid\":3005,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"speedboat\"],\"dimension\":\"\",\"time\":null,\"window\":[0.5,1.0],\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"speedboat\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":3.2,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"speedboat\",\"obs\":[]},{\"role\":\"target\",\"object\":\"speedboat bow\",\"obs\":[]}],\"direct_answer\":6.7,\"confidence\":0.6},{\"qid\":3006,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"speedboat\"],\"dimension\":\"\",\"time\":null,\"window\":[0.5,1.37],\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"speedboat\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":3.2,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"speedboat\",\"obs\":[]},{\"role\":\"target\",\"object\":\"speedboat bow\",\"obs\":[]}],\"direct_answer\":6.65,\"confidence\":0.6},{\"qid\":3007,\"spec\":{\"target\":{\"kind\":\"acceleration\",\"objects\":[\"speedboat\"],\"dimension\":\"\",\"time\":null,\"window\":[0.5,1.37],\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s^2\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"speedboat\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":3.2,\"unit\":\"\"},\"depth\":[],\"notes\":\"Motion is nearly uniform; acceleration is close to zero.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"speedboat\",\"obs\":[]},{\"role\":\"target\",\"object\":\"speedboat bow\",\"obs\":[]}],\"direct_answer\":0.1,\"confidence\":0.1}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 3003,
+    "spec": {
+     "target": {
+      "kind": "displacement",
+      "objects": [
+       "speedboat"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": [
+       0.5,
+       1.0
+      ],
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "speedboat"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 3.2,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Camera pans slightly to the right; pixel displacement used."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "speedboat",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          178,
+          219
+         ],
+         [
+          270,
+          217
+         ]
+        ],
+        "box": [
+         178,
+         197,
+         270,
+         231
+        ]
+       },
+       {
+        "frame": 15,
+        "point": null,
+        "extent": [
+         [
+          276,
+          222
+         ],
+         [
+          365,
+          216
+         ]
+        ],
+        "box": [
+         276,
+         197,
+         365,
+         230
+        ]
+       },
+       {
+        "frame": 30,
+        "point": null,
+        "extent": [
+         [
+          372,
+          222
+         ],
+         [
+          457,
+          216
+         ]
+        ],
+        "box": [
+         372,
+         198,
+         457,
+         230
+        ]
+       },
+       {
+        "frame": 41,
+        "point": null,
+        "extent": [
+         [
+          441,
+          222
+         ],
+         [
+          524,
+          217
+         ]
+        ],
+        "box": [
+         441,
+         198,
+         524,
+         230
+        ]
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "speedboat bow",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         270,
+         217
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 3,
+        "point": [
+         290,
+         217
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 5,
+        "point": [
+         302,
+         217
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 8,
+        "point": [
+         321,
+         217
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 11,
+        "point": [
+         340,
+         216
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 12,
+        "point": [
+         346,
+         216
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 14,
+        "point": [
+         357,
+         216
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 15,
+        "point": [
+         365,
+         216
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 16,
+        "point": [
+         371,
+         216
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 18,
+        "point": [
+         384,
+         216
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 19,
+        "point": [
+         390,
+         216
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 22,
+        "point": [
+         408,
+         216
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 25,
+        "point": [
+         427,
+         216
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 27,
+        "point": [
+         439,
+         216
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 30,
+        "point": [
+         457,
+         216
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 33,
+        "point": [
+         476,
+         216
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 36,
+        "point": [
+         494,
+         216
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 38,
+        "point": [
+         506,
+         216
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 41,
+        "point": [
+         524,
+         217
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     }
+    ],
+    "direct_answer": 3.35,
+    "confidence": 0.6
+   },
+   {
+    "qid": 3004,
+    "spec": {
+     "target": {
+      "kind": "displacement",
+      "objects": [
+       "speedboat"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": [
+       0.5,
+       1.37
+      ],
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "speedboat"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 3.2,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "1.37s taken as last frame (41)."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "speedboat",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "speedboat bow",
+      "obs": []
+     }
+    ],
+    "direct_answer": 5.78,
+    "confidence": 0.6
+   },
+   {
+    "qid": 3005,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "speedboat"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": [
+       0.5,
+       1.0
+      ],
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "speedboat"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 3.2,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "speedboat",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "speedboat bow",
+      "obs": []
+     }
+    ],
+    "direct_answer": 6.7,
+    "confidence": 0.6
+   },
+   {
+    "qid": 3006,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "speedboat"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": [
+       0.5,
+       1.37
+      ],
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "speedboat"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 3.2,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "speedboat",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "speedboat bow",
+      "obs": []
+     }
+    ],
+    "direct_answer": 6.65,
+    "confidence": 0.6
+   },
+   {
+    "qid": 3007,
+    "spec": {
+     "target": {
+      "kind": "acceleration",
+      "objects": [
+       "speedboat"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": [
+       0.5,
+       1.37
+      ],
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s^2"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "speedboat"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 3.2,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Motion is nearly uniform; acceleration is close to zero."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "speedboat",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "speedboat bow",
+      "obs": []
+     }
+    ],
+    "direct_answer": 0.1,
+    "confidence": 0.1
+   }
+  ]
+ }
+}

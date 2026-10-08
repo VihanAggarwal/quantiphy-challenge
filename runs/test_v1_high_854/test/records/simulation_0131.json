@@ -1,0 +1,477 @@
+{
+ "video_id": "simulation_0131",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfprAEoigj11PbkxEDtKY",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 854
+ },
+ "ts": "2026-10-08T16:53:50+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_01EK6rwK1z62Nk1x6w7FZeFC",
+ "custom_id": "simulation_0131",
+ "usage": {
+  "input_tokens": 15878,
+  "output_tokens": 1841,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 4317,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.050598,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0131",
+  "fps": 24.0,
+  "fps_from_container": false,
+  "video_type": "V2SX",
+  "n_frames_total": 97,
+  "scale": 0.7907407407407407,
+  "image_size": [
+   1080,
+   1080
+  ],
+  "frames": [
+   0,
+   6,
+   13,
+   19,
+   26,
+   32,
+   38,
+   45,
+   51,
+   58,
+   64,
+   70,
+   77,
+   83,
+   90,
+   96
+  ],
+  "questions": [
+   {
+    "qid": 308,
+    "target_unit": "m",
+    "prior": "speed of the hot air balloon = 4m/s",
+    "depth_info": ""
+   },
+   {
+    "qid": 309,
+    "target_unit": "m",
+    "prior": "speed of the hot air balloon = 4m/s",
+    "depth_info": ""
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":308,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"hot air balloon\"],\"dimension\":\"width\",\"time\":null,\"window\":null,\"axis\":\"horizontal\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"hot air balloon\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":4.0,\"unit\":\"\"},\"depth\":[],\"notes\":\"Balloon rises vertically at constant speed.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"hot air balloon\",\"obs\":[{\"frame\":0,\"point\":[427,400],\"extent\":null,\"box\":null},{\"frame\":6,\"point\":[427,380],\"extent\":null,\"box\":null},{\"frame\":13,\"point\":[427,357],\"extent\":null,\"box\":null},{\"frame\":19,\"point\":[427,338],\"extent\":null,\"box\":null},{\"frame\":26,\"point\":[427,316],\"extent\":null,\"box\":null},{\"frame\":32,\"point\":[427,296],\"extent\":null,\"box\":null},{\"frame\":38,\"point\":[427,277],\"extent\":null,\"box\":null},{\"frame\":45,\"point\":[427,255],\"extent\":null,\"box\":null},{\"frame\":51,\"point\":[427,235],\"extent\":null,\"box\":null},{\"frame\":58,\"point\":[427,213],\"extent\":null,\"box\":null},{\"frame\":64,\"point\":[427,193],\"extent\":null,\"box\":null},{\"frame\":70,\"point\":[427,174],\"extent\":null,\"box\":null},{\"frame\":77,\"point\":[427,151],\"extent\":null,\"box\":null},{\"frame\":83,\"point\":[427,132],\"extent\":null,\"box\":null},{\"frame\":90,\"point\":[427,109],\"extent\":null,\"box\":null},{\"frame\":96,\"point\":[427,90],\"extent\":null,\"box\":null}]},{\"role\":\"target\",\"object\":\"hot air balloon\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[286,515],[568,515]],\"box\":[286,400,568,770]},{\"frame\":32,\"point\":null,\"extent\":[[286,410],[568,410]],\"box\":[286,296,568,668]},{\"frame\":64,\"point\":null,\"extent\":[[286,305],[568,305]],\"box\":[286,193,568,567]},{\"frame\":96,\"point\":null,\"extent\":[[286,205],[568,205]],\"box\":[286,90,568,466]}]}],\"direct_answer\":14.7,\"confidence\":0.6},{\"qid\":309,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"hot air balloon\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"hot air balloon\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":4.0,\"unit\":\"\"},\"depth\":[],\"notes\":\"Height taken from envelope top to basket bottom.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"hot air balloon\",\"obs\":[]},{\"role\":\"target\",\"object\":\"hot air balloon\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[427,400],[427,770]],\"box\":[286,400,568,770]},{\"frame\":32,\"point\":null,\"extent\":[[427,296],[427,668]],\"box\":[286,296,568,668]},{\"frame\":64,\"point\":null,\"extent\":[[427,193],[427,567]],\"box\":[286,193,568,567]},{\"frame\":96,\"point\":null,\"extent\":[[427,90],[427,466]],\"box\":[286,90,568,466]}]}],\"direct_answer\":19.3,\"confidence\":0.45}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 308,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "hot air balloon"
+      ],
+      "dimension": "width",
+      "time": null,
+      "window": null,
+      "axis": "horizontal",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "hot air balloon"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 4.0,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Balloon rises vertically at constant speed."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "hot air balloon",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         427,
+         400
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 6,
+        "point": [
+         427,
+         380
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 13,
+        "point": [
+         427,
+         357
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 19,
+        "point": [
+         427,
+         338
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 26,
+        "point": [
+         427,
+         316
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 32,
+        "point": [
+         427,
+         296
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 38,
+        "point": [
+         427,
+         277
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 45,
+        "point": [
+         427,
+         255
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 51,
+        "point": [
+         427,
+         235
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 58,
+        "point": [
+         427,
+         213
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 64,
+        "point": [
+         427,
+         193
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 70,
+        "point": [
+         427,
+         174
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 77,
+        "point": [
+         427,
+         151
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 83,
+        "point": [
+         427,
+         132
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 90,
+        "point": [
+         427,
+         109
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 96,
+        "point": [
+         427,
+         90
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "hot air balloon",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          286,
+          515
+         ],
+         [
+          568,
+          515
+         ]
+        ],
+        "box": [
+         286,
+         400,
+         568,
+         770
+        ]
+       },
+       {
+        "frame": 32,
+        "point": null,
+        "extent": [
+         [
+          286,
+          410
+         ],
+         [
+          568,
+          410
+         ]
+        ],
+        "box": [
+         286,
+         296,
+         568,
+         668
+        ]
+       },
+       {
+        "frame": 64,
+        "point": null,
+        "extent": [
+         [
+          286,
+          305
+         ],
+         [
+          568,
+          305
+         ]
+        ],
+        "box": [
+         286,
+         193,
+         568,
+         567
+        ]
+       },
+       {
+        "frame": 96,
+        "point": null,
+        "extent": [
+         [
+          286,
+          205
+         ],
+         [
+          568,
+          205
+         ]
+        ],
+        "box": [
+         286,
+         90,
+         568,
+         466
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 14.7,
+    "confidence": 0.6
+   },
+   {
+    "qid": 309,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "hot air balloon"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "hot air balloon"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 4.0,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Height taken from envelope top to basket bottom."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "hot air balloon",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "hot air balloon",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          427,
+          400
+         ],
+         [
+          427,
+          770
+         ]
+        ],
+        "box": [
+         286,
+         400,
+         568,
+         770
+        ]
+       },
+       {
+        "frame": 32,
+        "point": null,
+        "extent": [
+         [
+          427,
+          296
+         ],
+         [
+          427,
+          668
+         ]
+        ],
+        "box": [
+         286,
+         296,
+         568,
+         668
+        ]
+       },
+       {
+        "frame": 64,
+        "point": null,
+        "extent": [
+         [
+          427,
+          193
+         ],
+         [
+          427,
+          567
+         ]
+        ],
+        "box": [
+         286,
+         193,
+         568,
+         567
+        ]
+       },
+       {
+        "frame": 96,
+        "point": null,
+        "extent": [
+         [
+          427,
+          90
+         ],
+         [
+          427,
+          466
+         ]
+        ],
+        "box": [
+         286,
+         90,
+         568,
+         466
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 19.3,
+    "confidence": 0.45
+   }
+  ]
+ }
+}

@@ -1,0 +1,593 @@
+{
+ "video_id": "simulation_0163",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfptK8L1vdfHF4FG7QszU",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 854
+ },
+ "ts": "2026-10-08T17:05:36+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_019AL58i4xaJ3z5B8eH4maJp",
+ "custom_id": "simulation_0163",
+ "usage": {
+  "input_tokens": 12534,
+  "output_tokens": 2756,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 4317,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.05306,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0163",
+  "fps": 24.0,
+  "fps_from_container": false,
+  "video_type": "S2MC",
+  "n_frames_total": 51,
+  "scale": 0.44479166666666664,
+  "image_size": [
+   1920,
+   1079
+  ],
+  "frames": [
+   0,
+   3,
+   7,
+   10,
+   12,
+   13,
+   14,
+   17,
+   20,
+   22,
+   23,
+   24,
+   26,
+   27,
+   30,
+   33,
+   37,
+   40,
+   43,
+   47,
+   50
+  ],
+  "questions": [
+   {
+    "qid": 381,
+    "target_unit": "m/s",
+    "prior": "diameter of the ball = 0.21m",
+    "depth_info": ""
+   },
+   {
+    "qid": 382,
+    "target_unit": "m/s^2",
+    "prior": "diameter of the ball = 0.21m",
+    "depth_info": ""
+   },
+   {
+    "qid": 383,
+    "target_unit": "m/s",
+    "prior": "diameter of the ball = 0.21m",
+    "depth_info": ""
+   },
+   {
+    "qid": 384,
+    "target_unit": "m/s^2",
+    "prior": "diameter of the ball = 0.21m",
+    "depth_info": ""
+   },
+   {
+    "qid": 385,
+    "target_unit": "m",
+    "prior": "diameter of the ball = 0.21m",
+    "depth_info": ""
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":381,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"ball\"],\"dimension\":\"\",\"time\":0.5,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"ball\"],\"dimension\":\"diameter\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.21,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"ball\",\"obs\":[{\"frame\":10,\"point\":null,\"extent\":[[190.5,292],[226.5,292]],\"box\":[190.5,274.5,226.5,310.5]},{\"frame\":12,\"point\":null,\"extent\":[[237,292.5],[273,292.5]],\"box\":[237,274.5,273,310.5]},{\"frame\":17,\"point\":null,\"extent\":[[348,292],[384,292]],\"box\":[348,274,384,310]},{\"frame\":24,\"point\":null,\"extent\":[[499,292],[535,292]],\"box\":[499,274,535,310]}]},{\"role\":\"target\",\"object\":\"ball\",\"obs\":[{\"frame\":3,\"point\":[47,293],\"extent\":null,\"box\":[29,275,66,311]},{\"frame\":7,\"point\":[141,292],\"extent\":null,\"box\":null},{\"frame\":10,\"point\":[208.5,292],\"extent\":null,\"box\":null},{\"frame\":12,\"point\":[255,292.5],\"extent\":null,\"box\":null},{\"frame\":13,\"point\":[277,293],\"extent\":null,\"box\":null},{\"frame\":14,\"point\":[298,292],\"extent\":null,\"box\":null},{\"frame\":17,\"point\":[366,292],\"extent\":null,\"box\":null},{\"frame\":20,\"point\":[431,292],\"extent\":null,\"box\":null},{\"frame\":22,\"point\":[475,292],\"extent\":null,\"box\":null},{\"frame\":23,\"point\":[496,292],\"extent\":null,\"box\":null},{\"frame\":24,\"point\":[517,292],\"extent\":null,\"box\":null},{\"frame\":26,\"point\":[559,291.5],\"extent\":null,\"box\":null},{\"frame\":27,\"point\":[581,291.5],\"extent\":null,\"box\":null}]}],\"direct_answer\":3.12,\"confidence\":0.6},{\"qid\":382,\"spec\":{\"target\":{\"kind\":\"acceleration\",\"objects\":[\"ball\"],\"dimension\":\"\",\"time\":0.5,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s^2\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"ball\"],\"dimension\":\"diameter\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.21,\"unit\":\"\"},\"depth\":[],\"notes\":\"ball nearly constant speed; slight deceleration\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"ball\",\"obs\":[]},{\"role\":\"target\",\"object\":\"ball\",\"obs\":[]}],\"direct_answer\":0.25,\"confidence\":0.2},{\"qid\":383,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"ball\"],\"dimension\":\"\",\"time\":1.0,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"ball\"],\"dimension\":\"diameter\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.21,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"ball\",\"obs\":[]},{\"role\":\"target\",\"object\":\"ball\",\"obs\":[]}],\"direct_answer\":2.98,\"confidence\":0.6},{\"qid\":384,\"spec\":{\"target\":{\"kind\":\"acceleration\",\"objects\":[\"ball\"],\"dimension\":\"\",\"time\":1.0,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s^2\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"ball\"],\"dimension\":\"diameter\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.21,\"unit\":\"\"},\"depth\":[],\"notes\":\"ball nearly constant speed; slight deceleration\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"ball\",\"obs\":[]},{\"role\":\"target\",\"object\":\"ball\",\"obs\":[]}],\"direct_answer\":0.25,\"confidence\":0.2},{\"qid\":385,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"bowling pin\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"ball\"],\"dimension\":\"diameter\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.21,\"unit\":\"\"},\"depth\":[],\"notes\":\"front pin measured\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"ball\",\"obs\":[]},{\"role\":\"target\",\"object\":\"bowling pin\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[596,253],[596,307]],\"box\":[588,253,604,307]},{\"frame\":10,\"point\":null,\"extent\":[[596,253],[596,307]],\"box\":[588,253,604,307]},{\"frame\":20,\"point\":null,\"extent\":[[596,253],[596,307]],\"box\":[588,253,604,307]}]}],\"direct_answer\":0.315,\"confidence\":0.5}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 381,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "ball"
+      ],
+      "dimension": "",
+      "time": 0.5,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "ball"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.21,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "ball",
+      "obs": [
+       {
+        "frame": 10,
+        "point": null,
+        "extent": [
+         [
+          190.5,
+          292
+         ],
+         [
+          226.5,
+          292
+         ]
+        ],
+        "box": [
+         190.5,
+         274.5,
+         226.5,
+         310.5
+        ]
+       },
+       {
+        "frame": 12,
+        "point": null,
+        "extent": [
+         [
+          237,
+          292.5
+         ],
+         [
+          273,
+          292.5
+         ]
+        ],
+        "box": [
+         237,
+         274.5,
+         273,
+         310.5
+        ]
+       },
+       {
+        "frame": 17,
+        "point": null,
+        "extent": [
+         [
+          348,
+          292
+         ],
+         [
+          384,
+          292
+         ]
+        ],
+        "box": [
+         348,
+         274,
+         384,
+         310
+        ]
+       },
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          499,
+          292
+         ],
+         [
+          535,
+          292
+         ]
+        ],
+        "box": [
+         499,
+         274,
+         535,
+         310
+        ]
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "ball",
+      "obs": [
+       {
+        "frame": 3,
+        "point": [
+         47,
+         293
+        ],
+        "extent": null,
+        "box": [
+         29,
+         275,
+         66,
+         311
+        ]
+       },
+       {
+        "frame": 7,
+        "point": [
+         141,
+         292
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 10,
+        "point": [
+         208.5,
+         292
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 12,
+        "point": [
+         255,
+         292.5
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 13,
+        "point": [
+         277,
+         293
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 14,
+        "point": [
+         298,
+         292
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 17,
+        "point": [
+         366,
+         292
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 20,
+        "point": [
+         431,
+         292
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 22,
+        "point": [
+         475,
+         292
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 23,
+        "point": [
+         496,
+         292
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 24,
+        "point": [
+         517,
+         292
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 26,
+        "point": [
+         559,
+         291.5
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 27,
+        "point": [
+         581,
+         291.5
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     }
+    ],
+    "direct_answer": 3.12,
+    "confidence": 0.6
+   },
+   {
+    "qid": 382,
+    "spec": {
+     "target": {
+      "kind": "acceleration",
+      "objects": [
+       "ball"
+      ],
+      "dimension": "",
+      "time": 0.5,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s^2"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "ball"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.21,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "ball nearly constant speed; slight deceleration"
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "ball",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "ball",
+      "obs": []
+     }
+    ],
+    "direct_answer": 0.25,
+    "confidence": 0.2
+   },
+   {
+    "qid": 383,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "ball"
+      ],
+      "dimension": "",
+      "time": 1.0,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "ball"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.21,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "ball",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "ball",
+      "obs": []
+     }
+    ],
+    "direct_answer": 2.98,
+    "confidence": 0.6
+   },
+   {
+    "qid": 384,
+    "spec": {
+     "target": {
+      "kind": "acceleration",
+      "objects": [
+       "ball"
+      ],
+      "dimension": "",
+      "time": 1.0,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s^2"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "ball"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.21,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "ball nearly constant speed; slight deceleration"
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "ball",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "ball",
+      "obs": []
+     }
+    ],
+    "direct_answer": 0.25,
+    "confidence": 0.2
+   },
+   {
+    "qid": 385,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "bowling pin"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "ball"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.21,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "front pin measured"
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "ball",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "bowling pin",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          596,
+          253
+         ],
+         [
+          596,
+          307
+         ]
+        ],
+        "box": [
+         588,
+         253,
+         604,
+         307
+        ]
+       },
+       {
+        "frame": 10,
+        "point": null,
+        "extent": [
+         [
+          596,
+          253
+         ],
+         [
+          596,
+          307
+         ]
+        ],
+        "box": [
+         588,
+         253,
+         604,
+         307
+        ]
+       },
+       {
+        "frame": 20,
+        "point": null,
+        "extent": [
+         [
+          596,
+          253
+         ],
+         [
+          596,
+          307
+         ]
+        ],
+        "box": [
+         588,
+         253,
+         604,
+         307
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 0.315,
+    "confidence": 0.5
+   }
+  ]
+ }
+}

@@ -1,0 +1,620 @@
+{
+ "video_id": "simulation_0218",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011Cfps7czzEKY5omjbcWEeE",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 854
+ },
+ "ts": "2026-10-08T16:53:52+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_01KU8pudkFSd53LhMaHHZ5xA",
+ "custom_id": "simulation_0218",
+ "usage": {
+  "input_tokens": 9566,
+  "output_tokens": 2873,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 4317,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.048294,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0218",
+  "fps": 24.0,
+  "fps_from_container": false,
+  "video_type": "V2MC",
+  "n_frames_total": 50,
+  "scale": 0.44479166666666664,
+  "image_size": [
+   1920,
+   1079
+  ],
+  "frames": [
+   0,
+   3,
+   7,
+   10,
+   13,
+   16,
+   20,
+   23,
+   26,
+   29,
+   33,
+   36,
+   39,
+   42,
+   46,
+   49
+  ],
+  "questions": [
+   {
+    "qid": 637,
+    "target_unit": "m",
+    "prior": "speed of the big robot = 5.924m/s",
+    "depth_info": ""
+   },
+   {
+    "qid": 638,
+    "target_unit": "m",
+    "prior": "speed of the big robot = 5.924m/s",
+    "depth_info": ""
+   },
+   {
+    "qid": 639,
+    "target_unit": "m",
+    "prior": "speed of the big robot = 5.924m/s",
+    "depth_info": ""
+   },
+   {
+    "qid": 640,
+    "target_unit": "m",
+    "prior": "speed of the big robot = 5.924m/s",
+    "depth_info": ""
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":637,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"big robot\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"horizontal\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"big robot\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":5.924,\"unit\":\"\"},\"depth\":[],\"notes\":\"Length taken as full horizontal extent from cannon rear to drill tip.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"big robot\",\"obs\":[{\"frame\":10,\"point\":[37,380],\"extent\":null,\"box\":null},{\"frame\":13,\"point\":[105,380],\"extent\":null,\"box\":null},{\"frame\":16,\"point\":[172,380],\"extent\":null,\"box\":null},{\"frame\":20,\"point\":[263,380],\"extent\":null,\"box\":null},{\"frame\":23,\"point\":[331,380],\"extent\":null,\"box\":null},{\"frame\":26,\"point\":[398,380],\"extent\":null,\"box\":null},{\"frame\":29,\"point\":[463,380],\"extent\":null,\"box\":null}]},{\"role\":\"target\",\"object\":\"big robot length\",\"obs\":[{\"frame\":16,\"point\":null,\"extent\":[[178,163],[450,290]],\"box\":[172,120,450,397]},{\"frame\":20,\"point\":null,\"extent\":[[268,163],[546,290]],\"box\":[263,122,546,397]},{\"frame\":23,\"point\":null,\"extent\":[[336,163],[618,290]],\"box\":[331,122,618,397]},{\"frame\":26,\"point\":null,\"extent\":[[406,163],[690,290]],\"box\":[398,122,690,397]}]}],\"direct_answer\":3.07,\"confidence\":0.45},{\"qid\":638,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"big robot\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"big robot\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":5.924,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"big robot\",\"obs\":[]},{\"role\":\"target\",\"object\":\"big robot height\",\"obs\":[{\"frame\":16,\"point\":null,\"extent\":[[290,120],[290,397]],\"box\":[172,120,450,397]},{\"frame\":20,\"point\":null,\"extent\":[[365,122],[365,397]],\"box\":[263,122,546,397]},{\"frame\":23,\"point\":null,\"extent\":[[433,122],[433,397]],\"box\":[331,122,618,397]},{\"frame\":26,\"point\":null,\"extent\":[[503,122],[503,397]],\"box\":[398,122,690,397]}]}],\"direct_answer\":3.02,\"confidence\":0.5},{\"qid\":639,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"parking space\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"horizontal\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"big robot\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":5.924,\"unit\":\"\"},\"depth\":[],\"notes\":\"Floor in perspective; measured mid-depth between the two transverse lines.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"big robot\",\"obs\":[]},{\"role\":\"target\",\"object\":\"parking space\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[248,389],[765,389]],\"box\":[232,375,800,404]},{\"frame\":49,\"point\":null,\"extent\":[[248,389],[765,389]],\"box\":[232,375,800,404]},{\"frame\":46,\"point\":null,\"extent\":[[248,389],[765,389]],\"box\":[232,375,800,404]}]}],\"direct_answer\":5.65,\"confidence\":0.35},{\"qid\":640,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"robot tire\"],\"dimension\":\"diameter\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"big robot\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":5.924,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"big robot\",\"obs\":[]},{\"role\":\"target\",\"object\":\"robot tire\",\"obs\":[{\"frame\":20,\"point\":null,\"extent\":[[314,375],[346,375]],\"box\":[314,359,346,391]},{\"frame\":23,\"point\":null,\"extent\":[[382,375],[414,375]],\"box\":[382,359,414,391]},{\"frame\":26,\"point\":null,\"extent\":[[450,375],[482,375]],\"box\":[450,359,482,391]}]}],\"direct_answer\":0.35,\"confidence\":0.35}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 637,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "big robot"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "horizontal",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "big robot"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 5.924,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Length taken as full horizontal extent from cannon rear to drill tip."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "big robot",
+      "obs": [
+       {
+        "frame": 10,
+        "point": [
+         37,
+         380
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 13,
+        "point": [
+         105,
+         380
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 16,
+        "point": [
+         172,
+         380
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 20,
+        "point": [
+         263,
+         380
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 23,
+        "point": [
+         331,
+         380
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 26,
+        "point": [
+         398,
+         380
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 29,
+        "point": [
+         463,
+         380
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "big robot length",
+      "obs": [
+       {
+        "frame": 16,
+        "point": null,
+        "extent": [
+         [
+          178,
+          163
+         ],
+         [
+          450,
+          290
+         ]
+        ],
+        "box": [
+         172,
+         120,
+         450,
+         397
+        ]
+       },
+       {
+        "frame": 20,
+        "point": null,
+        "extent": [
+         [
+          268,
+          163
+         ],
+         [
+          546,
+          290
+         ]
+        ],
+        "box": [
+         263,
+         122,
+         546,
+         397
+        ]
+       },
+       {
+        "frame": 23,
+        "point": null,
+        "extent": [
+         [
+          336,
+          163
+         ],
+         [
+          618,
+          290
+         ]
+        ],
+        "box": [
+         331,
+         122,
+         618,
+         397
+        ]
+       },
+       {
+        "frame": 26,
+        "point": null,
+        "extent": [
+         [
+          406,
+          163
+         ],
+         [
+          690,
+          290
+         ]
+        ],
+        "box": [
+         398,
+         122,
+         690,
+         397
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 3.07,
+    "confidence": 0.45
+   },
+   {
+    "qid": 638,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "big robot"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "big robot"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 5.924,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "big robot",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "big robot height",
+      "obs": [
+       {
+        "frame": 16,
+        "point": null,
+        "extent": [
+         [
+          290,
+          120
+         ],
+         [
+          290,
+          397
+         ]
+        ],
+        "box": [
+         172,
+         120,
+         450,
+         397
+        ]
+       },
+       {
+        "frame": 20,
+        "point": null,
+        "extent": [
+         [
+          365,
+          122
+         ],
+         [
+          365,
+          397
+         ]
+        ],
+        "box": [
+         263,
+         122,
+         546,
+         397
+        ]
+       },
+       {
+        "frame": 23,
+        "point": null,
+        "extent": [
+         [
+          433,
+          122
+         ],
+         [
+          433,
+          397
+         ]
+        ],
+        "box": [
+         331,
+         122,
+         618,
+         397
+        ]
+       },
+       {
+        "frame": 26,
+        "point": null,
+        "extent": [
+         [
+          503,
+          122
+         ],
+         [
+          503,
+          397
+         ]
+        ],
+        "box": [
+         398,
+         122,
+         690,
+         397
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 3.02,
+    "confidence": 0.5
+   },
+   {
+    "qid": 639,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "parking space"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "horizontal",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "big robot"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 5.924,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Floor in perspective; measured mid-depth between the two transverse lines."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "big robot",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "parking space",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          248,
+          389
+         ],
+         [
+          765,
+          389
+         ]
+        ],
+        "box": [
+         232,
+         375,
+         800,
+         404
+        ]
+       },
+       {
+        "frame": 49,
+        "point": null,
+        "extent": [
+         [
+          248,
+          389
+         ],
+         [
+          765,
+          389
+         ]
+        ],
+        "box": [
+         232,
+         375,
+         800,
+         404
+        ]
+       },
+       {
+        "frame": 46,
+        "point": null,
+        "extent": [
+         [
+          248,
+          389
+         ],
+         [
+          765,
+          389
+         ]
+        ],
+        "box": [
+         232,
+         375,
+         800,
+         404
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 5.65,
+    "confidence": 0.35
+   },
+   {
+    "qid": 640,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "robot tire"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "big robot"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 5.924,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "big robot",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "robot tire",
+      "obs": [
+       {
+        "frame": 20,
+        "point": null,
+        "extent": [
+         [
+          314,
+          375
+         ],
+         [
+          346,
+          375
+         ]
+        ],
+        "box": [
+         314,
+         359,
+         346,
+         391
+        ]
+       },
+       {
+        "frame": 23,
+        "point": null,
+        "extent": [
+         [
+          382,
+          375
+         ],
+         [
+          414,
+          375
+         ]
+        ],
+        "box": [
+         382,
+         359,
+         414,
+         391
+        ]
+       },
+       {
+        "frame": 26,
+        "point": null,
+        "extent": [
+         [
+          450,
+          375
+         ],
+         [
+          482,
+          375
+         ]
+        ],
+        "box": [
+         450,
+         359,
+         482,
+         391
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 0.35,
+    "confidence": 0.35
+   }
+  ]
+ }
+}

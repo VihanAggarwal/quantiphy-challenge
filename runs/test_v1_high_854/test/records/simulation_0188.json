@@ -1,0 +1,844 @@
+{
+ "video_id": "simulation_0188",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011Cfq6qGAHkeNxWUpKgqeiF",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 854
+ },
+ "ts": "2026-10-08T17:09:47+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_01Lkr5fafFQ29117PFGuAg4s",
+ "custom_id": "simulation_0188",
+ "usage": {
+  "input_tokens": 14622,
+  "output_tokens": 10281,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 4317,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.132486,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0188",
+  "fps": 30.0,
+  "fps_from_container": false,
+  "video_type": "A3SS",
+  "n_frames_total": 60,
+  "scale": 0.44479166666666664,
+  "image_size": [
+   1920,
+   1079
+  ],
+  "frames": [
+   0,
+   4,
+   8,
+   12,
+   15,
+   16,
+   18,
+   20,
+   24,
+   27,
+   28,
+   30,
+   31,
+   33,
+   35,
+   39,
+   42,
+   43,
+   45,
+   47,
+   48,
+   51,
+   55,
+   59
+  ],
+  "questions": [
+   {
+    "qid": 1439,
+    "target_unit": "m",
+    "prior": "acceleration of the truck = 10.757m/s^2",
+    "depth_info": "t=0.5s, distance_center_of _the_truck_camera = 22.532m   \nt =1s, distance_center_of _the_truck_camera = 19.525m"
+   },
+   {
+    "qid": 1440,
+    "target_unit": "m",
+    "prior": "acceleration of the truck = 10.757m/s^2",
+    "depth_info": "t=0.5s, distance_center_of _the_truck_camera = 22.532m   \nt =1s, distance_center_of _the_truck_camera = 19.525m"
+   },
+   {
+    "qid": 1441,
+    "target_unit": "m",
+    "prior": "acceleration of the truck = 10.757m/s^2",
+    "depth_info": "t=0.5s, distance_center_of _the_truck_camera = 22.532m   \nt =1s, distance_center_of _the_truck_camera = 19.525m"
+   },
+   {
+    "qid": 1442,
+    "target_unit": "m/s",
+    "prior": "acceleration of the truck = 10.757m/s^2",
+    "depth_info": "t=0.5s, distance_center_of _the_truck_camera = 22.532m   \nt =1s, distance_center_of _the_truck_camera = 19.525m"
+   },
+   {
+    "qid": 1443,
+    "target_unit": "m/s",
+    "prior": "acceleration of the truck = 10.757m/s^2",
+    "depth_info": "t=0.5s, distance_center_of _the_truck_camera = 22.532m   \nt =1s, distance_center_of _the_truck_camera = 19.525m"
+   },
+   {
+    "qid": 1444,
+    "target_unit": "m",
+    "prior": "acceleration of the truck = 10.757m/s^2",
+    "depth_info": "t=0.5s, distance_center_of _the_truck_camera = 22.532m   \nt =1s, distance_center_of _the_truck_camera = 19.525m"
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":1439,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"truck\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"truck\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":10.757,\"unit\":\"\"},\"depth\":[{\"object\":\"truck\",\"distance_m\":22.532,\"time\":0.5},{\"object\":\"truck\",\"distance_m\":19.525,\"time\":1.0}],\"notes\":\"Truck moves obliquely toward the camera; length is foreshortened.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"truck\",\"obs\":[{\"frame\":0,\"point\":[25,355],\"extent\":null,\"box\":null},{\"frame\":4,\"point\":[28,355],\"extent\":null,\"box\":null},{\"frame\":8,\"point\":[40,357],\"extent\":null,\"box\":null},{\"frame\":12,\"point\":[60,358],\"extent\":null,\"box\":null},{\"frame\":15,\"point\":[80,360],\"extent\":null,\"box\":null},{\"frame\":16,\"point\":[88,362],\"extent\":null,\"box\":null},{\"frame\":18,\"point\":[105,363],\"extent\":null,\"box\":null},{\"frame\":20,\"point\":[128,365],\"extent\":null,\"box\":null},{\"frame\":24,\"point\":[178,368],\"extent\":null,\"box\":null},{\"frame\":27,\"point\":[222,372],\"extent\":null,\"box\":null},{\"frame\":28,\"point\":[238,373],\"extent\":null,\"box\":null},{\"frame\":30,\"point\":[275,377],\"extent\":null,\"box\":null},{\"frame\":31,\"point\":[295,378],\"extent\":null,\"box\":null},{\"frame\":33,\"point\":[340,383],\"extent\":null,\"box\":null},{\"frame\":35,\"point\":[390,388],\"extent\":null,\"box\":null},{\"frame\":39,\"point\":[508,395],\"extent\":null,\"box\":null},{\"frame\":42,\"point\":[618,404],\"extent\":null,\"box\":null},{\"frame\":43,\"point\":[660,407],\"extent\":null,\"box\":null},{\"frame\":45,\"point\":[752,415],\"extent\":null,\"box\":null}]},{\"role\":\"target\",\"object\":\"truck\",\"obs\":[{\"frame\":35,\"point\":null,\"extent\":[[36,330],[537,360]],\"box\":[36,155,537,415]},{\"frame\":39,\"point\":null,\"extent\":[[112,340],[655,365]],\"box\":[112,150,660,425]},{\"frame\":42,\"point\":null,\"extent\":[[180,345],[772,375]],\"box\":[180,145,772,438]}]}],\"direct_answer\":7.6,\"confidence\":0.3},{\"qid\":1440,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"truck\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"truck\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":10.757,\"unit\":\"\"},\"depth\":[{\"object\":\"truck\",\"distance_m\":22.532,\"time\":0.5},{\"object\":\"truck\",\"distance_m\":19.525,\"time\":1.0}],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"truck\",\"obs\":[]},{\"role\":\"target\",\"object\":\"truck\",\"obs\":[{\"frame\":35,\"point\":null,\"extent\":[[480,155],[480,412]],\"box\":[36,155,537,415]},{\"frame\":39,\"point\":null,\"extent\":[[600,150],[600,425]],\"box\":[112,150,660,425]},{\"frame\":42,\"point\":null,\"extent\":[[715,145],[715,435]],\"box\":[180,145,772,438]}]}],\"direct_answer\":3.2,\"confidence\":0.3},{\"qid\":1441,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"truck tire\"],\"dimension\":\"diameter\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"truck\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":10.757,\"unit\":\"\"},\"depth\":[{\"object\":\"truck\",\"distance_m\":22.532,\"time\":0.5},{\"object\":\"truck\",\"distance_m\":19.525,\"time\":1.0}],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"truck\",\"obs\":[]},{\"role\":\"target\",\"object\":\"truck tire\",\"obs\":[{\"frame\":35,\"point\":null,\"extent\":[[365,388],[415,388]],\"box\":[365,362,415,414]},{\"frame\":39,\"point\":null,\"extent\":[[480,395],[538,395]],\"box\":[480,366,538,425]},{\"frame\":42,\"point\":null,\"extent\":[[592,404],[648,404]],\"box\":[592,375,648,434]}]}],\"direct_answer\":0.75,\"confidence\":0.3},{\"qid\":1442,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"truck\"],\"dimension\":\"\",\"time\":1.0,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"truck\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":10.757,\"unit\":\"\"},\"depth\":[{\"object\":\"truck\",\"distance_m\":22.532,\"time\":0.5},{\"object\":\"truck\",\"distance_m\":19.525,\"time\":1.0}],\"notes\":\"Truck appears to start from rest at t=0.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"truck\",\"obs\":[]},{\"role\":\"target\",\"object\":\"truck\",\"obs\":[]}],\"direct_answer\":10.76,\"confidence\":0.55},{\"qid\":1443,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"truck\"],\"dimension\":\"\",\"time\":1.5,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"truck\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":10.757,\"unit\":\"\"},\"depth\":[{\"object\":\"truck\",\"distance_m\":22.532,\"time\":0.5},{\"object\":\"truck\",\"distance_m\":19.525,\"time\":1.0}],\"notes\":\"Truck appears to start from rest at t=0.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"truck\",\"obs\":[]},{\"role\":\"target\",\"object\":\"truck\",\"obs\":[]}],\"direct_answer\":16.14,\"confidence\":0.55},{\"qid\":1444,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"truck\"],\"dimension\":\"width\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"truck\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":10.757,\"unit\":\"\"},\"depth\":[{\"object\":\"truck\",\"distance_m\":22.532,\"time\":0.5},{\"object\":\"truck\",\"distance_m\":19.525,\"time\":1.0}],\"notes\":\"Front face seen obliquely.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"truck\",\"obs\":[]},{\"role\":\"target\",\"object\":\"truck\",\"obs\":[{\"frame\":39,\"point\":null,\"extent\":[[585,300],[655,300]],\"box\":[585,240,660,395]},{\"frame\":42,\"point\":null,\"extent\":[[700,300],[770,300]],\"box\":[700,240,772,400]}]}],\"direct_answer\":2.3,\"confidence\":0.3}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 1439,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "truck"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "truck"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 10.757,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "truck",
+       "distance_m": 22.532,
+       "time": 0.5
+      },
+      {
+       "object": "truck",
+       "distance_m": 19.525,
+       "time": 1.0
+      }
+     ],
+     "notes": "Truck moves obliquely toward the camera; length is foreshortened."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "truck",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         25,
+         355
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 4,
+        "point": [
+         28,
+         355
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 8,
+        "point": [
+         40,
+         357
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 12,
+        "point": [
+         60,
+         358
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 15,
+        "point": [
+         80,
+         360
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 16,
+        "point": [
+         88,
+         362
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 18,
+        "point": [
+         105,
+         363
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 20,
+        "point": [
+         128,
+         365
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 24,
+        "point": [
+         178,
+         368
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 27,
+        "point": [
+         222,
+         372
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 28,
+        "point": [
+         238,
+         373
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 30,
+        "point": [
+         275,
+         377
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 31,
+        "point": [
+         295,
+         378
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 33,
+        "point": [
+         340,
+         383
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 35,
+        "point": [
+         390,
+         388
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 39,
+        "point": [
+         508,
+         395
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 42,
+        "point": [
+         618,
+         404
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 43,
+        "point": [
+         660,
+         407
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 45,
+        "point": [
+         752,
+         415
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "truck",
+      "obs": [
+       {
+        "frame": 35,
+        "point": null,
+        "extent": [
+         [
+          36,
+          330
+         ],
+         [
+          537,
+          360
+         ]
+        ],
+        "box": [
+         36,
+         155,
+         537,
+         415
+        ]
+       },
+       {
+        "frame": 39,
+        "point": null,
+        "extent": [
+         [
+          112,
+          340
+         ],
+         [
+          655,
+          365
+         ]
+        ],
+        "box": [
+         112,
+         150,
+         660,
+         425
+        ]
+       },
+       {
+        "frame": 42,
+        "point": null,
+        "extent": [
+         [
+          180,
+          345
+         ],
+         [
+          772,
+          375
+         ]
+        ],
+        "box": [
+         180,
+         145,
+         772,
+         438
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 7.6,
+    "confidence": 0.3
+   },
+   {
+    "qid": 1440,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "truck"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "truck"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 10.757,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "truck",
+       "distance_m": 22.532,
+       "time": 0.5
+      },
+      {
+       "object": "truck",
+       "distance_m": 19.525,
+       "time": 1.0
+      }
+     ],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "truck",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "truck",
+      "obs": [
+       {
+        "frame": 35,
+        "point": null,
+        "extent": [
+         [
+          480,
+          155
+         ],
+         [
+          480,
+          412
+         ]
+        ],
+        "box": [
+         36,
+         155,
+         537,
+         415
+        ]
+       },
+       {
+        "frame": 39,
+        "point": null,
+        "extent": [
+         [
+          600,
+          150
+         ],
+         [
+          600,
+          425
+         ]
+        ],
+        "box": [
+         112,
+         150,
+         660,
+         425
+        ]
+       },
+       {
+        "frame": 42,
+        "point": null,
+        "extent": [
+         [
+          715,
+          145
+         ],
+         [
+          715,
+          435
+         ]
+        ],
+        "box": [
+         180,
+         145,
+         772,
+         438
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 3.2,
+    "confidence": 0.3
+   },
+   {
+    "qid": 1441,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "truck tire"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "truck"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 10.757,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "truck",
+       "distance_m": 22.532,
+       "time": 0.5
+      },
+      {
+       "object": "truck",
+       "distance_m": 19.525,
+       "time": 1.0
+      }
+     ],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "truck",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "truck tire",
+      "obs": [
+       {
+        "frame": 35,
+        "point": null,
+        "extent": [
+         [
+          365,
+          388
+         ],
+         [
+          415,
+          388
+         ]
+        ],
+        "box": [
+         365,
+         362,
+         415,
+         414
+        ]
+       },
+       {
+        "frame": 39,
+        "point": null,
+        "extent": [
+         [
+          480,
+          395
+         ],
+         [
+          538,
+          395
+         ]
+        ],
+        "box": [
+         480,
+         366,
+         538,
+         425
+        ]
+       },
+       {
+        "frame": 42,
+        "point": null,
+        "extent": [
+         [
+          592,
+          404
+         ],
+         [
+          648,
+          404
+         ]
+        ],
+        "box": [
+         592,
+         375,
+         648,
+         434
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 0.75,
+    "confidence": 0.3
+   },
+   {
+    "qid": 1442,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "truck"
+      ],
+      "dimension": "",
+      "time": 1.0,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "truck"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 10.757,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "truck",
+       "distance_m": 22.532,
+       "time": 0.5
+      },
+      {
+       "object": "truck",
+       "distance_m": 19.525,
+       "time": 1.0
+      }
+     ],
+     "notes": "Truck appears to start from rest at t=0."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "truck",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "truck",
+      "obs": []
+     }
+    ],
+    "direct_answer": 10.76,
+    "confidence": 0.55
+   },
+   {
+    "qid": 1443,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "truck"
+      ],
+      "dimension": "",
+      "time": 1.5,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "truck"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 10.757,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "truck",
+       "distance_m": 22.532,
+       "time": 0.5
+      },
+      {
+       "object": "truck",
+       "distance_m": 19.525,
+       "time": 1.0
+      }
+     ],
+     "notes": "Truck appears to start from rest at t=0."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "truck",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "truck",
+      "obs": []
+     }
+    ],
+    "direct_answer": 16.14,
+    "confidence": 0.55
+   },
+   {
+    "qid": 1444,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "truck"
+      ],
+      "dimension": "width",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "truck"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 10.757,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "truck",
+       "distance_m": 22.532,
+       "time": 0.5
+      },
+      {
+       "object": "truck",
+       "distance_m": 19.525,
+       "time": 1.0
+      }
+     ],
+     "notes": "Front face seen obliquely."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "truck",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "truck",
+      "obs": [
+       {
+        "frame": 39,
+        "point": null,
+        "extent": [
+         [
+          585,
+          300
+         ],
+         [
+          655,
+          300
+         ]
+        ],
+        "box": [
+         585,
+         240,
+         660,
+         395
+        ]
+       },
+       {
+        "frame": 42,
+        "point": null,
+        "extent": [
+         [
+          700,
+          300
+         ],
+         [
+          770,
+          300
+         ]
+        ],
+        "box": [
+         700,
+         240,
+         772,
+         400
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 2.3,
+    "confidence": 0.3
+   }
+  ]
+ }
+}

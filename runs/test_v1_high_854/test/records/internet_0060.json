@@ -1,0 +1,798 @@
+{
+ "video_id": "internet_0060",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011Cfq6vmuMA99mZHjjzVRxg",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 854
+ },
+ "ts": "2026-10-08T16:42:19+00:00",
+ "mode": "sync",
+ "request_id": "req_011Cfq6vmbEx6Hdbf1KCfu58",
+ "usage": {
+  "input_tokens": 14354,
+  "output_tokens": 5069,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 4317,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.159659,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "internet_0060",
+  "fps": 30.0,
+  "fps_from_container": false,
+  "video_type": "A2SS",
+  "n_frames_total": 110,
+  "scale": 0.44479166666666664,
+  "image_size": [
+   1920,
+   1079
+  ],
+  "frames": [
+   0,
+   3,
+   7,
+   15,
+   22,
+   29,
+   36,
+   44,
+   51,
+   57,
+   58,
+   60,
+   63,
+   65,
+   66,
+   69,
+   73,
+   80,
+   87,
+   90,
+   93,
+   94,
+   102,
+   109
+  ],
+  "questions": [
+   {
+    "qid": 3189,
+    "target_unit": "cm",
+    "prior": "gravity acceleration = 9.8 m/s^2",
+    "depth_info": ""
+   },
+   {
+    "qid": 3190,
+    "target_unit": "cm",
+    "prior": "gravity acceleration = 9.8 m/s^2",
+    "depth_info": ""
+   },
+   {
+    "qid": 3191,
+    "target_unit": "m",
+    "prior": "gravity acceleration = 9.8 m/s^2",
+    "depth_info": ""
+   },
+   {
+    "qid": 3192,
+    "target_unit": "m/s",
+    "prior": "gravity acceleration = 9.8 m/s^2",
+    "depth_info": ""
+   },
+   {
+    "qid": 3193,
+    "target_unit": "m",
+    "prior": "gravity acceleration = 9.8 m/s^2",
+    "depth_info": ""
+   },
+   {
+    "qid": 3194,
+    "target_unit": "m",
+    "prior": "gravity acceleration = 9.8 m/s^2",
+    "depth_info": ""
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":3189,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"pink box\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"cm\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"pink box\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":9.8,\"unit\":\"\"},\"depth\":[],\"notes\":\"Video appears rotated 90 degrees: gravity points to image +x; the black strip on the right is the floor. Scale is about 0.00242 m/px.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"pink box\",\"obs\":[{\"frame\":57,\"point\":[145,268],\"extent\":null,\"box\":[123,246,168,291]},{\"frame\":58,\"point\":[185,269],\"extent\":null,\"box\":[161,247,208,292]},{\"frame\":60,\"point\":[275,271],\"extent\":null,\"box\":[250,248,300,294]},{\"frame\":63,\"point\":[445,273],\"extent\":null,\"box\":[415,248,473,302]},{\"frame\":65,\"point\":[585,273],\"extent\":null,\"box\":[556,250,613,298]}]},{\"role\":\"target\",\"object\":\"pink box\",\"obs\":[{\"frame\":80,\"point\":null,\"extent\":[[616,411],[616,455]],\"box\":[595,411,638,455]},{\"frame\":87,\"point\":null,\"extent\":[[614.5,409],[614.5,455]],\"box\":[593,409,636,455]},{\"frame\":90,\"point\":null,\"extent\":[[615,409],[615,455]],\"box\":[593,409,637,455]},{\"frame\":93,\"point\":null,\"extent\":[[614,408],[614,454]],\"box\":[592,408,636,454]}]}],\"direct_answer\":10.9,\"confidence\":0.4},{\"qid\":3190,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"pink box\"],\"dimension\":\"width\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"cm\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"pink box\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":9.8,\"unit\":\"\"},\"depth\":[],\"notes\":\"Box is nearly square; width taken as the horizontal image extent.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"pink box\",\"obs\":[]},{\"role\":\"target\",\"object\":\"pink box\",\"obs\":[{\"frame\":80,\"point\":null,\"extent\":[[595,433],[638,433]],\"box\":[595,411,638,455]},{\"frame\":87,\"point\":null,\"extent\":[[593,432],[636,432]],\"box\":[593,409,636,455]},{\"frame\":90,\"point\":null,\"extent\":[[593,432],[637,432]],\"box\":[593,409,637,455]},{\"frame\":93,\"point\":null,\"extent\":[[592,431],[636,431]],\"box\":[592,408,636,454]}]}],\"direct_answer\":10.4,\"confidence\":0.4},{\"qid\":3191,\"spec\":{\"target\":{\"kind\":\"distance\",\"objects\":[\"pink box\",\"floor\"],\"dimension\":\"\",\"time\":0.0,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"pink box\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":9.8,\"unit\":\"\"},\"depth\":[],\"notes\":\"Floor is the black strip at x about 590 (rotated video).\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"pink box\",\"obs\":[]},{\"role\":\"target\",\"object\":\"pink box\",\"obs\":[{\"frame\":0,\"point\":[40,264],\"extent\":null,\"box\":[18,240,63,288]}]},{\"role\":\"target2\",\"object\":\"floor\",\"obs\":[{\"frame\":0,\"point\":[590,264],\"extent\":null,\"box\":null}]}],\"direct_answer\":1.33,\"confidence\":0.3},{\"qid\":3192,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"pink box\"],\"dimension\":\"\",\"time\":2.0,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"pink box\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":9.8,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"pink box\",\"obs\":[]},{\"role\":\"target\",\"object\":\"pink box\",\"obs\":[{\"frame\":57,\"point\":[145,268],\"extent\":null,\"box\":null},{\"frame\":58,\"point\":[185,269],\"extent\":null,\"box\":null},{\"frame\":60,\"point\":[275,271],\"extent\":null,\"box\":null},{\"frame\":63,\"point\":[445,273],\"extent\":null,\"box\":null},{\"frame\":65,\"point\":[585,273],\"extent\":null,\"box\":null}]}],\"direct_answer\":3.6,\"confidence\":0.35},{\"qid\":3193,\"spec\":{\"target\":{\"kind\":\"displacement\",\"objects\":[\"pink box\"],\"dimension\":\"\",\"time\":null,\"window\":[0.0,2.0],\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"pink box\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":9.8,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"pink box\",\"obs\":[]},{\"role\":\"target\",\"object\":\"pink box\",\"obs\":[{\"frame\":0,\"point\":[40,264],\"extent\":null,\"box\":null},{\"frame\":51,\"point\":[40,264],\"extent\":null,\"box\":null},{\"frame\":57,\"point\":[145,268],\"extent\":null,\"box\":null},{\"frame\":58,\"point\":[185,269],\"extent\":null,\"box\":null},{\"frame\":60,\"point\":[275,271],\"extent\":null,\"box\":null}]}],\"direct_answer\":0.57,\"confidence\":0.35},{\"qid\":3194,\"spec\":{\"target\":{\"kind\":\"displacement\",\"objects\":[\"pink box\"],\"dimension\":\"\",\"time\":null,\"window\":[2.2,3.0],\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"pink box\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":9.8,\"unit\":\"\"},\"depth\":[],\"notes\":\"After landing the box slides along the floor (image y direction).\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"pink box\",\"obs\":[]},{\"role\":\"target\",\"object\":\"pink box\",\"obs\":[{\"frame\":66,\"point\":[612,290],\"extent\":null,\"box\":null},{\"frame\":69,\"point\":[584,334],\"extent\":null,\"box\":null},{\"frame\":73,\"point\":[612,393],\"extent\":null,\"box\":null},{\"frame\":80,\"point\":[616,433],\"extent\":null,\"box\":null},{\"frame\":87,\"point\":[614.5,432],\"extent\":null,\"box\":null},{\"frame\":90,\"point\":[615,432],\"extent\":null,\"box\":null}]}],\"direct_answer\":0.34,\"confidence\":0.35}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 3189,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "pink box"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "cm"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "pink box"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": 9.8,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Video appears rotated 90 degrees: gravity points to image +x; the black strip on the right is the floor. Scale is about 0.00242 m/px."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "pink box",
+      "obs": [
+       {
+        "frame": 57,
+        "point": [
+         145,
+         268
+        ],
+        "extent": null,
+        "box": [
+         123,
+         246,
+         168,
+         291
+        ]
+       },
+       {
+        "frame": 58,
+        "point": [
+         185,
+         269
+        ],
+        "extent": null,
+        "box": [
+         161,
+         247,
+         208,
+         292
+        ]
+       },
+       {
+        "frame": 60,
+        "point": [
+         275,
+         271
+        ],
+        "extent": null,
+        "box": [
+         250,
+         248,
+         300,
+         294
+        ]
+       },
+       {
+        "frame": 63,
+        "point": [
+         445,
+         273
+        ],
+        "extent": null,
+        "box": [
+         415,
+         248,
+         473,
+         302
+        ]
+       },
+       {
+        "frame": 65,
+        "point": [
+         585,
+         273
+        ],
+        "extent": null,
+        "box": [
+         556,
+         250,
+         613,
+         298
+        ]
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "pink box",
+      "obs": [
+       {
+        "frame": 80,
+        "point": null,
+        "extent": [
+         [
+          616,
+          411
+         ],
+         [
+          616,
+          455
+         ]
+        ],
+        "box": [
+         595,
+         411,
+         638,
+         455
+        ]
+       },
+       {
+        "frame": 87,
+        "point": null,
+        "extent": [
+         [
+          614.5,
+          409
+         ],
+         [
+          614.5,
+          455
+         ]
+        ],
+        "box": [
+         593,
+         409,
+         636,
+         455
+        ]
+       },
+       {
+        "frame": 90,
+        "point": null,
+        "extent": [
+         [
+          615,
+          409
+         ],
+         [
+          615,
+          455
+         ]
+        ],
+        "box": [
+         593,
+         409,
+         637,
+         455
+        ]
+       },
+       {
+        "frame": 93,
+        "point": null,
+        "extent": [
+         [
+          614,
+          408
+         ],
+         [
+          614,
+          454
+         ]
+        ],
+        "box": [
+         592,
+         408,
+         636,
+         454
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 10.9,
+    "confidence": 0.4
+   },
+   {
+    "qid": 3190,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "pink box"
+      ],
+      "dimension": "width",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "cm"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "pink box"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": 9.8,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Box is nearly square; width taken as the horizontal image extent."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "pink box",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "pink box",
+      "obs": [
+       {
+        "frame": 80,
+        "point": null,
+        "extent": [
+         [
+          595,
+          433
+         ],
+         [
+          638,
+          433
+         ]
+        ],
+        "box": [
+         595,
+         411,
+         638,
+         455
+        ]
+       },
+       {
+        "frame": 87,
+        "point": null,
+        "extent": [
+         [
+          593,
+          432
+         ],
+         [
+          636,
+          432
+         ]
+        ],
+        "box": [
+         593,
+         409,
+         636,
+         455
+        ]
+       },
+       {
+        "frame": 90,
+        "point": null,
+        "extent": [
+         [
+          593,
+          432
+         ],
+         [
+          637,
+          432
+         ]
+        ],
+        "box": [
+         593,
+         409,
+         637,
+         455
+        ]
+       },
+       {
+        "frame": 93,
+        "point": null,
+        "extent": [
+         [
+          592,
+          431
+         ],
+         [
+          636,
+          431
+         ]
+        ],
+        "box": [
+         592,
+         408,
+         636,
+         454
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 10.4,
+    "confidence": 0.4
+   },
+   {
+    "qid": 3191,
+    "spec": {
+     "target": {
+      "kind": "distance",
+      "objects": [
+       "pink box",
+       "floor"
+      ],
+      "dimension": "",
+      "time": 0.0,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "pink box"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": 9.8,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Floor is the black strip at x about 590 (rotated video)."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "pink box",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "pink box",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         40,
+         264
+        ],
+        "extent": null,
+        "box": [
+         18,
+         240,
+         63,
+         288
+        ]
+       }
+      ]
+     },
+     {
+      "role": "target2",
+      "object": "floor",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         590,
+         264
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     }
+    ],
+    "direct_answer": 1.33,
+    "confidence": 0.3
+   },
+   {
+    "qid": 3192,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "pink box"
+      ],
+      "dimension": "",
+      "time": 2.0,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "pink box"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": 9.8,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "pink box",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "pink box",
+      "obs": [
+       {
+        "frame": 57,
+        "point": [
+         145,
+         268
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 58,
+        "point": [
+         185,
+         269
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 60,
+        "point": [
+         275,
+         271
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 63,
+        "point": [
+         445,
+         273
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 65,
+        "point": [
+         585,
+         273
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     }
+    ],
+    "direct_answer": 3.6,
+    "confidence": 0.35
+   },
+   {
+    "qid": 3193,
+    "spec": {
+     "target": {
+      "kind": "displacement",
+      "objects": [
+       "pink box"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": [
+       0.0,
+       2.0
+      ],
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "pink box"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": 9.8,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "pink box",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "pink box",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         40,
+         264
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 51,
+        "point": [
+         40,
+         264
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 57,
+        "point": [
+         145,
+         268
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 58,
+        "point": [
+         185,
+         269
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 60,
+        "point": [
+         275,
+         271
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     }
+    ],
+    "direct_answer": 0.57,
+    "confidence": 0.35
+   },
+   {
+    "qid": 3194,
+    "spec": {
+     "target": {
+      "kind": "displacement",
+      "objects": [
+       "pink box"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": [
+       2.2,
+       3.0
+      ],
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "pink box"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": 9.8,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "After landing the box slides along the floor (image y direction)."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "pink box",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "pink box",
+      "obs": [
+       {
+        "frame": 66,
+        "point": [
+         612,
+         290
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 69,
+        "point": [
+         584,
+         334
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 73,
+        "point": [
+         612,
+         393
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 80,
+        "point": [
+         616,
+         433
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 87,
+        "point": [
+         614.5,
+         432
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 90,
+        "point": [
+         615,
+         432
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     }
+    ],
+    "direct_answer": 0.34,
+    "confidence": 0.35
+   }
+  ]
+ }
+}

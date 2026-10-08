@@ -1,0 +1,352 @@
+{
+ "video_id": "simulation_0030_segmented",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfpzyD81GnfYQfhe5QPoe",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 854
+ },
+ "ts": "2026-10-08T17:06:42+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_01RgbCGaqsRz49vUhEJLUBnh",
+ "custom_id": "simulation_0030_segmented",
+ "usage": {
+  "input_tokens": 21723,
+  "output_tokens": 1565,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 4317,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.059528,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0030_segmented",
+  "fps": 24.0,
+  "fps_from_container": false,
+  "video_type": "V3MX",
+  "n_frames_total": 75,
+  "scale": 0.8895833333333333,
+  "image_size": [
+   960,
+   960
+  ],
+  "frames": [
+   0,
+   5,
+   10,
+   15,
+   20,
+   22,
+   24,
+   25,
+   26,
+   30,
+   35,
+   39,
+   44,
+   46,
+   48,
+   49,
+   50,
+   54,
+   59,
+   64,
+   69,
+   74
+  ],
+  "questions": [
+   {
+    "qid": 2010,
+    "target_unit": "m",
+    "prior": "speed of the eagle = 12m/s",
+    "depth_info": "t=1s, distance_eagle_camera = 106.642m\nt=2s, distance_eagle_camera = 111.231m"
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":2010,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"eagle\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"eagle\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":12,\"unit\":\"\"},\"depth\":[{\"object\":\"eagle\",\"distance_m\":106.642,\"time\":1},{\"object\":\"eagle\",\"distance_m\":111.231,\"time\":2}],\"notes\":\"Eagle is small (about 25 px). It leaves the frame after about 1.6 s, so the scale is taken near t=1 s. The length is ambiguous because the wings flap.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"eagle\",\"obs\":[{\"frame\":0,\"point\":[338,240],\"extent\":null,\"box\":[327,226,347,254]},{\"frame\":5,\"point\":[406,250],\"extent\":null,\"box\":[393,245,422,255]},{\"frame\":10,\"point\":[475,262],\"extent\":null,\"box\":[466,251,485,273]},{\"frame\":15,\"point\":[545,260],\"extent\":null,\"box\":[536,252,555,270]},{\"frame\":20,\"point\":[613,246],\"extent\":null,\"box\":[603,235,623,257]},{\"frame\":22,\"point\":[640,243],\"extent\":null,\"box\":[631,229,651,258]},{\"frame\":24,\"point\":[668,242],\"extent\":null,\"box\":[657,228,680,258]},{\"frame\":25,\"point\":[682,243],\"extent\":null,\"box\":[670,228,694,258]},{\"frame\":26,\"point\":[695,243],\"extent\":null,\"box\":[684,228,708,258]},{\"frame\":30,\"point\":[750,250],\"extent\":null,\"box\":[737,241,767,259]},{\"frame\":35,\"point\":[812,264],\"extent\":null,\"box\":[802,256,827,273]}]},{\"role\":\"target\",\"object\":\"eagle body\",\"obs\":[{\"frame\":5,\"point\":null,\"extent\":[[394,250],[420,250]],\"box\":[393,245,422,255]},{\"frame\":20,\"point\":null,\"extent\":[[604,252],[622,238]],\"box\":[603,235,623,257]},{\"frame\":30,\"point\":null,\"extent\":[[738,254],[765,245]],\"box\":[737,241,767,259]}]}],\"direct_answer\":0.85,\"confidence\":0.3}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 2010,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "eagle"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "eagle"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 12,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "eagle",
+       "distance_m": 106.642,
+       "time": 1
+      },
+      {
+       "object": "eagle",
+       "distance_m": 111.231,
+       "time": 2
+      }
+     ],
+     "notes": "Eagle is small (about 25 px). It leaves the frame after about 1.6 s, so the scale is taken near t=1 s. The length is ambiguous because the wings flap."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "eagle",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         338,
+         240
+        ],
+        "extent": null,
+        "box": [
+         327,
+         226,
+         347,
+         254
+        ]
+       },
+       {
+        "frame": 5,
+        "point": [
+         406,
+         250
+        ],
+        "extent": null,
+        "box": [
+         393,
+         245,
+         422,
+         255
+        ]
+       },
+       {
+        "frame": 10,
+        "point": [
+         475,
+         262
+        ],
+        "extent": null,
+        "box": [
+         466,
+         251,
+         485,
+         273
+        ]
+       },
+       {
+        "frame": 15,
+        "point": [
+         545,
+         260
+        ],
+        "extent": null,
+        "box": [
+         536,
+         252,
+         555,
+         270
+        ]
+       },
+       {
+        "frame": 20,
+        "point": [
+         613,
+         246
+        ],
+        "extent": null,
+        "box": [
+         603,
+         235,
+         623,
+         257
+        ]
+       },
+       {
+        "frame": 22,
+        "point": [
+         640,
+         243
+        ],
+        "extent": null,
+        "box": [
+         631,
+         229,
+         651,
+         258
+        ]
+       },
+       {
+        "frame": 24,
+        "point": [
+         668,
+         242
+        ],
+        "extent": null,
+        "box": [
+         657,
+         228,
+         680,
+         258
+        ]
+       },
+       {
+        "frame": 25,
+        "point": [
+         682,
+         243
+        ],
+        "extent": null,
+        "box": [
+         670,
+         228,
+         694,
+         258
+        ]
+       },
+       {
+        "frame": 26,
+        "point": [
+         695,
+         243
+        ],
+        "extent": null,
+        "box": [
+         684,
+         228,
+         708,
+         258
+        ]
+       },
+       {
+        "frame": 30,
+        "point": [
+         750,
+         250
+        ],
+        "extent": null,
+        "box": [
+         737,
+         241,
+         767,
+         259
+        ]
+       },
+       {
+        "frame": 35,
+        "point": [
+         812,
+         264
+        ],
+        "extent": null,
+        "box": [
+         802,
+         256,
+         827,
+         273
+        ]
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "eagle body",
+      "obs": [
+       {
+        "frame": 5,
+        "point": null,
+        "extent": [
+         [
+          394,
+          250
+         ],
+         [
+          420,
+          250
+         ]
+        ],
+        "box": [
+         393,
+         245,
+         422,
+         255
+        ]
+       },
+       {
+        "frame": 20,
+        "point": null,
+        "extent": [
+         [
+          604,
+          252
+         ],
+         [
+          622,
+          238
+         ]
+        ],
+        "box": [
+         603,
+         235,
+         623,
+         257
+        ]
+       },
+       {
+        "frame": 30,
+        "point": null,
+        "extent": [
+         [
+          738,
+          254
+         ],
+         [
+          765,
+          245
+         ]
+        ],
+        "box": [
+         737,
+         241,
+         767,
+         259
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 0.85,
+    "confidence": 0.3
+   }
+  ]
+ }
+}

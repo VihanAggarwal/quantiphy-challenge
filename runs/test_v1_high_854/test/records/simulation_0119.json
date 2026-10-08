@@ -1,0 +1,768 @@
+{
+ "video_id": "simulation_0119",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfpswQ4ChtnmEp1CMh1vy",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 854
+ },
+ "ts": "2026-10-08T17:06:39+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_016r6K9zxh6EpX5dn7cBW8KC",
+ "custom_id": "simulation_0119",
+ "usage": {
+  "input_tokens": 16080,
+  "output_tokens": 2868,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 4317,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.061272,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0119",
+  "fps": 24.0,
+  "fps_from_container": false,
+  "video_type": "V2MC",
+  "n_frames_total": 48,
+  "scale": 0.7907407407407407,
+  "image_size": [
+   1080,
+   1080
+  ],
+  "frames": [
+   0,
+   3,
+   6,
+   9,
+   13,
+   16,
+   19,
+   22,
+   25,
+   28,
+   31,
+   34,
+   38,
+   41,
+   44,
+   47
+  ],
+  "questions": [
+   {
+    "qid": 252,
+    "target_unit": "m",
+    "prior": "speed of the chess = 0.04m/s",
+    "depth_info": ""
+   },
+   {
+    "qid": 253,
+    "target_unit": "m",
+    "prior": "speed of the chess = 0.04m/s",
+    "depth_info": ""
+   },
+   {
+    "qid": 254,
+    "target_unit": "m",
+    "prior": "speed of the chess = 0.04m/s",
+    "depth_info": ""
+   },
+   {
+    "qid": 255,
+    "target_unit": "m",
+    "prior": "speed of the chess = 0.04m/s",
+    "depth_info": ""
+   },
+   {
+    "qid": 256,
+    "target_unit": "m",
+    "prior": "speed of the chess = 0.04m/s",
+    "depth_info": ""
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":252,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"moving chess piece\"],\"dimension\":\"diameter\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"moving chess piece\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.04,\"unit\":\"\"},\"depth\":[],\"notes\":\"Moving piece is near the top-right of the board and slides downward. Its speed is assumed constant over the clip.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"moving chess piece\",\"obs\":[{\"frame\":0,\"point\":[421,410],\"extent\":null,\"box\":[409,398,433,422]},{\"frame\":3,\"point\":[421,412],\"extent\":null,\"box\":null},{\"frame\":6,\"point\":[421,414],\"extent\":null,\"box\":null},{\"frame\":9,\"point\":[421,416],\"extent\":null,\"box\":null},{\"frame\":13,\"point\":[421,421],\"extent\":null,\"box\":null},{\"frame\":16,\"point\":[421,426],\"extent\":null,\"box\":null},{\"frame\":19,\"point\":[422,430],\"extent\":null,\"box\":null},{\"frame\":22,\"point\":[422,433],\"extent\":null,\"box\":null},{\"frame\":25,\"point\":[422,437],\"extent\":null,\"box\":null},{\"frame\":28,\"point\":[422,440],\"extent\":null,\"box\":null},{\"frame\":31,\"point\":[422,443],\"extent\":null,\"box\":null},{\"frame\":34,\"point\":[422,447],\"extent\":null,\"box\":null},{\"frame\":38,\"point\":[422,451],\"extent\":null,\"box\":null},{\"frame\":41,\"point\":[422,453],\"extent\":null,\"box\":[410,441,434,465]}]},{\"role\":\"target\",\"object\":\"moving chess piece\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[409,410],[433,410]],\"box\":[409,398,433,422]},{\"frame\":25,\"point\":null,\"extent\":[[410,437],[434,437]],\"box\":[410,425,434,449]},{\"frame\":47,\"point\":null,\"extent\":[[410,453],[434,453]],\"box\":[410,441,434,465]}]}],\"direct_answer\":0.038,\"confidence\":0.4},{\"qid\":253,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"chessboard\"],\"dimension\":\"side length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"moving chess piece\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.04,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"moving chess piece\",\"obs\":[]},{\"role\":\"target\",\"object\":\"chessboard\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[196,530],[462,530]],\"box\":[196,399,462,665]},{\"frame\":25,\"point\":null,\"extent\":[[196,530],[462,530]],\"box\":[196,399,462,665]},{\"frame\":47,\"point\":null,\"extent\":[[196,530],[462,530]],\"box\":[196,399,462,665]}]}],\"direct_answer\":0.422,\"confidence\":0.45},{\"qid\":254,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"dark grey square tray\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"moving chess piece\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.04,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"moving chess piece\",\"obs\":[]},{\"role\":\"target\",\"object\":\"dark grey square tray\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[343,287],[539,287]],\"box\":[343,185,539,389]},{\"frame\":25,\"point\":null,\"extent\":[[343,287],[539,287]],\"box\":[343,185,539,389]},{\"frame\":47,\"point\":null,\"extent\":[[343,287],[539,287]],\"box\":[343,185,539,389]}]}],\"direct_answer\":0.317,\"confidence\":0.4},{\"qid\":255,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"table\"],\"dimension\":\"side length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"moving chess piece\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.04,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"moving chess piece\",\"obs\":[]},{\"role\":\"target\",\"object\":\"table\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[89,430],[615,430]],\"box\":[89,167,615,693]},{\"frame\":25,\"point\":null,\"extent\":[[89,430],[615,430]],\"box\":[89,167,615,693]},{\"frame\":47,\"point\":null,\"extent\":[[89,430],[615,430]],\"box\":[89,167,615,693]}]}],\"direct_answer\":0.835,\"confidence\":0.45},{\"qid\":256,\"spec\":{\"target\":{\"kind\":\"displacement\",\"objects\":[\"moving chess piece\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"moving chess piece\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.04,\"unit\":\"\"},\"depth\":[],\"notes\":\"Distance moved is taken over the whole clip; the piece appears to stop near frame 41.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"moving chess piece\",\"obs\":[]},{\"role\":\"target\",\"object\":\"moving chess piece\",\"obs\":[{\"frame\":0,\"point\":[421,410],\"extent\":null,\"box\":null},{\"frame\":13,\"point\":[421,421],\"extent\":null,\"box\":null},{\"frame\":25,\"point\":[422,437],\"extent\":null,\"box\":null},{\"frame\":38,\"point\":[422,451],\"extent\":null,\"box\":null},{\"frame\":41,\"point\":[422,453],\"extent\":null,\"box\":null},{\"frame\":44,\"point\":[422,453],\"extent\":null,\"box\":null},{\"frame\":47,\"point\":[422,453],\"extent\":null,\"box\":null}]}],\"direct_answer\":0.068,\"confidence\":0.4}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 252,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "moving chess piece"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "moving chess piece"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.04,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Moving piece is near the top-right of the board and slides downward. Its speed is assumed constant over the clip."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "moving chess piece",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         421,
+         410
+        ],
+        "extent": null,
+        "box": [
+         409,
+         398,
+         433,
+         422
+        ]
+       },
+       {
+        "frame": 3,
+        "point": [
+         421,
+         412
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 6,
+        "point": [
+         421,
+         414
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 9,
+        "point": [
+         421,
+         416
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 13,
+        "point": [
+         421,
+         421
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 16,
+        "point": [
+         421,
+         426
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 19,
+        "point": [
+         422,
+         430
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 22,
+        "point": [
+         422,
+         433
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 25,
+        "point": [
+         422,
+         437
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 28,
+        "point": [
+         422,
+         440
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 31,
+        "point": [
+         422,
+         443
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 34,
+        "point": [
+         422,
+         447
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 38,
+        "point": [
+         422,
+         451
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 41,
+        "point": [
+         422,
+         453
+        ],
+        "extent": null,
+        "box": [
+         410,
+         441,
+         434,
+         465
+        ]
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "moving chess piece",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          409,
+          410
+         ],
+         [
+          433,
+          410
+         ]
+        ],
+        "box": [
+         409,
+         398,
+         433,
+         422
+        ]
+       },
+       {
+        "frame": 25,
+        "point": null,
+        "extent": [
+         [
+          410,
+          437
+         ],
+         [
+          434,
+          437
+         ]
+        ],
+        "box": [
+         410,
+         425,
+         434,
+         449
+        ]
+       },
+       {
+        "frame": 47,
+        "point": null,
+        "extent": [
+         [
+          410,
+          453
+         ],
+         [
+          434,
+          453
+         ]
+        ],
+        "box": [
+         410,
+         441,
+         434,
+         465
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 0.038,
+    "confidence": 0.4
+   },
+   {
+    "qid": 253,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "chessboard"
+      ],
+      "dimension": "side length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "moving chess piece"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.04,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "moving chess piece",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "chessboard",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          196,
+          530
+         ],
+         [
+          462,
+          530
+         ]
+        ],
+        "box": [
+         196,
+         399,
+         462,
+         665
+        ]
+       },
+       {
+        "frame": 25,
+        "point": null,
+        "extent": [
+         [
+          196,
+          530
+         ],
+         [
+          462,
+          530
+         ]
+        ],
+        "box": [
+         196,
+         399,
+         462,
+         665
+        ]
+       },
+       {
+        "frame": 47,
+        "point": null,
+        "extent": [
+         [
+          196,
+          530
+         ],
+         [
+          462,
+          530
+         ]
+        ],
+        "box": [
+         196,
+         399,
+         462,
+         665
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 0.422,
+    "confidence": 0.45
+   },
+   {
+    "qid": 254,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "dark grey square tray"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "moving chess piece"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.04,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "moving chess piece",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "dark grey square tray",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          343,
+          287
+         ],
+         [
+          539,
+          287
+         ]
+        ],
+        "box": [
+         343,
+         185,
+         539,
+         389
+        ]
+       },
+       {
+        "frame": 25,
+        "point": null,
+        "extent": [
+         [
+          343,
+          287
+         ],
+         [
+          539,
+          287
+         ]
+        ],
+        "box": [
+         343,
+         185,
+         539,
+         389
+        ]
+       },
+       {
+        "frame": 47,
+        "point": null,
+        "extent": [
+         [
+          343,
+          287
+         ],
+         [
+          539,
+          287
+         ]
+        ],
+        "box": [
+         343,
+         185,
+         539,
+         389
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 0.317,
+    "confidence": 0.4
+   },
+   {
+    "qid": 255,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "table"
+      ],
+      "dimension": "side length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "moving chess piece"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.04,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "moving chess piece",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "table",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          89,
+          430
+         ],
+         [
+          615,
+          430
+         ]
+        ],
+        "box": [
+         89,
+         167,
+         615,
+         693
+        ]
+       },
+       {
+        "frame": 25,
+        "point": null,
+        "extent": [
+         [
+          89,
+          430
+         ],
+         [
+          615,
+          430
+         ]
+        ],
+        "box": [
+         89,
+         167,
+         615,
+         693
+        ]
+       },
+       {
+        "frame": 47,
+        "point": null,
+        "extent": [
+         [
+          89,
+          430
+         ],
+         [
+          615,
+          430
+         ]
+        ],
+        "box": [
+         89,
+         167,
+         615,
+         693
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 0.835,
+    "confidence": 0.45
+   },
+   {
+    "qid": 256,
+    "spec": {
+     "target": {
+      "kind": "displacement",
+      "objects": [
+       "moving chess piece"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "moving chess piece"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.04,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Distance moved is taken over the whole clip; the piece appears to stop near frame 41."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "moving chess piece",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "moving chess piece",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         421,
+         410
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 13,
+        "point": [
+         421,
+         421
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 25,
+        "point": [
+         422,
+         437
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 38,
+        "point": [
+         422,
+         451
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 41,
+        "point": [
+         422,
+         453
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 44,
+        "point": [
+         422,
+         453
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 47,
+        "point": [
+         422,
+         453
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     }
+    ],
+    "direct_answer": 0.068,
+    "confidence": 0.4
+   }
+  ]
+ }
+}

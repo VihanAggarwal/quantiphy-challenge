@@ -1,0 +1,600 @@
+{
+ "video_id": "simulation_0021",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011Cfps7j6bh8WULBArjTQ1o",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 854
+ },
+ "ts": "2026-10-08T17:22:05+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_01NEc3soBw97UxGwYXdNizdP",
+ "custom_id": "simulation_0021",
+ "usage": {
+  "input_tokens": 20061,
+  "output_tokens": 2412,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 4317,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.064674,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0021",
+  "fps": 30.0,
+  "fps_from_container": false,
+  "video_type": "S3MC",
+  "n_frames_total": 89,
+  "scale": 0.7907407407407407,
+  "image_size": [
+   1080,
+   1080
+  ],
+  "frames": [
+   0,
+   3,
+   6,
+   12,
+   18,
+   23,
+   27,
+   29,
+   30,
+   33,
+   35,
+   41,
+   47,
+   53,
+   59,
+   65,
+   70,
+   76,
+   82,
+   88
+  ],
+  "questions": [
+   {
+    "qid": 1096,
+    "target_unit": "m/s",
+    "prior": "height of the person = 1.87m",
+    "depth_info": "t=0s, distance_human_camera = 13.882m\nt=1s, distance_human_camera = 13.768m\ndistance_fire_hydrant_camera = 12.565m\ndistance_streetlight_camera = 12.325m"
+   },
+   {
+    "qid": 1097,
+    "target_unit": "m",
+    "prior": "height of the person = 1.87m",
+    "depth_info": "t=0s, distance_human_camera = 13.882m\nt=1s, distance_human_camera = 13.768m\ndistance_fire_hydrant_camera = 12.565m\ndistance_streetlight_camera = 12.325m"
+   },
+   {
+    "qid": 1098,
+    "target_unit": "m",
+    "prior": "height of the person = 1.87m",
+    "depth_info": "t=0s, distance_human_camera = 13.882m\nt=1s, distance_human_camera = 13.768m\ndistance_fire_hydrant_camera = 12.565m\ndistance_streetlight_camera = 12.325m"
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":1096,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"person\"],\"dimension\":\"\",\"time\":1.0,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"person\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":1.87,\"unit\":\"\"},\"depth\":[{\"object\":\"person\",\"distance_m\":13.882,\"time\":0.0},{\"object\":\"person\",\"distance_m\":13.768,\"time\":1.0},{\"object\":\"fire hydrant\",\"distance_m\":12.565,\"time\":null},{\"object\":\"streetlight\",\"distance_m\":12.325,\"time\":null}],\"notes\":\"Person also moves slightly toward camera (depth change).\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"person\",\"obs\":[{\"frame\":27,\"point\":null,\"extent\":[[102.5,514.5],[104.5,683.5]],\"box\":[86,514,123,684]},{\"frame\":29,\"point\":null,\"extent\":[[104.5,514.5],[104.5,685.0]],\"box\":[88,514,121,686]},{\"frame\":30,\"point\":null,\"extent\":[[105.5,514.5],[105.5,684.5]],\"box\":[88,514,126,685]},{\"frame\":41,\"point\":null,\"extent\":[[122.5,514.5],[122.5,685.0]],\"box\":[104,514,140,686]}]},{\"role\":\"target\",\"object\":\"person\",\"obs\":[{\"frame\":0,\"point\":[67.0,520.0],\"extent\":null,\"box\":null},{\"frame\":12,\"point\":[83.0,521.0],\"extent\":null,\"box\":null},{\"frame\":18,\"point\":[92.0,521.0],\"extent\":null,\"box\":null},{\"frame\":23,\"point\":[100.0,522.0],\"extent\":null,\"box\":null},{\"frame\":27,\"point\":[105.0,522.0],\"extent\":null,\"box\":null},{\"frame\":29,\"point\":[108.0,522.0],\"extent\":null,\"box\":null},{\"frame\":30,\"point\":[109.0,522.0],\"extent\":null,\"box\":null},{\"frame\":33,\"point\":[113.0,522.0],\"extent\":null,\"box\":null},{\"frame\":35,\"point\":[116.0,522.0],\"extent\":null,\"box\":null},{\"frame\":41,\"point\":[124.0,522.0],\"extent\":null,\"box\":null},{\"frame\":47,\"point\":[131.0,522.0],\"extent\":null,\"box\":null},{\"frame\":53,\"point\":[138.0,522.0],\"extent\":null,\"box\":null}]}],\"direct_answer\":0.46,\"confidence\":0.4},{\"qid\":1097,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"fire hydrant\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"person\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":1.87,\"unit\":\"\"},\"depth\":[{\"object\":\"person\",\"distance_m\":13.882,\"time\":0.0},{\"object\":\"person\",\"distance_m\":13.768,\"time\":1.0},{\"object\":\"fire hydrant\",\"distance_m\":12.565,\"time\":null},{\"object\":\"streetlight\",\"distance_m\":12.325,\"time\":null}],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"person\",\"obs\":[]},{\"role\":\"target\",\"object\":\"fire hydrant\",\"obs\":[{\"frame\":30,\"point\":null,\"extent\":[[76.0,597.0],[76.0,704.0]],\"box\":[49,597,108,704]},{\"frame\":59,\"point\":null,\"extent\":[[76.0,597.0],[76.0,704.0]],\"box\":[49,597,108,704]},{\"frame\":88,\"point\":null,\"extent\":[[76.0,597.0],[76.0,704.0]],\"box\":[49,597,108,704]}]}],\"direct_answer\":1.07,\"confidence\":0.6},{\"qid\":1098,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"streetlight\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"person\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":1.87,\"unit\":\"\"},\"depth\":[{\"object\":\"person\",\"distance_m\":13.882,\"time\":0.0},{\"object\":\"person\",\"distance_m\":13.768,\"time\":1.0},{\"object\":\"fire hydrant\",\"distance_m\":12.565,\"time\":null},{\"object\":\"streetlight\",\"distance_m\":12.325,\"time\":null}],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"person\",\"obs\":[]},{\"role\":\"target\",\"object\":\"streetlight\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[155.0,260.0],[150.0,705.0]],\"box\":[124,260,186,705]},{\"frame\":30,\"point\":null,\"extent\":[[155.0,260.0],[150.0,705.0]],\"box\":[124,260,186,705]},{\"frame\":88,\"point\":null,\"extent\":[[155.0,260.0],[150.0,705.0]],\"box\":[124,260,186,705]}]}],\"direct_answer\":4.38,\"confidence\":0.6}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 1096,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "person"
+      ],
+      "dimension": "",
+      "time": 1.0,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "person"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": 1.87,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "person",
+       "distance_m": 13.882,
+       "time": 0.0
+      },
+      {
+       "object": "person",
+       "distance_m": 13.768,
+       "time": 1.0
+      },
+      {
+       "object": "fire hydrant",
+       "distance_m": 12.565,
+       "time": null
+      },
+      {
+       "object": "streetlight",
+       "distance_m": 12.325,
+       "time": null
+      }
+     ],
+     "notes": "Person also moves slightly toward camera (depth change)."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "person",
+      "obs": [
+       {
+        "frame": 27,
+        "point": null,
+        "extent": [
+         [
+          102.5,
+          514.5
+         ],
+         [
+          104.5,
+          683.5
+         ]
+        ],
+        "box": [
+         86,
+         514,
+         123,
+         684
+        ]
+       },
+       {
+        "frame": 29,
+        "point": null,
+        "extent": [
+         [
+          104.5,
+          514.5
+         ],
+         [
+          104.5,
+          685.0
+         ]
+        ],
+        "box": [
+         88,
+         514,
+         121,
+         686
+        ]
+       },
+       {
+        "frame": 30,
+        "point": null,
+        "extent": [
+         [
+          105.5,
+          514.5
+         ],
+         [
+          105.5,
+          684.5
+         ]
+        ],
+        "box": [
+         88,
+         514,
+         126,
+         685
+        ]
+       },
+       {
+        "frame": 41,
+        "point": null,
+        "extent": [
+         [
+          122.5,
+          514.5
+         ],
+         [
+          122.5,
+          685.0
+         ]
+        ],
+        "box": [
+         104,
+         514,
+         140,
+         686
+        ]
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "person",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         67.0,
+         520.0
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 12,
+        "point": [
+         83.0,
+         521.0
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 18,
+        "point": [
+         92.0,
+         521.0
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 23,
+        "point": [
+         100.0,
+         522.0
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 27,
+        "point": [
+         105.0,
+         522.0
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 29,
+        "point": [
+         108.0,
+         522.0
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 30,
+        "point": [
+         109.0,
+         522.0
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 33,
+        "point": [
+         113.0,
+         522.0
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 35,
+        "point": [
+         116.0,
+         522.0
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 41,
+        "point": [
+         124.0,
+         522.0
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 47,
+        "point": [
+         131.0,
+         522.0
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 53,
+        "point": [
+         138.0,
+         522.0
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     }
+    ],
+    "direct_answer": 0.46,
+    "confidence": 0.4
+   },
+   {
+    "qid": 1097,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "fire hydrant"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "person"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": 1.87,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "person",
+       "distance_m": 13.882,
+       "time": 0.0
+      },
+      {
+       "object": "person",
+       "distance_m": 13.768,
+       "time": 1.0
+      },
+      {
+       "object": "fire hydrant",
+       "distance_m": 12.565,
+       "time": null
+      },
+      {
+       "object": "streetlight",
+       "distance_m": 12.325,
+       "time": null
+      }
+     ],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "person",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "fire hydrant",
+      "obs": [
+       {
+        "frame": 30,
+        "point": null,
+        "extent": [
+         [
+          76.0,
+          597.0
+         ],
+         [
+          76.0,
+          704.0
+         ]
+        ],
+        "box": [
+         49,
+         597,
+         108,
+         704
+        ]
+       },
+       {
+        "frame": 59,
+        "point": null,
+        "extent": [
+         [
+          76.0,
+          597.0
+         ],
+         [
+          76.0,
+          704.0
+         ]
+        ],
+        "box": [
+         49,
+         597,
+         108,
+         704
+        ]
+       },
+       {
+        "frame": 88,
+        "point": null,
+        "extent": [
+         [
+          76.0,
+          597.0
+         ],
+         [
+          76.0,
+          704.0
+         ]
+        ],
+        "box": [
+         49,
+         597,
+         108,
+         704
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 1.07,
+    "confidence": 0.6
+   },
+   {
+    "qid": 1098,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "streetlight"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "person"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": 1.87,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "person",
+       "distance_m": 13.882,
+       "time": 0.0
+      },
+      {
+       "object": "person",
+       "distance_m": 13.768,
+       "time": 1.0
+      },
+      {
+       "object": "fire hydrant",
+       "distance_m": 12.565,
+       "time": null
+      },
+      {
+       "object": "streetlight",
+       "distance_m": 12.325,
+       "time": null
+      }
+     ],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "person",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "streetlight",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          155.0,
+          260.0
+         ],
+         [
+          150.0,
+          705.0
+         ]
+        ],
+        "box": [
+         124,
+         260,
+         186,
+         705
+        ]
+       },
+       {
+        "frame": 30,
+        "point": null,
+        "extent": [
+         [
+          155.0,
+          260.0
+         ],
+         [
+          150.0,
+          705.0
+         ]
+        ],
+        "box": [
+         124,
+         260,
+         186,
+         705
+        ]
+       },
+       {
+        "frame": 88,
+        "point": null,
+        "extent": [
+         [
+          155.0,
+          260.0
+         ],
+         [
+          150.0,
+          705.0
+         ]
+        ],
+        "box": [
+         124,
+         260,
+         186,
+         705
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 4.38,
+    "confidence": 0.6
+   }
+  ]
+ }
+}

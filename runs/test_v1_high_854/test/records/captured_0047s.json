@@ -1,0 +1,518 @@
+{
+ "video_id": "captured_0047s",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011Cfq6MvCzpkNEtXh1wA44r",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 854
+ },
+ "ts": "2026-10-08T16:34:47+00:00",
+ "mode": "sync",
+ "request_id": "req_011Cfq6MupBMRhefo41e4WAd",
+ "usage": {
+  "input_tokens": 11469,
+  "output_tokens": 4071,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 4317,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.128159,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "captured_0047s",
+  "fps": 24.0,
+  "fps_from_container": false,
+  "video_type": "V3SS",
+  "n_frames_total": 49,
+  "scale": 0.6671875,
+  "image_size": [
+   1280,
+   719
+  ],
+  "frames": [
+   0,
+   3,
+   6,
+   10,
+   13,
+   16,
+   19,
+   22,
+   24,
+   26,
+   29,
+   32,
+   34,
+   35,
+   36,
+   38,
+   42,
+   45,
+   48
+  ],
+  "questions": [
+   {
+    "qid": 2777,
+    "target_unit": "cm",
+    "prior": "velocity of the yoga ball at 1.0s = 2.1464m/s",
+    "depth_info": "t=1.0s, distance_yoga_ball_camera = 2.4985m\nt=1.5s, distance_soccer_ball_camera = 1.4972m\ndistance_person_camera = 3.8300m"
+   },
+   {
+    "qid": 2778,
+    "target_unit": "m",
+    "prior": "velocity of the yoga ball at 1.0s = 2.1464m/s",
+    "depth_info": "t=1.0s, distance_yoga_ball_camera = 2.4985m\nt=1.5s, distance_soccer_ball_camera = 1.4972m\ndistance_person_camera = 3.8300m"
+   },
+   {
+    "qid": 2779,
+    "target_unit": "m",
+    "prior": "velocity of the yoga ball at 1.0s = 2.1464m/s",
+    "depth_info": "t=1.0s, distance_yoga_ball_camera = 2.4985m\nt=1.5s, distance_soccer_ball_camera = 1.4972m\ndistance_person_camera = 3.8300m"
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":2777,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"yoga ball\"],\"dimension\":\"diameter\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"cm\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"yoga ball\"],\"dimension\":\"\",\"time\":1.0,\"window\":null,\"axis\":\"any\",\"value_si\":2.1464,\"unit\":\"\"},\"depth\":[{\"object\":\"yoga ball\",\"distance_m\":2.4985,\"time\":1.0},{\"object\":\"yoga ball\",\"distance_m\":1.4972,\"time\":1.5},{\"object\":\"person\",\"distance_m\":3.83,\"time\":null}],\"notes\":\"Depth line at 1.5s says 'soccer ball', presumably the yoga ball. Motion is mostly toward the camera, so the focal length is weakly constrained by the velocity prior.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"yoga ball\",\"obs\":[{\"frame\":19,\"point\":[364.5,340.5],\"extent\":null,\"box\":[323,295,406,386]},{\"frame\":22,\"point\":[354,352],\"extent\":null,\"box\":[308,304,400,401]},{\"frame\":24,\"point\":[344.5,361.5],\"extent\":null,\"box\":[296,310,393,413]},{\"frame\":26,\"point\":[334,373],\"extent\":null,\"box\":[282,318,386,429]},{\"frame\":29,\"point\":[315,385],\"extent\":null,\"box\":[257,321,373,450]},{\"frame\":32,\"point\":[291,405],\"extent\":null,\"box\":[226,335,357,478]},{\"frame\":34,\"point\":[272,420],\"extent\":null,\"box\":[200,348,344,480]},{\"frame\":35,\"point\":[261,432],\"extent\":null,\"box\":[184,355,338,480]},{\"frame\":36,\"point\":[236,448],\"extent\":null,\"box\":[150,362,322,480]}]},{\"role\":\"target\",\"object\":\"yoga ball\",\"obs\":[{\"frame\":22,\"point\":null,\"extent\":[[308,352],[400,352]],\"box\":[308,304,400,401]},{\"frame\":24,\"point\":null,\"extent\":[[296,361.5],[393,361.5]],\"box\":[296,310,393,413]},{\"frame\":26,\"point\":null,\"extent\":[[282,373],[386,373]],\"box\":[282,318,386,429]},{\"frame\":29,\"point\":null,\"extent\":[[257,385],[373,385]],\"box\":[257,321,373,450]}]}],\"direct_answer\":62,\"confidence\":0.3},{\"qid\":2778,\"spec\":{\"target\":{\"kind\":\"displacement\",\"objects\":[\"yoga ball\"],\"dimension\":\"\",\"time\":null,\"window\":[1.0,1.5],\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"yoga ball\"],\"dimension\":\"\",\"time\":1.0,\"window\":null,\"axis\":\"any\",\"value_si\":2.1464,\"unit\":\"\"},\"depth\":[{\"object\":\"yoga ball\",\"distance_m\":2.4985,\"time\":1.0},{\"object\":\"yoga ball\",\"distance_m\":1.4972,\"time\":1.5},{\"object\":\"person\",\"distance_m\":3.83,\"time\":null}],\"notes\":\"Depth line at 1.5s says 'soccer ball', presumably the yoga ball.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"yoga ball\",\"obs\":[]},{\"role\":\"target\",\"object\":\"yoga ball\",\"obs\":[]}],\"direct_answer\":1.02,\"confidence\":0.6},{\"qid\":2779,\"spec\":{\"target\":{\"kind\":\"distance\",\"objects\":[\"yoga ball\",\"person\"],\"dimension\":\"\",\"time\":1.5,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"yoga ball\"],\"dimension\":\"\",\"time\":1.0,\"window\":null,\"axis\":\"any\",\"value_si\":2.1464,\"unit\":\"\"},\"depth\":[{\"object\":\"yoga ball\",\"distance_m\":2.4985,\"time\":1.0},{\"object\":\"yoga ball\",\"distance_m\":1.4972,\"time\":1.5},{\"object\":\"person\",\"distance_m\":3.83,\"time\":null}],\"notes\":\"Depth line at 1.5s says 'soccer ball', presumably the yoga ball.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"yoga ball\",\"obs\":[]},{\"role\":\"target\",\"object\":\"yoga ball\",\"obs\":[{\"frame\":36,\"point\":[236,448],\"extent\":null,\"box\":[150,362,322,480]}]},{\"role\":\"target2\",\"object\":\"person\",\"obs\":[{\"frame\":36,\"point\":[390,295],\"extent\":null,\"box\":[334,232,427,362]}]}],\"direct_answer\":2.37,\"confidence\":0.55}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 2777,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "yoga ball"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "cm"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "yoga ball"
+      ],
+      "dimension": "",
+      "time": 1.0,
+      "window": null,
+      "axis": "any",
+      "value_si": 2.1464,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "yoga ball",
+       "distance_m": 2.4985,
+       "time": 1.0
+      },
+      {
+       "object": "yoga ball",
+       "distance_m": 1.4972,
+       "time": 1.5
+      },
+      {
+       "object": "person",
+       "distance_m": 3.83,
+       "time": null
+      }
+     ],
+     "notes": "Depth line at 1.5s says 'soccer ball', presumably the yoga ball. Motion is mostly toward the camera, so the focal length is weakly constrained by the velocity prior."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "yoga ball",
+      "obs": [
+       {
+        "frame": 19,
+        "point": [
+         364.5,
+         340.5
+        ],
+        "extent": null,
+        "box": [
+         323,
+         295,
+         406,
+         386
+        ]
+       },
+       {
+        "frame": 22,
+        "point": [
+         354,
+         352
+        ],
+        "extent": null,
+        "box": [
+         308,
+         304,
+         400,
+         401
+        ]
+       },
+       {
+        "frame": 24,
+        "point": [
+         344.5,
+         361.5
+        ],
+        "extent": null,
+        "box": [
+         296,
+         310,
+         393,
+         413
+        ]
+       },
+       {
+        "frame": 26,
+        "point": [
+         334,
+         373
+        ],
+        "extent": null,
+        "box": [
+         282,
+         318,
+         386,
+         429
+        ]
+       },
+       {
+        "frame": 29,
+        "point": [
+         315,
+         385
+        ],
+        "extent": null,
+        "box": [
+         257,
+         321,
+         373,
+         450
+        ]
+       },
+       {
+        "frame": 32,
+        "point": [
+         291,
+         405
+        ],
+        "extent": null,
+        "box": [
+         226,
+         335,
+         357,
+         478
+        ]
+       },
+       {
+        "frame": 34,
+        "point": [
+         272,
+         420
+        ],
+        "extent": null,
+        "box": [
+         200,
+         348,
+         344,
+         480
+        ]
+       },
+       {
+        "frame": 35,
+        "point": [
+         261,
+         432
+        ],
+        "extent": null,
+        "box": [
+         184,
+         355,
+         338,
+         480
+        ]
+       },
+       {
+        "frame": 36,
+        "point": [
+         236,
+         448
+        ],
+        "extent": null,
+        "box": [
+         150,
+         362,
+         322,
+         480
+        ]
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "yoga ball",
+      "obs": [
+       {
+        "frame": 22,
+        "point": null,
+        "extent": [
+         [
+          308,
+          352
+         ],
+         [
+          400,
+          352
+         ]
+        ],
+        "box": [
+         308,
+         304,
+         400,
+         401
+        ]
+       },
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          296,
+          361.5
+         ],
+         [
+          393,
+          361.5
+         ]
+        ],
+        "box": [
+         296,
+         310,
+         393,
+         413
+        ]
+       },
+       {
+        "frame": 26,
+        "point": null,
+        "extent": [
+         [
+          282,
+          373
+         ],
+         [
+          386,
+          373
+         ]
+        ],
+        "box": [
+         282,
+         318,
+         386,
+         429
+        ]
+       },
+       {
+        "frame": 29,
+        "point": null,
+        "extent": [
+         [
+          257,
+          385
+         ],
+         [
+          373,
+          385
+         ]
+        ],
+        "box": [
+         257,
+         321,
+         373,
+         450
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 62,
+    "confidence": 0.3
+   },
+   {
+    "qid": 2778,
+    "spec": {
+     "target": {
+      "kind": "displacement",
+      "objects": [
+       "yoga ball"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": [
+       1.0,
+       1.5
+      ],
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "yoga ball"
+      ],
+      "dimension": "",
+      "time": 1.0,
+      "window": null,
+      "axis": "any",
+      "value_si": 2.1464,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "yoga ball",
+       "distance_m": 2.4985,
+       "time": 1.0
+      },
+      {
+       "object": "yoga ball",
+       "distance_m": 1.4972,
+       "time": 1.5
+      },
+      {
+       "object": "person",
+       "distance_m": 3.83,
+       "time": null
+      }
+     ],
+     "notes": "Depth line at 1.5s says 'soccer ball', presumably the yoga ball."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "yoga ball",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "yoga ball",
+      "obs": []
+     }
+    ],
+    "direct_answer": 1.02,
+    "confidence": 0.6
+   },
+   {
+    "qid": 2779,
+    "spec": {
+     "target": {
+      "kind": "distance",
+      "objects": [
+       "yoga ball",
+       "person"
+      ],
+      "dimension": "",
+      "time": 1.5,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "yoga ball"
+      ],
+      "dimension": "",
+      "time": 1.0,
+      "window": null,
+      "axis": "any",
+      "value_si": 2.1464,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "yoga ball",
+       "distance_m": 2.4985,
+       "time": 1.0
+      },
+      {
+       "object": "yoga ball",
+       "distance_m": 1.4972,
+       "time": 1.5
+      },
+      {
+       "object": "person",
+       "distance_m": 3.83,
+       "time": null
+      }
+     ],
+     "notes": "Depth line at 1.5s says 'soccer ball', presumably the yoga ball."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "yoga ball",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "yoga ball",
+      "obs": [
+       {
+        "frame": 36,
+        "point": [
+         236,
+         448
+        ],
+        "extent": null,
+        "box": [
+         150,
+         362,
+         322,
+         480
+        ]
+       }
+      ]
+     },
+     {
+      "role": "target2",
+      "object": "person",
+      "obs": [
+       {
+        "frame": 36,
+        "point": [
+         390,
+         295
+        ],
+        "extent": null,
+        "box": [
+         334,
+         232,
+         427,
+         362
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 2.37,
+    "confidence": 0.55
+   }
+  ]
+ }
+}

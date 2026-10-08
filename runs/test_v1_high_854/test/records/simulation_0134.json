@@ -1,0 +1,531 @@
+{
+ "video_id": "simulation_0134",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfpseNtY4Jczthry5dpSb",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 854
+ },
+ "ts": "2026-10-08T16:53:50+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_01EK6rwK1z62Nk1x6w7FZeFC",
+ "custom_id": "simulation_0134",
+ "usage": {
+  "input_tokens": 9575,
+  "output_tokens": 2454,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 4317,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.044122,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0134",
+  "fps": 24.0,
+  "fps_from_container": false,
+  "video_type": "S2MC",
+  "n_frames_total": 60,
+  "scale": 0.44479166666666664,
+  "image_size": [
+   1079,
+   1920
+  ],
+  "frames": [
+   0,
+   4,
+   8,
+   12,
+   16,
+   20,
+   24,
+   28,
+   31,
+   35,
+   39,
+   43,
+   47,
+   51,
+   55,
+   59
+  ],
+  "questions": [
+   {
+    "qid": 320,
+    "target_unit": "m",
+    "prior": "height of the toaster = 0.166m",
+    "depth_info": ""
+   },
+   {
+    "qid": 321,
+    "target_unit": "m",
+    "prior": "height of the toaster = 0.166m",
+    "depth_info": ""
+   },
+   {
+    "qid": 322,
+    "target_unit": "m",
+    "prior": "height of the toaster = 0.166m",
+    "depth_info": ""
+   },
+   {
+    "qid": 323,
+    "target_unit": "m/s^2",
+    "prior": "height of the toaster = 0.166m",
+    "depth_info": ""
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":320,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"toast\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"toaster\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":0.166,\"unit\":\"\"},\"depth\":[],\"notes\":\"Toast length taken as its longest (vertical) side when fully visible in flight.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"toaster\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[226,497.5],[226,621.5]],\"box\":[124,497.5,327,621.5]},{\"frame\":24,\"point\":null,\"extent\":[[226,497.5],[226,621.5]],\"box\":[124,497.5,327,621.5]},{\"frame\":43,\"point\":null,\"extent\":[[226,497.5],[226,621.5]],\"box\":[124,497.5,327,621.5]},{\"frame\":59,\"point\":null,\"extent\":[[226,497.5],[226,621.5]],\"box\":[124,497.5,327,621.5]}]},{\"role\":\"target\",\"object\":\"toast\",\"obs\":[{\"frame\":43,\"point\":null,\"extent\":[[224,374],[224,476]],\"box\":[181,374,268,476]}]}],\"direct_answer\":0.137,\"confidence\":0.6},{\"qid\":321,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"toaster\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"horizontal\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"toaster\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":0.166,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"toaster\",\"obs\":[]},{\"role\":\"target\",\"object\":\"toaster\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[124,612],[327,612]],\"box\":[124,497.5,327,621.5]},{\"frame\":24,\"point\":null,\"extent\":[[124,612],[327,612]],\"box\":[124,497.5,327,621.5]},{\"frame\":59,\"point\":null,\"extent\":[[124,612],[327,612]],\"box\":[124,497.5,327,621.5]}]}],\"direct_answer\":0.27,\"confidence\":0.6},{\"qid\":322,\"spec\":{\"target\":{\"kind\":\"displacement\",\"objects\":[\"bread slice\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"toaster\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":0.166,\"unit\":\"\"},\"depth\":[],\"notes\":\"Peak height relative to rest position before launch.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"toaster\",\"obs\":[]},{\"role\":\"target\",\"object\":\"bread slice\",\"obs\":[{\"frame\":0,\"point\":[226,470],\"extent\":null,\"box\":null},{\"frame\":12,\"point\":[226,470],\"extent\":null,\"box\":null},{\"frame\":24,\"point\":[226,470],\"extent\":null,\"box\":null},{\"frame\":35,\"point\":[226,470],\"extent\":null,\"box\":null},{\"frame\":39,\"point\":[226,470],\"extent\":null,\"box\":null},{\"frame\":43,\"point\":[224,374],\"extent\":null,\"box\":[181,374,268,476]},{\"frame\":47,\"point\":[225,455],\"extent\":null,\"box\":null},{\"frame\":51,\"point\":[226,459],\"extent\":null,\"box\":null},{\"frame\":55,\"point\":[226,462],\"extent\":null,\"box\":null},{\"frame\":59,\"point\":[226,462],\"extent\":null,\"box\":null}]}],\"direct_answer\":0.128,\"confidence\":0.5},{\"qid\":323,\"spec\":{\"target\":{\"kind\":\"acceleration\",\"objects\":[\"bread slice\"],\"dimension\":\"\",\"time\":1.75,\"window\":null,\"axis\":\"vertical\",\"value_si\":null,\"unit\":\"m/s^2\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"toaster\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":0.166,\"unit\":\"\"},\"depth\":[],\"notes\":\"Bread is in free flight at 1.75 s.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"toaster\",\"obs\":[]},{\"role\":\"target\",\"object\":\"bread slice\",\"obs\":[]}],\"direct_answer\":9.8,\"confidence\":0.45}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 320,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "toast"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "toaster"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": 0.166,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Toast length taken as its longest (vertical) side when fully visible in flight."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "toaster",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          226,
+          497.5
+         ],
+         [
+          226,
+          621.5
+         ]
+        ],
+        "box": [
+         124,
+         497.5,
+         327,
+         621.5
+        ]
+       },
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          226,
+          497.5
+         ],
+         [
+          226,
+          621.5
+         ]
+        ],
+        "box": [
+         124,
+         497.5,
+         327,
+         621.5
+        ]
+       },
+       {
+        "frame": 43,
+        "point": null,
+        "extent": [
+         [
+          226,
+          497.5
+         ],
+         [
+          226,
+          621.5
+         ]
+        ],
+        "box": [
+         124,
+         497.5,
+         327,
+         621.5
+        ]
+       },
+       {
+        "frame": 59,
+        "point": null,
+        "extent": [
+         [
+          226,
+          497.5
+         ],
+         [
+          226,
+          621.5
+         ]
+        ],
+        "box": [
+         124,
+         497.5,
+         327,
+         621.5
+        ]
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "toast",
+      "obs": [
+       {
+        "frame": 43,
+        "point": null,
+        "extent": [
+         [
+          224,
+          374
+         ],
+         [
+          224,
+          476
+         ]
+        ],
+        "box": [
+         181,
+         374,
+         268,
+         476
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 0.137,
+    "confidence": 0.6
+   },
+   {
+    "qid": 321,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "toaster"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "horizontal",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "toaster"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": 0.166,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "toaster",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "toaster",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          124,
+          612
+         ],
+         [
+          327,
+          612
+         ]
+        ],
+        "box": [
+         124,
+         497.5,
+         327,
+         621.5
+        ]
+       },
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          124,
+          612
+         ],
+         [
+          327,
+          612
+         ]
+        ],
+        "box": [
+         124,
+         497.5,
+         327,
+         621.5
+        ]
+       },
+       {
+        "frame": 59,
+        "point": null,
+        "extent": [
+         [
+          124,
+          612
+         ],
+         [
+          327,
+          612
+         ]
+        ],
+        "box": [
+         124,
+         497.5,
+         327,
+         621.5
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 0.27,
+    "confidence": 0.6
+   },
+   {
+    "qid": 322,
+    "spec": {
+     "target": {
+      "kind": "displacement",
+      "objects": [
+       "bread slice"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "toaster"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": 0.166,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Peak height relative to rest position before launch."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "toaster",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "bread slice",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         226,
+         470
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 12,
+        "point": [
+         226,
+         470
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 24,
+        "point": [
+         226,
+         470
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 35,
+        "point": [
+         226,
+         470
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 39,
+        "point": [
+         226,
+         470
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 43,
+        "point": [
+         224,
+         374
+        ],
+        "extent": null,
+        "box": [
+         181,
+         374,
+         268,
+         476
+        ]
+       },
+       {
+        "frame": 47,
+        "point": [
+         225,
+         455
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 51,
+        "point": [
+         226,
+         459
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 55,
+        "point": [
+         226,
+         462
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 59,
+        "point": [
+         226,
+         462
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     }
+    ],
+    "direct_answer": 0.128,
+    "confidence": 0.5
+   },
+   {
+    "qid": 323,
+    "spec": {
+     "target": {
+      "kind": "acceleration",
+      "objects": [
+       "bread slice"
+      ],
+      "dimension": "",
+      "time": 1.75,
+      "window": null,
+      "axis": "vertical",
+      "value_si": null,
+      "unit": "m/s^2"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "toaster"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": 0.166,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Bread is in free flight at 1.75 s."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "toaster",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "bread slice",
+      "obs": []
+     }
+    ],
+    "direct_answer": 9.8,
+    "confidence": 0.45
+   }
+  ]
+ }
+}

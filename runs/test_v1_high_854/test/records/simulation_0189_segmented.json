@@ -1,0 +1,639 @@
+{
+ "video_id": "simulation_0189_segmented",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011Cfq8pkHRXw7MbSYL9xR9p",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 854
+ },
+ "ts": "2026-10-08T17:09:48+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_01SmLRdd1f81Bv4cEJSXfSE9",
+ "custom_id": "simulation_0189_segmented",
+ "usage": {
+  "input_tokens": 10194,
+  "output_tokens": 2293,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 4317,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.04375,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0189_segmented",
+  "fps": 120.0,
+  "fps_from_container": false,
+  "video_type": "V2MX",
+  "n_frames_total": 401,
+  "scale": 0.44479166666666664,
+  "image_size": [
+   1920,
+   1079
+  ],
+  "frames": [
+   0,
+   12,
+   27,
+   53,
+   80,
+   107,
+   133,
+   160,
+   187,
+   213,
+   240,
+   267,
+   293,
+   320,
+   347,
+   373,
+   400
+  ],
+  "questions": [
+   {
+    "qid": 1903,
+    "target_unit": "m",
+    "prior": "speed of the box = 0.094m/s",
+    "depth_info": ""
+   },
+   {
+    "qid": 1904,
+    "target_unit": "m",
+    "prior": "speed of the box = 0.094m/s",
+    "depth_info": ""
+   },
+   {
+    "qid": 1905,
+    "target_unit": "m",
+    "prior": "speed of the box = 0.094m/s",
+    "depth_info": ""
+   },
+   {
+    "qid": 1906,
+    "target_unit": "m",
+    "prior": "speed of the box = 0.094m/s",
+    "depth_info": ""
+   },
+   {
+    "qid": 1907,
+    "target_unit": "m",
+    "prior": "speed of the box = 0.094m/s",
+    "depth_info": ""
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":1903,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"box\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"box\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.094,\"unit\":\"\"},\"depth\":[],\"notes\":\"Box rises with the lifting truck body; speed taken as the average over the clip.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"box\",\"obs\":[{\"frame\":0,\"point\":[326,163],\"extent\":null,\"box\":null},{\"frame\":80,\"point\":[326,160],\"extent\":null,\"box\":null},{\"frame\":160,\"point\":[326,155],\"extent\":null,\"box\":null},{\"frame\":240,\"point\":[326,149],\"extent\":null,\"box\":null},{\"frame\":320,\"point\":[326,141],\"extent\":null,\"box\":null},{\"frame\":400,\"point\":[326,133],\"extent\":null,\"box\":null}]},{\"role\":\"target\",\"object\":\"box length\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[235,120],[417,120]],\"box\":[235,81,417,163]},{\"frame\":160,\"point\":null,\"extent\":[[235,112],[417,112]],\"box\":[235,73,417,155]},{\"frame\":400,\"point\":null,\"extent\":[[235,94],[417,94]],\"box\":[235,53,417,133]}]}],\"direct_answer\":1.9,\"confidence\":0.4},{\"qid\":1904,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"box\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"box\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.094,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"box\",\"obs\":[]},{\"role\":\"target\",\"object\":\"box height\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[300,81],[300,163]],\"box\":[235,81,417,163]},{\"frame\":160,\"point\":null,\"extent\":[[300,73],[300,155]],\"box\":[235,73,417,155]},{\"frame\":400,\"point\":null,\"extent\":[[300,52],[300,133]],\"box\":[235,52,417,133]}]}],\"direct_answer\":0.85,\"confidence\":0.4},{\"qid\":1905,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"truck\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"box\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.094,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"box\",\"obs\":[]},{\"role\":\"target\",\"object\":\"truck length\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[55,300],[818,300]],\"box\":[55,137,818,455]},{\"frame\":200,\"point\":null,\"extent\":[[55,300],[818,300]],\"box\":null},{\"frame\":400,\"point\":null,\"extent\":[[55,300],[818,300]],\"box\":[55,108,818,455]}]}],\"direct_answer\":7.97,\"confidence\":0.4},{\"qid\":1906,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"truck\"],\"dimension\":\"height\",\"time\":0,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"box\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.094,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"box\",\"obs\":[]},{\"role\":\"target\",\"object\":\"truck height\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[660,137],[660,455]],\"box\":[55,137,818,455]}]}],\"direct_answer\":3.32,\"confidence\":0.35},{\"qid\":1907,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"truck's tire\"],\"dimension\":\"diameter\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"box\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.094,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"box\",\"obs\":[]},{\"role\":\"target\",\"object\":\"truck's tire\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[275,415],[355,415]],\"box\":[275,375,355,455]},{\"frame\":200,\"point\":null,\"extent\":[[275,415],[355,415]],\"box\":[275,375,355,455]},{\"frame\":400,\"point\":null,\"extent\":[[665,415],[743,415]],\"box\":[665,376,743,455]}]}],\"direct_answer\":0.835,\"confidence\":0.35}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 1903,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "box"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "box"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.094,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Box rises with the lifting truck body; speed taken as the average over the clip."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "box",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         326,
+         163
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 80,
+        "point": [
+         326,
+         160
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 160,
+        "point": [
+         326,
+         155
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 240,
+        "point": [
+         326,
+         149
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 320,
+        "point": [
+         326,
+         141
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 400,
+        "point": [
+         326,
+         133
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "box length",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          235,
+          120
+         ],
+         [
+          417,
+          120
+         ]
+        ],
+        "box": [
+         235,
+         81,
+         417,
+         163
+        ]
+       },
+       {
+        "frame": 160,
+        "point": null,
+        "extent": [
+         [
+          235,
+          112
+         ],
+         [
+          417,
+          112
+         ]
+        ],
+        "box": [
+         235,
+         73,
+         417,
+         155
+        ]
+       },
+       {
+        "frame": 400,
+        "point": null,
+        "extent": [
+         [
+          235,
+          94
+         ],
+         [
+          417,
+          94
+         ]
+        ],
+        "box": [
+         235,
+         53,
+         417,
+         133
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 1.9,
+    "confidence": 0.4
+   },
+   {
+    "qid": 1904,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "box"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "box"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.094,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "box",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "box height",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          300,
+          81
+         ],
+         [
+          300,
+          163
+         ]
+        ],
+        "box": [
+         235,
+         81,
+         417,
+         163
+        ]
+       },
+       {
+        "frame": 160,
+        "point": null,
+        "extent": [
+         [
+          300,
+          73
+         ],
+         [
+          300,
+          155
+         ]
+        ],
+        "box": [
+         235,
+         73,
+         417,
+         155
+        ]
+       },
+       {
+        "frame": 400,
+        "point": null,
+        "extent": [
+         [
+          300,
+          52
+         ],
+         [
+          300,
+          133
+         ]
+        ],
+        "box": [
+         235,
+         52,
+         417,
+         133
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 0.85,
+    "confidence": 0.4
+   },
+   {
+    "qid": 1905,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "truck"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "box"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.094,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "box",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "truck length",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          55,
+          300
+         ],
+         [
+          818,
+          300
+         ]
+        ],
+        "box": [
+         55,
+         137,
+         818,
+         455
+        ]
+       },
+       {
+        "frame": 200,
+        "point": null,
+        "extent": [
+         [
+          55,
+          300
+         ],
+         [
+          818,
+          300
+         ]
+        ],
+        "box": null
+       },
+       {
+        "frame": 400,
+        "point": null,
+        "extent": [
+         [
+          55,
+          300
+         ],
+         [
+          818,
+          300
+         ]
+        ],
+        "box": [
+         55,
+         108,
+         818,
+         455
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 7.97,
+    "confidence": 0.4
+   },
+   {
+    "qid": 1906,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "truck"
+      ],
+      "dimension": "height",
+      "time": 0,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "box"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.094,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "box",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "truck height",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          660,
+          137
+         ],
+         [
+          660,
+          455
+         ]
+        ],
+        "box": [
+         55,
+         137,
+         818,
+         455
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 3.32,
+    "confidence": 0.35
+   },
+   {
+    "qid": 1907,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "truck's tire"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "box"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.094,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "box",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "truck's tire",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          275,
+          415
+         ],
+         [
+          355,
+          415
+         ]
+        ],
+        "box": [
+         275,
+         375,
+         355,
+         455
+        ]
+       },
+       {
+        "frame": 200,
+        "point": null,
+        "extent": [
+         [
+          275,
+          415
+         ],
+         [
+          355,
+          415
+         ]
+        ],
+        "box": [
+         275,
+         375,
+         355,
+         455
+        ]
+       },
+       {
+        "frame": 400,
+        "point": null,
+        "extent": [
+         [
+          665,
+          415
+         ],
+         [
+          743,
+          415
+         ]
+        ],
+        "box": [
+         665,
+         376,
+         743,
+         455
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 0.835,
+    "confidence": 0.35
+   }
+  ]
+ }
+}

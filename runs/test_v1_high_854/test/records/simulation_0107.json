@@ -1,0 +1,485 @@
+{
+ "video_id": "simulation_0107",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfppwEcaLJrbijgWdR8kf",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 854
+ },
+ "ts": "2026-10-08T17:06:39+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_016r6K9zxh6EpX5dn7cBW8KC",
+ "custom_id": "simulation_0107",
+ "usage": {
+  "input_tokens": 12394,
+  "output_tokens": 2360,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 4317,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.04882,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0107",
+  "fps": 24.0,
+  "fps_from_container": false,
+  "video_type": "V2MX",
+  "n_frames_total": 72,
+  "scale": 0.44479166666666664,
+  "image_size": [
+   1920,
+   1079
+  ],
+  "frames": [
+   0,
+   5,
+   9,
+   14,
+   19,
+   22,
+   24,
+   26,
+   28,
+   33,
+   38,
+   43,
+   46,
+   47,
+   48,
+   50,
+   52,
+   57,
+   62,
+   66,
+   71
+  ],
+  "questions": [
+   {
+    "qid": 218,
+    "target_unit": "m/s",
+    "prior": "speed of the right virus = 1.7393m/s",
+    "depth_info": ""
+   },
+   {
+    "qid": 219,
+    "target_unit": "m",
+    "prior": "speed of the right virus = 1.7393m/s",
+    "depth_info": ""
+   },
+   {
+    "qid": 220,
+    "target_unit": "m",
+    "prior": "speed of the right virus = 1.7393m/s",
+    "depth_info": ""
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":218,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"left virus\"],\"dimension\":\"\",\"time\":1.0,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"right virus\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":1.7393,\"unit\":\"\"},\"depth\":[],\"notes\":\"velocity interpreted as speed magnitude\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"right virus\",\"obs\":[{\"frame\":0,\"point\":[580,272],\"extent\":null,\"box\":null},{\"frame\":5,\"point\":[605,272],\"extent\":null,\"box\":null},{\"frame\":9,\"point\":[628,272],\"extent\":null,\"box\":null},{\"frame\":14,\"point\":[657,272],\"extent\":null,\"box\":null},{\"frame\":19,\"point\":[690,272],\"extent\":null,\"box\":null},{\"frame\":22,\"point\":[708,272],\"extent\":null,\"box\":null},{\"frame\":24,\"point\":[720,272],\"extent\":null,\"box\":null},{\"frame\":26,\"point\":[733,272],\"extent\":null,\"box\":null},{\"frame\":28,\"point\":[745,272],\"extent\":null,\"box\":null},{\"frame\":33,\"point\":[775,272],\"extent\":null,\"box\":null},{\"frame\":38,\"point\":[805,272],\"extent\":null,\"box\":null},{\"frame\":43,\"point\":[835,272],\"extent\":null,\"box\":null}]},{\"role\":\"target\",\"object\":\"left virus\",\"obs\":[{\"frame\":0,\"point\":[308,258],\"extent\":null,\"box\":null},{\"frame\":5,\"point\":[282,258],\"extent\":null,\"box\":null},{\"frame\":9,\"point\":[257,258],\"extent\":null,\"box\":null},{\"frame\":14,\"point\":[226,258],\"extent\":null,\"box\":null},{\"frame\":19,\"point\":[194,258],\"extent\":null,\"box\":null},{\"frame\":22,\"point\":[176,258],\"extent\":null,\"box\":null},{\"frame\":24,\"point\":[163,258],\"extent\":null,\"box\":null},{\"frame\":26,\"point\":[150,258],\"extent\":null,\"box\":null},{\"frame\":28,\"point\":[138,258],\"extent\":null,\"box\":null},{\"frame\":33,\"point\":[107,258],\"extent\":null,\"box\":null},{\"frame\":38,\"point\":[75,258],\"extent\":null,\"box\":null},{\"frame\":43,\"point\":[45,258],\"extent\":null,\"box\":null},{\"frame\":48,\"point\":[15,258],\"extent\":null,\"box\":null}]}],\"direct_answer\":1.8,\"confidence\":0.6},{\"qid\":219,\"spec\":{\"target\":{\"kind\":\"distance\",\"objects\":[\"left virus\",\"right virus\"],\"dimension\":\"\",\"time\":1.0,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"right virus\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":1.7393,\"unit\":\"\"},\"depth\":[],\"notes\":\"centre-to-centre distance\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"right virus\",\"obs\":[]},{\"role\":\"target\",\"object\":\"left virus\",\"obs\":[]},{\"role\":\"target2\",\"object\":\"right virus\",\"obs\":[]}],\"direct_answer\":6.82,\"confidence\":0.55},{\"qid\":220,\"spec\":{\"target\":{\"kind\":\"distance\",\"objects\":[\"left virus\",\"right virus\"],\"dimension\":\"\",\"time\":2.0,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"right virus\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":1.7393,\"unit\":\"\"},\"depth\":[],\"notes\":\"right virus centre is partly off-frame at 2.0s; extrapolated\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"right virus\",\"obs\":[]},{\"role\":\"target\",\"object\":\"left virus\",\"obs\":[{\"frame\":48,\"point\":[15,258],\"extent\":null,\"box\":null}]},{\"role\":\"target2\",\"object\":\"right virus\",\"obs\":[{\"frame\":48,\"point\":[864,272],\"extent\":null,\"box\":null}]}],\"direct_answer\":10.4,\"confidence\":0.45}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 218,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "left virus"
+      ],
+      "dimension": "",
+      "time": 1.0,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "right virus"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 1.7393,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "velocity interpreted as speed magnitude"
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "right virus",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         580,
+         272
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 5,
+        "point": [
+         605,
+         272
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 9,
+        "point": [
+         628,
+         272
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 14,
+        "point": [
+         657,
+         272
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 19,
+        "point": [
+         690,
+         272
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 22,
+        "point": [
+         708,
+         272
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 24,
+        "point": [
+         720,
+         272
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 26,
+        "point": [
+         733,
+         272
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 28,
+        "point": [
+         745,
+         272
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 33,
+        "point": [
+         775,
+         272
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 38,
+        "point": [
+         805,
+         272
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 43,
+        "point": [
+         835,
+         272
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "left virus",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         308,
+         258
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 5,
+        "point": [
+         282,
+         258
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 9,
+        "point": [
+         257,
+         258
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 14,
+        "point": [
+         226,
+         258
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 19,
+        "point": [
+         194,
+         258
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 22,
+        "point": [
+         176,
+         258
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 24,
+        "point": [
+         163,
+         258
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 26,
+        "point": [
+         150,
+         258
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 28,
+        "point": [
+         138,
+         258
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 33,
+        "point": [
+         107,
+         258
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 38,
+        "point": [
+         75,
+         258
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 43,
+        "point": [
+         45,
+         258
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 48,
+        "point": [
+         15,
+         258
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     }
+    ],
+    "direct_answer": 1.8,
+    "confidence": 0.6
+   },
+   {
+    "qid": 219,
+    "spec": {
+     "target": {
+      "kind": "distance",
+      "objects": [
+       "left virus",
+       "right virus"
+      ],
+      "dimension": "",
+      "time": 1.0,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "right virus"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 1.7393,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "centre-to-centre distance"
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "right virus",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "left virus",
+      "obs": []
+     },
+     {
+      "role": "target2",
+      "object": "right virus",
+      "obs": []
+     }
+    ],
+    "direct_answer": 6.82,
+    "confidence": 0.55
+   },
+   {
+    "qid": 220,
+    "spec": {
+     "target": {
+      "kind": "distance",
+      "objects": [
+       "left virus",
+       "right virus"
+      ],
+      "dimension": "",
+      "time": 2.0,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "right virus"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 1.7393,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "right virus centre is partly off-frame at 2.0s; extrapolated"
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "right virus",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "left virus",
+      "obs": [
+       {
+        "frame": 48,
+        "point": [
+         15,
+         258
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     },
+     {
+      "role": "target2",
+      "object": "right virus",
+      "obs": [
+       {
+        "frame": 48,
+        "point": [
+         864,
+         272
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     }
+    ],
+    "direct_answer": 10.4,
+    "confidence": 0.45
+   }
+  ]
+ }
+}

@@ -1,0 +1,653 @@
+{
+ "video_id": "simulation_0247_segmented",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfpzyBvpceSC4v4SLJkuY",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 854
+ },
+ "ts": "2026-10-08T17:06:42+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_01RgbCGaqsRz49vUhEJLUBnh",
+ "custom_id": "simulation_0247_segmented",
+ "usage": {
+  "input_tokens": 9496,
+  "output_tokens": 2602,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 4317,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.045444,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0247_segmented",
+  "fps": 30.0,
+  "fps_from_container": false,
+  "video_type": "V2MX",
+  "n_frames_total": 75,
+  "scale": 0.44479166666666664,
+  "image_size": [
+   1920,
+   1079
+  ],
+  "frames": [
+   0,
+   5,
+   10,
+   15,
+   20,
+   25,
+   30,
+   35,
+   39,
+   44,
+   49,
+   54,
+   59,
+   64,
+   69,
+   74
+  ],
+  "questions": [
+   {
+    "qid": 1985,
+    "target_unit": "m",
+    "prior": "speed of the deer = 1.277m/s",
+    "depth_info": ""
+   },
+   {
+    "qid": 1986,
+    "target_unit": "m",
+    "prior": "speed of the deer = 1.277m/s",
+    "depth_info": ""
+   },
+   {
+    "qid": 1987,
+    "target_unit": "m/s",
+    "prior": "speed of the deer = 1.277m/s",
+    "depth_info": ""
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":1985,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"rabbit\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"deer\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":1.277,\"unit\":\"\"},\"depth\":[],\"notes\":\"Deer speed taken as average over the clip.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"deer\",\"obs\":[{\"frame\":0,\"point\":[421,236],\"extent\":null,\"box\":null},{\"frame\":5,\"point\":[439,236],\"extent\":null,\"box\":null},{\"frame\":10,\"point\":[460,236],\"extent\":null,\"box\":null},{\"frame\":15,\"point\":[477,237],\"extent\":null,\"box\":null},{\"frame\":20,\"point\":[492,236],\"extent\":null,\"box\":null},{\"frame\":25,\"point\":[510,236],\"extent\":null,\"box\":null},{\"frame\":30,\"point\":[531,236],\"extent\":null,\"box\":null},{\"frame\":35,\"point\":[548,237],\"extent\":null,\"box\":null},{\"frame\":39,\"point\":[561,237],\"extent\":null,\"box\":null},{\"frame\":44,\"point\":[577,236],\"extent\":null,\"box\":null},{\"frame\":49,\"point\":[598,236],\"extent\":null,\"box\":null},{\"frame\":54,\"point\":[616,236],\"extent\":null,\"box\":null},{\"frame\":59,\"point\":[631,236],\"extent\":null,\"box\":null},{\"frame\":64,\"point\":[648,236],\"extent\":null,\"box\":null},{\"frame\":69,\"point\":[668,236],\"extent\":null,\"box\":null},{\"frame\":74,\"point\":[687,236],\"extent\":null,\"box\":null}]},{\"role\":\"target\",\"object\":\"rabbit\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[417,346],[453,338]],\"box\":[417,324,453,356]},{\"frame\":20,\"point\":null,\"extent\":[[486,345],[521,337]],\"box\":[486,326,521,355]},{\"frame\":44,\"point\":null,\"extent\":[[565,345],[602,338]],\"box\":[565,326,602,354]},{\"frame\":74,\"point\":null,\"extent\":[[670,345],[707,338]],\"box\":[670,326,707,354]}]}],\"direct_answer\":0.43,\"confidence\":0.5},{\"qid\":1986,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"deer\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"deer\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":1.277,\"unit\":\"\"},\"depth\":[],\"notes\":\"Length measured rump to muzzle, excluding tail.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"deer\",\"obs\":[]},{\"role\":\"target\",\"object\":\"deer\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[232,262],[422,236]],\"box\":[180,160,422,356]},{\"frame\":35,\"point\":null,\"extent\":[[355,262],[548,237]],\"box\":[290,160,548,356]},{\"frame\":74,\"point\":null,\"extent\":[[494,262],[687,236]],\"box\":[419,160,687,356]}]}],\"direct_answer\":2.3,\"confidence\":0.3},{\"qid\":1987,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"rabbit\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"deer\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":1.277,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"deer\",\"obs\":[]},{\"role\":\"target\",\"object\":\"rabbit\",\"obs\":[{\"frame\":0,\"point\":[435,342],\"extent\":null,\"box\":null},{\"frame\":5,\"point\":[450,342],\"extent\":null,\"box\":null},{\"frame\":10,\"point\":[470,341],\"extent\":null,\"box\":null},{\"frame\":15,\"point\":[483,341],\"extent\":null,\"box\":null},{\"frame\":20,\"point\":[503,341],\"extent\":null,\"box\":null},{\"frame\":25,\"point\":[519,341],\"extent\":null,\"box\":null},{\"frame\":30,\"point\":[534,340],\"extent\":null,\"box\":null},{\"frame\":35,\"point\":[556,342],\"extent\":null,\"box\":null},{\"frame\":39,\"point\":[567,341],\"extent\":null,\"box\":null},{\"frame\":44,\"point\":[583,341],\"extent\":null,\"box\":null},{\"frame\":49,\"point\":[603,341],\"extent\":null,\"box\":null},{\"frame\":54,\"point\":[616,341],\"extent\":null,\"box\":null},{\"frame\":59,\"point\":[636,341],\"extent\":null,\"box\":null},{\"frame\":64,\"point\":[653,341],\"extent\":null,\"box\":null},{\"frame\":69,\"point\":[667,340],\"extent\":null,\"box\":null},{\"frame\":74,\"point\":[688,341],\"extent\":null,\"box\":null}]}],\"direct_answer\":1.22,\"confidence\":0.7}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 1985,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "rabbit"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "deer"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 1.277,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Deer speed taken as average over the clip."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "deer",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         421,
+         236
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 5,
+        "point": [
+         439,
+         236
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 10,
+        "point": [
+         460,
+         236
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 15,
+        "point": [
+         477,
+         237
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 20,
+        "point": [
+         492,
+         236
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 25,
+        "point": [
+         510,
+         236
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 30,
+        "point": [
+         531,
+         236
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 35,
+        "point": [
+         548,
+         237
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 39,
+        "point": [
+         561,
+         237
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 44,
+        "point": [
+         577,
+         236
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 49,
+        "point": [
+         598,
+         236
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 54,
+        "point": [
+         616,
+         236
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 59,
+        "point": [
+         631,
+         236
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 64,
+        "point": [
+         648,
+         236
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 69,
+        "point": [
+         668,
+         236
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 74,
+        "point": [
+         687,
+         236
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "rabbit",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          417,
+          346
+         ],
+         [
+          453,
+          338
+         ]
+        ],
+        "box": [
+         417,
+         324,
+         453,
+         356
+        ]
+       },
+       {
+        "frame": 20,
+        "point": null,
+        "extent": [
+         [
+          486,
+          345
+         ],
+         [
+          521,
+          337
+         ]
+        ],
+        "box": [
+         486,
+         326,
+         521,
+         355
+        ]
+       },
+       {
+        "frame": 44,
+        "point": null,
+        "extent": [
+         [
+          565,
+          345
+         ],
+         [
+          602,
+          338
+         ]
+        ],
+        "box": [
+         565,
+         326,
+         602,
+         354
+        ]
+       },
+       {
+        "frame": 74,
+        "point": null,
+        "extent": [
+         [
+          670,
+          345
+         ],
+         [
+          707,
+          338
+         ]
+        ],
+        "box": [
+         670,
+         326,
+         707,
+         354
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 0.43,
+    "confidence": 0.5
+   },
+   {
+    "qid": 1986,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "deer"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "deer"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 1.277,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Length measured rump to muzzle, excluding tail."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "deer",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "deer",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          232,
+          262
+         ],
+         [
+          422,
+          236
+         ]
+        ],
+        "box": [
+         180,
+         160,
+         422,
+         356
+        ]
+       },
+       {
+        "frame": 35,
+        "point": null,
+        "extent": [
+         [
+          355,
+          262
+         ],
+         [
+          548,
+          237
+         ]
+        ],
+        "box": [
+         290,
+         160,
+         548,
+         356
+        ]
+       },
+       {
+        "frame": 74,
+        "point": null,
+        "extent": [
+         [
+          494,
+          262
+         ],
+         [
+          687,
+          236
+         ]
+        ],
+        "box": [
+         419,
+         160,
+         687,
+         356
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 2.3,
+    "confidence": 0.3
+   },
+   {
+    "qid": 1987,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "rabbit"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "deer"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 1.277,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "deer",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "rabbit",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         435,
+         342
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 5,
+        "point": [
+         450,
+         342
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 10,
+        "point": [
+         470,
+         341
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 15,
+        "point": [
+         483,
+         341
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 20,
+        "point": [
+         503,
+         341
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 25,
+        "point": [
+         519,
+         341
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 30,
+        "point": [
+         534,
+         340
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 35,
+        "point": [
+         556,
+         342
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 39,
+        "point": [
+         567,
+         341
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 44,
+        "point": [
+         583,
+         341
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 49,
+        "point": [
+         603,
+         341
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 54,
+        "point": [
+         616,
+         341
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 59,
+        "point": [
+         636,
+         341
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 64,
+        "point": [
+         653,
+         341
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 69,
+        "point": [
+         667,
+         340
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 74,
+        "point": [
+         688,
+         341
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     }
+    ],
+    "direct_answer": 1.22,
+    "confidence": 0.7
+   }
+  ]
+ }
+}

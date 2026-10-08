@@ -1,0 +1,569 @@
+{
+ "video_id": "internet_0034",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011Cfq6khsUNEbLRnRjMXqwh",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 854
+ },
+ "ts": "2026-10-08T16:39:42+00:00",
+ "mode": "sync",
+ "request_id": "req_011Cfq6kha7gtCWjt93YFTPQ",
+ "usage": {
+  "input_tokens": 11833,
+  "output_tokens": 2502,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 4317,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.098235,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "internet_0034",
+  "fps": 30.0,
+  "fps_from_container": false,
+  "video_type": "S2SC",
+  "n_frames_total": 60,
+  "scale": 0.22239583333333332,
+  "image_size": [
+   3840,
+   2158
+  ],
+  "frames": [
+   0,
+   4,
+   8,
+   12,
+   15,
+   16,
+   18,
+   20,
+   24,
+   28,
+   31,
+   35,
+   39,
+   43,
+   47,
+   49,
+   51,
+   52,
+   55,
+   59
+  ],
+  "questions": [
+   {
+    "qid": 3026,
+    "target_unit": "cm",
+    "prior": "size of toilet paper roll = 100 mm",
+    "depth_info": ""
+   },
+   {
+    "qid": 3027,
+    "target_unit": "cm/s",
+    "prior": "size of toilet paper roll = 100 mm",
+    "depth_info": ""
+   },
+   {
+    "qid": 3028,
+    "target_unit": "cm",
+    "prior": "size of toilet paper roll = 100 mm",
+    "depth_info": ""
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":3026,\"spec\":{\"target\":{\"kind\":\"displacement\",\"objects\":[\"toilet paper roll\"],\"dimension\":\"\",\"time\":null,\"window\":[0.5,1.73],\"axis\":\"any\",\"value_si\":null,\"unit\":\"cm\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"toilet paper roll\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.1,\"unit\":\"\"},\"depth\":[],\"notes\":\"Prior 'size' taken as roll length along its axis (horizontal extent).\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"toilet paper roll\",\"obs\":[{\"frame\":51,\"point\":null,\"extent\":[[372,313],[502,313]],\"box\":[372,236,502,390]},{\"frame\":52,\"point\":null,\"extent\":[[370,313],[500,313]],\"box\":[370,236,500,390]},{\"frame\":55,\"point\":null,\"extent\":[[360,313],[492,313]],\"box\":[360,236,492,390]},{\"frame\":59,\"point\":null,\"extent\":[[360,314],[491,314]],\"box\":[360,237,491,390]}]},{\"role\":\"target\",\"object\":\"toilet paper roll center\",\"obs\":[{\"frame\":15,\"point\":[603,293],\"extent\":null,\"box\":[533,212,673,375]},{\"frame\":16,\"point\":[596,292],\"extent\":null,\"box\":[527,211,665,373]},{\"frame\":18,\"point\":[583,292],\"extent\":null,\"box\":[515,213,651,371]},{\"frame\":20,\"point\":[572.5,295],\"extent\":null,\"box\":[507,217,638,373]},{\"frame\":24,\"point\":[555,301],\"extent\":null,\"box\":[490,223,620,379]},{\"frame\":28,\"point\":[541,302],\"extent\":null,\"box\":[475,224,607,380]},{\"frame\":31,\"point\":[528,301],\"extent\":null,\"box\":[461,222,596,381]},{\"frame\":35,\"point\":[509,301],\"extent\":null,\"box\":[441,221,577,381]},{\"frame\":39,\"point\":[490,300],\"extent\":null,\"box\":[420,220,561,381]},{\"frame\":43,\"point\":[472,303],\"extent\":null,\"box\":[405,225,540,381]},{\"frame\":47,\"point\":[453,307],\"extent\":null,\"box\":[385,226,522,388]},{\"frame\":49,\"point\":[444,310],\"extent\":null,\"box\":[378,232,511,389]},{\"frame\":51,\"point\":[437,313],\"extent\":null,\"box\":[372,236,502,390]},{\"frame\":52,\"point\":[435,313],\"extent\":null,\"box\":[370,236,500,390]}]}],\"direct_answer\":12.8,\"confidence\":0.45},{\"qid\":3027,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"toilet paper roll\"],\"dimension\":\"\",\"time\":null,\"window\":[0.5,1.73],\"axis\":\"any\",\"value_si\":null,\"unit\":\"cm/s\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"toilet paper roll\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.1,\"unit\":\"\"},\"depth\":[],\"notes\":\"Average speed over window.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"toilet paper roll\",\"obs\":[]},{\"role\":\"target\",\"object\":\"toilet paper roll center\",\"obs\":[]}],\"direct_answer\":10.5,\"confidence\":0.4},{\"qid\":3028,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"thumbnail\"],\"dimension\":\"width\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"cm\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"toilet paper roll\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.1,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"toilet paper roll\",\"obs\":[]},{\"role\":\"target\",\"object\":\"thumbnail\",\"obs\":[{\"frame\":31,\"point\":null,\"extent\":[[567,318],[567,330]],\"box\":[561,318,574,330]},{\"frame\":52,\"point\":null,\"extent\":[[470,321],[470,333]],\"box\":[464,321,476,333]},{\"frame\":55,\"point\":null,\"extent\":[[466,322],[466,334]],\"box\":[460,322,472,334]}]}],\"direct_answer\":0.9,\"confidence\":0.3}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 3026,
+    "spec": {
+     "target": {
+      "kind": "displacement",
+      "objects": [
+       "toilet paper roll"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": [
+       0.5,
+       1.73
+      ],
+      "axis": "any",
+      "value_si": null,
+      "unit": "cm"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "toilet paper roll"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.1,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Prior 'size' taken as roll length along its axis (horizontal extent)."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "toilet paper roll",
+      "obs": [
+       {
+        "frame": 51,
+        "point": null,
+        "extent": [
+         [
+          372,
+          313
+         ],
+         [
+          502,
+          313
+         ]
+        ],
+        "box": [
+         372,
+         236,
+         502,
+         390
+        ]
+       },
+       {
+        "frame": 52,
+        "point": null,
+        "extent": [
+         [
+          370,
+          313
+         ],
+         [
+          500,
+          313
+         ]
+        ],
+        "box": [
+         370,
+         236,
+         500,
+         390
+        ]
+       },
+       {
+        "frame": 55,
+        "point": null,
+        "extent": [
+         [
+          360,
+          313
+         ],
+         [
+          492,
+          313
+         ]
+        ],
+        "box": [
+         360,
+         236,
+         492,
+         390
+        ]
+       },
+       {
+        "frame": 59,
+        "point": null,
+        "extent": [
+         [
+          360,
+          314
+         ],
+         [
+          491,
+          314
+         ]
+        ],
+        "box": [
+         360,
+         237,
+         491,
+         390
+        ]
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "toilet paper roll center",
+      "obs": [
+       {
+        "frame": 15,
+        "point": [
+         603,
+         293
+        ],
+        "extent": null,
+        "box": [
+         533,
+         212,
+         673,
+         375
+        ]
+       },
+       {
+        "frame": 16,
+        "point": [
+         596,
+         292
+        ],
+        "extent": null,
+        "box": [
+         527,
+         211,
+         665,
+         373
+        ]
+       },
+       {
+        "frame": 18,
+        "point": [
+         583,
+         292
+        ],
+        "extent": null,
+        "box": [
+         515,
+         213,
+         651,
+         371
+        ]
+       },
+       {
+        "frame": 20,
+        "point": [
+         572.5,
+         295
+        ],
+        "extent": null,
+        "box": [
+         507,
+         217,
+         638,
+         373
+        ]
+       },
+       {
+        "frame": 24,
+        "point": [
+         555,
+         301
+        ],
+        "extent": null,
+        "box": [
+         490,
+         223,
+         620,
+         379
+        ]
+       },
+       {
+        "frame": 28,
+        "point": [
+         541,
+         302
+        ],
+        "extent": null,
+        "box": [
+         475,
+         224,
+         607,
+         380
+        ]
+       },
+       {
+        "frame": 31,
+        "point": [
+         528,
+         301
+        ],
+        "extent": null,
+        "box": [
+         461,
+         222,
+         596,
+         381
+        ]
+       },
+       {
+        "frame": 35,
+        "point": [
+         509,
+         301
+        ],
+        "extent": null,
+        "box": [
+         441,
+         221,
+         577,
+         381
+        ]
+       },
+       {
+        "frame": 39,
+        "point": [
+         490,
+         300
+        ],
+        "extent": null,
+        "box": [
+         420,
+         220,
+         561,
+         381
+        ]
+       },
+       {
+        "frame": 43,
+        "point": [
+         472,
+         303
+        ],
+        "extent": null,
+        "box": [
+         405,
+         225,
+         540,
+         381
+        ]
+       },
+       {
+        "frame": 47,
+        "point": [
+         453,
+         307
+        ],
+        "extent": null,
+        "box": [
+         385,
+         226,
+         522,
+         388
+        ]
+       },
+       {
+        "frame": 49,
+        "point": [
+         444,
+         310
+        ],
+        "extent": null,
+        "box": [
+         378,
+         232,
+         511,
+         389
+        ]
+       },
+       {
+        "frame": 51,
+        "point": [
+         437,
+         313
+        ],
+        "extent": null,
+        "box": [
+         372,
+         236,
+         502,
+         390
+        ]
+       },
+       {
+        "frame": 52,
+        "point": [
+         435,
+         313
+        ],
+        "extent": null,
+        "box": [
+         370,
+         236,
+         500,
+         390
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 12.8,
+    "confidence": 0.45
+   },
+   {
+    "qid": 3027,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "toilet paper roll"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": [
+       0.5,
+       1.73
+      ],
+      "axis": "any",
+      "value_si": null,
+      "unit": "cm/s"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "toilet paper roll"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.1,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Average speed over window."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "toilet paper roll",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "toilet paper roll center",
+      "obs": []
+     }
+    ],
+    "direct_answer": 10.5,
+    "confidence": 0.4
+   },
+   {
+    "qid": 3028,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "thumbnail"
+      ],
+      "dimension": "width",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "cm"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "toilet paper roll"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.1,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "toilet paper roll",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "thumbnail",
+      "obs": [
+       {
+        "frame": 31,
+        "point": null,
+        "extent": [
+         [
+          567,
+          318
+         ],
+         [
+          567,
+          330
+         ]
+        ],
+        "box": [
+         561,
+         318,
+         574,
+         330
+        ]
+       },
+       {
+        "frame": 52,
+        "point": null,
+        "extent": [
+         [
+          470,
+          321
+         ],
+         [
+          470,
+          333
+         ]
+        ],
+        "box": [
+         464,
+         321,
+         476,
+         333
+        ]
+       },
+       {
+        "frame": 55,
+        "point": null,
+        "extent": [
+         [
+          466,
+          322
+         ],
+         [
+          466,
+          334
+         ]
+        ],
+        "box": [
+         460,
+         322,
+         472,
+         334
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 0.9,
+    "confidence": 0.3
+   }
+  ]
+ }
+}

@@ -1,0 +1,593 @@
+{
+ "video_id": "internet_0061",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011Cfq6w6fDXHJJSxPk35LKy",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 854
+ },
+ "ts": "2026-10-08T16:42:19+00:00",
+ "mode": "sync",
+ "request_id": "req_011Cfq6w5taHSZqA3BWp6NdT",
+ "usage": {
+  "input_tokens": 13223,
+  "output_tokens": 4290,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 4317,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.139555,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "internet_0061",
+  "fps": 30.0,
+  "fps_from_container": false,
+  "video_type": "A2SS",
+  "n_frames_total": 116,
+  "scale": 0.44479166666666664,
+  "image_size": [
+   1920,
+   1079
+  ],
+  "frames": [
+   0,
+   8,
+   15,
+   23,
+   31,
+   36,
+   38,
+   39,
+   42,
+   45,
+   46,
+   51,
+   54,
+   57,
+   61,
+   69,
+   77,
+   84,
+   92,
+   100,
+   107,
+   115
+  ],
+  "questions": [
+   {
+    "qid": 3195,
+    "target_unit": "cm",
+    "prior": "gravity acceleration = 9.8 m/s^2",
+    "depth_info": ""
+   },
+   {
+    "qid": 3196,
+    "target_unit": "cm",
+    "prior": "gravity acceleration = 9.8 m/s^2",
+    "depth_info": ""
+   },
+   {
+    "qid": 3197,
+    "target_unit": "m/s",
+    "prior": "gravity acceleration = 9.8 m/s^2",
+    "depth_info": ""
+   },
+   {
+    "qid": 3198,
+    "target_unit": "cm",
+    "prior": "gravity acceleration = 9.8 m/s^2",
+    "depth_info": ""
+   },
+   {
+    "qid": 3199,
+    "target_unit": "cm",
+    "prior": "gravity acceleration = 9.8 m/s^2",
+    "depth_info": ""
+   },
+   {
+    "qid": 3200,
+    "target_unit": "cm",
+    "prior": "gravity acceleration = 9.8 m/s^2",
+    "depth_info": ""
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":3195,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"acorn\"],\"dimension\":\"width\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"cm\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"acorn\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":9.8,\"unit\":\"\"},\"depth\":[],\"notes\":\"Video is rotated; gravity points toward +x in the image (acorn falls rightward onto the seat).\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"acorn\",\"obs\":[{\"frame\":38,\"point\":[200,241],\"extent\":null,\"box\":null},{\"frame\":39,\"point\":[221,239],\"extent\":null,\"box\":null},{\"frame\":42,\"point\":[385,226],\"extent\":null,\"box\":null},{\"frame\":45,\"point\":[702,216],\"extent\":null,\"box\":null}]},{\"role\":\"target\",\"object\":\"acorn\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[150,182],[150,297]],\"box\":[60,180,207,298]},{\"frame\":8,\"point\":null,\"extent\":[[148,183],[148,298]],\"box\":[56,182,204,300]},{\"frame\":31,\"point\":null,\"extent\":[[150,186],[150,302]],\"box\":[50,185,200,303]}]}],\"direct_answer\":7.4,\"confidence\":0.4},{\"qid\":3196,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"acorn\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"cm\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"acorn\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":9.8,\"unit\":\"\"},\"depth\":[],\"notes\":\"Height measured from cap top (incl. stem base) to bottom of white body, horizontal in image.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"acorn\",\"obs\":[]},{\"role\":\"target\",\"object\":\"acorn\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[72,240],[206,240]],\"box\":[60,180,207,298]},{\"frame\":8,\"point\":null,\"extent\":[[69,241],[203,241]],\"box\":[56,182,204,300]},{\"frame\":31,\"point\":null,\"extent\":[[64,244],[199,244]],\"box\":[50,185,200,303]}]}],\"direct_answer\":8.6,\"confidence\":0.35},{\"qid\":3197,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"acorn\"],\"dimension\":\"\",\"time\":1.4,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"acorn\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":9.8,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"acorn\",\"obs\":[]},{\"role\":\"target\",\"object\":\"acorn\",\"obs\":[]}],\"direct_answer\":1.55,\"confidence\":0.4},{\"qid\":3198,\"spec\":{\"target\":{\"kind\":\"distance\",\"objects\":[\"acorn bottom\",\"chair surface\"],\"dimension\":\"\",\"time\":1.4,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"cm\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"acorn\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":9.8,\"unit\":\"\"},\"depth\":[],\"notes\":\"Chair surface taken at x~595 where the acorn later rests.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"acorn\",\"obs\":[]},{\"role\":\"target\",\"object\":\"acorn bottom\",\"obs\":[{\"frame\":42,\"point\":[385,226],\"extent\":null,\"box\":null}]},{\"role\":\"target2\",\"object\":\"chair surface\",\"obs\":[{\"frame\":42,\"point\":[595,226],\"extent\":null,\"box\":null}]}],\"direct_answer\":13.5,\"confidence\":0.25},{\"qid\":3199,\"spec\":{\"target\":{\"kind\":\"distance\",\"objects\":[\"acorn bottom\",\"chair surface\"],\"dimension\":\"\",\"time\":1.8,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"cm\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"acorn\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":9.8,\"unit\":\"\"},\"depth\":[],\"notes\":\"Chair surface taken at x~595.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"acorn\",\"obs\":[]},{\"role\":\"target\",\"object\":\"acorn bottom\",\"obs\":[{\"frame\":54,\"point\":[418,360],\"extent\":null,\"box\":null}]},{\"role\":\"target2\",\"object\":\"chair surface\",\"obs\":[{\"frame\":54,\"point\":[595,360],\"extent\":null,\"box\":null}]}],\"direct_answer\":11.4,\"confidence\":0.2},{\"qid\":3200,\"spec\":{\"target\":{\"kind\":\"displacement\",\"objects\":[\"acorn\"],\"dimension\":\"\",\"time\":null,\"window\":[1.3,1.4],\"axis\":\"any\",\"value_si\":null,\"unit\":\"cm\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"acorn\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":9.8,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"acorn\",\"obs\":[]},{\"role\":\"target\",\"object\":\"acorn\",\"obs\":[]}],\"direct_answer\":10.6,\"confidence\":0.4}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 3195,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "acorn"
+      ],
+      "dimension": "width",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "cm"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "acorn"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": 9.8,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Video is rotated; gravity points toward +x in the image (acorn falls rightward onto the seat)."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "acorn",
+      "obs": [
+       {
+        "frame": 38,
+        "point": [
+         200,
+         241
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 39,
+        "point": [
+         221,
+         239
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 42,
+        "point": [
+         385,
+         226
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 45,
+        "point": [
+         702,
+         216
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "acorn",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          150,
+          182
+         ],
+         [
+          150,
+          297
+         ]
+        ],
+        "box": [
+         60,
+         180,
+         207,
+         298
+        ]
+       },
+       {
+        "frame": 8,
+        "point": null,
+        "extent": [
+         [
+          148,
+          183
+         ],
+         [
+          148,
+          298
+         ]
+        ],
+        "box": [
+         56,
+         182,
+         204,
+         300
+        ]
+       },
+       {
+        "frame": 31,
+        "point": null,
+        "extent": [
+         [
+          150,
+          186
+         ],
+         [
+          150,
+          302
+         ]
+        ],
+        "box": [
+         50,
+         185,
+         200,
+         303
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 7.4,
+    "confidence": 0.4
+   },
+   {
+    "qid": 3196,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "acorn"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "cm"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "acorn"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": 9.8,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Height measured from cap top (incl. stem base) to bottom of white body, horizontal in image."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "acorn",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "acorn",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          72,
+          240
+         ],
+         [
+          206,
+          240
+         ]
+        ],
+        "box": [
+         60,
+         180,
+         207,
+         298
+        ]
+       },
+       {
+        "frame": 8,
+        "point": null,
+        "extent": [
+         [
+          69,
+          241
+         ],
+         [
+          203,
+          241
+         ]
+        ],
+        "box": [
+         56,
+         182,
+         204,
+         300
+        ]
+       },
+       {
+        "frame": 31,
+        "point": null,
+        "extent": [
+         [
+          64,
+          244
+         ],
+         [
+          199,
+          244
+         ]
+        ],
+        "box": [
+         50,
+         185,
+         200,
+         303
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 8.6,
+    "confidence": 0.35
+   },
+   {
+    "qid": 3197,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "acorn"
+      ],
+      "dimension": "",
+      "time": 1.4,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "acorn"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": 9.8,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "acorn",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "acorn",
+      "obs": []
+     }
+    ],
+    "direct_answer": 1.55,
+    "confidence": 0.4
+   },
+   {
+    "qid": 3198,
+    "spec": {
+     "target": {
+      "kind": "distance",
+      "objects": [
+       "acorn bottom",
+       "chair surface"
+      ],
+      "dimension": "",
+      "time": 1.4,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "cm"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "acorn"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": 9.8,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Chair surface taken at x~595 where the acorn later rests."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "acorn",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "acorn bottom",
+      "obs": [
+       {
+        "frame": 42,
+        "point": [
+         385,
+         226
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     },
+     {
+      "role": "target2",
+      "object": "chair surface",
+      "obs": [
+       {
+        "frame": 42,
+        "point": [
+         595,
+         226
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     }
+    ],
+    "direct_answer": 13.5,
+    "confidence": 0.25
+   },
+   {
+    "qid": 3199,
+    "spec": {
+     "target": {
+      "kind": "distance",
+      "objects": [
+       "acorn bottom",
+       "chair surface"
+      ],
+      "dimension": "",
+      "time": 1.8,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "cm"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "acorn"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": 9.8,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Chair surface taken at x~595."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "acorn",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "acorn bottom",
+      "obs": [
+       {
+        "frame": 54,
+        "point": [
+         418,
+         360
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     },
+     {
+      "role": "target2",
+      "object": "chair surface",
+      "obs": [
+       {
+        "frame": 54,
+        "point": [
+         595,
+         360
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     }
+    ],
+    "direct_answer": 11.4,
+    "confidence": 0.2
+   },
+   {
+    "qid": 3200,
+    "spec": {
+     "target": {
+      "kind": "displacement",
+      "objects": [
+       "acorn"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": [
+       1.3,
+       1.4
+      ],
+      "axis": "any",
+      "value_si": null,
+      "unit": "cm"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "acorn"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": 9.8,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "acorn",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "acorn",
+      "obs": []
+     }
+    ],
+    "direct_answer": 10.6,
+    "confidence": 0.4
+   }
+  ]
+ }
+}

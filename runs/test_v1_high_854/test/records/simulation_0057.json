@@ -1,0 +1,603 @@
+{
+ "video_id": "simulation_0057",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfprDTDv3fJKtKbGYhd4H",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 854
+ },
+ "ts": "2026-10-08T17:02:27+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_01XRoUdcv1JJmFFWwZHgai9d",
+ "custom_id": "simulation_0057",
+ "usage": {
+  "input_tokens": 15949,
+  "output_tokens": 2323,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 4317,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.05556,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0057",
+  "fps": 30.0,
+  "fps_from_container": false,
+  "video_type": "A2MC",
+  "n_frames_total": 91,
+  "scale": 0.7907407407407407,
+  "image_size": [
+   1080,
+   1080
+  ],
+  "frames": [
+   0,
+   6,
+   12,
+   18,
+   24,
+   30,
+   36,
+   42,
+   48,
+   54,
+   60,
+   66,
+   72,
+   78,
+   84,
+   90
+  ],
+  "questions": [
+   {
+    "qid": 30,
+    "target_unit": "m",
+    "prior": "acceleration of the orange car = -2.86m/s^2",
+    "depth_info": ""
+   },
+   {
+    "qid": 31,
+    "target_unit": "m",
+    "prior": "acceleration of the orange car = -2.86m/s^2",
+    "depth_info": ""
+   },
+   {
+    "qid": 32,
+    "target_unit": "m",
+    "prior": "acceleration of the orange car = -2.86m/s^2",
+    "depth_info": ""
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":30,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"orange car\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"orange car\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":-2.86,\"unit\":\"\"},\"depth\":[],\"notes\":\"Car decelerates moving down the image.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"orange car\",\"obs\":[{\"frame\":6,\"point\":[281,107],\"extent\":null,\"box\":null},{\"frame\":12,\"point\":[281,190],\"extent\":null,\"box\":null},{\"frame\":18,\"point\":[281,268],\"extent\":null,\"box\":null},{\"frame\":24,\"point\":[280,342],\"extent\":null,\"box\":null},{\"frame\":30,\"point\":[280,412],\"extent\":null,\"box\":null},{\"frame\":36,\"point\":[279,476],\"extent\":null,\"box\":null},{\"frame\":42,\"point\":[279,536],\"extent\":null,\"box\":null},{\"frame\":48,\"point\":[278,590],\"extent\":null,\"box\":null},{\"frame\":54,\"point\":[278,640],\"extent\":null,\"box\":null},{\"frame\":60,\"point\":[277,686],\"extent\":null,\"box\":null},{\"frame\":66,\"point\":[277,724],\"extent\":null,\"box\":null},{\"frame\":72,\"point\":[276,758],\"extent\":null,\"box\":null},{\"frame\":78,\"point\":[276,787],\"extent\":null,\"box\":null},{\"frame\":84,\"point\":[276,811],\"extent\":null,\"box\":null},{\"frame\":90,\"point\":[276,830],\"extent\":null,\"box\":null}]},{\"role\":\"target\",\"object\":\"orange car\",\"obs\":[{\"frame\":30,\"point\":null,\"extent\":[[280,182],[280,412]],\"box\":[235,182,325,412]},{\"frame\":42,\"point\":null,\"extent\":[[279,308],[279,536]],\"box\":[234,308,324,536]},{\"frame\":54,\"point\":null,\"extent\":[[278,414],[278,640]],\"box\":[233,414,323,640]},{\"frame\":72,\"point\":null,\"extent\":[[276,531],[276,758]],\"box\":[231,531,321,758]},{\"frame\":90,\"point\":null,\"extent\":[[276,602],[276,830]],\"box\":[231,602,321,830]}]}],\"direct_answer\":5.3,\"confidence\":0.55},{\"qid\":31,\"spec\":{\"target\":{\"kind\":\"distance\",\"objects\":[\"black lamp 1\",\"black lamp 2\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"orange car\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":-2.86,\"unit\":\"\"},\"depth\":[],\"notes\":\"Measured between hexagonal lamp heads.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"orange car\",\"obs\":[]},{\"role\":\"target\",\"object\":\"black lamp 1\",\"obs\":[{\"frame\":0,\"point\":[156,356],\"extent\":null,\"box\":[140,341,173,372]},{\"frame\":90,\"point\":[156,356],\"extent\":null,\"box\":[140,341,173,372]}]},{\"role\":\"target2\",\"object\":\"black lamp 2\",\"obs\":[{\"frame\":0,\"point\":[156,773],\"extent\":null,\"box\":[140,757,173,790]},{\"frame\":90,\"point\":[156,773],\"extent\":null,\"box\":[140,757,173,790]}]}],\"direct_answer\":9.7,\"confidence\":0.5},{\"qid\":32,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"orange car\"],\"dimension\":\"width\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"orange car\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":-2.86,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"orange car\",\"obs\":[]},{\"role\":\"target\",\"object\":\"orange car\",\"obs\":[{\"frame\":30,\"point\":null,\"extent\":[[236,300],[324,300]],\"box\":[235,182,325,412]},{\"frame\":42,\"point\":null,\"extent\":[[235,420],[323,420]],\"box\":[234,308,324,536]},{\"frame\":54,\"point\":null,\"extent\":[[234,530],[322,530]],\"box\":[233,414,323,640]},{\"frame\":72,\"point\":null,\"extent\":[[232,645],[320,645]],\"box\":[231,531,321,758]}]}],\"direct_answer\":2.05,\"confidence\":0.5}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 30,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "orange car"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "orange car"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": -2.86,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Car decelerates moving down the image."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "orange car",
+      "obs": [
+       {
+        "frame": 6,
+        "point": [
+         281,
+         107
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 12,
+        "point": [
+         281,
+         190
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 18,
+        "point": [
+         281,
+         268
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 24,
+        "point": [
+         280,
+         342
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 30,
+        "point": [
+         280,
+         412
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 36,
+        "point": [
+         279,
+         476
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 42,
+        "point": [
+         279,
+         536
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 48,
+        "point": [
+         278,
+         590
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 54,
+        "point": [
+         278,
+         640
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 60,
+        "point": [
+         277,
+         686
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 66,
+        "point": [
+         277,
+         724
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 72,
+        "point": [
+         276,
+         758
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 78,
+        "point": [
+         276,
+         787
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 84,
+        "point": [
+         276,
+         811
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 90,
+        "point": [
+         276,
+         830
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "orange car",
+      "obs": [
+       {
+        "frame": 30,
+        "point": null,
+        "extent": [
+         [
+          280,
+          182
+         ],
+         [
+          280,
+          412
+         ]
+        ],
+        "box": [
+         235,
+         182,
+         325,
+         412
+        ]
+       },
+       {
+        "frame": 42,
+        "point": null,
+        "extent": [
+         [
+          279,
+          308
+         ],
+         [
+          279,
+          536
+         ]
+        ],
+        "box": [
+         234,
+         308,
+         324,
+         536
+        ]
+       },
+       {
+        "frame": 54,
+        "point": null,
+        "extent": [
+         [
+          278,
+          414
+         ],
+         [
+          278,
+          640
+         ]
+        ],
+        "box": [
+         233,
+         414,
+         323,
+         640
+        ]
+       },
+       {
+        "frame": 72,
+        "point": null,
+        "extent": [
+         [
+          276,
+          531
+         ],
+         [
+          276,
+          758
+         ]
+        ],
+        "box": [
+         231,
+         531,
+         321,
+         758
+        ]
+       },
+       {
+        "frame": 90,
+        "point": null,
+        "extent": [
+         [
+          276,
+          602
+         ],
+         [
+          276,
+          830
+         ]
+        ],
+        "box": [
+         231,
+         602,
+         321,
+         830
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 5.3,
+    "confidence": 0.55
+   },
+   {
+    "qid": 31,
+    "spec": {
+     "target": {
+      "kind": "distance",
+      "objects": [
+       "black lamp 1",
+       "black lamp 2"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "orange car"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": -2.86,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Measured between hexagonal lamp heads."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "orange car",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "black lamp 1",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         156,
+         356
+        ],
+        "extent": null,
+        "box": [
+         140,
+         341,
+         173,
+         372
+        ]
+       },
+       {
+        "frame": 90,
+        "point": [
+         156,
+         356
+        ],
+        "extent": null,
+        "box": [
+         140,
+         341,
+         173,
+         372
+        ]
+       }
+      ]
+     },
+     {
+      "role": "target2",
+      "object": "black lamp 2",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         156,
+         773
+        ],
+        "extent": null,
+        "box": [
+         140,
+         757,
+         173,
+         790
+        ]
+       },
+       {
+        "frame": 90,
+        "point": [
+         156,
+         773
+        ],
+        "extent": null,
+        "box": [
+         140,
+         757,
+         173,
+         790
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 9.7,
+    "confidence": 0.5
+   },
+   {
+    "qid": 32,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "orange car"
+      ],
+      "dimension": "width",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "orange car"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": -2.86,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "orange car",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "orange car",
+      "obs": [
+       {
+        "frame": 30,
+        "point": null,
+        "extent": [
+         [
+          236,
+          300
+         ],
+         [
+          324,
+          300
+         ]
+        ],
+        "box": [
+         235,
+         182,
+         325,
+         412
+        ]
+       },
+       {
+        "frame": 42,
+        "point": null,
+        "extent": [
+         [
+          235,
+          420
+         ],
+         [
+          323,
+          420
+         ]
+        ],
+        "box": [
+         234,
+         308,
+         324,
+         536
+        ]
+       },
+       {
+        "frame": 54,
+        "point": null,
+        "extent": [
+         [
+          234,
+          530
+         ],
+         [
+          322,
+          530
+         ]
+        ],
+        "box": [
+         233,
+         414,
+         323,
+         640
+        ]
+       },
+       {
+        "frame": 72,
+        "point": null,
+        "extent": [
+         [
+          232,
+          645
+         ],
+         [
+          320,
+          645
+         ]
+        ],
+        "box": [
+         231,
+         531,
+         321,
+         758
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 2.05,
+    "confidence": 0.5
+   }
+  ]
+ }
+}

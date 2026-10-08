@@ -1,0 +1,502 @@
+{
+ "video_id": "simulation_0162",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfprTLcC696VXkC8ibEwL",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 854
+ },
+ "ts": "2026-10-08T17:05:36+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_019AL58i4xaJ3z5B8eH4maJp",
+ "custom_id": "simulation_0162",
+ "usage": {
+  "input_tokens": 11890,
+  "output_tokens": 2344,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 4317,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.047652,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0162",
+  "fps": 24.0,
+  "fps_from_container": false,
+  "video_type": "S2SC",
+  "n_frames_total": 100,
+  "scale": 0.44479166666666664,
+  "image_size": [
+   1920,
+   1079
+  ],
+  "frames": [
+   0,
+   7,
+   13,
+   20,
+   22,
+   24,
+   26,
+   33,
+   40,
+   46,
+   48,
+   50,
+   53,
+   59,
+   66,
+   73,
+   79,
+   86,
+   92,
+   99
+  ],
+  "questions": [
+   {
+    "qid": 377,
+    "target_unit": "m/s",
+    "prior": "diameter of the ball = 0.21m",
+    "depth_info": ""
+   },
+   {
+    "qid": 378,
+    "target_unit": "m/s^2",
+    "prior": "diameter of the ball = 0.21m",
+    "depth_info": ""
+   },
+   {
+    "qid": 379,
+    "target_unit": "m/s",
+    "prior": "diameter of the ball = 0.21m",
+    "depth_info": ""
+   },
+   {
+    "qid": 380,
+    "target_unit": "m/s^2",
+    "prior": "diameter of the ball = 0.21m",
+    "depth_info": ""
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":377,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"ball\"],\"dimension\":\"\",\"time\":1.0,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"ball\"],\"dimension\":\"diameter\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.21,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"ball\",\"obs\":[{\"frame\":20,\"point\":null,\"extent\":[[21,288],[57,288]],\"box\":[21,270,57,306]},{\"frame\":40,\"point\":null,\"extent\":[[187,288],[223,288]],\"box\":[187,270,223,306]},{\"frame\":59,\"point\":null,\"extent\":[[392,288],[428,288]],\"box\":[392,270,428,306]},{\"frame\":79,\"point\":null,\"extent\":[[634,288],[670,288]],\"box\":[634,270,670,306]}]},{\"role\":\"target\",\"object\":\"ball\",\"obs\":[{\"frame\":20,\"point\":[39,288],\"extent\":null,\"box\":null},{\"frame\":22,\"point\":[52,288],\"extent\":null,\"box\":null},{\"frame\":24,\"point\":[66,288],\"extent\":null,\"box\":null},{\"frame\":26,\"point\":[81,288],\"extent\":null,\"box\":null},{\"frame\":33,\"point\":[139,288],\"extent\":null,\"box\":null},{\"frame\":40,\"point\":[205,288],\"extent\":null,\"box\":null},{\"frame\":46,\"point\":[265,288],\"extent\":null,\"box\":null},{\"frame\":48,\"point\":[288,288],\"extent\":null,\"box\":null},{\"frame\":50,\"point\":[309,288],\"extent\":null,\"box\":null},{\"frame\":53,\"point\":[341,288],\"extent\":null,\"box\":null},{\"frame\":59,\"point\":[410,288],\"extent\":null,\"box\":null},{\"frame\":66,\"point\":[492,288],\"extent\":null,\"box\":null},{\"frame\":73,\"point\":[576,288],\"extent\":null,\"box\":null},{\"frame\":79,\"point\":[652,288],\"extent\":null,\"box\":null},{\"frame\":86,\"point\":[740,288],\"extent\":null,\"box\":null},{\"frame\":92,\"point\":[816,288],\"extent\":null,\"box\":null}]}],\"direct_answer\":1.02,\"confidence\":0.55},{\"qid\":378,\"spec\":{\"target\":{\"kind\":\"acceleration\",\"objects\":[\"ball\"],\"dimension\":\"\",\"time\":1.0,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s^2\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"ball\"],\"dimension\":\"diameter\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.21,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"ball\",\"obs\":[]},{\"role\":\"target\",\"object\":\"ball\",\"obs\":[]}],\"direct_answer\":0.55,\"confidence\":0.3},{\"qid\":379,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"ball\"],\"dimension\":\"\",\"time\":2.0,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"ball\"],\"dimension\":\"diameter\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.21,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"ball\",\"obs\":[]},{\"role\":\"target\",\"object\":\"ball\",\"obs\":[]}],\"direct_answer\":1.54,\"confidence\":0.55},{\"qid\":380,\"spec\":{\"target\":{\"kind\":\"acceleration\",\"objects\":[\"ball\"],\"dimension\":\"\",\"time\":2.0,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s^2\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"ball\"],\"dimension\":\"diameter\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.21,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"ball\",\"obs\":[]},{\"role\":\"target\",\"object\":\"ball\",\"obs\":[]}],\"direct_answer\":0.45,\"confidence\":0.25}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 377,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "ball"
+      ],
+      "dimension": "",
+      "time": 1.0,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "ball"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.21,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "ball",
+      "obs": [
+       {
+        "frame": 20,
+        "point": null,
+        "extent": [
+         [
+          21,
+          288
+         ],
+         [
+          57,
+          288
+         ]
+        ],
+        "box": [
+         21,
+         270,
+         57,
+         306
+        ]
+       },
+       {
+        "frame": 40,
+        "point": null,
+        "extent": [
+         [
+          187,
+          288
+         ],
+         [
+          223,
+          288
+         ]
+        ],
+        "box": [
+         187,
+         270,
+         223,
+         306
+        ]
+       },
+       {
+        "frame": 59,
+        "point": null,
+        "extent": [
+         [
+          392,
+          288
+         ],
+         [
+          428,
+          288
+         ]
+        ],
+        "box": [
+         392,
+         270,
+         428,
+         306
+        ]
+       },
+       {
+        "frame": 79,
+        "point": null,
+        "extent": [
+         [
+          634,
+          288
+         ],
+         [
+          670,
+          288
+         ]
+        ],
+        "box": [
+         634,
+         270,
+         670,
+         306
+        ]
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "ball",
+      "obs": [
+       {
+        "frame": 20,
+        "point": [
+         39,
+         288
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 22,
+        "point": [
+         52,
+         288
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 24,
+        "point": [
+         66,
+         288
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 26,
+        "point": [
+         81,
+         288
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 33,
+        "point": [
+         139,
+         288
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 40,
+        "point": [
+         205,
+         288
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 46,
+        "point": [
+         265,
+         288
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 48,
+        "point": [
+         288,
+         288
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 50,
+        "point": [
+         309,
+         288
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 53,
+        "point": [
+         341,
+         288
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 59,
+        "point": [
+         410,
+         288
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 66,
+        "point": [
+         492,
+         288
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 73,
+        "point": [
+         576,
+         288
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 79,
+        "point": [
+         652,
+         288
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 86,
+        "point": [
+         740,
+         288
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 92,
+        "point": [
+         816,
+         288
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     }
+    ],
+    "direct_answer": 1.02,
+    "confidence": 0.55
+   },
+   {
+    "qid": 378,
+    "spec": {
+     "target": {
+      "kind": "acceleration",
+      "objects": [
+       "ball"
+      ],
+      "dimension": "",
+      "time": 1.0,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s^2"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "ball"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.21,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "ball",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "ball",
+      "obs": []
+     }
+    ],
+    "direct_answer": 0.55,
+    "confidence": 0.3
+   },
+   {
+    "qid": 379,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "ball"
+      ],
+      "dimension": "",
+      "time": 2.0,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "ball"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.21,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "ball",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "ball",
+      "obs": []
+     }
+    ],
+    "direct_answer": 1.54,
+    "confidence": 0.55
+   },
+   {
+    "qid": 380,
+    "spec": {
+     "target": {
+      "kind": "acceleration",
+      "objects": [
+       "ball"
+      ],
+      "dimension": "",
+      "time": 2.0,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s^2"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "ball"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.21,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "ball",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "ball",
+      "obs": []
+     }
+    ],
+    "direct_answer": 0.45,
+    "confidence": 0.25
+   }
+  ]
+ }
+}

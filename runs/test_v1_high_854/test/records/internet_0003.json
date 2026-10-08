@@ -1,0 +1,571 @@
+{
+ "video_id": "internet_0003",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfpzyD7Way6yUASvc9rxV",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 854
+ },
+ "ts": "2026-10-08T17:06:42+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_01RgbCGaqsRz49vUhEJLUBnh",
+ "custom_id": "internet_0003",
+ "usage": {
+  "input_tokens": 9082,
+  "output_tokens": 3577,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 4317,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.054366,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "internet_0003",
+  "fps": 24.0,
+  "fps_from_container": false,
+  "video_type": "S2MC",
+  "n_frames_total": 37,
+  "scale": 0.31259150805270863,
+  "image_size": [
+   2732,
+   1440
+  ],
+  "frames": [
+   0,
+   2,
+   5,
+   7,
+   10,
+   12,
+   14,
+   17,
+   19,
+   22,
+   24,
+   26,
+   29,
+   31,
+   34,
+   36
+  ],
+  "questions": [
+   {
+    "qid": 2022,
+    "target_unit": "cm",
+    "prior": "monopoly money width = 7.5cm",
+    "depth_info": ""
+   },
+   {
+    "qid": 2023,
+    "target_unit": "cm",
+    "prior": "monopoly money width = 7.5cm",
+    "depth_info": ""
+   },
+   {
+    "qid": 2024,
+    "target_unit": "cm/s",
+    "prior": "monopoly money width = 7.5cm",
+    "depth_info": ""
+   },
+   {
+    "qid": 2025,
+    "target_unit": "cm",
+    "prior": "monopoly money width = 7.5cm",
+    "depth_info": ""
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":2022,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"pizza\"],\"dimension\":\"diameter\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"cm\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"monopoly money\"],\"dimension\":\"width\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.075,\"unit\":\"\"},\"depth\":[],\"notes\":\"Width taken as the short side of the '1' bill, which is fully visible in later frames.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"monopoly money\",\"obs\":[{\"frame\":29,\"point\":null,\"extent\":[[762,212],[820,226]],\"box\":[748,212,820,322]},{\"frame\":31,\"point\":null,\"extent\":[[762,212],[820,226]],\"box\":[748,212,820,322]},{\"frame\":24,\"point\":null,\"extent\":[[760,210],[817,224]],\"box\":[745,210,817,320]}]},{\"role\":\"target\",\"object\":\"pizza\",\"obs\":[{\"frame\":29,\"point\":null,\"extent\":[[265,248],[580,248]],\"box\":[265,98,580,398]},{\"frame\":24,\"point\":null,\"extent\":[[264,245],[580,245]],\"box\":[264,96,580,395]},{\"frame\":12,\"point\":null,\"extent\":[[266,255],[584,255]],\"box\":[266,105,584,403]}]}],\"direct_answer\":38.5,\"confidence\":0.35},{\"qid\":2023,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"wine glass\"],\"dimension\":\"diameter\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"cm\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"monopoly money\"],\"dimension\":\"width\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.075,\"unit\":\"\"},\"depth\":[],\"notes\":\"Diameter of the glass bowl/rim seen from above.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"monopoly money\",\"obs\":[]},{\"role\":\"target\",\"object\":\"wine glass\",\"obs\":[{\"frame\":29,\"point\":null,\"extent\":[[87,90],[188,90]],\"box\":[87,40,218,160]},{\"frame\":0,\"point\":null,\"extent\":[[86,110],[188,110]],\"box\":[86,60,218,205]},{\"frame\":24,\"point\":null,\"extent\":[[86,85],[188,85]],\"box\":[86,38,216,185]}]}],\"direct_answer\":12.6,\"confidence\":0.35},{\"qid\":2024,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"pizza cutter\"],\"dimension\":\"\",\"time\":0.2,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"cm/s\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"monopoly money\"],\"dimension\":\"width\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.075,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"monopoly money\",\"obs\":[]},{\"role\":\"target\",\"object\":\"pizza cutter\",\"obs\":[{\"frame\":0,\"point\":[338,178],\"extent\":null,\"box\":null},{\"frame\":2,\"point\":[352,190],\"extent\":null,\"box\":null},{\"frame\":5,\"point\":[378,210],\"extent\":null,\"box\":null},{\"frame\":7,\"point\":[395,225],\"extent\":null,\"box\":null},{\"frame\":10,\"point\":[422,243],\"extent\":null,\"box\":null},{\"frame\":12,\"point\":[435,255],\"extent\":null,\"box\":null}]}],\"direct_answer\":33,\"confidence\":0.25},{\"qid\":2025,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"pepperoni\"],\"dimension\":\"diameter\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"cm\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"monopoly money\"],\"dimension\":\"width\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.075,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"monopoly money\",\"obs\":[]},{\"role\":\"target\",\"object\":\"pepperoni\",\"obs\":[{\"frame\":29,\"point\":null,\"extent\":[[301,207],[339,207]],\"box\":[301,188,339,227]},{\"frame\":24,\"point\":null,\"extent\":[[298,204],[336,204]],\"box\":[298,185,336,223]},{\"frame\":31,\"point\":null,\"extent\":[[301,207],[339,207]],\"box\":[301,188,339,227]}]}],\"direct_answer\":4.75,\"confidence\":0.35}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 2022,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "pizza"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "cm"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "monopoly money"
+      ],
+      "dimension": "width",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.075,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Width taken as the short side of the '1' bill, which is fully visible in later frames."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "monopoly money",
+      "obs": [
+       {
+        "frame": 29,
+        "point": null,
+        "extent": [
+         [
+          762,
+          212
+         ],
+         [
+          820,
+          226
+         ]
+        ],
+        "box": [
+         748,
+         212,
+         820,
+         322
+        ]
+       },
+       {
+        "frame": 31,
+        "point": null,
+        "extent": [
+         [
+          762,
+          212
+         ],
+         [
+          820,
+          226
+         ]
+        ],
+        "box": [
+         748,
+         212,
+         820,
+         322
+        ]
+       },
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          760,
+          210
+         ],
+         [
+          817,
+          224
+         ]
+        ],
+        "box": [
+         745,
+         210,
+         817,
+         320
+        ]
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "pizza",
+      "obs": [
+       {
+        "frame": 29,
+        "point": null,
+        "extent": [
+         [
+          265,
+          248
+         ],
+         [
+          580,
+          248
+         ]
+        ],
+        "box": [
+         265,
+         98,
+         580,
+         398
+        ]
+       },
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          264,
+          245
+         ],
+         [
+          580,
+          245
+         ]
+        ],
+        "box": [
+         264,
+         96,
+         580,
+         395
+        ]
+       },
+       {
+        "frame": 12,
+        "point": null,
+        "extent": [
+         [
+          266,
+          255
+         ],
+         [
+          584,
+          255
+         ]
+        ],
+        "box": [
+         266,
+         105,
+         584,
+         403
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 38.5,
+    "confidence": 0.35
+   },
+   {
+    "qid": 2023,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "wine glass"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "cm"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "monopoly money"
+      ],
+      "dimension": "width",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.075,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Diameter of the glass bowl/rim seen from above."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "monopoly money",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "wine glass",
+      "obs": [
+       {
+        "frame": 29,
+        "point": null,
+        "extent": [
+         [
+          87,
+          90
+         ],
+         [
+          188,
+          90
+         ]
+        ],
+        "box": [
+         87,
+         40,
+         218,
+         160
+        ]
+       },
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          86,
+          110
+         ],
+         [
+          188,
+          110
+         ]
+        ],
+        "box": [
+         86,
+         60,
+         218,
+         205
+        ]
+       },
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          86,
+          85
+         ],
+         [
+          188,
+          85
+         ]
+        ],
+        "box": [
+         86,
+         38,
+         216,
+         185
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 12.6,
+    "confidence": 0.35
+   },
+   {
+    "qid": 2024,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "pizza cutter"
+      ],
+      "dimension": "",
+      "time": 0.2,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "cm/s"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "monopoly money"
+      ],
+      "dimension": "width",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.075,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "monopoly money",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "pizza cutter",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         338,
+         178
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 2,
+        "point": [
+         352,
+         190
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 5,
+        "point": [
+         378,
+         210
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 7,
+        "point": [
+         395,
+         225
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 10,
+        "point": [
+         422,
+         243
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 12,
+        "point": [
+         435,
+         255
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     }
+    ],
+    "direct_answer": 33,
+    "confidence": 0.25
+   },
+   {
+    "qid": 2025,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "pepperoni"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "cm"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "monopoly money"
+      ],
+      "dimension": "width",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.075,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "monopoly money",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "pepperoni",
+      "obs": [
+       {
+        "frame": 29,
+        "point": null,
+        "extent": [
+         [
+          301,
+          207
+         ],
+         [
+          339,
+          207
+         ]
+        ],
+        "box": [
+         301,
+         188,
+         339,
+         227
+        ]
+       },
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          298,
+          204
+         ],
+         [
+          336,
+          204
+         ]
+        ],
+        "box": [
+         298,
+         185,
+         336,
+         223
+        ]
+       },
+       {
+        "frame": 31,
+        "point": null,
+        "extent": [
+         [
+          301,
+          207
+         ],
+         [
+          339,
+          207
+         ]
+        ],
+        "box": [
+         301,
+         188,
+         339,
+         227
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 4.75,
+    "confidence": 0.35
+   }
+  ]
+ }
+}

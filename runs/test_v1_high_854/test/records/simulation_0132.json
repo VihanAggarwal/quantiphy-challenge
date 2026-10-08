@@ -1,0 +1,494 @@
+{
+ "video_id": "simulation_0132",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfpqP68ZupMjjndBaZe4h",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 854
+ },
+ "ts": "2026-10-08T16:53:50+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_01EK6rwK1z62Nk1x6w7FZeFC",
+ "custom_id": "simulation_0132",
+ "usage": {
+  "input_tokens": 9584,
+  "output_tokens": 3461,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 4317,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.05421,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0132",
+  "fps": 120.0,
+  "fps_from_container": false,
+  "video_type": "A2MC",
+  "n_frames_total": 300,
+  "scale": 0.44479166666666664,
+  "image_size": [
+   1079,
+   1920
+  ],
+  "frames": [
+   0,
+   20,
+   40,
+   60,
+   80,
+   100,
+   120,
+   140,
+   159,
+   179,
+   199,
+   219,
+   239,
+   259,
+   279,
+   299
+  ],
+  "questions": [
+   {
+    "qid": 311,
+    "target_unit": "m",
+    "prior": "gravity acceleration = 9.8m/s^2",
+    "depth_info": ""
+   },
+   {
+    "qid": 312,
+    "target_unit": "m",
+    "prior": "gravity acceleration = 9.8m/s^2",
+    "depth_info": ""
+   },
+   {
+    "qid": 313,
+    "target_unit": "m/s",
+    "prior": "gravity acceleration = 9.8m/s^2",
+    "depth_info": ""
+   },
+   {
+    "qid": 314,
+    "target_unit": "m",
+    "prior": "gravity acceleration = 9.8m/s^2",
+    "depth_info": ""
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":311,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"apple\"],\"dimension\":\"diameter\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"apple\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":9.8,\"unit\":\"\"},\"depth\":[],\"notes\":\"Apple rolls off the table edge around frame ~140 and lands on the floor around frame ~190.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"apple\",\"obs\":[{\"frame\":140,\"point\":[166,491],\"extent\":null,\"box\":[152.5,477.5,180,504.5]},{\"frame\":159,\"point\":[135,537],\"extent\":null,\"box\":[122,523.5,148.5,550.5]},{\"frame\":179,\"point\":[102.5,660],\"extent\":null,\"box\":[89,647,116.5,674]}]},{\"role\":\"target\",\"object\":\"apple\",\"obs\":[{\"frame\":140,\"point\":null,\"extent\":[[152.5,491],[180,491]],\"box\":[152.5,477.5,180,504.5]},{\"frame\":159,\"point\":null,\"extent\":[[122,537],[148.5,537]],\"box\":[122,523.5,148.5,550.5]},{\"frame\":199,\"point\":null,\"extent\":[[60,772],[87,772]],\"box\":[60,758.5,87,785.5]},{\"frame\":219,\"point\":null,\"extent\":[[40,775],[67,775]],\"box\":[40,761.5,67,788.5]}]}],\"direct_answer\":0.095,\"confidence\":0.45},{\"qid\":312,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"table\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"apple\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":9.8,\"unit\":\"\"},\"depth\":[],\"notes\":\"Table height taken as table top surface to floor level where apple lands.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"apple\",\"obs\":[]},{\"role\":\"target\",\"object\":\"table\",\"obs\":[{\"frame\":199,\"point\":null,\"extent\":[[160,504],[160,785]],\"box\":[156,503,480,854]},{\"frame\":219,\"point\":null,\"extent\":[[160,504],[160,785]],\"box\":[156,503,480,854]},{\"frame\":239,\"point\":null,\"extent\":[[160,504],[160,785]],\"box\":[156,503,480,854]}]}],\"direct_answer\":1.0,\"confidence\":0.35},{\"qid\":313,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"apple\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"horizontal\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"apple\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":9.8,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"apple\",\"obs\":[]},{\"role\":\"target\",\"object\":\"apple\",\"obs\":[]}],\"direct_answer\":0.68,\"confidence\":0.45},{\"qid\":314,\"spec\":{\"target\":{\"kind\":\"displacement\",\"objects\":[\"apple\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"horizontal\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"apple\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":9.8,\"unit\":\"\"},\"depth\":[],\"notes\":\"Parabolic flight from table edge (~frame 140) to floor landing (~frame 191).\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"apple\",\"obs\":[]},{\"role\":\"target\",\"object\":\"apple\",\"obs\":[{\"frame\":140,\"point\":[166,491],\"extent\":null,\"box\":null},{\"frame\":159,\"point\":[135,537],\"extent\":null,\"box\":null},{\"frame\":179,\"point\":[102.5,660],\"extent\":null,\"box\":null},{\"frame\":199,\"point\":[73.5,772],\"extent\":null,\"box\":null}]}],\"direct_answer\":0.29,\"confidence\":0.3}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 311,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "apple"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "apple"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": 9.8,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Apple rolls off the table edge around frame ~140 and lands on the floor around frame ~190."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "apple",
+      "obs": [
+       {
+        "frame": 140,
+        "point": [
+         166,
+         491
+        ],
+        "extent": null,
+        "box": [
+         152.5,
+         477.5,
+         180,
+         504.5
+        ]
+       },
+       {
+        "frame": 159,
+        "point": [
+         135,
+         537
+        ],
+        "extent": null,
+        "box": [
+         122,
+         523.5,
+         148.5,
+         550.5
+        ]
+       },
+       {
+        "frame": 179,
+        "point": [
+         102.5,
+         660
+        ],
+        "extent": null,
+        "box": [
+         89,
+         647,
+         116.5,
+         674
+        ]
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "apple",
+      "obs": [
+       {
+        "frame": 140,
+        "point": null,
+        "extent": [
+         [
+          152.5,
+          491
+         ],
+         [
+          180,
+          491
+         ]
+        ],
+        "box": [
+         152.5,
+         477.5,
+         180,
+         504.5
+        ]
+       },
+       {
+        "frame": 159,
+        "point": null,
+        "extent": [
+         [
+          122,
+          537
+         ],
+         [
+          148.5,
+          537
+         ]
+        ],
+        "box": [
+         122,
+         523.5,
+         148.5,
+         550.5
+        ]
+       },
+       {
+        "frame": 199,
+        "point": null,
+        "extent": [
+         [
+          60,
+          772
+         ],
+         [
+          87,
+          772
+         ]
+        ],
+        "box": [
+         60,
+         758.5,
+         87,
+         785.5
+        ]
+       },
+       {
+        "frame": 219,
+        "point": null,
+        "extent": [
+         [
+          40,
+          775
+         ],
+         [
+          67,
+          775
+         ]
+        ],
+        "box": [
+         40,
+         761.5,
+         67,
+         788.5
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 0.095,
+    "confidence": 0.45
+   },
+   {
+    "qid": 312,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "table"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "apple"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": 9.8,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Table height taken as table top surface to floor level where apple lands."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "apple",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "table",
+      "obs": [
+       {
+        "frame": 199,
+        "point": null,
+        "extent": [
+         [
+          160,
+          504
+         ],
+         [
+          160,
+          785
+         ]
+        ],
+        "box": [
+         156,
+         503,
+         480,
+         854
+        ]
+       },
+       {
+        "frame": 219,
+        "point": null,
+        "extent": [
+         [
+          160,
+          504
+         ],
+         [
+          160,
+          785
+         ]
+        ],
+        "box": [
+         156,
+         503,
+         480,
+         854
+        ]
+       },
+       {
+        "frame": 239,
+        "point": null,
+        "extent": [
+         [
+          160,
+          504
+         ],
+         [
+          160,
+          785
+         ]
+        ],
+        "box": [
+         156,
+         503,
+         480,
+         854
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 1.0,
+    "confidence": 0.35
+   },
+   {
+    "qid": 313,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "apple"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "horizontal",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "apple"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": 9.8,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "apple",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "apple",
+      "obs": []
+     }
+    ],
+    "direct_answer": 0.68,
+    "confidence": 0.45
+   },
+   {
+    "qid": 314,
+    "spec": {
+     "target": {
+      "kind": "displacement",
+      "objects": [
+       "apple"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "horizontal",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "apple"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": 9.8,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Parabolic flight from table edge (~frame 140) to floor landing (~frame 191)."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "apple",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "apple",
+      "obs": [
+       {
+        "frame": 140,
+        "point": [
+         166,
+         491
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 159,
+        "point": [
+         135,
+         537
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 179,
+        "point": [
+         102.5,
+         660
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 199,
+        "point": [
+         73.5,
+         772
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     }
+    ],
+    "direct_answer": 0.29,
+    "confidence": 0.3
+   }
+  ]
+ }
+}

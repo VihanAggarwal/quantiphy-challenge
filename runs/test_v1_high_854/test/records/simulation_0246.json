@@ -1,0 +1,518 @@
+{
+ "video_id": "simulation_0246",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfpvzCLCEWCMoEU1HMfpS",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 854
+ },
+ "ts": "2026-10-08T17:01:21+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_01M1yMGBb4cJ9XTrAwux87yk",
+ "custom_id": "simulation_0246",
+ "usage": {
+  "input_tokens": 10648,
+  "output_tokens": 2004,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 4317,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.041768,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0246",
+  "fps": 30.0,
+  "fps_from_container": false,
+  "video_type": "V2MS",
+  "n_frames_total": 75,
+  "scale": 0.44479166666666664,
+  "image_size": [
+   1920,
+   1079
+  ],
+  "frames": [
+   0,
+   5,
+   10,
+   15,
+   20,
+   25,
+   27,
+   30,
+   33,
+   35,
+   39,
+   44,
+   49,
+   54,
+   59,
+   64,
+   69,
+   74
+  ],
+  "questions": [
+   {
+    "qid": 831,
+    "target_unit": "m",
+    "prior": "speed of the antelope = 1.277m/s",
+    "depth_info": ""
+   },
+   {
+    "qid": 832,
+    "target_unit": "m/s",
+    "prior": "speed of the antelope = 1.277m/s",
+    "depth_info": ""
+   },
+   {
+    "qid": 833,
+    "target_unit": "m",
+    "prior": "speed of the antelope = 1.277m/s",
+    "depth_info": ""
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":831,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"antelope\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"antelope\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":1.277,\"unit\":\"\"},\"depth\":[],\"notes\":\"Top-down view; length taken tail tip to nose.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"antelope\",\"obs\":[{\"frame\":0,\"point\":[421,254],\"extent\":null,\"box\":null},{\"frame\":10,\"point\":[465,254],\"extent\":null,\"box\":null},{\"frame\":20,\"point\":[505,254],\"extent\":null,\"box\":null},{\"frame\":30,\"point\":[550,254],\"extent\":null,\"box\":null},{\"frame\":39,\"point\":[585,254],\"extent\":null,\"box\":null},{\"frame\":49,\"point\":[628,254],\"extent\":null,\"box\":null},{\"frame\":59,\"point\":[667,254],\"extent\":null,\"box\":null},{\"frame\":69,\"point\":[712,254],\"extent\":null,\"box\":null},{\"frame\":74,\"point\":[733,254],\"extent\":null,\"box\":null}]},{\"role\":\"target\",\"object\":\"antelope\",\"obs\":[{\"frame\":30,\"point\":null,\"extent\":[[247,249],[550,254]],\"box\":[247,190,550,318]},{\"frame\":54,\"point\":null,\"extent\":[[343,249],[650,254]],\"box\":[343,190,650,318]},{\"frame\":74,\"point\":null,\"extent\":[[418,253],[733,254]],\"box\":[418,190,733,318]}]}],\"direct_answer\":3.08,\"confidence\":0.45},{\"qid\":832,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"rabbit\"],\"dimension\":\"\",\"time\":1.0,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"antelope\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":1.277,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"antelope\",\"obs\":[]},{\"role\":\"target\",\"object\":\"rabbit\",\"obs\":[{\"frame\":0,\"point\":[435,153],\"extent\":null,\"box\":null},{\"frame\":20,\"point\":[510,153],\"extent\":null,\"box\":null},{\"frame\":25,\"point\":[528,153],\"extent\":null,\"box\":null},{\"frame\":27,\"point\":[535,154],\"extent\":null,\"box\":null},{\"frame\":30,\"point\":[545,153],\"extent\":null,\"box\":null},{\"frame\":33,\"point\":[557,153],\"extent\":null,\"box\":null},{\"frame\":35,\"point\":[566,153],\"extent\":null,\"box\":null},{\"frame\":39,\"point\":[580,153],\"extent\":null,\"box\":null},{\"frame\":49,\"point\":[618,153],\"extent\":null,\"box\":null},{\"frame\":74,\"point\":[714,152],\"extent\":null,\"box\":null}]}],\"direct_answer\":1.14,\"confidence\":0.55},{\"qid\":833,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"rabbit\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"antelope\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":1.277,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"antelope\",\"obs\":[]},{\"role\":\"target\",\"object\":\"rabbit\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[416,154],[455,152]],\"box\":[416,145,455,163]},{\"frame\":15,\"point\":null,\"extent\":[[469,155],[510,153]],\"box\":[469,146,510,163]},{\"frame\":30,\"point\":null,\"extent\":[[525,154],[566,152]],\"box\":[525,145,566,162]}]}],\"direct_answer\":0.4,\"confidence\":0.35}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 831,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "antelope"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "antelope"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 1.277,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Top-down view; length taken tail tip to nose."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "antelope",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         421,
+         254
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 10,
+        "point": [
+         465,
+         254
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 20,
+        "point": [
+         505,
+         254
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 30,
+        "point": [
+         550,
+         254
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 39,
+        "point": [
+         585,
+         254
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 49,
+        "point": [
+         628,
+         254
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 59,
+        "point": [
+         667,
+         254
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 69,
+        "point": [
+         712,
+         254
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 74,
+        "point": [
+         733,
+         254
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "antelope",
+      "obs": [
+       {
+        "frame": 30,
+        "point": null,
+        "extent": [
+         [
+          247,
+          249
+         ],
+         [
+          550,
+          254
+         ]
+        ],
+        "box": [
+         247,
+         190,
+         550,
+         318
+        ]
+       },
+       {
+        "frame": 54,
+        "point": null,
+        "extent": [
+         [
+          343,
+          249
+         ],
+         [
+          650,
+          254
+         ]
+        ],
+        "box": [
+         343,
+         190,
+         650,
+         318
+        ]
+       },
+       {
+        "frame": 74,
+        "point": null,
+        "extent": [
+         [
+          418,
+          253
+         ],
+         [
+          733,
+          254
+         ]
+        ],
+        "box": [
+         418,
+         190,
+         733,
+         318
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 3.08,
+    "confidence": 0.45
+   },
+   {
+    "qid": 832,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "rabbit"
+      ],
+      "dimension": "",
+      "time": 1.0,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "antelope"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 1.277,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "antelope",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "rabbit",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         435,
+         153
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 20,
+        "point": [
+         510,
+         153
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 25,
+        "point": [
+         528,
+         153
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 27,
+        "point": [
+         535,
+         154
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 30,
+        "point": [
+         545,
+         153
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 33,
+        "point": [
+         557,
+         153
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 35,
+        "point": [
+         566,
+         153
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 39,
+        "point": [
+         580,
+         153
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 49,
+        "point": [
+         618,
+         153
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 74,
+        "point": [
+         714,
+         152
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     }
+    ],
+    "direct_answer": 1.14,
+    "confidence": 0.55
+   },
+   {
+    "qid": 833,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "rabbit"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "antelope"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 1.277,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "antelope",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "rabbit",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          416,
+          154
+         ],
+         [
+          455,
+          152
+         ]
+        ],
+        "box": [
+         416,
+         145,
+         455,
+         163
+        ]
+       },
+       {
+        "frame": 15,
+        "point": null,
+        "extent": [
+         [
+          469,
+          155
+         ],
+         [
+          510,
+          153
+         ]
+        ],
+        "box": [
+         469,
+         146,
+         510,
+         163
+        ]
+       },
+       {
+        "frame": 30,
+        "point": null,
+        "extent": [
+         [
+          525,
+          154
+         ],
+         [
+          566,
+          152
+         ]
+        ],
+        "box": [
+         525,
+         145,
+         566,
+         162
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 0.4,
+    "confidence": 0.35
+   }
+  ]
+ }
+}

@@ -1,0 +1,935 @@
+{
+ "video_id": "simulation_0014",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011Cfq9iQM4vK5nbuvmxRy7u",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 854
+ },
+ "ts": "2026-10-08T17:22:05+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_01NEc3soBw97UxGwYXdNizdP",
+ "custom_id": "simulation_0014",
+ "usage": {
+  "input_tokens": 18893,
+  "output_tokens": 4909,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 4317,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.087308,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0014",
+  "fps": 24.0,
+  "fps_from_container": false,
+  "video_type": "A3MC",
+  "n_frames_total": 73,
+  "scale": 0.43705220061412486,
+  "image_size": [
+   1920,
+   1954
+  ],
+  "frames": [
+   0,
+   2,
+   5,
+   10,
+   14,
+   19,
+   22,
+   24,
+   26,
+   29,
+   34,
+   38,
+   43,
+   48,
+   53,
+   58,
+   62,
+   67,
+   72
+  ],
+  "questions": [
+   {
+    "qid": 1067,
+    "target_unit": "m",
+    "prior": "gravity acc = 9.8m/s^2",
+    "depth_info": "t=0s, distance_nest_camera = 5.661m\nt=1s, distance_nest_camera = 5.630m\ndistance_cart_camera = 27.562m\ndistance_house_camera = 55.767m"
+   },
+   {
+    "qid": 1068,
+    "target_unit": "m",
+    "prior": "gravity acc = 9.8m/s^2",
+    "depth_info": "t=0s, distance_nest_camera = 5.661m\nt=1s, distance_nest_camera = 5.630m\ndistance_cart_camera = 27.562m\ndistance_house_camera = 55.767m"
+   },
+   {
+    "qid": 1069,
+    "target_unit": "m",
+    "prior": "gravity acc = 9.8m/s^2",
+    "depth_info": "t=0s, distance_nest_camera = 5.661m\nt=1s, distance_nest_camera = 5.630m\ndistance_cart_camera = 27.562m\ndistance_house_camera = 55.767m"
+   },
+   {
+    "qid": 1070,
+    "target_unit": "m",
+    "prior": "gravity acc = 9.8m/s^2",
+    "depth_info": "t=0s, distance_nest_camera = 5.661m\nt=1s, distance_nest_camera = 5.630m\ndistance_cart_camera = 27.562m\ndistance_house_camera = 55.767m"
+   },
+   {
+    "qid": 1071,
+    "target_unit": "m",
+    "prior": "gravity acc = 9.8m/s^2",
+    "depth_info": "t=0s, distance_nest_camera = 5.661m\nt=1s, distance_nest_camera = 5.630m\ndistance_cart_camera = 27.562m\ndistance_house_camera = 55.767m"
+   },
+   {
+    "qid": 1072,
+    "target_unit": "m",
+    "prior": "gravity acc = 9.8m/s^2",
+    "depth_info": "t=0s, distance_nest_camera = 5.661m\nt=1s, distance_nest_camera = 5.630m\ndistance_cart_camera = 27.562m\ndistance_house_camera = 55.767m"
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":1067,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"house door\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"nest\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":9.8,\"unit\":\"\"},\"depth\":[{\"object\":\"nest\",\"distance_m\":5.661,\"time\":0},{\"object\":\"nest\",\"distance_m\":5.63,\"time\":1},{\"object\":\"cart\",\"distance_m\":27.562,\"time\":null},{\"object\":\"house\",\"distance_m\":55.767,\"time\":null}],\"notes\":\"Nest falls from branch around t~1.2s and lands ~2.2s.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"nest\",\"obs\":[{\"frame\":29,\"point\":[85,200],\"extent\":null,\"box\":null},{\"frame\":34,\"point\":[95,245],\"extent\":null,\"box\":[40,185,150,295]},{\"frame\":38,\"point\":[105,307],\"extent\":null,\"box\":[45,245,162,370]},{\"frame\":43,\"point\":[115,457],\"extent\":null,\"box\":[45,400,185,515]},{\"frame\":48,\"point\":[150,642],\"extent\":null,\"box\":[100,555,200,730]}]},{\"role\":\"target\",\"object\":\"house door\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[255,415],[255,514]],\"box\":[236,415,275,514]},{\"frame\":24,\"point\":null,\"extent\":[[255,415],[255,514]],\"box\":[236,415,275,514]},{\"frame\":72,\"point\":null,\"extent\":[[255,415],[255,514]],\"box\":[236,415,275,514]}]}],\"direct_answer\":6.9,\"confidence\":0.3},{\"qid\":1068,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"cart wheel\"],\"dimension\":\"diameter\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"nest\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":9.8,\"unit\":\"\"},\"depth\":[{\"object\":\"nest\",\"distance_m\":5.661,\"time\":0},{\"object\":\"nest\",\"distance_m\":5.63,\"time\":1},{\"object\":\"cart\",\"distance_m\":27.562,\"time\":null},{\"object\":\"house\",\"distance_m\":55.767,\"time\":null}],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"nest\",\"obs\":[]},{\"role\":\"target\",\"object\":\"cart wheel\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[625.5,461],[625.5,545]],\"box\":[584,461,667,545]},{\"frame\":24,\"point\":null,\"extent\":[[625.5,461],[625.5,545]],\"box\":[584,461,667,545]},{\"frame\":72,\"point\":null,\"extent\":[[625.5,461],[625.5,545]],\"box\":[584,461,667,545]}]}],\"direct_answer\":2.88,\"confidence\":0.3},{\"qid\":1069,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"house\"],\"dimension\":\"width between widest eaves\",\"time\":null,\"window\":null,\"axis\":\"horizontal\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"nest\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":9.8,\"unit\":\"\"},\"depth\":[{\"object\":\"nest\",\"distance_m\":5.661,\"time\":0},{\"object\":\"nest\",\"distance_m\":5.63,\"time\":1},{\"object\":\"cart\",\"distance_m\":27.562,\"time\":null},{\"object\":\"house\",\"distance_m\":55.767,\"time\":null}],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"nest\",\"obs\":[]},{\"role\":\"target\",\"object\":\"house\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[137,388],[480,418]],\"box\":[137,280,480,518]},{\"frame\":24,\"point\":null,\"extent\":[[137,388],[480,418]],\"box\":[137,280,480,518]},{\"frame\":72,\"point\":null,\"extent\":[[137,388],[480,418]],\"box\":[137,280,480,518]}]}],\"direct_answer\":23.8,\"confidence\":0.3},{\"qid\":1070,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"cart\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"nest\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":9.8,\"unit\":\"\"},\"depth\":[{\"object\":\"nest\",\"distance_m\":5.661,\"time\":0},{\"object\":\"nest\",\"distance_m\":5.63,\"time\":1},{\"object\":\"cart\",\"distance_m\":27.562,\"time\":null},{\"object\":\"house\",\"distance_m\":55.767,\"time\":null}],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"nest\",\"obs\":[]},{\"role\":\"target\",\"object\":\"cart\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[686,446],[686,545]],\"box\":[474,446,697,545]},{\"frame\":24,\"point\":null,\"extent\":[[686,446],[686,545]],\"box\":[474,446,697,545]},{\"frame\":72,\"point\":null,\"extent\":[[686,446],[686,545]],\"box\":[474,446,697,545]}]}],\"direct_answer\":3.39,\"confidence\":0.3},{\"qid\":1071,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"cargo box\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"nest\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":9.8,\"unit\":\"\"},\"depth\":[{\"object\":\"nest\",\"distance_m\":5.661,\"time\":0},{\"object\":\"nest\",\"distance_m\":5.63,\"time\":1},{\"object\":\"cart\",\"distance_m\":27.562,\"time\":null},{\"object\":\"house\",\"distance_m\":55.767,\"time\":null}],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"nest\",\"obs\":[]},{\"role\":\"target\",\"object\":\"cargo box\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[692,446],[692,493]],\"box\":[548,446,697,512]},{\"frame\":24,\"point\":null,\"extent\":[[692,446],[692,493]],\"box\":[548,446,697,512]},{\"frame\":72,\"point\":null,\"extent\":[[692,446],[692,493]],\"box\":[548,446,697,512]}]}],\"direct_answer\":1.61,\"confidence\":0.25},{\"qid\":1072,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"cargo box\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"nest\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":9.8,\"unit\":\"\"},\"depth\":[{\"object\":\"nest\",\"distance_m\":5.661,\"time\":0},{\"object\":\"nest\",\"distance_m\":5.63,\"time\":1},{\"object\":\"cart\",\"distance_m\":27.562,\"time\":null},{\"object\":\"house\",\"distance_m\":55.767,\"time\":null}],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"nest\",\"obs\":[]},{\"role\":\"target\",\"object\":\"cargo box\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[548,478],[697,452]],\"box\":[548,446,697,512]},{\"frame\":24,\"point\":null,\"extent\":[[548,478],[697,452]],\"box\":[548,446,697,512]},{\"frame\":72,\"point\":null,\"extent\":[[548,478],[697,452]],\"box\":[548,446,697,512]}]}],\"direct_answer\":5.2,\"confidence\":0.25}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 1067,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "house door"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "nest"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": 9.8,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "nest",
+       "distance_m": 5.661,
+       "time": 0
+      },
+      {
+       "object": "nest",
+       "distance_m": 5.63,
+       "time": 1
+      },
+      {
+       "object": "cart",
+       "distance_m": 27.562,
+       "time": null
+      },
+      {
+       "object": "house",
+       "distance_m": 55.767,
+       "time": null
+      }
+     ],
+     "notes": "Nest falls from branch around t~1.2s and lands ~2.2s."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "nest",
+      "obs": [
+       {
+        "frame": 29,
+        "point": [
+         85,
+         200
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 34,
+        "point": [
+         95,
+         245
+        ],
+        "extent": null,
+        "box": [
+         40,
+         185,
+         150,
+         295
+        ]
+       },
+       {
+        "frame": 38,
+        "point": [
+         105,
+         307
+        ],
+        "extent": null,
+        "box": [
+         45,
+         245,
+         162,
+         370
+        ]
+       },
+       {
+        "frame": 43,
+        "point": [
+         115,
+         457
+        ],
+        "extent": null,
+        "box": [
+         45,
+         400,
+         185,
+         515
+        ]
+       },
+       {
+        "frame": 48,
+        "point": [
+         150,
+         642
+        ],
+        "extent": null,
+        "box": [
+         100,
+         555,
+         200,
+         730
+        ]
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "house door",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          255,
+          415
+         ],
+         [
+          255,
+          514
+         ]
+        ],
+        "box": [
+         236,
+         415,
+         275,
+         514
+        ]
+       },
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          255,
+          415
+         ],
+         [
+          255,
+          514
+         ]
+        ],
+        "box": [
+         236,
+         415,
+         275,
+         514
+        ]
+       },
+       {
+        "frame": 72,
+        "point": null,
+        "extent": [
+         [
+          255,
+          415
+         ],
+         [
+          255,
+          514
+         ]
+        ],
+        "box": [
+         236,
+         415,
+         275,
+         514
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 6.9,
+    "confidence": 0.3
+   },
+   {
+    "qid": 1068,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "cart wheel"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "nest"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": 9.8,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "nest",
+       "distance_m": 5.661,
+       "time": 0
+      },
+      {
+       "object": "nest",
+       "distance_m": 5.63,
+       "time": 1
+      },
+      {
+       "object": "cart",
+       "distance_m": 27.562,
+       "time": null
+      },
+      {
+       "object": "house",
+       "distance_m": 55.767,
+       "time": null
+      }
+     ],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "nest",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "cart wheel",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          625.5,
+          461
+         ],
+         [
+          625.5,
+          545
+         ]
+        ],
+        "box": [
+         584,
+         461,
+         667,
+         545
+        ]
+       },
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          625.5,
+          461
+         ],
+         [
+          625.5,
+          545
+         ]
+        ],
+        "box": [
+         584,
+         461,
+         667,
+         545
+        ]
+       },
+       {
+        "frame": 72,
+        "point": null,
+        "extent": [
+         [
+          625.5,
+          461
+         ],
+         [
+          625.5,
+          545
+         ]
+        ],
+        "box": [
+         584,
+         461,
+         667,
+         545
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 2.88,
+    "confidence": 0.3
+   },
+   {
+    "qid": 1069,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "house"
+      ],
+      "dimension": "width between widest eaves",
+      "time": null,
+      "window": null,
+      "axis": "horizontal",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "nest"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": 9.8,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "nest",
+       "distance_m": 5.661,
+       "time": 0
+      },
+      {
+       "object": "nest",
+       "distance_m": 5.63,
+       "time": 1
+      },
+      {
+       "object": "cart",
+       "distance_m": 27.562,
+       "time": null
+      },
+      {
+       "object": "house",
+       "distance_m": 55.767,
+       "time": null
+      }
+     ],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "nest",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "house",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          137,
+          388
+         ],
+         [
+          480,
+          418
+         ]
+        ],
+        "box": [
+         137,
+         280,
+         480,
+         518
+        ]
+       },
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          137,
+          388
+         ],
+         [
+          480,
+          418
+         ]
+        ],
+        "box": [
+         137,
+         280,
+         480,
+         518
+        ]
+       },
+       {
+        "frame": 72,
+        "point": null,
+        "extent": [
+         [
+          137,
+          388
+         ],
+         [
+          480,
+          418
+         ]
+        ],
+        "box": [
+         137,
+         280,
+         480,
+         518
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 23.8,
+    "confidence": 0.3
+   },
+   {
+    "qid": 1070,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "cart"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "nest"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": 9.8,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "nest",
+       "distance_m": 5.661,
+       "time": 0
+      },
+      {
+       "object": "nest",
+       "distance_m": 5.63,
+       "time": 1
+      },
+      {
+       "object": "cart",
+       "distance_m": 27.562,
+       "time": null
+      },
+      {
+       "object": "house",
+       "distance_m": 55.767,
+       "time": null
+      }
+     ],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "nest",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "cart",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          686,
+          446
+         ],
+         [
+          686,
+          545
+         ]
+        ],
+        "box": [
+         474,
+         446,
+         697,
+         545
+        ]
+       },
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          686,
+          446
+         ],
+         [
+          686,
+          545
+         ]
+        ],
+        "box": [
+         474,
+         446,
+         697,
+         545
+        ]
+       },
+       {
+        "frame": 72,
+        "point": null,
+        "extent": [
+         [
+          686,
+          446
+         ],
+         [
+          686,
+          545
+         ]
+        ],
+        "box": [
+         474,
+         446,
+         697,
+         545
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 3.39,
+    "confidence": 0.3
+   },
+   {
+    "qid": 1071,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "cargo box"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "nest"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": 9.8,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "nest",
+       "distance_m": 5.661,
+       "time": 0
+      },
+      {
+       "object": "nest",
+       "distance_m": 5.63,
+       "time": 1
+      },
+      {
+       "object": "cart",
+       "distance_m": 27.562,
+       "time": null
+      },
+      {
+       "object": "house",
+       "distance_m": 55.767,
+       "time": null
+      }
+     ],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "nest",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "cargo box",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          692,
+          446
+         ],
+         [
+          692,
+          493
+         ]
+        ],
+        "box": [
+         548,
+         446,
+         697,
+         512
+        ]
+       },
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          692,
+          446
+         ],
+         [
+          692,
+          493
+         ]
+        ],
+        "box": [
+         548,
+         446,
+         697,
+         512
+        ]
+       },
+       {
+        "frame": 72,
+        "point": null,
+        "extent": [
+         [
+          692,
+          446
+         ],
+         [
+          692,
+          493
+         ]
+        ],
+        "box": [
+         548,
+         446,
+         697,
+         512
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 1.61,
+    "confidence": 0.25
+   },
+   {
+    "qid": 1072,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "cargo box"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "nest"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": 9.8,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "nest",
+       "distance_m": 5.661,
+       "time": 0
+      },
+      {
+       "object": "nest",
+       "distance_m": 5.63,
+       "time": 1
+      },
+      {
+       "object": "cart",
+       "distance_m": 27.562,
+       "time": null
+      },
+      {
+       "object": "house",
+       "distance_m": 55.767,
+       "time": null
+      }
+     ],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "nest",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "cargo box",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          548,
+          478
+         ],
+         [
+          697,
+          452
+         ]
+        ],
+        "box": [
+         548,
+         446,
+         697,
+         512
+        ]
+       },
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          548,
+          478
+         ],
+         [
+          697,
+          452
+         ]
+        ],
+        "box": [
+         548,
+         446,
+         697,
+         512
+        ]
+       },
+       {
+        "frame": 72,
+        "point": null,
+        "extent": [
+         [
+          548,
+          478
+         ],
+         [
+          697,
+          452
+         ]
+        ],
+        "box": [
+         548,
+         446,
+         697,
+         512
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 5.2,
+    "confidence": 0.25
+   }
+  ]
+ }
+}

@@ -1,0 +1,983 @@
+{
+ "video_id": "simulation_0229",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfptjRKdttL12VZ1XjMFQ",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 854
+ },
+ "ts": "2026-10-08T16:53:52+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_01KU8pudkFSd53LhMaHHZ5xA",
+ "custom_id": "simulation_0229",
+ "usage": {
+  "input_tokens": 12798,
+  "output_tokens": 4659,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 4317,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.072618,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0229",
+  "fps": 24.0,
+  "fps_from_container": false,
+  "video_type": "S2MC",
+  "n_frames_total": 50,
+  "scale": 0.44479166666666664,
+  "image_size": [
+   1920,
+   1079
+  ],
+  "frames": [
+   0,
+   3,
+   7,
+   10,
+   13,
+   16,
+   20,
+   22,
+   23,
+   24,
+   26,
+   28,
+   29,
+   30,
+   32,
+   33,
+   36,
+   39,
+   42,
+   46,
+   49
+  ],
+  "questions": [
+   {
+    "qid": 715,
+    "target_unit": "m",
+    "prior": "length of the chalkboard = 5m",
+    "depth_info": ""
+   },
+   {
+    "qid": 716,
+    "target_unit": "m",
+    "prior": "length of the chalkboard = 5m",
+    "depth_info": ""
+   },
+   {
+    "qid": 717,
+    "target_unit": "m",
+    "prior": "length of the chalkboard = 5m",
+    "depth_info": ""
+   },
+   {
+    "qid": 718,
+    "target_unit": "m",
+    "prior": "length of the chalkboard = 5m",
+    "depth_info": ""
+   },
+   {
+    "qid": 719,
+    "target_unit": "m",
+    "prior": "length of the chalkboard = 5m",
+    "depth_info": ""
+   },
+   {
+    "qid": 720,
+    "target_unit": "m/s",
+    "prior": "length of the chalkboard = 5m",
+    "depth_info": ""
+   },
+   {
+    "qid": 721,
+    "target_unit": "m/s^2",
+    "prior": "length of the chalkboard = 5m",
+    "depth_info": ""
+   },
+   {
+    "qid": 722,
+    "target_unit": "m/s",
+    "prior": "length of the chalkboard = 5m",
+    "depth_info": ""
+   },
+   {
+    "qid": 723,
+    "target_unit": "m/s^2",
+    "prior": "length of the chalkboard = 5m",
+    "depth_info": ""
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":715,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"clock\"],\"dimension\":\"diameter\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"chalkboard\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"horizontal\",\"value_si\":5,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"chalkboard\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[144,230],[752,230]],\"box\":[144,133,752,327]},{\"frame\":24,\"point\":null,\"extent\":[[144,230],[752,230]],\"box\":[144,133,752,327]},{\"frame\":49,\"point\":null,\"extent\":[[144,230],[752,230]],\"box\":[144,133,752,327]}]},{\"role\":\"target\",\"object\":\"clock\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[758,130],[809,130]],\"box\":[758,105,809,155]},{\"frame\":24,\"point\":null,\"extent\":[[758,130],[809,130]],\"box\":[758,105,809,155]},{\"frame\":49,\"point\":null,\"extent\":[[758,130],[809,130]],\"box\":[758,105,809,155]}]}],\"direct_answer\":0.42,\"confidence\":0.6},{\"qid\":716,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"chalkboard\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"chalkboard\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"horizontal\",\"value_si\":5,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"chalkboard\",\"obs\":[]},{\"role\":\"target\",\"object\":\"chalkboard height\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[600,133],[600,327]],\"box\":[144,133,752,327]},{\"frame\":24,\"point\":null,\"extent\":[[600,133],[600,327]],\"box\":[144,133,752,327]},{\"frame\":49,\"point\":null,\"extent\":[[600,133],[600,327]],\"box\":[144,133,752,327]}]}],\"direct_answer\":1.6,\"confidence\":0.65},{\"qid\":717,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"orange chair next to the blackboard\"],\"dimension\":\"width\",\"time\":null,\"window\":null,\"axis\":\"horizontal\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"chalkboard\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"horizontal\",\"value_si\":5,\"unit\":\"\"},\"depth\":[],\"notes\":\"Ambiguous which chair; used the chair at right beside the board.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"chalkboard\",\"obs\":[]},{\"role\":\"target\",\"object\":\"orange chair\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[712,345],[780,345]],\"box\":[712,327,800,445]},{\"frame\":24,\"point\":null,\"extent\":[[712,345],[780,345]],\"box\":[712,327,800,445]},{\"frame\":49,\"point\":null,\"extent\":[[712,345],[780,345]],\"box\":[712,327,800,445]}]}],\"direct_answer\":0.56,\"confidence\":0.35},{\"qid\":718,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"teacher's table\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"horizontal\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"chalkboard\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"horizontal\",\"value_si\":5,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"chalkboard\",\"obs\":[]},{\"role\":\"target\",\"object\":\"teacher's table\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[40,340],[346,340]],\"box\":[40,336,346,445]},{\"frame\":24,\"point\":null,\"extent\":[[40,340],[346,340]],\"box\":[40,336,346,445]},{\"frame\":49,\"point\":null,\"extent\":[[40,340],[346,340]],\"box\":[40,336,346,445]}]}],\"direct_answer\":2.52,\"confidence\":0.5},{\"qid\":719,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"room\"],\"dimension\":\"ceiling height\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"chalkboard\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"horizontal\",\"value_si\":5,\"unit\":\"\"},\"depth\":[],\"notes\":\"Measured floor-wall junction to ceiling-wall junction at the back wall.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"chalkboard\",\"obs\":[]},{\"role\":\"target\",\"object\":\"room\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[560,80],[560,422]],\"box\":null},{\"frame\":24,\"point\":null,\"extent\":[[560,80],[560,422]],\"box\":null},{\"frame\":49,\"point\":null,\"extent\":[[560,80],[560,422]],\"box\":null}]}],\"direct_answer\":2.8,\"confidence\":0.3},{\"qid\":720,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"paper airplane\"],\"dimension\":\"\",\"time\":1.0,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"chalkboard\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"horizontal\",\"value_si\":5,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"chalkboard\",\"obs\":[]},{\"role\":\"target\",\"object\":\"paper airplane\",\"obs\":[{\"frame\":16,\"point\":[232,200],\"extent\":null,\"box\":null},{\"frame\":20,\"point\":[361,161],\"extent\":null,\"box\":null},{\"frame\":22,\"point\":[426,153],\"extent\":null,\"box\":null},{\"frame\":23,\"point\":[457,151],\"extent\":null,\"box\":null},{\"frame\":24,\"point\":[488,152],\"extent\":null,\"box\":null},{\"frame\":26,\"point\":[547,157],\"extent\":null,\"box\":null},{\"frame\":28,\"point\":[603,170],\"extent\":null,\"box\":null},{\"frame\":29,\"point\":[630,178],\"extent\":null,\"box\":null},{\"frame\":30,\"point\":[656,185],\"extent\":null,\"box\":null},{\"frame\":32,\"point\":[704,204],\"extent\":null,\"box\":null},{\"frame\":33,\"point\":[726,214],\"extent\":null,\"box\":null}]}],\"direct_answer\":6.0,\"confidence\":0.5},{\"qid\":721,\"spec\":{\"target\":{\"kind\":\"acceleration\",\"objects\":[\"paper airplane\"],\"dimension\":\"\",\"time\":1.0,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s^2\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"chalkboard\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"horizontal\",\"value_si\":5,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"chalkboard\",\"obs\":[]},{\"role\":\"target\",\"object\":\"paper airplane\",\"obs\":[]}],\"direct_answer\":9.0,\"confidence\":0.25},{\"qid\":722,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"paper airplane\"],\"dimension\":\"\",\"time\":1.25,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"chalkboard\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"horizontal\",\"value_si\":5,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"chalkboard\",\"obs\":[]},{\"role\":\"target\",\"object\":\"paper airplane\",\"obs\":[]}],\"direct_answer\":5.3,\"confidence\":0.5},{\"qid\":723,\"spec\":{\"target\":{\"kind\":\"acceleration\",\"objects\":[\"paper airplane\"],\"dimension\":\"\",\"time\":1.25,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s^2\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"chalkboard\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"horizontal\",\"value_si\":5,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"chalkboard\",\"obs\":[]},{\"role\":\"target\",\"object\":\"paper airplane\",\"obs\":[]}],\"direct_answer\":7.0,\"confidence\":0.2}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 715,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "clock"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "chalkboard"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "horizontal",
+      "value_si": 5,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "chalkboard",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          144,
+          230
+         ],
+         [
+          752,
+          230
+         ]
+        ],
+        "box": [
+         144,
+         133,
+         752,
+         327
+        ]
+       },
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          144,
+          230
+         ],
+         [
+          752,
+          230
+         ]
+        ],
+        "box": [
+         144,
+         133,
+         752,
+         327
+        ]
+       },
+       {
+        "frame": 49,
+        "point": null,
+        "extent": [
+         [
+          144,
+          230
+         ],
+         [
+          752,
+          230
+         ]
+        ],
+        "box": [
+         144,
+         133,
+         752,
+         327
+        ]
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "clock",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          758,
+          130
+         ],
+         [
+          809,
+          130
+         ]
+        ],
+        "box": [
+         758,
+         105,
+         809,
+         155
+        ]
+       },
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          758,
+          130
+         ],
+         [
+          809,
+          130
+         ]
+        ],
+        "box": [
+         758,
+         105,
+         809,
+         155
+        ]
+       },
+       {
+        "frame": 49,
+        "point": null,
+        "extent": [
+         [
+          758,
+          130
+         ],
+         [
+          809,
+          130
+         ]
+        ],
+        "box": [
+         758,
+         105,
+         809,
+         155
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 0.42,
+    "confidence": 0.6
+   },
+   {
+    "qid": 716,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "chalkboard"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "chalkboard"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "horizontal",
+      "value_si": 5,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "chalkboard",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "chalkboard height",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          600,
+          133
+         ],
+         [
+          600,
+          327
+         ]
+        ],
+        "box": [
+         144,
+         133,
+         752,
+         327
+        ]
+       },
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          600,
+          133
+         ],
+         [
+          600,
+          327
+         ]
+        ],
+        "box": [
+         144,
+         133,
+         752,
+         327
+        ]
+       },
+       {
+        "frame": 49,
+        "point": null,
+        "extent": [
+         [
+          600,
+          133
+         ],
+         [
+          600,
+          327
+         ]
+        ],
+        "box": [
+         144,
+         133,
+         752,
+         327
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 1.6,
+    "confidence": 0.65
+   },
+   {
+    "qid": 717,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "orange chair next to the blackboard"
+      ],
+      "dimension": "width",
+      "time": null,
+      "window": null,
+      "axis": "horizontal",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "chalkboard"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "horizontal",
+      "value_si": 5,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Ambiguous which chair; used the chair at right beside the board."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "chalkboard",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "orange chair",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          712,
+          345
+         ],
+         [
+          780,
+          345
+         ]
+        ],
+        "box": [
+         712,
+         327,
+         800,
+         445
+        ]
+       },
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          712,
+          345
+         ],
+         [
+          780,
+          345
+         ]
+        ],
+        "box": [
+         712,
+         327,
+         800,
+         445
+        ]
+       },
+       {
+        "frame": 49,
+        "point": null,
+        "extent": [
+         [
+          712,
+          345
+         ],
+         [
+          780,
+          345
+         ]
+        ],
+        "box": [
+         712,
+         327,
+         800,
+         445
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 0.56,
+    "confidence": 0.35
+   },
+   {
+    "qid": 718,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "teacher's table"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "horizontal",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "chalkboard"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "horizontal",
+      "value_si": 5,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "chalkboard",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "teacher's table",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          40,
+          340
+         ],
+         [
+          346,
+          340
+         ]
+        ],
+        "box": [
+         40,
+         336,
+         346,
+         445
+        ]
+       },
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          40,
+          340
+         ],
+         [
+          346,
+          340
+         ]
+        ],
+        "box": [
+         40,
+         336,
+         346,
+         445
+        ]
+       },
+       {
+        "frame": 49,
+        "point": null,
+        "extent": [
+         [
+          40,
+          340
+         ],
+         [
+          346,
+          340
+         ]
+        ],
+        "box": [
+         40,
+         336,
+         346,
+         445
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 2.52,
+    "confidence": 0.5
+   },
+   {
+    "qid": 719,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "room"
+      ],
+      "dimension": "ceiling height",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "chalkboard"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "horizontal",
+      "value_si": 5,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Measured floor-wall junction to ceiling-wall junction at the back wall."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "chalkboard",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "room",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          560,
+          80
+         ],
+         [
+          560,
+          422
+         ]
+        ],
+        "box": null
+       },
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          560,
+          80
+         ],
+         [
+          560,
+          422
+         ]
+        ],
+        "box": null
+       },
+       {
+        "frame": 49,
+        "point": null,
+        "extent": [
+         [
+          560,
+          80
+         ],
+         [
+          560,
+          422
+         ]
+        ],
+        "box": null
+       }
+      ]
+     }
+    ],
+    "direct_answer": 2.8,
+    "confidence": 0.3
+   },
+   {
+    "qid": 720,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "paper airplane"
+      ],
+      "dimension": "",
+      "time": 1.0,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "chalkboard"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "horizontal",
+      "value_si": 5,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "chalkboard",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "paper airplane",
+      "obs": [
+       {
+        "frame": 16,
+        "point": [
+         232,
+         200
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 20,
+        "point": [
+         361,
+         161
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 22,
+        "point": [
+         426,
+         153
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 23,
+        "point": [
+         457,
+         151
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 24,
+        "point": [
+         488,
+         152
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 26,
+        "point": [
+         547,
+         157
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 28,
+        "point": [
+         603,
+         170
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 29,
+        "point": [
+         630,
+         178
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 30,
+        "point": [
+         656,
+         185
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 32,
+        "point": [
+         704,
+         204
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 33,
+        "point": [
+         726,
+         214
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     }
+    ],
+    "direct_answer": 6.0,
+    "confidence": 0.5
+   },
+   {
+    "qid": 721,
+    "spec": {
+     "target": {
+      "kind": "acceleration",
+      "objects": [
+       "paper airplane"
+      ],
+      "dimension": "",
+      "time": 1.0,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s^2"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "chalkboard"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "horizontal",
+      "value_si": 5,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "chalkboard",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "paper airplane",
+      "obs": []
+     }
+    ],
+    "direct_answer": 9.0,
+    "confidence": 0.25
+   },
+   {
+    "qid": 722,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "paper airplane"
+      ],
+      "dimension": "",
+      "time": 1.25,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "chalkboard"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "horizontal",
+      "value_si": 5,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "chalkboard",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "paper airplane",
+      "obs": []
+     }
+    ],
+    "direct_answer": 5.3,
+    "confidence": 0.5
+   },
+   {
+    "qid": 723,
+    "spec": {
+     "target": {
+      "kind": "acceleration",
+      "objects": [
+       "paper airplane"
+      ],
+      "dimension": "",
+      "time": 1.25,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s^2"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "chalkboard"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "horizontal",
+      "value_si": 5,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "chalkboard",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "paper airplane",
+      "obs": []
+     }
+    ],
+    "direct_answer": 7.0,
+    "confidence": 0.2
+   }
+  ]
+ }
+}

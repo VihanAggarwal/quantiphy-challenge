@@ -1,0 +1,549 @@
+{
+ "video_id": "simulation_0012",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfpqCFhygZWnAHz2bKQEF",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 854
+ },
+ "ts": "2026-10-08T17:02:27+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_01XRoUdcv1JJmFFWwZHgai9d",
+ "custom_id": "simulation_0012",
+ "usage": {
+  "input_tokens": 15442,
+  "output_tokens": 2195,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 4317,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.053266,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0012",
+  "fps": 24.0,
+  "fps_from_container": false,
+  "video_type": "V2MC",
+  "n_frames_total": 61,
+  "scale": 0.43705220061412486,
+  "image_size": [
+   1920,
+   1954
+  ],
+  "frames": [
+   0,
+   4,
+   8,
+   12,
+   16,
+   20,
+   24,
+   28,
+   32,
+   36,
+   40,
+   44,
+   48,
+   52,
+   56,
+   60
+  ],
+  "questions": [
+   {
+    "qid": 5,
+    "target_unit": "m",
+    "prior": "speed of the bird =6m/s",
+    "depth_info": ""
+   },
+   {
+    "qid": 6,
+    "target_unit": "m",
+    "prior": "speed of the bird =6m/s",
+    "depth_info": ""
+   },
+   {
+    "qid": 7,
+    "target_unit": "m",
+    "prior": "speed of the bird =6m/s",
+    "depth_info": ""
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":5,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"house\"],\"dimension\":\"width\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"bird\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":6,\"unit\":\"\"},\"depth\":[],\"notes\":\"Bird speed varies over the clip, so the whole-clip average speed is used for scale. The house width is taken across the eaves.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"bird\",\"obs\":[{\"frame\":0,\"point\":[328,485],\"extent\":null,\"box\":null},{\"frame\":4,\"point\":[342,483],\"extent\":null,\"box\":null},{\"frame\":8,\"point\":[362,484],\"extent\":null,\"box\":null},{\"frame\":12,\"point\":[382,487],\"extent\":null,\"box\":null},{\"frame\":16,\"point\":[415,487],\"extent\":null,\"box\":null},{\"frame\":20,\"point\":[455,484],\"extent\":null,\"box\":null},{\"frame\":24,\"point\":[492,483],\"extent\":null,\"box\":null},{\"frame\":28,\"point\":[528,486],\"extent\":null,\"box\":null},{\"frame\":32,\"point\":[566,487],\"extent\":null,\"box\":null},{\"frame\":36,\"point\":[600,483],\"extent\":null,\"box\":null},{\"frame\":40,\"point\":[632,482],\"extent\":null,\"box\":null},{\"frame\":44,\"point\":[670,478],\"extent\":null,\"box\":null},{\"frame\":48,\"point\":[706,483],\"extent\":null,\"box\":null},{\"frame\":52,\"point\":[720,480],\"extent\":null,\"box\":null},{\"frame\":56,\"point\":[737,485],\"extent\":null,\"box\":null},{\"frame\":60,\"point\":[752,487],\"extent\":null,\"box\":null}]},{\"role\":\"target\",\"object\":\"house\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[175,295],[606,290]],\"box\":[175,0,606,348]},{\"frame\":24,\"point\":null,\"extent\":[[175,295],[606,290]],\"box\":[175,0,606,348]},{\"frame\":48,\"point\":null,\"extent\":[[175,295],[606,290]],\"box\":[175,0,606,348]}]}],\"direct_answer\":15.2,\"confidence\":0.35},{\"qid\":6,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"bird\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"bird\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":6,\"unit\":\"\"},\"depth\":[],\"notes\":\"The whole-clip average speed is used for scale.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"bird\",\"obs\":[]},{\"role\":\"target\",\"object\":\"bird\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[299,486],[355,484]],\"box\":[299,430,355,541]},{\"frame\":16,\"point\":null,\"extent\":[[385,485],[444,483]],\"box\":[385,433,444,540]},{\"frame\":32,\"point\":null,\"extent\":[[536,485],[593,484]],\"box\":[536,434,593,541]}]}],\"direct_answer\":1.98,\"confidence\":0.35},{\"qid\":7,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"bird\"],\"dimension\":\"wingspan\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"bird\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":6,\"unit\":\"\"},\"depth\":[],\"notes\":\"The whole-clip average speed is used for scale.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"bird\",\"obs\":[]},{\"role\":\"target\",\"object\":\"bird\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[336,430],[350,541]],\"box\":[299,430,355,541]},{\"frame\":16,\"point\":null,\"extent\":[[440,433],[438,540]],\"box\":[385,433,444,540]},{\"frame\":32,\"point\":null,\"extent\":[[592,434],[590,541]],\"box\":[536,434,593,541]}]}],\"direct_answer\":3.9,\"confidence\":0.35}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 5,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "house"
+      ],
+      "dimension": "width",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "bird"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 6,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Bird speed varies over the clip, so the whole-clip average speed is used for scale. The house width is taken across the eaves."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "bird",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         328,
+         485
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 4,
+        "point": [
+         342,
+         483
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 8,
+        "point": [
+         362,
+         484
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 12,
+        "point": [
+         382,
+         487
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 16,
+        "point": [
+         415,
+         487
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 20,
+        "point": [
+         455,
+         484
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 24,
+        "point": [
+         492,
+         483
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 28,
+        "point": [
+         528,
+         486
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 32,
+        "point": [
+         566,
+         487
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 36,
+        "point": [
+         600,
+         483
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 40,
+        "point": [
+         632,
+         482
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 44,
+        "point": [
+         670,
+         478
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 48,
+        "point": [
+         706,
+         483
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 52,
+        "point": [
+         720,
+         480
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 56,
+        "point": [
+         737,
+         485
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 60,
+        "point": [
+         752,
+         487
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "house",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          175,
+          295
+         ],
+         [
+          606,
+          290
+         ]
+        ],
+        "box": [
+         175,
+         0,
+         606,
+         348
+        ]
+       },
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          175,
+          295
+         ],
+         [
+          606,
+          290
+         ]
+        ],
+        "box": [
+         175,
+         0,
+         606,
+         348
+        ]
+       },
+       {
+        "frame": 48,
+        "point": null,
+        "extent": [
+         [
+          175,
+          295
+         ],
+         [
+          606,
+          290
+         ]
+        ],
+        "box": [
+         175,
+         0,
+         606,
+         348
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 15.2,
+    "confidence": 0.35
+   },
+   {
+    "qid": 6,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "bird"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "bird"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 6,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "The whole-clip average speed is used for scale."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "bird",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "bird",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          299,
+          486
+         ],
+         [
+          355,
+          484
+         ]
+        ],
+        "box": [
+         299,
+         430,
+         355,
+         541
+        ]
+       },
+       {
+        "frame": 16,
+        "point": null,
+        "extent": [
+         [
+          385,
+          485
+         ],
+         [
+          444,
+          483
+         ]
+        ],
+        "box": [
+         385,
+         433,
+         444,
+         540
+        ]
+       },
+       {
+        "frame": 32,
+        "point": null,
+        "extent": [
+         [
+          536,
+          485
+         ],
+         [
+          593,
+          484
+         ]
+        ],
+        "box": [
+         536,
+         434,
+         593,
+         541
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 1.98,
+    "confidence": 0.35
+   },
+   {
+    "qid": 7,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "bird"
+      ],
+      "dimension": "wingspan",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "bird"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 6,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "The whole-clip average speed is used for scale."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "bird",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "bird",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          336,
+          430
+         ],
+         [
+          350,
+          541
+         ]
+        ],
+        "box": [
+         299,
+         430,
+         355,
+         541
+        ]
+       },
+       {
+        "frame": 16,
+        "point": null,
+        "extent": [
+         [
+          440,
+          433
+         ],
+         [
+          438,
+          540
+         ]
+        ],
+        "box": [
+         385,
+         433,
+         444,
+         540
+        ]
+       },
+       {
+        "frame": 32,
+        "point": null,
+        "extent": [
+         [
+          592,
+          434
+         ],
+         [
+          590,
+          541
+         ]
+        ],
+        "box": [
+         536,
+         434,
+         593,
+         541
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 3.9,
+    "confidence": 0.35
+   }
+  ]
+ }
+}

@@ -1,0 +1,484 @@
+{
+ "video_id": "internet_0067",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011Cfq6zADNHBuzDKeEjCAuW",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 854
+ },
+ "ts": "2026-10-08T16:42:43+00:00",
+ "mode": "sync",
+ "request_id": "req_011Cfq6z9p3xZon4TFgM5T2q",
+ "usage": {
+  "input_tokens": 7276,
+  "output_tokens": 2445,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 4317,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.078867,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "internet_0067",
+  "fps": 30.0,
+  "fps_from_container": false,
+  "video_type": "S2SS",
+  "n_frames_total": 12,
+  "scale": 0.22239583333333332,
+  "image_size": [
+   3840,
+   2158
+  ],
+  "frames": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11
+  ],
+  "questions": [
+   {
+    "qid": 3239,
+    "target_unit": "m/s^2",
+    "prior": "height of the acorn = 8 cm",
+    "depth_info": ""
+   },
+   {
+    "qid": 3240,
+    "target_unit": "m/s",
+    "prior": "height of the acorn = 8 cm",
+    "depth_info": ""
+   },
+   {
+    "qid": 3241,
+    "target_unit": "m/s",
+    "prior": "height of the acorn = 8 cm",
+    "depth_info": ""
+   },
+   {
+    "qid": 3242,
+    "target_unit": "cm",
+    "prior": "height of the acorn = 8 cm",
+    "depth_info": ""
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":3239,\"spec\":{\"target\":{\"kind\":\"acceleration\",\"objects\":[\"acorn\"],\"dimension\":\"\",\"time\":0.17,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s^2\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"acorn\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.08,\"unit\":\"\"},\"depth\":[],\"notes\":\"Strong motion blur; positions estimated from blurred blob centres.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"acorn\",\"obs\":[{\"frame\":3,\"point\":null,\"extent\":[[150,216],[150,356]],\"box\":[85,216,212,356]},{\"frame\":4,\"point\":null,\"extent\":[[270,220],[270,361]],\"box\":[205,220,335,361]},{\"frame\":5,\"point\":null,\"extent\":[[430,223],[430,367]],\"box\":[358,223,502,367]},{\"frame\":6,\"point\":null,\"extent\":[[620,228],[620,374]],\"box\":[543,228,700,374]}]},{\"role\":\"target\",\"object\":\"acorn motion\",\"obs\":[{\"frame\":2,\"point\":[58,282],\"extent\":null,\"box\":null},{\"frame\":3,\"point\":[150,286],\"extent\":null,\"box\":[85,216,212,356]},{\"frame\":4,\"point\":[270,290],\"extent\":null,\"box\":[205,220,335,361]},{\"frame\":5,\"point\":[430,295],\"extent\":null,\"box\":[358,223,502,367]},{\"frame\":6,\"point\":[620,301],\"extent\":null,\"box\":[543,228,700,374]},{\"frame\":7,\"point\":[805,305],\"extent\":null,\"box\":null}]}],\"direct_answer\":16,\"confidence\":0.25},{\"qid\":3240,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"acorn\"],\"dimension\":\"\",\"time\":0.17,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"acorn\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.08,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"acorn\",\"obs\":[]},{\"role\":\"target\",\"object\":\"acorn motion\",\"obs\":[]}],\"direct_answer\":2.96,\"confidence\":0.45},{\"qid\":3241,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"acorn\"],\"dimension\":\"\",\"time\":0.2,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"acorn\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.08,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"acorn\",\"obs\":[]},{\"role\":\"target\",\"object\":\"acorn motion\",\"obs\":[]}],\"direct_answer\":3.17,\"confidence\":0.4},{\"qid\":3242,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"acorn\"],\"dimension\":\"width\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"cm\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"acorn\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.08,\"unit\":\"\"},\"depth\":[],\"notes\":\"Width inflated by horizontal motion blur; estimated deblurred width.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"acorn\",\"obs\":[]},{\"role\":\"target\",\"object\":\"acorn\",\"obs\":[{\"frame\":3,\"point\":null,\"extent\":[[97,252],[200,252]],\"box\":[97,216,200,356]},{\"frame\":4,\"point\":null,\"extent\":[[217,256],[323,256]],\"box\":[217,220,323,361]},{\"frame\":5,\"point\":null,\"extent\":[[375,260],[485,260]],\"box\":[375,223,485,367]}]}],\"direct_answer\":6.2,\"confidence\":0.3}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 3239,
+    "spec": {
+     "target": {
+      "kind": "acceleration",
+      "objects": [
+       "acorn"
+      ],
+      "dimension": "",
+      "time": 0.17,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s^2"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "acorn"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.08,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Strong motion blur; positions estimated from blurred blob centres."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "acorn",
+      "obs": [
+       {
+        "frame": 3,
+        "point": null,
+        "extent": [
+         [
+          150,
+          216
+         ],
+         [
+          150,
+          356
+         ]
+        ],
+        "box": [
+         85,
+         216,
+         212,
+         356
+        ]
+       },
+       {
+        "frame": 4,
+        "point": null,
+        "extent": [
+         [
+          270,
+          220
+         ],
+         [
+          270,
+          361
+         ]
+        ],
+        "box": [
+         205,
+         220,
+         335,
+         361
+        ]
+       },
+       {
+        "frame": 5,
+        "point": null,
+        "extent": [
+         [
+          430,
+          223
+         ],
+         [
+          430,
+          367
+         ]
+        ],
+        "box": [
+         358,
+         223,
+         502,
+         367
+        ]
+       },
+       {
+        "frame": 6,
+        "point": null,
+        "extent": [
+         [
+          620,
+          228
+         ],
+         [
+          620,
+          374
+         ]
+        ],
+        "box": [
+         543,
+         228,
+         700,
+         374
+        ]
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "acorn motion",
+      "obs": [
+       {
+        "frame": 2,
+        "point": [
+         58,
+         282
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 3,
+        "point": [
+         150,
+         286
+        ],
+        "extent": null,
+        "box": [
+         85,
+         216,
+         212,
+         356
+        ]
+       },
+       {
+        "frame": 4,
+        "point": [
+         270,
+         290
+        ],
+        "extent": null,
+        "box": [
+         205,
+         220,
+         335,
+         361
+        ]
+       },
+       {
+        "frame": 5,
+        "point": [
+         430,
+         295
+        ],
+        "extent": null,
+        "box": [
+         358,
+         223,
+         502,
+         367
+        ]
+       },
+       {
+        "frame": 6,
+        "point": [
+         620,
+         301
+        ],
+        "extent": null,
+        "box": [
+         543,
+         228,
+         700,
+         374
+        ]
+       },
+       {
+        "frame": 7,
+        "point": [
+         805,
+         305
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     }
+    ],
+    "direct_answer": 16,
+    "confidence": 0.25
+   },
+   {
+    "qid": 3240,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "acorn"
+      ],
+      "dimension": "",
+      "time": 0.17,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "acorn"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.08,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "acorn",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "acorn motion",
+      "obs": []
+     }
+    ],
+    "direct_answer": 2.96,
+    "confidence": 0.45
+   },
+   {
+    "qid": 3241,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "acorn"
+      ],
+      "dimension": "",
+      "time": 0.2,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "acorn"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.08,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "acorn",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "acorn motion",
+      "obs": []
+     }
+    ],
+    "direct_answer": 3.17,
+    "confidence": 0.4
+   },
+   {
+    "qid": 3242,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "acorn"
+      ],
+      "dimension": "width",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "cm"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "acorn"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.08,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Width inflated by horizontal motion blur; estimated deblurred width."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "acorn",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "acorn",
+      "obs": [
+       {
+        "frame": 3,
+        "point": null,
+        "extent": [
+         [
+          97,
+          252
+         ],
+         [
+          200,
+          252
+         ]
+        ],
+        "box": [
+         97,
+         216,
+         200,
+         356
+        ]
+       },
+       {
+        "frame": 4,
+        "point": null,
+        "extent": [
+         [
+          217,
+          256
+         ],
+         [
+          323,
+          256
+         ]
+        ],
+        "box": [
+         217,
+         220,
+         323,
+         361
+        ]
+       },
+       {
+        "frame": 5,
+        "point": null,
+        "extent": [
+         [
+          375,
+          260
+         ],
+         [
+          485,
+          260
+         ]
+        ],
+        "box": [
+         375,
+         223,
+         485,
+         367
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 6.2,
+    "confidence": 0.3
+   }
+  ]
+ }
+}
