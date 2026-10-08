@@ -8,3 +8,5 @@ anthropic>=0.70
 openai>=1.50
 google-genai>=1.0
 pytest>=8
+jsonschema>=4.20        # tests: validates the Claude structured-output schema (skipped without it)
+nbformat>=5.10          # notebooks/_build_notebook.py and its test validate the Colab notebook
