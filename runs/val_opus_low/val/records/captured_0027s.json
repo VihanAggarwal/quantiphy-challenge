@@ -1,0 +1,440 @@
+{
+ "video_id": "captured_0027s",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011Cfp7riLHi29USHXGfTMY7",
+ "model": "claude-opus-5-5",
+ "effort": "low",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "low",
+  "frames": 16,
+  "max_frames": 32
+ },
+ "ts": "2026-10-08T04:21:35+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_01DFEko4iD77xaqhX3ZLyQEr",
+ "custom_id": "captured_0027s",
+ "usage": {
+  "input_tokens": 13344,
+  "output_tokens": 1440,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 4317,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.04152,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "captured_0027s",
+  "fps": 24.0,
+  "fps_from_container": false,
+  "video_type": "S3SS",
+  "n_frames_total": 49,
+  "scale": 1.0,
+  "image_size": [
+   854,
+   480
+  ],
+  "frames": [
+   0,
+   2,
+   3,
+   5,
+   6,
+   7,
+   10,
+   12,
+   13,
+   14,
+   16,
+   17,
+   19,
+   22,
+   26,
+   29,
+   32,
+   35,
+   38,
+   42,
+   45,
+   48
+  ],
+  "questions": [
+   {
+    "qid": 2604,
+    "target_unit": "cm/s",
+    "prior": "diameter of the red ball = 7 cm"
+   },
+   {
+    "qid": 2605,
+    "target_unit": "cm/s",
+    "prior": "diameter of the red ball = 7 cm"
+   },
+   {
+    "qid": 2606,
+    "target_unit": "cm/s^2",
+    "prior": "diameter of the red ball = 7 cm"
+   },
+   {
+    "qid": 2607,
+    "target_unit": "cm",
+    "prior": "diameter of the red ball = 7 cm"
+   }
+  ]
+ },
+ "raw_text": "{\"questions\":[{\"qid\":2604,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"red ball\"],\"dimension\":\"\",\"time\":0.2,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"cm/s\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"red ball\"],\"dimension\":\"diameter\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.07,\"unit\":\"\"},\"depth\":[{\"object\":\"book\",\"distance_m\":1.0995,\"time\":0.2},{\"object\":\"book\",\"distance_m\":1.151,\"time\":0.6},{\"object\":\"person left\",\"distance_m\":1.275,\"time\":null},{\"object\":\"person right\",\"distance_m\":1.2305,\"time\":null}],\"notes\":\"Depth info refers to book/person not visible; likely mismatched.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"red ball\",\"obs\":[{\"frame\":3,\"point\":null,\"extent\":[[408.5,265.5],[444.5,265.5]],\"box\":[408.5,246,444.5,285]},{\"frame\":5,\"point\":null,\"extent\":[[409.5,263.5],[441.5,263.5]],\"box\":[409.5,246,441.5,281]},{\"frame\":7,\"point\":null,\"extent\":[[412.5,248],[442.5,248]],\"box\":[412.5,232,442.5,264]}]},{\"role\":\"target\",\"object\":\"red ball\",\"obs\":[{\"frame\":3,\"point\":[426.5,265.5],\"extent\":null,\"box\":null},{\"frame\":5,\"point\":[425.5,263.5],\"extent\":null,\"box\":null},{\"frame\":6,\"point\":[427,256.5],\"extent\":null,\"box\":null},{\"frame\":7,\"point\":[427.5,248],\"extent\":null,\"box\":null}]}],\"direct_answer\":35,\"confidence\":0.2},{\"qid\":2605,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"red ball\"],\"dimension\":\"\",\"time\":0.6,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"cm/s\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"red ball\"],\"dimension\":\"diameter\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.07,\"unit\":\"\"},\"depth\":[{\"object\":\"book\",\"distance_m\":1.0995,\"time\":0.2},{\"object\":\"book\",\"distance_m\":1.151,\"time\":0.6}],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"red ball\",\"obs\":[]},{\"role\":\"target\",\"object\":\"red ball\",\"obs\":[{\"frame\":13,\"point\":[435.5,224.5],\"extent\":null,\"box\":null},{\"frame\":14,\"point\":[436.5,231],\"extent\":null,\"box\":null},{\"frame\":16,\"point\":[439,249],\"extent\":null,\"box\":null}]}],\"direct_answer\":38,\"confidence\":0.2},{\"qid\":2606,\"spec\":{\"target\":{\"kind\":\"acceleration\",\"objects\":[\"red ball\"],\"dimension\":\"\",\"time\":0.2,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"cm/s^2\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"red ball\"],\"dimension\":\"diameter\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.07,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"red ball\",\"obs\":[]},{\"role\":\"target\",\"object\":\"red ball\",\"obs\":[]}],\"direct_answer\":400,\"confidence\":0.1},{\"qid\":2607,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"person\"],\"dimension\":\"shoulder breadth\",\"time\":null,\"window\":null,\"axis\":\"horizontal\",\"value_si\":null,\"unit\":\"cm\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"red ball\"],\"dimension\":\"diameter\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.07,\"unit\":\"\"},\"depth\":[{\"object\":\"person left\",\"distance_m\":1.275,\"time\":null},{\"object\":\"person right\",\"distance_m\":1.2305,\"time\":null}],\"notes\":\"No person visible.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"red ball\",\"obs\":[]},{\"role\":\"target\",\"object\":\"person\",\"obs\":[]}],\"direct_answer\":40,\"confidence\":0.1}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 2604,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "red ball"
+      ],
+      "dimension": "",
+      "time": 0.2,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "cm/s"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "red ball"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.07,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "book",
+       "distance_m": 1.0995,
+       "time": 0.2
+      },
+      {
+       "object": "book",
+       "distance_m": 1.151,
+       "time": 0.6
+      },
+      {
+       "object": "person left",
+       "distance_m": 1.275,
+       "time": null
+      },
+      {
+       "object": "person right",
+       "distance_m": 1.2305,
+       "time": null
+      }
+     ],
+     "notes": "Depth info refers to book/person not visible; likely mismatched."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "red ball",
+      "obs": [
+       {
+        "frame": 3,
+        "point": null,
+        "extent": [
+         [
+          408.5,
+          265.5
+         ],
+         [
+          444.5,
+          265.5
+         ]
+        ],
+        "box": [
+         408.5,
+         246,
+         444.5,
+         285
+        ]
+       },
+       {
+        "frame": 5,
+        "point": null,
+        "extent": [
+         [
+          409.5,
+          263.5
+         ],
+         [
+          441.5,
+          263.5
+         ]
+        ],
+        "box": [
+         409.5,
+         246,
+         441.5,
+         281
+        ]
+       },
+       {
+        "frame": 7,
+        "point": null,
+        "extent": [
+         [
+          412.5,
+          248
+         ],
+         [
+          442.5,
+          248
+         ]
+        ],
+        "box": [
+         412.5,
+         232,
+         442.5,
+         264
+        ]
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "red ball",
+      "obs": [
+       {
+        "frame": 3,
+        "point": [
+         426.5,
+         265.5
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 5,
+        "point": [
+         425.5,
+         263.5
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 6,
+        "point": [
+         427,
+         256.5
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 7,
+        "point": [
+         427.5,
+         248
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     }
+    ],
+    "direct_answer": 35,
+    "confidence": 0.2
+   },
+   {
+    "qid": 2605,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "red ball"
+      ],
+      "dimension": "",
+      "time": 0.6,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "cm/s"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "red ball"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.07,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "book",
+       "distance_m": 1.0995,
+       "time": 0.2
+      },
+      {
+       "object": "book",
+       "distance_m": 1.151,
+       "time": 0.6
+      }
+     ],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "red ball",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "red ball",
+      "obs": [
+       {
+        "frame": 13,
+        "point": [
+         435.5,
+         224.5
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 14,
+        "point": [
+         436.5,
+         231
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 16,
+        "point": [
+         439,
+         249
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     }
+    ],
+    "direct_answer": 38,
+    "confidence": 0.2
+   },
+   {
+    "qid": 2606,
+    "spec": {
+     "target": {
+      "kind": "acceleration",
+      "objects": [
+       "red ball"
+      ],
+      "dimension": "",
+      "time": 0.2,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "cm/s^2"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "red ball"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.07,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "red ball",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "red ball",
+      "obs": []
+     }
+    ],
+    "direct_answer": 400,
+    "confidence": 0.1
+   },
+   {
+    "qid": 2607,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "person"
+      ],
+      "dimension": "shoulder breadth",
+      "time": null,
+      "window": null,
+      "axis": "horizontal",
+      "value_si": null,
+      "unit": "cm"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "red ball"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.07,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "person left",
+       "distance_m": 1.275,
+       "time": null
+      },
+      {
+       "object": "person right",
+       "distance_m": 1.2305,
+       "time": null
+      }
+     ],
+     "notes": "No person visible."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "red ball",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "person",
+      "obs": []
+     }
+    ],
+    "direct_answer": 40,
+    "confidence": 0.1
+   }
+  ]
+ }
+}

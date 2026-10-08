@@ -1,0 +1,457 @@
+{
+ "video_id": "internet_0001",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011Cfp8F1R4EokDNd3kQAaD2",
+ "model": "claude-opus-5-5",
+ "effort": "low",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "low",
+  "frames": 16,
+  "max_frames": 32
+ },
+ "ts": "2026-10-08T04:21:35+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_01DFEko4iD77xaqhX3ZLyQEr",
+ "custom_id": "internet_0001",
+ "usage": {
+  "input_tokens": 9475,
+  "output_tokens": 1436,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 4317,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.033742,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "internet_0001",
+  "fps": 24.0,
+  "fps_from_container": false,
+  "video_type": "S2SC",
+  "n_frames_total": 31,
+  "scale": 1.0,
+  "image_size": [
+   854,
+   480
+  ],
+  "frames": [
+   0,
+   2,
+   4,
+   6,
+   8,
+   10,
+   12,
+   14,
+   16,
+   18,
+   20,
+   22,
+   24,
+   26,
+   28,
+   30
+  ],
+  "questions": [
+   {
+    "qid": 2151,
+    "target_unit": "m",
+    "prior": "lane width = 3.66 m"
+   },
+   {
+    "qid": 2152,
+    "target_unit": "m",
+    "prior": "lane width = 3.66 m"
+   },
+   {
+    "qid": 2153,
+    "target_unit": "m/s",
+    "prior": "lane width = 3.66 m"
+   }
+  ]
+ },
+ "raw_text": "{\"questions\":[{\"qid\":2151,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"black car\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"lane\"],\"dimension\":\"width\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":3.66,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"lane\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[421,290],[421,358]],\"box\":null},{\"frame\":12,\"point\":null,\"extent\":[[421,290],[421,358]],\"box\":null},{\"frame\":24,\"point\":null,\"extent\":[[678,292],[678,361]],\"box\":null}]},{\"role\":\"target\",\"object\":\"black car\",\"obs\":[{\"frame\":8,\"point\":null,\"extent\":[[266,325],[371,325]],\"box\":[266,304,371,346]},{\"frame\":12,\"point\":null,\"extent\":[[376,326],[479,326]],\"box\":[376,305,479,347]},{\"frame\":16,\"point\":null,\"extent\":[[484,328],[586,328]],\"box\":[484,307,586,349]}]}],\"direct_answer\":5.45,\"confidence\":0.6},{\"qid\":2152,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"black car\"],\"dimension\":\"width\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"lane\"],\"dimension\":\"width\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":3.66,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"lane\",\"obs\":[]},{\"role\":\"target\",\"object\":\"black car\",\"obs\":[{\"frame\":8,\"point\":null,\"extent\":[[318,304],[318,346]],\"box\":[266,304,371,346]},{\"frame\":12,\"point\":null,\"extent\":[[427,305],[427,347]],\"box\":[376,305,479,347]},{\"frame\":16,\"point\":null,\"extent\":[[535,307],[535,349]],\"box\":[484,307,586,349]}]}],\"direct_answer\":2.15,\"confidence\":0.5},{\"qid\":2153,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"black car\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"lane\"],\"dimension\":\"width\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":3.66,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"lane\",\"obs\":[]},{\"role\":\"target\",\"object\":\"black car\",\"obs\":[{\"frame\":0,\"point\":[102,322],\"extent\":null,\"box\":[48,301,156,343]},{\"frame\":4,\"point\":[210,324],\"extent\":null,\"box\":null},{\"frame\":8,\"point\":[318,325],\"extent\":null,\"box\":null},{\"frame\":12,\"point\":[427,326],\"extent\":null,\"box\":null},{\"frame\":16,\"point\":[535,328],\"extent\":null,\"box\":null},{\"frame\":20,\"point\":[643,329],\"extent\":null,\"box\":null},{\"frame\":24,\"point\":[752,330],\"extent\":null,\"box\":[698,309,806,352]}]}],\"direct_answer\":34,\"confidence\":0.5}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 2151,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "black car"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "lane"
+      ],
+      "dimension": "width",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 3.66,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "lane",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          421,
+          290
+         ],
+         [
+          421,
+          358
+         ]
+        ],
+        "box": null
+       },
+       {
+        "frame": 12,
+        "point": null,
+        "extent": [
+         [
+          421,
+          290
+         ],
+         [
+          421,
+          358
+         ]
+        ],
+        "box": null
+       },
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          678,
+          292
+         ],
+         [
+          678,
+          361
+         ]
+        ],
+        "box": null
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "black car",
+      "obs": [
+       {
+        "frame": 8,
+        "point": null,
+        "extent": [
+         [
+          266,
+          325
+         ],
+         [
+          371,
+          325
+         ]
+        ],
+        "box": [
+         266,
+         304,
+         371,
+         346
+        ]
+       },
+       {
+        "frame": 12,
+        "point": null,
+        "extent": [
+         [
+          376,
+          326
+         ],
+         [
+          479,
+          326
+         ]
+        ],
+        "box": [
+         376,
+         305,
+         479,
+         347
+        ]
+       },
+       {
+        "frame": 16,
+        "point": null,
+        "extent": [
+         [
+          484,
+          328
+         ],
+         [
+          586,
+          328
+         ]
+        ],
+        "box": [
+         484,
+         307,
+         586,
+         349
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 5.45,
+    "confidence": 0.6
+   },
+   {
+    "qid": 2152,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "black car"
+      ],
+      "dimension": "width",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "lane"
+      ],
+      "dimension": "width",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 3.66,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "lane",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "black car",
+      "obs": [
+       {
+        "frame": 8,
+        "point": null,
+        "extent": [
+         [
+          318,
+          304
+         ],
+         [
+          318,
+          346
+         ]
+        ],
+        "box": [
+         266,
+         304,
+         371,
+         346
+        ]
+       },
+       {
+        "frame": 12,
+        "point": null,
+        "extent": [
+         [
+          427,
+          305
+         ],
+         [
+          427,
+          347
+         ]
+        ],
+        "box": [
+         376,
+         305,
+         479,
+         347
+        ]
+       },
+       {
+        "frame": 16,
+        "point": null,
+        "extent": [
+         [
+          535,
+          307
+         ],
+         [
+          535,
+          349
+         ]
+        ],
+        "box": [
+         484,
+         307,
+         586,
+         349
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 2.15,
+    "confidence": 0.5
+   },
+   {
+    "qid": 2153,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "black car"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "lane"
+      ],
+      "dimension": "width",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 3.66,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "lane",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "black car",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         102,
+         322
+        ],
+        "extent": null,
+        "box": [
+         48,
+         301,
+         156,
+         343
+        ]
+       },
+       {
+        "frame": 4,
+        "point": [
+         210,
+         324
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 8,
+        "point": [
+         318,
+         325
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 12,
+        "point": [
+         427,
+         326
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 16,
+        "point": [
+         535,
+         328
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 20,
+        "point": [
+         643,
+         329
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 24,
+        "point": [
+         752,
+         330
+        ],
+        "extent": null,
+        "box": [
+         698,
+         309,
+         806,
+         352
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 34,
+    "confidence": 0.5
+   }
+  ]
+ }
+}

@@ -1,0 +1,534 @@
+{
+ "video_id": "internet_0004",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011Cfp7dCvrHdaUdTkDzPyYV",
+ "model": "claude-opus-5-5",
+ "effort": "medium",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "medium",
+  "frames": 16,
+  "max_frames": 32
+ },
+ "ts": "2026-10-08T04:35:42+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_01W6dEtSCc7MDKzqgaLPCjht",
+ "custom_id": "internet_0004",
+ "usage": {
+  "input_tokens": 9572,
+  "output_tokens": 2281,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 4317,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.042386,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "internet_0004",
+  "fps": 25.0,
+  "fps_from_container": false,
+  "video_type": "S2MC",
+  "n_frames_total": 428,
+  "scale": 1.0,
+  "image_size": [
+   854,
+   480
+  ],
+  "frames": [
+   0,
+   28,
+   57,
+   85,
+   114,
+   142,
+   171,
+   199,
+   228,
+   256,
+   285,
+   313,
+   342,
+   370,
+   399,
+   427
+  ],
+  "questions": [
+   {
+    "qid": 2161,
+    "target_unit": "cm",
+    "prior": "ruler calibre = 1 cm"
+   },
+   {
+    "qid": 2162,
+    "target_unit": "cm",
+    "prior": "ruler calibre = 1 cm"
+   },
+   {
+    "qid": 2163,
+    "target_unit": "cm/s",
+    "prior": "ruler calibre = 1 cm"
+   },
+   {
+    "qid": 2164,
+    "target_unit": "cm/s",
+    "prior": "ruler calibre = 1 cm"
+   }
+  ]
+ },
+ "raw_text": "{\"questions\":[{\"qid\":2161,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"wood block\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"cm\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"ruler\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.01,\"unit\":\"\"},\"depth\":[],\"notes\":\"ruler calibre taken as 1 cm graduation spacing; block 'length' is the visible horizontal edge of the end face\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"ruler\",\"obs\":[{\"frame\":28,\"point\":null,\"extent\":[[300,190],[346,190]],\"box\":null},{\"frame\":85,\"point\":null,\"extent\":[[300,195],[346,195]],\"box\":null}]},{\"role\":\"target\",\"object\":\"wood block\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[187,260],[674,260]],\"box\":[187,208,674,310]},{\"frame\":114,\"point\":null,\"extent\":[[187,260],[674,260]],\"box\":[187,208,674,310]},{\"frame\":142,\"point\":null,\"extent\":[[187,260],[674,260]],\"box\":[187,208,674,310]}]}],\"direct_answer\":10.6,\"confidence\":0.3},{\"qid\":2162,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"wood block\"],\"dimension\":\"thickness\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"cm\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"ruler\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.01,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"ruler\",\"obs\":[]},{\"role\":\"target\",\"object\":\"wood block\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[430,210],[430,308]],\"box\":[187,208,674,310]},{\"frame\":114,\"point\":null,\"extent\":[[430,210],[430,308]],\"box\":[187,208,674,310]},{\"frame\":142,\"point\":null,\"extent\":[[430,210],[430,308]],\"box\":[187,208,674,310]}]}],\"direct_answer\":2.1,\"confidence\":0.3},{\"qid\":2163,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"pencil tip\"],\"dimension\":\"\",\"time\":null,\"window\":[2.28,3.4],\"axis\":\"any\",\"value_si\":null,\"unit\":\"cm/s\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"ruler\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.01,\"unit\":\"\"},\"depth\":[],\"notes\":\"pencil only visible on frames 57 and 85\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"ruler\",\"obs\":[]},{\"role\":\"target\",\"object\":\"pencil tip\",\"obs\":[{\"frame\":57,\"point\":[660,205],\"extent\":null,\"box\":null},{\"frame\":85,\"point\":[110,210],\"extent\":null,\"box\":null}]}],\"direct_answer\":10.7,\"confidence\":0.2},{\"qid\":2164,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"saw\"],\"dimension\":\"\",\"time\":null,\"window\":[6.84,17.08],\"axis\":\"horizontal\",\"value_si\":null,\"unit\":\"cm/s\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"ruler\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.01,\"unit\":\"\"},\"depth\":[],\"notes\":\"tracked the black blade-guard rod of the jigsaw\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"ruler\",\"obs\":[]},{\"role\":\"target\",\"object\":\"saw\",\"obs\":[{\"frame\":171,\"point\":[232,160],\"extent\":null,\"box\":null},{\"frame\":199,\"point\":[282,170],\"extent\":null,\"box\":null},{\"frame\":228,\"point\":[305,175],\"extent\":null,\"box\":null},{\"frame\":256,\"point\":[352,180],\"extent\":null,\"box\":null},{\"frame\":285,\"point\":[432,180],\"extent\":null,\"box\":null},{\"frame\":313,\"point\":[530,180],\"extent\":null,\"box\":null},{\"frame\":342,\"point\":[607,185],\"extent\":null,\"box\":null},{\"frame\":370,\"point\":[678,185],\"extent\":null,\"box\":null},{\"frame\":399,\"point\":[752,185],\"extent\":null,\"box\":null},{\"frame\":427,\"point\":[797,165],\"extent\":null,\"box\":null}]}],\"direct_answer\":1.2,\"confidence\":0.25}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 2161,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "wood block"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "cm"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "ruler"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.01,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "ruler calibre taken as 1 cm graduation spacing; block 'length' is the visible horizontal edge of the end face"
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "ruler",
+      "obs": [
+       {
+        "frame": 28,
+        "point": null,
+        "extent": [
+         [
+          300,
+          190
+         ],
+         [
+          346,
+          190
+         ]
+        ],
+        "box": null
+       },
+       {
+        "frame": 85,
+        "point": null,
+        "extent": [
+         [
+          300,
+          195
+         ],
+         [
+          346,
+          195
+         ]
+        ],
+        "box": null
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "wood block",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          187,
+          260
+         ],
+         [
+          674,
+          260
+         ]
+        ],
+        "box": [
+         187,
+         208,
+         674,
+         310
+        ]
+       },
+       {
+        "frame": 114,
+        "point": null,
+        "extent": [
+         [
+          187,
+          260
+         ],
+         [
+          674,
+          260
+         ]
+        ],
+        "box": [
+         187,
+         208,
+         674,
+         310
+        ]
+       },
+       {
+        "frame": 142,
+        "point": null,
+        "extent": [
+         [
+          187,
+          260
+         ],
+         [
+          674,
+          260
+         ]
+        ],
+        "box": [
+         187,
+         208,
+         674,
+         310
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 10.6,
+    "confidence": 0.3
+   },
+   {
+    "qid": 2162,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "wood block"
+      ],
+      "dimension": "thickness",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "cm"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "ruler"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.01,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "ruler",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "wood block",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          430,
+          210
+         ],
+         [
+          430,
+          308
+         ]
+        ],
+        "box": [
+         187,
+         208,
+         674,
+         310
+        ]
+       },
+       {
+        "frame": 114,
+        "point": null,
+        "extent": [
+         [
+          430,
+          210
+         ],
+         [
+          430,
+          308
+         ]
+        ],
+        "box": [
+         187,
+         208,
+         674,
+         310
+        ]
+       },
+       {
+        "frame": 142,
+        "point": null,
+        "extent": [
+         [
+          430,
+          210
+         ],
+         [
+          430,
+          308
+         ]
+        ],
+        "box": [
+         187,
+         208,
+         674,
+         310
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 2.1,
+    "confidence": 0.3
+   },
+   {
+    "qid": 2163,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "pencil tip"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": [
+       2.28,
+       3.4
+      ],
+      "axis": "any",
+      "value_si": null,
+      "unit": "cm/s"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "ruler"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.01,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "pencil only visible on frames 57 and 85"
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "ruler",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "pencil tip",
+      "obs": [
+       {
+        "frame": 57,
+        "point": [
+         660,
+         205
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 85,
+        "point": [
+         110,
+         210
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     }
+    ],
+    "direct_answer": 10.7,
+    "confidence": 0.2
+   },
+   {
+    "qid": 2164,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "saw"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": [
+       6.84,
+       17.08
+      ],
+      "axis": "horizontal",
+      "value_si": null,
+      "unit": "cm/s"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "ruler"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.01,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "tracked the black blade-guard rod of the jigsaw"
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "ruler",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "saw",
+      "obs": [
+       {
+        "frame": 171,
+        "point": [
+         232,
+         160
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 199,
+        "point": [
+         282,
+         170
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 228,
+        "point": [
+         305,
+         175
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 256,
+        "point": [
+         352,
+         180
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 285,
+        "point": [
+         432,
+         180
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 313,
+        "point": [
+         530,
+         180
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 342,
+        "point": [
+         607,
+         185
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 370,
+        "point": [
+         678,
+         185
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 399,
+        "point": [
+         752,
+         185
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 427,
+        "point": [
+         797,
+         165
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     }
+    ],
+    "direct_answer": 1.2,
+    "confidence": 0.25
+   }
+  ]
+ }
+}
