@@ -455,7 +455,8 @@ def test_track_b_notebook_stages_end_to_end(tmp_path, monkeypatch, capsys):
     for name, fstring in commands:
         if name == "submission":
             continue
-        ns["fb"] = f"{a}/caw.csv" if Path(f"{a}/caw.csv").exists() else f"{q}/direct.csv"   # stage 13 rule
+        fb = next((f for f in (f"{a}/caw.csv", f"{q}/direct.csv") if Path(f).exists()), None)  # stage 13 rule
+        ns["fb"], ns["DF"] = fb, (f" --direct-from {fb}" if fb else "")
         argv = shlex.split(eval(fstring, {}, ns))                                              # noqa: S307
         script = Path(argv[1]).stem
         i = argv.index("--split")

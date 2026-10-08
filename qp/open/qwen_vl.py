@@ -45,7 +45,7 @@ import numpy as np
 from qp import prompts
 from qp.claude_annotate import mentioned_times, video_fps, video_info
 from qp.data import target_unit as question_unit
-from qp.parse import _ANS_RE, _UNITS, _to_float, canonical_unit, parse_answer
+from qp.parse import _ANS_RE, _UNITS, _to_float, canonical_unit, parse_answer, question_unit_full
 from qp.spec import KIND_DIM, KINDS, DepthEntry, Obs, Quantity, QuestionSpec, RoleTrack
 
 MODEL_8B = "Qwen/Qwen3-VL-8B-Instruct"
@@ -396,28 +396,6 @@ def _clean(text: str) -> str:
 def _unit_dim(unit: str) -> str | None:
     cu = canonical_unit(unit or "")
     return _UNITS[cu][1] if cu in _UNITS else None
-
-
-_PER_S = r"\s*(?:/|per)\s*s(?:ec(?:ond)?s?)?"
-_Q_UNIT_RE = re.compile(
-    r"\bin\s+(?:units?\s+of\s+)?(?:(km\s*/\s*h|kph|(?:km|kilomet(?:er|re)s?)\s+per\s+hour)"
-    rf"|((?:kilo|centi|milli)?met(?:er|re)s?|[ckm]?m)({_PER_S}(\s*(?:\^\s*2|²|2|squared)|{_PER_S})?)?)(?![\w/^])",
-    re.IGNORECASE)
-
-
-def question_unit_full(question: str) -> str:
-    """Unit asked by the question (last "in <unit>"), canonical, including spelled-out rates
-    ("in meters per second", "in cm per second", "in m/s2", "in meters per second squared") that
-    qp.data.target_unit reads as a length. "" if none."""
-    unit = ""
-    for m in _Q_UNIT_RE.finditer(str(question or "")):
-        if m.group(1):
-            unit = "km/h"
-            continue
-        base = canonical_unit(m.group(2)) or ""
-        cu = base + ("/s^2" if m.group(4) else "/s" if m.group(3) else "")
-        unit = cu if cu in _UNITS else unit
-    return unit
 
 
 def _kind_from_words(text: str, dim: str | None = None) -> str:

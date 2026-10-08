@@ -24,6 +24,8 @@ from pathlib import Path
 
 import pandas as pd
 
+from .parse import question_unit_full
+
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
 VAL_DIR = DATA / "QuantiPhy-validation"
@@ -42,7 +44,11 @@ _UNIT_WORDS = {"meter": "m", "metre": "m", "centimeter": "cm", "centimetre": "cm
 
 
 def target_unit(question: str) -> str:
-    """Unit requested by the question (last 'in <unit>'), normalised to a short form."""
+    """Unit requested by the question (last 'in <unit>'), normalised to a short form.
+    Spelled-out rates ("in meters per second", "in km per hour") are handled first."""
+    full = question_unit_full(question)
+    if full:
+        return full
     found = _TARGET_UNIT_RE.findall(question or "")
     if not found:
         return ""
@@ -94,20 +100,30 @@ def load_template(path: Path = TEMPLATE_CSV) -> pd.DataFrame:
 def load_test(template_path: Path = TEMPLATE_CSV) -> pd.DataFrame:
     """3,289 test questions (no answers); qid is the template `id`.
 
-    The HF parquet and the template are row-aligned; we check that on load so a
-    template update (like the 2026-09-14 id correction) can't silently misalign ids.
+    The HF parquet and the template are row-aligned. The parquet is the corrected copy
+    (typo fixes in 60 questions, depth info and 2D/3D labels filled in for a few videos), so
+    its text is used while ids come from the template by position. Video, inference type,
+    prior and fps must match exactly and questions must be near-identical, so a template
+    update can't silently misalign ids.
     """
+    from difflib import SequenceMatcher
+
     test = pd.read_parquet(next(TEST_DIR.rglob("*.parquet")))
     tmpl = load_template(template_path)
     if len(test) != len(tmpl):
         raise ValueError(f"row count mismatch: parquet={len(test)} template={len(tmpl)}")
-    for col in ("video_id", "question"):
-        if col in tmpl.columns and not (test[col].to_numpy() == tmpl[col].to_numpy()).all():
-            raise ValueError(f"template and parquet disagree on {col!r}")
+    test = test.rename(columns={"ground_truth_prior": "prior"})
+    tmpl = tmpl.rename(columns={"ground_truth_prior": "prior"})
+    for col in ("video_id", "inference_type", "prior", "fps"):
+        a, b = test[col].astype(str).to_numpy(), tmpl[col].astype(str).to_numpy()
+        if not (a == b).all():
+            raise ValueError(f"template and parquet disagree on {col!r} in {(a != b).sum()} rows")
+    sim = [SequenceMatcher(None, a, b).ratio() if a != b else 1.0
+           for a, b in zip(test["question"].astype(str), tmpl["question"].astype(str))]
+    if min(sim) < 0.8:
+        raise ValueError(f"template and parquet questions differ (min similarity {min(sim):.2f})")
     test = test.copy()
     test["qid"] = tmpl["id"].to_numpy()
-    if "ground_truth_prior" in test.columns and "prior" not in test.columns:
-        test = test.rename(columns={"ground_truth_prior": "prior"})
     return _finalize(test, TEST_DIR)
 
 

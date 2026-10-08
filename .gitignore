@@ -1,5 +1,14 @@
 data/
-runs/
+# Run outputs: keep small, paid-for results (Claude records, batch ids, CSVs) in git so a
+# container reset never re-buys them; everything else under runs/ stays local.
+runs/**
+!runs/*/
+!runs/*/*/
+!runs/*/*/records/
+!runs/*/*/records/*.json
+!runs/*/*/batch.json
+!runs/*/*/config.json
+!runs/*/*.csv
 submissions/*.csv
 !submissions/.gitkeep
 .env

@@ -37,7 +37,7 @@ Qwen3-VL and Code-as-World-VL direct answers -> geometry -> validation scores ->
 1. Runtime > Change runtime type: **GPU** (A100 / H100 best; an L4 runs the 4B model and skips Code-as-World),
    High-RAM if offered.
 2. Colab secrets (key icon in the left bar), with *Notebook access* switched on:
-   - `GITHUB_TOKEN`: a fine-grained GitHub token with **Contents: read and write** on
+   - `GH_TOKEN` (or `GITHUB_TOKEN`): a fine-grained GitHub token with **Contents: read and write** on
      `VihanAggarwal/quantiphy-challenge` (clones the private repo, pushes the `colab-outputs` and `data` branches).
    - `HF_TOKEN` (optional): only needed if a dataset or model asks for a Hugging Face login.
 3. Edit the configuration cell below, then Run all.
@@ -134,7 +134,7 @@ print("Drive:", DRIVE_ROOT, "| HF cache:", os.environ["HF_HOME"], "| log:", LOG,
 
 md("""
 ## 4. Clone the private repo and install
-`GITHUB_TOKEN` comes from Colab secrets. `sh()` runs a shell command and redacts the token from
+The GitHub token comes from Colab secrets (`GH_TOKEN`, else `GITHUB_TOKEN`). `sh()` runs a shell command and redacts the token from
 everything it prints or logs (progress bars are off; one redrawn with `\\r` is shown once, in its final
 state); `pyrun()` runs Python in a fresh process (the notebook kernel itself never imports torch /
 numpy, so upgraded packages need no runtime restart). The repo is cloned to local
@@ -154,10 +154,10 @@ def secret(name):
         return ""
 
 
-GITHUB_TOKEN, HF_TOKEN = secret("GITHUB_TOKEN"), secret("HF_TOKEN")
+GITHUB_TOKEN, HF_TOKEN = secret("GH_TOKEN") or secret("GITHUB_TOKEN"), secret("HF_TOKEN")
 if HF_TOKEN:
     os.environ["HF_TOKEN"] = HF_TOKEN
-assert GITHUB_TOKEN, "Add GITHUB_TOKEN under Colab secrets (key icon) and switch on notebook access"
+assert GITHUB_TOKEN, "Add GH_TOKEN under Colab secrets (key icon) and switch on notebook access"
 REPO_URL = f"https://{{GITHUB_TOKEN}}@github.com/{{REPO}}.git"
 REPO_DIR = "/content/quantiphy-challenge"
 FAILED = []
@@ -415,9 +415,10 @@ fails, the Code-as-World answer (else the Qwen direct answer) fills in. Writes `
 code('''
 for split in SPLITS:
     q, a, c = out_dir(split, "qwen"), out_dir(split, "caw"), out_dir(split, "cv")
-    fb = f"{a}/caw.csv" if os.path.exists(f"{a}/caw.csv") else f"{q}/direct.csv"
-    stage("geometry", split, f"python scripts/run_open_vlm.py --split {split} --task geometry --name {RUN_NAME} --out {q} --direct-from {fb}{LIM}")
-    stage("geometry", split, f"python scripts/run_open_vlm.py --split {split} --task geometry --name {RUN_NAME} --out {c} --specs-from {q}/specs --direct-from {fb}{LIM}")
+    fb = next((f for f in (f"{a}/caw.csv", f"{q}/direct.csv") if os.path.exists(f)), None)
+    DF = f" --direct-from {fb}" if fb else ""  # no fallback file yet: the step finds one itself or uses none
+    stage("geometry", split, f"python scripts/run_open_vlm.py --split {split} --task geometry --name {RUN_NAME} --out {q}{DF}{LIM}")
+    stage("geometry", split, f"python scripts/run_open_vlm.py --split {split} --task geometry --name {RUN_NAME} --out {c} --specs-from {q}/specs{DF}{LIM}")
 ''')
 
 md("""
