@@ -1,0 +1,937 @@
+{
+ "video_id": "internet_0013",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfpgtsWb7WU3uBoYySYUY",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 44,
+  "prompt_version": "v2",
+  "max_side": 1280
+ },
+ "ts": "2026-10-08T16:28:57+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_019Res78UkpW8dgp1hzHqVhX",
+ "custom_id": "internet_0013",
+ "usage": {
+  "input_tokens": 25883,
+  "output_tokens": 5128,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 5593,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.103605,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "internet_0013",
+  "fps": 30.0,
+  "fps_from_container": false,
+  "video_type": "V2MC",
+  "n_frames_total": 279,
+  "scale": 1.0,
+  "image_size": [
+   854,
+   480
+  ],
+  "frames": [
+   0,
+   6,
+   15,
+   26,
+   27,
+   28,
+   29,
+   30,
+   31,
+   32,
+   33,
+   46,
+   52,
+   62,
+   77,
+   78,
+   87,
+   88,
+   89,
+   90,
+   91,
+   92,
+   93,
+   103,
+   108,
+   123,
+   124,
+   139,
+   149,
+   154,
+   168,
+   170,
+   185,
+   187,
+   201,
+   207,
+   216,
+   226,
+   232,
+   247,
+   252,
+   263,
+   272,
+   278
+  ],
+  "questions": [
+   {
+    "qid": 2200,
+    "target_unit": "m",
+    "prior": "pedestrian walking speed ~1.1 m/s",
+    "depth_info": ""
+   },
+   {
+    "qid": 2201,
+    "target_unit": "m",
+    "prior": "pedestrian walking speed ~1.1 m/s",
+    "depth_info": ""
+   },
+   {
+    "qid": 2202,
+    "target_unit": "m",
+    "prior": "pedestrian walking speed ~1.1 m/s",
+    "depth_info": ""
+   },
+   {
+    "qid": 2203,
+    "target_unit": "m/s",
+    "prior": "pedestrian walking speed ~1.1 m/s",
+    "depth_info": ""
+   },
+   {
+    "qid": 2204,
+    "target_unit": "m/s",
+    "prior": "pedestrian walking speed ~1.1 m/s",
+    "depth_info": ""
+   },
+   {
+    "qid": 2205,
+    "target_unit": "m",
+    "prior": "pedestrian walking speed ~1.1 m/s",
+    "depth_info": ""
+   }
+  ],
+  "prompt_version": "v2"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":2200,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"straight-through lane\"],\"dimension\":\"width\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"pedestrian\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":1.1,\"unit\":\"\"},\"depth\":[],\"notes\":\"Pedestrian is small and hard to see; the scale comes from slow drift along the left sidewalk.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"pedestrian\",\"obs\":[{\"frame\":168,\"point\":[135,232],\"extent\":null,\"box\":[131,228,139,236]},{\"frame\":185,\"point\":[133,240],\"extent\":null,\"box\":[129,236,137,244]},{\"frame\":207,\"point\":[130,243],\"extent\":null,\"box\":[126,239,134,247]},{\"frame\":232,\"point\":[125,255],\"extent\":null,\"box\":[121,251,129,259]},{\"frame\":263,\"point\":[120,265],\"extent\":null,\"box\":[116,261,124,269]},{\"frame\":278,\"point\":[117,270],\"extent\":null,\"box\":[113,266,121,274]}],\"depth_name\":\"\",\"range_m\":null,\"range_basis\":\"\"},{\"role\":\"target\",\"object\":\"straight-through lane\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[705,40],[738,58]],\"box\":[705,40,738,58]},{\"frame\":90,\"point\":null,\"extent\":[[705,40],[738,58]],\"box\":[705,40,738,58]}],\"depth_name\":\"\",\"range_m\":null,\"range_basis\":\"\"}],\"direct_answer\":3.6,\"confidence\":0.25,\"derivation\":\"pedestrian ~10.8 px/s = 1.1 m/s -> 0.102 m/px; lane ~35 px -> 3.6 m\"},{\"qid\":2201,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"roundabout lane\"],\"dimension\":\"width\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"pedestrian\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":1.1,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"pedestrian\",\"obs\":[],\"depth_name\":\"\",\"range_m\":null,\"range_basis\":\"\"},{\"role\":\"target\",\"object\":\"roundabout lane\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[548,236],[628,236]],\"box\":[548,226,628,246]},{\"frame\":90,\"point\":null,\"extent\":[[548,236],[628,236]],\"box\":[548,226,628,246]}],\"depth_name\":\"\",\"range_m\":null,\"range_basis\":\"\"}],\"direct_answer\":8.0,\"confidence\":0.25,\"derivation\":\"0.102 m/px; ring lane ~78 px -> 8.0 m\"},{\"qid\":2202,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"center island planter\"],\"dimension\":\"diameter\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"pedestrian\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":1.1,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"pedestrian\",\"obs\":[],\"depth_name\":\"\",\"range_m\":null,\"range_basis\":\"\"},{\"role\":\"target\",\"object\":\"center island planter\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[328,236],[528,236]],\"box\":[328,137,528,336]},{\"frame\":90,\"point\":null,\"extent\":[[328,236],[528,236]],\"box\":[328,137,528,336]},{\"frame\":278,\"point\":null,\"extent\":[[329,236],[528,236]],\"box\":[329,138,528,335]}],\"depth_name\":\"\",\"range_m\":null,\"range_basis\":\"\"}],\"direct_answer\":20.4,\"confidence\":0.3,\"derivation\":\"0.102 m/px; planter 200 px -> 20.4 m\"},{\"qid\":2203,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"white car\"],\"dimension\":\"\",\"time\":3.0,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"pedestrian\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":1.1,\"unit\":\"\"},\"depth\":[],\"notes\":\"White car circulating at top-right of ring at 3.0s.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"pedestrian\",\"obs\":[],\"depth_name\":\"\",\"range_m\":null,\"range_basis\":\"\"},{\"role\":\"target\",\"object\":\"white car\",\"obs\":[{\"frame\":77,\"point\":[521,141],\"extent\":null,\"box\":[502,122,541,162]},{\"frame\":87,\"point\":[507,128],\"extent\":null,\"box\":[485,109,529,148]},{\"frame\":88,\"point\":[506,127],\"extent\":null,\"box\":[484,108,528,147]},{\"frame\":89,\"point\":[505,127],\"extent\":null,\"box\":[483,107,527,146]},{\"frame\":90,\"point\":[503,126],\"extent\":null,\"box\":[481,107,525,145]},{\"frame\":91,\"point\":[501,125],\"extent\":null,\"box\":[479,106,523,144]},{\"frame\":92,\"point\":[499,124],\"extent\":null,\"box\":[477,105,521,143]},{\"frame\":93,\"point\":[497,123],\"extent\":null,\"box\":[475,104,519,142]},{\"frame\":103,\"point\":[482,112],\"extent\":null,\"box\":[458,96,506,128]}],\"depth_name\":\"\",\"range_m\":null,\"range_basis\":\"\"}],\"direct_answer\":5.5,\"confidence\":0.3,\"derivation\":\"~54 px/s x 0.102 m/px -> 5.5 m/s\"},{\"qid\":2204,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"bicycle\"],\"dimension\":\"\",\"time\":3.0,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"pedestrian\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":1.1,\"unit\":\"\"},\"depth\":[],\"notes\":\"Bicycle hard to identify; rough estimate.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"pedestrian\",\"obs\":[],\"depth_name\":\"\",\"range_m\":null,\"range_basis\":\"\"},{\"role\":\"target\",\"object\":\"bicycle\",\"obs\":[{\"frame\":87,\"point\":[163,180],\"extent\":null,\"box\":[157,174,169,186]},{\"frame\":90,\"point\":[163,180],\"extent\":null,\"box\":[157,174,169,186]},{\"frame\":93,\"point\":[164,180],\"extent\":null,\"box\":[158,174,170,186]}],\"depth_name\":\"\",\"range_m\":null,\"range_basis\":\"\"}],\"direct_answer\":4.0,\"confidence\":0.1,\"derivation\":\"bicycle not clearly resolved; guess ~39 px/s x 0.102 m/px -> 4 m/s\"},{\"qid\":2205,\"spec\":{\"target\":{\"kind\":\"distance\",\"objects\":[\"black car\",\"black car\"],\"dimension\":\"\",\"time\":1.0,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"pedestrian\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":1.1,\"unit\":\"\"},\"depth\":[],\"notes\":\"Black car at top of ring and black car at upper-left of ring.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"pedestrian\",\"obs\":[],\"depth_name\":\"\",\"range_m\":null,\"range_basis\":\"\"},{\"role\":\"target\",\"object\":\"black car top\",\"obs\":[{\"frame\":29,\"point\":[530,83],\"extent\":null,\"box\":[507,65,553,101]},{\"frame\":30,\"point\":[528,82],\"extent\":null,\"box\":[505,64,551,100]},{\"frame\":31,\"point\":[526,81],\"extent\":null,\"box\":[503,63,549,99]}],\"depth_name\":\"\",\"range_m\":null,\"range_basis\":\"\"},{\"role\":\"target2\",\"object\":\"black car left\",\"obs\":[{\"frame\":29,\"point\":[278,149],\"extent\":null,\"box\":[262,129,294,169]},{\"frame\":30,\"point\":[277,151],\"extent\":null,\"box\":[261,131,293,171]},{\"frame\":31,\"point\":[276,153],\"extent\":null,\"box\":[260,133,292,173]}],\"depth_name\":\"\",\"range_m\":null,\"range_basis\":\"\"}],\"direct_answer\":26.5,\"confidence\":0.3,\"derivation\":\"centres 260 px apart x 0.102 m/px -> 26.5 m\"}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 2200,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "straight-through lane"
+      ],
+      "dimension": "width",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "pedestrian"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 1.1,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Pedestrian is small and hard to see; the scale comes from slow drift along the left sidewalk."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "pedestrian",
+      "obs": [
+       {
+        "frame": 168,
+        "point": [
+         135,
+         232
+        ],
+        "extent": null,
+        "box": [
+         131,
+         228,
+         139,
+         236
+        ]
+       },
+       {
+        "frame": 185,
+        "point": [
+         133,
+         240
+        ],
+        "extent": null,
+        "box": [
+         129,
+         236,
+         137,
+         244
+        ]
+       },
+       {
+        "frame": 207,
+        "point": [
+         130,
+         243
+        ],
+        "extent": null,
+        "box": [
+         126,
+         239,
+         134,
+         247
+        ]
+       },
+       {
+        "frame": 232,
+        "point": [
+         125,
+         255
+        ],
+        "extent": null,
+        "box": [
+         121,
+         251,
+         129,
+         259
+        ]
+       },
+       {
+        "frame": 263,
+        "point": [
+         120,
+         265
+        ],
+        "extent": null,
+        "box": [
+         116,
+         261,
+         124,
+         269
+        ]
+       },
+       {
+        "frame": 278,
+        "point": [
+         117,
+         270
+        ],
+        "extent": null,
+        "box": [
+         113,
+         266,
+         121,
+         274
+        ]
+       }
+      ],
+      "depth_name": "",
+      "range_m": null,
+      "range_basis": ""
+     },
+     {
+      "role": "target",
+      "object": "straight-through lane",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          705,
+          40
+         ],
+         [
+          738,
+          58
+         ]
+        ],
+        "box": [
+         705,
+         40,
+         738,
+         58
+        ]
+       },
+       {
+        "frame": 90,
+        "point": null,
+        "extent": [
+         [
+          705,
+          40
+         ],
+         [
+          738,
+          58
+         ]
+        ],
+        "box": [
+         705,
+         40,
+         738,
+         58
+        ]
+       }
+      ],
+      "depth_name": "",
+      "range_m": null,
+      "range_basis": ""
+     }
+    ],
+    "direct_answer": 3.6,
+    "confidence": 0.25,
+    "derivation": "pedestrian ~10.8 px/s = 1.1 m/s -> 0.102 m/px; lane ~35 px -> 3.6 m"
+   },
+   {
+    "qid": 2201,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "roundabout lane"
+      ],
+      "dimension": "width",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "pedestrian"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 1.1,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "pedestrian",
+      "obs": [],
+      "depth_name": "",
+      "range_m": null,
+      "range_basis": ""
+     },
+     {
+      "role": "target",
+      "object": "roundabout lane",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          548,
+          236
+         ],
+         [
+          628,
+          236
+         ]
+        ],
+        "box": [
+         548,
+         226,
+         628,
+         246
+        ]
+       },
+       {
+        "frame": 90,
+        "point": null,
+        "extent": [
+         [
+          548,
+          236
+         ],
+         [
+          628,
+          236
+         ]
+        ],
+        "box": [
+         548,
+         226,
+         628,
+         246
+        ]
+       }
+      ],
+      "depth_name": "",
+      "range_m": null,
+      "range_basis": ""
+     }
+    ],
+    "direct_answer": 8.0,
+    "confidence": 0.25,
+    "derivation": "0.102 m/px; ring lane ~78 px -> 8.0 m"
+   },
+   {
+    "qid": 2202,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "center island planter"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "pedestrian"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 1.1,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "pedestrian",
+      "obs": [],
+      "depth_name": "",
+      "range_m": null,
+      "range_basis": ""
+     },
+     {
+      "role": "target",
+      "object": "center island planter",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          328,
+          236
+         ],
+         [
+          528,
+          236
+         ]
+        ],
+        "box": [
+         328,
+         137,
+         528,
+         336
+        ]
+       },
+       {
+        "frame": 90,
+        "point": null,
+        "extent": [
+         [
+          328,
+          236
+         ],
+         [
+          528,
+          236
+         ]
+        ],
+        "box": [
+         328,
+         137,
+         528,
+         336
+        ]
+       },
+       {
+        "frame": 278,
+        "point": null,
+        "extent": [
+         [
+          329,
+          236
+         ],
+         [
+          528,
+          236
+         ]
+        ],
+        "box": [
+         329,
+         138,
+         528,
+         335
+        ]
+       }
+      ],
+      "depth_name": "",
+      "range_m": null,
+      "range_basis": ""
+     }
+    ],
+    "direct_answer": 20.4,
+    "confidence": 0.3,
+    "derivation": "0.102 m/px; planter 200 px -> 20.4 m"
+   },
+   {
+    "qid": 2203,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "white car"
+      ],
+      "dimension": "",
+      "time": 3.0,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "pedestrian"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 1.1,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "White car circulating at top-right of ring at 3.0s."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "pedestrian",
+      "obs": [],
+      "depth_name": "",
+      "range_m": null,
+      "range_basis": ""
+     },
+     {
+      "role": "target",
+      "object": "white car",
+      "obs": [
+       {
+        "frame": 77,
+        "point": [
+         521,
+         141
+        ],
+        "extent": null,
+        "box": [
+         502,
+         122,
+         541,
+         162
+        ]
+       },
+       {
+        "frame": 87,
+        "point": [
+         507,
+         128
+        ],
+        "extent": null,
+        "box": [
+         485,
+         109,
+         529,
+         148
+        ]
+       },
+       {
+        "frame": 88,
+        "point": [
+         506,
+         127
+        ],
+        "extent": null,
+        "box": [
+         484,
+         108,
+         528,
+         147
+        ]
+       },
+       {
+        "frame": 89,
+        "point": [
+         505,
+         127
+        ],
+        "extent": null,
+        "box": [
+         483,
+         107,
+         527,
+         146
+        ]
+       },
+       {
+        "frame": 90,
+        "point": [
+         503,
+         126
+        ],
+        "extent": null,
+        "box": [
+         481,
+         107,
+         525,
+         145
+        ]
+       },
+       {
+        "frame": 91,
+        "point": [
+         501,
+         125
+        ],
+        "extent": null,
+        "box": [
+         479,
+         106,
+         523,
+         144
+        ]
+       },
+       {
+        "frame": 92,
+        "point": [
+         499,
+         124
+        ],
+        "extent": null,
+        "box": [
+         477,
+         105,
+         521,
+         143
+        ]
+       },
+       {
+        "frame": 93,
+        "point": [
+         497,
+         123
+        ],
+        "extent": null,
+        "box": [
+         475,
+         104,
+         519,
+         142
+        ]
+       },
+       {
+        "frame": 103,
+        "point": [
+         482,
+         112
+        ],
+        "extent": null,
+        "box": [
+         458,
+         96,
+         506,
+         128
+        ]
+       }
+      ],
+      "depth_name": "",
+      "range_m": null,
+      "range_basis": ""
+     }
+    ],
+    "direct_answer": 5.5,
+    "confidence": 0.3,
+    "derivation": "~54 px/s x 0.102 m/px -> 5.5 m/s"
+   },
+   {
+    "qid": 2204,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "bicycle"
+      ],
+      "dimension": "",
+      "time": 3.0,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "pedestrian"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 1.1,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Bicycle hard to identify; rough estimate."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "pedestrian",
+      "obs": [],
+      "depth_name": "",
+      "range_m": null,
+      "range_basis": ""
+     },
+     {
+      "role": "target",
+      "object": "bicycle",
+      "obs": [
+       {
+        "frame": 87,
+        "point": [
+         163,
+         180
+        ],
+        "extent": null,
+        "box": [
+         157,
+         174,
+         169,
+         186
+        ]
+       },
+       {
+        "frame": 90,
+        "point": [
+         163,
+         180
+        ],
+        "extent": null,
+        "box": [
+         157,
+         174,
+         169,
+         186
+        ]
+       },
+       {
+        "frame": 93,
+        "point": [
+         164,
+         180
+        ],
+        "extent": null,
+        "box": [
+         158,
+         174,
+         170,
+         186
+        ]
+       }
+      ],
+      "depth_name": "",
+      "range_m": null,
+      "range_basis": ""
+     }
+    ],
+    "direct_answer": 4.0,
+    "confidence": 0.1,
+    "derivation": "bicycle not clearly resolved; guess ~39 px/s x 0.102 m/px -> 4 m/s"
+   },
+   {
+    "qid": 2205,
+    "spec": {
+     "target": {
+      "kind": "distance",
+      "objects": [
+       "black car",
+       "black car"
+      ],
+      "dimension": "",
+      "time": 1.0,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "pedestrian"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 1.1,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Black car at top of ring and black car at upper-left of ring."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "pedestrian",
+      "obs": [],
+      "depth_name": "",
+      "range_m": null,
+      "range_basis": ""
+     },
+     {
+      "role": "target",
+      "object": "black car top",
+      "obs": [
+       {
+        "frame": 29,
+        "point": [
+         530,
+         83
+        ],
+        "extent": null,
+        "box": [
+         507,
+         65,
+         553,
+         101
+        ]
+       },
+       {
+        "frame": 30,
+        "point": [
+         528,
+         82
+        ],
+        "extent": null,
+        "box": [
+         505,
+         64,
+         551,
+         100
+        ]
+       },
+       {
+        "frame": 31,
+        "point": [
+         526,
+         81
+        ],
+        "extent": null,
+        "box": [
+         503,
+         63,
+         549,
+         99
+        ]
+       }
+      ],
+      "depth_name": "",
+      "range_m": null,
+      "range_basis": ""
+     },
+     {
+      "role": "target2",
+      "object": "black car left",
+      "obs": [
+       {
+        "frame": 29,
+        "point": [
+         278,
+         149
+        ],
+        "extent": null,
+        "box": [
+         262,
+         129,
+         294,
+         169
+        ]
+       },
+       {
+        "frame": 30,
+        "point": [
+         277,
+         151
+        ],
+        "extent": null,
+        "box": [
+         261,
+         131,
+         293,
+         171
+        ]
+       },
+       {
+        "frame": 31,
+        "point": [
+         276,
+         153
+        ],
+        "extent": null,
+        "box": [
+         260,
+         133,
+         292,
+         173
+        ]
+       }
+      ],
+      "depth_name": "",
+      "range_m": null,
+      "range_basis": ""
+     }
+    ],
+    "direct_answer": 26.5,
+    "confidence": 0.3,
+    "derivation": "centres 260 px apart x 0.102 m/px -> 26.5 m"
+   }
+  ]
+ }
+}

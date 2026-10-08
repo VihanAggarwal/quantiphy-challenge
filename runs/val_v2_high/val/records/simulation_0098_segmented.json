@@ -1,0 +1,721 @@
+{
+ "video_id": "simulation_0098_segmented",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfpXKAiC4MGpzbEETy4Y1",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 44,
+  "prompt_version": "v2",
+  "max_side": 1280
+ },
+ "ts": "2026-10-08T16:28:57+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_019Res78UkpW8dgp1hzHqVhX",
+ "custom_id": "simulation_0098_segmented",
+ "usage": {
+  "input_tokens": 25679,
+  "output_tokens": 3103,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 5593,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.082947,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0098_segmented",
+  "fps": 24.0,
+  "fps_from_container": false,
+  "video_type": "V2MX",
+  "n_frames_total": 73,
+  "scale": 1.0,
+  "image_size": [
+   854,
+   480
+  ],
+  "frames": [
+   0,
+   2,
+   3,
+   5,
+   8,
+   10,
+   12,
+   13,
+   14,
+   17,
+   18,
+   19,
+   22,
+   23,
+   24,
+   25,
+   28,
+   29,
+   30,
+   32,
+   34,
+   35,
+   37,
+   38,
+   40,
+   42,
+   43,
+   44,
+   47,
+   48,
+   49,
+   50,
+   53,
+   54,
+   55,
+   58,
+   59,
+   60,
+   62,
+   64,
+   67,
+   69,
+   70,
+   72
+  ],
+  "questions": [
+   {
+    "qid": 1896,
+    "target_unit": "m/s",
+    "prior": "speed of the shark = 3 m/s",
+    "depth_info": ""
+   },
+   {
+    "qid": 1897,
+    "target_unit": "m",
+    "prior": "speed of the shark = 3 m/s",
+    "depth_info": ""
+   },
+   {
+    "qid": 1898,
+    "target_unit": "m",
+    "prior": "speed of the shark = 3 m/s",
+    "depth_info": ""
+   },
+   {
+    "qid": 1899,
+    "target_unit": "m",
+    "prior": "speed of the shark = 3 m/s",
+    "depth_info": ""
+   }
+  ],
+  "prompt_version": "v2"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":1896,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"boat\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"shark\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":3.0,\"unit\":\"\"},\"depth\":[],\"notes\":\"Boat partially out of frame (right) before ~frame 28.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"shark\",\"obs\":[{\"frame\":0,\"point\":[738,401.5],\"extent\":null,\"box\":[676,379,800,424]},{\"frame\":12,\"point\":[685,401.5],\"extent\":null,\"box\":[624,379,746,424]},{\"frame\":24,\"point\":[628,401.5],\"extent\":null,\"box\":[566,379,690,424]},{\"frame\":30,\"point\":[598.5,401.5],\"extent\":null,\"box\":[537,379,660,424]},{\"frame\":48,\"point\":[513,401.5],\"extent\":null,\"box\":[451,379,575,424]},{\"frame\":60,\"point\":[455.5,401.5],\"extent\":null,\"box\":[394,379,517,424]},{\"frame\":72,\"point\":[398.5,401.5],\"extent\":null,\"box\":[337,379,460,424]}],\"depth_name\":\"\",\"range_m\":null,\"range_basis\":\"\"},{\"role\":\"target\",\"object\":\"boat\",\"obs\":[{\"frame\":30,\"point\":[626.5,143.5],\"extent\":null,\"box\":[436,0,817,287]},{\"frame\":40,\"point\":[547,143.5],\"extent\":null,\"box\":[357,0,737,287]},{\"frame\":50,\"point\":[467,143.5],\"extent\":null,\"box\":[277,0,657,287]},{\"frame\":60,\"point\":[387,143.5],\"extent\":null,\"box\":[197,0,577,287]},{\"frame\":72,\"point\":[291.5,143.5],\"extent\":null,\"box\":[101,0,482,287]}],\"depth_name\":\"\",\"range_m\":null,\"range_basis\":\"\"}],\"direct_answer\":5.0,\"confidence\":0.75,\"derivation\":\"shark 339.5 px/3 s=113.2 px/s -> 0.0265 m/px; boat bow 666->101 px in 3 s =188 px/s -> 5.0 m/s\"},{\"qid\":1897,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"boat\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"shark\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":3.0,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"shark\",\"obs\":[],\"depth_name\":\"\",\"range_m\":null,\"range_basis\":\"\"},{\"role\":\"target\",\"object\":\"boat\",\"obs\":[{\"frame\":30,\"point\":null,\"extent\":[[436,160],[817,236]],\"box\":[436,0,817,287]},{\"frame\":50,\"point\":null,\"extent\":[[277,160],[657,236]],\"box\":[277,0,657,287]},{\"frame\":72,\"point\":null,\"extent\":[[101,160],[482,236]],\"box\":[101,0,482,287]}],\"depth_name\":\"\",\"range_m\":null,\"range_basis\":\"\"}],\"direct_answer\":10.1,\"confidence\":0.7,\"derivation\":\"0.0265 m/px; boat bow-stern 381 px -> 10.1 m\"},{\"qid\":1898,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"shark\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"shark\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":3.0,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"shark\",\"obs\":[],\"depth_name\":\"\",\"range_m\":null,\"range_basis\":\"\"},{\"role\":\"target\",\"object\":\"shark\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[676,402],[800,399]],\"box\":[676,379,800,424]},{\"frame\":24,\"point\":null,\"extent\":[[566,402],[690,399]],\"box\":[566,379,690,424]},{\"frame\":48,\"point\":null,\"extent\":[[451,402],[575,399]],\"box\":[451,379,575,424]},{\"frame\":72,\"point\":null,\"extent\":[[337,402],[460,399]],\"box\":[337,379,460,424]}],\"depth_name\":\"\",\"range_m\":null,\"range_basis\":\"\"}],\"direct_answer\":3.29,\"confidence\":0.75,\"derivation\":\"0.0265 m/px; shark 124 px -> 3.29 m\"},{\"qid\":1899,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"shark\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"shark\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":3.0,\"unit\":\"\"},\"depth\":[],\"notes\":\"Height taken as dorsal fin top to pectoral fin bottom.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"shark\",\"obs\":[],\"depth_name\":\"\",\"range_m\":null,\"range_basis\":\"\"},{\"role\":\"target\",\"object\":\"shark\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[725,379],[725,424]],\"box\":[676,379,800,424]},{\"frame\":24,\"point\":null,\"extent\":[[615,379],[615,424]],\"box\":[566,379,690,424]},{\"frame\":48,\"point\":null,\"extent\":[[500,379],[500,424]],\"box\":[451,379,575,424]},{\"frame\":72,\"point\":null,\"extent\":[[385,379],[385,424]],\"box\":[337,379,460,424]}],\"depth_name\":\"\",\"range_m\":null,\"range_basis\":\"\"}],\"direct_answer\":1.19,\"confidence\":0.55,\"derivation\":\"0.0265 m/px; shark height 45 px -> 1.19 m\"}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 1896,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "boat"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "shark"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 3.0,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Boat partially out of frame (right) before ~frame 28."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "shark",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         738,
+         401.5
+        ],
+        "extent": null,
+        "box": [
+         676,
+         379,
+         800,
+         424
+        ]
+       },
+       {
+        "frame": 12,
+        "point": [
+         685,
+         401.5
+        ],
+        "extent": null,
+        "box": [
+         624,
+         379,
+         746,
+         424
+        ]
+       },
+       {
+        "frame": 24,
+        "point": [
+         628,
+         401.5
+        ],
+        "extent": null,
+        "box": [
+         566,
+         379,
+         690,
+         424
+        ]
+       },
+       {
+        "frame": 30,
+        "point": [
+         598.5,
+         401.5
+        ],
+        "extent": null,
+        "box": [
+         537,
+         379,
+         660,
+         424
+        ]
+       },
+       {
+        "frame": 48,
+        "point": [
+         513,
+         401.5
+        ],
+        "extent": null,
+        "box": [
+         451,
+         379,
+         575,
+         424
+        ]
+       },
+       {
+        "frame": 60,
+        "point": [
+         455.5,
+         401.5
+        ],
+        "extent": null,
+        "box": [
+         394,
+         379,
+         517,
+         424
+        ]
+       },
+       {
+        "frame": 72,
+        "point": [
+         398.5,
+         401.5
+        ],
+        "extent": null,
+        "box": [
+         337,
+         379,
+         460,
+         424
+        ]
+       }
+      ],
+      "depth_name": "",
+      "range_m": null,
+      "range_basis": ""
+     },
+     {
+      "role": "target",
+      "object": "boat",
+      "obs": [
+       {
+        "frame": 30,
+        "point": [
+         626.5,
+         143.5
+        ],
+        "extent": null,
+        "box": [
+         436,
+         0,
+         817,
+         287
+        ]
+       },
+       {
+        "frame": 40,
+        "point": [
+         547,
+         143.5
+        ],
+        "extent": null,
+        "box": [
+         357,
+         0,
+         737,
+         287
+        ]
+       },
+       {
+        "frame": 50,
+        "point": [
+         467,
+         143.5
+        ],
+        "extent": null,
+        "box": [
+         277,
+         0,
+         657,
+         287
+        ]
+       },
+       {
+        "frame": 60,
+        "point": [
+         387,
+         143.5
+        ],
+        "extent": null,
+        "box": [
+         197,
+         0,
+         577,
+         287
+        ]
+       },
+       {
+        "frame": 72,
+        "point": [
+         291.5,
+         143.5
+        ],
+        "extent": null,
+        "box": [
+         101,
+         0,
+         482,
+         287
+        ]
+       }
+      ],
+      "depth_name": "",
+      "range_m": null,
+      "range_basis": ""
+     }
+    ],
+    "direct_answer": 5.0,
+    "confidence": 0.75,
+    "derivation": "shark 339.5 px/3 s=113.2 px/s -> 0.0265 m/px; boat bow 666->101 px in 3 s =188 px/s -> 5.0 m/s"
+   },
+   {
+    "qid": 1897,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "boat"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "shark"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 3.0,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "shark",
+      "obs": [],
+      "depth_name": "",
+      "range_m": null,
+      "range_basis": ""
+     },
+     {
+      "role": "target",
+      "object": "boat",
+      "obs": [
+       {
+        "frame": 30,
+        "point": null,
+        "extent": [
+         [
+          436,
+          160
+         ],
+         [
+          817,
+          236
+         ]
+        ],
+        "box": [
+         436,
+         0,
+         817,
+         287
+        ]
+       },
+       {
+        "frame": 50,
+        "point": null,
+        "extent": [
+         [
+          277,
+          160
+         ],
+         [
+          657,
+          236
+         ]
+        ],
+        "box": [
+         277,
+         0,
+         657,
+         287
+        ]
+       },
+       {
+        "frame": 72,
+        "point": null,
+        "extent": [
+         [
+          101,
+          160
+         ],
+         [
+          482,
+          236
+         ]
+        ],
+        "box": [
+         101,
+         0,
+         482,
+         287
+        ]
+       }
+      ],
+      "depth_name": "",
+      "range_m": null,
+      "range_basis": ""
+     }
+    ],
+    "direct_answer": 10.1,
+    "confidence": 0.7,
+    "derivation": "0.0265 m/px; boat bow-stern 381 px -> 10.1 m"
+   },
+   {
+    "qid": 1898,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "shark"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "shark"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 3.0,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "shark",
+      "obs": [],
+      "depth_name": "",
+      "range_m": null,
+      "range_basis": ""
+     },
+     {
+      "role": "target",
+      "object": "shark",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          676,
+          402
+         ],
+         [
+          800,
+          399
+         ]
+        ],
+        "box": [
+         676,
+         379,
+         800,
+         424
+        ]
+       },
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          566,
+          402
+         ],
+         [
+          690,
+          399
+         ]
+        ],
+        "box": [
+         566,
+         379,
+         690,
+         424
+        ]
+       },
+       {
+        "frame": 48,
+        "point": null,
+        "extent": [
+         [
+          451,
+          402
+         ],
+         [
+          575,
+          399
+         ]
+        ],
+        "box": [
+         451,
+         379,
+         575,
+         424
+        ]
+       },
+       {
+        "frame": 72,
+        "point": null,
+        "extent": [
+         [
+          337,
+          402
+         ],
+         [
+          460,
+          399
+         ]
+        ],
+        "box": [
+         337,
+         379,
+         460,
+         424
+        ]
+       }
+      ],
+      "depth_name": "",
+      "range_m": null,
+      "range_basis": ""
+     }
+    ],
+    "direct_answer": 3.29,
+    "confidence": 0.75,
+    "derivation": "0.0265 m/px; shark 124 px -> 3.29 m"
+   },
+   {
+    "qid": 1899,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "shark"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "shark"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 3.0,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Height taken as dorsal fin top to pectoral fin bottom."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "shark",
+      "obs": [],
+      "depth_name": "",
+      "range_m": null,
+      "range_basis": ""
+     },
+     {
+      "role": "target",
+      "object": "shark",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          725,
+          379
+         ],
+         [
+          725,
+          424
+         ]
+        ],
+        "box": [
+         676,
+         379,
+         800,
+         424
+        ]
+       },
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          615,
+          379
+         ],
+         [
+          615,
+          424
+         ]
+        ],
+        "box": [
+         566,
+         379,
+         690,
+         424
+        ]
+       },
+       {
+        "frame": 48,
+        "point": null,
+        "extent": [
+         [
+          500,
+          379
+         ],
+         [
+          500,
+          424
+         ]
+        ],
+        "box": [
+         451,
+         379,
+         575,
+         424
+        ]
+       },
+       {
+        "frame": 72,
+        "point": null,
+        "extent": [
+         [
+          385,
+          379
+         ],
+         [
+          385,
+          424
+         ]
+        ],
+        "box": [
+         337,
+         379,
+         460,
+         424
+        ]
+       }
+      ],
+      "depth_name": "",
+      "range_m": null,
+      "range_basis": ""
+     }
+    ],
+    "direct_answer": 1.19,
+    "confidence": 0.55,
+    "derivation": "0.0265 m/px; shark height 45 px -> 1.19 m"
+   }
+  ]
+ }
+}

@@ -1,0 +1,749 @@
+{
+ "video_id": "captured_0031",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011Cfq5zXgpf8omGaWeq2DEZ",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 854
+ },
+ "ts": "2026-10-08T16:30:09+00:00",
+ "mode": "sync",
+ "request_id": "req_011Cfq5zXJzoMxtEjjBAVJS6",
+ "usage": {
+  "input_tokens": 11169,
+  "output_tokens": 5330,
+  "cache_creation_input_tokens": 4317,
+  "cache_read_input_tokens": 0,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.172861,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "captured_0031",
+  "fps": 24.0,
+  "fps_from_container": false,
+  "video_type": "S3MC",
+  "n_frames_total": 49,
+  "scale": 0.6671875,
+  "image_size": [
+   1280,
+   719
+  ],
+  "frames": [
+   0,
+   3,
+   6,
+   10,
+   13,
+   16,
+   19,
+   22,
+   26,
+   29,
+   32,
+   35,
+   36,
+   38,
+   41,
+   42,
+   45,
+   48
+  ],
+  "questions": [
+   {
+    "qid": 2520,
+    "target_unit": "cm",
+    "prior": "diameter of the tennis ball = 6.7cm",
+    "depth_info": "t=1.6s, distance_tennis_ball_camera = 1.1900m\nt=1.6s, distance_white_ball_camera = 0.9940m"
+   },
+   {
+    "qid": 2521,
+    "target_unit": "cm",
+    "prior": "diameter of the tennis ball = 6.7cm",
+    "depth_info": "t=1.6s, distance_tennis_ball_camera = 1.1900m\nt=1.6s, distance_white_ball_camera = 0.9940m"
+   },
+   {
+    "qid": 2522,
+    "target_unit": "cm",
+    "prior": "diameter of the tennis ball = 6.7cm",
+    "depth_info": "t=1.6s, distance_tennis_ball_camera = 1.1900m\nt=1.6s, distance_white_ball_camera = 0.9940m"
+   },
+   {
+    "qid": 2523,
+    "target_unit": "cm/s",
+    "prior": "diameter of the tennis ball = 6.7cm",
+    "depth_info": "t=1.6s, distance_tennis_ball_camera = 1.1900m\nt=1.6s, distance_white_ball_camera = 0.9940m"
+   },
+   {
+    "qid": 2524,
+    "target_unit": "cm/s",
+    "prior": "diameter of the tennis ball = 6.7cm",
+    "depth_info": "t=1.6s, distance_tennis_ball_camera = 1.1900m\nt=1.6s, distance_white_ball_camera = 0.9940m"
+   },
+   {
+    "qid": 2525,
+    "target_unit": "cm",
+    "prior": "diameter of the tennis ball = 6.7cm",
+    "depth_info": "t=1.6s, distance_tennis_ball_camera = 1.1900m\nt=1.6s, distance_white_ball_camera = 0.9940m"
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":2520,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"white ball\"],\"dimension\":\"diameter\",\"time\":1.6,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"cm\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"tennis ball\"],\"dimension\":\"diameter\",\"time\":1.6,\"window\":null,\"axis\":\"any\",\"value_si\":0.067,\"unit\":\"\"},\"depth\":[{\"object\":\"tennis ball\",\"distance_m\":1.19,\"time\":1.6},{\"object\":\"white ball\",\"distance_m\":0.994,\"time\":1.6}],\"notes\":\"white ball = ping pong ball\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"tennis ball\",\"obs\":[{\"frame\":38,\"point\":null,\"extent\":[[476,301],[511,301]],\"box\":[476,284,511,319]}]},{\"role\":\"target\",\"object\":\"white ball\",\"obs\":[{\"frame\":38,\"point\":null,\"extent\":[[432.5,296],[449.5,296]],\"box\":[432.5,287.5,449.5,304.5]}]}],\"direct_answer\":2.7,\"confidence\":0.35},{\"qid\":2521,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"table\"],\"dimension\":\"width\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"cm\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"tennis ball\"],\"dimension\":\"diameter\",\"time\":1.6,\"window\":null,\"axis\":\"any\",\"value_si\":0.067,\"unit\":\"\"},\"depth\":[{\"object\":\"tennis ball\",\"distance_m\":1.19,\"time\":1.6},{\"object\":\"white ball\",\"distance_m\":0.994,\"time\":1.6}],\"notes\":\"table depth not given; assumed front edge near tennis ball depth\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"tennis ball\",\"obs\":[]},{\"role\":\"target\",\"object\":\"table\",\"obs\":[{\"frame\":38,\"point\":null,\"extent\":[[309,323],[643,323]],\"box\":[309,283,643,346]}]}],\"direct_answer\":64,\"confidence\":0.2},{\"qid\":2522,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"table\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"cm\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"tennis ball\"],\"dimension\":\"diameter\",\"time\":1.6,\"window\":null,\"axis\":\"any\",\"value_si\":0.067,\"unit\":\"\"},\"depth\":[{\"object\":\"tennis ball\",\"distance_m\":1.19,\"time\":1.6},{\"object\":\"white ball\",\"distance_m\":0.994,\"time\":1.6}],\"notes\":\"length ambiguous; assumed table top roughly square\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"tennis ball\",\"obs\":[]},{\"role\":\"target\",\"object\":\"table\",\"obs\":[{\"frame\":38,\"point\":null,\"extent\":[[309,323],[643,323]],\"box\":[309,283,643,346]}]}],\"direct_answer\":64,\"confidence\":0.15},{\"qid\":2523,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"tennis ball\"],\"dimension\":\"\",\"time\":1.6,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"cm/s\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"tennis ball\"],\"dimension\":\"diameter\",\"time\":1.6,\"window\":null,\"axis\":\"any\",\"value_si\":0.067,\"unit\":\"\"},\"depth\":[{\"object\":\"tennis ball\",\"distance_m\":1.19,\"time\":1.6},{\"object\":\"white ball\",\"distance_m\":0.994,\"time\":1.6}],\"notes\":\"ball moves mostly toward camera\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"tennis ball\",\"obs\":[]},{\"role\":\"target\",\"object\":\"tennis ball\",\"obs\":[{\"frame\":32,\"point\":[500,293],\"extent\":null,\"box\":[486,278,515,308]},{\"frame\":35,\"point\":[497,296],\"extent\":null,\"box\":[482,280,514,312]},{\"frame\":36,\"point\":[495,298],\"extent\":null,\"box\":[480,282,512,314]},{\"frame\":38,\"point\":[493,301],\"extent\":null,\"box\":[476,284,511,319]},{\"frame\":41,\"point\":[489,306],\"extent\":null,\"box\":[470,287,508,325]},{\"frame\":42,\"point\":[487,309],\"extent\":null,\"box\":[468,290,507,329]}]}],\"direct_answer\":80,\"confidence\":0.15},{\"qid\":2524,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"white ball\"],\"dimension\":\"\",\"time\":1.6,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"cm/s\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"tennis ball\"],\"dimension\":\"diameter\",\"time\":1.6,\"window\":null,\"axis\":\"any\",\"value_si\":0.067,\"unit\":\"\"},\"depth\":[{\"object\":\"tennis ball\",\"distance_m\":1.19,\"time\":1.6},{\"object\":\"white ball\",\"distance_m\":0.994,\"time\":1.6}],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"tennis ball\",\"obs\":[]},{\"role\":\"target\",\"object\":\"white ball\",\"obs\":[{\"frame\":32,\"point\":[447,290],\"extent\":null,\"box\":[440,283,455,298]},{\"frame\":35,\"point\":[445,293],\"extent\":null,\"box\":[437,285,453,301]},{\"frame\":36,\"point\":[444,294],\"extent\":null,\"box\":[436,286,452,302]},{\"frame\":38,\"point\":[441,296],\"extent\":null,\"box\":[432.5,287.5,449.5,304.5]},{\"frame\":41,\"point\":[438,298],\"extent\":null,\"box\":[429,289,447,307]},{\"frame\":42,\"point\":[437,299],\"extent\":null,\"box\":[428,290,446,308]},{\"frame\":45,\"point\":[433,302],\"extent\":null,\"box\":[423,292,443,312]},{\"frame\":48,\"point\":[428,305],\"extent\":null,\"box\":[418,295,439,316]}]}],\"direct_answer\":30,\"confidence\":0.15},{\"qid\":2525,\"spec\":{\"target\":{\"kind\":\"distance\",\"objects\":[\"ping pong ball\",\"tennis ball\"],\"dimension\":\"\",\"time\":1.6,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"cm\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"tennis ball\"],\"dimension\":\"diameter\",\"time\":1.6,\"window\":null,\"axis\":\"any\",\"value_si\":0.067,\"unit\":\"\"},\"depth\":[{\"object\":\"tennis ball\",\"distance_m\":1.19,\"time\":1.6},{\"object\":\"white ball\",\"distance_m\":0.994,\"time\":1.6}],\"notes\":\"ping pong ball = white ball\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"tennis ball\",\"obs\":[]},{\"role\":\"target\",\"object\":\"white ball\",\"obs\":[{\"frame\":38,\"point\":[441,296],\"extent\":null,\"box\":null}]},{\"role\":\"target2\",\"object\":\"tennis ball\",\"obs\":[{\"frame\":38,\"point\":[493,301],\"extent\":null,\"box\":null}]}],\"direct_answer\":22,\"confidence\":0.3}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 2520,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "white ball"
+      ],
+      "dimension": "diameter",
+      "time": 1.6,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "cm"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "tennis ball"
+      ],
+      "dimension": "diameter",
+      "time": 1.6,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.067,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "tennis ball",
+       "distance_m": 1.19,
+       "time": 1.6
+      },
+      {
+       "object": "white ball",
+       "distance_m": 0.994,
+       "time": 1.6
+      }
+     ],
+     "notes": "white ball = ping pong ball"
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "tennis ball",
+      "obs": [
+       {
+        "frame": 38,
+        "point": null,
+        "extent": [
+         [
+          476,
+          301
+         ],
+         [
+          511,
+          301
+         ]
+        ],
+        "box": [
+         476,
+         284,
+         511,
+         319
+        ]
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "white ball",
+      "obs": [
+       {
+        "frame": 38,
+        "point": null,
+        "extent": [
+         [
+          432.5,
+          296
+         ],
+         [
+          449.5,
+          296
+         ]
+        ],
+        "box": [
+         432.5,
+         287.5,
+         449.5,
+         304.5
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 2.7,
+    "confidence": 0.35
+   },
+   {
+    "qid": 2521,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "table"
+      ],
+      "dimension": "width",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "cm"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "tennis ball"
+      ],
+      "dimension": "diameter",
+      "time": 1.6,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.067,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "tennis ball",
+       "distance_m": 1.19,
+       "time": 1.6
+      },
+      {
+       "object": "white ball",
+       "distance_m": 0.994,
+       "time": 1.6
+      }
+     ],
+     "notes": "table depth not given; assumed front edge near tennis ball depth"
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "tennis ball",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "table",
+      "obs": [
+       {
+        "frame": 38,
+        "point": null,
+        "extent": [
+         [
+          309,
+          323
+         ],
+         [
+          643,
+          323
+         ]
+        ],
+        "box": [
+         309,
+         283,
+         643,
+         346
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 64,
+    "confidence": 0.2
+   },
+   {
+    "qid": 2522,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "table"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "cm"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "tennis ball"
+      ],
+      "dimension": "diameter",
+      "time": 1.6,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.067,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "tennis ball",
+       "distance_m": 1.19,
+       "time": 1.6
+      },
+      {
+       "object": "white ball",
+       "distance_m": 0.994,
+       "time": 1.6
+      }
+     ],
+     "notes": "length ambiguous; assumed table top roughly square"
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "tennis ball",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "table",
+      "obs": [
+       {
+        "frame": 38,
+        "point": null,
+        "extent": [
+         [
+          309,
+          323
+         ],
+         [
+          643,
+          323
+         ]
+        ],
+        "box": [
+         309,
+         283,
+         643,
+         346
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 64,
+    "confidence": 0.15
+   },
+   {
+    "qid": 2523,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "tennis ball"
+      ],
+      "dimension": "",
+      "time": 1.6,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "cm/s"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "tennis ball"
+      ],
+      "dimension": "diameter",
+      "time": 1.6,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.067,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "tennis ball",
+       "distance_m": 1.19,
+       "time": 1.6
+      },
+      {
+       "object": "white ball",
+       "distance_m": 0.994,
+       "time": 1.6
+      }
+     ],
+     "notes": "ball moves mostly toward camera"
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "tennis ball",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "tennis ball",
+      "obs": [
+       {
+        "frame": 32,
+        "point": [
+         500,
+         293
+        ],
+        "extent": null,
+        "box": [
+         486,
+         278,
+         515,
+         308
+        ]
+       },
+       {
+        "frame": 35,
+        "point": [
+         497,
+         296
+        ],
+        "extent": null,
+        "box": [
+         482,
+         280,
+         514,
+         312
+        ]
+       },
+       {
+        "frame": 36,
+        "point": [
+         495,
+         298
+        ],
+        "extent": null,
+        "box": [
+         480,
+         282,
+         512,
+         314
+        ]
+       },
+       {
+        "frame": 38,
+        "point": [
+         493,
+         301
+        ],
+        "extent": null,
+        "box": [
+         476,
+         284,
+         511,
+         319
+        ]
+       },
+       {
+        "frame": 41,
+        "point": [
+         489,
+         306
+        ],
+        "extent": null,
+        "box": [
+         470,
+         287,
+         508,
+         325
+        ]
+       },
+       {
+        "frame": 42,
+        "point": [
+         487,
+         309
+        ],
+        "extent": null,
+        "box": [
+         468,
+         290,
+         507,
+         329
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 80,
+    "confidence": 0.15
+   },
+   {
+    "qid": 2524,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "white ball"
+      ],
+      "dimension": "",
+      "time": 1.6,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "cm/s"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "tennis ball"
+      ],
+      "dimension": "diameter",
+      "time": 1.6,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.067,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "tennis ball",
+       "distance_m": 1.19,
+       "time": 1.6
+      },
+      {
+       "object": "white ball",
+       "distance_m": 0.994,
+       "time": 1.6
+      }
+     ],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "tennis ball",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "white ball",
+      "obs": [
+       {
+        "frame": 32,
+        "point": [
+         447,
+         290
+        ],
+        "extent": null,
+        "box": [
+         440,
+         283,
+         455,
+         298
+        ]
+       },
+       {
+        "frame": 35,
+        "point": [
+         445,
+         293
+        ],
+        "extent": null,
+        "box": [
+         437,
+         285,
+         453,
+         301
+        ]
+       },
+       {
+        "frame": 36,
+        "point": [
+         444,
+         294
+        ],
+        "extent": null,
+        "box": [
+         436,
+         286,
+         452,
+         302
+        ]
+       },
+       {
+        "frame": 38,
+        "point": [
+         441,
+         296
+        ],
+        "extent": null,
+        "box": [
+         432.5,
+         287.5,
+         449.5,
+         304.5
+        ]
+       },
+       {
+        "frame": 41,
+        "point": [
+         438,
+         298
+        ],
+        "extent": null,
+        "box": [
+         429,
+         289,
+         447,
+         307
+        ]
+       },
+       {
+        "frame": 42,
+        "point": [
+         437,
+         299
+        ],
+        "extent": null,
+        "box": [
+         428,
+         290,
+         446,
+         308
+        ]
+       },
+       {
+        "frame": 45,
+        "point": [
+         433,
+         302
+        ],
+        "extent": null,
+        "box": [
+         423,
+         292,
+         443,
+         312
+        ]
+       },
+       {
+        "frame": 48,
+        "point": [
+         428,
+         305
+        ],
+        "extent": null,
+        "box": [
+         418,
+         295,
+         439,
+         316
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 30,
+    "confidence": 0.15
+   },
+   {
+    "qid": 2525,
+    "spec": {
+     "target": {
+      "kind": "distance",
+      "objects": [
+       "ping pong ball",
+       "tennis ball"
+      ],
+      "dimension": "",
+      "time": 1.6,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "cm"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "tennis ball"
+      ],
+      "dimension": "diameter",
+      "time": 1.6,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.067,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "tennis ball",
+       "distance_m": 1.19,
+       "time": 1.6
+      },
+      {
+       "object": "white ball",
+       "distance_m": 0.994,
+       "time": 1.6
+      }
+     ],
+     "notes": "ping pong ball = white ball"
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "tennis ball",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "white ball",
+      "obs": [
+       {
+        "frame": 38,
+        "point": [
+         441,
+         296
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     },
+     {
+      "role": "target2",
+      "object": "tennis ball",
+      "obs": [
+       {
+        "frame": 38,
+        "point": [
+         493,
+         301
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     }
+    ],
+    "direct_answer": 22,
+    "confidence": 0.3
+   }
+  ]
+ }
+}

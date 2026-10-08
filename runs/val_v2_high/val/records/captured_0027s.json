@@ -1,0 +1,662 @@
+{
+ "video_id": "captured_0027s",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfpdBkj4LssuJ9UgxhPtH",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 44,
+  "prompt_version": "v2",
+  "max_side": 1280
+ },
+ "ts": "2026-10-08T16:28:57+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_019Res78UkpW8dgp1hzHqVhX",
+ "custom_id": "captured_0027s",
+ "usage": {
+  "input_tokens": 26060,
+  "output_tokens": 6445,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 5593,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.117129,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "captured_0027s",
+  "fps": 24.0,
+  "fps_from_container": false,
+  "video_type": "S3SS",
+  "n_frames_total": 49,
+  "scale": 1.0,
+  "image_size": [
+   854,
+   480
+  ],
+  "frames": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   12,
+   13,
+   14,
+   15,
+   16,
+   17,
+   18,
+   19,
+   20,
+   21,
+   22,
+   25,
+   26,
+   27,
+   28,
+   29,
+   30,
+   31,
+   32,
+   33,
+   35,
+   36,
+   37,
+   38,
+   40,
+   41,
+   42,
+   44,
+   45,
+   46,
+   47,
+   48
+  ],
+  "questions": [
+   {
+    "qid": 2604,
+    "target_unit": "cm/s",
+    "prior": "diameter of the red ball = 7 cm",
+    "depth_info": "t=0.2s, distance_book_camera=1.0995 m\nt=0.6s, distance_book_camera=1.1510 m\ndistance_person_left_camera=1.2750 m\ndistance_person_right_camera=1.2305 m"
+   },
+   {
+    "qid": 2605,
+    "target_unit": "cm/s",
+    "prior": "diameter of the red ball = 7 cm",
+    "depth_info": "t=0.2s, distance_book_camera=1.0995 m\nt=0.6s, distance_book_camera=1.1510 m\ndistance_person_left_camera=1.2750 m\ndistance_person_right_camera=1.2305 m"
+   },
+   {
+    "qid": 2606,
+    "target_unit": "cm/s^2",
+    "prior": "diameter of the red ball = 7 cm",
+    "depth_info": "t=0.2s, distance_book_camera=1.0995 m\nt=0.6s, distance_book_camera=1.1510 m\ndistance_person_left_camera=1.2750 m\ndistance_person_right_camera=1.2305 m"
+   },
+   {
+    "qid": 2607,
+    "target_unit": "cm",
+    "prior": "diameter of the red ball = 7 cm",
+    "depth_info": "t=0.2s, distance_book_camera=1.0995 m\nt=0.6s, distance_book_camera=1.1510 m\ndistance_person_left_camera=1.2750 m\ndistance_person_right_camera=1.2305 m"
+   }
+  ],
+  "prompt_version": "v2"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":2604,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"red ball\"],\"dimension\":\"\",\"time\":0.2,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"cm/s\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"red ball\"],\"dimension\":\"diameter\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.07,\"unit\":\"\"},\"depth\":[],\"notes\":\"The depth info (book, persons) does not match the video, which shows only a red ball on a stick pendulum swinging mostly along the camera axis. The ball depth is estimated from its apparent size with f=474 px.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"red ball\",\"obs\":[{\"frame\":4,\"point\":null,\"extent\":[[408,267.5],[442,267.5]],\"box\":[408,249,442,286]},{\"frame\":5,\"point\":null,\"extent\":[[409,263.5],[442,263.5]],\"box\":[409,246,442,281]},{\"frame\":6,\"point\":null,\"extent\":[[411,256.5],[443,256.5]],\"box\":[411,240,443,273]},{\"frame\":10,\"point\":null,\"extent\":[[417,223.5],[445,223.5]],\"box\":[417,209,445,238]}],\"depth_name\":\"\",\"range_m\":1.0,\"range_basis\":\"From the apparent size: 7 cm ball at 33 px with f=474 px gives about 1.0 m at frame 5.\"},{\"role\":\"target\",\"object\":\"red ball\",\"obs\":[{\"frame\":0,\"point\":[429.5,236],\"extent\":null,\"box\":[408,213,451,259]},{\"frame\":1,\"point\":[427,247.5],\"extent\":null,\"box\":[406,225,448,270]},{\"frame\":2,\"point\":[426,259.5],\"extent\":null,\"box\":[406,238,446,281]},{\"frame\":3,\"point\":[426.5,265.5],\"extent\":null,\"box\":[408,246,445,285]},{\"frame\":4,\"point\":[425,267.5],\"extent\":null,\"box\":[408,249,442,286]},{\"frame\":5,\"point\":[425.5,263.5],\"extent\":null,\"box\":[409,246,442,281]},{\"frame\":6,\"point\":[427,256.5],\"extent\":null,\"box\":[411,240,443,273]},{\"frame\":7,\"point\":[427,248],\"extent\":null,\"box\":[412,232,442,264]},{\"frame\":8,\"point\":[428.5,239.5],\"extent\":null,\"box\":[414,224,443,255]},{\"frame\":9,\"point\":[430,230.5],\"extent\":null,\"box\":[416,216,444,245]},{\"frame\":10,\"point\":[431,223.5],\"extent\":null,\"box\":[417,209,445,238]},{\"frame\":11,\"point\":[432,219.5],\"extent\":null,\"box\":[418,205,446,234]},{\"frame\":12,\"point\":[434.5,219.5],\"extent\":null,\"box\":[420,205,449,234]},{\"frame\":13,\"point\":[436,223.5],\"extent\":null,\"box\":[422,208,450,239]},{\"frame\":14,\"point\":[436.5,231],\"extent\":null,\"box\":[422,215,451,247]},{\"frame\":15,\"point\":[437.5,239.5],\"extent\":null,\"box\":[423,223,452,256]},{\"frame\":16,\"point\":[439,249],\"extent\":null,\"box\":[424,232,454,266]},{\"frame\":17,\"point\":[440,258],\"extent\":null,\"box\":[424,240,456,276]}],\"depth_name\":\"\",\"range_m\":1.0,\"range_basis\":\"From the apparent ball size via f=474 px; the depth varies from about 0.77 to 1.19 m.\"}],\"direct_answer\":110,\"confidence\":0.2,\"derivation\":\"Z=474*0.07/w: w 37->30 px over f3-f7 gives dZ/dt~1.1 m/s; image vertical about 0.23 m/s; speed ~1.1 m/s.\"},{\"qid\":2605,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"red ball\"],\"dimension\":\"\",\"time\":0.6,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"cm/s\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"red ball\"],\"dimension\":\"diameter\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.07,\"unit\":\"\"},\"depth\":[],\"notes\":\"The depth info does not match the video. The ball depth is estimated from its apparent size.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"red ball\",\"obs\":[],\"depth_name\":\"\",\"range_m\":1.15,\"range_basis\":\"From the apparent size: 29 px ball with f=474 px gives about 1.15 m near t=0.6s.\"},{\"role\":\"target\",\"object\":\"red ball\",\"obs\":[],\"depth_name\":\"\",\"range_m\":1.15,\"range_basis\":\"From the apparent size: 29 px ball with f=474 px gives about 1.15 m near t=0.6s.\"}],\"direct_answer\":80,\"confidence\":0.2,\"derivation\":\"f13-f15: dZ~0.63 m/s (w 28->29 px); image vertical dy 16 px/0.083 s at Z 1.15 gives 0.48 m/s; total ~0.79 m/s.\"},{\"qid\":2606,\"spec\":{\"target\":{\"kind\":\"acceleration\",\"objects\":[\"red ball\"],\"dimension\":\"\",\"time\":0.2,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"cm/s^2\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"red ball\"],\"dimension\":\"diameter\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.07,\"unit\":\"\"},\"depth\":[],\"notes\":\"Pendulum is near mid-swing at 0.2s, so the acceleration is mainly centripetal. The depth info does not match the video.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"red ball\",\"obs\":[],\"depth_name\":\"\",\"range_m\":1.0,\"range_basis\":\"From the apparent ball size.\"},{\"role\":\"target\",\"object\":\"red ball\",\"obs\":[],\"depth_name\":\"\",\"range_m\":1.0,\"range_basis\":\"From the apparent ball size.\"}],\"direct_answer\":400,\"confidence\":0.15,\"derivation\":\"Period ~1.2 s gives L~0.36 m; v~1.15-1.3 m/s at mid-swing; a=v^2/L ~4 m/s^2.\"},{\"qid\":2607,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"person\"],\"dimension\":\"shoulder breadth\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"cm\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"red ball\"],\"dimension\":\"diameter\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.07,\"unit\":\"\"},\"depth\":[],\"notes\":\"No person is visible in the video; the question and depth info appear mismatched with this clip. This is a guess.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"red ball\",\"obs\":[],\"depth_name\":\"\",\"range_m\":1.0,\"range_basis\":\"From the apparent ball size.\"},{\"role\":\"target\",\"object\":\"person\",\"obs\":[],\"depth_name\":\"person_left\",\"range_m\":null,\"range_basis\":\"\"}],\"direct_answer\":40,\"confidence\":0.05,\"derivation\":\"No person visible; cannot measure.\"}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 2604,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "red ball"
+      ],
+      "dimension": "",
+      "time": 0.2,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "cm/s"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "red ball"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.07,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "The depth info (book, persons) does not match the video, which shows only a red ball on a stick pendulum swinging mostly along the camera axis. The ball depth is estimated from its apparent size with f=474 px."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "red ball",
+      "obs": [
+       {
+        "frame": 4,
+        "point": null,
+        "extent": [
+         [
+          408,
+          267.5
+         ],
+         [
+          442,
+          267.5
+         ]
+        ],
+        "box": [
+         408,
+         249,
+         442,
+         286
+        ]
+       },
+       {
+        "frame": 5,
+        "point": null,
+        "extent": [
+         [
+          409,
+          263.5
+         ],
+         [
+          442,
+          263.5
+         ]
+        ],
+        "box": [
+         409,
+         246,
+         442,
+         281
+        ]
+       },
+       {
+        "frame": 6,
+        "point": null,
+        "extent": [
+         [
+          411,
+          256.5
+         ],
+         [
+          443,
+          256.5
+         ]
+        ],
+        "box": [
+         411,
+         240,
+         443,
+         273
+        ]
+       },
+       {
+        "frame": 10,
+        "point": null,
+        "extent": [
+         [
+          417,
+          223.5
+         ],
+         [
+          445,
+          223.5
+         ]
+        ],
+        "box": [
+         417,
+         209,
+         445,
+         238
+        ]
+       }
+      ],
+      "depth_name": "",
+      "range_m": 1.0,
+      "range_basis": "From the apparent size: 7 cm ball at 33 px with f=474 px gives about 1.0 m at frame 5."
+     },
+     {
+      "role": "target",
+      "object": "red ball",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         429.5,
+         236
+        ],
+        "extent": null,
+        "box": [
+         408,
+         213,
+         451,
+         259
+        ]
+       },
+       {
+        "frame": 1,
+        "point": [
+         427,
+         247.5
+        ],
+        "extent": null,
+        "box": [
+         406,
+         225,
+         448,
+         270
+        ]
+       },
+       {
+        "frame": 2,
+        "point": [
+         426,
+         259.5
+        ],
+        "extent": null,
+        "box": [
+         406,
+         238,
+         446,
+         281
+        ]
+       },
+       {
+        "frame": 3,
+        "point": [
+         426.5,
+         265.5
+        ],
+        "extent": null,
+        "box": [
+         408,
+         246,
+         445,
+         285
+        ]
+       },
+       {
+        "frame": 4,
+        "point": [
+         425,
+         267.5
+        ],
+        "extent": null,
+        "box": [
+         408,
+         249,
+         442,
+         286
+        ]
+       },
+       {
+        "frame": 5,
+        "point": [
+         425.5,
+         263.5
+        ],
+        "extent": null,
+        "box": [
+         409,
+         246,
+         442,
+         281
+        ]
+       },
+       {
+        "frame": 6,
+        "point": [
+         427,
+         256.5
+        ],
+        "extent": null,
+        "box": [
+         411,
+         240,
+         443,
+         273
+        ]
+       },
+       {
+        "frame": 7,
+        "point": [
+         427,
+         248
+        ],
+        "extent": null,
+        "box": [
+         412,
+         232,
+         442,
+         264
+        ]
+       },
+       {
+        "frame": 8,
+        "point": [
+         428.5,
+         239.5
+        ],
+        "extent": null,
+        "box": [
+         414,
+         224,
+         443,
+         255
+        ]
+       },
+       {
+        "frame": 9,
+        "point": [
+         430,
+         230.5
+        ],
+        "extent": null,
+        "box": [
+         416,
+         216,
+         444,
+         245
+        ]
+       },
+       {
+        "frame": 10,
+        "point": [
+         431,
+         223.5
+        ],
+        "extent": null,
+        "box": [
+         417,
+         209,
+         445,
+         238
+        ]
+       },
+       {
+        "frame": 11,
+        "point": [
+         432,
+         219.5
+        ],
+        "extent": null,
+        "box": [
+         418,
+         205,
+         446,
+         234
+        ]
+       },
+       {
+        "frame": 12,
+        "point": [
+         434.5,
+         219.5
+        ],
+        "extent": null,
+        "box": [
+         420,
+         205,
+         449,
+         234
+        ]
+       },
+       {
+        "frame": 13,
+        "point": [
+         436,
+         223.5
+        ],
+        "extent": null,
+        "box": [
+         422,
+         208,
+         450,
+         239
+        ]
+       },
+       {
+        "frame": 14,
+        "point": [
+         436.5,
+         231
+        ],
+        "extent": null,
+        "box": [
+         422,
+         215,
+         451,
+         247
+        ]
+       },
+       {
+        "frame": 15,
+        "point": [
+         437.5,
+         239.5
+        ],
+        "extent": null,
+        "box": [
+         423,
+         223,
+         452,
+         256
+        ]
+       },
+       {
+        "frame": 16,
+        "point": [
+         439,
+         249
+        ],
+        "extent": null,
+        "box": [
+         424,
+         232,
+         454,
+         266
+        ]
+       },
+       {
+        "frame": 17,
+        "point": [
+         440,
+         258
+        ],
+        "extent": null,
+        "box": [
+         424,
+         240,
+         456,
+         276
+        ]
+       }
+      ],
+      "depth_name": "",
+      "range_m": 1.0,
+      "range_basis": "From the apparent ball size via f=474 px; the depth varies from about 0.77 to 1.19 m."
+     }
+    ],
+    "direct_answer": 110,
+    "confidence": 0.2,
+    "derivation": "Z=474*0.07/w: w 37->30 px over f3-f7 gives dZ/dt~1.1 m/s; image vertical about 0.23 m/s; speed ~1.1 m/s."
+   },
+   {
+    "qid": 2605,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "red ball"
+      ],
+      "dimension": "",
+      "time": 0.6,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "cm/s"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "red ball"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.07,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "The depth info does not match the video. The ball depth is estimated from its apparent size."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "red ball",
+      "obs": [],
+      "depth_name": "",
+      "range_m": 1.15,
+      "range_basis": "From the apparent size: 29 px ball with f=474 px gives about 1.15 m near t=0.6s."
+     },
+     {
+      "role": "target",
+      "object": "red ball",
+      "obs": [],
+      "depth_name": "",
+      "range_m": 1.15,
+      "range_basis": "From the apparent size: 29 px ball with f=474 px gives about 1.15 m near t=0.6s."
+     }
+    ],
+    "direct_answer": 80,
+    "confidence": 0.2,
+    "derivation": "f13-f15: dZ~0.63 m/s (w 28->29 px); image vertical dy 16 px/0.083 s at Z 1.15 gives 0.48 m/s; total ~0.79 m/s."
+   },
+   {
+    "qid": 2606,
+    "spec": {
+     "target": {
+      "kind": "acceleration",
+      "objects": [
+       "red ball"
+      ],
+      "dimension": "",
+      "time": 0.2,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "cm/s^2"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "red ball"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.07,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Pendulum is near mid-swing at 0.2s, so the acceleration is mainly centripetal. The depth info does not match the video."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "red ball",
+      "obs": [],
+      "depth_name": "",
+      "range_m": 1.0,
+      "range_basis": "From the apparent ball size."
+     },
+     {
+      "role": "target",
+      "object": "red ball",
+      "obs": [],
+      "depth_name": "",
+      "range_m": 1.0,
+      "range_basis": "From the apparent ball size."
+     }
+    ],
+    "direct_answer": 400,
+    "confidence": 0.15,
+    "derivation": "Period ~1.2 s gives L~0.36 m; v~1.15-1.3 m/s at mid-swing; a=v^2/L ~4 m/s^2."
+   },
+   {
+    "qid": 2607,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "person"
+      ],
+      "dimension": "shoulder breadth",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "cm"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "red ball"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.07,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "No person is visible in the video; the question and depth info appear mismatched with this clip. This is a guess."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "red ball",
+      "obs": [],
+      "depth_name": "",
+      "range_m": 1.0,
+      "range_basis": "From the apparent ball size."
+     },
+     {
+      "role": "target",
+      "object": "person",
+      "obs": [],
+      "depth_name": "person_left",
+      "range_m": null,
+      "range_basis": ""
+     }
+    ],
+    "direct_answer": 40,
+    "confidence": 0.05,
+    "derivation": "No person visible; cannot measure."
+   }
+  ]
+ }
+}

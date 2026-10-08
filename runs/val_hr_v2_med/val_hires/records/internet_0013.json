@@ -1,0 +1,989 @@
+{
+ "video_id": "internet_0013",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfpfDQVBnru96ssGAdWG4",
+ "model": "claude-opus-5-5",
+ "effort": "medium",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "medium",
+  "frames": 16,
+  "max_frames": 44,
+  "prompt_version": "v2",
+  "max_side": 1280
+ },
+ "ts": "2026-10-08T16:28:58+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_01Xco5JZMKnjM6XX6HPg4qve",
+ "custom_id": "internet_0013",
+ "usage": {
+  "input_tokens": 53957,
+  "output_tokens": 5130,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 5593,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.159773,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "internet_0013",
+  "fps": 30.0,
+  "fps_from_container": false,
+  "video_type": "V2MC",
+  "n_frames_total": 279,
+  "scale": 0.6666666666666666,
+  "image_size": [
+   1920,
+   1080
+  ],
+  "frames": [
+   0,
+   6,
+   15,
+   26,
+   27,
+   28,
+   29,
+   30,
+   31,
+   32,
+   33,
+   46,
+   52,
+   62,
+   77,
+   78,
+   87,
+   88,
+   89,
+   90,
+   91,
+   92,
+   93,
+   103,
+   108,
+   123,
+   124,
+   139,
+   149,
+   154,
+   168,
+   170,
+   185,
+   187,
+   201,
+   207,
+   216,
+   226,
+   232,
+   247,
+   252,
+   263,
+   272,
+   278
+  ],
+  "questions": [
+   {
+    "qid": 2200,
+    "target_unit": "m",
+    "prior": "pedestrian walking speed ~1.1 m/s",
+    "depth_info": ""
+   },
+   {
+    "qid": 2201,
+    "target_unit": "m",
+    "prior": "pedestrian walking speed ~1.1 m/s",
+    "depth_info": ""
+   },
+   {
+    "qid": 2202,
+    "target_unit": "m",
+    "prior": "pedestrian walking speed ~1.1 m/s",
+    "depth_info": ""
+   },
+   {
+    "qid": 2203,
+    "target_unit": "m/s",
+    "prior": "pedestrian walking speed ~1.1 m/s",
+    "depth_info": ""
+   },
+   {
+    "qid": 2204,
+    "target_unit": "m/s",
+    "prior": "pedestrian walking speed ~1.1 m/s",
+    "depth_info": ""
+   },
+   {
+    "qid": 2205,
+    "target_unit": "m",
+    "prior": "pedestrian walking speed ~1.1 m/s",
+    "depth_info": ""
+   }
+  ],
+  "prompt_version": "v2"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":2200,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"straight-through lane\"],\"dimension\":\"width\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"pedestrian\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":1.1,\"unit\":\"\"},\"depth\":[],\"notes\":\"Taken as the outer lane on the left approach, between the solid ring line and the curb.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"pedestrian\",\"obs\":[{\"frame\":0,\"point\":[226,268],\"extent\":null,\"box\":[214,258,238,278]},{\"frame\":62,\"point\":[212,291],\"extent\":null,\"box\":[202,283,222,299]},{\"frame\":103,\"point\":[210,318],\"extent\":null,\"box\":[200,310,220,326]},{\"frame\":149,\"point\":[200,337],\"extent\":null,\"box\":[190,329,210,345]},{\"frame\":201,\"point\":[190,365],\"extent\":null,\"box\":[180,357,200,373]},{\"frame\":247,\"point\":[180,390],\"extent\":null,\"box\":[170,382,190,398]},{\"frame\":278,\"point\":[172,405],\"extent\":null,\"box\":[162,396,182,414]}],\"depth_name\":\"\",\"range_m\":null,\"range_basis\":\"\"},{\"role\":\"target\",\"object\":\"straight-through lane\",\"obs\":[{\"frame\":30,\"point\":null,\"extent\":[[343,330],[401,330]],\"box\":null},{\"frame\":90,\"point\":null,\"extent\":[[343,330],[401,330]],\"box\":null},{\"frame\":201,\"point\":null,\"extent\":[[343,330],[401,330]],\"box\":null}],\"depth_name\":\"\",\"range_m\":null,\"range_basis\":\"\"}],\"direct_answer\":4.0,\"confidence\":0.3,\"derivation\":\"ped 147 px/9.27 s = 15.9 px/s = 1.1 m/s -> 0.069 m/px; lane 58 px -> 4.0 m\"},{\"qid\":2201,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"roundabout lane\"],\"dimension\":\"width\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"pedestrian\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":1.1,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"pedestrian\",\"obs\":[],\"depth_name\":\"\",\"range_m\":null,\"range_basis\":\"\"},{\"role\":\"target\",\"object\":\"roundabout lane\",\"obs\":[{\"frame\":30,\"point\":null,\"extent\":[[400,350],[463,350]],\"box\":null},{\"frame\":90,\"point\":null,\"extent\":[[400,350],[463,350]],\"box\":null},{\"frame\":201,\"point\":null,\"extent\":[[400,350],[463,350]],\"box\":null}],\"depth_name\":\"\",\"range_m\":null,\"range_basis\":\"\"}],\"direct_answer\":4.3,\"confidence\":0.3,\"derivation\":\"0.069 m/px; ring lane 63 px -> 4.3 m\"},{\"qid\":2202,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"center island planter\"],\"dimension\":\"diameter\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"pedestrian\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":1.1,\"unit\":\"\"},\"depth\":[],\"notes\":\"Planted area, excluding the paved apron.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"pedestrian\",\"obs\":[],\"depth_name\":\"\",\"range_m\":null,\"range_basis\":\"\"},{\"role\":\"target\",\"object\":\"center island planter\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[492,350],[790,350]],\"box\":[492,205,790,503]},{\"frame\":90,\"point\":null,\"extent\":[[492,350],[790,350]],\"box\":[492,205,790,503]},{\"frame\":201,\"point\":null,\"extent\":[[492,350],[790,350]],\"box\":[492,205,790,503]}],\"depth_name\":\"\",\"range_m\":null,\"range_basis\":\"\"}],\"direct_answer\":20.6,\"confidence\":0.4,\"derivation\":\"0.069 m/px; planter 298 px -> 20.6 m\"},{\"qid\":2203,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"white car\"],\"dimension\":\"\",\"time\":3.0,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"pedestrian\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":1.1,\"unit\":\"\"},\"depth\":[],\"notes\":\"Several white cars; the one on the upper ring was chosen.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"pedestrian\",\"obs\":[],\"depth_name\":\"\",\"range_m\":null,\"range_basis\":\"\"},{\"role\":\"target\",\"object\":\"white car\",\"obs\":[{\"frame\":87,\"point\":[760,192],\"extent\":null,\"box\":[727,163,793,221]},{\"frame\":88,\"point\":[757,191],\"extent\":null,\"box\":[724,162,790,220]},{\"frame\":89,\"point\":[755,190],\"extent\":null,\"box\":[722,161,788,219]},{\"frame\":90,\"point\":[750,187],\"extent\":null,\"box\":[718,158,784,218]},{\"frame\":91,\"point\":[748,186],\"extent\":null,\"box\":[716,157,782,216]},{\"frame\":92,\"point\":[747,184],\"extent\":null,\"box\":[714,155,780,214]},{\"frame\":93,\"point\":[745,183],\"extent\":null,\"box\":[712,154,778,212]}],\"depth_name\":\"\",\"range_m\":null,\"range_basis\":\"\"}],\"direct_answer\":6.0,\"confidence\":0.35,\"derivation\":\"17.5 px in 0.2 s = 87 px/s x 0.069 m/px -> 6.0 m/s\"},{\"qid\":2204,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"bicycle\"],\"dimension\":\"\",\"time\":3.0,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"pedestrian\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":1.1,\"unit\":\"\"},\"depth\":[],\"notes\":\"The bicycle is small and hard to locate; positions are approximate.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"pedestrian\",\"obs\":[],\"depth_name\":\"\",\"range_m\":null,\"range_basis\":\"\"},{\"role\":\"target\",\"object\":\"bicycle\",\"obs\":[{\"frame\":62,\"point\":[395,35],\"extent\":null,\"box\":[388,28,402,42]},{\"frame\":77,\"point\":[378,48],\"extent\":null,\"box\":[371,41,385,55]},{\"frame\":87,\"point\":[365,57],\"extent\":null,\"box\":[358,50,372,64]},{\"frame\":90,\"point\":[362,59],\"extent\":null,\"box\":[355,52,369,66]},{\"frame\":93,\"point\":[358,62],\"extent\":null,\"box\":[351,55,365,69]},{\"frame\":103,\"point\":[340,72],\"extent\":null,\"box\":[333,65,347,79]},{\"frame\":123,\"point\":[310,93],\"extent\":null,\"box\":[303,86,317,100]}],\"depth_name\":\"\",\"range_m\":null,\"range_basis\":\"\"}],\"direct_answer\":3.2,\"confidence\":0.2,\"derivation\":\"~47 px/s x 0.069 m/px -> 3.2 m/s\"},{\"qid\":2205,\"spec\":{\"target\":{\"kind\":\"distance\",\"objects\":[\"black car\",\"black car\"],\"dimension\":\"\",\"time\":1.0,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"pedestrian\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":1.1,\"unit\":\"\"},\"depth\":[],\"notes\":\"Measured centre to centre.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"pedestrian\",\"obs\":[],\"depth_name\":\"\",\"range_m\":null,\"range_basis\":\"\"},{\"role\":\"target\",\"object\":\"black car left\",\"obs\":[{\"frame\":29,\"point\":[414,225],\"extent\":null,\"box\":[386,191,442,259]},{\"frame\":30,\"point\":[412,228],\"extent\":null,\"box\":[384,194,440,262]},{\"frame\":31,\"point\":[410,231],\"extent\":null,\"box\":[382,197,438,265]}],\"depth_name\":\"\",\"range_m\":null,\"range_basis\":\"\"},{\"role\":\"target2\",\"object\":\"black car top\",\"obs\":[{\"frame\":29,\"point\":[790,121],\"extent\":null,\"box\":[755,93,825,149]},{\"frame\":30,\"point\":[788,120],\"extent\":null,\"box\":[753,92,823,148]},{\"frame\":31,\"point\":[786,119],\"extent\":null,\"box\":[751,91,821,147]}],\"depth_name\":\"\",\"range_m\":null,\"range_basis\":\"\"}],\"direct_answer\":27.0,\"confidence\":0.35,\"derivation\":\"centres 391 px apart x 0.069 m/px -> 27 m\"}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 2200,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "straight-through lane"
+      ],
+      "dimension": "width",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "pedestrian"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 1.1,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Taken as the outer lane on the left approach, between the solid ring line and the curb."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "pedestrian",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         226,
+         268
+        ],
+        "extent": null,
+        "box": [
+         214,
+         258,
+         238,
+         278
+        ]
+       },
+       {
+        "frame": 62,
+        "point": [
+         212,
+         291
+        ],
+        "extent": null,
+        "box": [
+         202,
+         283,
+         222,
+         299
+        ]
+       },
+       {
+        "frame": 103,
+        "point": [
+         210,
+         318
+        ],
+        "extent": null,
+        "box": [
+         200,
+         310,
+         220,
+         326
+        ]
+       },
+       {
+        "frame": 149,
+        "point": [
+         200,
+         337
+        ],
+        "extent": null,
+        "box": [
+         190,
+         329,
+         210,
+         345
+        ]
+       },
+       {
+        "frame": 201,
+        "point": [
+         190,
+         365
+        ],
+        "extent": null,
+        "box": [
+         180,
+         357,
+         200,
+         373
+        ]
+       },
+       {
+        "frame": 247,
+        "point": [
+         180,
+         390
+        ],
+        "extent": null,
+        "box": [
+         170,
+         382,
+         190,
+         398
+        ]
+       },
+       {
+        "frame": 278,
+        "point": [
+         172,
+         405
+        ],
+        "extent": null,
+        "box": [
+         162,
+         396,
+         182,
+         414
+        ]
+       }
+      ],
+      "depth_name": "",
+      "range_m": null,
+      "range_basis": ""
+     },
+     {
+      "role": "target",
+      "object": "straight-through lane",
+      "obs": [
+       {
+        "frame": 30,
+        "point": null,
+        "extent": [
+         [
+          343,
+          330
+         ],
+         [
+          401,
+          330
+         ]
+        ],
+        "box": null
+       },
+       {
+        "frame": 90,
+        "point": null,
+        "extent": [
+         [
+          343,
+          330
+         ],
+         [
+          401,
+          330
+         ]
+        ],
+        "box": null
+       },
+       {
+        "frame": 201,
+        "point": null,
+        "extent": [
+         [
+          343,
+          330
+         ],
+         [
+          401,
+          330
+         ]
+        ],
+        "box": null
+       }
+      ],
+      "depth_name": "",
+      "range_m": null,
+      "range_basis": ""
+     }
+    ],
+    "direct_answer": 4.0,
+    "confidence": 0.3,
+    "derivation": "ped 147 px/9.27 s = 15.9 px/s = 1.1 m/s -> 0.069 m/px; lane 58 px -> 4.0 m"
+   },
+   {
+    "qid": 2201,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "roundabout lane"
+      ],
+      "dimension": "width",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "pedestrian"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 1.1,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "pedestrian",
+      "obs": [],
+      "depth_name": "",
+      "range_m": null,
+      "range_basis": ""
+     },
+     {
+      "role": "target",
+      "object": "roundabout lane",
+      "obs": [
+       {
+        "frame": 30,
+        "point": null,
+        "extent": [
+         [
+          400,
+          350
+         ],
+         [
+          463,
+          350
+         ]
+        ],
+        "box": null
+       },
+       {
+        "frame": 90,
+        "point": null,
+        "extent": [
+         [
+          400,
+          350
+         ],
+         [
+          463,
+          350
+         ]
+        ],
+        "box": null
+       },
+       {
+        "frame": 201,
+        "point": null,
+        "extent": [
+         [
+          400,
+          350
+         ],
+         [
+          463,
+          350
+         ]
+        ],
+        "box": null
+       }
+      ],
+      "depth_name": "",
+      "range_m": null,
+      "range_basis": ""
+     }
+    ],
+    "direct_answer": 4.3,
+    "confidence": 0.3,
+    "derivation": "0.069 m/px; ring lane 63 px -> 4.3 m"
+   },
+   {
+    "qid": 2202,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "center island planter"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "pedestrian"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 1.1,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Planted area, excluding the paved apron."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "pedestrian",
+      "obs": [],
+      "depth_name": "",
+      "range_m": null,
+      "range_basis": ""
+     },
+     {
+      "role": "target",
+      "object": "center island planter",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          492,
+          350
+         ],
+         [
+          790,
+          350
+         ]
+        ],
+        "box": [
+         492,
+         205,
+         790,
+         503
+        ]
+       },
+       {
+        "frame": 90,
+        "point": null,
+        "extent": [
+         [
+          492,
+          350
+         ],
+         [
+          790,
+          350
+         ]
+        ],
+        "box": [
+         492,
+         205,
+         790,
+         503
+        ]
+       },
+       {
+        "frame": 201,
+        "point": null,
+        "extent": [
+         [
+          492,
+          350
+         ],
+         [
+          790,
+          350
+         ]
+        ],
+        "box": [
+         492,
+         205,
+         790,
+         503
+        ]
+       }
+      ],
+      "depth_name": "",
+      "range_m": null,
+      "range_basis": ""
+     }
+    ],
+    "direct_answer": 20.6,
+    "confidence": 0.4,
+    "derivation": "0.069 m/px; planter 298 px -> 20.6 m"
+   },
+   {
+    "qid": 2203,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "white car"
+      ],
+      "dimension": "",
+      "time": 3.0,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "pedestrian"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 1.1,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Several white cars; the one on the upper ring was chosen."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "pedestrian",
+      "obs": [],
+      "depth_name": "",
+      "range_m": null,
+      "range_basis": ""
+     },
+     {
+      "role": "target",
+      "object": "white car",
+      "obs": [
+       {
+        "frame": 87,
+        "point": [
+         760,
+         192
+        ],
+        "extent": null,
+        "box": [
+         727,
+         163,
+         793,
+         221
+        ]
+       },
+       {
+        "frame": 88,
+        "point": [
+         757,
+         191
+        ],
+        "extent": null,
+        "box": [
+         724,
+         162,
+         790,
+         220
+        ]
+       },
+       {
+        "frame": 89,
+        "point": [
+         755,
+         190
+        ],
+        "extent": null,
+        "box": [
+         722,
+         161,
+         788,
+         219
+        ]
+       },
+       {
+        "frame": 90,
+        "point": [
+         750,
+         187
+        ],
+        "extent": null,
+        "box": [
+         718,
+         158,
+         784,
+         218
+        ]
+       },
+       {
+        "frame": 91,
+        "point": [
+         748,
+         186
+        ],
+        "extent": null,
+        "box": [
+         716,
+         157,
+         782,
+         216
+        ]
+       },
+       {
+        "frame": 92,
+        "point": [
+         747,
+         184
+        ],
+        "extent": null,
+        "box": [
+         714,
+         155,
+         780,
+         214
+        ]
+       },
+       {
+        "frame": 93,
+        "point": [
+         745,
+         183
+        ],
+        "extent": null,
+        "box": [
+         712,
+         154,
+         778,
+         212
+        ]
+       }
+      ],
+      "depth_name": "",
+      "range_m": null,
+      "range_basis": ""
+     }
+    ],
+    "direct_answer": 6.0,
+    "confidence": 0.35,
+    "derivation": "17.5 px in 0.2 s = 87 px/s x 0.069 m/px -> 6.0 m/s"
+   },
+   {
+    "qid": 2204,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "bicycle"
+      ],
+      "dimension": "",
+      "time": 3.0,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "pedestrian"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 1.1,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "The bicycle is small and hard to locate; positions are approximate."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "pedestrian",
+      "obs": [],
+      "depth_name": "",
+      "range_m": null,
+      "range_basis": ""
+     },
+     {
+      "role": "target",
+      "object": "bicycle",
+      "obs": [
+       {
+        "frame": 62,
+        "point": [
+         395,
+         35
+        ],
+        "extent": null,
+        "box": [
+         388,
+         28,
+         402,
+         42
+        ]
+       },
+       {
+        "frame": 77,
+        "point": [
+         378,
+         48
+        ],
+        "extent": null,
+        "box": [
+         371,
+         41,
+         385,
+         55
+        ]
+       },
+       {
+        "frame": 87,
+        "point": [
+         365,
+         57
+        ],
+        "extent": null,
+        "box": [
+         358,
+         50,
+         372,
+         64
+        ]
+       },
+       {
+        "frame": 90,
+        "point": [
+         362,
+         59
+        ],
+        "extent": null,
+        "box": [
+         355,
+         52,
+         369,
+         66
+        ]
+       },
+       {
+        "frame": 93,
+        "point": [
+         358,
+         62
+        ],
+        "extent": null,
+        "box": [
+         351,
+         55,
+         365,
+         69
+        ]
+       },
+       {
+        "frame": 103,
+        "point": [
+         340,
+         72
+        ],
+        "extent": null,
+        "box": [
+         333,
+         65,
+         347,
+         79
+        ]
+       },
+       {
+        "frame": 123,
+        "point": [
+         310,
+         93
+        ],
+        "extent": null,
+        "box": [
+         303,
+         86,
+         317,
+         100
+        ]
+       }
+      ],
+      "depth_name": "",
+      "range_m": null,
+      "range_basis": ""
+     }
+    ],
+    "direct_answer": 3.2,
+    "confidence": 0.2,
+    "derivation": "~47 px/s x 0.069 m/px -> 3.2 m/s"
+   },
+   {
+    "qid": 2205,
+    "spec": {
+     "target": {
+      "kind": "distance",
+      "objects": [
+       "black car",
+       "black car"
+      ],
+      "dimension": "",
+      "time": 1.0,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "pedestrian"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 1.1,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Measured centre to centre."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "pedestrian",
+      "obs": [],
+      "depth_name": "",
+      "range_m": null,
+      "range_basis": ""
+     },
+     {
+      "role": "target",
+      "object": "black car left",
+      "obs": [
+       {
+        "frame": 29,
+        "point": [
+         414,
+         225
+        ],
+        "extent": null,
+        "box": [
+         386,
+         191,
+         442,
+         259
+        ]
+       },
+       {
+        "frame": 30,
+        "point": [
+         412,
+         228
+        ],
+        "extent": null,
+        "box": [
+         384,
+         194,
+         440,
+         262
+        ]
+       },
+       {
+        "frame": 31,
+        "point": [
+         410,
+         231
+        ],
+        "extent": null,
+        "box": [
+         382,
+         197,
+         438,
+         265
+        ]
+       }
+      ],
+      "depth_name": "",
+      "range_m": null,
+      "range_basis": ""
+     },
+     {
+      "role": "target2",
+      "object": "black car top",
+      "obs": [
+       {
+        "frame": 29,
+        "point": [
+         790,
+         121
+        ],
+        "extent": null,
+        "box": [
+         755,
+         93,
+         825,
+         149
+        ]
+       },
+       {
+        "frame": 30,
+        "point": [
+         788,
+         120
+        ],
+        "extent": null,
+        "box": [
+         753,
+         92,
+         823,
+         148
+        ]
+       },
+       {
+        "frame": 31,
+        "point": [
+         786,
+         119
+        ],
+        "extent": null,
+        "box": [
+         751,
+         91,
+         821,
+         147
+        ]
+       }
+      ],
+      "depth_name": "",
+      "range_m": null,
+      "range_basis": ""
+     }
+    ],
+    "direct_answer": 27.0,
+    "confidence": 0.35,
+    "derivation": "centres 391 px apart x 0.069 m/px -> 27 m"
+   }
+  ]
+ }
+}
