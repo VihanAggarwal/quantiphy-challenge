@@ -469,7 +469,7 @@ def test_sync_run_records_ledger_and_csv(workspace):
 
 def test_geometry_value_preferred_when_valid(workspace, monkeypatch):
     geo = types.ModuleType("qp.geometry")
-    geo.solve = lambda spec, tracks, image_size, fps: Answer(
+    geo.solve = lambda spec, tracks, image_size, fps, **kw: Answer(
         qid=spec.qid, value=None if spec.qid == 103 else 25.0, source="geo", method="2d_scale")
     monkeypatch.setitem(sys.modules, "qp.geometry", geo)
     res = rc.main(_argv(workspace), client=FakeClient()).set_index("id")

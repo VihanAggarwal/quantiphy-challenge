@@ -47,6 +47,7 @@ solve() never raises: unsolvable inputs give Answer(value=None, flags=[reason]).
 
 from __future__ import annotations
 
+import contextvars
 import math
 import re
 import warnings
@@ -72,6 +73,7 @@ DEPTH_MATCH_MIN = 0.5           # minimum name score to use a depth_info entry f
 NAME_STRICT = 0.6               # track-by-name for a two-object distance: one shared word of two
                                 # ("black ball" vs "ball") is another instance, not a match
 SNR_MIN = 5.0                   # a prior's motion must exceed SNR_MIN x its noise (see _motion)
+_FLOOR_SCALE = contextvars.ContextVar("qp_geometry_floor_scale", default=1.0)  # see solve(seen_scale=)
 PX_NOISE_FLOOR = 1.0            # px, least noise assumed on a prior track (annotators are good to ~1 px:
                                 # a prior moving <= 10 px is noise-dominated and must not set the scale)
 GRAVITY_BORROW_MIN = 6          # obs needed to try the target's own track as the falling object
@@ -467,7 +469,7 @@ def _measure(q: Quantity, a: _Obj | None, b: _Obj | None, va: _View, vb: _View,
         if not len(tb):
             raise _Fail(f"no_{role}2_points")
         return _distance(q, ta, va.pos(ta, uva), tb, vb.pos(tb, uvb), flags, tol)
-    floor = PX_NOISE_FLOOR * va.per_px(ta, uva) if role == "prior" else None
+    floor = PX_NOISE_FLOOR * _FLOOR_SCALE.get() * va.per_px(ta, uva) if role == "prior" else None
     return _motion(q, ta, va.pos(ta, uva), flags, tol, floor, flight)
 
 
@@ -987,11 +989,13 @@ def _solve(spec: QuestionSpec, tracks, image_size, fps, flags: set[str], debug: 
 
 
 def solve(spec: QuestionSpec, tracks: list[RoleTrack], image_size: tuple[int, int],
-          fps: float, camera_fov_deg: float | None = None) -> Answer:
+          fps: float, camera_fov_deg: float | None = None, seen_scale: float | None = None) -> Answer:
     """Answer `spec` from pixel tracks. image_size is (width, height) of the ORIGINAL frames;
     the value is in spec.target.unit (SI when the unit is empty/unknown), None if unsolvable.
     camera_fov_deg: the camera's horizontal field of view when known (3D only): f is then the MAP
-    estimate around it given the prior (flag f_camera_prior) instead of fitted to the prior alone."""
+    estimate around it given the prior (flag f_camera_prior) instead of fitted to the prior alone.
+    seen_scale: pixels of the image the annotator saw per original pixel (< 1 when frames were
+    downscaled); the prior-motion noise floor is PX_NOISE_FLOOR pixels of THAT image."""
     flags: set[str] = set()
     debug: dict = {}
     srcs = sorted({str((t.get("source") if isinstance(t, dict) else getattr(t, "source", "")) or "")
@@ -1000,7 +1004,12 @@ def solve(spec: QuestionSpec, tracks: list[RoleTrack], image_size: tuple[int, in
     ans = Answer(qid=int(qid) if qid is not None else -1, value=None,
                  source="geometry" + (":" + "+".join(srcs) if srcs else ""))
     try:
-        value_si, ans.method = _solve(spec, tracks, image_size, fps, flags, debug, camera_fov_deg)
+        scale = _num(seen_scale)
+        token = _FLOOR_SCALE.set(1.0 / scale if scale and 0 < scale < 1 else 1.0)
+        try:
+            value_si, ans.method = _solve(spec, tracks, image_size, fps, flags, debug, camera_fov_deg)
+        finally:
+            _FLOOR_SCALE.reset(token)
         value = _to_unit(value_si, spec.target, flags)
         if not (math.isfinite(value) and value > 0 and value_si > 1e-9):  # 1e-9 SI: numerically zero
             raise _Fail("invalid_value")

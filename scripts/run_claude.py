@@ -654,6 +654,7 @@ def build_results(df: pd.DataFrame, records: dict[str, dict], rule: str = combin
             try:
                 fov = LAB_FOV_DEG if source in combine.CAMERA_SOURCES and a.spec.is_3d else None
                 ans = solve(a.spec, a.tracks, tuple(rec["meta"]["image_size"]), float(rec["meta"]["fps"]),
+                            seen_scale=float(rec["meta"].get("scale") or 1.0),
                             **({"camera_fov_deg": fov} if fov else {}))
                 geo, method, geo_si = ans.value, ans.method, ans.debug.get("value_si")
                 flags += [f"geo:{f}" for f in ans.flags]

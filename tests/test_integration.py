@@ -316,7 +316,7 @@ def test_track_a_replaces_geometry_blowups_by_direct(monkeypatch):
     rc = _script("run_claude")
     values = {1: 5e4, 2: 30.0, 3: 2.2}        # metres: beyond 10 km, 15x the direct 2.0, fine
     geo = types.ModuleType("qp.geometry")
-    geo.solve = lambda spec, tracks, size, fps: Answer(spec.qid, values[spec.qid], "geometry", "2d_scale",
+    geo.solve = lambda spec, tracks, size, fps, **kw: Answer(spec.qid, values[spec.qid], "geometry", "2d_scale",
                                                        debug={"value_si": values[spec.qid]})
     monkeypatch.setitem(sys.modules, "qp.geometry", geo)
     meta = {"video_id": "v", "fps": 24.0, "video_type": "V2SC", "scale": 1.0, "image_size": [854, 480], "frames": [0],
