@@ -310,6 +310,26 @@ def test_cli_rescores_a_cached_run_with_dense_tracks(tmp_path, monkeypatch):
     assert abs(out.geo_value[0] / truth - 1) < 0.02
     assert abs(out.geo_value[0] / truth - 1) <= abs(sparse.geo_value[0] / truth - 1) + 0.002
 
+    # --tracks-out: the densified tracks in the format scripts/run_claude_verify.py --dense reads
+    from qp import claude_verify as cvf
+    cli.main(["--name", "fake", "--split", "val", "--out-root", str(tmp_path / "runs"), "--workers", "1",
+              "--cache-dir", str(tmp_path / "cache"), "--no-original", "--tracks-out", str(tmp_path / "tracks.json")])
+    tracks, _ = cvf.load_dense(str(tmp_path / "tracks.json"))
+    assert list(tracks) == [11] and [(t.role, t.source) for t in tracks[11]] == [("target", "dense")]
+    assert len(tracks[11][0].obs) > 3 * len(frames)
+
+    # run_claude --dense: the same post-step inside the Track A runner (a cached run: nothing is sent);
+    # --dense off is the annotator's tracks (qp.refine only), as before
+    monkeypatch.setattr(cli.rc, "load_split", lambda split: df)
+    argv = ["--split", "val", "--name", "fake", "--out-root", str(tmp_path / "runs"), "--dense-workers", "1",
+            "--dense-cache", str(tmp_path / "cache")]
+    on = cli.rc.main([*argv, "--dense", "motion"])
+    assert "dense_motion" in on["flags"][0] and on.geo_value[0] == pytest.approx(out.geo_value[0])
+    off = cli.rc.main([*argv, "--dense", "off"])
+    assert "dense_motion" not in off["flags"][0] and off.geo_value[0] == pytest.approx(sparse.geo_value[0])
+    with pytest.raises(ValueError):
+        cli.rc.build_results(df, cli.rc.load_records(rec_dir), dense="everything")
+
 
 # --------------------------------------------------------------------------- review regressions
 
@@ -354,8 +374,9 @@ def _disp_error(got, obs, cs):
 @pytest.mark.parametrize("loose", [1.7, 2.4])
 def test_loose_boxes_on_a_textured_background_keep_the_displacement(tmp_path, monkeypatch, loose):
     """Whole-box templates of a slowly moving disc on a textured background match the static
-    background as much as the disc: every segment lagged alike, the chained path lost 20-67 % of the
-    motion and was accepted. Object-weighted templates keep the displacement within 2 %."""
+    background as much as the disc: every segment lagged alike and the chained path, accepted, lost
+    much of the motion (the review measured 20-67 % on mp4v). Object-weighted templates keep the
+    displacement within 2 %."""
     cs = _textured_video(tmp_path / "t.avi", 90, 14, 25, 1.0)
     obs = _loose_boxes(cs, 14, loose)
     win = dt.decode(str(tmp_path / "t.avi"), set(range(90)))
@@ -440,19 +461,23 @@ def test_drift_onto_a_passing_occluder_is_rejected(tmp_path):
 
 def test_a_chain_longer_than_under_read_anchors_is_kept(tmp_path):
     """simulation_0196's bubble: a slow object the annotator saw at a fraction of the resolution and
-    read as equal steps of half its true motion. The chain (and optical flow, and the ground truth)
-    say otherwise; a longer chain is no template lag, and its residuals are small in the pixels the
-    annotator saw: kept, with the chain's scale (the annotator's points barely constrain it)."""
+    read as even steps of about half its motion. The chain (with optical flow and the ground truth)
+    says otherwise; a chain longer than the annotator's points is no template lag and its residuals
+    are small in the pixels the annotator saw: kept near its own scale (a two-sided check rejected
+    it), much closer to the true motion than the annotator."""
     cs = _textured_video(tmp_path / "t.avi", 90, 24, 40, 0.5)
     rng = np.random.default_rng(3)
-    seen = 0.2                                                               # the annotator saw 128 x 72
-    obs = [Obs(t=f / FPS, point=list(cs[0] + 0.5 * (cs[f] - cs[0]) + rng.normal(0, 0.3 / seen, 2)))
-           for f in range(0, 85, 12)]                                        # reads half the motion
+    seen, under = 0.5, 0.6                                                   # annotator at half resolution
+    obs = [Obs(t=f / FPS, point=list(cs[0] + under * (cs[f] - cs[0]) + rng.normal(0, 0.3 / seen, 2)))
+           for f in range(0, 85, 6)]
     win = dt.decode(str(tmp_path / "t.avi"), set(range(90)))
     got, info = dt.dense_motion(win, obs, FPS, lambda f: (48.0, 48.0), seen_scale=seen)
     assert got is not None, info
-    assert info["scale"][0][0] < 0.7 and info["scale"][0][2] < 1.01        # chain kept at its own scale
-    assert abs(_disp_error(got, obs, cs)) < 0.05, _disp_error(got, obs, cs)
+    beta, se, b = info["scale"][0]
+    assert beta < 1 - dt.SCALE_Z * math.hypot(dt.SCALE_SIG, se)            # significantly longer chain
+    assert b > 0.98                                                          # ... kept near its own scale
+    err = _disp_error(got, obs, cs)
+    assert abs(err) < 0.1 and abs(err) < 0.25 * (1 - under), err
 
 
 def test_residual_tolerance_is_in_the_annotators_pixels(tmp_path):

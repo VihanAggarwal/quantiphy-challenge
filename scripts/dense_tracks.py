@@ -7,14 +7,16 @@
 Reads <runs>/<name>/<split>/records (as scripts/run_claude.py wrote them; <runs> = --out-root, env
 QP_RUNS, else runs/), replaces the annotator's tracks by dense ones where they pass qp.dense_track's
 checks (--what: motion tracks, size extents or both), re-runs qp.geometry.solve and the answer selection
-of scripts/run_claude.py (its build_results, so the same rule, refinement and guards), and writes
+of scripts/run_claude.py (its build_results with the same post-steps as run_claude.py --dense <what>, so
+the same rule, refinement and guards), and writes
 <runs>/<name>/<split>_dense.csv (--what motion, the default; else <split>_dense_<what>.csv) with columns id,
 parsed_value, geo_value, direct_value, method, flags, geo_method. Prints MRA (final and geometry, per
 category) of the original and the dense variant when the split has answers. Dense results are cached
 per video and object under --cache-dir (default <runs>/_dense_cache/<split>), so reruns are fast; the
 cache may be shared by several runs, also concurrently (keys cover everything a result depends on).
 
---prior-refine first (default): qp.refine's optical-flow refinement of motion priors runs first, as in
+--tracks-out writes the densified tracks ({qid: [RoleTrack dicts]}), the input of scripts/run_claude_verify.py
+--dense. --prior-refine first (default): qp.refine's optical-flow refinement of motion priors runs first, as in
 run_claude, and dense tracking leaves the tracks it accepted alone; off: no qp.refine, dense tracking
 for every track.
 """
@@ -22,7 +24,7 @@ for every track.
 from __future__ import annotations
 
 import argparse
-import contextlib
+import json
 import os
 import sys
 import time
@@ -35,7 +37,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 import run_claude as rc  # noqa: E402
 
-from qp import combine, refine  # noqa: E402
+from qp import combine  # noqa: E402
 from qp import dense_track as dt  # noqa: E402
 from qp.data import ROOT, load_split  # noqa: E402
 from qp.mra import score  # noqa: E402
@@ -43,57 +45,51 @@ from qp.mra import score  # noqa: E402
 
 def video_maps(df: pd.DataFrame, records: dict, anns: dict) -> tuple[dict, dict]:
     """{qid: video path}, {qid: (fps, (W, H), annotator image scale)} for the annotated questions."""
-    rows = [r for r in df.itertuples() if getattr(r, "video_path", "") and int(r.qid) in anns
-            and (records.get(r.video_id) or {}).get("meta")]
-    paths = {int(r.qid): str(r.video_path) for r in rows}
-    meta = {}
-    for r in rows:
-        m = records[r.video_id]["meta"]
-        meta[int(r.qid)] = (float(m["fps"]), tuple(m["image_size"]), float(m.get("scale") or 1.0))
-    return paths, meta
+    return rc.video_maps(df, records, anns)
+
+
+def _post(what: str, prior_refine: str, cache_dir, workers: int, log, size_method: str, motion_kinds) -> dict:
+    """run_claude.post_steps settings of one variant (what "none": run_claude's defaults)."""
+    if what == "none":
+        return {}
+    return {"refine_priors": prior_refine == "first", "dense": what, "dense_cache": cache_dir,
+            "dense_workers": workers, "dense_log": log, "size_method": size_method, "motion_kinds": motion_kinds}
 
 
 def densify(anns: dict, df: pd.DataFrame, records: dict, what: str, prior_refine: str = "first",
             cache_dir=None, workers: int = 1, log: list | None = None, size_method: str = dt.SIZE_METHOD,
             motion_kinds=dt.MOTION) -> dict:
-    """qp.refine (prior_refine "first") then dense tracks, in place."""
-    paths, meta = video_maps(df, records, anns)
-    skip = set()
-    if prior_refine == "first":
-        rlog: list = []
-        try:
-            refine.refine_annotations(anns, paths, {q: m[:2] for q, m in meta.items()}, log=rlog)
-        except Exception as e:  # noqa: BLE001 - as run_claude: refinement is optional
-            print(f"prior refinement skipped: {type(e).__name__}: {e}")
-        skip = {(q, role) for q, role, info in rlog if info.get("why") == "refined"}
-    dt.densify_annotations(anns, paths, meta, what=what, cache_dir=cache_dir, log=log, workers=workers,
-                           skip=skip, size_method=size_method, motion_kinds=motion_kinds)
-    return anns
-
-
-@contextlib.contextmanager
-def _dense_build(df, records, what, prior_refine, cache_dir, workers, log, size_method, motion_kinds):
-    """run_claude.build_results with its annotations densified (and its own refinement switched off:
-    densify runs it first when asked), so the answer selection is exactly run_claude's."""
-    orig_load, orig_refine = rc.ca.load_annotations, rc.REFINE_PRIORS
-
-    def load(recs):
-        return densify(orig_load(recs), df, records, what, prior_refine, cache_dir, workers, log, size_method,
-                       motion_kinds)
-    rc.ca.load_annotations, rc.REFINE_PRIORS = load, False
-    try:
-        yield
-    finally:
-        rc.ca.load_annotations, rc.REFINE_PRIORS = orig_load, orig_refine
+    """qp.refine (prior_refine "first") then dense tracks, in place (run_claude.post_steps)."""
+    return rc.post_steps(anns, df, records, **_post(what, prior_refine, cache_dir, workers, log, size_method,
+                                                    motion_kinds))
 
 
 def build(df, records, what="motion", rule=combine.DEFAULT_RULE, prior_refine="first", cache_dir=None,
-          workers=1, log=None, size_method=dt.SIZE_METHOD, motion_kinds=dt.MOTION) -> pd.DataFrame:
-    """The run table with dense tracks (what "none": run_claude's own result)."""
-    if what == "none":
-        return rc.build_results(df, records, rule)
-    with _dense_build(df, records, what, prior_refine, cache_dir, workers, log, size_method, motion_kinds):
-        return rc.build_results(df, records, rule)
+          workers=1, log=None, size_method=dt.SIZE_METHOD, motion_kinds=dt.MOTION, anns=None) -> pd.DataFrame:
+    """The run table with dense tracks (what "none": run_claude's own result): run_claude.build_results
+    with the dense post-step, so the answer selection is exactly run_claude's. anns: precomputed
+    annotations (dense_annotations)."""
+    return rc.build_results(df, records, rule, anns=anns,
+                            **_post(what, prior_refine, cache_dir, workers, log, size_method, motion_kinds))
+
+
+def dense_annotations(df, records, what="motion", prior_refine="first", cache_dir=None, workers=1, log=None,
+                      size_method=dt.SIZE_METHOD, motion_kinds=dt.MOTION) -> dict:
+    """{qid: Annotation} after the post-steps of one variant (run_claude.annotations)."""
+    return rc.annotations(df, records, **_post(what, prior_refine, cache_dir, workers, log, size_method,
+                                                motion_kinds))
+
+
+def tracks_json(anns: dict) -> dict:
+    """{qid: [RoleTrack dicts]} of the densified tracks (source "dense"): the format of
+    scripts/run_claude_verify.py --dense (qp.claude_verify.load_dense), which replaces pass 1's tracks of
+    the same roles."""
+    out = {}
+    for q, a in sorted(anns.items()):
+        trs = [t.to_dict() for t in a.tracks if t.source == "dense"]
+        if trs:
+            out[str(q)] = trs
+    return out
 
 
 def mra_table(df: pd.DataFrame, tables: dict[str, pd.DataFrame]) -> pd.DataFrame:
@@ -125,6 +121,8 @@ def parse_args(argv=None):
     ap.add_argument("--out", help="output CSV (default <runs>/<name>/<split>_dense[_<what>].csv)")
     ap.add_argument("--no-original", action="store_true", help="skip re-scoring the original run")
     ap.add_argument("--overlays", help="folder for overlay montages of the accepted motion tracks")
+    ap.add_argument("--tracks-out", help="also write the densified tracks as JSON ({qid: [RoleTrack]}; "
+                                         "scripts/run_claude_verify.py --dense takes it)")
     return ap.parse_args(argv)
 
 
@@ -172,8 +170,9 @@ def main(argv=None) -> pd.DataFrame:
     log: list = []
     t0 = time.time()
     kinds = dt.MOTION + (("distance",) if args.with_distance else ())
-    res = build(df, records, args.what, args.rule, args.prior_refine, cache_dir, args.workers, log, args.size_method,
-                kinds)
+    anns = dense_annotations(df, records, args.what, args.prior_refine, cache_dir, args.workers, log,
+                             args.size_method, kinds)
+    res = build(df, records, args.what, args.rule, anns=anns)
     print(f"dense tracks in {time.time() - t0:.1f} s")
     tables[f"dense_{args.what}"] = res
     out = Path(args.out) if args.out else runs_root / args.name / (
@@ -181,6 +180,10 @@ def main(argv=None) -> pd.DataFrame:
     out.parent.mkdir(parents=True, exist_ok=True)
     res.to_csv(out, index=False)
     print(f"wrote {out}")
+    if args.tracks_out:
+        Path(args.tracks_out).parent.mkdir(parents=True, exist_ok=True)
+        Path(args.tracks_out).write_text(json.dumps(tracks_json(anns)))
+        print(f"wrote {args.tracks_out}")
 
     why = Counter((kind, info.get("why", "?").split(":")[0]) for _, _, kind, info in log)
     print("dense results:", dict(sorted(why.items())))

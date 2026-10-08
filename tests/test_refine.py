@@ -82,3 +82,34 @@ def test_an_unexpected_error_keeps_the_tracks_and_flags(tmp_path, monkeypatch):
     refine.refine_annotations({1: a}, {1: path}, {1: (FPS, (W, H))}, log=log)   # does not raise
     assert "prior_refine_error" in a.flags and "prior_track_refined" not in a.flags
     assert [o.point for o in a.tracks[0].obs] == before and log[0][2]["why"] == "error:MemoryError"
+
+
+def test_full_resolution_copy_is_refined_at_the_480p_scale(tmp_path):
+    """A 4x copy of the scene (1280x960) is tracked on frames downscaled to a 480 px short side (the
+    pixel thresholds are 480p pixels): the path comes back in original pixels, 4x the 320x240 motion."""
+    k, n, vx = 4, 50, 0.7
+    rng = np.random.default_rng(0)
+    bg = cv2.GaussianBlur(rng.random((H, W)), (0, 0), 2)
+    bg = cv2.resize(cv2.normalize(bg, None, 20, 200, cv2.NORM_MINMAX), (W * k, H * k), interpolation=cv2.INTER_CUBIC)
+    bg = np.clip(bg, 0, 255).astype(np.uint8)
+    path = str(tmp_path / "big.mp4")
+    vw = cv2.VideoWriter(path, cv2.VideoWriter_fourcc(*"mp4v"), FPS, (W * k, H * k))
+    for i in range(n):
+        img = bg.copy()
+        cv2.circle(img, (int(round((80 + vx * i) * k * 16)), 120 * k * 16), 9 * k * 16, 250, -1,
+                   lineType=cv2.LINE_AA, shift=4)
+        vw.write(cv2.cvtColor(cv2.GaussianBlur(img, (0, 0), k), cv2.COLOR_GRAY2BGR))
+    vw.release()
+    flow = refine.VideoFlow(path)
+    assert flow.scale == pytest.approx(0.5) and flow.work_size == (640, 480)
+    pts = [(0, (78.0, 121.0)), (16, (88.0, 119.0)), (33, (95.0, 121.0)), (49, (98.0, 120.0))]
+    a = _ann([(f, (x * k, y * k)) for f, (x, y) in pts])
+    for o in a.tracks[0].obs:
+        o.box = [o.point[0] - 9 * k, o.point[1] - 9 * k, o.point[0] + 9 * k, o.point[1] + 9 * k]
+    log = []
+    refine.refine_annotations({1: a}, {1: path}, {1: (FPS, (W * k, H * k))}, log=log)
+    assert "prior_track_refined" in a.flags, log
+    assert log[0][2]["work_scale"] == pytest.approx(0.5)
+    dense = [o for o in a.tracks[0].obs if o.point is not None]
+    assert len(dense) == n and dense[0].point == pytest.approx([78.0 * k, 121.0 * k], abs=1e-6)
+    assert dense[-1].point[0] - dense[0].point[0] == pytest.approx(vx * (n - 1) * k, abs=2.0 * k)

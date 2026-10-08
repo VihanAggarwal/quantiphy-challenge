@@ -6,6 +6,10 @@ motion (a bubble drifting 35 px inside a droplet, located on a different part of
 frame). Frame-to-frame optical flow measures exactly that motion to sub-pixel accuracy. Frames are
 background-subtracted (per-pixel temporal median), so static edges do not pin the LK window.
 
+Pixel thresholds below are in pixels of a 480p frame, the resolution they were set on: larger videos
+are tracked on frames downscaled to a short side of WORK_SHORT px (the path is mapped back to original
+pixels), so a 4K copy of a clip is refined as its 480p copy is.
+
 Guards (any failure keeps the annotator's track):
   * static camera: the median share of pixels with |frame - background| > 12 is <= STATIC_MAX
   * the track stays finite and inside the image on every frame
@@ -37,6 +41,7 @@ FB_MAX_PX = 1.0
 COS_MIN = 0.8
 DEV_MIN_PX = 30.0
 GRID_PX = 3           # 3x3 grid of LK points this far apart around the start point
+WORK_SHORT = 480      # px: frames are tracked with their short side at most this (thresholds above: 480p px)
 
 
 def _grey(img: np.ndarray) -> np.ndarray:
@@ -56,7 +61,10 @@ class VideoFlow:
                 n += 1
             cap.release()
             cap = cv2.VideoCapture(path)
-        pixels = max(1, int(cap.get(cv2.CAP_PROP_FRAME_WIDTH) * cap.get(cv2.CAP_PROP_FRAME_HEIGHT))) if n else 1
+        W, H = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH)), int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
+        self.scale = min(1.0, WORK_SHORT / max(1, min(W, H)))   # working px per original px
+        self.work_size = (max(1, round(W * self.scale)), max(1, round(H * self.scale)))
+        pixels = max(1, self.work_size[0] * self.work_size[1]) if n else 1
         k = min(n, BG_FRAMES, max(15, int(BG_BYTES // pixels)))  # 60 frames up to ~4 MP, fewer for 4K
         want = set(np.linspace(0, max(n - 1, 0), k).round().astype(int).tolist()) if n else set()
         frames, i = [], 0
@@ -64,7 +72,7 @@ class VideoFlow:
             if i in want:
                 ok, img = cap.retrieve()
                 if ok:
-                    frames.append(cv2.cvtColor(img, cv2.COLOR_BGR2GRAY))  # uint8: 1 byte per pixel
+                    frames.append(self._small(cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)))  # uint8: 1 byte / px
                 want.discard(i)
             i += 1
         cap.release()
@@ -77,15 +85,30 @@ class VideoFlow:
         self.bg = np.median(A, axis=0).astype(np.float32)
         self.moving = float(np.median([(np.abs(a.astype(np.float32) - self.bg) > CHANGE_GREY).mean() for a in A]))
 
+    def _small(self, img: np.ndarray) -> np.ndarray:
+        """img at the working resolution (unchanged when the video is no larger than 480p)."""
+        if self.scale >= 1.0:
+            return img
+        return cv2.resize(img, self.work_size, interpolation=cv2.INTER_AREA)
+
+    def to_work(self, p) -> np.ndarray:
+        """Original px -> working px (pixel centres: a pixel's centre maps to its working pixel's)."""
+        return (np.asarray(p, float) + 0.5) * self.scale - 0.5
+
+    def to_orig(self, p) -> np.ndarray:
+        return (np.asarray(p, float) + 0.5) / self.scale - 0.5
+
     def _diff(self, img: np.ndarray) -> np.ndarray:
-        return np.clip(128 + 2 * (_grey(img) - self.bg), 0, 255).astype(np.uint8)
+        return np.clip(128 + 2 * (self._small(_grey(img)) - self.bg), 0, 255).astype(np.uint8)
 
     def track_many(self, reqs: list[tuple[int, list[float], int]]) -> list[tuple[dict | None, list[float]]]:
         """For each (f0, p0, f1): ({frame: (x, y)} from f0 to f1 starting at p0, moved rigidly by the
-        median LK motion of a 3x3 point grid; forward-backward error per frame pair), or (None, [inf])
-        when tracking is lost. One sequential decode serves all requests."""
+        median LK motion of a 3x3 point grid; forward-backward error per frame pair, in working px), or
+        (None, [inf]) when tracking is lost. p0 and the path are in original px. One sequential decode
+        serves all requests."""
         offs = np.array([[dx, dy] for dx in (-GRID_PX, 0, GRID_PX) for dy in (-GRID_PX, 0, GRID_PX)], np.float32)
-        state = [{"pts": (np.asarray(p0, np.float32) + offs).reshape(-1, 1, 2), "path": {f0: np.asarray(p0, float)},
+        state = [{"pts": (self.to_work(p0).astype(np.float32) + offs).reshape(-1, 1, 2),
+                  "path": {f0: self.to_work(p0)},
                   "fb": [], "lost": False} for f0, p0, _ in reqs]
         if not reqs:
             return []
@@ -116,7 +139,8 @@ class VideoFlow:
                 i += 1
         finally:
             cap.release()
-        return [(None, [math.inf]) if st["lost"] or max(st["path"]) < f1 else (st["path"], st["fb"])
+        return [(None, [math.inf]) if st["lost"] or max(st["path"]) < f1
+                else ({f: self.to_orig(p) for f, p in st["path"].items()}, st["fb"])
                 for (_, _, f1), st in zip(reqs, state)]
 
 
@@ -125,7 +149,7 @@ def _request(flow: VideoFlow, fps: float, obs: list[Obs]) -> tuple[tuple | None,
     pts = [o for o in obs if o.point is not None]
     if len(pts) < 2:
         return None, {"why": "few_points"}
-    info = {"moving": round(flow.moving, 3)}
+    info = {"moving": round(flow.moving, 3), **({"work_scale": round(flow.scale, 4)} if flow.scale < 1 else {})}
     if flow.bg is None or not flow.moving <= STATIC_MAX:
         return None, {**info, "why": "camera_not_static"}
     fr = [int(round(o.t * fps)) for o in pts]
@@ -134,8 +158,10 @@ def _request(flow: VideoFlow, fps: float, obs: list[Obs]) -> tuple[tuple | None,
     return (fr[0], pts[0].point, fr[-1]), info
 
 
-def _accept(path, fb, fps: float, obs: list[Obs], image_size, info: dict) -> tuple[list[Obs] | None, dict]:
-    """Dense refined obs from a flow track if every guard passes, else (None, info with the reason)."""
+def _accept(path, fb, fps: float, obs: list[Obs], image_size, info: dict, scale: float = 1.0
+            ) -> tuple[list[Obs] | None, dict]:
+    """Dense refined obs from a flow track if every guard passes, else (None, info with the reason).
+    path: original px; fb: working px; scale: working px per original px (480p-pixel thresholds)."""
     pts = [o for o in obs if o.point is not None]
     fr = [int(round(o.t * fps)) for o in pts]
     W, H = image_size
@@ -153,9 +179,9 @@ def _accept(path, fb, fps: float, obs: list[Obs], image_size, info: dict) -> tup
             "cos": round(cos, 2)}
     if max(fb) > FB_MAX_PX:
         return None, {**info, "why": "fb"}
-    if np.linalg.norm(cd) > 5 and cos < COS_MIN:
+    if np.linalg.norm(cd) * scale > 5 and cos < COS_MIN:
         return None, {**info, "why": "direction"}
-    if dev > max(DEV_MIN_PX, size):
+    if dev > max(DEV_MIN_PX / scale, size):
         return None, {**info, "why": "deviation"}
     dense = [Obs(t=f / fps, point=[float(v) for v in path[f]]) for f in sorted(path)]
     return dense + [Obs(t=o.t, extent=o.extent, box=o.box, score=o.score) for o in obs
@@ -168,7 +194,7 @@ def refine_track(flow: VideoFlow, fps: float, obs: list[Obs], image_size) -> tup
     if req is None:
         return None, info
     path, fb = flow.track_many([req])[0]
-    return _accept(path, fb, fps, obs, image_size, info)
+    return _accept(path, fb, fps, obs, image_size, info, flow.scale)
 
 
 def refine_annotations(anns: dict, video_paths: dict[int, str], video_meta: dict[int, tuple[float, tuple]],
@@ -215,7 +241,7 @@ def _refine_video(path: str, items: list, video_meta: dict, log: list | None) ->
             reqs.append(req)
         todo.append((qid, a, tr, fps, size, info, index[key]))
     results = flow.track_many(reqs)
-    accepted = [(a, tr, *_accept(*results[k], fps, tr.obs, size, info), qid)
+    accepted = [(a, tr, *_accept(*results[k], fps, tr.obs, size, info, flow.scale), qid)
                 for qid, a, tr, fps, size, info, k in todo]   # all guards first: no partial update
     for a, tr, new, info, qid in accepted:
         if log is not None:

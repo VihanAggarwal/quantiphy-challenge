@@ -198,6 +198,8 @@ def test_track_follows_the_ball_to_subpixel(ws, use_dense):
                               "anchors": [{"frame": 8, "box": ball_box(8)}, {"frame": 20, "box": ball_box(20)}]})
     m2 = s.meas["T2"]
     assert [o["frame"] for o in m2.obs] == list(range(5, 26)) and not any(b["type"] == "image" for b in out.content)
+    # between two anchors the track is qp.dense_track.dense_motion's (the fallback: chained passes)
+    assert m2.info["between_anchors"] == ("dense_motion" if use_dense else "chained_passes"), m2.info
     assert max(math.hypot(o["point"][0] - ball_x(o["frame"]), o["point"][1] - Y) for o in m2.obs) < 0.6
 
 

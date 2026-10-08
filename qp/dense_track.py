@@ -72,7 +72,7 @@ import numpy as np
 
 from .spec import Obs, RoleTrack
 
-VERSION = 3
+VERSION = 4
 MOTION = ("speed", "acceleration", "displacement", "path_length")
 WORK_SIDE = 1280          # long edge of the frames tracked on (larger videos are downscaled)
 WORK_BYTES = 6e8          # the decoded window is downscaled further to stay under this

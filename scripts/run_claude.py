@@ -9,7 +9,10 @@
 Writes under <runs>/<name>/<split>/ (<runs> = --out-root, env QP_RUNS, else runs/): records/<video_id>.json
 (raw text, parsed JSON, usage, cost, settings, frame metadata) and batch.json (batch mode), then
 <runs>/<name>/<split>.csv with columns id, parsed_value (geometry or Claude's direct answer, picked by
-qp.combine --rule), geo_value, direct_value, method, flags, geo_method. Cached videos are skipped; failed or
+qp.combine --rule), geo_value, direct_value, method, flags, geo_method. Before the geometry, local CPU
+post-steps refine the annotator's tracks (post_steps; no API cost): qp.refine's optical-flow refinement
+of motion priors, then qp.dense_track with --dense (off | motion | size | both; docs/TRACK_A.md has the
+evaluation behind the default; results cached under --dense-cache). Cached videos are skipped; failed or
 partial ones (refusal, max_tokens, missing qids, errored, expired ...) are retried only with --retry-failed.
 Cached records made with other settings (model, effort, frames, prompt version, frame size cap) make the run
 refuse: use a new --name. Rerunning a fully cached run sends nothing and re-scores it with the current code.
@@ -59,6 +62,8 @@ INPUT_MARGIN = 1.25                    # worst case: input estimate error + syst
 GEO_MAX_SI = combine.GEO_MAX_SI       # m, m/s, m/s^2: a geometry answer beyond this is a blow-up
 MAX_DISAGREE = combine.MAX_DISAGREE   # geometry this many times off the direct answer: use the direct one
 REFINE_PRIORS = True                   # refine motion-prior tracks with optical flow (qp.refine)
+DENSE_CHOICES = ("off", "motion", "size", "both")   # qp.dense_track post-step (post_steps; --dense)
+DENSE_DEFAULT = "off"                  # --dense default (docs/TRACK_A.md has the evaluation behind it)
 LAB_FOV_DEG = ca.LAB_FOV_DEG             # horizontal FOV of the lab camera (all video_source "lab" clips):
                                        # a prior on f for qp.geometry (GT-implied 76-90 deg on 6 val videos)
 
@@ -538,28 +543,71 @@ def prepare_records(df: pd.DataFrame, records: dict[str, dict]) -> dict[str, dic
     return {vid: ca.with_depth_info(rec, texts) for vid, rec in records.items()}
 
 
-def build_results(df: pd.DataFrame, records: dict[str, dict], rule: str = combine.DEFAULT_RULE) -> pd.DataFrame:
+def video_maps(df: pd.DataFrame, records: dict[str, dict], anns: dict) -> tuple[dict, dict]:
+    """{qid: local video path}, {qid: (fps, (W, H), annotator image px per original px)} for the annotated
+    questions whose video is local and whose record has meta."""
+    rows = [r for r in df.itertuples() if getattr(r, "video_path", "") and int(r.qid) in anns
+            and (records.get(r.video_id) or {}).get("meta")]
+    paths = {int(r.qid): str(r.video_path) for r in rows}
+    meta = {}
+    for r in rows:
+        m = records[r.video_id]["meta"]
+        meta[int(r.qid)] = (float(m["fps"]), tuple(m["image_size"]), float(m.get("scale") or 1.0))
+    return paths, meta
+
+
+def post_steps(anns: dict, df: pd.DataFrame, records: dict[str, dict], refine_priors: bool | None = None,
+               dense: str = "off", dense_cache=None, dense_workers: int = 1, dense_log: list | None = None,
+               size_method: str | None = None, motion_kinds=None) -> dict:
+    """In place, the measurement post-steps on the annotator's tracks (local videos, no API cost):
+    qp.refine's optical-flow refinement of motion-prior tracks (refine_priors; None = REFINE_PRIORS), then
+    with dense "motion" | "size" | "both" qp.dense_track on every track qp.refine did not replace (motion:
+    point tracks of motion quantities, plus motion_kinds such as "distance"; size: extents re-measured).
+    Either step failing keeps the tracks it would have changed. Returns anns."""
+    if dense not in DENSE_CHOICES:
+        raise ValueError(f"unknown dense mode {dense!r} (expected one of {DENSE_CHOICES})")
+    paths, meta = video_maps(df, records, anns)
+    refined = set()
+    if REFINE_PRIORS if refine_priors is None else refine_priors:
+        rlog: list = []
+        try:
+            refine.refine_annotations(anns, paths, {q: m[:2] for q, m in meta.items()}, log=rlog)
+        except Exception as e:  # noqa: BLE001 - refinement is optional; the annotator tracks stand
+            print(f"prior refinement skipped: {type(e).__name__}: {e}")
+        refined = {(q, role) for q, role, info in rlog if info.get("why") == "refined"}
+    if dense != "off":
+        from qp import dense_track as dt
+        try:
+            dt.densify_annotations(anns, paths, meta, what=dense, cache_dir=dense_cache, log=dense_log,
+                                   workers=dense_workers, skip=refined, size_method=size_method or dt.SIZE_METHOD,
+                                   motion_kinds=tuple(motion_kinds or dt.MOTION))
+        except Exception as e:  # noqa: BLE001 - dense tracking is optional; the tracks so far stand
+            print(f"dense tracking skipped: {type(e).__name__}: {e}")
+    return anns
+
+
+def annotations(df: pd.DataFrame, records: dict[str, dict], **post) -> dict:
+    """{qid: qp.claude_annotate.Annotation} of the usable records with post_steps(**post) applied."""
+    records = prepare_records(df, records)
+    return post_steps(ca.load_annotations(records), df, records, **post)
+
+
+def build_results(df: pd.DataFrame, records: dict[str, dict], rule: str = combine.DEFAULT_RULE,
+                  anns: dict | None = None, **post) -> pd.DataFrame:
     """One row per question: the geometry answer (qp.geometry.solve; lab videos with the known lab
     camera, LAB_FOV_DEG) or Claude's direct answer, picked by qp.combine.choose(rule): a geometry value
     beyond GEO_MAX_SI (geo_rejected_implausible) or more than MAX_DISAGREE times off the direct answer
     is never used, and in 3D the rule routes to the direct answer where the geometry rests on assumed
-    depths or an unknown camera. geo_value / direct_value keep both."""
+    depths or an unknown camera. geo_value / direct_value keep both. The tracks are the annotator's after
+    post_steps(**post) (default: qp.refine of motion priors, no dense tracking), or `anns` when given
+    (annotations(df, records, **post), e.g. to keep the densified tracks)."""
     try:
         from qp.geometry import solve
     except ImportError:
         solve = None
     records = prepare_records(df, records)
-    anns = ca.load_annotations(records)
-    if REFINE_PRIORS:  # optical-flow refinement of motion-prior tracks (needs the local videos)
-        rows = [r for r in df.itertuples() if getattr(r, "video_path", "") and int(r.qid) in anns
-                and (records.get(r.video_id) or {}).get("meta")]
-        try:
-            refine.refine_annotations(
-                anns, {int(r.qid): str(r.video_path) for r in rows},
-                {int(r.qid): (float(records[r.video_id]["meta"]["fps"]),
-                              tuple(records[r.video_id]["meta"]["image_size"])) for r in rows})
-        except Exception as e:  # noqa: BLE001 - refinement is optional; the annotator tracks stand
-            print(f"prior refinement skipped: {type(e).__name__}: {e}")
+    if anns is None:
+        anns = post_steps(ca.load_annotations(records), df, records, **post)
     out = []
     for r in df.itertuples():
         a, rec = anns.get(int(r.qid)), records.get(r.video_id, {})
@@ -636,6 +684,13 @@ def parse_args(argv=None):
                          "--max-side 2576 ablation) video by video with the v1 runs before using it on test")
     ap.add_argument("--rule", choices=list(combine.RULES), default=combine.DEFAULT_RULE,
                     help="answer selection between geometry and Claude's direct answer (qp.combine; no API effect)")
+    ap.add_argument("--dense", choices=list(DENSE_CHOICES), default=DENSE_DEFAULT,
+                    help="qp.dense_track post-step on the annotator's tracks before the geometry (local CPU, no API "
+                         f"effect; cached under --dense-cache): off, motion, size or both (default {DENSE_DEFAULT}; "
+                         "docs/TRACK_A.md). Not part of the run config: a cached run can be re-scored either way")
+    ap.add_argument("--dense-cache", help="dense-track cache (default <runs>/_dense_cache/<split>)")
+    ap.add_argument("--dense-workers", type=int, default=max(1, min(4, os.cpu_count() or 1)),
+                    help="videos tracked in parallel")
     ap.add_argument("--max-side", type=int, default=0,
                     help="long-edge cap of sent frames in px (0 = by prompt version: v1 2576, v2 1280)")
     ap.add_argument("--max-tokens", type=int, default=0, help="0 = 12k + 4k per question (max 64k)")
@@ -732,7 +787,15 @@ def main(argv=None, client=None) -> pd.DataFrame | None:
             run_sync(client, groups, est["todo"], args, rec_dir, est)
 
     records = load_records(rec_dir)
-    res = build_results(df, records, args.rule)
+    dense_log: list = []
+    print(f"post-steps: prior refinement {'on' if REFINE_PRIORS else 'off'}, dense tracking {args.dense}"
+          + (" (--dense off: the annotator's tracks only)" if args.dense != "off" else ""))
+    res = build_results(df, records, args.rule, dense=args.dense, dense_log=dense_log,
+                        dense_cache=args.dense_cache or runs_root / "_dense_cache" / args.label,
+                        dense_workers=args.dense_workers)
+    if dense_log:
+        why = Counter((kind, str(info.get("why", "?")).split(":")[0]) for _, _, kind, info in dense_log)
+        print("dense tracks:", dict(sorted(why.items())))
     out_csv = runs_root / args.name / f"{args.label}.csv"
     res.to_csv(out_csv, index=False)
     print(f"wrote {out_csv}")
