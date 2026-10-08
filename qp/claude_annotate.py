@@ -957,12 +957,38 @@ def with_depth_info(record: dict, depth_texts: dict[int, str]) -> dict:
 
 def load_annotations(records: dict[str, dict]) -> dict[int, Annotation]:
     """{qid: Annotation} from run_claude records ({video_id: record}) with status "ok" or
-    "partial" (some qids missing from the response)."""
+    "partial" (some qids missing from the response), plus the complete questions of a response cut
+    off at max_tokens (salvage_questions of its raw text)."""
     out: dict[int, Annotation] = {}
     for rec in records.values():
         if rec.get("status") in ("ok", "partial") and rec.get("parsed"):
             out.update(to_annotations(rec["parsed"], rec["meta"]))
+        elif rec.get("status") == "max_tokens" and rec.get("meta") and (got := salvage_questions(rec.get("raw_text"))):
+            out.update(to_annotations(got, rec["meta"]))
     return out
+
+
+def salvage_questions(text) -> dict | None:
+    """{"questions": [...]} with the complete question objects of a JSON response cut off mid-way
+    (stop reason max_tokens): '{"questions":[{...},{...},{"qid":12,"spec":{...' -> the first two.
+    Structured outputs emit the questions in order, so every object before the cut is whole. None
+    when no complete question precedes the cut (or the text is not such a response)."""
+    if not isinstance(text, str):
+        return None
+    m = re.match(r'\s*\{\s*"questions"\s*:\s*\[', text)
+    if not m:
+        return None
+    dec, pos, got = json.JSONDecoder(), m.end(), []
+    while True:
+        while pos < len(text) and text[pos] in " \t\r\n,":
+            pos += 1
+        try:
+            obj, pos = dec.raw_decode(text, pos)
+        except ValueError:
+            break
+        if isinstance(obj, dict) and "qid" in obj:
+            got.append(obj)
+    return {"questions": got} if got else None
 
 
 def parse_json(text: str) -> dict | None:

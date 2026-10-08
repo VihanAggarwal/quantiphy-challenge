@@ -32,7 +32,10 @@ Motion: robust (outlier-dropping) local polynomial fits of position vs time, deg
   acceleration      2nd derivative of a degree-2 fit: over the window if given; at a time t over
                     the widest of (track, +-1.5 s, +-0.75 s) needing degree < 4; else over the
                     longest run one parabola fits (free flight; skips holds, bounces, catches)
-  displacement      |p(t1) - p(t0)|;   path_length = summed segments of the fitted path
+  displacement      |p(t1) - p(t0)|; a window end the track misses by <= EXTRAP_FRAC of the window
+                    (object out of view) is extrapolated along the end velocity, not clamped
+                    (clamping shortens the displacement by that share);
+                    path_length = summed segments of the fitted path
   distance          |p_a(t) - p_b(t)|; time None -> median over common times, inf -> last frame
                     (both tracks required; a one-object "distance" is its extent length)
   size              extent length (else box side), median over obs (or obs within +-0.5 s of t)
@@ -72,6 +75,8 @@ DEG_F = 2.0                     # local fits keep a higher-degree term when its 
 DEPTH_MATCH_MIN = 0.5           # minimum name score to use a depth_info entry for an object
 NAME_STRICT = 0.6               # track-by-name for a two-object distance: one shared word of two
                                 # ("black ball" vs "ball") is another instance, not a match
+EXTRAP_FRAC = 0.25              # a displacement window may overhang its track by this share of the window
+                                # (the object left / entered the view): those ends are extrapolated linearly
 SNR_MIN = 5.0                   # a prior's motion must exceed SNR_MIN x its noise (see _motion)
 _FLOOR_SCALE = contextvars.ContextVar("qp_geometry_floor_scale", default=1.0)  # see solve(seen_scale=)
 PX_NOISE_FLOOR = 1.0            # px, least noise assumed on a prior track (annotators are good to ~1 px:
@@ -373,6 +378,20 @@ def _motion(q: Quantity, t: np.ndarray, P: np.ndarray, flags: set[str], tol: flo
         check(d, max(a[4], b[4]))
         return d
 
+    def moved_window(w0: float, w1: float) -> float:
+        """|p(w1) - p(w0)| over an asked window; an end outside the track by at most EXTRAP_FRAC of the
+        window (the object left / entered the view) is extrapolated along the velocity at the track's end
+        (clamping it would shorten the displacement by that share)."""
+        over = max(at.lo - w0, 0.0) + max(w1 - at.hi, 0.0)
+        if over <= 1e-9 or over > EXTRAP_FRAC * (w1 - w0) or floor is not None:
+            return moved(at(w0), at(w1))
+        ends = []
+        for x in (w0, w1):
+            f = pos(x)
+            ends.append(f[0] + f[1] * (x - float(np.clip(x, at.lo, at.hi))))
+        flags.add("window_extrapolated")
+        return norm(ends[1] - ends[0])
+
     if q.kind == "speed":
         if win:
             t0, t1 = at(win[0]), at(win[1])
@@ -409,6 +428,8 @@ def _motion(q: Quantity, t: np.ndarray, P: np.ndarray, flags: set[str], tol: flo
         check(a, fit[4], fit[6][2])
         return a
     if q.kind in ("displacement", "path_length"):
+        if q.kind == "displacement" and win:
+            return moved_window(*win)
         t0, t1 = (at(win[0]), at(win[1])) if win else (at.lo, at(time) if time is not None else at.hi)
         if q.kind == "displacement":
             return moved(t0, t1)

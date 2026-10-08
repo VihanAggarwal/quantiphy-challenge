@@ -572,9 +572,16 @@ def test_pass1_reproduced_on_cached_val_run():
     recs = rcv.rc.load_records(ROOT / "runs" / "val_opus_high" / "val" / "records")
     ctxs = cvf.build_contexts(df[df.video_id.isin(vids)], {v: recs[v] for v in vids})
     ref = pd.read_csv(ROOT / "runs" / "val_opus_high" / "val.csv").set_index("id")
+    # the run CSV includes run_claude's dense-motion post-step, which build_contexts does not apply
+    # (dense tracks come in through `dense=`): compare the rows that step left unchanged
+    dense_rows = ref["flags"].fillna("").str.contains("dense_motion")
+    checked = 0
     for ctx in ctxs.values():
         for qid, a in cvf.pass1_answers(ctx).items():
-            assert a["chosen"][0] == pytest.approx(ref.parsed_value[qid], rel=1e-9)
+            if not dense_rows[qid]:
+                assert a["chosen"][0] == pytest.approx(ref.parsed_value[qid], rel=1e-9)
+                checked += 1
+    assert checked >= 4
 
 
 # --------------------------------------------------------------------------- review fixes (regressions)

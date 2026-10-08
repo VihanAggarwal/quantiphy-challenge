@@ -183,7 +183,10 @@ draws).
 | both | real full-res | −0.003 | 0 of 2 | −0.010 .. +0.004 |
 
 The `val_opus_xhigh` D3 score of 0.326 comes from its records: 2 videos hit max_tokens and 1 is
-partial.
+partial. The questions a max_tokens response completed before the cut are now used
+(`claude_annotate.salvage_questions`). This recovers 1 question for xhigh: simulation_0060 qid 1343. The
+other cut-off record has no text. The record keeps its max_tokens status, so `--retry-failed` still
+re-sends the video.
 
 ## Decisions
 

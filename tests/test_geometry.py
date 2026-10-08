@@ -762,3 +762,49 @@ def test_ici_velocity_handles_onsets_and_stops():
         P = np.c_[x, 300 + 0 * t] + rng.normal(0, 1.0, (len(t), 2))
         v = np.linalg.norm(G._ici_velocity(t, P, t0)[1])
         assert abs(v / true_v - 1) < 0.05, (true_v, v)
+
+
+# ---------------------------------------------------------------- windows past a track's end
+
+def test_displacement_window_past_track_end_is_extrapolated():
+    # the puck leaves the view at 1.9 s; asked over [1.5, 2.0]: clamping would drop a fifth of the motion
+    puck = Body("puck", ballistic([-3.0, 1.0, Z], [1.5, -0.5, 0.0]), size=0.3)
+    truth = float(np.linalg.norm(puck.pos(2.0) - puck.pos(1.5)))
+    seen = T[T <= 1.9 + 1e-9]
+    sp = spec(Q("displacement", ["puck"], window=[1.5, 2.0], unit="m"), HEIGHT_PRIOR)
+    for noise in (0.0, 0.5):
+        ans = run(sp, [track(PERSON, "prior", T, CAM), track(puck, "target", seen, CAM, noise_px=noise, seed=3)])
+        assert "window_extrapolated" in ans.flags and rel(ans.value, truth) < (0.01 if noise == 0 else 0.03)
+    # an overhang beyond EXTRAP_FRAC of the window is not extrapolated (the track is clamped, as before)
+    short = T[T <= 1.6 + 1e-9]
+    ans = run(sp, [track(PERSON, "prior", T, CAM), track(puck, "target", short, CAM)])
+    assert "window_extrapolated" not in ans.flags
+    assert rel(ans.value, float(np.linalg.norm(puck.pos(short[-1]) - puck.pos(1.5)))) < 0.01
+    # a window inside the track is unchanged
+    ans = run(spec(Q("displacement", ["puck"], window=[0.5, 1.5], unit="m"), HEIGHT_PRIOR),
+              [track(PERSON, "prior", T, CAM), track(puck, "target", T, CAM)])
+    assert "window_extrapolated" not in ans.flags
+    assert rel(ans.value, float(np.linalg.norm(puck.pos(1.5) - puck.pos(0.5)))) < 0.01
+
+
+def test_displacement_window_before_track_start_is_extrapolated():
+    # the puck enters the view at 0.6 s; asked over [0.5, 1.0]: the missing fifth is extrapolated backwards
+    puck = Body("puck", ballistic([-3.0, 1.0, Z], [1.5, -0.5, 0.0]), size=0.3)
+    truth = float(np.linalg.norm(puck.pos(1.0) - puck.pos(0.5)))
+    seen = T[T >= 0.6 - 1e-9]
+    ans = run(spec(Q("displacement", ["puck"], window=[0.5, 1.0], unit="m"), HEIGHT_PRIOR),
+              [track(PERSON, "prior", T, CAM), track(puck, "target", seen, CAM)])
+    assert "window_extrapolated" in ans.flags and rel(ans.value, truth) < 0.01
+
+
+def test_prior_displacement_window_is_not_extrapolated():
+    # a prior's window is measured on the seen track only (noise-checked), never extrapolated
+    puck = Body("puck", ballistic([-3.0, 1.0, Z], [1.5, -0.5, 0.0]), size=0.3)
+    seen = T[T <= 1.9 + 1e-9]
+    moved = float(np.linalg.norm(puck.pos(2.0) - puck.pos(1.5)))
+    prior = Q("displacement", ["puck"], window=[1.5, 2.0], value_si=moved)
+    ans = run(spec(Q("size", ["car"], dimension="length", unit="m"), prior),
+              [track(puck, "prior", seen, CAM), track(CAR, "target", T, CAM)])
+    assert "window_extrapolated" not in ans.flags
+    clamped = float(np.linalg.norm(puck.pos(seen[-1]) - puck.pos(1.5)))   # the prior measured on [1.5, 1.9]
+    assert ans.value is not None and rel(ans.value, 4.5 * moved / clamped) < 0.01

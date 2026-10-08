@@ -992,3 +992,41 @@ def test_ended_batch_collected_while_an_earlier_one_still_runs(workspace):
     state = {e["id"]: e for e in json.loads((out / "batch.json").read_text())["batches"]}
     assert state[b2]["collected"] and not state[b1]["collected"]
     assert list(budget.open_holds()) == [b1] and len(client.batches.created) == 2
+
+
+def test_salvage_questions_from_a_response_cut_at_max_tokens():
+    q1 = {"qid": 7, "spec": {"target": {"kind": "size"}}, "tracks": [], "direct_answer": 1.5, "confidence": 0.5}
+    full = json.dumps({"questions": [q1, {**q1, "qid": 8}]})
+    cut = full[: full.index('"qid": 8') + 20]          # the second question is incomplete
+    assert ca.parse_json(cut) is None
+    assert ca.salvage_questions(cut) == {"questions": [q1]}
+    assert ca.salvage_questions(full)["questions"][1]["qid"] == 8
+    assert ca.salvage_questions('{"questions": [{"qid": 7, "spec": {') is None
+    assert ca.salvage_questions("") is None and ca.salvage_questions(None) is None
+    assert ca.salvage_questions('{"other": [{"qid": 1}]}') is None
+
+
+def test_load_annotations_uses_salvaged_questions_of_a_max_tokens_record():
+    meta = {"fps": 10.0, "frames": [0, 5], "video_type": "S2MC", "n_frames_total": 20,
+            "questions": [{"qid": 7, "target_unit": "m", "prior": "length of the car = 4 m", "depth_info": ""},
+                          {"qid": 8, "target_unit": "m", "prior": "length of the car = 4 m", "depth_info": ""}]}
+    quantity = {"kind": "size", "objects": ["car"], "dimension": "length", "time": None, "window": None,
+                "axis": "any", "value_si": None, "unit": "m"}
+    q7 = {"qid": 7, "spec": {"target": quantity, "prior": {**quantity, "value_si": 4.0, "unit": ""}, "depth": [],
+                             "notes": ""}, "tracks": [], "direct_answer": 3.5, "confidence": 0.5}
+    text = json.dumps({"questions": [q7, {**q7, "qid": 8}]})
+    rec = {"status": "max_tokens", "meta": meta, "parsed": None, "raw_text": text[: text.rindex('"qid": 8') + 12]}
+    anns = ca.load_annotations({"v": rec})
+    assert set(anns) == {7} and anns[7].direct_answer == 3.5
+    assert ca.load_annotations({"v": {**rec, "status": "refusal"}}) == {}
+
+
+def test_salvage_questions_ignores_object_text_inside_a_cut_string():
+    # the cut falls inside a string that itself looks like a further question: only whole objects count
+    q1 = {"qid": 7, "spec": {"notes": 'a "}, {"qid": 99} b'}, "tracks": [], "direct_answer": 1.0, "confidence": 0.5}
+    q2 = {**q1, "qid": 8, "spec": {"notes": 'cut here }, {"qid": 99, "spec": {}} and more'}}
+    full = json.dumps({"questions": [q1, q2]})
+    cut = full[: full.rindex("99") + 8]                 # inside q2's notes string
+    assert ca.salvage_questions(cut) == {"questions": [q1]}
+    # a max_tokens record without its frame metadata is not usable
+    assert ca.load_annotations({"v": {"status": "max_tokens", "meta": None, "raw_text": full}}) == {}
