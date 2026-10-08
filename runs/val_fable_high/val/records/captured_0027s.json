@@ -1,0 +1,771 @@
+{
+ "video_id": "captured_0027s",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011Cfqdqd4WJtuBCXTG95zAN",
+ "model": "claude-fable-5-1",
+ "effort": "high",
+ "config": {
+  "model": "claude-fable-5-1",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 2576
+ },
+ "ts": "2026-10-08T23:27:41+00:00",
+ "mode": "sync",
+ "request_id": "req_011CfqdqcfSS2wxBSUXwLhX9",
+ "usage": {
+  "input_tokens": 13344,
+  "output_tokens": 4446,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 4317,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.356819,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "captured_0027s",
+  "fps": 24.0,
+  "fps_from_container": false,
+  "video_type": "S3SS",
+  "n_frames_total": 49,
+  "scale": 1.0,
+  "image_size": [
+   854,
+   480
+  ],
+  "frames": [
+   0,
+   2,
+   3,
+   5,
+   6,
+   7,
+   10,
+   12,
+   13,
+   14,
+   16,
+   17,
+   19,
+   22,
+   26,
+   29,
+   32,
+   35,
+   38,
+   42,
+   45,
+   48
+  ],
+  "questions": [
+   {
+    "qid": 2604,
+    "target_unit": "cm/s",
+    "prior": "diameter of the red ball = 7 cm",
+    "depth_info": "t=0.2s, distance_book_camera=1.0995 m\nt=0.6s, distance_book_camera=1.1510 m\ndistance_person_left_camera=1.2750 m\ndistance_person_right_camera=1.2305 m"
+   },
+   {
+    "qid": 2605,
+    "target_unit": "cm/s",
+    "prior": "diameter of the red ball = 7 cm",
+    "depth_info": "t=0.2s, distance_book_camera=1.0995 m\nt=0.6s, distance_book_camera=1.1510 m\ndistance_person_left_camera=1.2750 m\ndistance_person_right_camera=1.2305 m"
+   },
+   {
+    "qid": 2606,
+    "target_unit": "cm/s^2",
+    "prior": "diameter of the red ball = 7 cm",
+    "depth_info": "t=0.2s, distance_book_camera=1.0995 m\nt=0.6s, distance_book_camera=1.1510 m\ndistance_person_left_camera=1.2750 m\ndistance_person_right_camera=1.2305 m"
+   },
+   {
+    "qid": 2607,
+    "target_unit": "cm",
+    "prior": "diameter of the red ball = 7 cm",
+    "depth_info": "t=0.2s, distance_book_camera=1.0995 m\nt=0.6s, distance_book_camera=1.1510 m\ndistance_person_left_camera=1.2750 m\ndistance_person_right_camera=1.2305 m"
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":2604,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"red ball\"],\"dimension\":\"\",\"time\":0.2,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"cm/s\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"red ball\"],\"dimension\":\"diameter\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.07,\"unit\":\"\"},\"depth\":[{\"object\":\"book\",\"distance_m\":1.0995,\"time\":0.2},{\"object\":\"book\",\"distance_m\":1.151,\"time\":0.6},{\"object\":\"person_left\",\"distance_m\":1.275,\"time\":null},{\"object\":\"person_right\",\"distance_m\":1.2305,\"time\":null}],\"notes\":\"Depth info refers to a book and persons that are not visible; only a red ball on a string swinging/bouncing against the sky is shown. Ball is near its lowest turning point around 0.2s.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"red ball\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[409,236],[451,236]],\"box\":[409,214,451,258]},{\"frame\":3,\"point\":null,\"extent\":[[405,265],[445,265]],\"box\":[405,244,445,286]},{\"frame\":7,\"point\":null,\"extent\":[[409,248],[445,248]],\"box\":[409,229,445,267]},{\"frame\":26,\"point\":null,\"extent\":[[426,192],[466,192]],\"box\":[426,171,466,213]},{\"frame\":48,\"point\":null,\"extent\":[[425,255],[459,255]],\"box\":[425,238,459,272]}]},{\"role\":\"target\",\"object\":\"red ball\",\"obs\":[{\"frame\":0,\"point\":[429,236],\"extent\":null,\"box\":[409,214,451,258]},{\"frame\":2,\"point\":[426,258],\"extent\":null,\"box\":[406,237,446,279]},{\"frame\":3,\"point\":[425,265],\"extent\":null,\"box\":[405,244,445,286]},{\"frame\":5,\"point\":[425,263],\"extent\":null,\"box\":[406,243,445,283]},{\"frame\":6,\"point\":[426,255],\"extent\":null,\"box\":[407,235,445,275]},{\"frame\":7,\"point\":[427,248],\"extent\":null,\"box\":[409,229,445,267]},{\"frame\":10,\"point\":[430,224],\"extent\":null,\"box\":[413,207,448,241]},{\"frame\":12,\"point\":[434,219],\"extent\":null,\"box\":[419,203,451,236]},{\"frame\":13,\"point\":[435,222],\"extent\":null,\"box\":[420,206,451,239]},{\"frame\":14,\"point\":[436,233],\"extent\":null,\"box\":[421,217,452,250]},{\"frame\":16,\"point\":[438,247],\"extent\":null,\"box\":[423,231,455,263]},{\"frame\":17,\"point\":[439,258],\"extent\":null,\"box\":[423,242,456,274]},{\"frame\":19,\"point\":[441,263],\"extent\":null,\"box\":[424,246,459,281]},{\"frame\":22,\"point\":[444,235],\"extent\":null,\"box\":[427,216,463,254]},{\"frame\":26,\"point\":[445,192],\"extent\":null,\"box\":[426,171,466,213]},{\"frame\":29,\"point\":[441,213],\"extent\":null,\"box\":[419,190,463,236]},{\"frame\":32,\"point\":[437,255],\"extent\":null,\"box\":[417,234,457,277]},{\"frame\":35,\"point\":[436,250],\"extent\":null,\"box\":[420,234,452,267]},{\"frame\":38,\"point\":[437,215],\"extent\":null,\"box\":[423,201,452,229]},{\"frame\":42,\"point\":[437,209],\"extent\":null,\"box\":[423,196,452,224]},{\"frame\":45,\"point\":[438,236],\"extent\":null,\"box\":[422,220,455,253]},{\"frame\":48,\"point\":[442,255],\"extent\":null,\"box\":[425,238,459,272]}]}],\"direct_answer\":20,\"confidence\":0.2},{\"qid\":2605,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"red ball\"],\"dimension\":\"\",\"time\":0.6,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"cm/s\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"red ball\"],\"dimension\":\"diameter\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.07,\"unit\":\"\"},\"depth\":[{\"object\":\"book\",\"distance_m\":1.0995,\"time\":0.2},{\"object\":\"book\",\"distance_m\":1.151,\"time\":0.6},{\"object\":\"person_left\",\"distance_m\":1.275,\"time\":null},{\"object\":\"person_right\",\"distance_m\":1.2305,\"time\":null}],\"notes\":\"Depth info objects (book, persons) not visible; only the red ball is shown.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"red ball\",\"obs\":[]},{\"role\":\"target\",\"object\":\"red ball\",\"obs\":[]}],\"direct_answer\":40,\"confidence\":0.3},{\"qid\":2606,\"spec\":{\"target\":{\"kind\":\"acceleration\",\"objects\":[\"red ball\"],\"dimension\":\"\",\"time\":0.2,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"cm/s^2\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"red ball\"],\"dimension\":\"diameter\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.07,\"unit\":\"\"},\"depth\":[{\"object\":\"book\",\"distance_m\":1.0995,\"time\":0.2},{\"object\":\"book\",\"distance_m\":1.151,\"time\":0.6},{\"object\":\"person_left\",\"distance_m\":1.275,\"time\":null},{\"object\":\"person_right\",\"distance_m\":1.2305,\"time\":null}],\"notes\":\"Ball is near its lower turning point at 0.2s (string taut), acceleration upward.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"red ball\",\"obs\":[]},{\"role\":\"target\",\"object\":\"red ball\",\"obs\":[]}],\"direct_answer\":300,\"confidence\":0.15},{\"qid\":2607,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"person\"],\"dimension\":\"shoulder breadth\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"cm\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"red ball\"],\"dimension\":\"diameter\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.07,\"unit\":\"\"},\"depth\":[{\"object\":\"book\",\"distance_m\":1.0995,\"time\":0.2},{\"object\":\"book\",\"distance_m\":1.151,\"time\":0.6},{\"object\":\"person_left\",\"distance_m\":1.275,\"time\":null},{\"object\":\"person_right\",\"distance_m\":1.2305,\"time\":null}],\"notes\":\"No person is visible in any frame (only a red ball on a string against the sky); the shoulder breadth cannot be measured. Answer is a rough guess.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"red ball\",\"obs\":[]},{\"role\":\"target\",\"object\":\"person\",\"obs\":[]}],\"direct_answer\":40,\"confidence\":0.05}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 2604,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "red ball"
+      ],
+      "dimension": "",
+      "time": 0.2,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "cm/s"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "red ball"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.07,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "book",
+       "distance_m": 1.0995,
+       "time": 0.2
+      },
+      {
+       "object": "book",
+       "distance_m": 1.151,
+       "time": 0.6
+      },
+      {
+       "object": "person_left",
+       "distance_m": 1.275,
+       "time": null
+      },
+      {
+       "object": "person_right",
+       "distance_m": 1.2305,
+       "time": null
+      }
+     ],
+     "notes": "Depth info refers to a book and persons that are not visible; only a red ball on a string swinging/bouncing against the sky is shown. Ball is near its lowest turning point around 0.2s."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "red ball",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          409,
+          236
+         ],
+         [
+          451,
+          236
+         ]
+        ],
+        "box": [
+         409,
+         214,
+         451,
+         258
+        ]
+       },
+       {
+        "frame": 3,
+        "point": null,
+        "extent": [
+         [
+          405,
+          265
+         ],
+         [
+          445,
+          265
+         ]
+        ],
+        "box": [
+         405,
+         244,
+         445,
+         286
+        ]
+       },
+       {
+        "frame": 7,
+        "point": null,
+        "extent": [
+         [
+          409,
+          248
+         ],
+         [
+          445,
+          248
+         ]
+        ],
+        "box": [
+         409,
+         229,
+         445,
+         267
+        ]
+       },
+       {
+        "frame": 26,
+        "point": null,
+        "extent": [
+         [
+          426,
+          192
+         ],
+         [
+          466,
+          192
+         ]
+        ],
+        "box": [
+         426,
+         171,
+         466,
+         213
+        ]
+       },
+       {
+        "frame": 48,
+        "point": null,
+        "extent": [
+         [
+          425,
+          255
+         ],
+         [
+          459,
+          255
+         ]
+        ],
+        "box": [
+         425,
+         238,
+         459,
+         272
+        ]
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "red ball",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         429,
+         236
+        ],
+        "extent": null,
+        "box": [
+         409,
+         214,
+         451,
+         258
+        ]
+       },
+       {
+        "frame": 2,
+        "point": [
+         426,
+         258
+        ],
+        "extent": null,
+        "box": [
+         406,
+         237,
+         446,
+         279
+        ]
+       },
+       {
+        "frame": 3,
+        "point": [
+         425,
+         265
+        ],
+        "extent": null,
+        "box": [
+         405,
+         244,
+         445,
+         286
+        ]
+       },
+       {
+        "frame": 5,
+        "point": [
+         425,
+         263
+        ],
+        "extent": null,
+        "box": [
+         406,
+         243,
+         445,
+         283
+        ]
+       },
+       {
+        "frame": 6,
+        "point": [
+         426,
+         255
+        ],
+        "extent": null,
+        "box": [
+         407,
+         235,
+         445,
+         275
+        ]
+       },
+       {
+        "frame": 7,
+        "point": [
+         427,
+         248
+        ],
+        "extent": null,
+        "box": [
+         409,
+         229,
+         445,
+         267
+        ]
+       },
+       {
+        "frame": 10,
+        "point": [
+         430,
+         224
+        ],
+        "extent": null,
+        "box": [
+         413,
+         207,
+         448,
+         241
+        ]
+       },
+       {
+        "frame": 12,
+        "point": [
+         434,
+         219
+        ],
+        "extent": null,
+        "box": [
+         419,
+         203,
+         451,
+         236
+        ]
+       },
+       {
+        "frame": 13,
+        "point": [
+         435,
+         222
+        ],
+        "extent": null,
+        "box": [
+         420,
+         206,
+         451,
+         239
+        ]
+       },
+       {
+        "frame": 14,
+        "point": [
+         436,
+         233
+        ],
+        "extent": null,
+        "box": [
+         421,
+         217,
+         452,
+         250
+        ]
+       },
+       {
+        "frame": 16,
+        "point": [
+         438,
+         247
+        ],
+        "extent": null,
+        "box": [
+         423,
+         231,
+         455,
+         263
+        ]
+       },
+       {
+        "frame": 17,
+        "point": [
+         439,
+         258
+        ],
+        "extent": null,
+        "box": [
+         423,
+         242,
+         456,
+         274
+        ]
+       },
+       {
+        "frame": 19,
+        "point": [
+         441,
+         263
+        ],
+        "extent": null,
+        "box": [
+         424,
+         246,
+         459,
+         281
+        ]
+       },
+       {
+        "frame": 22,
+        "point": [
+         444,
+         235
+        ],
+        "extent": null,
+        "box": [
+         427,
+         216,
+         463,
+         254
+        ]
+       },
+       {
+        "frame": 26,
+        "point": [
+         445,
+         192
+        ],
+        "extent": null,
+        "box": [
+         426,
+         171,
+         466,
+         213
+        ]
+       },
+       {
+        "frame": 29,
+        "point": [
+         441,
+         213
+        ],
+        "extent": null,
+        "box": [
+         419,
+         190,
+         463,
+         236
+        ]
+       },
+       {
+        "frame": 32,
+        "point": [
+         437,
+         255
+        ],
+        "extent": null,
+        "box": [
+         417,
+         234,
+         457,
+         277
+        ]
+       },
+       {
+        "frame": 35,
+        "point": [
+         436,
+         250
+        ],
+        "extent": null,
+        "box": [
+         420,
+         234,
+         452,
+         267
+        ]
+       },
+       {
+        "frame": 38,
+        "point": [
+         437,
+         215
+        ],
+        "extent": null,
+        "box": [
+         423,
+         201,
+         452,
+         229
+        ]
+       },
+       {
+        "frame": 42,
+        "point": [
+         437,
+         209
+        ],
+        "extent": null,
+        "box": [
+         423,
+         196,
+         452,
+         224
+        ]
+       },
+       {
+        "frame": 45,
+        "point": [
+         438,
+         236
+        ],
+        "extent": null,
+        "box": [
+         422,
+         220,
+         455,
+         253
+        ]
+       },
+       {
+        "frame": 48,
+        "point": [
+         442,
+         255
+        ],
+        "extent": null,
+        "box": [
+         425,
+         238,
+         459,
+         272
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 20,
+    "confidence": 0.2
+   },
+   {
+    "qid": 2605,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "red ball"
+      ],
+      "dimension": "",
+      "time": 0.6,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "cm/s"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "red ball"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.07,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "book",
+       "distance_m": 1.0995,
+       "time": 0.2
+      },
+      {
+       "object": "book",
+       "distance_m": 1.151,
+       "time": 0.6
+      },
+      {
+       "object": "person_left",
+       "distance_m": 1.275,
+       "time": null
+      },
+      {
+       "object": "person_right",
+       "distance_m": 1.2305,
+       "time": null
+      }
+     ],
+     "notes": "Depth info objects (book, persons) not visible; only the red ball is shown."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "red ball",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "red ball",
+      "obs": []
+     }
+    ],
+    "direct_answer": 40,
+    "confidence": 0.3
+   },
+   {
+    "qid": 2606,
+    "spec": {
+     "target": {
+      "kind": "acceleration",
+      "objects": [
+       "red ball"
+      ],
+      "dimension": "",
+      "time": 0.2,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "cm/s^2"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "red ball"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.07,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "book",
+       "distance_m": 1.0995,
+       "time": 0.2
+      },
+      {
+       "object": "book",
+       "distance_m": 1.151,
+       "time": 0.6
+      },
+      {
+       "object": "person_left",
+       "distance_m": 1.275,
+       "time": null
+      },
+      {
+       "object": "person_right",
+       "distance_m": 1.2305,
+       "time": null
+      }
+     ],
+     "notes": "Ball is near its lower turning point at 0.2s (string taut), acceleration upward."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "red ball",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "red ball",
+      "obs": []
+     }
+    ],
+    "direct_answer": 300,
+    "confidence": 0.15
+   },
+   {
+    "qid": 2607,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "person"
+      ],
+      "dimension": "shoulder breadth",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "cm"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "red ball"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.07,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "book",
+       "distance_m": 1.0995,
+       "time": 0.2
+      },
+      {
+       "object": "book",
+       "distance_m": 1.151,
+       "time": 0.6
+      },
+      {
+       "object": "person_left",
+       "distance_m": 1.275,
+       "time": null
+      },
+      {
+       "object": "person_right",
+       "distance_m": 1.2305,
+       "time": null
+      }
+     ],
+     "notes": "No person is visible in any frame (only a red ball on a string against the sky); the shoulder breadth cannot be measured. Answer is a rough guess."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "red ball",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "person",
+      "obs": []
+     }
+    ],
+    "direct_answer": 40,
+    "confidence": 0.05
+   }
+  ]
+ }
+}

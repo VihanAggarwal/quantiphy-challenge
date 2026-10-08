@@ -1,0 +1,895 @@
+{
+ "video_id": "captured_0021x",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfqdkdD3w9gt2tu3nxBs7",
+ "model": "claude-fable-5-1",
+ "effort": "high",
+ "config": {
+  "model": "claude-fable-5-1",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 2576
+ },
+ "ts": "2026-10-08T23:26:54+00:00",
+ "mode": "sync",
+ "request_id": "req_011CfqdkcrDSowLP5GgJX2PY",
+ "usage": {
+  "input_tokens": 12187,
+  "output_tokens": 5984,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 4317,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.422149,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "captured_0021x",
+  "fps": 24.0,
+  "fps_from_container": false,
+  "video_type": "S3SX",
+  "n_frames_total": 49,
+  "scale": 1.0,
+  "image_size": [
+   854,
+   480
+  ],
+  "frames": [
+   0,
+   3,
+   6,
+   10,
+   13,
+   16,
+   19,
+   22,
+   24,
+   26,
+   29,
+   31,
+   32,
+   34,
+   35,
+   36,
+   38,
+   42,
+   45,
+   48
+  ],
+  "questions": [
+   {
+    "qid": 2520,
+    "target_unit": "cm/s",
+    "prior": "diameter of the ping pong ball = 40 mm",
+    "depth_info": "t=1.0s, distance_pingpong_camera=1.511 m\nt=1.4s, distance_pingpong_camera=1.03 m"
+   },
+   {
+    "qid": 2521,
+    "target_unit": "cm/s",
+    "prior": "diameter of the ping pong ball = 40mm",
+    "depth_info": "t=1.0s, distance_pingpong_camera=1.511 m\nt=1.4s, distance_pingpong_camera=1.03 m"
+   },
+   {
+    "qid": 2522,
+    "target_unit": "cm",
+    "prior": "diameter of the ping pong ball = 40mm",
+    "depth_info": "t=1.0s, distance_pingpong_camera=1.511 m\nt=1.4s, distance_pingpong_camera=1.03 m"
+   },
+   {
+    "qid": 2523,
+    "target_unit": "cm",
+    "prior": "diameter of the ping pong ball = 40mm",
+    "depth_info": "t=1.0s, distance_pingpong_camera=1.511 m\nt=1.4s, distance_pingpong_camera=1.03 m"
+   },
+   {
+    "qid": 2524,
+    "target_unit": "cm",
+    "prior": "diameter of the ping pong ball = 40mm",
+    "depth_info": "t=1.0s, distance_pingpong_camera=1.511 m\nt=1.4s, distance_pingpong_camera=1.03 m"
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":2520,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"ping pong ball\"],\"dimension\":\"\",\"time\":1.2,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"cm/s\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"ping pong ball\"],\"dimension\":\"diameter\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.04,\"unit\":\"\"},\"depth\":[{\"object\":\"ping pong ball\",\"distance_m\":1.511,\"time\":1.0},{\"object\":\"ping pong ball\",\"distance_m\":1.03,\"time\":1.4}],\"notes\":\"Ball rolls mostly toward the camera; velocity dominated by depth change (1.511->1.03 m over 0.4 s).\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"ping pong ball\",\"obs\":[{\"frame\":0,\"point\":[482,277],\"extent\":[[476,277],[488,277]],\"box\":[476,271,488,283]},{\"frame\":24,\"point\":[485,280],\"extent\":[[478.5,280],[491.5,280]],\"box\":[478.5,273.5,491.5,286.5]},{\"frame\":29,\"point\":[497,291],\"extent\":[[490,291],[504,291]],\"box\":[490,284,504,298]},{\"frame\":34,\"point\":[502,302],\"extent\":[[494,302],[510,302]],\"box\":[494,294,510,310]},{\"frame\":38,\"point\":[504,317],\"extent\":[[495,317],[513,317]],\"box\":[495,308,513,326]}]},{\"role\":\"target\",\"object\":\"ping pong ball\",\"obs\":[{\"frame\":0,\"point\":[482,277],\"extent\":null,\"box\":[476,271,488,283]},{\"frame\":3,\"point\":[482,277],\"extent\":null,\"box\":[476,271,488,283]},{\"frame\":6,\"point\":[482,277],\"extent\":null,\"box\":[476,271,488,283]},{\"frame\":10,\"point\":[482,277],\"extent\":null,\"box\":[476,271,488,283]},{\"frame\":13,\"point\":[482,277],\"extent\":null,\"box\":[476,271,488,283]},{\"frame\":16,\"point\":[482,277],\"extent\":null,\"box\":[476,271,488,283]},{\"frame\":19,\"point\":[482,277],\"extent\":null,\"box\":[476,271,488,283]},{\"frame\":22,\"point\":[482,277],\"extent\":null,\"box\":[476,271,488,283]},{\"frame\":24,\"point\":[485,280],\"extent\":null,\"box\":[478.5,273.5,491.5,286.5]},{\"frame\":26,\"point\":[490,284],\"extent\":null,\"box\":[483.5,277.5,496.5,290.5]},{\"frame\":29,\"point\":[497,291],\"extent\":null,\"box\":[490,284,504,298]},{\"frame\":31,\"point\":[500,296],\"extent\":null,\"box\":[492.5,288.5,507.5,303.5]},{\"frame\":32,\"point\":[501,298],\"extent\":null,\"box\":[493.5,290.5,508.5,305.5]},{\"frame\":34,\"point\":[502,302],\"extent\":null,\"box\":[494,294,510,310]},{\"frame\":35,\"point\":[502,305],\"extent\":null,\"box\":[494,297,510,313]},{\"frame\":36,\"point\":[503,309],\"extent\":null,\"box\":[494.5,300.5,511.5,317.5]},{\"frame\":38,\"point\":[504,317],\"extent\":null,\"box\":[495,308,513,326]},{\"frame\":42,\"point\":[507,440],\"extent\":null,\"box\":[496,410,518,470]}]}],\"direct_answer\":120,\"confidence\":0.5},{\"qid\":2521,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"ping pong ball\"],\"dimension\":\"\",\"time\":1.4,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"cm/s\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"ping pong ball\"],\"dimension\":\"diameter\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.04,\"unit\":\"\"},\"depth\":[{\"object\":\"ping pong ball\",\"distance_m\":1.511,\"time\":1.0},{\"object\":\"ping pong ball\",\"distance_m\":1.03,\"time\":1.4}],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"ping pong ball\",\"obs\":[]},{\"role\":\"target\",\"object\":\"ping pong ball\",\"obs\":[]}],\"direct_answer\":125,\"confidence\":0.5},{\"qid\":2522,\"spec\":{\"target\":{\"kind\":\"displacement\",\"objects\":[\"ping pong ball\"],\"dimension\":\"\",\"time\":null,\"window\":[1.0,1.4],\"axis\":\"any\",\"value_si\":null,\"unit\":\"cm\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"ping pong ball\"],\"dimension\":\"diameter\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.04,\"unit\":\"\"},\"depth\":[{\"object\":\"ping pong ball\",\"distance_m\":1.511,\"time\":1.0},{\"object\":\"ping pong ball\",\"distance_m\":1.03,\"time\":1.4}],\"notes\":\"Displacement dominated by depth change 0.481 m; lateral motion small.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"ping pong ball\",\"obs\":[]},{\"role\":\"target\",\"object\":\"ping pong ball\",\"obs\":[]}],\"direct_answer\":48.5,\"confidence\":0.6},{\"qid\":2523,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"table\"],\"dimension\":\"width\",\"time\":null,\"window\":null,\"axis\":\"horizontal\",\"value_si\":null,\"unit\":\"cm\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"ping pong ball\"],\"dimension\":\"diameter\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.04,\"unit\":\"\"},\"depth\":[{\"object\":\"ping pong ball\",\"distance_m\":1.511,\"time\":1.0},{\"object\":\"ping pong ball\",\"distance_m\":1.03,\"time\":1.4}],\"notes\":\"Width taken as the left-right edge of the table top; near edge is closer to camera than the ball depths, far edge about at the t=1.0 ball depth.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"ping pong ball\",\"obs\":[]},{\"role\":\"target\",\"object\":\"table\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[309,336],[643,341]],\"box\":[309,284,643,480]},{\"frame\":24,\"point\":null,\"extent\":[[309,336],[643,341]],\"box\":[309,284,643,480]},{\"frame\":34,\"point\":null,\"extent\":[[309,336],[643,341]],\"box\":[309,284,643,480]},{\"frame\":48,\"point\":null,\"extent\":[[378,285],[578,285]],\"box\":[309,284,643,480]}]}],\"direct_answer\":60,\"confidence\":0.35},{\"qid\":2524,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"table\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"cm\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"ping pong ball\"],\"dimension\":\"diameter\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.04,\"unit\":\"\"},\"depth\":[{\"object\":\"ping pong ball\",\"distance_m\":1.511,\"time\":1.0},{\"object\":\"ping pong ball\",\"distance_m\":1.03,\"time\":1.4}],\"notes\":\"Length is the depth direction (far edge to near edge), strongly foreshortened; estimated from ball depths: far edge ~1.5 m, near edge ~0.7 m from camera.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"ping pong ball\",\"obs\":[]},{\"role\":\"target\",\"object\":\"table\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[478,285],[478,337]],\"box\":[309,284,643,480]},{\"frame\":24,\"point\":null,\"extent\":[[478,285],[478,337]],\"box\":[309,284,643,480]},{\"frame\":48,\"point\":null,\"extent\":[[478,285],[478,337]],\"box\":[309,284,643,480]}]}],\"direct_answer\":80,\"confidence\":0.3}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 2520,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "ping pong ball"
+      ],
+      "dimension": "",
+      "time": 1.2,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "cm/s"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "ping pong ball"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.04,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "ping pong ball",
+       "distance_m": 1.511,
+       "time": 1.0
+      },
+      {
+       "object": "ping pong ball",
+       "distance_m": 1.03,
+       "time": 1.4
+      }
+     ],
+     "notes": "Ball rolls mostly toward the camera; velocity dominated by depth change (1.511->1.03 m over 0.4 s)."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "ping pong ball",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         482,
+         277
+        ],
+        "extent": [
+         [
+          476,
+          277
+         ],
+         [
+          488,
+          277
+         ]
+        ],
+        "box": [
+         476,
+         271,
+         488,
+         283
+        ]
+       },
+       {
+        "frame": 24,
+        "point": [
+         485,
+         280
+        ],
+        "extent": [
+         [
+          478.5,
+          280
+         ],
+         [
+          491.5,
+          280
+         ]
+        ],
+        "box": [
+         478.5,
+         273.5,
+         491.5,
+         286.5
+        ]
+       },
+       {
+        "frame": 29,
+        "point": [
+         497,
+         291
+        ],
+        "extent": [
+         [
+          490,
+          291
+         ],
+         [
+          504,
+          291
+         ]
+        ],
+        "box": [
+         490,
+         284,
+         504,
+         298
+        ]
+       },
+       {
+        "frame": 34,
+        "point": [
+         502,
+         302
+        ],
+        "extent": [
+         [
+          494,
+          302
+         ],
+         [
+          510,
+          302
+         ]
+        ],
+        "box": [
+         494,
+         294,
+         510,
+         310
+        ]
+       },
+       {
+        "frame": 38,
+        "point": [
+         504,
+         317
+        ],
+        "extent": [
+         [
+          495,
+          317
+         ],
+         [
+          513,
+          317
+         ]
+        ],
+        "box": [
+         495,
+         308,
+         513,
+         326
+        ]
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "ping pong ball",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         482,
+         277
+        ],
+        "extent": null,
+        "box": [
+         476,
+         271,
+         488,
+         283
+        ]
+       },
+       {
+        "frame": 3,
+        "point": [
+         482,
+         277
+        ],
+        "extent": null,
+        "box": [
+         476,
+         271,
+         488,
+         283
+        ]
+       },
+       {
+        "frame": 6,
+        "point": [
+         482,
+         277
+        ],
+        "extent": null,
+        "box": [
+         476,
+         271,
+         488,
+         283
+        ]
+       },
+       {
+        "frame": 10,
+        "point": [
+         482,
+         277
+        ],
+        "extent": null,
+        "box": [
+         476,
+         271,
+         488,
+         283
+        ]
+       },
+       {
+        "frame": 13,
+        "point": [
+         482,
+         277
+        ],
+        "extent": null,
+        "box": [
+         476,
+         271,
+         488,
+         283
+        ]
+       },
+       {
+        "frame": 16,
+        "point": [
+         482,
+         277
+        ],
+        "extent": null,
+        "box": [
+         476,
+         271,
+         488,
+         283
+        ]
+       },
+       {
+        "frame": 19,
+        "point": [
+         482,
+         277
+        ],
+        "extent": null,
+        "box": [
+         476,
+         271,
+         488,
+         283
+        ]
+       },
+       {
+        "frame": 22,
+        "point": [
+         482,
+         277
+        ],
+        "extent": null,
+        "box": [
+         476,
+         271,
+         488,
+         283
+        ]
+       },
+       {
+        "frame": 24,
+        "point": [
+         485,
+         280
+        ],
+        "extent": null,
+        "box": [
+         478.5,
+         273.5,
+         491.5,
+         286.5
+        ]
+       },
+       {
+        "frame": 26,
+        "point": [
+         490,
+         284
+        ],
+        "extent": null,
+        "box": [
+         483.5,
+         277.5,
+         496.5,
+         290.5
+        ]
+       },
+       {
+        "frame": 29,
+        "point": [
+         497,
+         291
+        ],
+        "extent": null,
+        "box": [
+         490,
+         284,
+         504,
+         298
+        ]
+       },
+       {
+        "frame": 31,
+        "point": [
+         500,
+         296
+        ],
+        "extent": null,
+        "box": [
+         492.5,
+         288.5,
+         507.5,
+         303.5
+        ]
+       },
+       {
+        "frame": 32,
+        "point": [
+         501,
+         298
+        ],
+        "extent": null,
+        "box": [
+         493.5,
+         290.5,
+         508.5,
+         305.5
+        ]
+       },
+       {
+        "frame": 34,
+        "point": [
+         502,
+         302
+        ],
+        "extent": null,
+        "box": [
+         494,
+         294,
+         510,
+         310
+        ]
+       },
+       {
+        "frame": 35,
+        "point": [
+         502,
+         305
+        ],
+        "extent": null,
+        "box": [
+         494,
+         297,
+         510,
+         313
+        ]
+       },
+       {
+        "frame": 36,
+        "point": [
+         503,
+         309
+        ],
+        "extent": null,
+        "box": [
+         494.5,
+         300.5,
+         511.5,
+         317.5
+        ]
+       },
+       {
+        "frame": 38,
+        "point": [
+         504,
+         317
+        ],
+        "extent": null,
+        "box": [
+         495,
+         308,
+         513,
+         326
+        ]
+       },
+       {
+        "frame": 42,
+        "point": [
+         507,
+         440
+        ],
+        "extent": null,
+        "box": [
+         496,
+         410,
+         518,
+         470
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 120,
+    "confidence": 0.5
+   },
+   {
+    "qid": 2521,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "ping pong ball"
+      ],
+      "dimension": "",
+      "time": 1.4,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "cm/s"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "ping pong ball"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.04,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "ping pong ball",
+       "distance_m": 1.511,
+       "time": 1.0
+      },
+      {
+       "object": "ping pong ball",
+       "distance_m": 1.03,
+       "time": 1.4
+      }
+     ],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "ping pong ball",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "ping pong ball",
+      "obs": []
+     }
+    ],
+    "direct_answer": 125,
+    "confidence": 0.5
+   },
+   {
+    "qid": 2522,
+    "spec": {
+     "target": {
+      "kind": "displacement",
+      "objects": [
+       "ping pong ball"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": [
+       1.0,
+       1.4
+      ],
+      "axis": "any",
+      "value_si": null,
+      "unit": "cm"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "ping pong ball"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.04,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "ping pong ball",
+       "distance_m": 1.511,
+       "time": 1.0
+      },
+      {
+       "object": "ping pong ball",
+       "distance_m": 1.03,
+       "time": 1.4
+      }
+     ],
+     "notes": "Displacement dominated by depth change 0.481 m; lateral motion small."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "ping pong ball",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "ping pong ball",
+      "obs": []
+     }
+    ],
+    "direct_answer": 48.5,
+    "confidence": 0.6
+   },
+   {
+    "qid": 2523,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "table"
+      ],
+      "dimension": "width",
+      "time": null,
+      "window": null,
+      "axis": "horizontal",
+      "value_si": null,
+      "unit": "cm"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "ping pong ball"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.04,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "ping pong ball",
+       "distance_m": 1.511,
+       "time": 1.0
+      },
+      {
+       "object": "ping pong ball",
+       "distance_m": 1.03,
+       "time": 1.4
+      }
+     ],
+     "notes": "Width taken as the left-right edge of the table top; near edge is closer to camera than the ball depths, far edge about at the t=1.0 ball depth."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "ping pong ball",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "table",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          309,
+          336
+         ],
+         [
+          643,
+          341
+         ]
+        ],
+        "box": [
+         309,
+         284,
+         643,
+         480
+        ]
+       },
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          309,
+          336
+         ],
+         [
+          643,
+          341
+         ]
+        ],
+        "box": [
+         309,
+         284,
+         643,
+         480
+        ]
+       },
+       {
+        "frame": 34,
+        "point": null,
+        "extent": [
+         [
+          309,
+          336
+         ],
+         [
+          643,
+          341
+         ]
+        ],
+        "box": [
+         309,
+         284,
+         643,
+         480
+        ]
+       },
+       {
+        "frame": 48,
+        "point": null,
+        "extent": [
+         [
+          378,
+          285
+         ],
+         [
+          578,
+          285
+         ]
+        ],
+        "box": [
+         309,
+         284,
+         643,
+         480
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 60,
+    "confidence": 0.35
+   },
+   {
+    "qid": 2524,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "table"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "cm"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "ping pong ball"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.04,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "ping pong ball",
+       "distance_m": 1.511,
+       "time": 1.0
+      },
+      {
+       "object": "ping pong ball",
+       "distance_m": 1.03,
+       "time": 1.4
+      }
+     ],
+     "notes": "Length is the depth direction (far edge to near edge), strongly foreshortened; estimated from ball depths: far edge ~1.5 m, near edge ~0.7 m from camera."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "ping pong ball",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "table",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          478,
+          285
+         ],
+         [
+          478,
+          337
+         ]
+        ],
+        "box": [
+         309,
+         284,
+         643,
+         480
+        ]
+       },
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          478,
+          285
+         ],
+         [
+          478,
+          337
+         ]
+        ],
+        "box": [
+         309,
+         284,
+         643,
+         480
+        ]
+       },
+       {
+        "frame": 48,
+        "point": null,
+        "extent": [
+         [
+          478,
+          285
+         ],
+         [
+          478,
+          337
+         ]
+        ],
+        "box": [
+         309,
+         284,
+         643,
+         480
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 80,
+    "confidence": 0.3
+   }
+  ]
+ }
+}

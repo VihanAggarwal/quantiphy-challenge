@@ -1,0 +1,576 @@
+{
+ "video_id": "captured_0041x",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011Cfqdvm9KngEywD3LkyFcg",
+ "model": "claude-fable-5-1",
+ "effort": "high",
+ "config": {
+  "model": "claude-fable-5-1",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 2576
+ },
+ "ts": "2026-10-08T23:29:21+00:00",
+ "mode": "sync",
+ "request_id": "req_011CfqdvkJTYPHXdtvLfizVs",
+ "usage": {
+  "input_tokens": 11430,
+  "output_tokens": 6520,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 4317,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.441379,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "captured_0041x",
+  "fps": 24.0,
+  "fps_from_container": false,
+  "video_type": "V3SX",
+  "n_frames_total": 49,
+  "scale": 1.0,
+  "image_size": [
+   854,
+   480
+  ],
+  "frames": [
+   0,
+   3,
+   6,
+   10,
+   13,
+   16,
+   19,
+   22,
+   26,
+   29,
+   32,
+   34,
+   35,
+   36,
+   38,
+   41,
+   42,
+   45,
+   48
+  ],
+  "questions": [
+   {
+    "qid": 2915,
+    "target_unit": "cm",
+    "prior": "velocity of the soccer ball at 1.5s = 5.21 m/s",
+    "depth_info": "t=1.5s, distance_soccer_ball_camera = 2.5440 m\nt=1.6s, distance_soccer_ball_camera = 2.0740 m"
+   },
+   {
+    "qid": 2916,
+    "target_unit": "m",
+    "prior": "velocity of the soccer ball at 1.5s = 5.21 m/s",
+    "depth_info": "t=1.5s, distance_soccer_ball_camera = 2.5440 m\nt=1.6s, distance_soccer_ball_camera = 2.0740 m"
+   },
+   {
+    "qid": 2917,
+    "target_unit": "m",
+    "prior": "velocity of the soccer ball at 1.5s = 5.21 m/s",
+    "depth_info": "t=1.5s, distance_soccer_ball_camera = 2.5440 m\nt=1.6s, distance_soccer_ball_camera = 2.0740 m"
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":2915,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"soccer ball\"],\"dimension\":\"diameter\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"cm\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"soccer ball\"],\"dimension\":\"\",\"time\":1.5,\"window\":null,\"axis\":\"any\",\"value_si\":5.21,\"unit\":\"\"},\"depth\":[{\"object\":\"soccer ball\",\"distance_m\":2.544,\"time\":1.5},{\"object\":\"soccer ball\",\"distance_m\":2.074,\"time\":1.6}],\"notes\":\"Ball is kicked toward the camera around 1.4s; motion is mostly in depth, ball is motion-blurred at 1.5s.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"soccer ball\",\"obs\":[{\"frame\":0,\"point\":[383,355],\"extent\":null,\"box\":[370,342,396,368]},{\"frame\":3,\"point\":[383,355],\"extent\":null,\"box\":[370,342,396,368]},{\"frame\":6,\"point\":[383,355],\"extent\":null,\"box\":[370,342,396,368]},{\"frame\":10,\"point\":[383,355],\"extent\":null,\"box\":[370,342,396,368]},{\"frame\":13,\"point\":[383,355],\"extent\":null,\"box\":[370,342,396,368]},{\"frame\":16,\"point\":[383,355],\"extent\":null,\"box\":[370,342,396,368]},{\"frame\":19,\"point\":[383,355],\"extent\":null,\"box\":[370,342,396,368]},{\"frame\":22,\"point\":[383,355],\"extent\":null,\"box\":[370,342,396,368]},{\"frame\":26,\"point\":[383,355],\"extent\":null,\"box\":[370,342,396,368]},{\"frame\":29,\"point\":[383,355],\"extent\":null,\"box\":[370,342,396,368]},{\"frame\":32,\"point\":[383,355],\"extent\":null,\"box\":[370,342,396,368]},{\"frame\":34,\"point\":[383,360],\"extent\":null,\"box\":[367,338,399,382]},{\"frame\":35,\"point\":[385,378],\"extent\":null,\"box\":[369,356,402,400]},{\"frame\":36,\"point\":[389,410],\"extent\":null,\"box\":[371,384,408,437]},{\"frame\":38,\"point\":[397,439],\"extent\":null,\"box\":[376,410,419,468]}]},{\"role\":\"target\",\"object\":\"soccer ball\",\"obs\":[{\"frame\":35,\"point\":[385,378],\"extent\":[[369.5,378],[401.5,378]],\"box\":[369,356,402,400]},{\"frame\":36,\"point\":[389,410],\"extent\":[[371.5,410],[407.5,410]],\"box\":[371,384,408,437]},{\"frame\":38,\"point\":[397,439],\"extent\":[[376.5,439],[418.5,439]],\"box\":[376,410,419,468]}]}],\"direct_answer\":26,\"confidence\":0.3},{\"qid\":2916,\"spec\":{\"target\":{\"kind\":\"displacement\",\"objects\":[\"soccer ball\"],\"dimension\":\"\",\"time\":null,\"window\":[1.5,1.6],\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"soccer ball\"],\"dimension\":\"\",\"time\":1.5,\"window\":null,\"axis\":\"any\",\"value_si\":5.21,\"unit\":\"\"},\"depth\":[{\"object\":\"soccer ball\",\"distance_m\":2.544,\"time\":1.5},{\"object\":\"soccer ball\",\"distance_m\":2.074,\"time\":1.6}],\"notes\":\"Displacement dominated by the depth change (0.47 m) plus small lateral motion.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"soccer ball\",\"obs\":[]},{\"role\":\"target\",\"object\":\"soccer ball\",\"obs\":[]}],\"direct_answer\":0.49,\"confidence\":0.6},{\"qid\":2917,\"spec\":{\"target\":{\"kind\":\"distance\",\"objects\":[\"soccer ball\",\"person\"],\"dimension\":\"\",\"time\":1.5,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"soccer ball\"],\"dimension\":\"\",\"time\":1.5,\"window\":null,\"axis\":\"any\",\"value_si\":5.21,\"unit\":\"\"},\"depth\":[{\"object\":\"soccer ball\",\"distance_m\":2.544,\"time\":1.5},{\"object\":\"soccer ball\",\"distance_m\":2.074,\"time\":1.6}],\"notes\":\"Person depth not given; estimated from the ball's apparent size at rest (about 3.5 m).\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"soccer ball\",\"obs\":[]},{\"role\":\"target\",\"object\":\"soccer ball\",\"obs\":[{\"frame\":36,\"point\":[389,410],\"extent\":null,\"box\":[371,384,408,437]}]},{\"role\":\"target2\",\"object\":\"person\",\"obs\":[{\"frame\":36,\"point\":[420,255],\"extent\":null,\"box\":[385,133,455,370]}]}],\"direct_answer\":1.4,\"confidence\":0.3}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 2915,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "soccer ball"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "cm"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "soccer ball"
+      ],
+      "dimension": "",
+      "time": 1.5,
+      "window": null,
+      "axis": "any",
+      "value_si": 5.21,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "soccer ball",
+       "distance_m": 2.544,
+       "time": 1.5
+      },
+      {
+       "object": "soccer ball",
+       "distance_m": 2.074,
+       "time": 1.6
+      }
+     ],
+     "notes": "Ball is kicked toward the camera around 1.4s; motion is mostly in depth, ball is motion-blurred at 1.5s."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "soccer ball",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         383,
+         355
+        ],
+        "extent": null,
+        "box": [
+         370,
+         342,
+         396,
+         368
+        ]
+       },
+       {
+        "frame": 3,
+        "point": [
+         383,
+         355
+        ],
+        "extent": null,
+        "box": [
+         370,
+         342,
+         396,
+         368
+        ]
+       },
+       {
+        "frame": 6,
+        "point": [
+         383,
+         355
+        ],
+        "extent": null,
+        "box": [
+         370,
+         342,
+         396,
+         368
+        ]
+       },
+       {
+        "frame": 10,
+        "point": [
+         383,
+         355
+        ],
+        "extent": null,
+        "box": [
+         370,
+         342,
+         396,
+         368
+        ]
+       },
+       {
+        "frame": 13,
+        "point": [
+         383,
+         355
+        ],
+        "extent": null,
+        "box": [
+         370,
+         342,
+         396,
+         368
+        ]
+       },
+       {
+        "frame": 16,
+        "point": [
+         383,
+         355
+        ],
+        "extent": null,
+        "box": [
+         370,
+         342,
+         396,
+         368
+        ]
+       },
+       {
+        "frame": 19,
+        "point": [
+         383,
+         355
+        ],
+        "extent": null,
+        "box": [
+         370,
+         342,
+         396,
+         368
+        ]
+       },
+       {
+        "frame": 22,
+        "point": [
+         383,
+         355
+        ],
+        "extent": null,
+        "box": [
+         370,
+         342,
+         396,
+         368
+        ]
+       },
+       {
+        "frame": 26,
+        "point": [
+         383,
+         355
+        ],
+        "extent": null,
+        "box": [
+         370,
+         342,
+         396,
+         368
+        ]
+       },
+       {
+        "frame": 29,
+        "point": [
+         383,
+         355
+        ],
+        "extent": null,
+        "box": [
+         370,
+         342,
+         396,
+         368
+        ]
+       },
+       {
+        "frame": 32,
+        "point": [
+         383,
+         355
+        ],
+        "extent": null,
+        "box": [
+         370,
+         342,
+         396,
+         368
+        ]
+       },
+       {
+        "frame": 34,
+        "point": [
+         383,
+         360
+        ],
+        "extent": null,
+        "box": [
+         367,
+         338,
+         399,
+         382
+        ]
+       },
+       {
+        "frame": 35,
+        "point": [
+         385,
+         378
+        ],
+        "extent": null,
+        "box": [
+         369,
+         356,
+         402,
+         400
+        ]
+       },
+       {
+        "frame": 36,
+        "point": [
+         389,
+         410
+        ],
+        "extent": null,
+        "box": [
+         371,
+         384,
+         408,
+         437
+        ]
+       },
+       {
+        "frame": 38,
+        "point": [
+         397,
+         439
+        ],
+        "extent": null,
+        "box": [
+         376,
+         410,
+         419,
+         468
+        ]
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "soccer ball",
+      "obs": [
+       {
+        "frame": 35,
+        "point": [
+         385,
+         378
+        ],
+        "extent": [
+         [
+          369.5,
+          378
+         ],
+         [
+          401.5,
+          378
+         ]
+        ],
+        "box": [
+         369,
+         356,
+         402,
+         400
+        ]
+       },
+       {
+        "frame": 36,
+        "point": [
+         389,
+         410
+        ],
+        "extent": [
+         [
+          371.5,
+          410
+         ],
+         [
+          407.5,
+          410
+         ]
+        ],
+        "box": [
+         371,
+         384,
+         408,
+         437
+        ]
+       },
+       {
+        "frame": 38,
+        "point": [
+         397,
+         439
+        ],
+        "extent": [
+         [
+          376.5,
+          439
+         ],
+         [
+          418.5,
+          439
+         ]
+        ],
+        "box": [
+         376,
+         410,
+         419,
+         468
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 26,
+    "confidence": 0.3
+   },
+   {
+    "qid": 2916,
+    "spec": {
+     "target": {
+      "kind": "displacement",
+      "objects": [
+       "soccer ball"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": [
+       1.5,
+       1.6
+      ],
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "soccer ball"
+      ],
+      "dimension": "",
+      "time": 1.5,
+      "window": null,
+      "axis": "any",
+      "value_si": 5.21,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "soccer ball",
+       "distance_m": 2.544,
+       "time": 1.5
+      },
+      {
+       "object": "soccer ball",
+       "distance_m": 2.074,
+       "time": 1.6
+      }
+     ],
+     "notes": "Displacement dominated by the depth change (0.47 m) plus small lateral motion."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "soccer ball",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "soccer ball",
+      "obs": []
+     }
+    ],
+    "direct_answer": 0.49,
+    "confidence": 0.6
+   },
+   {
+    "qid": 2917,
+    "spec": {
+     "target": {
+      "kind": "distance",
+      "objects": [
+       "soccer ball",
+       "person"
+      ],
+      "dimension": "",
+      "time": 1.5,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "soccer ball"
+      ],
+      "dimension": "",
+      "time": 1.5,
+      "window": null,
+      "axis": "any",
+      "value_si": 5.21,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "soccer ball",
+       "distance_m": 2.544,
+       "time": 1.5
+      },
+      {
+       "object": "soccer ball",
+       "distance_m": 2.074,
+       "time": 1.6
+      }
+     ],
+     "notes": "Person depth not given; estimated from the ball's apparent size at rest (about 3.5 m)."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "soccer ball",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "soccer ball",
+      "obs": [
+       {
+        "frame": 36,
+        "point": [
+         389,
+         410
+        ],
+        "extent": null,
+        "box": [
+         371,
+         384,
+         408,
+         437
+        ]
+       }
+      ]
+     },
+     {
+      "role": "target2",
+      "object": "person",
+      "obs": [
+       {
+        "frame": 36,
+        "point": [
+         420,
+         255
+        ],
+        "extent": null,
+        "box": [
+         385,
+         133,
+         455,
+         370
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 1.4,
+    "confidence": 0.3
+   }
+  ]
+ }
+}
