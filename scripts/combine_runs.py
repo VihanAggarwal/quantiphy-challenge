@@ -33,7 +33,7 @@ def _fmt(sc: dict) -> str:
 def main(argv=None) -> pd.DataFrame:
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     ap.add_argument("runs", nargs="+", help="run CSVs (scripts/run_claude.py output)")
-    ap.add_argument("--split", choices=["val", "test"], required=True, help="question metadata (and answers)")
+    ap.add_argument("--split", choices=["val", "val_hires", "test"], required=True, help="question metadata (and answers)")
     ap.add_argument("--rule", choices=list(combine.RULES), default=combine.DEFAULT_RULE)
     ap.add_argument("--out", help="combined CSV to write")
     ap.add_argument("--cv", action="store_true", help="leave-one-video-out CV of the rule choice (val)")

@@ -40,7 +40,7 @@ def load_env() -> None:
 
 def main() -> None:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--split", choices=["val", "test"], required=True)
+    ap.add_argument("--split", choices=["val", "val_hires", "test"], required=True)
     ap.add_argument("--provider", choices=["anthropic", "openai", "gemini"], default="anthropic")
     ap.add_argument("--model")
     ap.add_argument("--method", choices=["direct", "measure"], default="measure")

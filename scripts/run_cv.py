@@ -121,7 +121,7 @@ def solve_all(df: pd.DataFrame, specs: dict, out: Path) -> pd.DataFrame:
 
 def parse_args(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
-    ap.add_argument("--split", choices=["val", "test"])
+    ap.add_argument("--split", choices=["val", "val_hires", "test"])
     ap.add_argument("--csv", help="questions CSV (validation format) instead of --split")
     ap.add_argument("--video-dir", help="videos for --csv (default: the CSV's folder)")
     ap.add_argument("--specs", required=True, help='spec folder / file of a parser run, or "rules"')

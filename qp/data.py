@@ -84,14 +84,15 @@ def _finalize(df: pd.DataFrame, video_root: Path) -> pd.DataFrame:
     return df[cols].reset_index(drop=True)
 
 
-def load_validation(csv_path: Path | None = None) -> pd.DataFrame:
+def load_validation(csv_path: Path | None = None, video_root: Path | None = None) -> pd.DataFrame:
     """159 questions with answers. The question id is the first (unnamed) CSV column,
-    which is what the official evaluator matches on."""
+    which is what the official evaluator matches on. `video_root` swaps the video files
+    (validation ships 480p copies; the test folder has the same clips at full resolution)."""
     csv_path = csv_path or next(VAL_DIR.glob("*.csv"))
     raw = pd.read_csv(csv_path)
     raw = raw.rename(columns={raw.columns[0]: "qid", "ground_truth_prior": "prior",
                               "ground_truth_posterior": "answer"})
-    return _finalize(raw, VAL_DIR)
+    return _finalize(raw, video_root or VAL_DIR)
 
 
 def load_template(path: Path = TEMPLATE_CSV) -> pd.DataFrame:
@@ -129,9 +130,16 @@ def load_test(template_path: Path = TEMPLATE_CSV) -> pd.DataFrame:
     return _finalize(test, TEST_DIR)
 
 
+SPLITS = ("val", "val_hires", "test")
+
+
 def load_split(split: str) -> pd.DataFrame:
+    """'val' (480p videos), 'val_hires' (validation questions on the full-resolution copies
+    in the test folder: same clips and frame counts, like the test set) or 'test'."""
     if split == "val":
         return load_validation()
+    if split == "val_hires":
+        return load_validation(video_root=TEST_DIR)
     if split == "test":
         return load_test()
-    raise ValueError(f"unknown split {split!r} (expected 'val' or 'test')")
+    raise ValueError(f"unknown split {split!r} (expected one of {SPLITS})")
