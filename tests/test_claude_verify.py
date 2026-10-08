@@ -632,8 +632,6 @@ def test_identical_readings_leave_every_answer_unchanged_under_every_rule():
     nofix = {"change": []}
     for action, verdict in (("keep", "accept_geometry"), ("replace", "corrected")):
         tr = _readings(ctx, plan, action)
-        if action == "replace":           # a motion track marked replace becomes its readings by design
-            tr = [t for t in tr if t["track"] != "A"]
         resp = {"tracks": tr, "questions": [{"qid": q.qid, "verdict": verdict, "problem": "",
                                              "spec_fix": {"target": nofix, "prior": nofix},
                                              "final_answer": p1[q.qid]["chosen"][0], "confidence": 0.5}
@@ -645,6 +643,11 @@ def test_identical_readings_leave_every_answer_unchanged_under_every_rule():
         tracks, info = cvf.apply_track_fixes(cvf.context_from_meta(meta), resp, set(meta["frames_shown"]),
                                              remeasure=True, evidence=meta["evidence"])
         assert not any(i["applied"] for i in info.values()) and all(i["delta_px"] in (0.0, None) for i in info.values())
+        assert ("verify_replace_noop" in info["A"]["flags"]) == (action == "replace")   # dense motion track kept
+    # a motion track replaced by readings that do move is replaced by them (wrong object / drift)
+    tr = _readings(ctx, plan, "replace", lambda tid, o: Obs(t=o.t, point=[o.point[0], o.point[1] + 5]) if tid == "A" else o)
+    tracks, info = cvf.apply_track_fixes(cvf.context_from_meta(meta), {"tracks": tr[:1]}, set(meta["frames_shown"]))
+    assert info["A"]["applied"] and len(tracks["A"].obs) == len(plan["per_track"]["A"]) < len(ctx.tracks["A"].obs)
 
 
 def test_readings_carry_their_systematic_change_to_every_frame():

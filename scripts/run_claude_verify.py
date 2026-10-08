@@ -444,8 +444,6 @@ def main(argv=None, client=None) -> pd.DataFrame | None:
     if not p1_dir.exists():
         raise SystemExit(f"no pass-1 records at {p1_dir}")
     pass1 = rc.load_records(p1_dir)
-    if cfg.name == cfg.from_run:     # before anything is written into the pass-1 folder
-        check_names(cfg, runs_root, pass1, {})
     if cfg.videos:
         df = df[df.video_id.isin(cfg.videos.split(","))]
     vids = list(dict.fromkeys(df.video_id))
@@ -460,7 +458,7 @@ def main(argv=None, client=None) -> pd.DataFrame | None:
               f"(e.g. {missing[0]})")
     cfg.out_dir = runs_root / cfg.name / cfg.label
     rec_dir = cfg.out_dir / "records"
-    check_names(cfg, runs_root, pass1, rc.load_records(rec_dir) if rec_dir.exists() else {})
+    check_names(cfg, runs_root, pass1, rc.load_records(rec_dir) if rec_dir.exists() else {})  # before any write
     rec_dir.mkdir(parents=True, exist_ok=True)
     if not (cfg.out_dir / "config.json").exists():
         (cfg.out_dir / "config.json").write_text(json.dumps({k: str(v) if isinstance(v, Path) else v

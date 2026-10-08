@@ -15,13 +15,15 @@ j spans x = j..j+1; frame f is at t = f / dataset fps):
                  original = region origin + (image px - margin) / zoom
   track(object, anchors=[{frame, box}], from_t, to_t)      dense per-frame box centre (qp.dense_track:
                  NCC template matching with anchor drift correction, dense_motion between >= 2 anchors;
-                 a plain NCC tracker when dense_track is unavailable) -> stored measurement T<n>, a
-                 compact table, quality numbers and an overlay
+                 a plain NCC tracker when dense_track is unavailable; passes between anchors are made
+                 continuous at every anchor; frames where a pass stops returning to its anchor in a
+                 reverse pass are dropped) -> stored measurement T<n>, a compact table, quality numbers
+                 and an overlay
   segment(object, frame, box | extent, measure, method)  GrabCut mask -> extent along `measure` (long /
                  short axis, image horizontal / vertical, diameter; qp.open.cv_track.mask_features /
-                 extent_from_features), its endpoints moved <= 2.5-4 px to the strongest edges (colour
-                 bleeding of 4:2:0 video makes masks 1-2 px too large), or edge snapping of given endpoints
-                 (qp.dense_track.snap_extent) -> stored measurement S<n> + overlay crop
+                 extent_from_features), each end moved <= 2.5-4 px to a clear colour edge where the mask
+                 reaches its extent (snap_ends; colour bleeding of 4:2:0 video makes masks 1-2 px too
+                 large), or edge snapping of given endpoints -> stored measurement S<n> + overlay crop
   solve(qid, spec, tracks)       qp.geometry.solve on the spec + tracks (refs to T/S ids and/or manual
                  obs), normalised exactly like pass 1 (prior value / depth list from the text) -> answer
                  and intermediate numbers
@@ -34,11 +36,13 @@ a 400 on Opus 5.5); tools are sorted, get_frames / segment / track strict (solve
 strict grammar allows 16 union-typed parameters per request, their nullable spec fields need 20; their
 input is validated here); the system prompt carries an explicit cache
 breakpoint and top-level automatic caching covers the growing tail (verify with
-usage.cache_read_input_tokens). After each tool round a status line (turns / budget used) is appended
-after the tool_result blocks (never edited later); near the turn cap or the per-video budget it asks
-the model to submit. Hard stops: max_turns, the per-video USD cap (each request's max_tokens is
-shrunk to fit it), an output-token cap, the global ledger cap (qp.budget.reserve at each request's
-worst case). Questions without a submitted answer fall back to their last solve call.
+usage.cache_read_input_tokens). Once 60% of a limit is used (status "late"; "always": after every tool
+round) a status line (turns / budget used) is appended after the tool_result blocks (never edited later);
+near the turn cap or the per-video budget it asks the model to submit. Hard stops: max_turns, the
+per-video USD cap (each request's max_tokens is shrunk to fit it even if the whole prompt misses the
+cache), an output-token cap, the global ledger cap (qp.budget.reserve at each request's worst case), a
+stop event (Ctrl-C). Transient API failures are retried; an attempt that failed mid-stream is recorded in
+the ledger first. Questions without a submitted answer fall back to their last solve call.
 
     session = AgentSession(rows)                         # rows: one video's questions (qp.data)
     rec = run_video(client, session, AgentConfig(effort="medium", run="name", split="val"))
@@ -68,13 +72,14 @@ from . import claude_verify as cvf
 from . import combine
 
 MODEL = ca.MODEL
-AGENT_VERSION = "ag1"
+AGENT_VERSION = "ag2"
 ROLES = ca.ROLES
 EFFORTS = ("low", "medium", "high", "xhigh", "max")
 
 MAX_TURNS = 25            # API requests per video
 TURN_MAX_TOKENS = 32000   # max_tokens per request (thinking + tool calls); streamed
 MIN_TURN_TOKENS = 4000    # a request the per-video budget cannot give this many output tokens is not sent
+TASK_BUDGET_MIN = 20000   # API minimum of output_config.task_budget.total
 MAX_USD_VIDEO = 2.0       # per-video cost cap
 MAX_OUT_VIDEO = 200_000   # per-video output-token cap
 WRAP_UP_FRAC = 0.7        # share of a per-video cap after which the status line asks for submit
@@ -401,6 +406,22 @@ def _box_c(b) -> np.ndarray:
     return np.array([(b[0] + b[2]) / 2, (b[1] + b[3]) / 2], float)
 
 
+FB_REL = 0.25             # a tracking pass is trusted while its forward-backward error stays within this share
+FB_MIN_WORK = 2.0         # of the object's size, and at least this many px of the tracked (working) images
+FB_BISECT = 8             # reverse passes spent finding how far an unreliable pass can be trusted
+
+
+def _ranges(frames) -> str:
+    """[3, 4, 5, 9] -> "3..5, 9"."""
+    fr, out = sorted(frames), []
+    for f in fr:
+        if out and f == out[-1][1] + 1:
+            out[-1][1] = f
+        else:
+            out.append([f, f])
+    return ", ".join(f"{a}..{b}" if b > a else f"{a}" for a, b in out)
+
+
 def track_object(frames: dict[int, np.ndarray], work_scale: float, size: tuple[int, int],
                  anchors: list[tuple[int, list[float]]], f_lo: int, f_hi: int, fps: float,
                  path_name: str = "", use_dense: bool = True) -> tuple[dict[int, dict], dict]:
@@ -408,9 +429,15 @@ def track_object(frames: dict[int, np.ndarray], work_scale: float, size: tuple[i
 
     frames: {frame: image downscaled by work_scale (work px per original px)}. With qp.dense_track:
     dense_motion between >= 2 anchors (forward/backward fused, chained template offsets), track_pass
-    outward from the first / last anchor; otherwise (or when dense_motion fails) single passes from
-    each anchor. Every outward pass is checked by a reverse pass from its end (forward-backward error).
-    Returns ({frame: {"point", "box", "ncc", "fb"}}, info)."""
+    outward from the first / last anchor; otherwise (or when dense_motion fails) single passes between
+    consecutive anchors, each pass's mismatch at the next anchor spread linearly over its frames (so the
+    path is continuous at every anchor); a pass that misses the next anchor by more than the tolerance
+    (FB_REL x the object's size, at least FB_MIN_WORK working px) is replaced by the backward pass from
+    that anchor if that one arrives, else the frames between the two anchors are dropped. Every outward
+    pass is checked by a reverse pass from its end (forward-backward error); when that fails, reverse
+    passes from intermediate frames (bisection) find how far the pass returns to its anchor, and the
+    frames beyond are dropped (drift). Returns ({frame: {"point", "box", "ncc", "fb"}}, info); dropped
+    frames are listed in info["dropped"] ({frame: "drift" | "anchors"})."""
     dt = _dense_track() if use_dense else None
     passer = getattr(dt, "track_pass", None) or ncc_pass
     W, H = size
@@ -426,22 +453,64 @@ def track_object(frames: dict[int, np.ndarray], work_scale: float, size: tuple[i
         imgs = frames
     iw, ih = next(iter(imgs.values())).shape[1], next(iter(imgs.values())).shape[0]
     S = np.array([iw / W, ih / H])
+    tol = max(FB_MIN_WORK / float(S.min()), FB_REL * sz)          # original px
     info: dict = {"tracker": "dense_track.track_pass" if passer is not ncc_pass else "ncc_fallback",
-                  "template_px": round(sz * S[0], 1), "anchors": [a[0] for a in A]}
+                  "template_px": round(sz * S[0], 1), "anchors": [a[0] for a in A], "tolerance_px": round(tol, 2)}
+    dropped: dict[int, str] = {}
 
     def run(fa: int, fb: int, centre, wh) -> dict:
         tsize = (_odd(wh[0] * S[0]), _odd(wh[1] * S[1]))
         raw = passer(imgs, fa, fb, np.asarray(centre, float) * S - 0.5, tsize, None)
         return {f: ((np.asarray(c, float) + 0.5) / S, float(n), float(s)) for f, (c, n, s) in raw.items()}
 
-    def fb_check(fwd: dict, fa: int, wh) -> dict[int, float]:
-        """Reverse pass from the far end of `fwd` back to fa: per-frame |forward - backward| px."""
-        far = max(fwd, key=lambda f: abs(f - fa))
-        if far == fa:
-            return {}
+    def reverse_check(fwd: dict, fa: int, far: int, wh) -> tuple[dict[int, float], bool]:
+        """Reverse pass from fwd's frame `far` back to fa: (per-frame |forward - backward| px on fa..far,
+        whether it returns to the anchor: reaches fa with every error within tol)."""
         c, _, s = fwd[far]
         rev = run(far, fa, c, (wh[0] * s, wh[1] * s))
-        return {f: float(np.linalg.norm(rev[f][0] - fwd[f][0])) for f in fwd if f in rev}
+        lo, hi = min(fa, far), max(fa, far)
+        errs = {f: float(np.linalg.norm(rev[f][0] - fwd[f][0])) for f in fwd if lo <= f <= hi and f in rev}
+        return errs, fa in rev and max(errs.values(), default=0.0) <= tol
+
+    def outward(fa: int, centre, wh, lim: int) -> tuple[dict, dict[int, float]]:
+        """Pass from anchor frame fa to lim, cut where it stops returning to the anchor."""
+        fwd = run(fa, lim, centre, wh)
+        order = sorted(fwd, key=lambda f: abs(f - fa))
+        if len(order) == 1:
+            return fwd, {}
+        errs, ok = reverse_check(fwd, fa, order[-1], wh)
+        if ok:
+            return fwd, errs
+        lo, hi, errs = 0, len(order) - 1, {}
+        for _ in range(FB_BISECT):
+            if hi - lo <= 1:
+                break
+            mid = (lo + hi) // 2
+            e, ok = reverse_check(fwd, fa, order[mid], wh)
+            if ok:
+                lo, errs = mid, e
+            else:
+                hi = mid
+        dropped.update({f: "drift" for f in order[lo + 1:]})
+        return {f: fwd[f] for f in order[:lo + 1]}, errs
+
+    def segment(fa: int, ba, fb_: int, bb) -> tuple[dict | None, list]:
+        """Frames fa..fb_ between consecutive anchors without dense_motion: the forward pass with its
+        mismatch at anchor b spread linearly (continuous at both anchors), else the backward pass from b
+        likewise, else None. Also returns each tried direction's mismatch (px; None = lost on the way)."""
+        miss = []
+        for f0, b0, f1, b1 in ((fa, ba, fb_, bb), (fb_, bb, fa, ba)):
+            p = run(f0, f1, _box_c(b0), _box_wh(b0))
+            if f1 not in p:
+                miss.append(None)
+                continue
+            delta = _box_c(b1) - p[f1][0]
+            miss.append(round(float(np.linalg.norm(delta)), 2))
+            if miss[-1] <= tol:
+                wh0 = _box_wh(b0)
+                return {f: (c + delta * (f - f0) / (f1 - f0), n, (wh0[0] * s, wh0[1] * s))
+                        for f, (c, n, s) in p.items()}, miss
+        return None, miss
 
     path: dict[int, dict] = {}
     fb_all: dict[int, float] = {}
@@ -478,18 +547,22 @@ def track_object(frames: dict[int, np.ndarray], work_scale: float, size: tuple[i
             info["between_anchors"] = "dense_motion"
         else:
             info["between_anchors"] = "chained_passes"
-            checks = []
+            checks, used = [], []
             for (fa, ba), (fb_, bb) in zip(A, A[1:]):
-                fwd = run(fa, fb_, _box_c(ba), _box_wh(ba))
-                for f, (c, n, s) in fwd.items():
-                    if f < fb_:
-                        put(f, c, (_box_wh(ba)[0] * s, _box_wh(ba)[1] * s), n)
-                if fb_ in fwd:
-                    checks.append(round(float(np.linalg.norm(fwd[fb_][0] - _box_c(bb))), 2))
-                else:
-                    checks.append(None)
+                seg, miss = segment(fa, ba, fb_, bb)
+                checks.append(miss[0])
+                put(fa, _box_c(ba), _box_wh(ba), 1.0)
+                if seg is None:
+                    used.append("dropped")
+                    dropped.update({f: "anchors" for f in range(fa + 1, fb_)})
+                    continue
+                used.append("forward" if len(miss) == 1 else "backward")
+                for f, (c, n, whf) in seg.items():
+                    if fa < f < fb_:
+                        put(f, c, whf, n)
             put(A[-1][0], _box_c(A[-1][1]), _box_wh(A[-1][1]), 1.0)
             info["anchor_check_px"] = checks
+            info["segments"] = used
     # outward from the end anchors (both directions for a single anchor), continuing the path where the
     # between-anchor fusion put the anchor (not at its raw box centre: no step at the anchor frame)
     for (fa, ba), lim in ((A[0], f_lo), (A[-1], f_hi)):
@@ -497,16 +570,16 @@ def track_object(frames: dict[int, np.ndarray], work_scale: float, size: tuple[i
             put(fa, _box_c(ba), _box_wh(ba), 1.0)
             continue
         shift = np.asarray(path[fa]["point"]) - _box_c(ba) if fa in path else np.zeros(2)
-        fwd = run(fa, lim, _box_c(ba), _box_wh(ba))
-        fb = fb_check(fwd, fa, _box_wh(ba))
+        fwd, fb = outward(fa, _box_c(ba), _box_wh(ba), lim)
         fb_all.update({f: e for f, e in fb.items() if f != fa})
         for f, (c, n, s) in fwd.items():
             put(f, c + shift, (_box_wh(ba)[0] * s, _box_wh(ba)[1] * s), n, fb.get(f))
     path = dict(sorted(path.items()))
-    lost = [f for f in range(f_lo, f_hi + 1) if f not in path]
+    dropped = {f: r for f, r in sorted(dropped.items()) if f not in path and f_lo <= f <= f_hi}
+    lost = [f for f in range(f_lo, f_hi + 1) if f not in path and f not in dropped]
     nccs = [p["ncc"] for p in path.values() if p["ncc"] is not None]
     fbs = list(fb_all.values())
-    info.update(n_tracked=len(path), n_frames=f_hi - f_lo + 1, lost=lost,
+    info.update(n_tracked=len(path), n_frames=f_hi - f_lo + 1, lost=lost, dropped=dropped,
                 ncc_min=_r(min(nccs), 3) if nccs else None, ncc_median=_r(np.median(nccs), 3) if nccs else None,
                 fb_median_px=_r(np.median(fbs), 3) if fbs else None, fb_max_px=_r(max(fbs), 3) if fbs else None)
     return path, info
@@ -556,6 +629,10 @@ def grabcut_measure(img: np.ndarray, box, mode: str, name: str = "") -> dict:
         axes[meas] = {"extent": ex, "length": round(math.hypot(ex[1][0] - ex[0][0], ex[1][1] - ex[0][1]), 2)}
     ext = extent_from_features(f, mode, name)
     e = [to_o(ext[0]), to_o(ext[1])]
+    # pixel centres of the cleaned mask (the one mask_features measured), original px
+    from .open.cv_track import clean_mask
+    ys, xs = np.nonzero(clean_mask(fg))
+    pts = np.stack([cx0 + (xs + 0.5) / kx, cy0 + (ys + 0.5) / ky], axis=1)
     bx0, by0, bx1, by1 = f["box"]
     cs, _ = cv2.findContours(fg.astype(np.uint8), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
     contours = [[[cx0 + (q[0] + 0.5) / kx, cy0 + (q[1] + 0.5) / ky] for q in c.reshape(-1, 2)] for c in cs
@@ -567,40 +644,141 @@ def grabcut_measure(img: np.ndarray, box, mode: str, name: str = "") -> dict:
             "touch": int(sum([bx0 <= rx0, by0 <= ry0, bx1 >= rx1, by1 >= ry1])),
             "rect_long": round(rect[2] / kx, 2), "rect_short": round(rect[3] / kx, 2),
             "angle_deg": round(math.degrees(rect[4]), 1), "area_px": round(f["area"] / (kx * ky), 1),
-            "work_scale": round(kx, 3), "axes": axes}
+            "work_scale": round(kx, 3), "axes": axes, "through": mask_extremes(pts, e, kx, ky)}
 
 
-def snap_endpoints(img: np.ndarray, ext, search: float | None = None) -> tuple[list | None, dict]:
-    """qp.dense_track.snap_extent on a crop around `ext` (original px): each endpoint moves along the
-    extent's line to the strongest edge within +-search px (default max(2, 8% of the length)); ends
-    without a clear edge stay ("weak"). (None, info) when snapping is unavailable or fails."""
-    dt = _dense_track()
-    if dt is None or not hasattr(dt, "snap_extent"):
-        return None, {"why": "unavailable"}
+def mask_extremes(pts: np.ndarray, ext, kx: float, ky: float) -> list[list[list[float]]]:
+    """Where a mask reaches its extent along the extent's direction u: per end, candidate points
+    (original px) for edge refinement: (1) the projection along u of the mask's extreme pixel edge, at
+    the mean cross position of its extreme pixels, and (2) where the mask's boundary crosses the extent's
+    own line. An extent drawn through the centroid (horizontal / vertical) or the rotated rectangle's
+    centre (long / short) meets the object's boundary short of its extent whenever the object is not
+    symmetric about that line (a trapezoid, a drop, a bottle with shoulders): (1) is where the extent is
+    reached. A mask that leaks past the object at one spot (a corner) has its extreme there, with no
+    object edge near it: (2) still crosses the real boundary."""
+    e = np.asarray(ext, float)
+    L = float(np.linalg.norm(e[1] - e[0]))
+    if L < 1e-6 or not len(pts):
+        return [[e[0].tolist()], [e[1].tolist()]]
+    u = (e[1] - e[0]) / L
+    n = np.array([-u[1], u[0]])
+    d = pts - e[0]
+    proj, cross = d @ u, d @ n
+    half = 0.5 * (abs(u[0]) / kx + abs(u[1]) / ky)        # half a mask pixel's footprint along u ...
+    half_n = 0.5 * (abs(n[0]) / kx + abs(n[1]) / ky)      # ... and across it
+    tol = max(1.0 / min(kx, ky), 0.5)
+    on_line = np.abs(cross) <= half_n + 1e-6
+    out: list[list[list[float]]] = [[], []]
+    for k, (sel, p) in enumerate(((proj <= proj.min() + tol, proj.min() - half),
+                                  (proj >= proj.max() - tol, proj.max() + half))):
+        out[k].append((e[0] + p * u + float(cross[sel].mean()) * n).round(3).tolist())
+        if on_line.any():
+            q = proj[on_line].min() - half if k == 0 else proj[on_line].max() + half
+            out[k].append((e[0] + q * u).round(3).tolist())
+    return out
+
+
+SNAP_STEP = 0.25          # px: profile sampling step of edge refinement
+SNAP_BLUR = 0.8           # px: Gaussian blur before the colour gradient is taken
+SNAP_MIN_PEAK = 6.0       # an edge's colour gradient (grey levels / px) must reach this ...
+SNAP_FLOOR = 2.5          # ... and this many times the median gradient inside the extent (texture)
+SNAP_LINES = (-0.5, 0.0, 0.5)   # parallel profile lines (px across the line), averaged
+
+
+def _peak_offset(a: float, b: float, c: float) -> float:
+    d = a - 2 * b + c
+    return float(np.clip(0.5 * (a - c) / d, -0.5, 0.5)) if d < 0 else 0.0
+
+
+def snap_ends(img: np.ndarray, ext, search: float, through=None) -> tuple[list, dict]:
+    """Edge refinement of an extent [[x0, y0], [x1, y1]] (original px): each end moves along the extent's
+    direction u to a clear colour edge within +-search px of a candidate point. through[k] lists end k's
+    candidate points (default: the end itself; for a mask extent the mask_extremes points); each
+    candidate's profile runs along u through it, and the end moves to the outermost edge found (its
+    position along u). An edge counts only when it is a clear local maximum of the gradient profile, so a
+    profile whose gradient still rises at the window's boundary (the edge is farther than `search`)
+    gives nothing. Each end is judged on its own; an end without an edge stays: "weak" (no clear edge) or
+    "window" (the edge is beyond the window). Returns (extent, {"end0": the end's shift in px along u
+    (end0 -> end1) | "weak" | "window" | "short", "end1": ..., "search": px})."""
+    e = np.asarray(ext, float)
+    L = float(np.linalg.norm(e[1] - e[0]))
+    info: dict = {"search": round(float(search), 2)}
+    if L < 3 or search <= 0:
+        return e.round(2).tolist(), {**info, "end0": "short", "end1": "short"}
+    u = (e[1] - e[0]) / L
+    n = np.array([-u[1], u[0]])
+    cands = [[np.asarray(c, float) for c in (through[k] if through is not None else [e[k]])] for k in (0, 1)]
+    reach = search + 1.0 + 2 * SNAP_STEP                  # profiles run 1 px beyond the window
     H, W = img.shape[:2]
-    e = [[float(v) for v in q] for q in ext]
-    L = math.hypot(e[1][0] - e[0][0], e[1][1] - e[0][1])
-    search = search or max(2.0, 0.08 * L)
-    m = search + 8
-    cx0, cy0 = int(max(0, math.floor(min(e[0][0], e[1][0]) - m))), int(max(0, math.floor(min(e[0][1], e[1][1]) - m)))
-    cx1, cy1 = int(min(W, math.ceil(max(e[0][0], e[1][0]) + m))), int(min(H, math.ceil(max(e[0][1], e[1][1]) + m)))
-    try:
-        out, info = dt.snap_extent(img[cy0:cy1, cx0:cx1], [[q[0] - cx0, q[1] - cy0] for q in e], search)
-    except Exception as ex:  # noqa: BLE001
-        return None, {"why": f"error:{type(ex).__name__}"}
-    if out is None:
-        return None, info
-    return [[round(q[0] + cx0, 2), round(q[1] + cy0, 2)] for q in out], {**info, "search": round(search, 2)}
+    corners = np.array([*e, *(c for cs in cands for c in cs)])
+    m = reach + 6
+    cx0 = int(max(0, math.floor(corners[:, 0].min() - m)))
+    cy0 = int(max(0, math.floor(corners[:, 1].min() - m)))
+    cx1 = int(min(W, math.ceil(corners[:, 0].max() + m)))
+    cy1 = int(min(H, math.ceil(corners[:, 1].max() + m)))
+    crop = cv2.GaussianBlur(img[cy0:cy1, cx0:cx1].astype(np.float32), (0, 0), SNAP_BLUR)
+    off = np.array([cx0, cy0], float)
+
+    def grad(p, s):
+        prof = 0.0
+        for o in SNAP_LINES:
+            q = (p - off)[None] + s[:, None] * u[None] + o * n[None] - 0.5    # continuous -> remap px centres
+            smp = cv2.remap(crop, q[:, 0].astype(np.float32).reshape(1, -1), q[:, 1].astype(np.float32).reshape(1, -1),
+                            cv2.INTER_LINEAR, borderMode=cv2.BORDER_REPLICATE).reshape(len(s), -1)
+            prof = prof + smp
+        return np.linalg.norm(np.gradient(prof / len(SNAP_LINES), SNAP_STEP, axis=0).reshape(len(s), -1), axis=1)
+
+    inner = np.arange(search + 1.0, L - search - 1.0, SNAP_STEP)
+    floor = float(np.median(grad(e[0], inner))) if len(inner) >= 8 else 0.0
+    out = e.copy()
+    s = np.arange(-reach, reach + SNAP_STEP / 2, SNAP_STEP)
+    win = np.flatnonzero(np.abs(s) <= search + 1e-9)
+    for k in (0, 1):
+        found, why = [], "weak"
+        for c in cands[k]:
+            g = grad(c, s)
+            i = int(win[np.argmax(g[win])])
+            if g[i] < max(SNAP_MIN_PEAK, SNAP_FLOOR * floor):
+                continue
+            # the gradient of a linearly interpolated profile is flat between pixel centres: take the whole
+            # plateau around i; a peak needs lower values on both sides, else it lies beyond the window
+            eps = 1e-6 * g[i]
+            j0, j1 = i, i
+            while j0 > 0 and g[j0 - 1] >= g[i] - eps:
+                j0 -= 1
+            while j1 < len(g) - 1 and g[j1 + 1] >= g[i] - eps:
+                j1 += 1
+            if j0 == 0 or j1 == len(g) - 1 or g[j0 - 1] > g[i] or g[j1 + 1] > g[i]:
+                why = "window"
+                continue
+            d = (s[j0] + s[j1]) / 2 if j1 > j0 else s[i] + _peak_offset(g[i - 1], g[i], g[i + 1]) * SNAP_STEP
+            if abs(d) > search + SNAP_STEP:
+                why = "window"
+                continue
+            found.append(float((c - e[0]) @ u) + d)
+        if not found:
+            info[f"end{k}"] = why
+            continue
+        pos = min(found) if k == 0 else max(found)       # the outermost edge: where the extent is reached
+        out[k] = e[0] + pos * u
+        info[f"end{k}"] = round(pos - (0.0 if k == 0 else L), 2)
+    return out.round(2).tolist(), info
 
 
 def _len(e) -> float:
     return math.hypot(e[1][0] - e[0][0], e[1][1] - e[0][1])
 
 
-SNAP_MAX_CHANGE = 0.15    # a GrabCut extent is replaced by its edge-snapped version only within this change
+def _moved(x) -> bool:
+    return isinstance(x, (int, float)) and not isinstance(x, bool)
+
+
 REFINE_SEARCH = 0.04      # GrabCut refinement: each mask endpoint may move this share of the length ...
 REFINE_SEARCH_PX = (2.5, 4.0)   # ... clipped to this many px (colour bleeding is 1-2 px; a wider search
                                 # jumps to inner edges of non-convex objects such as lettering)
+EDGES_SEARCH = (3.0, 0.08)      # method 'edges': search max(3 px, 8% of the given length)
+_END_WHY = {"weak": "no clear edge", "window": "the edge is farther than the search window",
+            "short": "extent too short"}
 
 
 # --------------------------------------------------------------------------- tool schemas
@@ -896,8 +1074,8 @@ Answers (submit): direct_answer = your own best estimate in the asked unit compu
 measurements (positive number); confidence = 0-1 that it is within 10%; derivation = the pixel numbers and \
 scale you used, at most 200 characters.
 
-Budget: after each tool round a status line gives the turns and budget used. When it says to wrap up, \
-submit at once with your best answers for every question."""
+Budget: when this video's turns or budget start to run low, a status line after the tool results says how \
+much is used. When it says to wrap up, submit at once with your best answers for every question."""
 
 
 # --------------------------------------------------------------------------- measurements and session
@@ -926,6 +1104,55 @@ def _image(b64: str) -> dict:
     return {"type": "image", "source": {"type": "base64", "media_type": "image/jpeg", "data": b64}}
 
 
+def _pt(v, what: str) -> list[float] | None:
+    if v is None:
+        return None
+    if isinstance(v, (list, tuple)) and len(v) == 2 and all(_num(x) is not None for x in v):
+        return [float(x) for x in v]
+    raise ToolError(f"{what} must be [x, y] in original pixels or null, got {v!r}")
+
+
+def _extent(v, what: str) -> list[list[float]] | None:
+    if v is None:
+        return None
+    if isinstance(v, (list, tuple)) and len(v) == 2:
+        return [_pt(v[0], what), _pt(v[1], what)] if v[0] is not None and v[1] is not None else _bad(v, what)
+    return _bad(v, what)
+
+
+def _bad(v, what: str):
+    raise ToolError(f"{what} must be [[x1, y1], [x2, y2]] in original pixels or null, got {v!r}")
+
+
+def _box(v, what: str) -> list[float] | None:
+    if v is None:
+        return None
+    if isinstance(v, (list, tuple)) and len(v) == 4 and all(_num(x) is not None for x in v):
+        return [float(x) for x in v]
+    raise ToolError(f"{what} must be [x1, y1, x2, y2] in original pixels or null, got {v!r}")
+
+
+_QTYPES = {"kind": (str,), "dimension": (str,), "axis": (str,), "unit": (str,), "time": (int, float),
+           "value_si": (int, float)}
+
+
+def _check_quantity(q, who: str) -> None:
+    """A spec quantity's shape (its values are normalised by qp.claude_annotate.to_annotations)."""
+    if not isinstance(q, dict):
+        raise ToolError(f"spec.{who} must be an object {{kind, objects, dimension, time, window, axis, value_si, "
+                        f"unit}}, got {q!r}")
+    for k, types in _QTYPES.items():
+        v = q.get(k)
+        if v is not None and (not isinstance(v, types) or isinstance(v, bool)):
+            raise ToolError(f"spec.{who}.{k} has the wrong type: {v!r}")
+    objs = q.get("objects")
+    if objs is not None and not (isinstance(objs, list) and all(isinstance(o, str) for o in objs)):
+        raise ToolError(f"spec.{who}.objects must be a list of names, e.g. [\"ball\"], got {objs!r}")
+    w = q.get("window")
+    if w is not None and not (isinstance(w, list) and len(w) == 2 and all(_num(t) is not None for t in w)):
+        raise ToolError(f"spec.{who}.window must be [t0, t1] in seconds or null, got {w!r}")
+
+
 class AgentSession:
     """Tools and state of one video: frames, stored measurements, solve history and submitted answers."""
 
@@ -941,6 +1168,10 @@ class AgentSession:
         self.source = str(getattr(first, "video_source", "") or "")
         self.qids = [int(q) for q in self.rows.qid]
         self.store = FrameStore(self.path, self.n_frames, self.size)
+        # frame 0 repeating frame 1 (a renderer artifact of some simulations, as qp.claude_annotate v2):
+        # frame 0 is no sample of the motion; tracks start at frame 1 and frame-0 observations count as frame 1
+        self.frozen0 = self.n_frames > 2 and ca.frozen_first_frame(self.path)
+        self.first = 1 if self.frozen0 else 0
         self.use_dense = use_dense
         self.meas: dict[str, Measurement] = {}
         self._count = Counter()
@@ -971,10 +1202,11 @@ class AgentSession:
         """Record meta in qp.claude_annotate's format (original px: scale 1, every frame valid)."""
         return {"video_id": self.video_id, "fps": self.fps, "fps_from_container": self.fps_from_container,
                 "video_type": self.video_type, "n_frames_total": self.n_frames, "scale": 1.0,
-                "image_size": list(self.size), "frames": list(range(self.n_frames)),
+                "image_size": list(self.size), "frames": list(range(self.first, self.n_frames)),
                 "questions": [{"qid": int(r.qid), "target_unit": r.target_unit, "prior": str(r.prior),
                                "depth_info": str(r.depth_info or "")} for r in self.rows.itertuples()],
-                "prompt_version": "v2", "agent_version": AGENT_VERSION, "video_source": self.source}
+                "prompt_version": "v2", "agent_version": AGENT_VERSION, "video_source": self.source,
+                **({"frozen_first_frame": True} if self.frozen0 else {})}
 
     def _new_id(self, prefix: str) -> str:
         self._count[prefix] += 1
@@ -1010,14 +1242,17 @@ class AgentSession:
 
     def overview_frames(self, n: int = OVERVIEW_FRAMES, extra: int = OVERVIEW_EXTRA) -> list[int]:
         last = self.n_frames - 1
-        uni = sorted(set(np.linspace(0, last, max(1, min(n, self.n_frames))).round().astype(int).tolist()))
+        uni = sorted(set(np.linspace(self.first, last, max(1, min(n, self.n_frames - self.first)))
+                         .round().astype(int).tolist()))
         texts = [t for r in self.rows.itertuples() for t in (r.question, r.prior, r.depth_info)]
-        times = [self.frame_at(t) for t in ca.mentioned_times_v2(texts)]
+        times = [max(self.first, self.frame_at(t)) for t in ca.mentioned_times_v2(texts)]
         add = [f for f in dict.fromkeys(times) if f not in uni][:extra]
         return sorted(uni + add)
 
     def initial_content(self, n_overview: int = OVERVIEW_FRAMES, max_turns: int = MAX_TURNS,
-                        max_usd: float = MAX_USD_VIDEO) -> list[dict]:
+                        max_usd: float = MAX_USD_VIDEO, limits: bool = False) -> list[dict]:
+        """First user message: video facts, overview frames, the questions (limits: also the per-video
+        turn and cost limits; off by default: budget counts in context can cause early wrap-up)."""
         first = self.rows.iloc[0]
         frames = self.overview_frames(n_overview)
         imgs = self.store.get(frames)
@@ -1027,6 +1262,10 @@ class AgentSession:
                 f"{self.W}x{self.H} px (original pixels); {self.fps:g} fps; {self.n_frames} frames, "
                 f"0..{self.n_frames - 1} (~{dur:.2f} s).{cam} {len(imgs)} overview frames follow (full "
                 f"frames{' downscaled' if max(self.size) > OVERVIEW_SIDE else ''}; tick labels in original px).")
+        if self.frozen0:
+            head += (" Frame 0 repeats frame 1 exactly (a renderer artifact: frame 0 is not a sample of the motion at "
+                     "t=0), so use frames 1..N-1: tracks start at frame 1, and observations you give on frame 0 "
+                     "count as frame 1.")
         content = [_text(head)]
         for f in frames:
             if f not in imgs:
@@ -1039,7 +1278,7 @@ class AgentSession:
         content.append(_text(
             f"{len(self.rows)} question(s) about this video:\n\n{blocks}\n\n"
             f"Measure and answer all of them (qids {', '.join(map(str, self.qids))}) with the tools, then "
-            f"submit. Limits for this video: {max_turns} responses and about ${max_usd:.2f}."))
+            f"submit." + (f" Limits for this video: {max_turns} responses and about ${max_usd:.2f}." if limits else "")))
         return content
 
     # ----------------------------------------------------------------- dispatch
@@ -1120,12 +1359,14 @@ class AgentSession:
         for a in inp.get("anchors") or []:
             if not isinstance(a, dict):
                 raise ToolError("each anchor is {frame, box}")
-            anchors.append((self._frame_check(a.get("frame")), self._box_check(a.get("box"), "anchor box")))
+            # frozen first frame: frame 0 is the image of frame 1
+            anchors.append((max(self.first, self._frame_check(a.get("frame"))),
+                            self._box_check(a.get("box"), "anchor box")))
         if not anchors:
             raise ToolError("give at least one anchor {frame, box}")
         anchors = sorted(dict(anchors).items())
-        f_lo = 0 if _num(inp.get("from_t")) is None else self.frame_at(inp["from_t"])
-        f_hi = self.n_frames - 1 if _num(inp.get("to_t")) is None else self.frame_at(inp["to_t"])
+        f_lo = self.first if _num(inp.get("from_t")) is None else max(self.first, self.frame_at(inp["from_t"]))
+        f_hi = self.n_frames - 1 if _num(inp.get("to_t")) is None else max(self.first, self.frame_at(inp["to_t"]))
         f_lo, f_hi = min(f_lo, anchors[0][0]), max(f_hi, anchors[-1][0])
         frames, s = self.store.work(f_lo, f_hi)
         if any(f not in frames for f, _ in anchors):
@@ -1140,8 +1381,9 @@ class AgentSession:
         content = [_text(text)]
         if inp.get("overlay", True) and len(path) >= 1:
             content += self._track_overlay(mid, path, anchors)
-        return ToolOutput(content, False, f"{mid} {name}: {info['n_tracked']}/{info['n_frames']} frames, "
-                                          f"fb_max {info['fb_max_px']}, ncc_min {info['ncc_min']}")
+        return ToolOutput(content, False, f"{mid} {name}: {info['n_tracked']}/{info['n_frames']} frames "
+                                          f"({len(info['dropped'])} dropped), fb_max {info['fb_max_px']}, "
+                                          f"ncc_min {info['ncc_min']}")
 
     def _track_text(self, mid: str, name: str, path: dict, info: dict, f_lo: int, f_hi: int) -> str:
         fr = sorted(path)
@@ -1154,10 +1396,26 @@ class AgentSession:
         if info.get("between_anchors"):
             q.append(f"between anchors: {info['between_anchors']}"
                      + (f" {info.get('dense_motion')}" if info.get("dense_motion") else "")
-                     + (f", tracked vs next anchor centre {info['anchor_check_px']} px" if info.get("anchor_check_px") else ""))
+                     + (f", forward pass vs next anchor centre {info['anchor_check_px']} px (spread linearly over the "
+                        f"frames between; tolerance {info['tolerance_px']} px), used {info.get('segments')}"
+                        if info.get("anchor_check_px") else ""))
         lost = info["lost"]
-        q.append(f"lost frames: {len(lost)}" + (f" ({lost[:12]}{' ...' if len(lost) > 12 else ''})" if lost else ""))
+        q.append(f"lost frames: {len(lost)}" + (f" ({_ranges(lost)})" if lost else ""))
         lines.append("Quality: " + "; ".join(x for x in q if x) + ".")
+        drop = info.get("dropped") or {}
+        if drop:
+            why = []
+            drift = [f for f, r in drop.items() if r == "drift"]
+            anch = [f for f, r in drop.items() if r == "anchors"]
+            if drift:
+                why.append(f"frames {_ranges(drift)}: the track no longer returns to its anchor in a reverse pass "
+                           f"(forward-backward error over {info['tolerance_px']} px), i.e. the tracker drifted there")
+            if anch:
+                why.append(f"frames {_ranges(anch)}: neither a forward nor a backward pass connects the two anchors "
+                           f"around them within {info['tolerance_px']} px (anchor boxes on different objects or "
+                           f"object parts, or the tracker drifted)")
+            lines.append(f"DROPPED {len(drop)} frames, not stored in {mid}: " + "; ".join(why) + ". If you need "
+                         "them, add an anchor there (or check the anchor boxes) and track again, or measure by hand.")
         if fr:
             p0, p1 = np.array(path[fr[0]]["point"]), np.array(path[fr[-1]]["point"])
             pts = np.array([path[f]["point"] for f in fr])
@@ -1247,15 +1505,14 @@ class AgentSession:
         if method == "grabcut":
             box = self._box_check(inp.get("box"))
             r = grabcut_measure(img, box, MEASURES[measure], name)
-            ext = r["extent"]
-            snapped, sinfo = (snap_endpoints(img, ext, float(np.clip(REFINE_SEARCH * r["length"], *REFINE_SEARCH_PX)))
-                              if inp.get("refine", True) and r["length"] >= 3 else (None, {"why": "off"}))
-            ends = [sinfo.get("end0"), sinfo.get("end1")]
-            refined = (snapped is not None and all(isinstance(x, (int, float)) for x in ends)
-                       and abs(_len(snapped) / max(r["length"], 1e-9) - 1) <= SNAP_MAX_CHANGE)
-            mask_ext = ext
-            if refined:
-                ext = snapped
+            ext = mask_ext = r["extent"]
+            ends = [None, None]
+            if inp.get("refine", True) and r["length"] >= 3:
+                search = float(np.clip(REFINE_SEARCH * r["length"], *REFINE_SEARCH_PX))
+                ext, sinfo = snap_ends(img, mask_ext, search, through=r["through"])
+                ends = [sinfo.get("end0"), sinfo.get("end1")]
+            refined = any(_moved(x) for x in ends)
+            end_info = ends
             obs = {"frame": f, "point": None, "extent": ext, "box": r["mask_box"]}
             warn = []
             if not GC_FILL[0] <= r["fill"] <= GC_FILL[1]:
@@ -1263,9 +1520,18 @@ class AgentSession:
             if r["touch"] >= 3:
                 warn.append(f"mask touches {r['touch']} sides of the seed box (it may leak into the background)")
             others = ", ".join(f"{k} {v['length']:.2f}" for k, v in r["axes"].items() if k != measure)
-            how = (f"edge-refined mask extent (endpoints moved {ends[0]:+.2f} / {ends[1]:+.2f} px along the line to the "
-                   f"strongest edges; mask extent {r['length']:.2f} px)" if refined else
-                   f"mask extent (edge refinement not applied: {sinfo.get('why') if snapped is None else ends})")
+            if not inp.get("refine", True):
+                how = "mask extent (edge refinement off)"
+            else:
+                per_end = [f"end {k + 1} moved {x:+.2f} px to the strongest edge where the mask reaches its extent"
+                           if _moved(x) else f"end {k + 1} kept at the mask ({_END_WHY.get(x, x)})"
+                           for k, x in enumerate(ends)]
+                how = (f"{'edge-refined' if refined else 'unrefined'} mask extent: {'; '.join(per_end)}; mask extent "
+                       f"{r['length']:.2f} px")
+                if not all(_moved(x) for x in ends):
+                    warn.append(f"an end without an image edge within +-{search:.1f} px of the mask's boundary keeps the "
+                                "mask's own boundary, which may bleed (1-2 px) or leak into the background there: "
+                                "check it on a zoomed crop, or measure with method 'edges'")
             text = (f"grabcut, measure {measure}: extent ({ext[0][0]:.2f}, {ext[0][1]:.2f}) - "
                     f"({ext[1][0]:.2f}, {ext[1][1]:.2f}), length {_len(ext):.2f} px [{how}]. Other axes of the mask (px): "
                     f"{others}. Mask box {r['mask_box']} ({r['mask_box'][2] - r['mask_box'][0]:.1f} x "
@@ -1284,22 +1550,24 @@ class AgentSession:
             L = _len(e)
             if L < 3:
                 raise ToolError("extent shorter than 3 px")
-            ext, sinfo = snap_endpoints(img, e, max(3.0, 0.08 * L))
-            if ext is None:
-                raise ToolError(f"edge snapping failed ({sinfo.get('why')}); place the endpoints by hand")
-            moved = [sinfo.get("end0"), sinfo.get("end1")]
+            search = max(EDGES_SEARCH[0], EDGES_SEARCH[1] * L)
+            ext, sinfo = snap_ends(img, e, search)
+            moved = end_info = [sinfo.get("end0"), sinfo.get("end1")]
             box = self._box_check(inp["box"]) if inp.get("box") else None
             obs = {"frame": f, "point": None, "extent": ext, "box": box}
+            per_end = [f"end {k + 1} moved {x:+.2f} px along the line to the strongest edge" if _moved(x) else
+                       f"end {k + 1} kept where you put it ({_END_WHY.get(x, x)} within +-{search:.1f} px)"
+                       for k, x in enumerate(moved)]
             text = (f"edges: extent ({ext[0][0]:.2f}, {ext[0][1]:.2f}) - ({ext[1][0]:.2f}, {ext[1][1]:.2f}), length "
-                    f"{_len(ext):.2f} px (given {L:.2f} px; endpoint shifts along the line {moved}, 'weak' = no clear "
-                    f"edge, kept).")
+                    f"{_len(ext):.2f} px (given {L:.2f} px; {'; '.join(per_end)}).")
             contours, mask_ext = [], None
             region_box = [min(q[0] for q in ext + e), min(q[1] for q in ext + e),
                           max(q[0] for q in ext + e), max(q[1] for q in ext + e)]
         else:
             raise ToolError("method must be 'grabcut' or 'edges'")
         mid = self._new_id("S")
-        self.meas[mid] = Measurement(mid, "segment", name, [obs], {"method": method, "measure": measure})
+        self.meas[mid] = Measurement(mid, "segment", name, [obs], {"method": method, "measure": measure,
+                                                                    "ends": end_info})
         text = f"{mid} \"{name}\" frame {f} (t={f / self.fps:.3f}s): " + text + (f" ({'; '.join(notes)})" if notes else "")
 
         def draw(cv):
@@ -1331,33 +1599,50 @@ class AgentSession:
     # ----------------------------------------------------------------- solve / submit
 
     def resolve_tracks(self, tracks) -> list[dict]:
-        """Tracks in claude_annotate's parsed format with refs expanded into obs (copies)."""
+        """Tracks in claude_annotate's parsed format with refs expanded into obs (copies); malformed input
+        raises ToolError. Frozen first frame: frame-0 observations become frame 1 (the same image), unless
+        the track has frame 1 already."""
         out = []
         if not isinstance(tracks, list):
             raise ToolError("tracks must be a list")
-        for tr in tracks:
+        for i, tr in enumerate(tracks):
             if not isinstance(tr, dict) or tr.get("role") not in ROLES:
                 raise ToolError(f"each track needs a role in {list(ROLES)}")
+            refs = tr.get("refs") or []
+            if not isinstance(refs, list):
+                raise ToolError(f"track {i + 1} ({tr['role']}): refs must be a list of ids like [\"T1\", \"S2\"]")
             obs = []
-            for mid in tr.get("refs") or []:
-                if mid not in self.meas:
+            for mid in refs:
+                if not isinstance(mid, str) or mid not in self.meas:
                     raise ToolError(f"unknown measurement id {mid!r}; stored: {sorted(self.meas) or 'none'}")
                 obs += copy.deepcopy(self.meas[mid].obs)
-            for o in tr.get("obs") or []:
+            manual = tr.get("obs") or []
+            if not isinstance(manual, list):
+                raise ToolError(f"track {i + 1} ({tr['role']}): obs must be a list of {{frame, point, extent, box}}")
+            for o in manual:
                 if not isinstance(o, dict):
                     raise ToolError("each obs is {frame, point, extent, box}")
-                self._frame_check(o.get("frame"))
-                obs.append({"frame": int(o["frame"]), "point": o.get("point"), "extent": o.get("extent"),
-                            "box": o.get("box")})
+                f = self._frame_check(o.get("frame"))
+                what = f"track {i + 1} ({tr['role']}) obs on frame {f}"
+                ob = {"frame": f, "point": _pt(o.get("point"), f"{what}: point"),
+                      "extent": _extent(o.get("extent"), f"{what}: extent"), "box": _box(o.get("box"), f"{what}: box")}
+                if ob["point"] is None and ob["extent"] is None and ob["box"] is None:
+                    raise ToolError(f"{what} has no point, extent or box")
+                obs.append(ob)
+            if self.frozen0 and any(o["frame"] == 0 for o in obs):
+                has1 = any(o["frame"] == 1 for o in obs)
+                obs = [o if o["frame"] else {**o, "frame": 1} for o in obs if o["frame"] or not has1]
             out.append({"role": tr["role"], "object": str(tr.get("object") or ""),
                         "depth_name": str(tr.get("depth_name") or ""), "range_m": _num(tr.get("range_m")),
-                        "refs": list(tr.get("refs") or []), "obs": obs})
+                        "refs": list(refs), "obs": obs})
         return out
 
     def _question(self, qid: int, spec: dict, tracks: list[dict], direct=None, confidence=None,
                   derivation: str = "") -> dict:
         if not isinstance(spec, dict) or "target" not in spec or "prior" not in spec:
             raise ToolError("spec needs target and prior")
+        for who in ("target", "prior"):
+            _check_quantity(spec[who], who)
         return {"qid": int(qid), "spec": {"target": spec["target"], "prior": spec["prior"], "depth": [],
                                           "notes": str(spec.get("notes") or "")},
                 "tracks": tracks, "direct_answer": direct, "confidence": confidence, "derivation": derivation}
@@ -1384,8 +1669,20 @@ class AgentSession:
         q = self._question(qid, inp.get("spec"), self.resolve_tracks(inp.get("tracks") or []))
         a, ans = self.geometry(q)
         self.last_solve[qid] = q
-        text = self._solve_text(qid, a, ans)
+        text = "\n".join([self._solve_text(qid, a, ans), *self._ref_warnings(q["tracks"])])
         return ToolOutput([_text(text)], False, text.split("\n")[0][:160])
+
+    def _ref_warnings(self, tracks: list[dict]) -> list[str]:
+        """Warnings on the stored tracks a question uses: frames the tracker dropped as unreliable."""
+        out = []
+        for mid in dict.fromkeys(r for tr in tracks for r in tr.get("refs") or []):
+            m = self.meas.get(mid)
+            drop = (m.info.get("dropped") or {}) if m else {}
+            if drop:
+                out.append(f"warning: {mid} ({m.object}) has no frames {_ranges(drop)} (dropped as unreliable: "
+                           f"{', '.join(sorted(set(drop.values())))}); the program used only its other frames - make "
+                           f"sure they cover the asked times, else re-track with more anchors")
+        return out
 
     def _solve_text(self, qid: int, a, ans) -> str:
         unit = a.spec.target.unit or "SI"
@@ -1436,6 +1733,9 @@ class AgentSession:
                 staged[qid] = q
             except ToolError as e:
                 errors.append(str(e))
+            except Exception as e:  # noqa: BLE001 - one bad answer must not void the others in this call
+                q_ = ans.get("qid") if isinstance(ans, dict) else None
+                errors.append(f"qid {q_}: could not use this answer ({type(e).__name__}: {e})")
         self.submitted.update(staged)
         missing = [q for q in self.qids if q not in self.submitted]
         if not missing and not errors:
@@ -1477,8 +1777,9 @@ class AgentConfig:
     max_output_tokens: int = MAX_OUT_VIDEO    # per video
     strict: bool = True
     thinking_display: str = "summarized"
-    task_budget: int = 0                      # API task budget (beta task-budgets-2026-03-13); 0 = off
+    task_budget: int = 0                      # API task budget (beta task-budgets-2026-03-13); 0 = off; >= 20000
     overview_frames: int = OVERVIEW_FRAMES
+    status: str = "late"                      # status line: "late" (from STATUS_FROM of a limit on) | "always"
     run: str = ""                             # ledger run name
     split: str = ""
 
@@ -1555,21 +1856,54 @@ def estimate_video_usd(initial_tokens: int, n_questions: int, effort: str = "med
     return usd / 1e6
 
 
-def call_stream(client, params: dict, retries: int = 2, beta: list[str] | None = None):
-    """One streamed request; returns (Message, request_id). Transient errors are retried."""
-    for attempt in range(retries + 1):
-        try:
-            api = client.beta.messages if beta else client.messages
-            kw = {**params, **({"betas": beta} if beta else {})}
-            with api.stream(**kw) as stream:
-                return stream.get_final_message(), getattr(stream, "request_id", None)
-        except Exception as e:  # noqa: BLE001
-            status = getattr(e, "status_code", None)
-            transient = type(e).__name__ in ("APIConnectionError", "APITimeoutError") or (status or 0) >= 500
-            if not transient or attempt == retries:
-                raise
-            time.sleep(10 * 2 ** attempt)
-    raise AssertionError("unreachable")
+RETRIES = 2               # transient API failures retried per turn
+RETRY_WAIT = 10.0         # s before the first retry, doubled per retry
+STATUS_FROM = 0.6         # status "late": the status line appears once this share of a limit is used
+
+
+class StreamFailed(Exception):
+    """A streamed request failed after the response had started: the attempt is billed (usage so far)."""
+
+    def __init__(self, cause: BaseException, usage: dict, request_id):
+        super().__init__(f"{type(cause).__name__}: {cause}")
+        self.cause, self.usage, self.request_id = cause, usage, request_id
+
+
+def _snapshot(stream):
+    """The streamed message so far (None before message_start)."""
+    try:
+        return stream.current_message_snapshot if stream is not None else None
+    except Exception:  # noqa: BLE001 - the SDK asserts before the first event
+        return None
+
+
+def call_stream(client, params: dict, beta: list[str] | None = None):
+    """One streamed request -> (Message, request_id). A failure after the response started (message_start
+    received: input billed, output generated) raises StreamFailed with the usage reported so far; earlier
+    failures raise as they are (nothing billed). Retrying is the caller's job, so every billed attempt is
+    recorded."""
+    api = client.beta.messages if beta else client.messages
+    kw = {**params, **({"betas": beta} if beta else {})}
+    stream = None
+    try:
+        with api.stream(**kw) as stream:
+            return stream.get_final_message(), getattr(stream, "request_id", None)
+    except Exception as e:  # noqa: BLE001
+        snap = _snapshot(stream)
+        if snap is None or getattr(snap, "usage", None) is None:
+            raise
+        raise StreamFailed(e, budget.usage_dict(snap.usage), getattr(stream, "request_id", None)) from e
+
+
+def transient(e: BaseException) -> bool:
+    """Worth retrying: connection / timeout errors, 5xx and 429, and overloaded / api errors sent mid-stream."""
+    if isinstance(e, StreamFailed):
+        e = e.cause
+    status = getattr(e, "status_code", None) or 0
+    body = getattr(e, "body", None)
+    etype = ((body.get("error") or {}).get("type") if isinstance(body, dict) else None) or ""
+    return (type(e).__name__ in ("APIConnectionError", "APITimeoutError") or status >= 500 or status == 429
+            or etype in ("overloaded_error", "api_error"))
 
 
 def _usage_add(tot: dict, u: dict) -> None:
@@ -1577,66 +1911,148 @@ def _usage_add(tot: dict, u: dict) -> None:
         tot[k] = tot.get(k, 0) + int(v or 0)
 
 
-def status_text(turn: int, cfg: AgentConfig, spent: float, out_tokens: int, session: AgentSession) -> str:
+def status_text(turn: int, cfg: AgentConfig, spent: float, out_tokens: int, session: AgentSession) -> str | None:
+    """The status line after a turn's tool results; None while no limit is near (status "late": budget counts
+    in context can cause early wrap-up, so they appear only from STATUS_FROM of a limit on)."""
     left = cfg.max_turns - turn
+    used = max(turn / cfg.max_turns, spent / cfg.max_usd if cfg.max_usd else 0.0,
+               out_tokens / cfg.max_output_tokens if cfg.max_output_tokens else 0.0)
+    wrap = left <= WRAP_UP_TURNS or spent >= WRAP_UP_FRAC * cfg.max_usd or out_tokens >= WRAP_UP_FRAC * cfg.max_output_tokens
+    if cfg.status != "always" and used < STATUS_FROM and not wrap and left > 1:
+        return None
     missing = [q for q in session.qids if q not in session.submitted]
     s = (f"[status] {turn} of {cfg.max_turns} responses used; ${spent:.2f} of ${cfg.max_usd:.2f} and "
          f"{out_tokens // 1000}k of {cfg.max_output_tokens // 1000}k output tokens used for this video; "
          f"questions without a submitted answer: {missing or 'none'}.")
     if left <= 1:
         s += " This is your last response: call submit now with your best answers for every question."
-    elif left <= WRAP_UP_TURNS or spent >= WRAP_UP_FRAC * cfg.max_usd or out_tokens >= WRAP_UP_FRAC * cfg.max_output_tokens:
+    elif wrap:
         s += " Wrap up now: call submit with your best answers for every question in your next response."
     return s
 
 
-def run_video(client, session: AgentSession, cfg: AgentConfig, log=print) -> dict:
-    """The agentic loop for one video -> record (status ok | partial | failed | refusal | error, the
-    claude_annotate-format parsed answers and meta, usage, cost, transcript without image bytes, tool calls)."""
+def run_video(client, session: AgentSession, cfg: AgentConfig, log=print, stop_event=None,
+              checkpoint=None) -> dict:
+    """The agentic loop for one video -> record (status ok | partial | failed | refusal, stop submitted |
+    max_turns | budget_video | budget_global | api_error | refusal | interrupted; the claude_annotate-format
+    parsed answers and meta, usage, cost, transcript without image bytes, tool calls).
+
+    Budget: before each request, max_tokens is sized so that the request fits the per-video cap even when
+    the whole prompt is a cache write (a miss after the 5-minute TTL or a lookback miss costs 25x a read),
+    and the request is held against the global ledger cap at that worst case until its usage is recorded.
+    A request that fails after its response started is billed: its usage (output at the worst case
+    max_tokens, as the SDK reports output only at the end) is recorded before it is retried. Transient
+    failures are retried RETRIES times per turn. stop_event (threading.Event) set: no new request is sent
+    (stop "interrupted"). checkpoint(record) is called after every turn with the record so far (stop
+    "in_progress"), so a killed run keeps what it paid for."""
     model = cfg.model
     prices = budget.PRICES.get(model) or max(budget.PRICES.values(), key=lambda q: q["output"])
     tools = tool_definitions(cfg.strict)
     system = [{"type": "text", "text": SYSTEM, "cache_control": {"type": "ephemeral"}}]
-    initial = session.initial_content(cfg.overview_frames, cfg.max_turns, cfg.max_usd)
+    initial = session.initial_content(cfg.overview_frames, cfg.max_turns, cfg.max_usd, limits=cfg.status == "always")
     messages: list[dict] = [{"role": "user", "content": initial}]
     output_config: dict = {"effort": cfg.effort}
     beta = None
     if cfg.task_budget:
+        if cfg.task_budget < TASK_BUDGET_MIN:
+            raise ValueError(f"task_budget must be at least {TASK_BUDGET_MIN} tokens (API minimum)")
+        # the same total on every request of this video's loop: the docs say to set the budget once, a
+        # change mid-task invalidates the prompt cache (and task_budget.remaining is not sent)
         output_config["task_budget"] = {"type": "tokens", "total": int(cfg.task_budget)}
         beta = ["task-budgets-2026-03-13"]
     thinking = {"type": "adaptive", **({"display": cfg.thinking_display} if cfg.thinking_display else {})}
     spent, out_tokens, totals = 0.0, 0, {}
     requests, tool_calls = [], []
     stop, status_reason = "max_turns", None
-    prefix_tokens = 0                                   # input of the previous request: a cache read now
+    prefix_tokens = 0                                   # input of the previous request: a cache read if it hits
     new_tokens = TOOLS_SYSTEM_TOKENS + estimate_content_tokens(initial)   # appended since: a cache write
     t_start = time.time()
-    turn = 0
-    for turn in range(1, cfg.max_turns + 1):
-        # budget: expected input cost (cached prefix read, new part written); max_tokens shrinks to fit the cap
-        in_exp = (prefix_tokens * prices["cache_read"] + new_tokens * prices["cache_write_5m"]) / 1e6
-        room = cfg.max_usd - spent - in_exp
+    turn, attempt = 0, 0
+
+    def record(stop_now: str, detail=None) -> dict:
+        parsed, fallback, missing = session.final_parsed()
+        answered = len(parsed["questions"])
+        if stop_now == "refusal" and not answered:
+            status = "refusal"
+        elif not answered:
+            status = "failed"
+        elif fallback or missing:
+            status = "partial"
+        else:
+            status = "ok"
+        final = {}
+        for q in parsed["questions"]:
+            try:
+                a, ans = session.geometry(q)
+                final[q["qid"]] = {"geo": ans.value, "method": ans.method, "flags": ans.flags,
+                                   "direct": q.get("direct_answer")}
+            except Exception as e:  # noqa: BLE001
+                final[q["qid"]] = {"error": f"{type(e).__name__}: {e}"}
+        return {"video_id": session.video_id, "status": status, "stop": stop_now, "stop_detail": detail,
+                "model": model, "effort": cfg.effort, "config": cfg.settings(), "agent_version": AGENT_VERSION,
+                "ts": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+                "turns": sum(not r.get("partial") for r in requests),
+                "usage": dict(totals), "usd": round(spent, 6), "requests": list(requests), "tool_calls": list(tool_calls),
+                "tool_counts": dict(Counter(c["name"] for c in tool_calls)),
+                "missing_qids": missing, "fallback_qids": fallback, "meta": session.meta(), "parsed": parsed,
+                "final_geometry": final, "measurements": {k: {"kind": m.kind, "object": m.object, "info": m.info,
+                                                              "n_obs": len(m.obs)} for k, m in session.meas.items()},
+                "transcript": strip_images([{"role": "system", "content": SYSTEM[:200] + " ..."}] + messages,
+                                           session.saved),
+                "seconds": round(time.time() - t_start, 1)}
+
+    while turn < cfg.max_turns:
+        if stop_event is not None and stop_event.is_set():
+            stop = "interrupted"
+            break
+        # the whole prompt priced as a cache write: max_tokens shrinks so that even a cache miss fits the cap
+        in_worst = (prefix_tokens + new_tokens) * prices["cache_write_5m"] / 1e6
+        room = cfg.max_usd - spent - in_worst
         max_tokens = int(min(cfg.max_tokens, cfg.max_output_tokens - out_tokens, room * 1e6 / prices["output"]))
         if max_tokens < MIN_TURN_TOKENS:
             stop = "budget_video"
             break
-        worst = ((prefix_tokens + new_tokens) * prices["cache_write_5m"] + max_tokens * prices["output"]) / 1e6
+        worst = in_worst + max_tokens * prices["output"] / 1e6
         params = {"model": model, "max_tokens": max_tokens, "system": system, "tools": tools,
                   "messages": messages, "output_config": output_config, "thinking": thinking,
                   "cache_control": {"type": "ephemeral"}}
         try:
             with budget.reserve(worst):
-                msg, request_id = call_stream(client, params, beta=beta)
+                try:
+                    msg, request_id = call_stream(client, params, beta=beta)
+                except StreamFailed as sf:      # billed: record it before anything else
+                    u = {**sf.usage, "output_tokens": max(int(sf.usage.get("output_tokens") or 0), max_tokens)}
+                    usd = budget.price(u, model)
+                    budget.record(cfg.run, model, "sync", sf.request_id or f"partial:{session.video_id}:{turn + 1}:"
+                                  f"{attempt}", u, usd, video_id=session.video_id, split=cfg.split, turn=turn + 1,
+                                  agent=AGENT_VERSION, partial=True, output_estimated=True, error=str(sf)[:200])
+                    _usage_add(totals, budget.usage_dict(u))
+                    spent += usd
+                    out_tokens += u["output_tokens"]
+                    requests.append({"turn": turn + 1, "attempt": attempt, "partial": True, "request_id": sf.request_id,
+                                     "max_tokens": max_tokens, "usage": budget.usage_dict(u), "usd": round(usd, 6),
+                                     "error": str(sf)[:200], "seconds": round(time.time() - t_start, 1)})
+                    raise
                 usd = budget.price(msg.usage, model)
                 budget.record(cfg.run, model, "sync", request_id or msg.id, msg.usage, usd,
-                              video_id=session.video_id, split=cfg.split, turn=turn, agent=AGENT_VERSION)
+                              video_id=session.video_id, split=cfg.split, turn=turn + 1, agent=AGENT_VERSION)
         except budget.BudgetExceeded as e:
             stop, status_reason = "budget_global", str(e)
             break
         except Exception as e:  # noqa: BLE001 - keep what was measured so far
+            if transient(e) and attempt < RETRIES and not (stop_event is not None and stop_event.is_set()):
+                attempt += 1
+                wait = RETRY_WAIT * 2 ** (attempt - 1)
+                log(f"  {session.video_id}: turn {turn + 1}: {type(e).__name__}: {e}; retry {attempt} in {wait:.0f} s")
+                if stop_event is not None:
+                    stop_event.wait(wait)
+                else:
+                    time.sleep(wait)
+                continue
             stop, status_reason = "api_error", f"{type(e).__name__}: {e}"
-            log(f"  {session.video_id}: turn {turn}: {status_reason}")
+            log(f"  {session.video_id}: turn {turn + 1}: {status_reason}")
             break
+        turn, attempt = turn + 1, 0
         u = budget.usage_dict(msg.usage)
         _usage_add(totals, u)
         spent += usd
@@ -1658,9 +2074,11 @@ def run_video(client, session: AgentSession, cfg: AgentConfig, log=print) -> dic
             nudge = ("You did not call a tool. Measure with the tools, or call submit with your answers for "
                      "every question." if msg.stop_reason != "max_tokens" else
                      "Your response hit max_tokens. Continue with shorter tool calls; submit soon.")
-            messages.append({"role": "user", "content": [_text(nudge + " "
-                                                               + status_text(turn, cfg, spent, out_tokens, session))]})
+            st = status_text(turn, cfg, spent, out_tokens, session)
+            messages.append({"role": "user", "content": [_text(nudge + (" " + st if st else ""))]})
             new_tokens = estimate_content_tokens(messages[-1]["content"]) + u["output_tokens"]
+            if checkpoint is not None:
+                checkpoint(record("in_progress"))
             continue
         results = []
         for b in uses:
@@ -1678,34 +2096,10 @@ def run_video(client, session: AgentSession, cfg: AgentConfig, log=print) -> dic
         if session.done:
             stop = "submitted"
             break
-        user = results + [_text(status_text(turn, cfg, spent, out_tokens, session))]
+        st = status_text(turn, cfg, spent, out_tokens, session)
+        user = results + ([_text(st)] if st else [])
         messages.append({"role": "user", "content": user})
         new_tokens = estimate_content_tokens(user) + u["output_tokens"]
-    parsed, fallback, missing = session.final_parsed()
-    answered = len(parsed["questions"])
-    if stop == "refusal" and not answered:
-        status = "refusal"
-    elif not answered:
-        status = "failed"
-    elif fallback or missing:
-        status = "partial"
-    else:
-        status = "ok"
-    final = {}
-    for q in parsed["questions"]:
-        try:
-            a, ans = session.geometry(q)
-            final[q["qid"]] = {"geo": ans.value, "method": ans.method, "flags": ans.flags,
-                               "direct": q.get("direct_answer")}
-        except Exception as e:  # noqa: BLE001
-            final[q["qid"]] = {"error": f"{type(e).__name__}: {e}"}
-    return {"video_id": session.video_id, "status": status, "stop": stop, "stop_detail": status_reason,
-            "model": model, "effort": cfg.effort, "config": cfg.settings(), "agent_version": AGENT_VERSION,
-            "ts": datetime.now(timezone.utc).isoformat(timespec="seconds"), "turns": len(requests),
-            "usage": totals, "usd": round(spent, 6), "requests": requests, "tool_calls": tool_calls,
-            "tool_counts": dict(Counter(c["name"] for c in tool_calls)),
-            "missing_qids": missing, "fallback_qids": fallback, "meta": session.meta(), "parsed": parsed,
-            "final_geometry": final, "measurements": {k: {"kind": m.kind, "object": m.object, "info": m.info,
-                                                          "n_obs": len(m.obs)} for k, m in session.meas.items()},
-            "transcript": strip_images([{"role": "system", "content": SYSTEM[:200] + " ..."}] + messages, session.saved),
-            "seconds": round(time.time() - t_start, 1)}
+        if checkpoint is not None:
+            checkpoint(record("in_progress"))
+    return record(stop, status_reason)

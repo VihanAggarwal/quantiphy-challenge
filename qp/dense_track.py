@@ -5,12 +5,17 @@ the geometry solver fits positions over time. This module turns a sparse RoleTra
 (source "dense") from the video itself. Coordinates are always ORIGINAL video pixels.
 
 Motion (`dense_motion`). Anchors = the annotated frames: the box, else the point with a box size from
-the track's nearest box, the same object's boxes in other tracks, its extents, or the scale of the
-image blob under the point (Laplacian of Gaussian); a track with no size at all is left alone
-("no_size": a template of the wrong size locks onto background). Every segment between consecutive
-anchors is tracked twice, forward from its first anchor and backward from its second, by NCC
-template matching on frames scaled so the template is <= TEMPLATE_MAX px: the template follows the
-object frame to frame and is pulled back onto the anchor's own template, searched at three scales,
+the track's nearest box, the same object's boxes in other tracks (only those centred on this track's
+point at their time: borrowed_sizes), its extents, or the scale of the image blob under the point
+(Laplacian of Gaussian); a track with no size at all is left alone ("no_size": a template of the
+wrong size locks onto background). Every segment between consecutive anchors is tracked twice,
+forward from its first anchor and backward from its second, by NCC template matching on frames
+scaled so the template is <= TEMPLATE_MAX px. Template pixels are weighted to the object
+(template_weight: GrabCut in the box, convex hull plus a MASK_RING px ring; else the inscribed
+ellipse): the box's background is static while the object moves, and unweighted it drags every
+match towards zero motion - most for loose boxes and slow objects on textured backgrounds. A
+segment the weighted templates lose is retried with whole boxes. The template follows the object
+frame to frame and is pulled back onto the anchor's own template, searched at three scales,
 whenever that still matches (drift correction, Matthews et al. 2004; the scale search keeps the
 tracked point the same point of a growing or shrinking object). Weak frame-to-frame matches are
 occlusions (no point, template kept, constant-velocity coasting). The search covers the motion
@@ -18,13 +23,20 @@ prediction and the annotator's interpolated track. Forward-backward check per se
 passes differ by their templates' reference offset d, which must stay constant (spread <= FB_TOL) and
 small (|d| <= D_TOL x template, or 4.5 annotator sd: else they followed different things); the fused
 path blends both passes, each weighted near its own anchor. A failing segment is retried once
-across its far anchor (an annotator outlier), else left as a gap. The anchors' reference offsets are
-then solved by least squares (_fuse_offsets): the chained d's (precise) against the annotator's
-points (unbiased, noisy, Huber-weighted), so the annotator's per-frame noise is not copied into the
-path, drift over long chains is bounded, and the path keeps the annotator's reference point (centres
-for distances). Accepted when the good segments cover >= MIN_COVER of the anchors' span and the
-annotator's points agree with the path (median residual <= RESID_TOL, >= RESID_INSIDE of them within
-twice that); anchors in gaps keep the annotator's point. Output: one point per tracked frame plus the
+across its far anchor (an annotator outlier), else left as a gap. The chained d's give the path of
+each piece in one reference; a bias common to every link (a lagging template) is invisible to the
+forward-backward check but scales the path, so the chain's scale along the motion is compared with
+the annotator's points (chain_scale; standard error from the annotator's prior noise): rejected
+("scale") when it spans less than they do (lag) or runs against them, beyond SCALE_Z sd of the
+difference; else combined with the annotator's estimate (prior sd SCALE_SIG of the chain's scale).
+The anchors' offsets to the annotator's reference are then solved by least squares (_fuse_offsets:
+smooth along the chain vs the annotator's points, noisy, Huber-weighted), so the annotator's
+per-frame noise is not copied into the path and the path keeps the annotator's reference point
+(centres for distances). Accepted when the good segments cover >=
+MIN_COVER of the anchors' span and the annotator's points agree with the path: median residual <=
+RESID_TOL x ANCHOR_SIG px of the image the annotator saw (not scaled by the object's size: drift
+onto a neighbouring object stays well within a big object's size), >= RESID_INSIDE of them within
+twice that; anchors in gaps keep the annotator's point. Output: one point per tracked frame plus the
 original obs without points (boxes, extents kept), as qp.refine does.
 
 Size (`dense_size`), opt-in. On every annotated frame with a box the extent is re-measured in the
@@ -39,14 +51,19 @@ unreliable (mask fill, mask filling its seed rect, ratio to the annotator's exte
 
 Frames are decoded once per video (sequentially, exact for any codec) and downscaled to <= WORK_SIDE
 for tracking; size crops come from the full-resolution frames. Results are cached per video and
-object (JSON keyed by the annotations and the settings the result depends on).
+object (JSON keyed by the annotations, the borrowed sizes, the annotator's image scale and the
+settings the result depends on; safe to share between concurrent runs).
 """
 
 from __future__ import annotations
 
+import contextlib
 import hashlib
 import json
 import math
+import os
+import tempfile
+import warnings
 from dataclasses import dataclass, field
 from pathlib import Path
 
@@ -55,12 +72,15 @@ import numpy as np
 
 from .spec import Obs, RoleTrack
 
-VERSION = 1
+VERSION = 3
 MOTION = ("speed", "acceleration", "displacement", "path_length")
 WORK_SIDE = 1280          # long edge of the frames tracked on (larger videos are downscaled)
 WORK_BYTES = 6e8          # the decoded window is downscaled further to stay under this
 TEMPLATE_MAX = 48         # px: an object's frames are scaled so its template's long side is at most this
 TEMPLATE_MIN = 7          # px: smallest template side
+TEMPLATE_MASK = "grabcut" # template pixel weights: "grabcut" (the object in the box), "ellipse" (inscribed), "none"
+MASK_RING = 1.0           # px (template scale): the object's mask is grown by this ring (its outline) ...
+MASK_FILL = (0.1, 0.92)   # ... and used when its area / the box area lies inside this (else: the inscribed ellipse)
 NCC_LOST = 0.5            # frame-to-frame NCC below this: occluded / lost frame
 NCC_ANCHOR = 0.75         # the anchor template must match this well to pull the track back (drift correction)
 MAX_COAST = 8             # consecutive lost frames before a pass gives up
@@ -71,9 +91,13 @@ LINK_SIG = 0.005          # sd of one chained template offset, x template long s
 LINK_SIG_MIN = 0.1        # ... at least this many object px (or half the segment's forward-backward spread)
 ANCHOR_SIG = 2.0          # sd of an annotator's point in the pixels it saw ...
 ANCHOR_SIG_SIZE = 0.05    # ... or this share of the object's size, if larger
-RESID_TOL = 0.35          # median |annotator point - dense path| <= this x object size ...
-RESID_TOL_MIN = 3.0       # ... or this many px of the image the annotator saw
+RESID_TOL = 3.0           # median |annotator point - dense path| <= this x ANCHOR_SIG px of the image the
+                          # annotator saw (not scaled by the object's size: drift onto a neighbour stays
+                          # within a big object's size)
 RESID_INSIDE = 0.8        # share of the annotator's points that must lie within 2 x that tolerance
+SCALE_SIG = 0.01          # prior sd of the chained path's scale along the motion (vs the annotator's points) ...
+SCALE_Z = 3.0             # ... a chain shorter than the annotator's by more than this many sd of the difference
+                          # (or running against it) is rejected
 D_TOL = 0.25              # max offset between two anchors' template references, x template side ...
                           # (or 4.5 annotator sd): larger, the two passes followed different things
 SIZE_METHOD = "grabcut"   # "grabcut" | "snap"
@@ -144,10 +168,12 @@ def _peak_offset(a: float, b: float, c: float) -> float:
     return float(np.clip(0.5 * (a - c) / d, -0.5, 0.5)) if d < 0 else 0.0
 
 
-def match(img: np.ndarray, templ: np.ndarray, centres, radius: float) -> tuple[np.ndarray | None, float]:
-    """Best TM_CCOEFF_NORMED match of `templ` whose centre lies within `radius` of any of `centres`
-    (OpenCV pixel coordinates: pixel (i, j) centred at (j, i)) -> (sub-pixel centre, peak), or
-    (None, -1) when the search region does not fit in the image."""
+def match(img: np.ndarray, templ: np.ndarray, centres, radius: float, weight: np.ndarray | None = None
+          ) -> tuple[np.ndarray | None, float]:
+    """Best TM_CCOEFF_NORMED match of `templ` (pixels weighted by `weight`, float32 of the template's
+    size, if given) whose centre lies within `radius` of any of `centres` (OpenCV pixel coordinates:
+    pixel (i, j) centred at (j, i)) -> (sub-pixel centre, peak), or (None, -1) when the search region
+    does not fit in the image."""
     th, tw = templ.shape[:2]
     hx, hy = (tw - 1) / 2, (th - 1) / 2
     cs = np.atleast_2d(np.asarray(centres, float))
@@ -159,8 +185,11 @@ def match(img: np.ndarray, templ: np.ndarray, centres, radius: float) -> tuple[n
     x0, y0, x1, y1 = max(0, x0), max(0, y0), min(W, x1), min(H, y1)
     if x1 - x0 < tw + 2 or y1 - y0 < th + 2:
         return None, -1.0
-    res = cv2.matchTemplate(img[y0:y1, x0:x1], templ, cv2.TM_CCOEFF_NORMED)
-    res = np.nan_to_num(res, nan=-1.0)
+    if weight is None:
+        res = cv2.matchTemplate(img[y0:y1, x0:x1], templ, cv2.TM_CCOEFF_NORMED)
+    else:
+        res = cv2.matchTemplate(img[y0:y1, x0:x1], templ, cv2.TM_CCOEFF_NORMED, mask=weight)
+    res = np.nan_to_num(res, nan=-1.0, posinf=-1.0, neginf=-1.0)
     _, peak, _, (j, i) = cv2.minMaxLoc(res)
     dx = _peak_offset(res[i, j - 1], res[i, j], res[i, j + 1]) if 0 < j < res.shape[1] - 1 else 0.0
     dy = _peak_offset(res[i - 1, j], res[i, j], res[i + 1, j]) if 0 < i < res.shape[0] - 1 else 0.0
@@ -171,29 +200,97 @@ def _patch(img: np.ndarray, centre, tsize: tuple[int, int]) -> np.ndarray:
     return cv2.getRectSubPix(img, tsize, (float(centre[0]), float(centre[1])))
 
 
-def _scaled_patch(img: np.ndarray, centre, tsize: tuple[int, int], scale: float) -> np.ndarray:
+def _scaled_patch(img: np.ndarray, centre, tsize: tuple[int, int], scale: float,
+                  border: int = cv2.BORDER_REPLICATE) -> np.ndarray:
     """Patch of size tsize showing img around `centre` magnified `scale` times (exact, centred)."""
     w, h = tsize
     k = 1.0 / scale
     M = np.array([[k, 0, centre[0] - k * (w - 1) / 2], [0, k, centre[1] - k * (h - 1) / 2]], np.float64)
-    return cv2.warpAffine(img, M, (w, h), flags=cv2.INTER_LINEAR | cv2.WARP_INVERSE_MAP,
-                          borderMode=cv2.BORDER_REPLICATE)
+    return cv2.warpAffine(img, M, (w, h), flags=cv2.INTER_LINEAR | cv2.WARP_INVERSE_MAP, borderMode=border)
+
+
+def _scaled_weight(weight: np.ndarray | None, tsize: tuple[int, int], scale: float) -> np.ndarray | None:
+    """The anchor template's weights for a template of size tsize at `scale` x the anchor's (as
+    _scaled_patch of the anchor frame around the template centre; zero outside the anchor template),
+    or None (all pixels) when the weights cover too little of it."""
+    if weight is None:
+        return None
+    h, w = weight.shape
+    out = _scaled_patch(weight, ((w - 1) / 2, (h - 1) / 2), tsize, scale, cv2.BORDER_CONSTANT)
+    return out if float(out.sum()) >= 9.0 else None
+
+
+def _ellipse_weight(tsize: tuple[int, int], grow: float = 0.0) -> np.ndarray:
+    w, h = tsize
+    yy, xx = np.mgrid[0:h, 0:w].astype(np.float32)
+    ax, ay = w / 2 + grow, h / 2 + grow
+    return ((((xx - (w - 1) / 2) / ax) ** 2 + ((yy - (h - 1) / 2) / ay) ** 2) <= 1.0).astype(np.float32)
+
+
+def template_weight(img: np.ndarray, centre, tsize: tuple[int, int], how: str | None = None
+                    ) -> tuple[np.ndarray | None, str]:
+    """Weights (float32 0/1, tsize) of an anchor template's pixels and how they were found: the
+    object segmented by GrabCut inside the template rect (the annotator's box), its component at
+    (or nearest) the centre, grown by a MASK_RING px ring so the object's outline - a flat object's
+    only position information - stays in; the inscribed ellipse when the segmentation is
+    implausible. The box's background is static while the object moves: unweighted it pulls every
+    match towards zero motion, the more the looser the box and the slower the object (so does the
+    ring, hence a thin one)."""
+    how = how or TEMPLATE_MASK
+    if how == "none":
+        return None, "none"
+    w, h = tsize
+    grow = MASK_RING
+    ellipse = _ellipse_weight(tsize, grow)
+    if how != "grabcut" or min(w, h) < 9:
+        return ellipse, "ellipse"
+    m = int(math.ceil(max(6.0, 0.35 * max(w, h))))
+    crop = cv2.getRectSubPix(img, (w + 2 * m, h + 2 * m), (float(centre[0]), float(centre[1])))
+    mask = np.zeros(crop.shape[:2], np.uint8)
+    bgd, fgd = np.zeros((1, 65), np.float64), np.zeros((1, 65), np.float64)
+    try:
+        cv2.setRNGSeed(12345)   # GrabCut's k-means initialisation draws from OpenCV's global RNG
+        cv2.grabCut(crop, mask, (m, m, w, h), bgd, fgd, 4, cv2.GC_INIT_WITH_RECT)
+    except cv2.error:
+        return ellipse, "ellipse"
+    fg = ((mask == cv2.GC_FGD) | (mask == cv2.GC_PR_FGD))[m:m + h, m:m + w].astype(np.uint8)
+    n, lab, stats, cents = cv2.connectedComponentsWithStats(fg, connectivity=8)
+    if n < 2:
+        return ellipse, "ellipse"
+    c = np.array([(w - 1) / 2, (h - 1) / 2])
+    k = lab[int(round(c[1])), int(round(c[0]))]
+    if k == 0:   # the centre is background: the largest component near it
+        k = 1 + int(np.argmax(stats[1:, cv2.CC_STAT_AREA] / (1.0 + np.linalg.norm(cents[1:] - c, axis=1)
+                                                               / max(w, h))))
+    # its convex hull: a multicoloured object (a football's black patches, a car's windows) is split
+    # by GrabCut's colour models, and a template of one colour's pattern loses a rotating object
+    hull = cv2.convexHull(cv2.findNonZero((lab == k).astype(np.uint8)))
+    obj = np.zeros((h, w), np.uint8)
+    cv2.fillConvexPoly(obj, hull, 1)
+    fill = float(obj.sum()) / float(w * h)
+    if not MASK_FILL[0] <= fill <= MASK_FILL[1]:
+        return ellipse, "ellipse"
+    g = max(1, int(round(grow)))
+    return cv2.dilate(obj, cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (2 * g + 1, 2 * g + 1))).astype(np.float32), \
+        "grabcut"
 
 
 SCALE_STEP = 1.04         # scale search ladder of the anchor template (per frame: s / step, s, s * step)
 
 
 def track_pass(imgs: dict[int, np.ndarray], f_a: int, f_b: int, c_a, tsize: tuple[int, int],
-               guide=None) -> dict[int, tuple[np.ndarray, float, float]]:
+               guide=None, weight: np.ndarray | None = None) -> dict[int, tuple[np.ndarray, float, float]]:
     """One direction from anchor frame f_a (template of size tsize centred at c_a) to f_b inclusive.
     Returns {frame: (centre, ncc, scale vs the anchor)}; lost (occluded) frames are absent.
     guide(frame) -> a coarse position (the annotator's interpolated track) searched as well as the
     motion prediction. The anchor template is matched at three scales around the current one, so
-    the tracked point stays the same point of an object that grows or shrinks."""
+    the tracked point stays the same point of an object that grows or shrinks. weight: the anchor
+    template's pixel weights (template_weight), carried (scaled) to every template of the pass."""
     step = 1 if f_b >= f_a else -1
     tw, th = tsize
     img_a = imgs[f_a]
     T = _patch(img_a, c_a, tsize)
+    wT = weight
     p, v, s = np.asarray(c_a, float), np.zeros(2), 1.0
     p_last, f_last = p.copy(), f_a
     out = {f_a: (p.copy(), 1.0, 1.0)}
@@ -207,7 +304,7 @@ def track_pass(imgs: dict[int, np.ndarray], f_a: int, f_b: int, c_a, tsize: tupl
         pred = p + v
         radius = max(0.5 * size, 2.0 * float(np.linalg.norm(v)), 4.0) * (1 + 0.5 * lost)
         centres = [pred] + ([guide(f)] if guide is not None else [])
-        p1, n1 = match(img, T, centres, radius)
+        p1, n1 = match(img, T, centres, radius, wT)
         if p1 is None or n1 < NCC_LOST:   # occluded or lost: coast, keep the template
             lost += 1
             if lost > MAX_COAST:
@@ -217,20 +314,21 @@ def track_pass(imgs: dict[int, np.ndarray], f_a: int, f_b: int, c_a, tsize: tupl
         cur = (_odd(tw * s), _odd(th * s))
         fits = []
         for q in (-1, 0, 1):   # drift correction: the anchor's own template, at three scales
-            Tq = _scaled_patch(img_a, c_a, cur, s * math.exp(q * ls))
-            p2, n2 = match(img, Tq, [p1], max(2.0, 0.15 * size))
+            sq = s * math.exp(q * ls)
+            Tq = _scaled_patch(img_a, c_a, cur, sq)
+            p2, n2 = match(img, Tq, [p1], max(2.0, 0.15 * size), _scaled_weight(weight, cur, sq))
             fits.append((n2, p2))
-        n2, p2 = fits[1] if fits[1][1] is not None else max(fits, key=lambda x: x[0])
         best = max(range(3), key=lambda j: fits[j][0])
         if fits[best][1] is not None and fits[best][0] >= NCC_ANCHOR and \
                 np.linalg.norm(fits[best][1] - p1) <= max(1.5, 0.1 * size):
-            a_, b_, c_ = (x[0] for x in fits)
-            dq = _peak_offset(a_, b_, c_) if best == 1 else (best - 1) * 0.5
-            p1 = fits[best][1] if best != 1 else p2
-            s *= math.exp(dq * ls)
+            dq = _peak_offset(*(x[0] for x in fits)) if best == 1 else (best - 1) * 0.5
+            p1 = fits[best][1]
+            s = float(np.clip(s * math.exp(dq * ls), 0.5, 2.0))
         v = (p1 - p_last) / abs(f - f_last)
         p, p_last, f_last, lost = p1, p1.copy(), f, 0
-        T = _patch(img, p, (_odd(tw * s), _odd(th * s)))
+        cur = (_odd(tw * s), _odd(th * s))
+        T = _patch(img, p, cur)
+        wT = _scaled_weight(weight, cur, s)
         out[f] = (p.copy(), n1, s)
     return out
 
@@ -341,16 +439,22 @@ def _guide(anchors: list[Anchor], S: np.ndarray):
     return lambda f: np.array([np.interp(f, fr, P[:, 0]), np.interp(f, fr, P[:, 1])])
 
 
-def _segment(imgs, a: Anchor, b: Anchor, S: np.ndarray, guide, d_tol: float = math.inf) -> tuple[dict | None, dict]:
+def _tsize(a: Anchor, S: np.ndarray) -> tuple[int, int]:
+    return _odd(a.wh[0] * S[0]), _odd(a.wh[1] * S[1])
+
+
+def _segment(imgs, a: Anchor, b: Anchor, S: np.ndarray, guide, d_tol: float = math.inf,
+             weights: dict | None = None) -> tuple[dict | None, dict]:
     """Forward pass from a, backward pass from b, fused -> ({frame: centre (a's reference, scaled
     px)}, info with the offset d = b's reference - a's reference) or (None, info) when inconsistent:
     the passes' offset varies by more than FB_TOL, or is itself larger than an annotator's box placement
-    can explain (|d| > max(d_tol, D_TOL x template side): the passes followed different things)."""
-    tsize = (_odd(a.wh[0] * S[0]), _odd(a.wh[1] * S[1]))
-    bsize = (_odd(b.wh[0] * S[0]), _odd(b.wh[1] * S[1]))
+    can explain (|d| > max(d_tol, D_TOL x template side): the passes followed different things).
+    weights: {anchor frame: template pixel weights} (template_weight)."""
+    tsize, bsize = _tsize(a, S), _tsize(b, S)
     ca, cb = a.centre * S - 0.5, b.centre * S - 0.5
-    pf = track_pass(imgs, a.frame, b.frame, ca, tsize, guide)
-    pb = track_pass(imgs, b.frame, a.frame, cb, bsize, guide)
+    weights = weights or {}
+    pf = track_pass(imgs, a.frame, b.frame, ca, tsize, guide, weights.get(a.frame))
+    pb = track_pass(imgs, b.frame, a.frame, cb, bsize, guide, weights.get(b.frame))
     span = b.frame - a.frame
     common = sorted(set(pf) & set(pb))
     info = {"a": a.frame, "b": b.frame, "n_common": len(common)}
@@ -382,7 +486,7 @@ def _segment(imgs, a: Anchor, b: Anchor, S: np.ndarray, guide, d_tol: float = ma
 def _fuse_offsets(m: np.ndarray, d: np.ndarray, sig_d: np.ndarray, sig_a: float, iters: int = 4) -> np.ndarray:
     """Offsets e_k (K+1 x 2) minimising sum |e_{k+1} - e_k + d_k|^2 / sig_d_k^2 + sum rho(|e_k - m_k| / sig_a)
     (rho Huber at 2 sig_a, by IRLS): the chained template offsets d (precise, but each link can carry
-    a small bias) fused with the annotator's anchors m (unbiased, noisy; robust to outliers)."""
+    a small bias) fused with the annotator's anchors m (noisy; robust to outliers)."""
     n = len(m)
     w = np.ones(n)
     e = m.copy()
@@ -399,6 +503,23 @@ def _fuse_offsets(m: np.ndarray, d: np.ndarray, sig_d: np.ndarray, sig_a: float,
         r = np.linalg.norm(e - m, axis=1) / sig_a
         w = np.where(r <= 2.0, 1.0, 2.0 / np.maximum(r, 1e-9))
     return e
+
+
+def chain_scale(chain: np.ndarray, refs: np.ndarray, sig: float) -> tuple[float, float, np.ndarray]:
+    """Slope (with its standard error, and the direction) of the annotator's points `refs` regressed
+    on the chained positions `chain` (both K x 2, original px) along the chain's main direction: 1
+    when the chain spans what the annotator saw. The error uses the annotator's prior noise `sig`
+    (per axis), not the scatter about the fit: an annotator's over-regular points (equal steps of a
+    slow object) must not make a small disagreement look significant."""
+    c = chain - chain.mean(axis=0)
+    if len(c) < 2 or not np.any(c):
+        return 1.0, math.inf, np.array([1.0, 0.0])
+    u = np.linalg.svd(c, full_matrices=False)[2][0]
+    x, y = c @ u, (refs - refs.mean(axis=0)) @ u
+    sxx = float(x @ x)
+    if sxx <= 1e-9:
+        return 1.0, math.inf, u
+    return float(x @ y) / sxx, sig / math.sqrt(sxx), u
 
 
 def dense_motion(win: Window, obs: list[Obs], fps: float, size_hint=None, seen_scale: float = 1.0
@@ -434,15 +555,29 @@ def dense_motion(win: Window, obs: list[Obs], fps: float, size_hint=None, seen_s
     info["k"] = round(k * win.work_size[0] / win.size[0], 4)
     sig_a = max(ANCHOR_SIG / max(seen_scale, 1e-6), ANCHOR_SIG_SIZE * size_orig)   # original px
     d_tol = 4.5 * sig_a * float(S.min())   # object px: the difference of two anchors, 3 sd
+    weights, how = {}, []
+    for a in anchors:
+        weights[a.frame], h = template_weight(imgs[a.frame], a.centre * S - 0.5, _tsize(a, S))
+        how.append(h)
+    info["mask"] = {h: how.count(h) for h in sorted(set(how))}
     # chain segments; an anchor whose both segments fail is skipped once (annotator outlier)
     pieces, cur, segs, skipped = [], None, [], []
     i = 0
+
+    def link(a, b):   # object-weighted templates, else (a split or wrong mask loses the object) whole boxes
+        res, si = _segment(imgs, a, b, S, guide, d_tol, weights)
+        if res is None and any(weights.get(x.frame) is not None for x in (a, b)):
+            res2, si2 = _segment(imgs, a, b, S, guide, d_tol)
+            if res2 is not None:
+                return res2, {**si2, "unweighted": True}
+        return res, si
+
     while i < len(anchors) - 1:
         a = anchors[i]
-        res, si = _segment(imgs, a, anchors[i + 1], S, guide, d_tol)
+        res, si = link(a, anchors[i + 1])
         j = i + 1
         if res is None and i + 2 < len(anchors):
-            res2, si2 = _segment(imgs, a, anchors[i + 2], S, guide, d_tol)
+            res2, si2 = link(a, anchors[i + 2])
             if res2 is not None:
                 res, si, j = res2, si2, i + 2
                 skipped.append(anchors[i + 1].frame)
@@ -462,29 +597,52 @@ def dense_motion(win: Window, obs: list[Obs], fps: float, size_hint=None, seen_s
     info["cover"] = round(covered / span, 3) if span else 0.0
     if not pieces or covered < MIN_COVER * span:
         return None, {**info, "why": "cover"}
-    # per piece: offsets of the anchors' template references, fused with the annotator's points
-    # (least squares, see _fuse_offsets); the path is the tracked shape plus a piecewise-linear offset
+    # per piece: the tracked path in the first anchor's template reference (segment n tracked anchor
+    # n's reference, anchor 0's moved by d_0 + ... + d_{n-1}), its scale checked against the
+    # annotator's points, then a smooth offset to the annotator's reference (_fuse_offsets)
     out: dict[int, list[float]] = {}
-    resid = []
+    resid, scales = [], []
     for p in pieces:
         idx = p["anchors"]
-        m = np.array([anchors[n].ref - anchors[n].centre for n in idx])
-        d = np.array([s["d"] / S for s in p["segs"]])
-        sig_d = np.array([s["sig"] / S.min() for s in p["segs"]])
-        e = _fuse_offsets(m, d, sig_d, sig_a)
-        for k, s in enumerate(p["segs"]):
-            fa, fb = anchors[idx[k]].frame, anchors[idx[k + 1]].frame
-            for f, x in s["path"].items():
+        d = np.array([seg["d"] / S for seg in p["segs"]])                    # original px
+        sig_d = np.array([seg["sig"] / S.min() for seg in p["segs"]])
+        shift = np.vstack([np.zeros(2), np.cumsum(d, axis=0)])
+        P = {f: (x + 0.5) / S - shift[n] for n, seg in enumerate(p["segs"]) for f, x in seg["path"].items()}
+        C = np.array([P[anchors[n].frame] for n in idx])
+        refs = np.array([anchors[n].ref for n in idx])
+        # a template that keeps some static background lags the object in every segment alike (the
+        # forward-backward check cannot see that) and the chain shrinks the motion: its scale along
+        # the motion is uncertain (prior sd SCALE_SIG), the annotator's points measure it too.
+        # Rejected when it spans significantly less than the annotator's points (beta > 1: lag) or
+        # runs against them. Spanning more is no lag: either a faster neighbour was followed, which
+        # the residual check below sees in the annotator's own pixels, or the annotator under-read a
+        # motion of a few pixels at its resolution (simulation_0196's bubble: equal 3 px steps, half
+        # the motion that the chain, optical flow and the ground truth agree on)
+        beta, se, u = chain_scale(C, refs, sig_a)
+        scales.append([round(beta, 4), round(se, 4) if math.isfinite(se) else None])
+        off = abs(beta - 1) > SCALE_Z * math.hypot(SCALE_SIG, se)
+        if off and (beta > 1 or beta <= 0):
+            return None, {**info, "scale": scales, "why": "scale"}
+        r = (SCALE_SIG / se) ** 2 if math.isfinite(se) else 0.0
+        b = (1 + r * beta) / (1 + r)                                         # combined scale
+        c0 = C.mean(axis=0)
+        P = {f: q + (b - 1) * float((q - c0) @ u) * u for f, q in P.items()}
+        C = np.array([P[anchors[n].frame] for n in idx])
+        e = _fuse_offsets(refs - C, np.zeros_like(d), sig_d, sig_a)
+        for n, seg in enumerate(p["segs"]):
+            fa, fb = anchors[idx[n]].frame, anchors[idx[n + 1]].frame
+            for f in seg["path"]:
                 w = (f - fa) / (fb - fa)
-                q = (x + 0.5) / S + (1 - w) * e[k] + w * (e[k + 1] + d[k])
+                q = P[f] + (1 - w) * e[n] + w * e[n + 1]
                 out[f] = [round(float(q[0]), 3), round(float(q[1]), 3)]
+        scales[-1].append(round(b, 4))
         ends = [anchors[n] for n in range(idx[0], idx[-1] + 1)]
         resid += [float(np.linalg.norm(a.ref - np.asarray(out[a.frame]))) for a in ends if a.frame in out]
     med = float(np.median(resid))
-    tol = max(RESID_TOL * size_orig, RESID_TOL_MIN / max(seen_scale, 1e-6))
+    tol = RESID_TOL * ANCHOR_SIG / max(seen_scale, 1e-6)
     inside = float(np.mean(np.asarray(resid) <= 2 * tol))
     info.update(resid_med=round(med, 2), resid_max=round(max(resid), 2), resid_tol=round(tol, 2),
-                resid_inside=round(inside, 3), n_pieces=len(pieces), size=round(size_orig, 1))
+                resid_inside=round(inside, 3), n_pieces=len(pieces), size=round(size_orig, 1), scale=scales)
     if med > tol or inside < RESID_INSIDE:
         return None, {**info, "why": "residual"}
     # anchors outside the tracked pieces keep the annotator's point (the path stays in its reference)
@@ -538,6 +696,7 @@ def grabcut_extent(crop: np.ndarray, box_in_crop, mode: str, name: str = "") -> 
     mask = np.zeros(img.shape[:2], np.uint8)
     bgd, fgd = np.zeros((1, 65), np.float64), np.zeros((1, 65), np.float64)
     try:
+        cv2.setRNGSeed(0)   # GrabCut seeds its colour models by k-means on OpenCV's global RNG
         cv2.grabCut(img, mask, (rx0, ry0, rx1 - rx0, ry1 - ry0), bgd, fgd, 5, cv2.GC_INIT_WITH_RECT)
     except cv2.error:
         return None, {"why": "grabcut_error"}
@@ -666,8 +825,11 @@ def dense_size(win: Window, obs: list[Obs], fps: float, dimension: str, name: st
                 inf.update(i2)
                 if e is not None:
                     new = [[e[0][0] + x0, e[0][1] + y0], [e[1][0] + x0, e[1][1] + y0]]
-        if new is not None and o.extent is not None:
-            r = _length(new) / max(_length(o.extent), 1e-9)
+        if new is not None:   # vs the annotator's extent, else the box side qp.geometry would use
+            w, h = (o.box[2] - o.box[0], o.box[3] - o.box[1]) if o.box is not None else (0.0, 0.0)
+            ref = _length(o.extent) if o.extent is not None else (
+                h if mode == "vertical" else w if mode == "horizontal" else max(w, h))
+            r = _length(new) / max(ref, 1e-9)
             inf["ratio"] = round(r, 3)
             if not SIZE_RATIO[0] <= r <= SIZE_RATIO[1]:
                 inf["why"], new = "ratio", None
@@ -697,8 +859,8 @@ def _key(*parts) -> str:
 
 
 _SIZE_ONLY = ("SIZE_",)
-_MOTION_ONLY = ("TEMPLATE_", "NCC_", "MAX_COAST", "FB_", "MIN_COVER", "LINK_", "ANCHOR_", "RESID_", "D_TOL",
-                "SCALE_STEP", "WORK_")
+_MOTION_ONLY = ("TEMPLATE_", "MASK_", "NCC_", "MAX_COAST", "FB_", "MIN_COVER", "LINK_", "ANCHOR_", "RESID_",
+                "D_TOL", "SCALE_", "BORROW_", "WORK_")
 
 
 def _settings(kind: str) -> dict:
@@ -709,7 +871,10 @@ def _settings(kind: str) -> dict:
 
 
 class Cache:
-    """{key: result} per video in <dir>/<video stem>.json (no directory: in memory only)."""
+    """{key: result} per video in <dir>/<video stem>.json (no directory: in memory only). Several
+    processes may share a directory: a save merges the file's current entries and replaces it
+    atomically (unique temp file); an unreadable file is moved aside (<stem>.json.bad) and treated
+    as empty, so it costs a recomputation, never the video."""
 
     def __init__(self, directory: str | Path | None):
         self.dir = Path(directory) if directory else None
@@ -718,19 +883,43 @@ class Cache:
     def _file(self, path: str) -> Path | None:
         return self.dir / f"{Path(path).stem.strip()}.json" if self.dir else None
 
+    @staticmethod
+    def _read(f: Path) -> dict:
+        try:
+            data = json.loads(f.read_text())
+            if not isinstance(data, dict):
+                raise ValueError("not a JSON object")
+            return data
+        except FileNotFoundError:
+            return {}
+        except (OSError, ValueError) as e:   # JSONDecodeError and UnicodeDecodeError are ValueErrors
+            warnings.warn(f"dense-track cache {f} unreadable ({type(e).__name__}: {e}); moved aside")
+            with contextlib.suppress(OSError):
+                os.replace(f, f.with_name(f.name + ".bad"))
+            return {}
+
     def load(self, path: str) -> dict:
         f = self._file(path)
         if path not in self.mem:
-            self.mem[path] = json.loads(f.read_text()) if f is not None and f.exists() else {}
+            self.mem[path] = self._read(f) if f is not None else {}
         return self.mem[path]
 
     def save(self, path: str) -> None:
         f = self._file(path)
-        if f is not None:
-            f.parent.mkdir(parents=True, exist_ok=True)
-            tmp = f.with_suffix(".tmp")
-            tmp.write_text(json.dumps(self.mem.get(path, {})))
-            tmp.replace(f)
+        if f is None:
+            return
+        f.parent.mkdir(parents=True, exist_ok=True)
+        data = {**self._read(f), **self.mem.get(path, {})}   # keep what other processes added meanwhile
+        fd, tmp = tempfile.mkstemp(dir=f.parent, prefix=f".{f.stem}.", suffix=".tmp")
+        try:
+            with os.fdopen(fd, "w") as fh:
+                json.dump(data, fh)
+            os.replace(tmp, f)
+        except BaseException:
+            with contextlib.suppress(OSError):
+                os.unlink(tmp)
+            raise
+        self.mem[path] = data
 
 
 def _role_quantity(a, role: str):
@@ -748,9 +937,15 @@ class Job:
     name: str = ""
     dimension: str = ""
 
-    def key(self, fid, size_method: str) -> str:
-        extra = (self.name.strip().casefold(),) if self.kind == "motion" else (self.dimension, self.name, size_method)
-        return _key(self.kind, fid, round(self.fps, 6), _obs_key(self.obs), extra, _settings(self.kind), VERSION)
+    def key(self, fid, size_method: str, sizes=()) -> str:
+        """Cache key: everything the result depends on (sizes: the boxes borrowed from the object's
+        other tracks, borrowed_sizes)."""
+        if self.kind == "motion":
+            extra = (self.name.strip().casefold(), [[round(t, 4), round(w, 1), round(h, 1)] for t, (w, h) in sizes])
+        else:
+            extra = (self.dimension, self.name, size_method)
+        return _key(self.kind, fid, round(self.fps, 6), round(self.seen_scale, 4), _obs_key(self.obs), extra,
+                    _settings(self.kind), VERSION)
 
 
 def plan(anns: dict, roles=("prior", "prior2", "target", "target2"), what: str = "motion",
@@ -772,13 +967,44 @@ def plan(anns: dict, roles=("prior", "prior2", "target", "target2"), what: str =
     return jobs
 
 
-def size_hints(tracks: list[RoleTrack]) -> dict[str, list[tuple[float, tuple[float, float]]]]:
-    """object name (casefolded) -> [(t, (w, h))]: the boxes of every track of a video."""
+def size_hints(tracks: list[RoleTrack]) -> dict[str, list[tuple[float, tuple[float, float], tuple[float, float]]]]:
+    """object name (casefolded) -> [(t, (w, h), (box centre x, y))]: the boxes of every track of a video."""
     out: dict[str, list] = {}
     for tr in tracks:
         for o in tr.obs:
-            if o.box is not None and o.box[2] > o.box[0] and o.box[3] > o.box[1]:
-                out.setdefault(tr.object.strip().casefold(), []).append((o.t, (o.box[2] - o.box[0], o.box[3] - o.box[1])))
+            b = o.box
+            if b is not None and b[2] > b[0] and b[3] > b[1]:
+                out.setdefault(tr.object.strip().casefold(), []).append(
+                    (float(o.t), (b[2] - b[0], b[3] - b[1]), ((b[0] + b[2]) / 2, (b[1] + b[3]) / 2)))
+    return _sorted_unique(out)
+
+
+def _sorted_unique(hints: dict) -> dict:
+    return {k: sorted({(t, tuple(map(float, wh)), tuple(map(float, c))) for t, wh, c in v}) for k, v in hints.items()}
+
+
+BORROW_OFF = 0.35   # a box borrowed from another track sizes this one only if this track's point (at the
+                    # box's time) lies within this share of the box's width / height of its centre
+
+
+def borrowed_sizes(obs: list[Obs], boxes) -> list[tuple[float, tuple[float, float]]]:
+    """[(t, (w, h))] of the boxes (size_hints rows of the same object name) that frame this track's
+    object: at the box's time (inside the track's annotated span) the track's point, interpolated,
+    lies near the box centre. A box of another object of the same name, or one placed elsewhere,
+    would size the template wrongly."""
+    pts = sorted((o.t, o.point) for o in obs if o.point is not None)
+    if not pts or not boxes:
+        return []
+    ts = np.array([t for t, _ in pts])
+    xy = np.array([p for _, p in pts], float)
+    gap = float(np.median(np.diff(ts))) if len(ts) > 1 else 0.0
+    out = []
+    for t, (w, h), (cx, cy) in boxes:
+        if not ts[0] - gap - 1e-6 <= t <= ts[-1] + gap + 1e-6:
+            continue
+        px, py = np.interp(t, ts, xy[:, 0]), np.interp(t, ts, xy[:, 1])
+        if abs(px - cx) <= BORROW_OFF * w and abs(py - cy) <= BORROW_OFF * h:
+            out.append((float(t), (float(w), float(h))))
     return out
 
 
@@ -789,11 +1015,13 @@ def run_video(path: str, jobs: list[Job], hints: dict | None = None, cache_dir: 
     cache = Cache(cache_dir)
     store = cache.load(path)
     fid = (Path(path).name, Path(path).stat().st_size)
-    keys = [j.key(fid, size_method) for j in jobs]
-    missing = [(k, j) for k, j in zip(keys, jobs) if k not in store]
+    sizes = [borrowed_sizes(j.obs, (hints or {}).get(j.name.strip().casefold(), [])) if j.kind == "motion" else []
+             for j in jobs]
+    keys = [j.key(fid, size_method, sz) for j, sz in zip(jobs, sizes)]
+    missing = [(k, j, sz) for k, j, sz in zip(keys, jobs, sizes) if k not in store]
     if missing:
         frames, crops = set(), {}
-        for _, j in missing:
+        for _, j, _ in missing:
             fr = [int(round(o.t * j.fps)) for o in j.obs if o.point is not None or o.box is not None]
             if j.kind == "motion" and fr:
                 frames.update(range(min(fr), max(fr) + 1))
@@ -802,13 +1030,12 @@ def run_video(path: str, jobs: list[Job], hints: dict | None = None, cache_dir: 
                     if o.box is not None:
                         crops.setdefault(int(round(o.t * j.fps)), set()).add(_seg_crop_box(o.box, *j.image_size))
         win = decode(path, frames, {f: sorted(c) for f, c in crops.items()})
-        for k, j in missing:
+        for k, j, h in missing:
             if k in store:
                 continue
             try:
                 if j.kind == "motion":
-                    h = (hints or {}).get(j.name.strip().casefold(), [])
-                    hint = (lambda f, h=h, fps=j.fps: min(h, key=lambda x: abs(x[0] - f / fps))[1]) if h else None
+                    hint = (lambda f, h=h, fps=j.fps: min(h, key=lambda x: (abs(x[0] - f / fps), x[0]))[1]) if h else None
                     path_px, info = dense_motion(win, j.obs, j.fps, hint, j.seen_scale)
                     store[k] = {"path": path_px, "info": info}
                 else:
@@ -820,8 +1047,12 @@ def run_video(path: str, jobs: list[Job], hints: dict | None = None, cache_dir: 
     return [store[k] for k in keys]
 
 
-def _run_video_safe(args) -> list[dict] | str:
+def _init_worker() -> None:
+    """Pool workers: one OpenCV thread each (the pool parallelises over videos)."""
     cv2.setNumThreads(1)
+
+
+def _run_video_safe(args) -> list[dict] | str:
     try:
         return run_video(*args)
     except Exception as e:  # noqa: BLE001 - reported per video by the caller
@@ -873,7 +1104,8 @@ def densify_annotations(anns: dict, video_paths: dict[int, str], video_meta: dic
         # spawn: forking a process whose OpenCV thread pool has started can deadlock the children
         # (spawn re-imports the caller's main module: scripts need an `if __name__ == "__main__"` guard)
         try:
-            with ProcessPoolExecutor(max_workers=workers, mp_context=multiprocessing.get_context("spawn")) as ex:
+            with ProcessPoolExecutor(max_workers=workers, mp_context=multiprocessing.get_context("spawn"),
+                                     initializer=_init_worker) as ex:
                 results = list(ex.map(_run_video_safe, args))
         except (BrokenProcessPool, RuntimeError, OSError):
             results = None

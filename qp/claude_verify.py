@@ -15,10 +15,10 @@ the model's own arithmetic is only used as a consistency check.
 Request versions (SYSTEMS): vf1 asks for coordinates only with action "replace"; vf2 (default) asks
 for the model's own reading of every evidence frame of every track ("keep" or not), which the
 `remeasure` rule and the delta_px diagnostic need. The one live test (vf1, internet_0005, effort
-medium, $0.088) kept every track, but that was the right output: pass 1's endpoints there are within
-~1 px of the object ends (its one bad answer, qid 2167 at +30%, is an object-choice / ground-truth
-issue, not endpoint placement), so it says nothing about vf1's diligence, and vf2 / effort high are
-untested. A smoke test that can tell them apart needs questions whose pass-1 error is a visible
+medium, $0.088) kept every track, but that was the right output: three answers were within 2% and
+the fourth (qid 2167, +30%) has its extent within ~1 px of the light's ends (an object-choice or
+ground-truth issue, not endpoint placement), so it says nothing about vf1's diligence, and vf2 /
+effort high are untested. A smoke test that can tell them apart needs questions whose pass-1 error is a visible
 endpoint misplacement.
 
 Tracks. The tracks of a video's questions are deduplicated (same object, same observations ->
@@ -49,7 +49,8 @@ Answer rule (RULES; DEFAULT_RULE = "verify"), per question, with pass1 = the pas
 Corrections never shrink a size / distance track to the evidence frames: the readings are merged into
 the pass-1 track (merge_readings: read frames take the readings, the other frames the same systematic
 change: length ratio / shift), so readings equal to pass 1 leave every answer of every rule unchanged.
-A motion track marked "replace" becomes exactly the readings.
+A motion track marked "replace" becomes exactly the readings, unless they all agree with pass 1 within
+NOOP_PX (then the dense / flow-refined pass-1 track is kept).
   verify_vdirect  as verify, with the verifier's final_answer as the direct answer wherever
                   the verifier changed or rejected something (verdict != accept_geometry)
   verify_final    the verifier's final_answer (diagnostic: the model's own arithmetic)
@@ -1213,7 +1214,8 @@ def parse_obs(o: dict, fps: float, shown: set[int], W: int, H: int, flags: list[
 
 FIELDS = ("point", "extent", "box")
 SPACE_MIN_PX = 4.0        # pixel-space check: readings this close to pass 1 are never suspect
-SPACE_TOL_PX = 2.0        # ... a reading within max(this, 1/4 of its move) of an image-pixel mapping is
+SPACE_TOL_PX = 2.0        # ... else suspect within max(this, 1/4 of its move) of an image-pixel mapping
+NOOP_PX = 1.0             # a motion track "replaced" by readings all this close to pass 1 is kept
 
 
 def _frames(obs: list[Obs], fps: float) -> dict[int, list[Obs]]:
@@ -1385,7 +1387,9 @@ def apply_track_fixes(ctx: VideoContext, parsed: dict, shown: set[int], remeasur
     read frames take the readings, the other frames the same systematic change), so readings equal to
     pass 1 change nothing; a motion track marked "replace", or a track whose readings share no frame
     with it, becomes exactly the readings, when they are usable (extents / boxes for a size use, >= 2
-    located frames for motion, a located obs for a distance; else flag verify_replace_unusable).
+    located frames for motion, a located obs for a distance; else flag verify_replace_unusable) and
+    not all within NOOP_PX of pass 1 on its own frames (flag verify_replace_noop: the prompt asks for no
+    moves below 1 px, and such a "replace" would only trade a dense track for its evidence frames).
     Readings that look like evidence-image pixels rather than original ones (pixel_space_suspect) are
     not applied (flag verify_pixel_space). `applied` is set only when the track actually changed.
     delta_px: largest distance between a reading and the pass-1 obs of the same frame (reading_delta),
@@ -1424,6 +1428,12 @@ def apply_track_fixes(ctx: VideoContext, parsed: dict, shown: set[int], remeasur
                 continue
             if pixel_space_suspect(reading_pairs(p1, obs, ctx.fps), evidence or []):
                 flags.append("verify_pixel_space")
+                info[tid] = rec
+                continue
+            pairs = reading_pairs(p1, obs, ctx.fps)
+            if motion and pairs and max(float(np.linalg.norm(b - a)) for _, a, b, _ in pairs) <= NOOP_PX and \
+                    {frame_of(o.t, ctx.fps) for o in obs} <= {f for *_, f in pairs}:
+                flags.append("verify_replace_noop")      # readings = pass 1: keep the dense / refined track
                 info[tid] = rec
                 continue
             new = None if motion else merge_readings(p1, obs, ctx.fps)

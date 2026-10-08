@@ -11,7 +11,8 @@ of scripts/run_claude.py (its build_results, so the same rule, refinement and gu
 <runs>/<name>/<split>_dense.csv (--what motion, the default; else <split>_dense_<what>.csv) with columns id,
 parsed_value, geo_value, direct_value, method, flags, geo_method. Prints MRA (final and geometry, per
 category) of the original and the dense variant when the split has answers. Dense results are cached
-per video and object under --cache-dir (default <runs>/_dense_cache/<split>), so reruns are fast.
+per video and object under --cache-dir (default <runs>/_dense_cache/<split>), so reruns are fast; the
+cache may be shared by several runs, also concurrently (keys cover everything a result depends on).
 
 --prior-refine first (default): qp.refine's optical-flow refinement of motion priors runs first, as in
 run_claude, and dense tracking leaves the tracks it accepted alone; off: no qp.refine, dense tracking
@@ -22,7 +23,6 @@ from __future__ import annotations
 
 import argparse
 import contextlib
-import math
 import os
 import sys
 import time
@@ -193,7 +193,7 @@ def main(argv=None) -> pd.DataFrame:
                 .merge(res, on="id", suffixes=("_o", "_d"))
             ch = m[(m.parsed_value_o - m.parsed_value_d).abs() > 1e-9 * m.answer.abs()]
             for r in ch.itertuples():
-                e = lambda v: f"{(v - r.answer) / r.answer:+.1%}" if rc._valid(v) else "-"  # noqa: E731
+                e = lambda v, a=r.answer: f"{(v - a) / a:+.1%}" if rc._valid(v) else "-"  # noqa: E731
                 print(f"  qid {r.qid} {r.category}: gt {r.answer:g} | original {r.parsed_value_o:.4g} "
                       f"({e(r.parsed_value_o)}) -> dense {r.parsed_value_d:.4g} ({e(r.parsed_value_d)}) [{r.method_d}]")
     if args.overlays:

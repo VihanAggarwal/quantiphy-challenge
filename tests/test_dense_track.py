@@ -1,17 +1,18 @@
 """qp.dense_track on synthetic videos (tests/synth.py): known trajectories, scale change, occlusion,
 annotator-like noisy sparse anchors; sizes re-measured by segmentation; the annotation layer."""
 
+import json
 import math
 
 import cv2
 import numpy as np
 import pytest
+from synth import Body, Camera, ballistic, frame_times, render_video, track
 
 from qp import dense_track as dt
 from qp.claude_annotate import Annotation
 from qp.geometry import solve
 from qp.spec import Obs, Quantity, QuestionSpec, RoleTrack
-from synth import Body, Camera, ballistic, frame_times, render_video, track
 
 FPS = 30.0
 CAM = Camera(640, 360, 60.0)
@@ -308,3 +309,251 @@ def test_cli_rescores_a_cached_run_with_dense_tracks(tmp_path, monkeypatch):
     sparse = cli.build(df, cli.rc.load_records(rec_dir), "none")
     assert abs(out.geo_value[0] / truth - 1) < 0.02
     assert abs(out.geo_value[0] / truth - 1) <= abs(sparse.geo_value[0] / truth - 1) + 0.002
+
+
+# --------------------------------------------------------------------------- review regressions
+
+
+def _textured_video(path, n, r, contrast, speed, fourcc="FFV1", seed=0):
+    """A flat disc (radius r, `contrast` grey levels above the mean) moving at `speed` px/frame on a
+    static blurred-noise texture (std ~6 grey levels) -> centres (continuous coordinates)."""
+    rng = np.random.default_rng(seed)
+    W, H = 640, 360
+    bg = cv2.GaussianBlur(rng.normal(128, 40, (H, W, 3)).astype(np.float32), (0, 0), 2.0)
+    vw = cv2.VideoWriter(str(path), cv2.VideoWriter_fourcc(*fourcc), FPS, (W, H))
+    cs = []
+    for i in range(n):
+        c = np.array([200.0 + speed * i, 180.0 + 0.3 * speed * i])
+        m = np.zeros((H, W), np.uint8)
+        cv2.circle(m, (int(round(c[0] * 16)), int(round(c[1] * 16))), int(r * 16), 255, -1, cv2.LINE_AA, shift=4)
+        a = m.astype(np.float32)[..., None] / 255
+        img = bg * (1 - a) + np.array([128 + contrast, 128 + contrast, 128], np.float32) * a
+        vw.write(np.clip(img, 0, 255).astype(np.uint8))
+        cs.append(c + 0.5)
+    vw.release()
+    return cs
+
+
+def _loose_boxes(cs, r, loose, every=6, noise=1.0, seed=1):
+    """Annotator-like anchors: point and a square box `loose` x the disc's diameter, both off by noise."""
+    rng = np.random.default_rng(seed)
+    out = []
+    for f in range(0, len(cs) - every + 1, every):
+        c = cs[f] + rng.normal(0, noise, 2)
+        h = r * loose
+        out.append(Obs(t=f / FPS, point=list(c), box=[c[0] - h, c[1] - h, c[0] + h, c[1] + h]))
+    return out
+
+
+def _disp_error(got, obs, cs):
+    fa, fb = int(round(obs[0].t * FPS)), int(round(obs[-1].t * FPS))
+    true = np.linalg.norm(cs[fb] - cs[fa])
+    return float(np.linalg.norm(np.subtract(got[fb], got[fa])) / true - 1)
+
+
+@pytest.mark.parametrize("loose", [1.7, 2.4])
+def test_loose_boxes_on_a_textured_background_keep_the_displacement(tmp_path, monkeypatch, loose):
+    """Whole-box templates of a slowly moving disc on a textured background match the static
+    background as much as the disc: every segment lagged alike, the chained path lost 20-67 % of the
+    motion and was accepted. Object-weighted templates keep the displacement within 2 %."""
+    cs = _textured_video(tmp_path / "t.avi", 90, 14, 25, 1.0)
+    obs = _loose_boxes(cs, 14, loose)
+    win = dt.decode(str(tmp_path / "t.avi"), set(range(90)))
+    got, info = dt.dense_motion(win, obs, FPS)
+    assert got is not None, info
+    assert info["mask"].get("grabcut", 0) >= 0.8 * len(obs), info["mask"]
+    assert abs(_disp_error(got, obs, cs)) < 0.02, (_disp_error(got, obs, cs), info["scale"])
+    # control: whole-box templates without the chain-scale check lose far more of the motion
+    monkeypatch.setattr(dt, "TEMPLATE_MASK", "none")
+    monkeypatch.setattr(dt, "SCALE_Z", 1e9)
+    got0, info0 = dt.dense_motion(win, obs, FPS)
+    assert got0 is None or _disp_error(got0, obs, cs) < -0.05, info0
+
+
+def test_chain_scale_check_rejects_a_shrunken_chain(tmp_path, monkeypatch):
+    """With whole-box templates (the failure above) the chain's scale disagrees with the annotator's
+    points by far more than their noise explains: rejected instead of accepted short by > 10 %."""
+    cs = _textured_video(tmp_path / "t.avi", 90, 14, 25, 1.0)
+    obs = _loose_boxes(cs, 14, 1.7)
+    win = dt.decode(str(tmp_path / "t.avi"), set(range(90)))
+    monkeypatch.setattr(dt, "TEMPLATE_MASK", "none")
+    got, info = dt.dense_motion(win, obs, FPS)
+    assert got is None or abs(_disp_error(got, obs, cs)) < 0.05, info
+    assert got is None and info["why"] == "scale", info
+
+
+def test_textured_background_through_a_lossy_codec(tmp_path):
+    """The reviewer's setting (mp4v): accepted tracks keep the displacement within 3 % (the codec's
+    smearing of a noise texture costs ~1 %), never the 20 % shortfall of whole-box templates."""
+    cs = _textured_video(tmp_path / "t.mp4", 90, 14, 25, 1.0, fourcc="mp4v")
+    obs = _loose_boxes(cs, 14, 1.7)
+    got, info = dt.dense_motion(dt.decode(str(tmp_path / "t.mp4"), set(range(90))), obs, FPS)
+    assert got is None or abs(_disp_error(got, obs, cs)) < 0.03, (info.get("scale"), info.get("why"))
+
+
+def test_chain_scale_measures_the_slope_with_the_prior_noise():
+    rng = np.random.default_rng(0)
+    chain = np.c_[np.linspace(0, 100, 11), np.linspace(0, 30, 11)]
+    refs = 5.0 + 1.1 * chain + rng.normal(0, 0.1, chain.shape)        # over-regular annotator points
+    beta, se, u = dt.chain_scale(chain, refs, sig=2.0)
+    assert beta == pytest.approx(1.1, abs=0.01)
+    x = (chain - chain.mean(0)) @ u
+    assert se == pytest.approx(2.0 / math.sqrt(x @ x))                 # prior noise, not the 0.1 scatter
+    assert dt.chain_scale(chain[:1], refs[:1], 2.0)[1] == math.inf
+
+
+def _occluded_car_video(path, n, v_car, v_bike, seed=0):
+    """A 160 x 50 px 'car' with a disc 'cyclist' riding faster in front of its lower half."""
+    W, H = 640, 360
+    rng = np.random.default_rng(seed)
+    bg = cv2.GaussianBlur(rng.normal(90, 25, (H, W, 3)).astype(np.float32), (0, 0), 3.0).astype(np.uint8)
+    vw = cv2.VideoWriter(str(path), cv2.VideoWriter_fourcc(*"FFV1"), FPS, (W, H))
+    cars = []
+    for i in range(n):
+        car, bike = np.array([450.0 - v_car * i, 180.0]), np.array([470.0 - v_bike * i, 195.0])
+        img = bg.copy()
+        x0, y0 = int(round(car[0] - 80)), int(round(car[1] - 25))
+        cv2.rectangle(img, (x0, y0), (x0 + 159, y0 + 49), (40, 200, 230), -1)
+        cv2.rectangle(img, (x0 + 30, y0 + 5), (x0 + 70, y0 + 20), (60, 60, 60), -1)
+        cv2.circle(img, (int(round(bike[0])), int(round(bike[1]))), 16, (200, 60, 40), -1, cv2.LINE_AA)
+        vw.write(img)
+        cars.append(car)
+    vw.release()
+    return cars
+
+
+def test_drift_onto_a_passing_occluder_is_rejected(tmp_path):
+    """simulation_0060's yellow car: the template (the car's size, borrowed from another track) also
+    holds a faster cyclist and the path slides along the car (+40-80 % displacement) while the
+    annotator's points stay ~12 px off it - within 0.35 x the 160 px car (the old tolerance), far
+    beyond an annotator's few pixels: rejected by the residual (a chain longer than the annotator's
+    points is no template lag, so the chain-scale check leaves it to the residual)."""
+    cars = _occluded_car_video(tmp_path / "c.avi", 60, 1.0, 3.0)
+    rng = np.random.default_rng(2)
+    obs = [Obs(t=f / FPS, point=list(cars[f] + rng.normal(0, 1.0, 2))) for f in range(0, 60, 5)]
+    win = dt.decode(str(tmp_path / "c.avi"), set(range(60)))
+    got, info = dt.dense_motion(win, obs, FPS, lambda f: (160.0, 50.0))
+    assert got is None and info["why"] == "residual", info
+    assert info["scale"][0][0] < 0.8                                        # the chain spans far more
+    assert info["resid_tol"] == pytest.approx(dt.RESID_TOL * dt.ANCHOR_SIG) and info["resid_med"] < 0.35 * 160
+
+
+def test_a_chain_longer_than_under_read_anchors_is_kept(tmp_path):
+    """simulation_0196's bubble: a slow object the annotator saw at a fraction of the resolution and
+    read as equal steps of half its true motion. The chain (and optical flow, and the ground truth)
+    say otherwise; a longer chain is no template lag, and its residuals are small in the pixels the
+    annotator saw: kept, with the chain's scale (the annotator's points barely constrain it)."""
+    cs = _textured_video(tmp_path / "t.avi", 90, 24, 40, 0.5)
+    rng = np.random.default_rng(3)
+    seen = 0.2                                                               # the annotator saw 128 x 72
+    obs = [Obs(t=f / FPS, point=list(cs[0] + 0.5 * (cs[f] - cs[0]) + rng.normal(0, 0.3 / seen, 2)))
+           for f in range(0, 85, 12)]                                        # reads half the motion
+    win = dt.decode(str(tmp_path / "t.avi"), set(range(90)))
+    got, info = dt.dense_motion(win, obs, FPS, lambda f: (48.0, 48.0), seen_scale=seen)
+    assert got is not None, info
+    assert info["scale"][0][0] < 0.7 and info["scale"][0][2] < 1.01        # chain kept at its own scale
+    assert abs(_disp_error(got, obs, cs)) < 0.05, _disp_error(got, obs, cs)
+
+
+def test_residual_tolerance_is_in_the_annotators_pixels(tmp_path):
+    ball = Body("ball", ballistic([-1.2, -0.3, 6.0], [0.8, 0.2, 0.0]), size=0.35, color=(30, 60, 220))
+    path, n = _render(tmp_path, [ball])
+    obs = _sparse(ball, range(2, n - 2, 7), noise=1.0)
+    win = dt.decode(path, set(range(n)))
+    for seen in (1.0, 0.25):
+        got, info = dt.dense_motion(win, obs, FPS, seen_scale=seen)
+        assert got is not None and info["resid_tol"] == pytest.approx(dt.RESID_TOL * dt.ANCHOR_SIG / seen)
+
+
+def test_borrowed_sizes_only_from_boxes_framing_the_track():
+    obs = [Obs(t=0.1 * k, point=[100.0 + 10 * k, 50.0]) for k in range(6)]     # x = 100 + 100 t
+    boxes = [(0.2, (40.0, 20.0), (121.0, 52.0)),     # around the track's point at t = 0.2: kept
+             (0.3, (40.0, 20.0), (300.0, 50.0)),     # another object of the same name: dropped
+             (0.4, (40.0, 20.0), (140.0, 59.0)),     # centre 9 px below (> 0.35 x 20): dropped
+             (2.0, (40.0, 20.0), (300.0, 50.0))]     # long after the track: dropped
+    assert dt.borrowed_sizes(obs, boxes) == [(0.2, (40.0, 20.0))]
+    assert dt.borrowed_sizes([Obs(t=0.0, box=[0, 0, 4, 4])], boxes) == []
+
+
+def test_grabcut_is_deterministic_whatever_the_global_rng():
+    """GrabCut seeds its colour models by k-means on OpenCV's global RNG: without a fixed seed the
+    extent of this fuzzy textured disc varied by ~1.4 % with whatever ran before (and the first draw
+    was cached)."""
+    rng = np.random.default_rng(5)
+    bg = cv2.GaussianBlur(rng.normal(110, 40, (80, 80, 3)).astype(np.float32), (0, 0), 1.2)
+    obj = cv2.GaussianBlur(rng.normal(140, 40, (80, 80, 3)).astype(np.float32), (0, 0), 1.2) * [0.6, 1.0, 1.0]
+    m = np.zeros((80, 80), np.float32)
+    cv2.circle(m, (40, 40), 18, 1.0, -1, cv2.LINE_AA)
+    m = cv2.GaussianBlur(m, (0, 0), 2.0)[..., None]
+    img = np.clip(bg * (1 - m) + obj * m, 0, 255).astype(np.uint8)
+    got, weights = set(), set()
+    for k in range(5):
+        cv2.setRNGSeed(1000 + 7 * k)   # other OpenCV work in the process
+        e, _ = dt.grabcut_extent(img, [21.0, 21.0, 59.0, 59.0], "diameter", "ball")
+        got.add(None if e is None else round(dt._length(e), 6))
+        cv2.setRNGSeed(77 + k)
+        w, how = dt.template_weight(img, (39.5, 39.5), (39, 39))
+        weights.add((how, None if w is None else float(w.sum())))
+    assert len(got) == 1 and None not in got and len(weights) == 1
+
+
+def _job(obs, seen=1.0):
+    return dt.Job("motion", obs, FPS, CAM.size, seen, "ball")
+
+
+def test_motion_cache_key_covers_borrowed_sizes_and_seen_scale():
+    obs = [Obs(t=0.1 * k, point=[100.0 + 10 * k, 50.0]) for k in range(6)]
+    fid = ("v.mp4", 123)
+    base = _job(obs).key(fid, "grabcut", [(0.2, (40.0, 20.0))])
+    assert base == _job(list(obs)).key(fid, "grabcut", [(0.2, (40.0, 20.0))])
+    assert base != _job(obs).key(fid, "grabcut", [(0.2, (44.0, 20.0))])
+    assert base != _job(obs).key(fid, "grabcut", [])
+    assert base != _job(obs, 0.5).key(fid, "grabcut", [(0.2, (40.0, 20.0))])
+
+
+def test_cache_survives_a_corrupt_file_and_concurrent_writers(tmp_path):
+    d = tmp_path / "cache"
+    d.mkdir()
+    (d / "v.json").write_text('{"abc": {"path": nul')                     # truncated write
+    c = dt.Cache(d)
+    with pytest.warns(UserWarning, match="unreadable"):
+        loaded = c.load("/x/v.mp4")
+    assert loaded == {}
+    assert (d / "v.json.bad").exists() and not (d / "v.json").exists()
+    c.mem["/x/v.mp4"]["k1"] = {"path": None}
+    other = dt.Cache(d)                                                       # another process
+    other.load("/x/v.mp4")
+    c.save("/x/v.mp4")
+    other.mem["/x/v.mp4"]["k2"] = {"path": None}
+    other.save("/x/v.mp4")                                                    # keeps k1
+    assert set(json.loads((d / "v.json").read_text())) == {"k1", "k2"}
+    assert not list(d.glob("*.tmp"))
+
+
+def test_corrupt_cache_file_does_not_disable_the_video(tmp_path):
+    ball = Body("ball", ballistic([-1.2, -0.3, 6.0], [0.8, 0.2, 0.0]), size=0.35, color=(30, 60, 220))
+    path, n = _render(tmp_path, [ball])
+    pts = [Obs(t=o.t, point=o.point) for o in _sparse(ball, range(2, n - 2, 7), noise=1.0)]
+    sizes = track(ball, "prior", [0.5, 1.0], CAM, box=True).obs
+    cache = tmp_path / "cache"
+    cache.mkdir()
+    (cache / "v.json").write_text("{")
+    a = _annotation(sizes, pts)
+    with pytest.warns(UserWarning):
+        dt.densify_annotations({7: a}, {7: path}, {7: (FPS, CAM.size, 1.0)}, cache_dir=cache)
+    assert "dense_error" not in a.flags and "dense_motion" in a.flags
+    assert json.loads((cache / "v.json").read_text())
+
+
+def test_in_process_run_keeps_the_opencv_thread_count(tmp_path):
+    ball = Body("ball", ballistic([-1.2, -0.3, 6.0], [0.8, 0.2, 0.0]), size=0.35, color=(30, 60, 220))
+    path, n = _render(tmp_path, [ball])
+    a = _annotation(track(ball, "prior", [0.5, 1.0], CAM, box=True).obs,
+                    [Obs(t=o.t, point=o.point) for o in _sparse(ball, range(2, n - 2, 7), noise=1.0)])
+    before = cv2.getNumThreads()
+    cv2.setNumThreads(3)
+    try:
+        dt.densify_annotations({7: a}, {7: path}, {7: (FPS, CAM.size, 1.0)}, workers=1)
+        assert cv2.getNumThreads() == 3
+    finally:
+        cv2.setNumThreads(before)
