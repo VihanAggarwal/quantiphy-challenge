@@ -744,3 +744,21 @@ def test_prior_motion_within_one_px_noise_floor_is_rejected():
     ans = run(spec(Q("size", ["car"], unit="m"), Q("speed", ["pedestrian"], value_si=0.4)),
               [fast, track(CAR, "target", T, CAM)])
     assert rel(ans.value, 4.5) < 0.01   # 89 px of motion: accepted
+
+
+def test_ici_velocity_handles_onsets_and_stops():
+    """Velocity at a time near a start or stop: the adaptive (ICI) window must not average across
+    the change; on smooth motion it must match the wide fixed window."""
+    import numpy as np
+    from qp import geometry as G
+    rng = np.random.default_rng(0)
+    t = np.arange(49) / 24
+    for x, true_v, t0 in [
+        (np.where(t < 1.1, 170.0, 170 + 400 * (t - 1.1)), 400, 1.21),   # onset
+        (np.where(t < 1.3, 100 + 300 * t, 100 + 300 * 1.3), 300, 1.2),  # stop
+        (100 + 300 * t, 300, 1.0),                                        # constant speed
+        (100 + 50 * t + 100 * t ** 2, 250, 1.0),                          # constant acceleration
+    ]:
+        P = np.c_[x, 300 + 0 * t] + rng.normal(0, 1.0, (len(t), 2))
+        v = np.linalg.norm(G._ici_velocity(t, P, t0)[1])
+        assert abs(v / true_v - 1) < 0.05, (true_v, v)

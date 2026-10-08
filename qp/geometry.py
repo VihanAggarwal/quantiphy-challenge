@@ -62,6 +62,8 @@ DEPTH_IS_RANGE = True           # depth_info = Euclidean camera range (False: op
 DEFAULT_FOV_DEG = 60.0          # horizontal FOV assumed when f cannot be solved from the prior
 FOV_RANGE_DEG = (4.0, 130.0)    # a solved f outside this horizontal FOV is rejected
 SPEED_HALF_WIN = 0.5            # s, half-width of local fits for position / velocity
+ICI_HALF_WINS = (0.12, 0.17, 0.25, 0.35, 0.5)  # s, candidate half-widths for velocity at a time (ICI rule)
+ICI_GAMMA = 2.0                 # ICI confidence multiplier
 ACC_HALF_WIN = 0.75             # s, narrowest half-width for acceleration at t (wider if parabolic)
 MIN_LOCAL_OBS = 5               # a local fit uses at least this many obs (nearest in time)
 DEG_F = 2.0                     # local fits keep a higher-degree term when its F statistic exceeds
@@ -246,6 +248,41 @@ def _local(t: np.ndarray, P: np.ndarray, t0: float, half: float, max_deg: int = 
             float(np.ptp(xk)), lever)
 
 
+def _track_noise(t: np.ndarray, P: np.ndarray) -> float:
+    """White-noise level of a track per coordinate, from second differences (robust median)."""
+    if len(t) < 4:
+        return 0.0
+    return float(np.median(np.linalg.norm(np.diff(P, 2, axis=0), axis=1)) / 2.9)
+
+
+def _ici_velocity(t: np.ndarray, P: np.ndarray, t0: float):
+    """Local fit at t0 with the half-width chosen by the intersection-of-confidence-intervals rule:
+    the widest window whose velocity estimate agrees (within ICI_GAMMA standard errors) with every
+    narrower one. A fixed +-0.5 s window averages across starts, stops and collisions; this keeps
+    wide windows on smooth motion and shrinks them where the motion changes. Returns _local's tuple."""
+    fits = []
+    for h in ICI_HALF_WINS:
+        f = _local(t, P, t0, h)
+        if fits and f[5] <= fits[-1][1][5] + 1e-12:  # no new obs in this window: same fit
+            continue
+        fits.append((h, f))
+    if len(fits) == 1:
+        return fits[0][1]
+    noise = _track_noise(t, P)
+    lo, hi, best = None, None, fits[0][1]
+    for _, f in fits:
+        sig = max(f[4], noise, 1e-12)
+        se = sig * float(f[6][1]) if np.isfinite(f[6][1]) else np.inf
+        v = np.asarray(f[1], float)
+        a, b = v - ICI_GAMMA * se, v + ICI_GAMMA * se
+        lo = a if lo is None else np.maximum(lo, a)
+        hi = b if hi is None else np.minimum(hi, b)
+        if np.any(lo > hi):
+            break
+        best = f
+    return best
+
+
 def _parabolic_span(t: np.ndarray, Y: np.ndarray) -> slice:
     """Longest run of consecutive obs that one parabola fits to within the noise or 0.5% of the
     motion (free flight between a throw and a bounce or catch; the tolerance keeps small model
@@ -341,7 +378,9 @@ def _motion(q: Quantity, t: np.ndarray, P: np.ndarray, flags: set[str], tol: flo
                 raise _Fail("empty_window")
             return moved(t0, t1) / (t1 - t0)
         if time is not None:
-            fit = pos(time)
+            fit = _ici_velocity(t, P, at(time))
+            if fit[5] < 2 * SPEED_HALF_WIN - 1e-9 and fit is not pos(time):
+                flags.add("ici_window")
             v = norm(fit[1])
             check(v * fit[5], fit[4])
             check(v, fit[4], fit[6][1])
