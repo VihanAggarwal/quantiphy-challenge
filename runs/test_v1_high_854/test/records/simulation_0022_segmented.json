@@ -1,0 +1,646 @@
+{
+ "video_id": "simulation_0022_segmented",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfpxVjC1Brurs1sck1ASt",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 854
+ },
+ "ts": "2026-10-08T15:16:01+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_019H2AM5rTeiAKLjYQ63FMYc",
+ "custom_id": "simulation_0022_segmented",
+ "usage": {
+  "input_tokens": 22011,
+  "output_tokens": 2730,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 4317,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.071754,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0022_segmented",
+  "fps": 24.0,
+  "fps_from_container": false,
+  "video_type": "S3MX",
+  "n_frames_total": 75,
+  "scale": 0.8895833333333333,
+  "image_size": [
+   960,
+   960
+  ],
+  "frames": [
+   0,
+   5,
+   10,
+   15,
+   20,
+   22,
+   24,
+   25,
+   26,
+   30,
+   35,
+   39,
+   44,
+   46,
+   48,
+   49,
+   50,
+   54,
+   59,
+   64,
+   69,
+   74
+  ],
+  "questions": [
+   {
+    "qid": 1668,
+    "target_unit": "m/s",
+    "prior": "length of the boat = 10m",
+    "depth_info": "t=1s, distance_boat_camera = 148.7451 m\nt=2s, distance_boat_camera = 146.9726 m"
+   },
+   {
+    "qid": 1669,
+    "target_unit": "m",
+    "prior": "length of the boat = 10m",
+    "depth_info": "t=1s, distance_boat_camera = 148.7451 m\nt=2s, distance_boat_camera = 146.9726 m"
+   },
+   {
+    "qid": 1670,
+    "target_unit": "m",
+    "prior": "length of the boat = 10m",
+    "depth_info": "t=1s, distance_boat_camera = 148.7451 m\nt=2s, distance_boat_camera = 146.9726 m"
+   },
+   {
+    "qid": 1671,
+    "target_unit": "m",
+    "prior": "length of the boat = 10m",
+    "depth_info": "t=1s, distance_boat_camera = 148.7451 m\nt=2s, distance_boat_camera = 146.9726 m"
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":1668,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"boat\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"boat\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":10,\"unit\":\"\"},\"depth\":[{\"object\":\"boat\",\"distance_m\":148.7451,\"time\":1},{\"object\":\"boat\",\"distance_m\":146.9726,\"time\":2}],\"notes\":\"No person in video; interpreted as the average speed of the boat.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"boat\",\"obs\":[{\"frame\":35,\"point\":null,\"extent\":[[597,522],[849,555]],\"box\":[597,355,849,607]},{\"frame\":48,\"point\":null,\"extent\":[[542,521],[797,555]],\"box\":[542,355,797,607]},{\"frame\":59,\"point\":null,\"extent\":[[496,521],[752,555]],\"box\":[496,355,752,607]},{\"frame\":74,\"point\":null,\"extent\":[[432,520],[690,555]],\"box\":[432,355,690,607]}]},{\"role\":\"target\",\"object\":\"boat bow\",\"obs\":[{\"frame\":24,\"point\":[642,521],\"extent\":null,\"box\":null},{\"frame\":30,\"point\":[618,521],\"extent\":null,\"box\":null},{\"frame\":35,\"point\":[597,521],\"extent\":null,\"box\":null},{\"frame\":39,\"point\":[580,521],\"extent\":null,\"box\":null},{\"frame\":44,\"point\":[560,521],\"extent\":null,\"box\":null},{\"frame\":48,\"point\":[542,521],\"extent\":null,\"box\":null},{\"frame\":54,\"point\":[517,521],\"extent\":null,\"box\":null},{\"frame\":59,\"point\":[496,521],\"extent\":null,\"box\":null},{\"frame\":64,\"point\":[475,521],\"extent\":null,\"box\":null},{\"frame\":69,\"point\":[453,521],\"extent\":null,\"box\":null},{\"frame\":74,\"point\":[432,520],\"extent\":null,\"box\":null}]}],\"direct_answer\":4.15,\"confidence\":0.35},{\"qid\":1669,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"boat\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"boat\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":10,\"unit\":\"\"},\"depth\":[{\"object\":\"boat\",\"distance_m\":148.7451,\"time\":1},{\"object\":\"boat\",\"distance_m\":146.9726,\"time\":2}],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"boat\",\"obs\":[]},{\"role\":\"target\",\"object\":\"boat\",\"obs\":[{\"frame\":35,\"point\":null,\"extent\":[[709,356],[709,606]],\"box\":[597,355,849,607]},{\"frame\":48,\"point\":null,\"extent\":[[655,355],[655,606]],\"box\":[542,355,797,607]},{\"frame\":74,\"point\":null,\"extent\":[[546,355],[546,606]],\"box\":[432,355,690,607]}]}],\"direct_answer\":9.8,\"confidence\":0.5},{\"qid\":1670,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"rock\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"boat\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":10,\"unit\":\"\"},\"depth\":[{\"object\":\"boat\",\"distance_m\":148.7451,\"time\":1},{\"object\":\"boat\",\"distance_m\":146.9726,\"time\":2}],\"notes\":\"Rock depth not given; assumed similar to boat.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"boat\",\"obs\":[]},{\"role\":\"target\",\"object\":\"rock\",\"obs\":[{\"frame\":24,\"point\":null,\"extent\":[[28,545],[495,580]],\"box\":[28,471,495,582]},{\"frame\":48,\"point\":null,\"extent\":[[28,545],[495,580]],\"box\":[28,471,495,582]}]}],\"direct_answer\":18.3,\"confidence\":0.35},{\"qid\":1671,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"rock\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"boat\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":10,\"unit\":\"\"},\"depth\":[{\"object\":\"boat\",\"distance_m\":148.7451,\"time\":1},{\"object\":\"boat\",\"distance_m\":146.9726,\"time\":2}],\"notes\":\"Rock depth not given; assumed similar to boat.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"boat\",\"obs\":[]},{\"role\":\"target\",\"object\":\"rock\",\"obs\":[{\"frame\":24,\"point\":null,\"extent\":[[230,471],[230,580]],\"box\":[28,471,495,582]},{\"frame\":48,\"point\":null,\"extent\":[[230,471],[230,580]],\"box\":[28,471,495,582]}]}],\"direct_answer\":4.3,\"confidence\":0.3}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 1668,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "boat"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "boat"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 10,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "boat",
+       "distance_m": 148.7451,
+       "time": 1
+      },
+      {
+       "object": "boat",
+       "distance_m": 146.9726,
+       "time": 2
+      }
+     ],
+     "notes": "No person in video; interpreted as the average speed of the boat."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "boat",
+      "obs": [
+       {
+        "frame": 35,
+        "point": null,
+        "extent": [
+         [
+          597,
+          522
+         ],
+         [
+          849,
+          555
+         ]
+        ],
+        "box": [
+         597,
+         355,
+         849,
+         607
+        ]
+       },
+       {
+        "frame": 48,
+        "point": null,
+        "extent": [
+         [
+          542,
+          521
+         ],
+         [
+          797,
+          555
+         ]
+        ],
+        "box": [
+         542,
+         355,
+         797,
+         607
+        ]
+       },
+       {
+        "frame": 59,
+        "point": null,
+        "extent": [
+         [
+          496,
+          521
+         ],
+         [
+          752,
+          555
+         ]
+        ],
+        "box": [
+         496,
+         355,
+         752,
+         607
+        ]
+       },
+       {
+        "frame": 74,
+        "point": null,
+        "extent": [
+         [
+          432,
+          520
+         ],
+         [
+          690,
+          555
+         ]
+        ],
+        "box": [
+         432,
+         355,
+         690,
+         607
+        ]
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "boat bow",
+      "obs": [
+       {
+        "frame": 24,
+        "point": [
+         642,
+         521
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 30,
+        "point": [
+         618,
+         521
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 35,
+        "point": [
+         597,
+         521
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 39,
+        "point": [
+         580,
+         521
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 44,
+        "point": [
+         560,
+         521
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 48,
+        "point": [
+         542,
+         521
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 54,
+        "point": [
+         517,
+         521
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 59,
+        "point": [
+         496,
+         521
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 64,
+        "point": [
+         475,
+         521
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 69,
+        "point": [
+         453,
+         521
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 74,
+        "point": [
+         432,
+         520
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     }
+    ],
+    "direct_answer": 4.15,
+    "confidence": 0.35
+   },
+   {
+    "qid": 1669,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "boat"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "boat"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 10,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "boat",
+       "distance_m": 148.7451,
+       "time": 1
+      },
+      {
+       "object": "boat",
+       "distance_m": 146.9726,
+       "time": 2
+      }
+     ],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "boat",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "boat",
+      "obs": [
+       {
+        "frame": 35,
+        "point": null,
+        "extent": [
+         [
+          709,
+          356
+         ],
+         [
+          709,
+          606
+         ]
+        ],
+        "box": [
+         597,
+         355,
+         849,
+         607
+        ]
+       },
+       {
+        "frame": 48,
+        "point": null,
+        "extent": [
+         [
+          655,
+          355
+         ],
+         [
+          655,
+          606
+         ]
+        ],
+        "box": [
+         542,
+         355,
+         797,
+         607
+        ]
+       },
+       {
+        "frame": 74,
+        "point": null,
+        "extent": [
+         [
+          546,
+          355
+         ],
+         [
+          546,
+          606
+         ]
+        ],
+        "box": [
+         432,
+         355,
+         690,
+         607
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 9.8,
+    "confidence": 0.5
+   },
+   {
+    "qid": 1670,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "rock"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "boat"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 10,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "boat",
+       "distance_m": 148.7451,
+       "time": 1
+      },
+      {
+       "object": "boat",
+       "distance_m": 146.9726,
+       "time": 2
+      }
+     ],
+     "notes": "Rock depth not given; assumed similar to boat."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "boat",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "rock",
+      "obs": [
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          28,
+          545
+         ],
+         [
+          495,
+          580
+         ]
+        ],
+        "box": [
+         28,
+         471,
+         495,
+         582
+        ]
+       },
+       {
+        "frame": 48,
+        "point": null,
+        "extent": [
+         [
+          28,
+          545
+         ],
+         [
+          495,
+          580
+         ]
+        ],
+        "box": [
+         28,
+         471,
+         495,
+         582
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 18.3,
+    "confidence": 0.35
+   },
+   {
+    "qid": 1671,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "rock"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "boat"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 10,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "boat",
+       "distance_m": 148.7451,
+       "time": 1
+      },
+      {
+       "object": "boat",
+       "distance_m": 146.9726,
+       "time": 2
+      }
+     ],
+     "notes": "Rock depth not given; assumed similar to boat."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "boat",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "rock",
+      "obs": [
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          230,
+          471
+         ],
+         [
+          230,
+          580
+         ]
+        ],
+        "box": [
+         28,
+         471,
+         495,
+         582
+        ]
+       },
+       {
+        "frame": 48,
+        "point": null,
+        "extent": [
+         [
+          230,
+          471
+         ],
+         [
+          230,
+          580
+         ]
+        ],
+        "box": [
+         28,
+         471,
+         495,
+         582
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 4.3,
+    "confidence": 0.3
+   }
+  ]
+ }
+}

@@ -1,0 +1,729 @@
+{
+ "video_id": "internet_0004",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfpYEFPTeLXXkFyf92WXZ",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 44,
+  "prompt_version": "v2",
+  "max_side": 1280
+ },
+ "ts": "2026-10-08T14:57:41+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_01QVJSUgM91Z4TfZerDYigxe",
+ "custom_id": "internet_0004",
+ "usage": {
+  "input_tokens": 31948,
+  "output_tokens": 3286,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 5593,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.097315,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "internet_0004",
+  "fps": 25.0,
+  "fps_from_container": false,
+  "video_type": "S2MC",
+  "n_frames_total": 428,
+  "scale": 1.0,
+  "image_size": [
+   960,
+   540
+  ],
+  "frames": [
+   0,
+   10,
+   14,
+   28,
+   41,
+   50,
+   55,
+   69,
+   79,
+   83,
+   96,
+   110,
+   119,
+   124,
+   138,
+   149,
+   152,
+   165,
+   179,
+   193,
+   199,
+   207,
+   220,
+   228,
+   234,
+   248,
+   262,
+   275,
+   278,
+   289,
+   303,
+   308,
+   317,
+   331,
+   344,
+   348,
+   358,
+   372,
+   377,
+   386,
+   399,
+   413,
+   417,
+   427
+  ],
+  "questions": [
+   {
+    "qid": 2161,
+    "target_unit": "cm",
+    "prior": "ruler calibre = 1 cm",
+    "depth_info": ""
+   },
+   {
+    "qid": 2162,
+    "target_unit": "cm",
+    "prior": "ruler calibre = 1 cm",
+    "depth_info": ""
+   },
+   {
+    "qid": 2163,
+    "target_unit": "cm/s",
+    "prior": "ruler calibre = 1 cm",
+    "depth_info": ""
+   },
+   {
+    "qid": 2164,
+    "target_unit": "cm/s",
+    "prior": "ruler calibre = 1 cm",
+    "depth_info": ""
+   }
+  ],
+  "prompt_version": "v2"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":2161,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"wood block\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"horizontal\",\"value_si\":null,\"unit\":\"cm\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"ruler\"],\"dimension\":\"calibre (1 cm spacing)\",\"time\":null,\"window\":null,\"axis\":\"horizontal\",\"value_si\":0.01,\"unit\":\"\"},\"depth\":[],\"notes\":\"Ruler ticks are hard to resolve; 1 cm is estimated at about 55 px. Length is taken as the visible long side of the end face.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"ruler\",\"obs\":[{\"frame\":10,\"point\":null,\"extent\":[[640,190],[695,190]],\"box\":[0,140,748,218]},{\"frame\":14,\"point\":null,\"extent\":[[650,200],[705,200]],\"box\":[0,165,763,222]},{\"frame\":28,\"point\":null,\"extent\":[[640,212],[695,212]],\"box\":[0,195,750,232]}],\"depth_name\":\"\",\"range_m\":null,\"range_basis\":\"\"},{\"role\":\"target\",\"object\":\"wood block\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[210,290],[758,290]],\"box\":[208,233,760,350]},{\"frame\":110,\"point\":null,\"extent\":[[209,290],[757,290]],\"box\":[207,232,759,350]},{\"frame\":119,\"point\":null,\"extent\":[[212,290],[761,290]],\"box\":[210,230,763,348]}],\"depth_name\":\"\",\"range_m\":null,\"range_basis\":\"\"}],\"direct_answer\":10.0,\"confidence\":0.45,\"derivation\":\"1 cm \u2248 55 px; block length 548 px -> 9.96 cm\"},{\"qid\":2162,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"wood block\"],\"dimension\":\"thickness\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":null,\"unit\":\"cm\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"ruler\"],\"dimension\":\"calibre (1 cm spacing)\",\"time\":null,\"window\":null,\"axis\":\"horizontal\",\"value_si\":0.01,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"ruler\",\"obs\":[],\"depth_name\":\"\",\"range_m\":null,\"range_basis\":\"\"},{\"role\":\"target\",\"object\":\"wood block\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[480,236],[480,347]],\"box\":[208,233,760,350]},{\"frame\":110,\"point\":null,\"extent\":[[480,236],[480,347]],\"box\":[207,232,759,350]},{\"frame\":152,\"point\":null,\"extent\":[[480,236],[480,345]],\"box\":[209,232,760,348]}],\"depth_name\":\"\",\"range_m\":null,\"range_basis\":\"\"}],\"direct_answer\":2.0,\"confidence\":0.45,\"derivation\":\"1 cm \u2248 55 px; thickness 111 px -> 2.0 cm\"},{\"qid\":2163,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"pencil tip\"],\"dimension\":\"\",\"time\":null,\"window\":[2.2,3.32],\"axis\":\"horizontal\",\"value_si\":null,\"unit\":\"cm/s\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"ruler\"],\"dimension\":\"calibre (1 cm spacing)\",\"time\":null,\"window\":null,\"axis\":\"horizontal\",\"value_si\":0.01,\"unit\":\"\"},\"depth\":[],\"notes\":\"The pencil tip is tracked while it draws along the ruler edge.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"ruler\",\"obs\":[],\"depth_name\":\"\",\"range_m\":null,\"range_basis\":\"\"},{\"role\":\"target\",\"object\":\"pencil tip\",\"obs\":[{\"frame\":55,\"point\":[742,234],\"extent\":null,\"box\":[736,228,748,240]},{\"frame\":69,\"point\":[656,237],\"extent\":null,\"box\":[650,231,662,243]},{\"frame\":79,\"point\":[306,240],\"extent\":null,\"box\":[300,234,312,246]},{\"frame\":83,\"point\":[138,268],\"extent\":null,\"box\":[132,262,144,274]}],\"depth_name\":\"\",\"range_m\":null,\"range_basis\":\"\"}],\"direct_answer\":9.0,\"confidence\":0.3,\"derivation\":\"tip moves 742->138 px over 2.2-3.32 s \u2248 540 px/s; 55 px/cm -> ~9 cm/s\"},{\"qid\":2164,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"saw\"],\"dimension\":\"\",\"time\":null,\"window\":[7.16,16.68],\"axis\":\"horizontal\",\"value_si\":null,\"unit\":\"cm/s\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"ruler\"],\"dimension\":\"calibre (1 cm spacing)\",\"time\":null,\"window\":null,\"axis\":\"horizontal\",\"value_si\":0.01,\"unit\":\"\"},\"depth\":[],\"notes\":\"The saw blade is tracked as it cuts across the block.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"ruler\",\"obs\":[],\"depth_name\":\"\",\"range_m\":null,\"range_basis\":\"\"},{\"role\":\"target\",\"object\":\"saw blade\",\"obs\":[{\"frame\":179,\"point\":[207,330],\"extent\":null,\"box\":[192,250,222,410]},{\"frame\":207,\"point\":[210,330],\"extent\":null,\"box\":[195,250,225,410]},{\"frame\":228,\"point\":[232,330],\"extent\":null,\"box\":[217,250,247,410]},{\"frame\":248,\"point\":[265,330],\"extent\":null,\"box\":[250,250,280,410]},{\"frame\":275,\"point\":[335,330],\"extent\":null,\"box\":[320,250,350,410]},{\"frame\":303,\"point\":[440,330],\"extent\":null,\"box\":[425,250,455,410]},{\"frame\":331,\"point\":[540,330],\"extent\":null,\"box\":[525,250,555,410]},{\"frame\":358,\"point\":[610,330],\"extent\":null,\"box\":[595,250,625,410]},{\"frame\":377,\"point\":[662,330],\"extent\":null,\"box\":[647,250,677,410]},{\"frame\":399,\"point\":[722,330],\"extent\":null,\"box\":[707,250,737,410]},{\"frame\":417,\"point\":[765,330],\"extent\":null,\"box\":[750,250,780,410]}],\"depth_name\":\"\",\"range_m\":null,\"range_basis\":\"\"}],\"direct_answer\":1.07,\"confidence\":0.35,\"derivation\":\"blade 207->765 px over 7.16-16.68 s = 58.6 px/s; 55 px/cm -> 1.07 cm/s\"}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 2161,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "wood block"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "horizontal",
+      "value_si": null,
+      "unit": "cm"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "ruler"
+      ],
+      "dimension": "calibre (1 cm spacing)",
+      "time": null,
+      "window": null,
+      "axis": "horizontal",
+      "value_si": 0.01,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Ruler ticks are hard to resolve; 1 cm is estimated at about 55 px. Length is taken as the visible long side of the end face."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "ruler",
+      "obs": [
+       {
+        "frame": 10,
+        "point": null,
+        "extent": [
+         [
+          640,
+          190
+         ],
+         [
+          695,
+          190
+         ]
+        ],
+        "box": [
+         0,
+         140,
+         748,
+         218
+        ]
+       },
+       {
+        "frame": 14,
+        "point": null,
+        "extent": [
+         [
+          650,
+          200
+         ],
+         [
+          705,
+          200
+         ]
+        ],
+        "box": [
+         0,
+         165,
+         763,
+         222
+        ]
+       },
+       {
+        "frame": 28,
+        "point": null,
+        "extent": [
+         [
+          640,
+          212
+         ],
+         [
+          695,
+          212
+         ]
+        ],
+        "box": [
+         0,
+         195,
+         750,
+         232
+        ]
+       }
+      ],
+      "depth_name": "",
+      "range_m": null,
+      "range_basis": ""
+     },
+     {
+      "role": "target",
+      "object": "wood block",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          210,
+          290
+         ],
+         [
+          758,
+          290
+         ]
+        ],
+        "box": [
+         208,
+         233,
+         760,
+         350
+        ]
+       },
+       {
+        "frame": 110,
+        "point": null,
+        "extent": [
+         [
+          209,
+          290
+         ],
+         [
+          757,
+          290
+         ]
+        ],
+        "box": [
+         207,
+         232,
+         759,
+         350
+        ]
+       },
+       {
+        "frame": 119,
+        "point": null,
+        "extent": [
+         [
+          212,
+          290
+         ],
+         [
+          761,
+          290
+         ]
+        ],
+        "box": [
+         210,
+         230,
+         763,
+         348
+        ]
+       }
+      ],
+      "depth_name": "",
+      "range_m": null,
+      "range_basis": ""
+     }
+    ],
+    "direct_answer": 10.0,
+    "confidence": 0.45,
+    "derivation": "1 cm \u2248 55 px; block length 548 px -> 9.96 cm"
+   },
+   {
+    "qid": 2162,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "wood block"
+      ],
+      "dimension": "thickness",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": null,
+      "unit": "cm"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "ruler"
+      ],
+      "dimension": "calibre (1 cm spacing)",
+      "time": null,
+      "window": null,
+      "axis": "horizontal",
+      "value_si": 0.01,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "ruler",
+      "obs": [],
+      "depth_name": "",
+      "range_m": null,
+      "range_basis": ""
+     },
+     {
+      "role": "target",
+      "object": "wood block",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          480,
+          236
+         ],
+         [
+          480,
+          347
+         ]
+        ],
+        "box": [
+         208,
+         233,
+         760,
+         350
+        ]
+       },
+       {
+        "frame": 110,
+        "point": null,
+        "extent": [
+         [
+          480,
+          236
+         ],
+         [
+          480,
+          347
+         ]
+        ],
+        "box": [
+         207,
+         232,
+         759,
+         350
+        ]
+       },
+       {
+        "frame": 152,
+        "point": null,
+        "extent": [
+         [
+          480,
+          236
+         ],
+         [
+          480,
+          345
+         ]
+        ],
+        "box": [
+         209,
+         232,
+         760,
+         348
+        ]
+       }
+      ],
+      "depth_name": "",
+      "range_m": null,
+      "range_basis": ""
+     }
+    ],
+    "direct_answer": 2.0,
+    "confidence": 0.45,
+    "derivation": "1 cm \u2248 55 px; thickness 111 px -> 2.0 cm"
+   },
+   {
+    "qid": 2163,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "pencil tip"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": [
+       2.2,
+       3.32
+      ],
+      "axis": "horizontal",
+      "value_si": null,
+      "unit": "cm/s"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "ruler"
+      ],
+      "dimension": "calibre (1 cm spacing)",
+      "time": null,
+      "window": null,
+      "axis": "horizontal",
+      "value_si": 0.01,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "The pencil tip is tracked while it draws along the ruler edge."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "ruler",
+      "obs": [],
+      "depth_name": "",
+      "range_m": null,
+      "range_basis": ""
+     },
+     {
+      "role": "target",
+      "object": "pencil tip",
+      "obs": [
+       {
+        "frame": 55,
+        "point": [
+         742,
+         234
+        ],
+        "extent": null,
+        "box": [
+         736,
+         228,
+         748,
+         240
+        ]
+       },
+       {
+        "frame": 69,
+        "point": [
+         656,
+         237
+        ],
+        "extent": null,
+        "box": [
+         650,
+         231,
+         662,
+         243
+        ]
+       },
+       {
+        "frame": 79,
+        "point": [
+         306,
+         240
+        ],
+        "extent": null,
+        "box": [
+         300,
+         234,
+         312,
+         246
+        ]
+       },
+       {
+        "frame": 83,
+        "point": [
+         138,
+         268
+        ],
+        "extent": null,
+        "box": [
+         132,
+         262,
+         144,
+         274
+        ]
+       }
+      ],
+      "depth_name": "",
+      "range_m": null,
+      "range_basis": ""
+     }
+    ],
+    "direct_answer": 9.0,
+    "confidence": 0.3,
+    "derivation": "tip moves 742->138 px over 2.2-3.32 s \u2248 540 px/s; 55 px/cm -> ~9 cm/s"
+   },
+   {
+    "qid": 2164,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "saw"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": [
+       7.16,
+       16.68
+      ],
+      "axis": "horizontal",
+      "value_si": null,
+      "unit": "cm/s"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "ruler"
+      ],
+      "dimension": "calibre (1 cm spacing)",
+      "time": null,
+      "window": null,
+      "axis": "horizontal",
+      "value_si": 0.01,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "The saw blade is tracked as it cuts across the block."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "ruler",
+      "obs": [],
+      "depth_name": "",
+      "range_m": null,
+      "range_basis": ""
+     },
+     {
+      "role": "target",
+      "object": "saw blade",
+      "obs": [
+       {
+        "frame": 179,
+        "point": [
+         207,
+         330
+        ],
+        "extent": null,
+        "box": [
+         192,
+         250,
+         222,
+         410
+        ]
+       },
+       {
+        "frame": 207,
+        "point": [
+         210,
+         330
+        ],
+        "extent": null,
+        "box": [
+         195,
+         250,
+         225,
+         410
+        ]
+       },
+       {
+        "frame": 228,
+        "point": [
+         232,
+         330
+        ],
+        "extent": null,
+        "box": [
+         217,
+         250,
+         247,
+         410
+        ]
+       },
+       {
+        "frame": 248,
+        "point": [
+         265,
+         330
+        ],
+        "extent": null,
+        "box": [
+         250,
+         250,
+         280,
+         410
+        ]
+       },
+       {
+        "frame": 275,
+        "point": [
+         335,
+         330
+        ],
+        "extent": null,
+        "box": [
+         320,
+         250,
+         350,
+         410
+        ]
+       },
+       {
+        "frame": 303,
+        "point": [
+         440,
+         330
+        ],
+        "extent": null,
+        "box": [
+         425,
+         250,
+         455,
+         410
+        ]
+       },
+       {
+        "frame": 331,
+        "point": [
+         540,
+         330
+        ],
+        "extent": null,
+        "box": [
+         525,
+         250,
+         555,
+         410
+        ]
+       },
+       {
+        "frame": 358,
+        "point": [
+         610,
+         330
+        ],
+        "extent": null,
+        "box": [
+         595,
+         250,
+         625,
+         410
+        ]
+       },
+       {
+        "frame": 377,
+        "point": [
+         662,
+         330
+        ],
+        "extent": null,
+        "box": [
+         647,
+         250,
+         677,
+         410
+        ]
+       },
+       {
+        "frame": 399,
+        "point": [
+         722,
+         330
+        ],
+        "extent": null,
+        "box": [
+         707,
+         250,
+         737,
+         410
+        ]
+       },
+       {
+        "frame": 417,
+        "point": [
+         765,
+         330
+        ],
+        "extent": null,
+        "box": [
+         750,
+         250,
+         780,
+         410
+        ]
+       }
+      ],
+      "depth_name": "",
+      "range_m": null,
+      "range_basis": ""
+     }
+    ],
+    "direct_answer": 1.07,
+    "confidence": 0.35,
+    "derivation": "blade 207->765 px over 7.16-16.68 s = 58.6 px/s; 55 px/cm -> 1.07 cm/s"
+   }
+  ]
+ }
+}

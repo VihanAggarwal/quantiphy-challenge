@@ -1,0 +1,583 @@
+{
+ "video_id": "simulation_0268",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfpriWcsLn9moLt8PipzE",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 854
+ },
+ "ts": "2026-10-08T15:15:58+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_01L4QVNYC55xTrBcqdFPwDnN",
+ "custom_id": "simulation_0268",
+ "usage": {
+  "input_tokens": 11922,
+  "output_tokens": 2845,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 4317,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.052726,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0268",
+  "fps": 24.0,
+  "fps_from_container": false,
+  "video_type": "A2SC",
+  "n_frames_total": 72,
+  "scale": 0.33359375,
+  "image_size": [
+   2560,
+   1439
+  ],
+  "frames": [
+   0,
+   5,
+   9,
+   10,
+   12,
+   14,
+   19,
+   22,
+   24,
+   26,
+   28,
+   33,
+   38,
+   43,
+   47,
+   52,
+   57,
+   62,
+   66,
+   71
+  ],
+  "questions": [
+   {
+    "qid": 945,
+    "target_unit": "m",
+    "prior": "acceleration of the spacecraft at 1.0s = 4m/s^2",
+    "depth_info": ""
+   },
+   {
+    "qid": 946,
+    "target_unit": "m",
+    "prior": "acceleration of the spacecraft at 1.0s = 4m/s^2",
+    "depth_info": ""
+   },
+   {
+    "qid": 947,
+    "target_unit": "m/s",
+    "prior": "acceleration of the spacecraft at 1.0s = 4m/s^2",
+    "depth_info": ""
+   },
+   {
+    "qid": 948,
+    "target_unit": "m/s",
+    "prior": "acceleration of the spacecraft at 1.0s = 4m/s^2",
+    "depth_info": ""
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":945,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"spacecraft\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"spacecraft\"],\"dimension\":\"\",\"time\":1.0,\"window\":null,\"axis\":\"any\",\"value_si\":4.0,\"unit\":\"\"},\"depth\":[],\"notes\":\"Spacecraft moves leftward with increasing speed; rear end used as reference point.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"spacecraft\",\"obs\":[{\"frame\":9,\"point\":[843,239],\"extent\":null,\"box\":null},{\"frame\":10,\"point\":[838,239],\"extent\":null,\"box\":null},{\"frame\":12,\"point\":[831,239],\"extent\":null,\"box\":null},{\"frame\":14,\"point\":[821,239],\"extent\":null,\"box\":null},{\"frame\":19,\"point\":[787,239],\"extent\":null,\"box\":null},{\"frame\":22,\"point\":[763,239],\"extent\":null,\"box\":null},{\"frame\":24,\"point\":[746,239],\"extent\":null,\"box\":null},{\"frame\":26,\"point\":[724,239],\"extent\":null,\"box\":null},{\"frame\":28,\"point\":[705,239],\"extent\":null,\"box\":null},{\"frame\":33,\"point\":[645,239],\"extent\":null,\"box\":null},{\"frame\":38,\"point\":[573,239],\"extent\":null,\"box\":null},{\"frame\":43,\"point\":[493,239],\"extent\":null,\"box\":null},{\"frame\":47,\"point\":[424,239],\"extent\":null,\"box\":null},{\"frame\":52,\"point\":[327,239],\"extent\":null,\"box\":null},{\"frame\":57,\"point\":[221,239],\"extent\":null,\"box\":null},{\"frame\":62,\"point\":[103,239],\"extent\":null,\"box\":null}]},{\"role\":\"target\",\"object\":\"spacecraft\",\"obs\":[{\"frame\":24,\"point\":null,\"extent\":[[406,239],[746,239]],\"box\":[406,155,746,323]},{\"frame\":33,\"point\":null,\"extent\":[[301,239],[645,239]],\"box\":[301,155,645,323]},{\"frame\":38,\"point\":null,\"extent\":[[228,239],[573,239]],\"box\":[228,155,573,323]},{\"frame\":43,\"point\":null,\"extent\":[[145,239],[493,239]],\"box\":[145,155,493,323]}]}],\"direct_answer\":6.0,\"confidence\":0.6},{\"qid\":946,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"spacecraft\"],\"dimension\":\"width\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"spacecraft\"],\"dimension\":\"\",\"time\":1.0,\"window\":null,\"axis\":\"any\",\"value_si\":4.0,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"spacecraft\",\"obs\":[]},{\"role\":\"target\",\"object\":\"spacecraft\",\"obs\":[{\"frame\":24,\"point\":null,\"extent\":[[560,155],[560,323]],\"box\":[406,155,746,323]},{\"frame\":33,\"point\":null,\"extent\":[[460,155],[460,323]],\"box\":[301,155,645,323]},{\"frame\":38,\"point\":null,\"extent\":[[390,155],[390,323]],\"box\":[228,155,573,323]},{\"frame\":43,\"point\":null,\"extent\":[[310,155],[310,323]],\"box\":[145,155,493,323]}]}],\"direct_answer\":2.95,\"confidence\":0.55},{\"qid\":947,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"spacecraft\"],\"dimension\":\"\",\"time\":0.5,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"spacecraft\"],\"dimension\":\"\",\"time\":1.0,\"window\":null,\"axis\":\"any\",\"value_si\":4.0,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"spacecraft\",\"obs\":[]},{\"role\":\"target\",\"object\":\"spacecraft\",\"obs\":[]}],\"direct_answer\":1.98,\"confidence\":0.55},{\"qid\":948,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"spacecraft\"],\"dimension\":\"\",\"time\":1.0,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"spacecraft\"],\"dimension\":\"\",\"time\":1.0,\"window\":null,\"axis\":\"any\",\"value_si\":4.0,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"spacecraft\",\"obs\":[]},{\"role\":\"target\",\"object\":\"spacecraft\",\"obs\":[]}],\"direct_answer\":3.98,\"confidence\":0.6}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 945,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "spacecraft"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "spacecraft"
+      ],
+      "dimension": "",
+      "time": 1.0,
+      "window": null,
+      "axis": "any",
+      "value_si": 4.0,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Spacecraft moves leftward with increasing speed; rear end used as reference point."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "spacecraft",
+      "obs": [
+       {
+        "frame": 9,
+        "point": [
+         843,
+         239
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 10,
+        "point": [
+         838,
+         239
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 12,
+        "point": [
+         831,
+         239
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 14,
+        "point": [
+         821,
+         239
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 19,
+        "point": [
+         787,
+         239
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 22,
+        "point": [
+         763,
+         239
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 24,
+        "point": [
+         746,
+         239
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 26,
+        "point": [
+         724,
+         239
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 28,
+        "point": [
+         705,
+         239
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 33,
+        "point": [
+         645,
+         239
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 38,
+        "point": [
+         573,
+         239
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 43,
+        "point": [
+         493,
+         239
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 47,
+        "point": [
+         424,
+         239
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 52,
+        "point": [
+         327,
+         239
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 57,
+        "point": [
+         221,
+         239
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 62,
+        "point": [
+         103,
+         239
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "spacecraft",
+      "obs": [
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          406,
+          239
+         ],
+         [
+          746,
+          239
+         ]
+        ],
+        "box": [
+         406,
+         155,
+         746,
+         323
+        ]
+       },
+       {
+        "frame": 33,
+        "point": null,
+        "extent": [
+         [
+          301,
+          239
+         ],
+         [
+          645,
+          239
+         ]
+        ],
+        "box": [
+         301,
+         155,
+         645,
+         323
+        ]
+       },
+       {
+        "frame": 38,
+        "point": null,
+        "extent": [
+         [
+          228,
+          239
+         ],
+         [
+          573,
+          239
+         ]
+        ],
+        "box": [
+         228,
+         155,
+         573,
+         323
+        ]
+       },
+       {
+        "frame": 43,
+        "point": null,
+        "extent": [
+         [
+          145,
+          239
+         ],
+         [
+          493,
+          239
+         ]
+        ],
+        "box": [
+         145,
+         155,
+         493,
+         323
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 6.0,
+    "confidence": 0.6
+   },
+   {
+    "qid": 946,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "spacecraft"
+      ],
+      "dimension": "width",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "spacecraft"
+      ],
+      "dimension": "",
+      "time": 1.0,
+      "window": null,
+      "axis": "any",
+      "value_si": 4.0,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "spacecraft",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "spacecraft",
+      "obs": [
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          560,
+          155
+         ],
+         [
+          560,
+          323
+         ]
+        ],
+        "box": [
+         406,
+         155,
+         746,
+         323
+        ]
+       },
+       {
+        "frame": 33,
+        "point": null,
+        "extent": [
+         [
+          460,
+          155
+         ],
+         [
+          460,
+          323
+         ]
+        ],
+        "box": [
+         301,
+         155,
+         645,
+         323
+        ]
+       },
+       {
+        "frame": 38,
+        "point": null,
+        "extent": [
+         [
+          390,
+          155
+         ],
+         [
+          390,
+          323
+         ]
+        ],
+        "box": [
+         228,
+         155,
+         573,
+         323
+        ]
+       },
+       {
+        "frame": 43,
+        "point": null,
+        "extent": [
+         [
+          310,
+          155
+         ],
+         [
+          310,
+          323
+         ]
+        ],
+        "box": [
+         145,
+         155,
+         493,
+         323
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 2.95,
+    "confidence": 0.55
+   },
+   {
+    "qid": 947,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "spacecraft"
+      ],
+      "dimension": "",
+      "time": 0.5,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "spacecraft"
+      ],
+      "dimension": "",
+      "time": 1.0,
+      "window": null,
+      "axis": "any",
+      "value_si": 4.0,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "spacecraft",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "spacecraft",
+      "obs": []
+     }
+    ],
+    "direct_answer": 1.98,
+    "confidence": 0.55
+   },
+   {
+    "qid": 948,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "spacecraft"
+      ],
+      "dimension": "",
+      "time": 1.0,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "spacecraft"
+      ],
+      "dimension": "",
+      "time": 1.0,
+      "window": null,
+      "axis": "any",
+      "value_si": 4.0,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "spacecraft",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "spacecraft",
+      "obs": []
+     }
+    ],
+    "direct_answer": 3.98,
+    "confidence": 0.6
+   }
+  ]
+ }
+}

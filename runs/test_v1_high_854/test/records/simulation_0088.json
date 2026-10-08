@@ -1,0 +1,976 @@
+{
+ "video_id": "simulation_0088",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfpscoqQqsyJ8fk8n95iE",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 854
+ },
+ "ts": "2026-10-08T15:15:55+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_01CQAYt4zbrJD7KLDvb2cZoV",
+ "custom_id": "simulation_0088",
+ "usage": {
+  "input_tokens": 10866,
+  "output_tokens": 3569,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 4317,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.057854,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0088",
+  "fps": 24.0,
+  "fps_from_container": false,
+  "video_type": "V2MX",
+  "n_frames_total": 30,
+  "scale": 0.44479166666666664,
+  "image_size": [
+   1920,
+   1079
+  ],
+  "frames": [
+   0,
+   2,
+   4,
+   5,
+   6,
+   7,
+   8,
+   10,
+   12,
+   14,
+   15,
+   17,
+   19,
+   21,
+   23,
+   25,
+   27,
+   29
+  ],
+  "questions": [
+   {
+    "qid": 130,
+    "target_unit": "m/s",
+    "prior": "speed of the big bird = 17.98m/s",
+    "depth_info": ""
+   },
+   {
+    "qid": 131,
+    "target_unit": "m",
+    "prior": "speed of the big bird = 17.98m/s",
+    "depth_info": ""
+   },
+   {
+    "qid": 132,
+    "target_unit": "m",
+    "prior": "speed of the big bird = 17.98m/s",
+    "depth_info": ""
+   },
+   {
+    "qid": 133,
+    "target_unit": "m",
+    "prior": "speed of the big bird = 17.98m/s",
+    "depth_info": ""
+   },
+   {
+    "qid": 134,
+    "target_unit": "m",
+    "prior": "speed of the big bird = 17.98m/s",
+    "depth_info": ""
+   },
+   {
+    "qid": 135,
+    "target_unit": "m",
+    "prior": "speed of the big bird = 17.98m/s",
+    "depth_info": ""
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":130,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"small bird\"],\"dimension\":\"\",\"time\":0.3,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"big bird\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":17.98,\"unit\":\"\"},\"depth\":[],\"notes\":\"Big bird accelerates slightly in the first frames; steady about 53 px/frame afterwards.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"big bird\",\"obs\":[{\"frame\":4,\"point\":[594,246],\"extent\":null,\"box\":[564,187,624,305]},{\"frame\":5,\"point\":[541,246],\"extent\":null,\"box\":[511,180,571,314]},{\"frame\":6,\"point\":[488,246],\"extent\":null,\"box\":[458,176,518,318]},{\"frame\":7,\"point\":[435,246],\"extent\":null,\"box\":[405,176,465,316]},{\"frame\":8,\"point\":[381.5,246],\"extent\":null,\"box\":[352,181,411,308]},{\"frame\":10,\"point\":[274.5,246],\"extent\":null,\"box\":[244,196,305,288]},{\"frame\":12,\"point\":[168,246],\"extent\":null,\"box\":[138,203,198,279]},{\"frame\":14,\"point\":[62,246],\"extent\":null,\"box\":[32,198,92,281]}]},{\"role\":\"target\",\"object\":\"small bird\",\"obs\":[{\"frame\":2,\"point\":[761,245],\"extent\":null,\"box\":[743,211,779,279]},{\"frame\":4,\"point\":[695.5,245],\"extent\":null,\"box\":[677,211,714,279]},{\"frame\":5,\"point\":[663,245],\"extent\":null,\"box\":[645,216,681,274]},{\"frame\":6,\"point\":[630.5,245],\"extent\":null,\"box\":[612,221,649,267]},{\"frame\":7,\"point\":[598,245],\"extent\":null,\"box\":[580,218,616,273]},{\"frame\":8,\"point\":[565.5,245],\"extent\":null,\"box\":[547,216,584,274]},{\"frame\":10,\"point\":[500.5,245],\"extent\":null,\"box\":[482,217,519,275]},{\"frame\":12,\"point\":[435.5,245],\"extent\":null,\"box\":[417,210,454,281]},{\"frame\":14,\"point\":[369.5,245],\"extent\":null,\"box\":[351,215,388,275]},{\"frame\":15,\"point\":[337.5,245],\"extent\":null,\"box\":[319,221,356,267]},{\"frame\":17,\"point\":[272.5,245],\"extent\":null,\"box\":[254,216,291,275]},{\"frame\":19,\"point\":[207.5,245],\"extent\":null,\"box\":[189,216,226,275]},{\"frame\":21,\"point\":[142,245],\"extent\":null,\"box\":[124,210,160,281]},{\"frame\":23,\"point\":[76.5,245],\"extent\":null,\"box\":[58,215,95,275]}]}],\"direct_answer\":11.05,\"confidence\":0.6},{\"qid\":131,\"spec\":{\"target\":{\"kind\":\"distance\",\"objects\":[\"big bird\",\"small bird\"],\"dimension\":\"\",\"time\":0.3,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"big bird\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":17.98,\"unit\":\"\"},\"depth\":[],\"notes\":\"Centre-to-centre distance.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"big bird\",\"obs\":[]},{\"role\":\"target\",\"object\":\"big bird\",\"obs\":[]},{\"role\":\"target2\",\"object\":\"small bird\",\"obs\":[]}],\"direct_answer\":2.36,\"confidence\":0.5},{\"qid\":132,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"big bird\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"big bird\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":17.98,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"big bird\",\"obs\":[]},{\"role\":\"target\",\"object\":\"big bird\",\"obs\":[{\"frame\":5,\"point\":null,\"extent\":[[511,246],[571,246]],\"box\":[511,180,571,314]},{\"frame\":6,\"point\":null,\"extent\":[[458,246],[518,246]],\"box\":[458,176,518,318]},{\"frame\":7,\"point\":null,\"extent\":[[405,246],[465,246]],\"box\":[405,176,465,316]},{\"frame\":8,\"point\":null,\"extent\":[[352,246],[411,246]],\"box\":[352,181,411,308]}]}],\"direct_answer\":0.85,\"confidence\":0.55},{\"qid\":133,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"big bird\"],\"dimension\":\"wingspan\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"big bird\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":17.98,\"unit\":\"\"},\"depth\":[],\"notes\":\"Wings flap; used most extended frames.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"big bird\",\"obs\":[]},{\"role\":\"target\",\"object\":\"big bird\",\"obs\":[{\"frame\":5,\"point\":null,\"extent\":[[537,179],[537,314]],\"box\":[511,179,571,314]},{\"frame\":6,\"point\":null,\"extent\":[[483,176],[483,318]],\"box\":[458,176,518,318]},{\"frame\":7,\"point\":null,\"extent\":[[430,176],[430,316]],\"box\":[405,176,465,316]}]}],\"direct_answer\":1.98,\"confidence\":0.5},{\"qid\":134,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"small bird\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"big bird\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":17.98,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"big bird\",\"obs\":[]},{\"role\":\"target\",\"object\":\"small bird\",\"obs\":[{\"frame\":8,\"point\":null,\"extent\":[[547,245],[584,245]],\"box\":[547,216,584,274]},{\"frame\":10,\"point\":null,\"extent\":[[482,245],[519,245]],\"box\":[482,217,519,275]},{\"frame\":12,\"point\":null,\"extent\":[[417,245],[454,245]],\"box\":[417,210,454,281]},{\"frame\":14,\"point\":null,\"extent\":[[351,245],[388,245]],\"box\":[351,215,388,275]}]}],\"direct_answer\":0.52,\"confidence\":0.5},{\"qid\":135,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"small bird\"],\"dimension\":\"wingspan\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"big bird\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":17.98,\"unit\":\"\"},\"depth\":[],\"notes\":\"Wings flap; used most extended frames.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"big bird\",\"obs\":[]},{\"role\":\"target\",\"object\":\"small bird\",\"obs\":[{\"frame\":2,\"point\":null,\"extent\":[[757,211],[757,279]],\"box\":[743,211,779,279]},{\"frame\":12,\"point\":null,\"extent\":[[430,210],[430,281]],\"box\":[417,210,454,281]},{\"frame\":21,\"point\":null,\"extent\":[[137,210],[137,281]],\"box\":[124,210,160,281]}]}],\"direct_answer\":0.99,\"confidence\":0.5}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 130,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "small bird"
+      ],
+      "dimension": "",
+      "time": 0.3,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "big bird"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 17.98,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Big bird accelerates slightly in the first frames; steady about 53 px/frame afterwards."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "big bird",
+      "obs": [
+       {
+        "frame": 4,
+        "point": [
+         594,
+         246
+        ],
+        "extent": null,
+        "box": [
+         564,
+         187,
+         624,
+         305
+        ]
+       },
+       {
+        "frame": 5,
+        "point": [
+         541,
+         246
+        ],
+        "extent": null,
+        "box": [
+         511,
+         180,
+         571,
+         314
+        ]
+       },
+       {
+        "frame": 6,
+        "point": [
+         488,
+         246
+        ],
+        "extent": null,
+        "box": [
+         458,
+         176,
+         518,
+         318
+        ]
+       },
+       {
+        "frame": 7,
+        "point": [
+         435,
+         246
+        ],
+        "extent": null,
+        "box": [
+         405,
+         176,
+         465,
+         316
+        ]
+       },
+       {
+        "frame": 8,
+        "point": [
+         381.5,
+         246
+        ],
+        "extent": null,
+        "box": [
+         352,
+         181,
+         411,
+         308
+        ]
+       },
+       {
+        "frame": 10,
+        "point": [
+         274.5,
+         246
+        ],
+        "extent": null,
+        "box": [
+         244,
+         196,
+         305,
+         288
+        ]
+       },
+       {
+        "frame": 12,
+        "point": [
+         168,
+         246
+        ],
+        "extent": null,
+        "box": [
+         138,
+         203,
+         198,
+         279
+        ]
+       },
+       {
+        "frame": 14,
+        "point": [
+         62,
+         246
+        ],
+        "extent": null,
+        "box": [
+         32,
+         198,
+         92,
+         281
+        ]
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "small bird",
+      "obs": [
+       {
+        "frame": 2,
+        "point": [
+         761,
+         245
+        ],
+        "extent": null,
+        "box": [
+         743,
+         211,
+         779,
+         279
+        ]
+       },
+       {
+        "frame": 4,
+        "point": [
+         695.5,
+         245
+        ],
+        "extent": null,
+        "box": [
+         677,
+         211,
+         714,
+         279
+        ]
+       },
+       {
+        "frame": 5,
+        "point": [
+         663,
+         245
+        ],
+        "extent": null,
+        "box": [
+         645,
+         216,
+         681,
+         274
+        ]
+       },
+       {
+        "frame": 6,
+        "point": [
+         630.5,
+         245
+        ],
+        "extent": null,
+        "box": [
+         612,
+         221,
+         649,
+         267
+        ]
+       },
+       {
+        "frame": 7,
+        "point": [
+         598,
+         245
+        ],
+        "extent": null,
+        "box": [
+         580,
+         218,
+         616,
+         273
+        ]
+       },
+       {
+        "frame": 8,
+        "point": [
+         565.5,
+         245
+        ],
+        "extent": null,
+        "box": [
+         547,
+         216,
+         584,
+         274
+        ]
+       },
+       {
+        "frame": 10,
+        "point": [
+         500.5,
+         245
+        ],
+        "extent": null,
+        "box": [
+         482,
+         217,
+         519,
+         275
+        ]
+       },
+       {
+        "frame": 12,
+        "point": [
+         435.5,
+         245
+        ],
+        "extent": null,
+        "box": [
+         417,
+         210,
+         454,
+         281
+        ]
+       },
+       {
+        "frame": 14,
+        "point": [
+         369.5,
+         245
+        ],
+        "extent": null,
+        "box": [
+         351,
+         215,
+         388,
+         275
+        ]
+       },
+       {
+        "frame": 15,
+        "point": [
+         337.5,
+         245
+        ],
+        "extent": null,
+        "box": [
+         319,
+         221,
+         356,
+         267
+        ]
+       },
+       {
+        "frame": 17,
+        "point": [
+         272.5,
+         245
+        ],
+        "extent": null,
+        "box": [
+         254,
+         216,
+         291,
+         275
+        ]
+       },
+       {
+        "frame": 19,
+        "point": [
+         207.5,
+         245
+        ],
+        "extent": null,
+        "box": [
+         189,
+         216,
+         226,
+         275
+        ]
+       },
+       {
+        "frame": 21,
+        "point": [
+         142,
+         245
+        ],
+        "extent": null,
+        "box": [
+         124,
+         210,
+         160,
+         281
+        ]
+       },
+       {
+        "frame": 23,
+        "point": [
+         76.5,
+         245
+        ],
+        "extent": null,
+        "box": [
+         58,
+         215,
+         95,
+         275
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 11.05,
+    "confidence": 0.6
+   },
+   {
+    "qid": 131,
+    "spec": {
+     "target": {
+      "kind": "distance",
+      "objects": [
+       "big bird",
+       "small bird"
+      ],
+      "dimension": "",
+      "time": 0.3,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "big bird"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 17.98,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Centre-to-centre distance."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "big bird",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "big bird",
+      "obs": []
+     },
+     {
+      "role": "target2",
+      "object": "small bird",
+      "obs": []
+     }
+    ],
+    "direct_answer": 2.36,
+    "confidence": 0.5
+   },
+   {
+    "qid": 132,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "big bird"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "big bird"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 17.98,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "big bird",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "big bird",
+      "obs": [
+       {
+        "frame": 5,
+        "point": null,
+        "extent": [
+         [
+          511,
+          246
+         ],
+         [
+          571,
+          246
+         ]
+        ],
+        "box": [
+         511,
+         180,
+         571,
+         314
+        ]
+       },
+       {
+        "frame": 6,
+        "point": null,
+        "extent": [
+         [
+          458,
+          246
+         ],
+         [
+          518,
+          246
+         ]
+        ],
+        "box": [
+         458,
+         176,
+         518,
+         318
+        ]
+       },
+       {
+        "frame": 7,
+        "point": null,
+        "extent": [
+         [
+          405,
+          246
+         ],
+         [
+          465,
+          246
+         ]
+        ],
+        "box": [
+         405,
+         176,
+         465,
+         316
+        ]
+       },
+       {
+        "frame": 8,
+        "point": null,
+        "extent": [
+         [
+          352,
+          246
+         ],
+         [
+          411,
+          246
+         ]
+        ],
+        "box": [
+         352,
+         181,
+         411,
+         308
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 0.85,
+    "confidence": 0.55
+   },
+   {
+    "qid": 133,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "big bird"
+      ],
+      "dimension": "wingspan",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "big bird"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 17.98,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Wings flap; used most extended frames."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "big bird",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "big bird",
+      "obs": [
+       {
+        "frame": 5,
+        "point": null,
+        "extent": [
+         [
+          537,
+          179
+         ],
+         [
+          537,
+          314
+         ]
+        ],
+        "box": [
+         511,
+         179,
+         571,
+         314
+        ]
+       },
+       {
+        "frame": 6,
+        "point": null,
+        "extent": [
+         [
+          483,
+          176
+         ],
+         [
+          483,
+          318
+         ]
+        ],
+        "box": [
+         458,
+         176,
+         518,
+         318
+        ]
+       },
+       {
+        "frame": 7,
+        "point": null,
+        "extent": [
+         [
+          430,
+          176
+         ],
+         [
+          430,
+          316
+         ]
+        ],
+        "box": [
+         405,
+         176,
+         465,
+         316
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 1.98,
+    "confidence": 0.5
+   },
+   {
+    "qid": 134,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "small bird"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "big bird"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 17.98,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "big bird",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "small bird",
+      "obs": [
+       {
+        "frame": 8,
+        "point": null,
+        "extent": [
+         [
+          547,
+          245
+         ],
+         [
+          584,
+          245
+         ]
+        ],
+        "box": [
+         547,
+         216,
+         584,
+         274
+        ]
+       },
+       {
+        "frame": 10,
+        "point": null,
+        "extent": [
+         [
+          482,
+          245
+         ],
+         [
+          519,
+          245
+         ]
+        ],
+        "box": [
+         482,
+         217,
+         519,
+         275
+        ]
+       },
+       {
+        "frame": 12,
+        "point": null,
+        "extent": [
+         [
+          417,
+          245
+         ],
+         [
+          454,
+          245
+         ]
+        ],
+        "box": [
+         417,
+         210,
+         454,
+         281
+        ]
+       },
+       {
+        "frame": 14,
+        "point": null,
+        "extent": [
+         [
+          351,
+          245
+         ],
+         [
+          388,
+          245
+         ]
+        ],
+        "box": [
+         351,
+         215,
+         388,
+         275
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 0.52,
+    "confidence": 0.5
+   },
+   {
+    "qid": 135,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "small bird"
+      ],
+      "dimension": "wingspan",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "big bird"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 17.98,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Wings flap; used most extended frames."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "big bird",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "small bird",
+      "obs": [
+       {
+        "frame": 2,
+        "point": null,
+        "extent": [
+         [
+          757,
+          211
+         ],
+         [
+          757,
+          279
+         ]
+        ],
+        "box": [
+         743,
+         211,
+         779,
+         279
+        ]
+       },
+       {
+        "frame": 12,
+        "point": null,
+        "extent": [
+         [
+          430,
+          210
+         ],
+         [
+          430,
+          281
+         ]
+        ],
+        "box": [
+         417,
+         210,
+         454,
+         281
+        ]
+       },
+       {
+        "frame": 21,
+        "point": null,
+        "extent": [
+         [
+          137,
+          210
+         ],
+         [
+          137,
+          281
+         ]
+        ],
+        "box": [
+         124,
+         210,
+         160,
+         281
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 0.99,
+    "confidence": 0.5
+   }
+  ]
+ }
+}

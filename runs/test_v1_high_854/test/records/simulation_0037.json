@@ -1,0 +1,327 @@
+{
+ "video_id": "simulation_0037",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfpxDDJDSnp2aeL4gcHGY",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 854
+ },
+ "ts": "2026-10-08T15:15:59+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_01DkNAs1bZtZ87teBtjSYfVU",
+ "custom_id": "simulation_0037",
+ "usage": {
+  "input_tokens": 20738,
+  "output_tokens": 1182,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 4317,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.053728,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0037",
+  "fps": 24.0,
+  "fps_from_container": false,
+  "video_type": "V3MS",
+  "n_frames_total": 72,
+  "scale": 0.7907407407407407,
+  "image_size": [
+   1080,
+   1080
+  ],
+  "frames": [
+   0,
+   5,
+   9,
+   14,
+   19,
+   22,
+   24,
+   26,
+   28,
+   33,
+   38,
+   43,
+   46,
+   47,
+   48,
+   50,
+   52,
+   57,
+   62,
+   66,
+   71
+  ],
+  "questions": [
+   {
+    "qid": 1153,
+    "target_unit": "m",
+    "prior": "speed of the person = 1.3m/s",
+    "depth_info": "t=1s, distance_human_camera = 122.8569 m\nt=2s, distance_human_camera = 122.8588 m"
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":1153,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"person\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"person\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":1.3,\"unit\":\"\"},\"depth\":[{\"object\":\"person\",\"distance_m\":122.8569,\"time\":1.0},{\"object\":\"person\",\"distance_m\":122.8588,\"time\":2.0}],\"notes\":\"Person walks roughly parallel to the image plane at almost constant depth.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"person\",\"obs\":[{\"frame\":0,\"point\":[631.5,568.0],\"extent\":null,\"box\":[626.0,546.0,638.0,591.0]},{\"frame\":9,\"point\":[641.0,568.0],\"extent\":null,\"box\":null},{\"frame\":19,\"point\":[655.0,568.0],\"extent\":null,\"box\":null},{\"frame\":24,\"point\":[661.0,568.0],\"extent\":null,\"box\":[655.0,547.0,670.0,591.0]},{\"frame\":33,\"point\":[675.0,568.0],\"extent\":null,\"box\":null},{\"frame\":43,\"point\":[686.5,568.0],\"extent\":null,\"box\":null},{\"frame\":48,\"point\":[693.0,568.0],\"extent\":null,\"box\":[687.0,548.0,700.0,593.0]},{\"frame\":57,\"point\":[709.0,568.0],\"extent\":null,\"box\":null},{\"frame\":66,\"point\":[718.5,570.0],\"extent\":null,\"box\":null},{\"frame\":71,\"point\":[727.5,572.0],\"extent\":null,\"box\":[721.0,553.0,736.0,596.0]}]},{\"role\":\"target\",\"object\":\"person\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[632.0,546.0],[632.0,590.5]],\"box\":[626.0,546.0,638.0,591.0]},{\"frame\":24,\"point\":null,\"extent\":[[662.0,547.0],[662.0,590.5]],\"box\":[655.0,547.0,670.0,591.0]},{\"frame\":48,\"point\":null,\"extent\":[[694.0,548.5],[694.0,592.5]],\"box\":[687.0,548.0,700.0,593.0]},{\"frame\":71,\"point\":null,\"extent\":[[728.0,553.0],[728.0,596.0]],\"box\":[721.0,553.0,736.0,596.0]}]}],\"direct_answer\":1.75,\"confidence\":0.5}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 1153,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "person"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "person"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 1.3,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "person",
+       "distance_m": 122.8569,
+       "time": 1.0
+      },
+      {
+       "object": "person",
+       "distance_m": 122.8588,
+       "time": 2.0
+      }
+     ],
+     "notes": "Person walks roughly parallel to the image plane at almost constant depth."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "person",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         631.5,
+         568.0
+        ],
+        "extent": null,
+        "box": [
+         626.0,
+         546.0,
+         638.0,
+         591.0
+        ]
+       },
+       {
+        "frame": 9,
+        "point": [
+         641.0,
+         568.0
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 19,
+        "point": [
+         655.0,
+         568.0
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 24,
+        "point": [
+         661.0,
+         568.0
+        ],
+        "extent": null,
+        "box": [
+         655.0,
+         547.0,
+         670.0,
+         591.0
+        ]
+       },
+       {
+        "frame": 33,
+        "point": [
+         675.0,
+         568.0
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 43,
+        "point": [
+         686.5,
+         568.0
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 48,
+        "point": [
+         693.0,
+         568.0
+        ],
+        "extent": null,
+        "box": [
+         687.0,
+         548.0,
+         700.0,
+         593.0
+        ]
+       },
+       {
+        "frame": 57,
+        "point": [
+         709.0,
+         568.0
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 66,
+        "point": [
+         718.5,
+         570.0
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 71,
+        "point": [
+         727.5,
+         572.0
+        ],
+        "extent": null,
+        "box": [
+         721.0,
+         553.0,
+         736.0,
+         596.0
+        ]
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "person",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          632.0,
+          546.0
+         ],
+         [
+          632.0,
+          590.5
+         ]
+        ],
+        "box": [
+         626.0,
+         546.0,
+         638.0,
+         591.0
+        ]
+       },
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          662.0,
+          547.0
+         ],
+         [
+          662.0,
+          590.5
+         ]
+        ],
+        "box": [
+         655.0,
+         547.0,
+         670.0,
+         591.0
+        ]
+       },
+       {
+        "frame": 48,
+        "point": null,
+        "extent": [
+         [
+          694.0,
+          548.5
+         ],
+         [
+          694.0,
+          592.5
+         ]
+        ],
+        "box": [
+         687.0,
+         548.0,
+         700.0,
+         593.0
+        ]
+       },
+       {
+        "frame": 71,
+        "point": null,
+        "extent": [
+         [
+          728.0,
+          553.0
+         ],
+         [
+          728.0,
+          596.0
+         ]
+        ],
+        "box": [
+         721.0,
+         553.0,
+         736.0,
+         596.0
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 1.75,
+    "confidence": 0.5
+   }
+  ]
+ }
+}

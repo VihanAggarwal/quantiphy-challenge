@@ -1,0 +1,807 @@
+{
+ "video_id": "simulation_0028_segmented",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfptiMnHdixfUSCgp8HYD",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 854
+ },
+ "ts": "2026-10-08T15:16:01+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_019H2AM5rTeiAKLjYQ63FMYc",
+ "custom_id": "simulation_0028_segmented",
+ "usage": {
+  "input_tokens": 22150,
+  "output_tokens": 4727,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 4317,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.092002,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0028_segmented",
+  "fps": 24.0,
+  "fps_from_container": false,
+  "video_type": "S3MX",
+  "n_frames_total": 75,
+  "scale": 0.8895833333333333,
+  "image_size": [
+   960,
+   960
+  ],
+  "frames": [
+   0,
+   5,
+   10,
+   15,
+   20,
+   22,
+   24,
+   25,
+   26,
+   30,
+   35,
+   39,
+   44,
+   46,
+   48,
+   49,
+   50,
+   54,
+   59,
+   64,
+   69,
+   74
+  ],
+  "questions": [
+   {
+    "qid": 1694,
+    "target_unit": "m",
+    "prior": "length of the eagle = 0.8m",
+    "depth_info": "t=1s, distance_eagle_camera = 100.1405m\nt=2s, distance_eagle_camera = 99.5206m"
+   },
+   {
+    "qid": 1695,
+    "target_unit": "m/s",
+    "prior": "length of the eagle = 0.8m",
+    "depth_info": "t=1s, distance_eagle_camera = 100.1405m\nt=2s, distance_eagle_camera = 99.5206m"
+   },
+   {
+    "qid": 1696,
+    "target_unit": "m",
+    "prior": "length of the eagle = 0.8m",
+    "depth_info": "t=1s, distance_eagle_camera = 100.1405m\nt=2s, distance_eagle_camera = 99.5206m"
+   },
+   {
+    "qid": 1697,
+    "target_unit": "m",
+    "prior": "length of the eagle = 0.8m",
+    "depth_info": "t=1s, distance_eagle_camera = 100.1405m\nt=2s, distance_eagle_camera = 99.5206m"
+   },
+   {
+    "qid": 1698,
+    "target_unit": "m",
+    "prior": "length of the eagle = 0.8m",
+    "depth_info": "t=1s, distance_eagle_camera = 100.1405m\nt=2s, distance_eagle_camera = 99.5206m"
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":1694,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"eagle\"],\"dimension\":\"wingspan\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"eagle\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.8,\"unit\":\"\"},\"depth\":[{\"object\":\"eagle\",\"distance_m\":100.1405,\"time\":1.0},{\"object\":\"eagle\",\"distance_m\":99.5206,\"time\":2.0}],\"notes\":\"Eagle is tiny (~20-30 px), so wingspan and length are hard to separate.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"eagle\",\"obs\":[{\"frame\":5,\"point\":null,\"extent\":[[115,210],[136,207]],\"box\":[112,200,139,218]},{\"frame\":15,\"point\":null,\"extent\":[[263,216],[279,228]],\"box\":[261,212,281,233]},{\"frame\":30,\"point\":null,\"extent\":[[487,220],[508,205]],\"box\":[483,202,511,225]}]},{\"role\":\"target\",\"object\":\"eagle wings\",\"obs\":[{\"frame\":25,\"point\":null,\"extent\":[[409,221],[430,187]],\"box\":[407,187,432,223]},{\"frame\":22,\"point\":null,\"extent\":[[366,219],[383,189]],\"box\":[364,189,385,221]},{\"frame\":0,\"point\":null,\"extent\":[[40,210],[60,180]],\"box\":[39,179,62,212]}]}],\"direct_answer\":1.9,\"confidence\":0.25},{\"qid\":1695,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"eagle\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"eagle\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.8,\"unit\":\"\"},\"depth\":[{\"object\":\"eagle\",\"distance_m\":100.1405,\"time\":1.0},{\"object\":\"eagle\",\"distance_m\":99.5206,\"time\":2.0}],\"notes\":\"Eagle becomes hard to see after ~frame 46 against the rock's dark area.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"eagle\",\"obs\":[]},{\"role\":\"target\",\"object\":\"eagle center\",\"obs\":[{\"frame\":0,\"point\":[50,196],\"extent\":null,\"box\":null},{\"frame\":5,\"point\":[125,209],\"extent\":null,\"box\":null},{\"frame\":10,\"point\":[196,225],\"extent\":null,\"box\":null},{\"frame\":15,\"point\":[270,222],\"extent\":null,\"box\":null},{\"frame\":20,\"point\":[345,210],\"extent\":null,\"box\":null},{\"frame\":22,\"point\":[375,206],\"extent\":null,\"box\":null},{\"frame\":24,\"point\":[406,207],\"extent\":null,\"box\":null},{\"frame\":25,\"point\":[421,207],\"extent\":null,\"box\":null},{\"frame\":26,\"point\":[436,208],\"extent\":null,\"box\":null},{\"frame\":30,\"point\":[496,213],\"extent\":null,\"box\":null},{\"frame\":35,\"point\":[568,233],\"extent\":null,\"box\":null},{\"frame\":44,\"point\":[710,222],\"extent\":null,\"box\":null},{\"frame\":46,\"point\":[738,218],\"extent\":null,\"box\":null}]}],\"direct_answer\":13.3,\"confidence\":0.25},{\"qid\":1696,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"rock\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"eagle\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.8,\"unit\":\"\"},\"depth\":[{\"object\":\"eagle\",\"distance_m\":100.1405,\"time\":1.0},{\"object\":\"eagle\",\"distance_m\":99.5206,\"time\":2.0}],\"notes\":\"Rock depth not given; assumed at eagle's depth.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"eagle\",\"obs\":[]},{\"role\":\"target\",\"object\":\"rock\",\"obs\":[{\"frame\":24,\"point\":null,\"extent\":[[292,150],[852,135]],\"box\":[292,22,852,275]},{\"frame\":48,\"point\":null,\"extent\":[[292,150],[852,135]],\"box\":[292,22,852,275]},{\"frame\":74,\"point\":null,\"extent\":[[292,150],[852,135]],\"box\":[292,22,852,275]}]}],\"direct_answer\":20.7,\"confidence\":0.2},{\"qid\":1697,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"rock\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"eagle\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.8,\"unit\":\"\"},\"depth\":[{\"object\":\"eagle\",\"distance_m\":100.1405,\"time\":1.0},{\"object\":\"eagle\",\"distance_m\":99.5206,\"time\":2.0}],\"notes\":\"Rock depth not given; assumed at eagle's depth.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"eagle\",\"obs\":[]},{\"role\":\"target\",\"object\":\"rock\",\"obs\":[{\"frame\":24,\"point\":null,\"extent\":[[540,22],[540,275]],\"box\":[292,22,852,275]},{\"frame\":48,\"point\":null,\"extent\":[[540,22],[540,275]],\"box\":[292,22,852,275]},{\"frame\":74,\"point\":null,\"extent\":[[540,22],[540,275]],\"box\":[292,22,852,275]}]}],\"direct_answer\":9.4,\"confidence\":0.2},{\"qid\":1698,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"rock\"],\"dimension\":\"width\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"eagle\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.8,\"unit\":\"\"},\"depth\":[{\"object\":\"eagle\",\"distance_m\":100.1405,\"time\":1.0},{\"object\":\"eagle\",\"distance_m\":99.5206,\"time\":2.0}],\"notes\":\"Width ambiguous; taken as front-to-back extent of the rock top surface.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"eagle\",\"obs\":[]},{\"role\":\"target\",\"object\":\"rock\",\"obs\":[{\"frame\":24,\"point\":null,\"extent\":[[295,150],[480,22]],\"box\":[292,22,852,275]},{\"frame\":48,\"point\":null,\"extent\":[[295,150],[480,22]],\"box\":[292,22,852,275]},{\"frame\":74,\"point\":null,\"extent\":[[295,150],[480,22]],\"box\":[292,22,852,275]}]}],\"direct_answer\":8.3,\"confidence\":0.1}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 1694,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "eagle"
+      ],
+      "dimension": "wingspan",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "eagle"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.8,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "eagle",
+       "distance_m": 100.1405,
+       "time": 1.0
+      },
+      {
+       "object": "eagle",
+       "distance_m": 99.5206,
+       "time": 2.0
+      }
+     ],
+     "notes": "Eagle is tiny (~20-30 px), so wingspan and length are hard to separate."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "eagle",
+      "obs": [
+       {
+        "frame": 5,
+        "point": null,
+        "extent": [
+         [
+          115,
+          210
+         ],
+         [
+          136,
+          207
+         ]
+        ],
+        "box": [
+         112,
+         200,
+         139,
+         218
+        ]
+       },
+       {
+        "frame": 15,
+        "point": null,
+        "extent": [
+         [
+          263,
+          216
+         ],
+         [
+          279,
+          228
+         ]
+        ],
+        "box": [
+         261,
+         212,
+         281,
+         233
+        ]
+       },
+       {
+        "frame": 30,
+        "point": null,
+        "extent": [
+         [
+          487,
+          220
+         ],
+         [
+          508,
+          205
+         ]
+        ],
+        "box": [
+         483,
+         202,
+         511,
+         225
+        ]
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "eagle wings",
+      "obs": [
+       {
+        "frame": 25,
+        "point": null,
+        "extent": [
+         [
+          409,
+          221
+         ],
+         [
+          430,
+          187
+         ]
+        ],
+        "box": [
+         407,
+         187,
+         432,
+         223
+        ]
+       },
+       {
+        "frame": 22,
+        "point": null,
+        "extent": [
+         [
+          366,
+          219
+         ],
+         [
+          383,
+          189
+         ]
+        ],
+        "box": [
+         364,
+         189,
+         385,
+         221
+        ]
+       },
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          40,
+          210
+         ],
+         [
+          60,
+          180
+         ]
+        ],
+        "box": [
+         39,
+         179,
+         62,
+         212
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 1.9,
+    "confidence": 0.25
+   },
+   {
+    "qid": 1695,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "eagle"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "eagle"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.8,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "eagle",
+       "distance_m": 100.1405,
+       "time": 1.0
+      },
+      {
+       "object": "eagle",
+       "distance_m": 99.5206,
+       "time": 2.0
+      }
+     ],
+     "notes": "Eagle becomes hard to see after ~frame 46 against the rock's dark area."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "eagle",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "eagle center",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         50,
+         196
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 5,
+        "point": [
+         125,
+         209
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 10,
+        "point": [
+         196,
+         225
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 15,
+        "point": [
+         270,
+         222
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 20,
+        "point": [
+         345,
+         210
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 22,
+        "point": [
+         375,
+         206
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 24,
+        "point": [
+         406,
+         207
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 25,
+        "point": [
+         421,
+         207
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 26,
+        "point": [
+         436,
+         208
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 30,
+        "point": [
+         496,
+         213
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 35,
+        "point": [
+         568,
+         233
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 44,
+        "point": [
+         710,
+         222
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 46,
+        "point": [
+         738,
+         218
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     }
+    ],
+    "direct_answer": 13.3,
+    "confidence": 0.25
+   },
+   {
+    "qid": 1696,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "rock"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "eagle"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.8,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "eagle",
+       "distance_m": 100.1405,
+       "time": 1.0
+      },
+      {
+       "object": "eagle",
+       "distance_m": 99.5206,
+       "time": 2.0
+      }
+     ],
+     "notes": "Rock depth not given; assumed at eagle's depth."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "eagle",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "rock",
+      "obs": [
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          292,
+          150
+         ],
+         [
+          852,
+          135
+         ]
+        ],
+        "box": [
+         292,
+         22,
+         852,
+         275
+        ]
+       },
+       {
+        "frame": 48,
+        "point": null,
+        "extent": [
+         [
+          292,
+          150
+         ],
+         [
+          852,
+          135
+         ]
+        ],
+        "box": [
+         292,
+         22,
+         852,
+         275
+        ]
+       },
+       {
+        "frame": 74,
+        "point": null,
+        "extent": [
+         [
+          292,
+          150
+         ],
+         [
+          852,
+          135
+         ]
+        ],
+        "box": [
+         292,
+         22,
+         852,
+         275
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 20.7,
+    "confidence": 0.2
+   },
+   {
+    "qid": 1697,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "rock"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "eagle"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.8,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "eagle",
+       "distance_m": 100.1405,
+       "time": 1.0
+      },
+      {
+       "object": "eagle",
+       "distance_m": 99.5206,
+       "time": 2.0
+      }
+     ],
+     "notes": "Rock depth not given; assumed at eagle's depth."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "eagle",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "rock",
+      "obs": [
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          540,
+          22
+         ],
+         [
+          540,
+          275
+         ]
+        ],
+        "box": [
+         292,
+         22,
+         852,
+         275
+        ]
+       },
+       {
+        "frame": 48,
+        "point": null,
+        "extent": [
+         [
+          540,
+          22
+         ],
+         [
+          540,
+          275
+         ]
+        ],
+        "box": [
+         292,
+         22,
+         852,
+         275
+        ]
+       },
+       {
+        "frame": 74,
+        "point": null,
+        "extent": [
+         [
+          540,
+          22
+         ],
+         [
+          540,
+          275
+         ]
+        ],
+        "box": [
+         292,
+         22,
+         852,
+         275
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 9.4,
+    "confidence": 0.2
+   },
+   {
+    "qid": 1698,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "rock"
+      ],
+      "dimension": "width",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "eagle"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.8,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "eagle",
+       "distance_m": 100.1405,
+       "time": 1.0
+      },
+      {
+       "object": "eagle",
+       "distance_m": 99.5206,
+       "time": 2.0
+      }
+     ],
+     "notes": "Width ambiguous; taken as front-to-back extent of the rock top surface."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "eagle",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "rock",
+      "obs": [
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          295,
+          150
+         ],
+         [
+          480,
+          22
+         ]
+        ],
+        "box": [
+         292,
+         22,
+         852,
+         275
+        ]
+       },
+       {
+        "frame": 48,
+        "point": null,
+        "extent": [
+         [
+          295,
+          150
+         ],
+         [
+          480,
+          22
+         ]
+        ],
+        "box": [
+         292,
+         22,
+         852,
+         275
+        ]
+       },
+       {
+        "frame": 74,
+        "point": null,
+        "extent": [
+         [
+          295,
+          150
+         ],
+         [
+          480,
+          22
+         ]
+        ],
+        "box": [
+         292,
+         22,
+         852,
+         275
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 8.3,
+    "confidence": 0.1
+   }
+  ]
+ }
+}

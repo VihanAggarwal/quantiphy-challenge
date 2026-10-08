@@ -1,0 +1,517 @@
+{
+ "video_id": "simulation_0273",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfpsG4fYwzf7Zf5vyTL7T",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 854
+ },
+ "ts": "2026-10-08T15:15:58+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_01L4QVNYC55xTrBcqdFPwDnN",
+ "custom_id": "simulation_0273",
+ "usage": {
+  "input_tokens": 13569,
+  "output_tokens": 3029,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 4317,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.05786,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0273",
+  "fps": 24.0,
+  "fps_from_container": false,
+  "video_type": "A2SC",
+  "n_frames_total": 72,
+  "scale": 0.33359375,
+  "image_size": [
+   2560,
+   1439
+  ],
+  "frames": [
+   0,
+   5,
+   9,
+   10,
+   12,
+   14,
+   19,
+   22,
+   24,
+   26,
+   28,
+   33,
+   38,
+   43,
+   46,
+   47,
+   48,
+   50,
+   52,
+   57,
+   62,
+   66,
+   71
+  ],
+  "questions": [
+   {
+    "qid": 965,
+    "target_unit": "m",
+    "prior": "acceleration of the phoenix at 2.0s = 2m/s^2",
+    "depth_info": ""
+   },
+   {
+    "qid": 966,
+    "target_unit": "m/s",
+    "prior": "acceleration of the phoenix at 2.0s = 2m/s^2",
+    "depth_info": ""
+   },
+   {
+    "qid": 967,
+    "target_unit": "m/s",
+    "prior": "acceleration of the phoenix at 2.0s = 2m/s^2",
+    "depth_info": ""
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":965,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"phoenix\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"phoenix\"],\"dimension\":\"\",\"time\":2.0,\"window\":null,\"axis\":\"any\",\"value_si\":2.0,\"unit\":\"\"},\"depth\":[],\"notes\":\"Body length taken as beak tip to tail tip; this choice is ambiguous. Acceleration estimated from a quadratic fit of the head x-position.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"phoenix\",\"obs\":[{\"frame\":0,\"point\":[472,222],\"extent\":null,\"box\":null},{\"frame\":5,\"point\":[465,226],\"extent\":null,\"box\":null},{\"frame\":9,\"point\":[455,225],\"extent\":null,\"box\":null},{\"frame\":10,\"point\":[450,225],\"extent\":null,\"box\":null},{\"frame\":12,\"point\":[445,225],\"extent\":null,\"box\":null},{\"frame\":14,\"point\":[442,223],\"extent\":null,\"box\":null},{\"frame\":19,\"point\":[435,220],\"extent\":null,\"box\":null},{\"frame\":22,\"point\":[430,220],\"extent\":null,\"box\":null},{\"frame\":24,\"point\":[427,221],\"extent\":null,\"box\":null},{\"frame\":26,\"point\":[418,222],\"extent\":null,\"box\":null},{\"frame\":28,\"point\":[406,223],\"extent\":null,\"box\":null},{\"frame\":33,\"point\":[375,225],\"extent\":null,\"box\":null},{\"frame\":38,\"point\":[340,222],\"extent\":null,\"box\":null},{\"frame\":43,\"point\":[311,218],\"extent\":null,\"box\":null},{\"frame\":46,\"point\":[296,222],\"extent\":null,\"box\":null},{\"frame\":47,\"point\":[290,220],\"extent\":null,\"box\":null},{\"frame\":48,\"point\":[284,218],\"extent\":null,\"box\":null},{\"frame\":50,\"point\":[268,220],\"extent\":null,\"box\":null},{\"frame\":52,\"point\":[250,223],\"extent\":null,\"box\":null},{\"frame\":57,\"point\":[200,227],\"extent\":null,\"box\":null},{\"frame\":62,\"point\":[143,224],\"extent\":null,\"box\":null},{\"frame\":66,\"point\":[102,222],\"extent\":null,\"box\":null},{\"frame\":71,\"point\":[55,218],\"extent\":null,\"box\":null}]},{\"role\":\"target\",\"object\":\"phoenix\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[472,222],[665,190]],\"box\":[470,128,667,258]},{\"frame\":5,\"point\":null,\"extent\":[[465,226],[670,237]],\"box\":[463,140,672,265]},{\"frame\":33,\"point\":null,\"extent\":[[375,225],[570,250]],\"box\":[373,162,572,265]},{\"frame\":28,\"point\":null,\"extent\":[[406,223],[610,215]],\"box\":[404,128,612,265]}]}],\"direct_answer\":4.1,\"confidence\":0.3},{\"qid\":966,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"phoenix\"],\"dimension\":\"\",\"time\":0.5,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"phoenix\"],\"dimension\":\"\",\"time\":2.0,\"window\":null,\"axis\":\"any\",\"value_si\":2.0,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"phoenix\",\"obs\":[]},{\"role\":\"target\",\"object\":\"phoenix\",\"obs\":[]}],\"direct_answer\":0.92,\"confidence\":0.35},{\"qid\":967,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"phoenix\"],\"dimension\":\"\",\"time\":1.0,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"phoenix\"],\"dimension\":\"\",\"time\":2.0,\"window\":null,\"axis\":\"any\",\"value_si\":2.0,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"phoenix\",\"obs\":[]},{\"role\":\"target\",\"object\":\"phoenix\",\"obs\":[]}],\"direct_answer\":1.92,\"confidence\":0.4}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 965,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "phoenix"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "phoenix"
+      ],
+      "dimension": "",
+      "time": 2.0,
+      "window": null,
+      "axis": "any",
+      "value_si": 2.0,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Body length taken as beak tip to tail tip; this choice is ambiguous. Acceleration estimated from a quadratic fit of the head x-position."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "phoenix",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         472,
+         222
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 5,
+        "point": [
+         465,
+         226
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 9,
+        "point": [
+         455,
+         225
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 10,
+        "point": [
+         450,
+         225
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 12,
+        "point": [
+         445,
+         225
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 14,
+        "point": [
+         442,
+         223
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 19,
+        "point": [
+         435,
+         220
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 22,
+        "point": [
+         430,
+         220
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 24,
+        "point": [
+         427,
+         221
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 26,
+        "point": [
+         418,
+         222
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 28,
+        "point": [
+         406,
+         223
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 33,
+        "point": [
+         375,
+         225
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 38,
+        "point": [
+         340,
+         222
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 43,
+        "point": [
+         311,
+         218
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 46,
+        "point": [
+         296,
+         222
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 47,
+        "point": [
+         290,
+         220
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 48,
+        "point": [
+         284,
+         218
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 50,
+        "point": [
+         268,
+         220
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 52,
+        "point": [
+         250,
+         223
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 57,
+        "point": [
+         200,
+         227
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 62,
+        "point": [
+         143,
+         224
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 66,
+        "point": [
+         102,
+         222
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 71,
+        "point": [
+         55,
+         218
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "phoenix",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          472,
+          222
+         ],
+         [
+          665,
+          190
+         ]
+        ],
+        "box": [
+         470,
+         128,
+         667,
+         258
+        ]
+       },
+       {
+        "frame": 5,
+        "point": null,
+        "extent": [
+         [
+          465,
+          226
+         ],
+         [
+          670,
+          237
+         ]
+        ],
+        "box": [
+         463,
+         140,
+         672,
+         265
+        ]
+       },
+       {
+        "frame": 33,
+        "point": null,
+        "extent": [
+         [
+          375,
+          225
+         ],
+         [
+          570,
+          250
+         ]
+        ],
+        "box": [
+         373,
+         162,
+         572,
+         265
+        ]
+       },
+       {
+        "frame": 28,
+        "point": null,
+        "extent": [
+         [
+          406,
+          223
+         ],
+         [
+          610,
+          215
+         ]
+        ],
+        "box": [
+         404,
+         128,
+         612,
+         265
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 4.1,
+    "confidence": 0.3
+   },
+   {
+    "qid": 966,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "phoenix"
+      ],
+      "dimension": "",
+      "time": 0.5,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "phoenix"
+      ],
+      "dimension": "",
+      "time": 2.0,
+      "window": null,
+      "axis": "any",
+      "value_si": 2.0,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "phoenix",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "phoenix",
+      "obs": []
+     }
+    ],
+    "direct_answer": 0.92,
+    "confidence": 0.35
+   },
+   {
+    "qid": 967,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "phoenix"
+      ],
+      "dimension": "",
+      "time": 1.0,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "phoenix"
+      ],
+      "dimension": "",
+      "time": 2.0,
+      "window": null,
+      "axis": "any",
+      "value_si": 2.0,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "phoenix",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "phoenix",
+      "obs": []
+     }
+    ],
+    "direct_answer": 1.92,
+    "confidence": 0.4
+   }
+  ]
+ }
+}

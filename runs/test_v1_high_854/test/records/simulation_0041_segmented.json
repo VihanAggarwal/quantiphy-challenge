@@ -1,0 +1,751 @@
+{
+ "video_id": "simulation_0041_segmented",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfpqAaiRSPDER3SMH2RJH",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 854
+ },
+ "ts": "2026-10-08T15:16:01+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_019H2AM5rTeiAKLjYQ63FMYc",
+ "custom_id": "simulation_0041_segmented",
+ "usage": {
+  "input_tokens": 16050,
+  "output_tokens": 2926,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 4317,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.061792,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0041_segmented",
+  "fps": 24.0,
+  "fps_from_container": false,
+  "video_type": "S2MX",
+  "n_frames_total": 72,
+  "scale": 0.7907407407407407,
+  "image_size": [
+   1080,
+   1080
+  ],
+  "frames": [
+   0,
+   5,
+   9,
+   14,
+   19,
+   24,
+   28,
+   33,
+   38,
+   43,
+   47,
+   52,
+   57,
+   62,
+   66,
+   71
+  ],
+  "questions": [
+   {
+    "qid": 1744,
+    "target_unit": "m",
+    "prior": "height of the person = 1.75m",
+    "depth_info": ""
+   },
+   {
+    "qid": 1745,
+    "target_unit": "m",
+    "prior": "height of the person = 1.75m",
+    "depth_info": ""
+   },
+   {
+    "qid": 1746,
+    "target_unit": "m",
+    "prior": "height of the person = 1.75m",
+    "depth_info": ""
+   },
+   {
+    "qid": 1747,
+    "target_unit": "m/s",
+    "prior": "height of the person = 1.75m",
+    "depth_info": ""
+   },
+   {
+    "qid": 1748,
+    "target_unit": "m/s",
+    "prior": "height of the person = 1.75m",
+    "depth_info": ""
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":1744,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"boat\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"person\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":1.75,\"unit\":\"\"},\"depth\":[],\"notes\":\"Oblique top-down view; boat height taken from mast top to hull bottom below the mast.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"person\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[284,290],[285,323]],\"box\":[276,290,292,323]},{\"frame\":24,\"point\":null,\"extent\":[[285,318],[286,357]],\"box\":[278,318,294,357]},{\"frame\":57,\"point\":null,\"extent\":[[288,357],[288,395]],\"box\":[280,357,296,395]},{\"frame\":71,\"point\":null,\"extent\":[[289,375],[293,411]],\"box\":[281,375,298,411]}]},{\"role\":\"target\",\"object\":\"boat\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[392,665],[390,825]],\"box\":[274,665,541,850]},{\"frame\":24,\"point\":null,\"extent\":[[287,636],[285,797]],\"box\":[172,636,436,820]},{\"frame\":47,\"point\":null,\"extent\":[[180,607],[178,768]],\"box\":[70,607,334,792]}]}],\"direct_answer\":8.5,\"confidence\":0.3},{\"qid\":1745,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"boat\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"person\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":1.75,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"person\",\"obs\":[]},{\"role\":\"target\",\"object\":\"boat\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[275,730],[540,832]],\"box\":[274,665,541,850]},{\"frame\":24,\"point\":null,\"extent\":[[173,700],[435,805]],\"box\":[172,636,436,820]},{\"frame\":47,\"point\":null,\"extent\":[[71,672],[334,775]],\"box\":[70,607,334,792]}]}],\"direct_answer\":15.0,\"confidence\":0.35},{\"qid\":1746,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"boat\"],\"dimension\":\"width\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"person\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":1.75,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"person\",\"obs\":[]},{\"role\":\"target\",\"object\":\"boat\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[460,752],[430,832]],\"box\":[274,665,541,850]},{\"frame\":24,\"point\":null,\"extent\":[[356,723],[326,803]],\"box\":[172,636,436,820]},{\"frame\":47,\"point\":null,\"extent\":[[254,695],[224,775]],\"box\":[70,607,334,792]}]}],\"direct_answer\":4.5,\"confidence\":0.25},{\"qid\":1747,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"boat\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"person\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":1.75,\"unit\":\"\"},\"depth\":[],\"notes\":\"Reference point: mast top.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"person\",\"obs\":[]},{\"role\":\"target\",\"object\":\"boat\",\"obs\":[{\"frame\":0,\"point\":[392,665],\"extent\":null,\"box\":null},{\"frame\":9,\"point\":[355,656],\"extent\":null,\"box\":null},{\"frame\":19,\"point\":[310,643],\"extent\":null,\"box\":null},{\"frame\":28,\"point\":[268,632],\"extent\":null,\"box\":null},{\"frame\":38,\"point\":[222,620],\"extent\":null,\"box\":null},{\"frame\":47,\"point\":[180,607],\"extent\":null,\"box\":null},{\"frame\":57,\"point\":[135,596],\"extent\":null,\"box\":null},{\"frame\":66,\"point\":[95,584],\"extent\":null,\"box\":null},{\"frame\":71,\"point\":[70,578],\"extent\":null,\"box\":null}]}],\"direct_answer\":5.9,\"confidence\":0.4},{\"qid\":1748,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"person\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"person\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":1.75,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"person\",\"obs\":[]},{\"role\":\"target\",\"object\":\"person\",\"obs\":[{\"frame\":0,\"point\":[284,305],\"extent\":null,\"box\":null},{\"frame\":9,\"point\":[284,318],\"extent\":null,\"box\":null},{\"frame\":19,\"point\":[285,328],\"extent\":null,\"box\":null},{\"frame\":28,\"point\":[285,340],\"extent\":null,\"box\":null},{\"frame\":38,\"point\":[286,352],\"extent\":null,\"box\":null},{\"frame\":47,\"point\":[287,361],\"extent\":null,\"box\":null},{\"frame\":57,\"point\":[288,375],\"extent\":null,\"box\":null},{\"frame\":66,\"point\":[289,384],\"extent\":null,\"box\":null},{\"frame\":71,\"point\":[289,392],\"extent\":null,\"box\":null}]}],\"direct_answer\":1.54,\"confidence\":0.4}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 1744,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "boat"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "person"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": 1.75,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Oblique top-down view; boat height taken from mast top to hull bottom below the mast."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "person",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          284,
+          290
+         ],
+         [
+          285,
+          323
+         ]
+        ],
+        "box": [
+         276,
+         290,
+         292,
+         323
+        ]
+       },
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          285,
+          318
+         ],
+         [
+          286,
+          357
+         ]
+        ],
+        "box": [
+         278,
+         318,
+         294,
+         357
+        ]
+       },
+       {
+        "frame": 57,
+        "point": null,
+        "extent": [
+         [
+          288,
+          357
+         ],
+         [
+          288,
+          395
+         ]
+        ],
+        "box": [
+         280,
+         357,
+         296,
+         395
+        ]
+       },
+       {
+        "frame": 71,
+        "point": null,
+        "extent": [
+         [
+          289,
+          375
+         ],
+         [
+          293,
+          411
+         ]
+        ],
+        "box": [
+         281,
+         375,
+         298,
+         411
+        ]
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "boat",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          392,
+          665
+         ],
+         [
+          390,
+          825
+         ]
+        ],
+        "box": [
+         274,
+         665,
+         541,
+         850
+        ]
+       },
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          287,
+          636
+         ],
+         [
+          285,
+          797
+         ]
+        ],
+        "box": [
+         172,
+         636,
+         436,
+         820
+        ]
+       },
+       {
+        "frame": 47,
+        "point": null,
+        "extent": [
+         [
+          180,
+          607
+         ],
+         [
+          178,
+          768
+         ]
+        ],
+        "box": [
+         70,
+         607,
+         334,
+         792
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 8.5,
+    "confidence": 0.3
+   },
+   {
+    "qid": 1745,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "boat"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "person"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": 1.75,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "person",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "boat",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          275,
+          730
+         ],
+         [
+          540,
+          832
+         ]
+        ],
+        "box": [
+         274,
+         665,
+         541,
+         850
+        ]
+       },
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          173,
+          700
+         ],
+         [
+          435,
+          805
+         ]
+        ],
+        "box": [
+         172,
+         636,
+         436,
+         820
+        ]
+       },
+       {
+        "frame": 47,
+        "point": null,
+        "extent": [
+         [
+          71,
+          672
+         ],
+         [
+          334,
+          775
+         ]
+        ],
+        "box": [
+         70,
+         607,
+         334,
+         792
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 15.0,
+    "confidence": 0.35
+   },
+   {
+    "qid": 1746,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "boat"
+      ],
+      "dimension": "width",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "person"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": 1.75,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "person",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "boat",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          460,
+          752
+         ],
+         [
+          430,
+          832
+         ]
+        ],
+        "box": [
+         274,
+         665,
+         541,
+         850
+        ]
+       },
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          356,
+          723
+         ],
+         [
+          326,
+          803
+         ]
+        ],
+        "box": [
+         172,
+         636,
+         436,
+         820
+        ]
+       },
+       {
+        "frame": 47,
+        "point": null,
+        "extent": [
+         [
+          254,
+          695
+         ],
+         [
+          224,
+          775
+         ]
+        ],
+        "box": [
+         70,
+         607,
+         334,
+         792
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 4.5,
+    "confidence": 0.25
+   },
+   {
+    "qid": 1747,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "boat"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "person"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": 1.75,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Reference point: mast top."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "person",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "boat",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         392,
+         665
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 9,
+        "point": [
+         355,
+         656
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 19,
+        "point": [
+         310,
+         643
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 28,
+        "point": [
+         268,
+         632
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 38,
+        "point": [
+         222,
+         620
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 47,
+        "point": [
+         180,
+         607
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 57,
+        "point": [
+         135,
+         596
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 66,
+        "point": [
+         95,
+         584
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 71,
+        "point": [
+         70,
+         578
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     }
+    ],
+    "direct_answer": 5.9,
+    "confidence": 0.4
+   },
+   {
+    "qid": 1748,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "person"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "person"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": 1.75,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "person",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "person",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         284,
+         305
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 9,
+        "point": [
+         284,
+         318
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 19,
+        "point": [
+         285,
+         328
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 28,
+        "point": [
+         285,
+         340
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 38,
+        "point": [
+         286,
+         352
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 47,
+        "point": [
+         287,
+         361
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 57,
+        "point": [
+         288,
+         375
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 66,
+        "point": [
+         289,
+         384
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 71,
+        "point": [
+         289,
+         392
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     }
+    ],
+    "direct_answer": 1.54,
+    "confidence": 0.4
+   }
+  ]
+ }
+}

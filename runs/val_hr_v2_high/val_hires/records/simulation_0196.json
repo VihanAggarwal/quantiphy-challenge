@@ -1,0 +1,670 @@
+{
+ "video_id": "simulation_0196",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfpkBp3oGT3QcnTVhbF7j",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 44,
+  "prompt_version": "v2",
+  "max_side": 1280
+ },
+ "ts": "2026-10-08T14:57:41+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_01QVJSUgM91Z4TfZerDYigxe",
+ "custom_id": "simulation_0196",
+ "usage": {
+  "input_tokens": 94287,
+  "output_tokens": 3144,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 5593,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.220573,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0196",
+  "fps": 30.0,
+  "fps_from_container": false,
+  "video_type": "V2MS",
+  "n_frames_total": 50,
+  "scale": 0.5,
+  "image_size": [
+   2560,
+   2560
+  ],
+  "frames": [
+   0,
+   1,
+   2,
+   3,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   13,
+   15,
+   16,
+   17,
+   18,
+   19,
+   20,
+   21,
+   22,
+   23,
+   24,
+   25,
+   26,
+   27,
+   28,
+   29,
+   30,
+   31,
+   32,
+   33,
+   34,
+   36,
+   38,
+   39,
+   40,
+   41,
+   42,
+   43,
+   44,
+   46,
+   47,
+   48,
+   49
+  ],
+  "questions": [
+   {
+    "qid": 513,
+    "target_unit": "m",
+    "prior": "speed of the bubble in the drop = 0.00144 m/s",
+    "depth_info": ""
+   },
+   {
+    "qid": 514,
+    "target_unit": "m",
+    "prior": "speed of the bubble in the drop = 0.00144 m/s",
+    "depth_info": ""
+   },
+   {
+    "qid": 515,
+    "target_unit": "m",
+    "prior": "speed of the bubble in the drop = 0.00144 m/s",
+    "depth_info": ""
+   },
+   {
+    "qid": 516,
+    "target_unit": "m",
+    "prior": "speed of the bubble in the drop = 0.00144 m/s",
+    "depth_info": ""
+   }
+  ],
+  "prompt_version": "v2"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":513,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"plunge tube\"],\"dimension\":\"diameter\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"bubble in the drop\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.00144,\"unit\":\"\"},\"depth\":[],\"notes\":\"Plunge tube taken as the main glass pipette tube; diameter measured perpendicular to its tilted axis. Bubble is faint, so its track is approximate.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"bubble\",\"obs\":[{\"frame\":20,\"point\":[325,486],\"extent\":null,\"box\":[319,480,331,492]},{\"frame\":24,\"point\":[326,492],\"extent\":null,\"box\":[320,486,332,498]},{\"frame\":28,\"point\":[326,498],\"extent\":null,\"box\":[320,492,332,504]},{\"frame\":32,\"point\":[327,505],\"extent\":null,\"box\":[321,499,333,511]},{\"frame\":36,\"point\":[327,512],\"extent\":null,\"box\":[321,506,333,518]},{\"frame\":40,\"point\":[327,518],\"extent\":null,\"box\":[321,512,333,524]},{\"frame\":44,\"point\":[327,524],\"extent\":null,\"box\":[321,518,333,530]},{\"frame\":49,\"point\":[327,531],\"extent\":null,\"box\":[321,525,333,537]}],\"depth_name\":\"\",\"range_m\":null,\"range_basis\":\"\"},{\"role\":\"target\",\"object\":\"plunge tube\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[650,128],[695,223]],\"box\":null},{\"frame\":24,\"point\":null,\"extent\":[[650,128],[695,223]],\"box\":null},{\"frame\":49,\"point\":null,\"extent\":[[650,128],[695,223]],\"box\":null}],\"depth_name\":\"\",\"range_m\":null,\"range_basis\":\"\"}],\"direct_answer\":0.0033,\"confidence\":0.25,\"derivation\":\"bubble ~45 px in 0.967 s -> 46.5 px/s; scale 3.1e-5 m/px; tube perpendicular width ~105 px -> 0.0033 m\"},{\"qid\":514,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"droplet\"],\"dimension\":\"width\",\"time\":null,\"window\":null,\"axis\":\"horizontal\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"bubble in the drop\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.00144,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"bubble\",\"obs\":[],\"depth_name\":\"\",\"range_m\":null,\"range_basis\":\"\"},{\"role\":\"target\",\"object\":\"droplet\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[289,545],[364,545]],\"box\":[289,440,364,577]},{\"frame\":24,\"point\":null,\"extent\":[[289,545],[364,545]],\"box\":[289,440,364,577]},{\"frame\":49,\"point\":null,\"extent\":[[289,545],[364,545]],\"box\":[289,440,364,577]}],\"depth_name\":\"\",\"range_m\":null,\"range_basis\":\"\"}],\"direct_answer\":0.00233,\"confidence\":0.3,\"derivation\":\"scale 3.1e-5 m/px; drop width 75 px -> 0.00233 m\"},{\"qid\":515,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"skynova text\"],\"dimension\":\"width\",\"time\":null,\"window\":null,\"axis\":\"horizontal\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"bubble in the drop\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.00144,\"unit\":\"\"},\"depth\":[],\"notes\":\"Text is rotated vertically; horizontal width = letter height.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"bubble\",\"obs\":[],\"depth_name\":\"\",\"range_m\":null,\"range_basis\":\"\"},{\"role\":\"target\",\"object\":\"skynova text\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[935,860],[990,860]],\"box\":[935,545,990,1175]},{\"frame\":24,\"point\":null,\"extent\":[[935,860],[990,860]],\"box\":[935,545,990,1175]},{\"frame\":49,\"point\":null,\"extent\":[[935,860],[990,860]],\"box\":[935,545,990,1175]}],\"depth_name\":\"\",\"range_m\":null,\"range_basis\":\"\"}],\"direct_answer\":0.0017,\"confidence\":0.3,\"derivation\":\"scale 3.1e-5 m/px; text width 55 px -> 0.0017 m\"},{\"qid\":516,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"skynova text\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"bubble in the drop\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.00144,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"bubble\",\"obs\":[],\"depth_name\":\"\",\"range_m\":null,\"range_basis\":\"\"},{\"role\":\"target\",\"object\":\"skynova text\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[962,545],[962,1175]],\"box\":[935,545,990,1175]},{\"frame\":24,\"point\":null,\"extent\":[[962,545],[962,1175]],\"box\":[935,545,990,1175]},{\"frame\":49,\"point\":null,\"extent\":[[962,545],[962,1175]],\"box\":[935,545,990,1175]}],\"depth_name\":\"\",\"range_m\":null,\"range_basis\":\"\"}],\"direct_answer\":0.0196,\"confidence\":0.3,\"derivation\":\"scale 3.1e-5 m/px; text height 630 px -> 0.0196 m\"}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 513,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "plunge tube"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "bubble in the drop"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.00144,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Plunge tube taken as the main glass pipette tube; diameter measured perpendicular to its tilted axis. Bubble is faint, so its track is approximate."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "bubble",
+      "obs": [
+       {
+        "frame": 20,
+        "point": [
+         325,
+         486
+        ],
+        "extent": null,
+        "box": [
+         319,
+         480,
+         331,
+         492
+        ]
+       },
+       {
+        "frame": 24,
+        "point": [
+         326,
+         492
+        ],
+        "extent": null,
+        "box": [
+         320,
+         486,
+         332,
+         498
+        ]
+       },
+       {
+        "frame": 28,
+        "point": [
+         326,
+         498
+        ],
+        "extent": null,
+        "box": [
+         320,
+         492,
+         332,
+         504
+        ]
+       },
+       {
+        "frame": 32,
+        "point": [
+         327,
+         505
+        ],
+        "extent": null,
+        "box": [
+         321,
+         499,
+         333,
+         511
+        ]
+       },
+       {
+        "frame": 36,
+        "point": [
+         327,
+         512
+        ],
+        "extent": null,
+        "box": [
+         321,
+         506,
+         333,
+         518
+        ]
+       },
+       {
+        "frame": 40,
+        "point": [
+         327,
+         518
+        ],
+        "extent": null,
+        "box": [
+         321,
+         512,
+         333,
+         524
+        ]
+       },
+       {
+        "frame": 44,
+        "point": [
+         327,
+         524
+        ],
+        "extent": null,
+        "box": [
+         321,
+         518,
+         333,
+         530
+        ]
+       },
+       {
+        "frame": 49,
+        "point": [
+         327,
+         531
+        ],
+        "extent": null,
+        "box": [
+         321,
+         525,
+         333,
+         537
+        ]
+       }
+      ],
+      "depth_name": "",
+      "range_m": null,
+      "range_basis": ""
+     },
+     {
+      "role": "target",
+      "object": "plunge tube",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          650,
+          128
+         ],
+         [
+          695,
+          223
+         ]
+        ],
+        "box": null
+       },
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          650,
+          128
+         ],
+         [
+          695,
+          223
+         ]
+        ],
+        "box": null
+       },
+       {
+        "frame": 49,
+        "point": null,
+        "extent": [
+         [
+          650,
+          128
+         ],
+         [
+          695,
+          223
+         ]
+        ],
+        "box": null
+       }
+      ],
+      "depth_name": "",
+      "range_m": null,
+      "range_basis": ""
+     }
+    ],
+    "direct_answer": 0.0033,
+    "confidence": 0.25,
+    "derivation": "bubble ~45 px in 0.967 s -> 46.5 px/s; scale 3.1e-5 m/px; tube perpendicular width ~105 px -> 0.0033 m"
+   },
+   {
+    "qid": 514,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "droplet"
+      ],
+      "dimension": "width",
+      "time": null,
+      "window": null,
+      "axis": "horizontal",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "bubble in the drop"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.00144,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "bubble",
+      "obs": [],
+      "depth_name": "",
+      "range_m": null,
+      "range_basis": ""
+     },
+     {
+      "role": "target",
+      "object": "droplet",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          289,
+          545
+         ],
+         [
+          364,
+          545
+         ]
+        ],
+        "box": [
+         289,
+         440,
+         364,
+         577
+        ]
+       },
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          289,
+          545
+         ],
+         [
+          364,
+          545
+         ]
+        ],
+        "box": [
+         289,
+         440,
+         364,
+         577
+        ]
+       },
+       {
+        "frame": 49,
+        "point": null,
+        "extent": [
+         [
+          289,
+          545
+         ],
+         [
+          364,
+          545
+         ]
+        ],
+        "box": [
+         289,
+         440,
+         364,
+         577
+        ]
+       }
+      ],
+      "depth_name": "",
+      "range_m": null,
+      "range_basis": ""
+     }
+    ],
+    "direct_answer": 0.00233,
+    "confidence": 0.3,
+    "derivation": "scale 3.1e-5 m/px; drop width 75 px -> 0.00233 m"
+   },
+   {
+    "qid": 515,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "skynova text"
+      ],
+      "dimension": "width",
+      "time": null,
+      "window": null,
+      "axis": "horizontal",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "bubble in the drop"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.00144,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Text is rotated vertically; horizontal width = letter height."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "bubble",
+      "obs": [],
+      "depth_name": "",
+      "range_m": null,
+      "range_basis": ""
+     },
+     {
+      "role": "target",
+      "object": "skynova text",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          935,
+          860
+         ],
+         [
+          990,
+          860
+         ]
+        ],
+        "box": [
+         935,
+         545,
+         990,
+         1175
+        ]
+       },
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          935,
+          860
+         ],
+         [
+          990,
+          860
+         ]
+        ],
+        "box": [
+         935,
+         545,
+         990,
+         1175
+        ]
+       },
+       {
+        "frame": 49,
+        "point": null,
+        "extent": [
+         [
+          935,
+          860
+         ],
+         [
+          990,
+          860
+         ]
+        ],
+        "box": [
+         935,
+         545,
+         990,
+         1175
+        ]
+       }
+      ],
+      "depth_name": "",
+      "range_m": null,
+      "range_basis": ""
+     }
+    ],
+    "direct_answer": 0.0017,
+    "confidence": 0.3,
+    "derivation": "scale 3.1e-5 m/px; text width 55 px -> 0.0017 m"
+   },
+   {
+    "qid": 516,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "skynova text"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "bubble in the drop"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.00144,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "bubble",
+      "obs": [],
+      "depth_name": "",
+      "range_m": null,
+      "range_basis": ""
+     },
+     {
+      "role": "target",
+      "object": "skynova text",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          962,
+          545
+         ],
+         [
+          962,
+          1175
+         ]
+        ],
+        "box": [
+         935,
+         545,
+         990,
+         1175
+        ]
+       },
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          962,
+          545
+         ],
+         [
+          962,
+          1175
+         ]
+        ],
+        "box": [
+         935,
+         545,
+         990,
+         1175
+        ]
+       },
+       {
+        "frame": 49,
+        "point": null,
+        "extent": [
+         [
+          962,
+          545
+         ],
+         [
+          962,
+          1175
+         ]
+        ],
+        "box": [
+         935,
+         545,
+         990,
+         1175
+        ]
+       }
+      ],
+      "depth_name": "",
+      "range_m": null,
+      "range_basis": ""
+     }
+    ],
+    "direct_answer": 0.0196,
+    "confidence": 0.3,
+    "derivation": "scale 3.1e-5 m/px; text height 630 px -> 0.0196 m"
+   }
+  ]
+ }
+}

@@ -63,7 +63,8 @@ GEO_MAX_SI = combine.GEO_MAX_SI       # m, m/s, m/s^2: a geometry answer beyond 
 MAX_DISAGREE = combine.MAX_DISAGREE   # geometry this many times off the direct answer: use the direct one
 REFINE_PRIORS = True                   # refine motion-prior tracks with optical flow (qp.refine)
 DENSE_CHOICES = ("off", "motion", "size", "both")   # qp.dense_track post-step (post_steps; --dense)
-DENSE_DEFAULT = "off"                  # --dense default (docs/TRACK_A.md has the evaluation behind it)
+DENSE_DEFAULT = "motion"               # --dense default: the variant that met docs/TRACK_A.md's criterion
+                                       # (val 480p and simulated full-res runs); "off" = annotator's tracks only
 LAB_FOV_DEG = ca.LAB_FOV_DEG             # horizontal FOV of the lab camera (all video_source "lab" clips):
                                        # a prior on f for qp.geometry (GT-implied 76-90 deg on 6 val videos)
 
@@ -499,34 +500,62 @@ def submit(client, groups, vids: list[str], cfg, state_path: Path, state: dict, 
     return sent
 
 
+def poll_and_collect(client, entry: dict, cfg, rec_dir: Path, state_path: Path, state: dict,
+                     split_groups: dict | None = None) -> bool:
+    """Check a batch once; collect it (and release its budget hold) if it has ended. True if collected."""
+    b = client.messages.batches.retrieve(entry["id"])
+    rc = b.request_counts
+    if b.processing_status != "ended":
+        print(f"  batch {entry['id']}: {b.processing_status} (processing {rc.processing}, "
+              f"succeeded {rc.succeeded}, errored {rc.errored}, expired {rc.expired}, canceled {rc.canceled})")
+        return False
+    collect(client, entry, cfg, rec_dir, split_groups)
+    entry["collected"] = True
+    save_state(state_path, state)
+    if entry["id"] in budget.open_holds():
+        budget.release(entry["id"])
+    print(f"  batch {entry['id']}: ended, collected (succeeded {rc.succeeded}, errored {rc.errored}, "
+          f"expired {rc.expired}, canceled {rc.canceled})")
+    return True
+
+
 def run_batch(client, groups, split_groups, cfg, out_dir: Path, rec_dir: Path, state: dict, skip=()) -> None:
     """Collect pending batches, submit what fits, wait, repeat until every video is done or the
     budget / --no-wait stops it (a rerun resumes from batch.json and the ledger)."""
     state_path = out_dir / "batch.json"
     attempted = set(skip)
+    try_submit = True
     while True:
+        # check every uncollected batch each cycle: one slow batch must not block collecting the
+        # others (and releasing their budget holds, which lets the next chunks be submitted)
         pending = [e for e in state["batches"] if not e.get("collected")]
         if pending:
             print(f"{len(pending)} uncollected batch(es)")
-        for e in pending:
-            if not wait_and_collect(client, e, cfg, rec_dir, state_path, state, split_groups):
-                print("still running; rerun later to collect")
+        collected = sum(poll_and_collect(client, e, cfg, rec_dir, state_path, state, split_groups) for e in pending)
+        sent = []
+        if try_submit or collected:
+            records = load_records(rec_dir)
+            todo = todo_videos(groups, records, cfg.retry_failed, skip=attempted | pending_videos(state))
+            if todo:
+                est = estimate(client, groups, todo, cfg, records)
+                if not guard(est, cfg):
+                    return
+                try:
+                    sent = submit(client, groups, est["todo"], cfg, state_path, state, est)
+                except budget.BudgetExceeded as e:
+                    print(f"stopped submitting: {e}")
+                attempted.update(sent)
+            elif not any(not e.get("collected") for e in state["batches"]):
                 return
-        records = load_records(rec_dir)
-        todo = todo_videos(groups, records, cfg.retry_failed, skip=attempted)
-        if not todo:
+            try_submit = False
+        still = [e for e in state["batches"] if not e.get("collected")]
+        if not still and not sent:
             return
-        est = estimate(client, groups, todo, cfg, records)
-        if not guard(est, cfg):
+        if still and cfg.no_wait:
+            print("still running; rerun later to collect")
             return
-        try:
-            sent = submit(client, groups, est["todo"], cfg, state_path, state, est)
-        except budget.BudgetExceeded as e:
-            print(f"stopped submitting: {e}")
-            sent = []
-        if not sent and not any(not e.get("collected") for e in state["batches"]):
-            return
-        attempted.update(sent)
+        if still and not sent:
+            time.sleep(cfg.poll_interval)
 
 
 # --------------------------------------------------------------------------- results

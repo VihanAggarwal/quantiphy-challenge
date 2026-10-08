@@ -1,0 +1,660 @@
+{
+ "video_id": "simulation_0270",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfppvgXXc7vMcj3pGWfQP",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 854
+ },
+ "ts": "2026-10-08T15:15:58+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_01L4QVNYC55xTrBcqdFPwDnN",
+ "custom_id": "simulation_0270",
+ "usage": {
+  "input_tokens": 13642,
+  "output_tokens": 4005,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 4317,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.067766,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0270",
+  "fps": 24.0,
+  "fps_from_container": false,
+  "video_type": "A2SS",
+  "n_frames_total": 72,
+  "scale": 0.33359375,
+  "image_size": [
+   2560,
+   1439
+  ],
+  "frames": [
+   0,
+   5,
+   9,
+   10,
+   12,
+   14,
+   19,
+   22,
+   24,
+   26,
+   28,
+   33,
+   38,
+   43,
+   46,
+   47,
+   48,
+   50,
+   52,
+   57,
+   62,
+   66,
+   71
+  ],
+  "questions": [
+   {
+    "qid": 953,
+    "target_unit": "m",
+    "prior": "acceleration of the phoenix at 2.0s = 2m/s^2",
+    "depth_info": ""
+   },
+   {
+    "qid": 954,
+    "target_unit": "m",
+    "prior": "acceleration of the phoenix at 2.0s = 2m/s^2",
+    "depth_info": ""
+   },
+   {
+    "qid": 955,
+    "target_unit": "m/s",
+    "prior": "acceleration of the phoenix at 2.0s = 2m/s^2",
+    "depth_info": ""
+   },
+   {
+    "qid": 956,
+    "target_unit": "m/s",
+    "prior": "acceleration of the phoenix at 2.0s = 2m/s^2",
+    "depth_info": ""
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":953,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"phoenix\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"phoenix\"],\"dimension\":\"\",\"time\":2.0,\"window\":null,\"axis\":\"any\",\"value_si\":2.0,\"unit\":\"\"},\"depth\":[],\"notes\":\"Length taken as beak tip to tail tip. The scale comes from a constant-acceleration fit to the beak track.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"phoenix\",\"obs\":[{\"frame\":0,\"point\":[480,224],\"extent\":null,\"box\":null},{\"frame\":5,\"point\":[472,228],\"extent\":null,\"box\":null},{\"frame\":9,\"point\":[460,226],\"extent\":null,\"box\":null},{\"frame\":12,\"point\":[454,223],\"extent\":null,\"box\":null},{\"frame\":14,\"point\":[448,224],\"extent\":null,\"box\":null},{\"frame\":19,\"point\":[438,222],\"extent\":null,\"box\":null},{\"frame\":22,\"point\":[434,227],\"extent\":null,\"box\":null},{\"frame\":24,\"point\":[429,223],\"extent\":null,\"box\":null},{\"frame\":26,\"point\":[421,223],\"extent\":null,\"box\":null},{\"frame\":28,\"point\":[412,222],\"extent\":null,\"box\":null},{\"frame\":33,\"point\":[379,225],\"extent\":null,\"box\":null},{\"frame\":38,\"point\":[348,224],\"extent\":null,\"box\":null},{\"frame\":43,\"point\":[315,222],\"extent\":null,\"box\":null},{\"frame\":46,\"point\":[298,225],\"extent\":null,\"box\":null},{\"frame\":47,\"point\":[293,224],\"extent\":null,\"box\":null},{\"frame\":48,\"point\":[286,224],\"extent\":null,\"box\":null},{\"frame\":50,\"point\":[270,224],\"extent\":null,\"box\":null},{\"frame\":52,\"point\":[257,224],\"extent\":null,\"box\":null},{\"frame\":57,\"point\":[202,230],\"extent\":null,\"box\":null},{\"frame\":62,\"point\":[152,226],\"extent\":null,\"box\":null},{\"frame\":66,\"point\":[110,226],\"extent\":null,\"box\":null},{\"frame\":71,\"point\":[60,222],\"extent\":null,\"box\":null}]},{\"role\":\"target\",\"object\":\"phoenix\",\"obs\":[{\"frame\":9,\"point\":null,\"extent\":[[460,226],[652,258]],\"box\":[460,180,652,262]},{\"frame\":33,\"point\":null,\"extent\":[[379,225],[573,256]],\"box\":[379,160,573,264]},{\"frame\":57,\"point\":null,\"extent\":[[200,230],[398,253]],\"box\":[200,150,398,266]},{\"frame\":5,\"point\":null,\"extent\":[[472,228],[673,238]],\"box\":[472,135,673,266]}]}],\"direct_answer\":4.18,\"confidence\":0.4},{\"qid\":954,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"phoenix\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"phoenix\"],\"dimension\":\"\",\"time\":2.0,\"window\":null,\"axis\":\"any\",\"value_si\":2.0,\"unit\":\"\"},\"depth\":[],\"notes\":\"Height varies with the wing pose.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"phoenix\",\"obs\":[]},{\"role\":\"target\",\"object\":\"phoenix\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[530,125],[530,258]],\"box\":[478,125,668,258]},{\"frame\":12,\"point\":null,\"extent\":[[530,183],[530,335]],\"box\":[452,183,646,335]},{\"frame\":24,\"point\":null,\"extent\":[[470,127],[470,262]],\"box\":[428,127,612,262]},{\"frame\":38,\"point\":null,\"extent\":[[420,183],[420,333]],\"box\":[345,183,545,333]},{\"frame\":62,\"point\":null,\"extent\":[[230,185],[230,335]],\"box\":[150,185,342,335]}]}],\"direct_answer\":3.0,\"confidence\":0.3},{\"qid\":955,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"phoenix\"],\"dimension\":\"\",\"time\":0.5,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"phoenix\"],\"dimension\":\"\",\"time\":2.0,\"window\":null,\"axis\":\"any\",\"value_si\":2.0,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"phoenix\",\"obs\":[]},{\"role\":\"target\",\"object\":\"phoenix\",\"obs\":[]}],\"direct_answer\":1.07,\"confidence\":0.4},{\"qid\":956,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"phoenix\"],\"dimension\":\"\",\"time\":1.0,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"phoenix\"],\"dimension\":\"\",\"time\":2.0,\"window\":null,\"axis\":\"any\",\"value_si\":2.0,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"phoenix\",\"obs\":[]},{\"role\":\"target\",\"object\":\"phoenix\",\"obs\":[]}],\"direct_answer\":2.06,\"confidence\":0.4}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 953,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "phoenix"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "phoenix"
+      ],
+      "dimension": "",
+      "time": 2.0,
+      "window": null,
+      "axis": "any",
+      "value_si": 2.0,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Length taken as beak tip to tail tip. The scale comes from a constant-acceleration fit to the beak track."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "phoenix",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         480,
+         224
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 5,
+        "point": [
+         472,
+         228
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 9,
+        "point": [
+         460,
+         226
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 12,
+        "point": [
+         454,
+         223
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 14,
+        "point": [
+         448,
+         224
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 19,
+        "point": [
+         438,
+         222
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 22,
+        "point": [
+         434,
+         227
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 24,
+        "point": [
+         429,
+         223
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 26,
+        "point": [
+         421,
+         223
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 28,
+        "point": [
+         412,
+         222
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 33,
+        "point": [
+         379,
+         225
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 38,
+        "point": [
+         348,
+         224
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 43,
+        "point": [
+         315,
+         222
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 46,
+        "point": [
+         298,
+         225
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 47,
+        "point": [
+         293,
+         224
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 48,
+        "point": [
+         286,
+         224
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 50,
+        "point": [
+         270,
+         224
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 52,
+        "point": [
+         257,
+         224
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 57,
+        "point": [
+         202,
+         230
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 62,
+        "point": [
+         152,
+         226
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 66,
+        "point": [
+         110,
+         226
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 71,
+        "point": [
+         60,
+         222
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "phoenix",
+      "obs": [
+       {
+        "frame": 9,
+        "point": null,
+        "extent": [
+         [
+          460,
+          226
+         ],
+         [
+          652,
+          258
+         ]
+        ],
+        "box": [
+         460,
+         180,
+         652,
+         262
+        ]
+       },
+       {
+        "frame": 33,
+        "point": null,
+        "extent": [
+         [
+          379,
+          225
+         ],
+         [
+          573,
+          256
+         ]
+        ],
+        "box": [
+         379,
+         160,
+         573,
+         264
+        ]
+       },
+       {
+        "frame": 57,
+        "point": null,
+        "extent": [
+         [
+          200,
+          230
+         ],
+         [
+          398,
+          253
+         ]
+        ],
+        "box": [
+         200,
+         150,
+         398,
+         266
+        ]
+       },
+       {
+        "frame": 5,
+        "point": null,
+        "extent": [
+         [
+          472,
+          228
+         ],
+         [
+          673,
+          238
+         ]
+        ],
+        "box": [
+         472,
+         135,
+         673,
+         266
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 4.18,
+    "confidence": 0.4
+   },
+   {
+    "qid": 954,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "phoenix"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "phoenix"
+      ],
+      "dimension": "",
+      "time": 2.0,
+      "window": null,
+      "axis": "any",
+      "value_si": 2.0,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Height varies with the wing pose."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "phoenix",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "phoenix",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          530,
+          125
+         ],
+         [
+          530,
+          258
+         ]
+        ],
+        "box": [
+         478,
+         125,
+         668,
+         258
+        ]
+       },
+       {
+        "frame": 12,
+        "point": null,
+        "extent": [
+         [
+          530,
+          183
+         ],
+         [
+          530,
+          335
+         ]
+        ],
+        "box": [
+         452,
+         183,
+         646,
+         335
+        ]
+       },
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          470,
+          127
+         ],
+         [
+          470,
+          262
+         ]
+        ],
+        "box": [
+         428,
+         127,
+         612,
+         262
+        ]
+       },
+       {
+        "frame": 38,
+        "point": null,
+        "extent": [
+         [
+          420,
+          183
+         ],
+         [
+          420,
+          333
+         ]
+        ],
+        "box": [
+         345,
+         183,
+         545,
+         333
+        ]
+       },
+       {
+        "frame": 62,
+        "point": null,
+        "extent": [
+         [
+          230,
+          185
+         ],
+         [
+          230,
+          335
+         ]
+        ],
+        "box": [
+         150,
+         185,
+         342,
+         335
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 3.0,
+    "confidence": 0.3
+   },
+   {
+    "qid": 955,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "phoenix"
+      ],
+      "dimension": "",
+      "time": 0.5,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "phoenix"
+      ],
+      "dimension": "",
+      "time": 2.0,
+      "window": null,
+      "axis": "any",
+      "value_si": 2.0,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "phoenix",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "phoenix",
+      "obs": []
+     }
+    ],
+    "direct_answer": 1.07,
+    "confidence": 0.4
+   },
+   {
+    "qid": 956,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "phoenix"
+      ],
+      "dimension": "",
+      "time": 1.0,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "phoenix"
+      ],
+      "dimension": "",
+      "time": 2.0,
+      "window": null,
+      "axis": "any",
+      "value_si": 2.0,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "phoenix",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "phoenix",
+      "obs": []
+     }
+    ],
+    "direct_answer": 2.06,
+    "confidence": 0.4
+   }
+  ]
+ }
+}

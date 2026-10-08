@@ -977,3 +977,18 @@ def test_to_annotations_v2_track_links():
     assert a.tracks[1].depth_name == "ball" and a.tracks[1].range_m is None
     assert a.tracks[0].depth_name == "" and a.tracks[0].range_m == 2.5
     assert ca.to_annotations(SAMPLE, META)[101].tracks[0].depth_name == ""   # v1 answers: no links
+
+
+def test_ended_batch_collected_while_an_earlier_one_still_runs(workspace):
+    """One slow batch must not block collecting a later batch that has ended (and releasing its
+    budget hold, which is what lets further chunks be submitted)."""
+    client = FakeClient()
+    out = workspace.root / "runs" / "fake" / "qs"
+    rc.main(_argv(workspace, "--mode", "batch", "--no-wait", "--chunk-videos", "1"), client=client)
+    assert len(client.batches.created) == 2
+    (b1, _), (b2, _) = client.batches.created
+    client.batches.status[b2] = "ended"          # the second chunk finished first
+    rc.main(_argv(workspace, "--mode", "batch", "--no-wait", "--chunk-videos", "1"), client=client)
+    state = {e["id"]: e for e in json.loads((out / "batch.json").read_text())["batches"]}
+    assert state[b2]["collected"] and not state[b1]["collected"]
+    assert list(budget.open_holds()) == [b1] and len(client.batches.created) == 2

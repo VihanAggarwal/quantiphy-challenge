@@ -1,0 +1,523 @@
+{
+ "video_id": "simulation_0262",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011Cfpvucy8rjqTFuWSiq1YE",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 854
+ },
+ "ts": "2026-10-08T15:15:58+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_01L4QVNYC55xTrBcqdFPwDnN",
+ "custom_id": "simulation_0262",
+ "usage": {
+  "input_tokens": 14231,
+  "output_tokens": 2478,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 4317,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.053674,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0262",
+  "fps": 24.0,
+  "fps_from_container": false,
+  "video_type": "A2SS",
+  "n_frames_total": 50,
+  "scale": 0.44479166666666664,
+  "image_size": [
+   1079,
+   1920
+  ],
+  "frames": [
+   0,
+   3,
+   4,
+   6,
+   7,
+   8,
+   10,
+   12,
+   13,
+   14,
+   15,
+   16,
+   17,
+   18,
+   20,
+   23,
+   26,
+   29,
+   33,
+   36,
+   39,
+   42,
+   46,
+   49
+  ],
+  "questions": [
+   {
+    "qid": 921,
+    "target_unit": "m",
+    "prior": "acceleration of the red cup before 0.75s = 9.8m/s^2",
+    "depth_info": ""
+   },
+   {
+    "qid": 922,
+    "target_unit": "m/s",
+    "prior": "acceleration of the red cup before 0.75s = 9.8m/s^2",
+    "depth_info": ""
+   },
+   {
+    "qid": 923,
+    "target_unit": "m/s",
+    "prior": "acceleration of the red cup before 0.75s = 9.8m/s^2",
+    "depth_info": ""
+   },
+   {
+    "qid": 924,
+    "target_unit": "m/s",
+    "prior": "acceleration of the red cup before 0.75s = 9.8m/s^2",
+    "depth_info": ""
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":921,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"red cup\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"red cup\"],\"dimension\":\"\",\"time\":null,\"window\":[0,0.75],\"axis\":\"vertical\",\"value_si\":9.8,\"unit\":\"\"},\"depth\":[],\"notes\":\"Cup in free fall until ~0.75s, then rests on floor.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"red cup\",\"obs\":[{\"frame\":4,\"point\":[256,30],\"extent\":null,\"box\":null},{\"frame\":6,\"point\":[256,79],\"extent\":null,\"box\":[236,4,277,79]},{\"frame\":7,\"point\":[256,111],\"extent\":null,\"box\":[236,37,277,111]},{\"frame\":8,\"point\":[256,148],\"extent\":null,\"box\":[236,74,277,148]},{\"frame\":10,\"point\":[256,237],\"extent\":null,\"box\":[236,165,277,237]},{\"frame\":12,\"point\":[256,345],\"extent\":null,\"box\":[236,276,277,345]},{\"frame\":13,\"point\":[256,407],\"extent\":null,\"box\":[236,339,277,407]},{\"frame\":14,\"point\":[256,473],\"extent\":null,\"box\":[236,406,277,473]},{\"frame\":15,\"point\":[256,546],\"extent\":null,\"box\":[236,478,277,546]},{\"frame\":16,\"point\":[256,623],\"extent\":null,\"box\":[236,554,277,623]},{\"frame\":17,\"point\":[256,706],\"extent\":null,\"box\":[236,632,277,706]}]},{\"role\":\"target\",\"object\":\"red cup\",\"obs\":[{\"frame\":12,\"point\":null,\"extent\":[[256,276],[256,345]],\"box\":[236,276,277,345]},{\"frame\":14,\"point\":null,\"extent\":[[256,406],[256,474]],\"box\":[236,406,277,474]},{\"frame\":26,\"point\":null,\"extent\":[[256,750],[256,820]],\"box\":[236,750,277,820]},{\"frame\":36,\"point\":null,\"extent\":[[256,750],[256,820]],\"box\":[236,750,277,820]}]}],\"direct_answer\":0.24,\"confidence\":0.6},{\"qid\":922,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"red cup\"],\"dimension\":\"\",\"time\":0.25,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"red cup\"],\"dimension\":\"\",\"time\":null,\"window\":[0,0.75],\"axis\":\"vertical\",\"value_si\":9.8,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"red cup\",\"obs\":[]},{\"role\":\"target\",\"object\":\"red cup\",\"obs\":[]}],\"direct_answer\":2.5,\"confidence\":0.6},{\"qid\":923,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"red cup\"],\"dimension\":\"\",\"time\":0.5,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"red cup\"],\"dimension\":\"\",\"time\":null,\"window\":[0,0.75],\"axis\":\"vertical\",\"value_si\":9.8,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"red cup\",\"obs\":[]},{\"role\":\"target\",\"object\":\"red cup\",\"obs\":[]}],\"direct_answer\":4.98,\"confidence\":0.7},{\"qid\":924,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"red cup\"],\"dimension\":\"\",\"time\":0.625,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"red cup\"],\"dimension\":\"\",\"time\":null,\"window\":[0,0.75],\"axis\":\"vertical\",\"value_si\":9.8,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"red cup\",\"obs\":[]},{\"role\":\"target\",\"object\":\"red cup\",\"obs\":[]}],\"direct_answer\":6.2,\"confidence\":0.7}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 921,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "red cup"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "red cup"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": [
+       0,
+       0.75
+      ],
+      "axis": "vertical",
+      "value_si": 9.8,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Cup in free fall until ~0.75s, then rests on floor."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "red cup",
+      "obs": [
+       {
+        "frame": 4,
+        "point": [
+         256,
+         30
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 6,
+        "point": [
+         256,
+         79
+        ],
+        "extent": null,
+        "box": [
+         236,
+         4,
+         277,
+         79
+        ]
+       },
+       {
+        "frame": 7,
+        "point": [
+         256,
+         111
+        ],
+        "extent": null,
+        "box": [
+         236,
+         37,
+         277,
+         111
+        ]
+       },
+       {
+        "frame": 8,
+        "point": [
+         256,
+         148
+        ],
+        "extent": null,
+        "box": [
+         236,
+         74,
+         277,
+         148
+        ]
+       },
+       {
+        "frame": 10,
+        "point": [
+         256,
+         237
+        ],
+        "extent": null,
+        "box": [
+         236,
+         165,
+         277,
+         237
+        ]
+       },
+       {
+        "frame": 12,
+        "point": [
+         256,
+         345
+        ],
+        "extent": null,
+        "box": [
+         236,
+         276,
+         277,
+         345
+        ]
+       },
+       {
+        "frame": 13,
+        "point": [
+         256,
+         407
+        ],
+        "extent": null,
+        "box": [
+         236,
+         339,
+         277,
+         407
+        ]
+       },
+       {
+        "frame": 14,
+        "point": [
+         256,
+         473
+        ],
+        "extent": null,
+        "box": [
+         236,
+         406,
+         277,
+         473
+        ]
+       },
+       {
+        "frame": 15,
+        "point": [
+         256,
+         546
+        ],
+        "extent": null,
+        "box": [
+         236,
+         478,
+         277,
+         546
+        ]
+       },
+       {
+        "frame": 16,
+        "point": [
+         256,
+         623
+        ],
+        "extent": null,
+        "box": [
+         236,
+         554,
+         277,
+         623
+        ]
+       },
+       {
+        "frame": 17,
+        "point": [
+         256,
+         706
+        ],
+        "extent": null,
+        "box": [
+         236,
+         632,
+         277,
+         706
+        ]
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "red cup",
+      "obs": [
+       {
+        "frame": 12,
+        "point": null,
+        "extent": [
+         [
+          256,
+          276
+         ],
+         [
+          256,
+          345
+         ]
+        ],
+        "box": [
+         236,
+         276,
+         277,
+         345
+        ]
+       },
+       {
+        "frame": 14,
+        "point": null,
+        "extent": [
+         [
+          256,
+          406
+         ],
+         [
+          256,
+          474
+         ]
+        ],
+        "box": [
+         236,
+         406,
+         277,
+         474
+        ]
+       },
+       {
+        "frame": 26,
+        "point": null,
+        "extent": [
+         [
+          256,
+          750
+         ],
+         [
+          256,
+          820
+         ]
+        ],
+        "box": [
+         236,
+         750,
+         277,
+         820
+        ]
+       },
+       {
+        "frame": 36,
+        "point": null,
+        "extent": [
+         [
+          256,
+          750
+         ],
+         [
+          256,
+          820
+         ]
+        ],
+        "box": [
+         236,
+         750,
+         277,
+         820
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 0.24,
+    "confidence": 0.6
+   },
+   {
+    "qid": 922,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "red cup"
+      ],
+      "dimension": "",
+      "time": 0.25,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "red cup"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": [
+       0,
+       0.75
+      ],
+      "axis": "vertical",
+      "value_si": 9.8,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "red cup",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "red cup",
+      "obs": []
+     }
+    ],
+    "direct_answer": 2.5,
+    "confidence": 0.6
+   },
+   {
+    "qid": 923,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "red cup"
+      ],
+      "dimension": "",
+      "time": 0.5,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "red cup"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": [
+       0,
+       0.75
+      ],
+      "axis": "vertical",
+      "value_si": 9.8,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "red cup",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "red cup",
+      "obs": []
+     }
+    ],
+    "direct_answer": 4.98,
+    "confidence": 0.7
+   },
+   {
+    "qid": 924,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "red cup"
+      ],
+      "dimension": "",
+      "time": 0.625,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "red cup"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": [
+       0,
+       0.75
+      ],
+      "axis": "vertical",
+      "value_si": 9.8,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "red cup",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "red cup",
+      "obs": []
+     }
+    ],
+    "direct_answer": 6.2,
+    "confidence": 0.7
+   }
+  ]
+ }
+}

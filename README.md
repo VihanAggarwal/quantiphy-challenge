@@ -19,6 +19,12 @@ and, for 3D scenes, camera distances, estimate an object's size, distance, speed
 | Track A: Claude Opus 5.5, high effort | **0.782** | .706 | .916 | .784 | .723 | $1.87 |
 | Track A: agentic tool loop (full-res, medium) | 0.743 | .663 | .943 | .705 | .660 | $8.69 |
 
+Numbers above as recorded when each run was made. With the current code (geometry with the ICI velocity
+window, `qp.refine` at the 480p scale, dense motion tracks by default) high effort replays at 0.781
+(`--dense off`: 0.783), and on the full-resolution copies (480p records rescaled, what the 854 px test run
+sees) at 0.784; the run x dense-variant table and the test-submission steps are in
+[docs/TRACK_A.md](docs/TRACK_A.md).
+
 About 8% of validation labels contradict their own video or each other (listed in `qp/combine.py`
 and the analysis notes); excluding them, high effort scores ~0.81. Projected test MRA from the
 validation per-source rates and the test mix: ~0.80.
@@ -29,12 +35,15 @@ validation per-source rates and the test mix: ~0.80.
    frames at every mentioned time) and all the video's questions go to Claude Opus 5.5, which returns
    per question a structured spec (what to measure), pixel annotations (extent endpoints, motion
    points, boxes per frame) and its own direct estimate. Batch API (50% off), structured outputs.
-2. **Geometry in code** (`qp/geometry.py`): the prior sets the metric scale (2D: metres per pixel;
+2. **Local post-steps** (`run_claude.post_steps`, no API cost): optical-flow refinement of motion-prior
+   tracks (`qp/refine.py`), then dense per-frame tracks for motion quantities (`qp/dense_track.py`,
+   `--dense motion`, the default; see [docs/TRACK_A.md](docs/TRACK_A.md)).
+3. **Geometry in code** (`qp/geometry.py`): the prior sets the metric scale (2D: metres per pixel;
    3D: pinhole camera with the focal length solved from the prior and the lab rig's ~84° FOV as a
    prior), motion from polynomial fits over time, units converted to the asked unit.
-3. **Answer selection** (`qp/combine.py`): geometry unless implausible, far from the direct estimate,
+4. **Answer selection** (`qp/combine.py`): geometry unless implausible, far from the direct estimate,
    or a 3D solve that had to assume the target's depth (then Claude's direct estimate).
-4. Spend is capped by `qp/budget.py`: every request is held at its worst case until its usage is
+5. Spend is capped by `qp/budget.py`: every request is held at its worst case until its usage is
    recorded in `budget/ledger.jsonl` (committed, so resets never re-buy paid work).
 
 Track B (open weights, Colab GPU): `notebooks/colab_pipeline.ipynb` — Qwen3-VL specs/grounding/direct
@@ -70,3 +79,5 @@ python scripts/run_claude.py --split test --name test_v1_high_854 --effort high 
     --max-side 854 --mode batch --chunk-videos 20 --est-output-per-question 1200
 python scripts/make_submission.py runs/test_v1_high_854/test.csv submissions/test_v1_high_854.csv
 ```
+
+Details, costs per run and the measured dense-tracking table: [docs/TRACK_A.md](docs/TRACK_A.md).

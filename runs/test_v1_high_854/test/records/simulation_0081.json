@@ -1,0 +1,680 @@
+{
+ "video_id": "simulation_0081",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfprDKiy6Kz2tTQbTjtBY",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 854
+ },
+ "ts": "2026-10-08T15:15:55+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_01CQAYt4zbrJD7KLDvb2cZoV",
+ "custom_id": "simulation_0081",
+ "usage": {
+  "input_tokens": 11305,
+  "output_tokens": 2559,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 4317,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.048632,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0081",
+  "fps": 24.0,
+  "fps_from_container": false,
+  "video_type": "S2MX",
+  "n_frames_total": 29,
+  "scale": 0.44479166666666664,
+  "image_size": [
+   1920,
+   1079
+  ],
+  "frames": [
+   0,
+   2,
+   4,
+   6,
+   7,
+   9,
+   10,
+   11,
+   12,
+   13,
+   14,
+   15,
+   17,
+   19,
+   21,
+   22,
+   24,
+   26,
+   28
+  ],
+  "questions": [
+   {
+    "qid": 84,
+    "target_unit": "m/s",
+    "prior": "length of the bike = 1.7m",
+    "depth_info": ""
+   },
+   {
+    "qid": 85,
+    "target_unit": "m/s",
+    "prior": "length of the bike = 1.7m",
+    "depth_info": ""
+   },
+   {
+    "qid": 86,
+    "target_unit": "m",
+    "prior": "length of the bike = 1.7m",
+    "depth_info": ""
+   },
+   {
+    "qid": 87,
+    "target_unit": "m",
+    "prior": "length of the bike = 1.7m",
+    "depth_info": ""
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":84,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"walking person\"],\"dimension\":\"\",\"time\":0.5,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"bike\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":1.7,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"bike\",\"obs\":[{\"frame\":6,\"point\":null,\"extent\":[[591,284],[761,284]],\"box\":[591,260,761,312]},{\"frame\":12,\"point\":null,\"extent\":[[465,284],[634,284]],\"box\":[465,260,634,312]},{\"frame\":19,\"point\":null,\"extent\":[[318,284],[486,284]],\"box\":[318,260,486,312]},{\"frame\":24,\"point\":null,\"extent\":[[212,284],[380,284]],\"box\":[212,260,380,312]}]},{\"role\":\"target\",\"object\":\"walking person\",\"obs\":[{\"frame\":0,\"point\":[28,195],\"extent\":null,\"box\":null},{\"frame\":6,\"point\":[60,193],\"extent\":null,\"box\":null},{\"frame\":9,\"point\":[77,193],\"extent\":null,\"box\":null},{\"frame\":10,\"point\":[82,193],\"extent\":null,\"box\":null},{\"frame\":11,\"point\":[88,192],\"extent\":null,\"box\":null},{\"frame\":12,\"point\":[94,192],\"extent\":null,\"box\":null},{\"frame\":13,\"point\":[100,192],\"extent\":null,\"box\":null},{\"frame\":14,\"point\":[105,192],\"extent\":null,\"box\":null},{\"frame\":15,\"point\":[111,192],\"extent\":null,\"box\":null},{\"frame\":17,\"point\":[123,193],\"extent\":null,\"box\":null},{\"frame\":19,\"point\":[136,193],\"extent\":null,\"box\":null},{\"frame\":21,\"point\":[150,193],\"extent\":null,\"box\":null},{\"frame\":24,\"point\":[170,194],\"extent\":null,\"box\":null},{\"frame\":28,\"point\":[190,195],\"extent\":null,\"box\":null}]}],\"direct_answer\":1.38,\"confidence\":0.6},{\"qid\":85,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"bike\"],\"dimension\":\"\",\"time\":0.5,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"bike\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":1.7,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"bike\",\"obs\":[]},{\"role\":\"target\",\"object\":\"bike\",\"obs\":[{\"frame\":6,\"point\":[591,284],\"extent\":null,\"box\":null},{\"frame\":7,\"point\":[570,284],\"extent\":null,\"box\":null},{\"frame\":9,\"point\":[528,284],\"extent\":null,\"box\":null},{\"frame\":10,\"point\":[507,284],\"extent\":null,\"box\":null},{\"frame\":11,\"point\":[486,284],\"extent\":null,\"box\":null},{\"frame\":12,\"point\":[465,284],\"extent\":null,\"box\":null},{\"frame\":13,\"point\":[444,284],\"extent\":null,\"box\":null},{\"frame\":14,\"point\":[423,284],\"extent\":null,\"box\":null},{\"frame\":15,\"point\":[402,284],\"extent\":null,\"box\":null},{\"frame\":17,\"point\":[360,284],\"extent\":null,\"box\":null},{\"frame\":19,\"point\":[318,284],\"extent\":null,\"box\":null},{\"frame\":21,\"point\":[276,284],\"extent\":null,\"box\":null},{\"frame\":22,\"point\":[255,284],\"extent\":null,\"box\":null},{\"frame\":24,\"point\":[212,284],\"extent\":null,\"box\":null},{\"frame\":26,\"point\":[170,284],\"extent\":null,\"box\":null},{\"frame\":28,\"point\":[128,284],\"extent\":null,\"box\":null}]}],\"direct_answer\":5.12,\"confidence\":0.7},{\"qid\":86,\"spec\":{\"target\":{\"kind\":\"distance\",\"objects\":[\"walking person\",\"bike\"],\"dimension\":\"\",\"time\":0.5,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"bike\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":1.7,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"bike\",\"obs\":[]},{\"role\":\"target\",\"object\":\"walking person\",\"obs\":[{\"frame\":12,\"point\":[94,192],\"extent\":null,\"box\":null}]},{\"role\":\"target2\",\"object\":\"bike center\",\"obs\":[{\"frame\":12,\"point\":[549.5,284],\"extent\":null,\"box\":null}]}],\"direct_answer\":4.7,\"confidence\":0.6},{\"qid\":87,\"spec\":{\"target\":{\"kind\":\"distance\",\"objects\":[\"walking person\",\"bike\"],\"dimension\":\"\",\"time\":1.0,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"bike\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":1.7,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"bike\",\"obs\":[]},{\"role\":\"target\",\"object\":\"walking person\",\"obs\":[{\"frame\":24,\"point\":[170,194],\"extent\":null,\"box\":null}]},{\"role\":\"target2\",\"object\":\"bike center\",\"obs\":[{\"frame\":24,\"point\":[296,284],\"extent\":null,\"box\":null}]}],\"direct_answer\":1.57,\"confidence\":0.5}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 84,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "walking person"
+      ],
+      "dimension": "",
+      "time": 0.5,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "bike"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 1.7,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "bike",
+      "obs": [
+       {
+        "frame": 6,
+        "point": null,
+        "extent": [
+         [
+          591,
+          284
+         ],
+         [
+          761,
+          284
+         ]
+        ],
+        "box": [
+         591,
+         260,
+         761,
+         312
+        ]
+       },
+       {
+        "frame": 12,
+        "point": null,
+        "extent": [
+         [
+          465,
+          284
+         ],
+         [
+          634,
+          284
+         ]
+        ],
+        "box": [
+         465,
+         260,
+         634,
+         312
+        ]
+       },
+       {
+        "frame": 19,
+        "point": null,
+        "extent": [
+         [
+          318,
+          284
+         ],
+         [
+          486,
+          284
+         ]
+        ],
+        "box": [
+         318,
+         260,
+         486,
+         312
+        ]
+       },
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          212,
+          284
+         ],
+         [
+          380,
+          284
+         ]
+        ],
+        "box": [
+         212,
+         260,
+         380,
+         312
+        ]
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "walking person",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         28,
+         195
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 6,
+        "point": [
+         60,
+         193
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 9,
+        "point": [
+         77,
+         193
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 10,
+        "point": [
+         82,
+         193
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 11,
+        "point": [
+         88,
+         192
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 12,
+        "point": [
+         94,
+         192
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 13,
+        "point": [
+         100,
+         192
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 14,
+        "point": [
+         105,
+         192
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 15,
+        "point": [
+         111,
+         192
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 17,
+        "point": [
+         123,
+         193
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 19,
+        "point": [
+         136,
+         193
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 21,
+        "point": [
+         150,
+         193
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 24,
+        "point": [
+         170,
+         194
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 28,
+        "point": [
+         190,
+         195
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     }
+    ],
+    "direct_answer": 1.38,
+    "confidence": 0.6
+   },
+   {
+    "qid": 85,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "bike"
+      ],
+      "dimension": "",
+      "time": 0.5,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "bike"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 1.7,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "bike",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "bike",
+      "obs": [
+       {
+        "frame": 6,
+        "point": [
+         591,
+         284
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 7,
+        "point": [
+         570,
+         284
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 9,
+        "point": [
+         528,
+         284
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 10,
+        "point": [
+         507,
+         284
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 11,
+        "point": [
+         486,
+         284
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 12,
+        "point": [
+         465,
+         284
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 13,
+        "point": [
+         444,
+         284
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 14,
+        "point": [
+         423,
+         284
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 15,
+        "point": [
+         402,
+         284
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 17,
+        "point": [
+         360,
+         284
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 19,
+        "point": [
+         318,
+         284
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 21,
+        "point": [
+         276,
+         284
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 22,
+        "point": [
+         255,
+         284
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 24,
+        "point": [
+         212,
+         284
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 26,
+        "point": [
+         170,
+         284
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 28,
+        "point": [
+         128,
+         284
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     }
+    ],
+    "direct_answer": 5.12,
+    "confidence": 0.7
+   },
+   {
+    "qid": 86,
+    "spec": {
+     "target": {
+      "kind": "distance",
+      "objects": [
+       "walking person",
+       "bike"
+      ],
+      "dimension": "",
+      "time": 0.5,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "bike"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 1.7,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "bike",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "walking person",
+      "obs": [
+       {
+        "frame": 12,
+        "point": [
+         94,
+         192
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     },
+     {
+      "role": "target2",
+      "object": "bike center",
+      "obs": [
+       {
+        "frame": 12,
+        "point": [
+         549.5,
+         284
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     }
+    ],
+    "direct_answer": 4.7,
+    "confidence": 0.6
+   },
+   {
+    "qid": 87,
+    "spec": {
+     "target": {
+      "kind": "distance",
+      "objects": [
+       "walking person",
+       "bike"
+      ],
+      "dimension": "",
+      "time": 1.0,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "bike"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 1.7,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "bike",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "walking person",
+      "obs": [
+       {
+        "frame": 24,
+        "point": [
+         170,
+         194
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     },
+     {
+      "role": "target2",
+      "object": "bike center",
+      "obs": [
+       {
+        "frame": 24,
+        "point": [
+         296,
+         284
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     }
+    ],
+    "direct_answer": 1.57,
+    "confidence": 0.5
+   }
+  ]
+ }
+}

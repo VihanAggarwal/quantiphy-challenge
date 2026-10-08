@@ -1,0 +1,551 @@
+{
+ "video_id": "simulation_0275",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfprWqY5M34qmxFD8vE38",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 854
+ },
+ "ts": "2026-10-08T15:15:58+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_01L4QVNYC55xTrBcqdFPwDnN",
+ "custom_id": "simulation_0275",
+ "usage": {
+  "input_tokens": 11829,
+  "output_tokens": 2193,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 4317,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.04602,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0275",
+  "fps": 24.0,
+  "fps_from_container": false,
+  "video_type": "S2SS",
+  "n_frames_total": 72,
+  "scale": 0.33359375,
+  "image_size": [
+   2560,
+   1439
+  ],
+  "frames": [
+   0,
+   5,
+   9,
+   10,
+   12,
+   14,
+   19,
+   22,
+   24,
+   26,
+   28,
+   33,
+   38,
+   43,
+   47,
+   52,
+   57,
+   62,
+   66,
+   71
+  ],
+  "questions": [
+   {
+    "qid": 971,
+    "target_unit": "m",
+    "prior": "length of the raccoon (tail included) = 1.51m",
+    "depth_info": ""
+   },
+   {
+    "qid": 972,
+    "target_unit": "m/s",
+    "prior": "length of the raccoon (tail included) = 1.51m",
+    "depth_info": ""
+   },
+   {
+    "qid": 973,
+    "target_unit": "m",
+    "prior": "length of the raccoon (tail included) = 1.51m",
+    "depth_info": ""
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":971,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"raccoon\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"raccoon\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":1.51,\"unit\":\"\"},\"depth\":[],\"notes\":\"Length includes tail.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"raccoon\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[178,245],[288,256]],\"box\":[178,240,288,289]},{\"frame\":24,\"point\":null,\"extent\":[[353,263],[461,258]],\"box\":[353,247,461,289]},{\"frame\":52,\"point\":null,\"extent\":[[563,251],[670,258]],\"box\":[563,246,670,289]},{\"frame\":5,\"point\":null,\"extent\":[[209,250],[317,257]],\"box\":[209,245,317,289]}]},{\"role\":\"target\",\"object\":\"raccoon\",\"obs\":[{\"frame\":5,\"point\":null,\"extent\":[[275,246],[275,289]],\"box\":[209,246,317,289]},{\"frame\":22,\"point\":null,\"extent\":[[400,247],[400,289]],\"box\":[338,247,445,289]},{\"frame\":52,\"point\":null,\"extent\":[[625,247],[625,289]],\"box\":[563,247,670,289]}]}],\"direct_answer\":0.59,\"confidence\":0.5},{\"qid\":972,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"raccoon\"],\"dimension\":\"\",\"time\":1.0,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"raccoon\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":1.51,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"raccoon\",\"obs\":[]},{\"role\":\"target\",\"object\":\"raccoon\",\"obs\":[{\"frame\":0,\"point\":[240,260],\"extent\":null,\"box\":null},{\"frame\":5,\"point\":[272,262],\"extent\":null,\"box\":null},{\"frame\":9,\"point\":[305,265],\"extent\":null,\"box\":null},{\"frame\":10,\"point\":[312,265],\"extent\":null,\"box\":null},{\"frame\":12,\"point\":[330,264],\"extent\":null,\"box\":null},{\"frame\":14,\"point\":[345,262],\"extent\":null,\"box\":null},{\"frame\":19,\"point\":[380,262],\"extent\":null,\"box\":null},{\"frame\":22,\"point\":[405,262],\"extent\":null,\"box\":null},{\"frame\":24,\"point\":[420,265],\"extent\":null,\"box\":null},{\"frame\":26,\"point\":[435,265],\"extent\":null,\"box\":null},{\"frame\":28,\"point\":[450,264],\"extent\":null,\"box\":null},{\"frame\":33,\"point\":[485,262],\"extent\":null,\"box\":null},{\"frame\":38,\"point\":[525,263],\"extent\":null,\"box\":null},{\"frame\":43,\"point\":[560,264],\"extent\":null,\"box\":null},{\"frame\":47,\"point\":[588,262],\"extent\":null,\"box\":null},{\"frame\":52,\"point\":[630,264],\"extent\":null,\"box\":null},{\"frame\":57,\"point\":[665,265],\"extent\":null,\"box\":null},{\"frame\":62,\"point\":[700,263],\"extent\":null,\"box\":null},{\"frame\":66,\"point\":[733,263],\"extent\":null,\"box\":null},{\"frame\":71,\"point\":[770,265],\"extent\":null,\"box\":null}]}],\"direct_answer\":2.48,\"confidence\":0.6},{\"qid\":973,\"spec\":{\"target\":{\"kind\":\"displacement\",\"objects\":[\"raccoon\"],\"dimension\":\"\",\"time\":null,\"window\":[0.5,1.0],\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"raccoon\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":1.51,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"raccoon\",\"obs\":[]},{\"role\":\"target\",\"object\":\"raccoon\",\"obs\":[]}],\"direct_answer\":1.26,\"confidence\":0.6}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 971,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "raccoon"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "raccoon"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 1.51,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Length includes tail."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "raccoon",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          178,
+          245
+         ],
+         [
+          288,
+          256
+         ]
+        ],
+        "box": [
+         178,
+         240,
+         288,
+         289
+        ]
+       },
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          353,
+          263
+         ],
+         [
+          461,
+          258
+         ]
+        ],
+        "box": [
+         353,
+         247,
+         461,
+         289
+        ]
+       },
+       {
+        "frame": 52,
+        "point": null,
+        "extent": [
+         [
+          563,
+          251
+         ],
+         [
+          670,
+          258
+         ]
+        ],
+        "box": [
+         563,
+         246,
+         670,
+         289
+        ]
+       },
+       {
+        "frame": 5,
+        "point": null,
+        "extent": [
+         [
+          209,
+          250
+         ],
+         [
+          317,
+          257
+         ]
+        ],
+        "box": [
+         209,
+         245,
+         317,
+         289
+        ]
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "raccoon",
+      "obs": [
+       {
+        "frame": 5,
+        "point": null,
+        "extent": [
+         [
+          275,
+          246
+         ],
+         [
+          275,
+          289
+         ]
+        ],
+        "box": [
+         209,
+         246,
+         317,
+         289
+        ]
+       },
+       {
+        "frame": 22,
+        "point": null,
+        "extent": [
+         [
+          400,
+          247
+         ],
+         [
+          400,
+          289
+         ]
+        ],
+        "box": [
+         338,
+         247,
+         445,
+         289
+        ]
+       },
+       {
+        "frame": 52,
+        "point": null,
+        "extent": [
+         [
+          625,
+          247
+         ],
+         [
+          625,
+          289
+         ]
+        ],
+        "box": [
+         563,
+         247,
+         670,
+         289
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 0.59,
+    "confidence": 0.5
+   },
+   {
+    "qid": 972,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "raccoon"
+      ],
+      "dimension": "",
+      "time": 1.0,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "raccoon"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 1.51,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "raccoon",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "raccoon",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         240,
+         260
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 5,
+        "point": [
+         272,
+         262
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 9,
+        "point": [
+         305,
+         265
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 10,
+        "point": [
+         312,
+         265
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 12,
+        "point": [
+         330,
+         264
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 14,
+        "point": [
+         345,
+         262
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 19,
+        "point": [
+         380,
+         262
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 22,
+        "point": [
+         405,
+         262
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 24,
+        "point": [
+         420,
+         265
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 26,
+        "point": [
+         435,
+         265
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 28,
+        "point": [
+         450,
+         264
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 33,
+        "point": [
+         485,
+         262
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 38,
+        "point": [
+         525,
+         263
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 43,
+        "point": [
+         560,
+         264
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 47,
+        "point": [
+         588,
+         262
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 52,
+        "point": [
+         630,
+         264
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 57,
+        "point": [
+         665,
+         265
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 62,
+        "point": [
+         700,
+         263
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 66,
+        "point": [
+         733,
+         263
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 71,
+        "point": [
+         770,
+         265
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     }
+    ],
+    "direct_answer": 2.48,
+    "confidence": 0.6
+   },
+   {
+    "qid": 973,
+    "spec": {
+     "target": {
+      "kind": "displacement",
+      "objects": [
+       "raccoon"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": [
+       0.5,
+       1.0
+      ],
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "raccoon"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 1.51,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "raccoon",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "raccoon",
+      "obs": []
+     }
+    ],
+    "direct_answer": 1.26,
+    "confidence": 0.6
+   }
+  ]
+ }
+}
