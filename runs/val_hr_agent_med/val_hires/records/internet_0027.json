@@ -1,0 +1,3856 @@
+{
+ "video_id": "internet_0027",
+ "status": "ok",
+ "stop": "submitted",
+ "stop_detail": null,
+ "model": "claude-opus-5-5",
+ "effort": "medium",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "medium",
+  "max_turns": 25,
+  "max_tokens": 32000,
+  "max_usd": 1.0,
+  "max_output_tokens": 200000,
+  "strict": true,
+  "thinking_display": "summarized",
+  "task_budget": 0,
+  "overview_frames": 8,
+  "status": "late",
+  "agent_version": "ag2"
+ },
+ "agent_version": "ag2",
+ "ts": "2026-10-08T12:45:05+00:00",
+ "turns": 4,
+ "usage": {
+  "input_tokens": 10,
+  "output_tokens": 4460,
+  "cache_creation_input_tokens": 29072,
+  "cache_read_input_tokens": 82896,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.251179,
+ "requests": [
+  {
+   "turn": 1,
+   "request_id": "req_011CfpnoPYeFn1xrEY6sXajY",
+   "message_id": "msg_011CfpnoQkpHVLoH5bTS6rfK",
+   "stop_reason": "tool_use",
+   "max_tokens": 32000,
+   "usage": {
+    "input_tokens": 4,
+    "output_tokens": 655,
+    "cache_creation_input_tokens": 9967,
+    "cache_read_input_tokens": 7665,
+    "cache_creation_1h_input_tokens": 0
+   },
+   "usd": 0.064484,
+   "tools": [
+    "segment",
+    "segment",
+    "segment",
+    "segment"
+   ],
+   "seconds": 10.4
+  },
+  {
+   "turn": 2,
+   "request_id": "req_011CfpnpXhZBzoHXVTqGLv43",
+   "message_id": "msg_011CfpnpY8rAV8tX9N4p8Z2Y",
+   "stop_reason": "tool_use",
+   "max_tokens": 32000,
+   "usage": {
+    "input_tokens": 2,
+    "output_tokens": 1052,
+    "cache_creation_input_tokens": 7041,
+    "cache_read_input_tokens": 17632,
+    "cache_creation_1h_input_tokens": 0
+   },
+   "usd": 0.059779,
+   "tools": [
+    "track",
+    "track",
+    "track"
+   ],
+   "seconds": 29.5
+  },
+  {
+   "turn": 3,
+   "request_id": "req_011CfpnrdUdJ53ZDE9hHhWuH",
+   "message_id": "msg_011Cfpnre37yFpMTS5LHPXQt",
+   "stop_reason": "tool_use",
+   "max_tokens": 32000,
+   "usage": {
+    "input_tokens": 2,
+    "output_tokens": 2287,
+    "cache_creation_input_tokens": 8253,
+    "cache_read_input_tokens": 24673,
+    "cache_creation_1h_input_tokens": 0
+   },
+   "usd": 0.091948,
+   "tools": [
+    "solve",
+    "solve",
+    "solve",
+    "solve",
+    "solve"
+   ],
+   "seconds": 63.0
+  },
+  {
+   "turn": 4,
+   "request_id": "req_011Cfpnt3UHnpcHSSNtLViab",
+   "message_id": "msg_011Cfpnt3yoKt7ctz97Ko5q3",
+   "stop_reason": "tool_use",
+   "max_tokens": 30142,
+   "usage": {
+    "input_tokens": 2,
+    "output_tokens": 466,
+    "cache_creation_input_tokens": 3811,
+    "cache_read_input_tokens": 32926,
+    "cache_creation_1h_input_tokens": 0
+   },
+   "usd": 0.034968,
+   "tools": [
+    "submit"
+   ],
+   "seconds": 71.2
+  }
+ ],
+ "tool_calls": [
+  {
+   "turn": 1,
+   "id": "toolu_01Nr43hAp1YCKjadHdQARZDW",
+   "name": "segment",
+   "input": {
+    "object": "purple ball",
+    "frame": 0,
+    "measure": "diameter",
+    "box": [
+     1730,
+     690,
+     1980,
+     960
+    ]
+   },
+   "is_error": false,
+   "summary": "S1 purple ball grabcut: grabcut, measure diameter: extent (1750.00, 843.30) - (1982.12, 843.30), length 232.12 px [edge-refined mask extent: end",
+   "seconds": 0.8
+  },
+  {
+   "turn": 1,
+   "id": "toolu_01EFHScxZLL86uHoZ8LKaeJv",
+   "name": "segment",
+   "input": {
+    "object": "black ball",
+    "frame": 0,
+    "measure": "diameter",
+    "box": [
+     1960,
+     1240,
+     2220,
+     1520
+    ]
+   },
+   "is_error": false,
+   "summary": "S2 black ball grabcut: grabcut, measure diameter: extent (1987.88, 1400.77) - (2224.00, 1400.77), length 236.12 px [edge-refined mask extent: e",
+   "seconds": 0.84
+  },
+  {
+   "turn": 1,
+   "id": "toolu_01Y1mexcEzYZvqLrDXrMj6xD",
+   "name": "segment",
+   "input": {
+    "object": "black ball",
+    "frame": 77,
+    "measure": "diameter",
+    "box": [
+     2000,
+     1330,
+     2260,
+     1610
+    ]
+   },
+   "is_error": false,
+   "summary": "S3 black ball grabcut: grabcut, measure diameter: extent (2053.87, 1474.23) - (2294.50, 1474.23), length 240.63 px [edge-refined mask extent: e",
+   "seconds": 2.49
+  },
+  {
+   "turn": 1,
+   "id": "toolu_01YMsvvFecveYUy1zr7k2w2A",
+   "name": "segment",
+   "input": {
+    "object": "purple ball",
+    "frame": 77,
+    "measure": "diameter",
+    "box": [
+     1740,
+     680,
+     1990,
+     950
+    ]
+   },
+   "is_error": false,
+   "summary": "S4 purple ball grabcut: grabcut, measure diameter: extent (1751.00, 818.17) - (1984.00, 818.17), length 233.00 px [edge-refined mask extent: end",
+   "seconds": 0.9
+  },
+  {
+   "turn": 2,
+   "id": "toolu_016yAdLiFfepv5q1zjptdqcU",
+   "name": "track",
+   "input": {
+    "object": "white ball",
+    "anchors": [
+     {
+      "frame": 33,
+      "box": [
+       2345,
+       1615,
+       2575,
+       1845
+      ]
+     },
+     {
+      "frame": 50,
+      "box": [
+       2765,
+       1030,
+       2995,
+       1260
+      ]
+     }
+    ],
+    "from_t": 0.9,
+    "to_t": 2.1
+   },
+   "is_error": false,
+   "summary": "T1 white ball: 28/31 frames (0 dropped), fb_max 10.204, ncc_min 0.965",
+   "seconds": 5.86
+  },
+  {
+   "turn": 2,
+   "id": "toolu_01AoiUfKY48Wajeff5DmY9tL",
+   "name": "track",
+   "input": {
+    "object": "orange ball",
+    "anchors": [
+     {
+      "frame": 25,
+      "box": [
+       815,
+       855,
+       1045,
+       1085
+      ]
+     }
+    ],
+    "from_t": 0.6,
+    "to_t": 1.4
+   },
+   "is_error": false,
+   "summary": "T2 orange ball: 21/21 frames (0 dropped), fb_max 3.18, ncc_min 0.913",
+   "seconds": 3.55
+  },
+  {
+   "turn": 2,
+   "id": "toolu_018opQiJNUGm87ZWb2x6zteA",
+   "name": "track",
+   "input": {
+    "object": "yellow ball",
+    "anchors": [
+     {
+      "frame": 50,
+      "box": [
+       875,
+       900,
+       1105,
+       1130
+      ]
+     }
+    ],
+    "from_t": 1.4,
+    "to_t": 2.6
+   },
+   "is_error": false,
+   "summary": "T3 yellow ball: 31/31 frames (0 dropped), fb_max 7.219, ncc_min 0.931",
+   "seconds": 5.0
+  },
+  {
+   "turn": 3,
+   "id": "toolu_01PDQTkvkFfeFNY7WLG76UFn",
+   "name": "solve",
+   "input": {
+    "qid": 2272,
+    "spec": {
+     "target": {
+      "kind": "distance",
+      "objects": [
+       "black ball",
+       "purple ball"
+      ],
+      "dimension": "",
+      "time": 0,
+      "window": null,
+      "axis": "any",
+      "unit": "cm",
+      "value_si": null
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "billiard ball"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "unit": "",
+      "value_si": 0.0572
+     },
+     "notes": "center to center"
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "billiard ball",
+      "depth_name": "",
+      "range_m": null,
+      "refs": [
+       "S1",
+       "S2",
+       "S3",
+       "S4"
+      ],
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "black ball",
+      "depth_name": "",
+      "range_m": null,
+      "refs": [],
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         2106,
+         1377
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     },
+     {
+      "role": "target2",
+      "object": "purple ball",
+      "depth_name": "",
+      "range_m": null,
+      "refs": [],
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         1866,
+         830
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     }
+    ]
+   },
+   "is_error": false,
+   "summary": "qid 2272: geometry answer 14.57 cm (method 2d_scale)",
+   "seconds": 0.0
+  },
+  {
+   "turn": 3,
+   "id": "toolu_01PhTWWyTKgmeGEirMnA41ww",
+   "name": "solve",
+   "input": {
+    "qid": 2275,
+    "spec": {
+     "target": {
+      "kind": "distance",
+      "objects": [
+       "purple ball",
+       "black ball"
+      ],
+      "dimension": "",
+      "time": 3.08,
+      "window": null,
+      "axis": "any",
+      "unit": "cm",
+      "value_si": null
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "billiard ball"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "unit": "",
+      "value_si": 0.0572
+     },
+     "notes": "center to center"
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "billiard ball",
+      "depth_name": "",
+      "range_m": null,
+      "refs": [
+       "S1",
+       "S2",
+       "S3",
+       "S4"
+      ],
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "purple ball",
+      "depth_name": "",
+      "range_m": null,
+      "refs": [],
+      "obs": [
+       {
+        "frame": 77,
+        "point": [
+         1867.5,
+         806
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     },
+     {
+      "role": "target2",
+      "object": "black ball",
+      "depth_name": "",
+      "range_m": null,
+      "refs": [],
+      "obs": [
+       {
+        "frame": 77,
+        "point": [
+         2172,
+         1461
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     }
+    ]
+   },
+   "is_error": false,
+   "summary": "qid 2275: geometry answer 17.61 cm (method 2d_scale)",
+   "seconds": 0.0
+  },
+  {
+   "turn": 3,
+   "id": "toolu_01EZiZRBnTMAjvfpQEVYyHNv",
+   "name": "solve",
+   "input": {
+    "qid": 2273,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "white ball"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": [
+       1.0,
+       2.0
+      ],
+      "axis": "any",
+      "unit": "cm/s",
+      "value_si": null
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "billiard ball"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "unit": "",
+      "value_si": 0.0572
+     },
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "billiard ball",
+      "depth_name": "",
+      "range_m": null,
+      "refs": [
+       "S1",
+       "S2",
+       "S3",
+       "S4"
+      ],
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "white ball",
+      "depth_name": "",
+      "range_m": null,
+      "refs": [
+       "T1"
+      ],
+      "obs": []
+     }
+    ]
+   },
+   "is_error": false,
+   "summary": "qid 2273: geometry answer 27.12 cm/s (method 2d_scale)",
+   "seconds": 0.01
+  },
+  {
+   "turn": 3,
+   "id": "toolu_019c9LkvUYeZUT8wFYNZN2uY",
+   "name": "solve",
+   "input": {
+    "qid": 2274,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "orange ball"
+      ],
+      "dimension": "",
+      "time": 1.0,
+      "window": null,
+      "axis": "any",
+      "unit": "cm/s",
+      "value_si": null
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "billiard ball"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "unit": "",
+      "value_si": 0.0572
+     },
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "billiard ball",
+      "depth_name": "",
+      "range_m": null,
+      "refs": [
+       "S1",
+       "S2",
+       "S3",
+       "S4"
+      ],
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "orange ball",
+      "depth_name": "",
+      "range_m": null,
+      "refs": [
+       "T2"
+      ],
+      "obs": []
+     }
+    ]
+   },
+   "is_error": false,
+   "summary": "qid 2274: geometry answer 24.74 cm/s (method 2d_scale)",
+   "seconds": 0.01
+  },
+  {
+   "turn": 3,
+   "id": "toolu_01XKkr3yWVfATaGP4cSz9ij6",
+   "name": "solve",
+   "input": {
+    "qid": 2276,
+    "spec": {
+     "target": {
+      "kind": "acceleration",
+      "objects": [
+       "yellow ball"
+      ],
+      "dimension": "",
+      "time": 2.0,
+      "window": null,
+      "axis": "any",
+      "unit": "cm/s^2",
+      "value_si": null
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "billiard ball"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "unit": "",
+      "value_si": 0.0572
+     },
+     "notes": "decelerating; magnitude"
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "billiard ball",
+      "depth_name": "",
+      "range_m": null,
+      "refs": [
+       "S1",
+       "S2",
+       "S3",
+       "S4"
+      ],
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "yellow ball",
+      "depth_name": "",
+      "range_m": null,
+      "refs": [
+       "T3"
+      ],
+      "obs": []
+     }
+    ]
+   },
+   "is_error": false,
+   "summary": "qid 2276: geometry answer 5.514 cm/s^2 (method 2d_scale)",
+   "seconds": 0.01
+  },
+  {
+   "turn": 4,
+   "id": "toolu_01TCe6SoLWAhTL7QVL2yo3Zx",
+   "name": "submit",
+   "input": {
+    "answers": [
+     {
+      "qid": 2272,
+      "use_last_solve": true,
+      "direct_answer": 14.57,
+      "confidence": 0.7,
+      "derivation": "centres 597 px apart at f0; scale 57.2mm/234.6px"
+     },
+     {
+      "qid": 2275,
+      "use_last_solve": true,
+      "direct_answer": 17.61,
+      "confidence": 0.7,
+      "derivation": "centres 722 px apart at f77; scale 57.2mm/234.6px"
+     },
+     {
+      "qid": 2273,
+      "use_last_solve": true,
+      "direct_answer": 27.0,
+      "confidence": 0.65,
+      "derivation": "white disp ~1100 px in 1.0-2.0s; 2.439e-4 m/px"
+     },
+     {
+      "qid": 2274,
+      "use_last_solve": true,
+      "direct_answer": 24.8,
+      "confidence": 0.65,
+      "derivation": "orange ~1015 px/s at 1.0s; 2.439e-4 m/px"
+     },
+     {
+      "qid": 2276,
+      "use_last_solve": true,
+      "direct_answer": 5.4,
+      "confidence": 0.35,
+      "derivation": "yellow speed 736->648->562 px/s over 0.4s steps, ~220 px/s^2 decel; 2.439e-4 m/px"
+     }
+    ]
+   },
+   "is_error": false,
+   "summary": "submitted [2272, 2273, 2274, 2275, 2276]; complete",
+   "seconds": 0.02
+  }
+ ],
+ "tool_counts": {
+  "segment": 4,
+  "track": 3,
+  "solve": 5,
+  "submit": 1
+ },
+ "missing_qids": [],
+ "fallback_qids": [],
+ "meta": {
+  "video_id": "internet_0027",
+  "fps": 25.0,
+  "fps_from_container": false,
+  "video_type": "S2MC",
+  "n_frames_total": 78,
+  "scale": 1.0,
+  "image_size": [
+   3840,
+   2160
+  ],
+  "frames": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   12,
+   13,
+   14,
+   15,
+   16,
+   17,
+   18,
+   19,
+   20,
+   21,
+   22,
+   23,
+   24,
+   25,
+   26,
+   27,
+   28,
+   29,
+   30,
+   31,
+   32,
+   33,
+   34,
+   35,
+   36,
+   37,
+   38,
+   39,
+   40,
+   41,
+   42,
+   43,
+   44,
+   45,
+   46,
+   47,
+   48,
+   49,
+   50,
+   51,
+   52,
+   53,
+   54,
+   55,
+   56,
+   57,
+   58,
+   59,
+   60,
+   61,
+   62,
+   63,
+   64,
+   65,
+   66,
+   67,
+   68,
+   69,
+   70,
+   71,
+   72,
+   73,
+   74,
+   75,
+   76,
+   77
+  ],
+  "questions": [
+   {
+    "qid": 2272,
+    "target_unit": "cm",
+    "prior": "billiard ball diameter = 57.2 mm",
+    "depth_info": ""
+   },
+   {
+    "qid": 2273,
+    "target_unit": "cm/s",
+    "prior": "billiard ball diameter = 57.2 mm",
+    "depth_info": ""
+   },
+   {
+    "qid": 2274,
+    "target_unit": "cm/s",
+    "prior": "billiard ball diameter = 57.2 mm",
+    "depth_info": ""
+   },
+   {
+    "qid": 2275,
+    "target_unit": "cm",
+    "prior": "billiard ball diameter = 57.2 mm",
+    "depth_info": ""
+   },
+   {
+    "qid": 2276,
+    "target_unit": "cm/s^2",
+    "prior": "billiard ball diameter = 57.2 mm",
+    "depth_info": ""
+   }
+  ],
+  "prompt_version": "v2",
+  "agent_version": "ag2",
+  "video_source": "internet"
+ },
+ "parsed": {
+  "questions": [
+   {
+    "qid": 2272,
+    "spec": {
+     "target": {
+      "kind": "distance",
+      "objects": [
+       "black ball",
+       "purple ball"
+      ],
+      "dimension": "",
+      "time": 0,
+      "window": null,
+      "axis": "any",
+      "unit": "cm",
+      "value_si": null
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "billiard ball"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "unit": "",
+      "value_si": 0.0572
+     },
+     "depth": [],
+     "notes": "center to center"
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "billiard ball",
+      "depth_name": "",
+      "range_m": null,
+      "refs": [
+       "S1",
+       "S2",
+       "S3",
+       "S4"
+      ],
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          1750.0,
+          843.3
+         ],
+         [
+          1982.12,
+          843.3
+         ]
+        ],
+        "box": [
+         1750.0,
+         714.0,
+         1981.0,
+         971.0
+        ]
+       },
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          1987.88,
+          1400.77
+         ],
+         [
+          2224.0,
+          1400.77
+         ]
+        ],
+        "box": [
+         1985.0,
+         1259.0,
+         2224.0,
+         1538.0
+        ]
+       },
+       {
+        "frame": 77,
+        "point": null,
+        "extent": [
+         [
+          2053.87,
+          1474.23
+         ],
+         [
+          2294.5,
+          1474.23
+         ]
+        ],
+        "box": [
+         2055.0,
+         1342.0,
+         2282.0,
+         1610.0
+        ]
+       },
+       {
+        "frame": 77,
+        "point": null,
+        "extent": [
+         [
+          1751.0,
+          818.17
+         ],
+         [
+          1984.0,
+          818.17
+         ]
+        ],
+        "box": [
+         1751.0,
+         690.0,
+         1983.0,
+         947.0
+        ]
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "black ball",
+      "depth_name": "",
+      "range_m": null,
+      "refs": [],
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         2106.0,
+         1377.0
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     },
+     {
+      "role": "target2",
+      "object": "purple ball",
+      "depth_name": "",
+      "range_m": null,
+      "refs": [],
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         1866.0,
+         830.0
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     }
+    ],
+    "direct_answer": 14.57,
+    "confidence": 0.7,
+    "derivation": "centres 597 px apart at f0; scale 57.2mm/234.6px"
+   },
+   {
+    "qid": 2273,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "white ball"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": [
+       1.0,
+       2.0
+      ],
+      "axis": "any",
+      "unit": "cm/s",
+      "value_si": null
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "billiard ball"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "unit": "",
+      "value_si": 0.0572
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "billiard ball",
+      "depth_name": "",
+      "range_m": null,
+      "refs": [
+       "S1",
+       "S2",
+       "S3",
+       "S4"
+      ],
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          1750.0,
+          843.3
+         ],
+         [
+          1982.12,
+          843.3
+         ]
+        ],
+        "box": [
+         1750.0,
+         714.0,
+         1981.0,
+         971.0
+        ]
+       },
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          1987.88,
+          1400.77
+         ],
+         [
+          2224.0,
+          1400.77
+         ]
+        ],
+        "box": [
+         1985.0,
+         1259.0,
+         2224.0,
+         1538.0
+        ]
+       },
+       {
+        "frame": 77,
+        "point": null,
+        "extent": [
+         [
+          2053.87,
+          1474.23
+         ],
+         [
+          2294.5,
+          1474.23
+         ]
+        ],
+        "box": [
+         2055.0,
+         1342.0,
+         2282.0,
+         1610.0
+        ]
+       },
+       {
+        "frame": 77,
+        "point": null,
+        "extent": [
+         [
+          1751.0,
+          818.17
+         ],
+         [
+          1984.0,
+          818.17
+         ]
+        ],
+        "box": [
+         1751.0,
+         690.0,
+         1983.0,
+         947.0
+        ]
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "white ball",
+      "depth_name": "",
+      "range_m": null,
+      "refs": [
+       "T1"
+      ],
+      "obs": [
+       {
+        "frame": 25,
+        "point": [
+         2241.68,
+         2037.87
+        ],
+        "extent": null,
+        "box": [
+         2126.97,
+         1923.16,
+         2356.39,
+         2152.58
+        ]
+       },
+       {
+        "frame": 26,
+        "point": [
+         2260.54,
+         2020.61
+        ],
+        "extent": null,
+        "box": [
+         2143.56,
+         1903.63,
+         2377.52,
+         2137.59
+        ]
+       },
+       {
+        "frame": 27,
+        "point": [
+         2297.9,
+         1965.23
+        ],
+        "extent": null,
+        "box": [
+         2181.13,
+         1848.45,
+         2414.68,
+         2082.0
+        ]
+       },
+       {
+        "frame": 28,
+        "point": [
+         2316.54,
+         1938.01
+        ],
+        "extent": null,
+        "box": [
+         2200.15,
+         1821.62,
+         2432.94,
+         2054.41
+        ]
+       },
+       {
+        "frame": 29,
+        "point": [
+         2353.7,
+         1885.29
+        ],
+        "extent": null,
+        "box": [
+         2237.84,
+         1769.43,
+         2469.56,
+         2001.14
+        ]
+       },
+       {
+        "frame": 30,
+        "point": [
+         2371.94,
+         1858.6
+        ],
+        "extent": null,
+        "box": [
+         2256.2,
+         1742.86,
+         2487.69,
+         1974.35
+        ]
+       },
+       {
+        "frame": 31,
+        "point": [
+         2407.6,
+         1805.37
+        ],
+        "extent": null,
+        "box": [
+         2291.74,
+         1689.52,
+         2523.45,
+         1921.23
+        ]
+       },
+       {
+        "frame": 32,
+        "point": [
+         2424.88,
+         1780.44
+        ],
+        "extent": null,
+        "box": [
+         2309.92,
+         1665.48,
+         2539.84,
+         1895.4
+        ]
+       },
+       {
+        "frame": 33,
+        "point": [
+         2460.0,
+         1730.0
+        ],
+        "extent": null,
+        "box": [
+         2345.0,
+         1615.0,
+         2575.0,
+         1845.0
+        ]
+       },
+       {
+        "frame": 34,
+        "point": [
+         2477.76,
+         1704.98
+        ],
+        "extent": null,
+        "box": [
+         2362.96,
+         1590.18,
+         2592.55,
+         1819.78
+        ]
+       },
+       {
+        "frame": 35,
+        "point": [
+         2512.54,
+         1655.57
+        ],
+        "extent": null,
+        "box": [
+         2398.19,
+         1541.23,
+         2626.88,
+         1769.91
+        ]
+       },
+       {
+        "frame": 36,
+        "point": [
+         2530.0,
+         1630.64
+        ],
+        "extent": null,
+        "box": [
+         2415.29,
+         1515.93,
+         2644.71,
+         1745.35
+        ]
+       },
+       {
+        "frame": 37,
+        "point": [
+         2564.32,
+         1581.12
+        ],
+        "extent": null,
+        "box": [
+         2449.91,
+         1466.71,
+         2678.73,
+         1695.53
+        ]
+       },
+       {
+        "frame": 38,
+        "point": [
+         2581.79,
+         1556.88
+        ],
+        "extent": null,
+        "box": [
+         2467.82,
+         1442.91,
+         2695.76,
+         1670.86
+        ]
+       },
+       {
+        "frame": 39,
+        "point": [
+         2615.57,
+         1508.34
+        ],
+        "extent": null,
+        "box": [
+         2501.76,
+         1394.53,
+         2729.37,
+         1622.14
+        ]
+       },
+       {
+        "frame": 40,
+        "point": [
+         2633.08,
+         1484.23
+        ],
+        "extent": null,
+        "box": [
+         2519.2,
+         1370.35,
+         2746.97,
+         1598.12
+        ]
+       },
+       {
+        "frame": 41,
+        "point": [
+         2667.41,
+         1437.56
+        ],
+        "extent": null,
+        "box": [
+         2553.58,
+         1323.73,
+         2781.24,
+         1551.39
+        ]
+       },
+       {
+        "frame": 42,
+        "point": [
+         2684.81,
+         1414.26
+        ],
+        "extent": null,
+        "box": [
+         2571.49,
+         1300.94,
+         2798.12,
+         1527.58
+        ]
+       },
+       {
+        "frame": 43,
+        "point": [
+         2718.22,
+         1367.35
+        ],
+        "extent": null,
+        "box": [
+         2605.32,
+         1254.45,
+         2831.11,
+         1480.24
+        ]
+       },
+       {
+        "frame": 44,
+        "point": [
+         2734.92,
+         1344.06
+        ],
+        "extent": null,
+        "box": [
+         2622.44,
+         1231.58,
+         2847.4,
+         1456.54
+        ]
+       },
+       {
+        "frame": 45,
+        "point": [
+         2767.28,
+         1298.58
+        ],
+        "extent": null,
+        "box": [
+         2654.59,
+         1185.89,
+         2879.97,
+         1411.27
+        ]
+       },
+       {
+        "frame": 46,
+        "point": [
+         2783.81,
+         1276.3
+        ],
+        "extent": null,
+        "box": [
+         2671.78,
+         1164.27,
+         2895.85,
+         1388.34
+        ]
+       },
+       {
+        "frame": 47,
+        "point": [
+         2816.04,
+         1231.41
+        ],
+        "extent": null,
+        "box": [
+         2703.67,
+         1119.03,
+         2928.42,
+         1343.78
+        ]
+       },
+       {
+        "frame": 48,
+        "point": [
+         2832.57,
+         1209.8
+        ],
+        "extent": null,
+        "box": [
+         2720.71,
+         1097.94,
+         2944.42,
+         1321.65
+        ]
+       },
+       {
+        "frame": 49,
+        "point": [
+         2864.12,
+         1166.76
+        ],
+        "extent": null,
+        "box": [
+         2752.93,
+         1055.57,
+         2975.31,
+         1277.95
+        ]
+       },
+       {
+        "frame": 50,
+        "point": [
+         2880.0,
+         1145.0
+        ],
+        "extent": null,
+        "box": [
+         2765.0,
+         1030.0,
+         2995.0,
+         1260.0
+        ]
+       },
+       {
+        "frame": 51,
+        "point": [
+         2910.47,
+         1102.89
+        ],
+        "extent": null,
+        "box": [
+         2795.4,
+         987.82,
+         3025.54,
+         1217.96
+        ]
+       },
+       {
+        "frame": 52,
+        "point": [
+         2925.86,
+         1081.92
+        ],
+        "extent": null,
+        "box": [
+         2811.22,
+         967.28,
+         3040.5,
+         1196.57
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 27.0,
+    "confidence": 0.65,
+    "derivation": "white disp ~1100 px in 1.0-2.0s; 2.439e-4 m/px"
+   },
+   {
+    "qid": 2274,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "orange ball"
+      ],
+      "dimension": "",
+      "time": 1.0,
+      "window": null,
+      "axis": "any",
+      "unit": "cm/s",
+      "value_si": null
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "billiard ball"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "unit": "",
+      "value_si": 0.0572
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "billiard ball",
+      "depth_name": "",
+      "range_m": null,
+      "refs": [
+       "S1",
+       "S2",
+       "S3",
+       "S4"
+      ],
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          1750.0,
+          843.3
+         ],
+         [
+          1982.12,
+          843.3
+         ]
+        ],
+        "box": [
+         1750.0,
+         714.0,
+         1981.0,
+         971.0
+        ]
+       },
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          1987.88,
+          1400.77
+         ],
+         [
+          2224.0,
+          1400.77
+         ]
+        ],
+        "box": [
+         1985.0,
+         1259.0,
+         2224.0,
+         1538.0
+        ]
+       },
+       {
+        "frame": 77,
+        "point": null,
+        "extent": [
+         [
+          2053.87,
+          1474.23
+         ],
+         [
+          2294.5,
+          1474.23
+         ]
+        ],
+        "box": [
+         2055.0,
+         1342.0,
+         2282.0,
+         1610.0
+        ]
+       },
+       {
+        "frame": 77,
+        "point": null,
+        "extent": [
+         [
+          1751.0,
+          818.17
+         ],
+         [
+          1984.0,
+          818.17
+         ]
+        ],
+        "box": [
+         1751.0,
+         690.0,
+         1983.0,
+         947.0
+        ]
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "orange ball",
+      "depth_name": "",
+      "range_m": null,
+      "refs": [
+       "T2"
+      ],
+      "obs": [
+       {
+        "frame": 15,
+        "point": [
+         827.81,
+         1381.32
+        ],
+        "extent": null,
+        "box": [
+         710.43,
+         1263.94,
+         945.18,
+         1498.69
+        ]
+       },
+       {
+        "frame": 16,
+        "point": [
+         834.76,
+         1352.83
+        ],
+        "extent": null,
+        "box": [
+         717.51,
+         1235.58,
+         952.0,
+         1470.07
+        ]
+       },
+       {
+        "frame": 17,
+        "point": [
+         848.18,
+         1297.68
+        ],
+        "extent": null,
+        "box": [
+         731.1,
+         1180.61,
+         965.25,
+         1414.76
+        ]
+       },
+       {
+        "frame": 18,
+        "point": [
+         853.83,
+         1269.77
+        ],
+        "extent": null,
+        "box": [
+         736.63,
+         1152.56,
+         971.03,
+         1386.97
+        ]
+       },
+       {
+        "frame": 19,
+        "point": [
+         868.13,
+         1213.26
+        ],
+        "extent": null,
+        "box": [
+         751.48,
+         1096.61,
+         984.78,
+         1329.91
+        ]
+       },
+       {
+        "frame": 20,
+        "point": [
+         874.43,
+         1186.07
+        ],
+        "extent": null,
+        "box": [
+         757.8,
+         1069.44,
+         991.06,
+         1302.7
+        ]
+       },
+       {
+        "frame": 21,
+        "point": [
+         888.85,
+         1131.85
+        ],
+        "extent": null,
+        "box": [
+         773.34,
+         1016.33,
+         1004.37,
+         1247.37
+        ]
+       },
+       {
+        "frame": 22,
+        "point": [
+         895.8,
+         1105.08
+        ],
+        "extent": null,
+        "box": [
+         780.48,
+         989.76,
+         1011.11,
+         1220.39
+        ]
+       },
+       {
+        "frame": 23,
+        "point": [
+         909.23,
+         1049.54
+        ],
+        "extent": null,
+        "box": [
+         794.16,
+         934.46,
+         1024.31,
+         1164.61
+        ]
+       },
+       {
+        "frame": 24,
+        "point": [
+         916.24,
+         1022.85
+        ],
+        "extent": null,
+        "box": [
+         800.89,
+         907.5,
+         1031.59,
+         1138.2
+        ]
+       },
+       {
+        "frame": 25,
+        "point": [
+         930.0,
+         970.0
+        ],
+        "extent": null,
+        "box": [
+         815.0,
+         855.0,
+         1045.0,
+         1085.0
+        ]
+       },
+       {
+        "frame": 26,
+        "point": [
+         936.95,
+         941.64
+        ],
+        "extent": null,
+        "box": [
+         822.29,
+         826.98,
+         1051.61,
+         1056.3
+        ]
+       },
+       {
+        "frame": 27,
+        "point": [
+         952.42,
+         892.14
+        ],
+        "extent": null,
+        "box": [
+         838.01,
+         777.73,
+         1066.84,
+         1006.56
+        ]
+       },
+       {
+        "frame": 28,
+        "point": [
+         960.64,
+         865.81
+        ],
+        "extent": null,
+        "box": [
+         846.14,
+         751.31,
+         1075.14,
+         980.31
+        ]
+       },
+       {
+        "frame": 29,
+        "point": [
+         974.77,
+         816.84
+        ],
+        "extent": null,
+        "box": [
+         861.42,
+         703.49,
+         1088.12,
+         930.19
+        ]
+       },
+       {
+        "frame": 30,
+        "point": [
+         981.92,
+         792.54
+        ],
+        "extent": null,
+        "box": [
+         869.34,
+         679.96,
+         1094.5,
+         905.12
+        ]
+       },
+       {
+        "frame": 31,
+        "point": [
+         995.77,
+         742.36
+        ],
+        "extent": null,
+        "box": [
+         882.92,
+         629.51,
+         1108.61,
+         855.2
+        ]
+       },
+       {
+        "frame": 32,
+        "point": [
+         1003.16,
+         717.83
+        ],
+        "extent": null,
+        "box": [
+         890.02,
+         604.68,
+         1116.31,
+         830.98
+        ]
+       },
+       {
+        "frame": 33,
+        "point": [
+         1016.39,
+         670.78
+        ],
+        "extent": null,
+        "box": [
+         904.09,
+         558.49,
+         1128.69,
+         783.08
+        ]
+       },
+       {
+        "frame": 34,
+        "point": [
+         1023.0,
+         647.92
+        ],
+        "extent": null,
+        "box": [
+         910.65,
+         535.56,
+         1135.36,
+         760.27
+        ]
+       },
+       {
+        "frame": 35,
+        "point": [
+         1035.91,
+         602.19
+        ],
+        "extent": null,
+        "box": [
+         923.25,
+         489.53,
+         1148.56,
+         714.85
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 24.8,
+    "confidence": 0.65,
+    "derivation": "orange ~1015 px/s at 1.0s; 2.439e-4 m/px"
+   },
+   {
+    "qid": 2275,
+    "spec": {
+     "target": {
+      "kind": "distance",
+      "objects": [
+       "purple ball",
+       "black ball"
+      ],
+      "dimension": "",
+      "time": 3.08,
+      "window": null,
+      "axis": "any",
+      "unit": "cm",
+      "value_si": null
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "billiard ball"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "unit": "",
+      "value_si": 0.0572
+     },
+     "depth": [],
+     "notes": "center to center"
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "billiard ball",
+      "depth_name": "",
+      "range_m": null,
+      "refs": [
+       "S1",
+       "S2",
+       "S3",
+       "S4"
+      ],
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          1750.0,
+          843.3
+         ],
+         [
+          1982.12,
+          843.3
+         ]
+        ],
+        "box": [
+         1750.0,
+         714.0,
+         1981.0,
+         971.0
+        ]
+       },
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          1987.88,
+          1400.77
+         ],
+         [
+          2224.0,
+          1400.77
+         ]
+        ],
+        "box": [
+         1985.0,
+         1259.0,
+         2224.0,
+         1538.0
+        ]
+       },
+       {
+        "frame": 77,
+        "point": null,
+        "extent": [
+         [
+          2053.87,
+          1474.23
+         ],
+         [
+          2294.5,
+          1474.23
+         ]
+        ],
+        "box": [
+         2055.0,
+         1342.0,
+         2282.0,
+         1610.0
+        ]
+       },
+       {
+        "frame": 77,
+        "point": null,
+        "extent": [
+         [
+          1751.0,
+          818.17
+         ],
+         [
+          1984.0,
+          818.17
+         ]
+        ],
+        "box": [
+         1751.0,
+         690.0,
+         1983.0,
+         947.0
+        ]
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "purple ball",
+      "depth_name": "",
+      "range_m": null,
+      "refs": [],
+      "obs": [
+       {
+        "frame": 77,
+        "point": [
+         1867.5,
+         806.0
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     },
+     {
+      "role": "target2",
+      "object": "black ball",
+      "depth_name": "",
+      "range_m": null,
+      "refs": [],
+      "obs": [
+       {
+        "frame": 77,
+        "point": [
+         2172.0,
+         1461.0
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     }
+    ],
+    "direct_answer": 17.61,
+    "confidence": 0.7,
+    "derivation": "centres 722 px apart at f77; scale 57.2mm/234.6px"
+   },
+   {
+    "qid": 2276,
+    "spec": {
+     "target": {
+      "kind": "acceleration",
+      "objects": [
+       "yellow ball"
+      ],
+      "dimension": "",
+      "time": 2.0,
+      "window": null,
+      "axis": "any",
+      "unit": "cm/s^2",
+      "value_si": null
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "billiard ball"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "unit": "",
+      "value_si": 0.0572
+     },
+     "depth": [],
+     "notes": "decelerating; magnitude"
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "billiard ball",
+      "depth_name": "",
+      "range_m": null,
+      "refs": [
+       "S1",
+       "S2",
+       "S3",
+       "S4"
+      ],
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          1750.0,
+          843.3
+         ],
+         [
+          1982.12,
+          843.3
+         ]
+        ],
+        "box": [
+         1750.0,
+         714.0,
+         1981.0,
+         971.0
+        ]
+       },
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          1987.88,
+          1400.77
+         ],
+         [
+          2224.0,
+          1400.77
+         ]
+        ],
+        "box": [
+         1985.0,
+         1259.0,
+         2224.0,
+         1538.0
+        ]
+       },
+       {
+        "frame": 77,
+        "point": null,
+        "extent": [
+         [
+          2053.87,
+          1474.23
+         ],
+         [
+          2294.5,
+          1474.23
+         ]
+        ],
+        "box": [
+         2055.0,
+         1342.0,
+         2282.0,
+         1610.0
+        ]
+       },
+       {
+        "frame": 77,
+        "point": null,
+        "extent": [
+         [
+          1751.0,
+          818.17
+         ],
+         [
+          1984.0,
+          818.17
+         ]
+        ],
+        "box": [
+         1751.0,
+         690.0,
+         1983.0,
+         947.0
+        ]
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "yellow ball",
+      "depth_name": "",
+      "range_m": null,
+      "refs": [
+       "T3"
+      ],
+      "obs": [
+       {
+        "frame": 35,
+        "point": [
+         1001.87,
+         1434.6
+        ],
+        "extent": null,
+        "box": [
+         886.69,
+         1319.42,
+         1117.05,
+         1549.78
+        ]
+       },
+       {
+        "frame": 36,
+        "point": [
+         1003.59,
+         1414.43
+        ],
+        "extent": null,
+        "box": [
+         889.55,
+         1300.39,
+         1117.63,
+         1528.47
+        ]
+       },
+       {
+        "frame": 37,
+        "point": [
+         1001.84,
+         1369.85
+        ],
+        "extent": null,
+        "box": [
+         887.88,
+         1255.89,
+         1115.81,
+         1483.82
+        ]
+       },
+       {
+        "frame": 38,
+        "point": [
+         1000.29,
+         1348.92
+        ],
+        "extent": null,
+        "box": [
+         885.66,
+         1234.28,
+         1114.93,
+         1463.56
+        ]
+       },
+       {
+        "frame": 39,
+        "point": [
+         995.21,
+         1310.75
+        ],
+        "extent": null,
+        "box": [
+         880.18,
+         1195.73,
+         1110.23,
+         1425.77
+        ]
+       },
+       {
+        "frame": 40,
+        "point": [
+         994.2,
+         1291.51
+        ],
+        "extent": null,
+        "box": [
+         879.43,
+         1176.74,
+         1108.97,
+         1406.28
+        ]
+       },
+       {
+        "frame": 41,
+        "point": [
+         992.57,
+         1251.96
+        ],
+        "extent": null,
+        "box": [
+         877.91,
+         1137.3,
+         1107.23,
+         1366.63
+        ]
+       },
+       {
+        "frame": 42,
+        "point": [
+         992.24,
+         1232.71
+        ],
+        "extent": null,
+        "box": [
+         877.53,
+         1118.0,
+         1106.94,
+         1347.41
+        ]
+       },
+       {
+        "frame": 43,
+        "point": [
+         991.41,
+         1195.08
+        ],
+        "extent": null,
+        "box": [
+         876.86,
+         1080.53,
+         1105.97,
+         1309.64
+        ]
+       },
+       {
+        "frame": 44,
+        "point": [
+         991.04,
+         1176.51
+        ],
+        "extent": null,
+        "box": [
+         876.56,
+         1062.04,
+         1105.52,
+         1290.99
+        ]
+       },
+       {
+        "frame": 45,
+        "point": [
+         990.18,
+         1140.25
+        ],
+        "extent": null,
+        "box": [
+         875.77,
+         1025.84,
+         1104.59,
+         1254.66
+        ]
+       },
+       {
+        "frame": 46,
+        "point": [
+         990.11,
+         1122.64
+        ],
+        "extent": null,
+        "box": [
+         875.79,
+         1008.32,
+         1104.43,
+         1236.96
+        ]
+       },
+       {
+        "frame": 47,
+        "point": [
+         989.67,
+         1090.14
+        ],
+        "extent": null,
+        "box": [
+         875.7,
+         976.17,
+         1103.65,
+         1204.12
+        ]
+       },
+       {
+        "frame": 48,
+        "point": [
+         989.57,
+         1071.34
+        ],
+        "extent": null,
+        "box": [
+         875.39,
+         957.15,
+         1103.76,
+         1185.52
+        ]
+       },
+       {
+        "frame": 49,
+        "point": [
+         990.84,
+         1038.31
+        ],
+        "extent": null,
+        "box": [
+         877.15,
+         924.62,
+         1104.53,
+         1152.0
+        ]
+       },
+       {
+        "frame": 50,
+        "point": [
+         990.0,
+         1015.0
+        ],
+        "extent": null,
+        "box": [
+         875.0,
+         900.0,
+         1105.0,
+         1130.0
+        ]
+       },
+       {
+        "frame": 51,
+        "point": [
+         988.88,
+         977.34
+        ],
+        "extent": null,
+        "box": [
+         873.55,
+         862.0,
+         1104.22,
+         1092.68
+        ]
+       },
+       {
+        "frame": 52,
+        "point": [
+         989.51,
+         961.87
+        ],
+        "extent": null,
+        "box": [
+         875.41,
+         847.77,
+         1103.62,
+         1075.98
+        ]
+       },
+       {
+        "frame": 53,
+        "point": [
+         989.61,
+         928.81
+        ],
+        "extent": null,
+        "box": [
+         876.37,
+         815.57,
+         1102.86,
+         1042.06
+        ]
+       },
+       {
+        "frame": 54,
+        "point": [
+         989.86,
+         913.32
+        ],
+        "extent": null,
+        "box": [
+         876.98,
+         800.45,
+         1102.73,
+         1026.2
+        ]
+       },
+       {
+        "frame": 55,
+        "point": [
+         989.8,
+         880.87
+        ],
+        "extent": null,
+        "box": [
+         877.36,
+         768.42,
+         1102.25,
+         993.31
+        ]
+       },
+       {
+        "frame": 56,
+        "point": [
+         989.85,
+         864.94
+        ],
+        "extent": null,
+        "box": [
+         877.26,
+         752.35,
+         1102.43,
+         977.53
+        ]
+       },
+       {
+        "frame": 57,
+        "point": [
+         989.89,
+         833.14
+        ],
+        "extent": null,
+        "box": [
+         877.45,
+         720.71,
+         1102.32,
+         945.58
+        ]
+       },
+       {
+        "frame": 58,
+        "point": [
+         989.84,
+         818.03
+        ],
+        "extent": null,
+        "box": [
+         877.62,
+         705.8,
+         1102.07,
+         930.25
+        ]
+       },
+       {
+        "frame": 59,
+        "point": [
+         989.84,
+         788.47
+        ],
+        "extent": null,
+        "box": [
+         877.5,
+         676.13,
+         1102.18,
+         900.81
+        ]
+       },
+       {
+        "frame": 60,
+        "point": [
+         990.35,
+         774.27
+        ],
+        "extent": null,
+        "box": [
+         878.05,
+         661.97,
+         1102.65,
+         886.57
+        ]
+       },
+       {
+        "frame": 61,
+        "point": [
+         992.25,
+         745.71
+        ],
+        "extent": null,
+        "box": [
+         880.34,
+         633.8,
+         1104.16,
+         857.62
+        ]
+       },
+       {
+        "frame": 62,
+        "point": [
+         992.93,
+         730.37
+        ],
+        "extent": null,
+        "box": [
+         881.19,
+         618.63,
+         1104.67,
+         842.11
+        ]
+       },
+       {
+        "frame": 63,
+        "point": [
+         996.82,
+         702.57
+        ],
+        "extent": null,
+        "box": [
+         885.92,
+         591.67,
+         1107.72,
+         813.46
+        ]
+       },
+       {
+        "frame": 64,
+        "point": [
+         1000.24,
+         688.55
+        ],
+        "extent": null,
+        "box": [
+         890.7,
+         579.01,
+         1109.78,
+         798.09
+        ]
+       },
+       {
+        "frame": 65,
+        "point": [
+         1003.43,
+         656.32
+        ],
+        "extent": null,
+        "box": [
+         893.8,
+         546.68,
+         1113.07,
+         765.96
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 5.4,
+    "confidence": 0.35,
+    "derivation": "yellow speed 736->648->562 px/s over 0.4s steps, ~220 px/s^2 decel; 2.439e-4 m/px"
+   }
+  ]
+ },
+ "final_geometry": {
+  "2272": {
+   "geo": 14.566659748267002,
+   "method": "2d_scale",
+   "flags": [],
+   "direct": 14.57
+  },
+  "2273": {
+   "geo": 27.121062594835383,
+   "method": "2d_scale",
+   "flags": [],
+   "direct": 27.0
+  },
+  "2274": {
+   "geo": 24.74478121132215,
+   "method": "2d_scale",
+   "flags": [],
+   "direct": 24.8
+  },
+  "2275": {
+   "geo": 17.614540877362575,
+   "method": "2d_scale",
+   "flags": [],
+   "direct": 17.61
+  },
+  "2276": {
+   "geo": 5.513552014197439,
+   "method": "2d_scale",
+   "flags": [],
+   "direct": 5.4
+  }
+ },
+ "measurements": {
+  "S1": {
+   "kind": "segment",
+   "object": "purple ball",
+   "info": {
+    "method": "grabcut",
+    "measure": "diameter",
+    "ends": [
+     8.97,
+     -6.92
+    ]
+   },
+   "n_obs": 1
+  },
+  "S2": {
+   "kind": "segment",
+   "object": "black ball",
+   "info": {
+    "method": "grabcut",
+    "measure": "diameter",
+    "ends": [
+     17.87,
+     -11.63
+    ]
+   },
+   "n_obs": 1
+  },
+  "S3": {
+   "kind": "segment",
+   "object": "black ball",
+   "info": {
+    "method": "grabcut",
+    "measure": "diameter",
+    "ends": [
+     8.05,
+     "weak"
+    ]
+   },
+   "n_obs": 1
+  },
+  "S4": {
+   "kind": "segment",
+   "object": "purple ball",
+   "info": {
+    "method": "grabcut",
+    "measure": "diameter",
+    "ends": [
+     7.64,
+     -5.48
+    ]
+   },
+   "n_obs": 1
+  },
+  "T1": {
+   "kind": "track",
+   "object": "white ball",
+   "info": {
+    "tracker": "dense_track.track_pass",
+    "template_px": 48.0,
+    "anchors": [
+     33,
+     50
+    ],
+    "tolerance_px": 57.5,
+    "dense_motion": {
+     "why": "residual",
+     "cover": 1.0,
+     "resid_med": 6.14,
+     "resid_max": 6.14,
+     "n_pieces": 1
+    },
+    "between_anchors": "chained_passes",
+    "anchor_check_px": [
+     13.13
+    ],
+    "segments": [
+     "forward"
+    ],
+    "n_tracked": 28,
+    "n_frames": 31,
+    "lost": [
+     22,
+     23,
+     24
+    ],
+    "dropped": {},
+    "ncc_min": 0.965,
+    "ncc_median": 0.998,
+    "fb_median_px": 9.709,
+    "fb_max_px": 10.204,
+    "work_scale": 0.3333
+   },
+   "n_obs": 28
+  },
+  "T2": {
+   "kind": "track",
+   "object": "orange ball",
+   "info": {
+    "tracker": "dense_track.track_pass",
+    "template_px": 48.0,
+    "anchors": [
+     25
+    ],
+    "tolerance_px": 57.5,
+    "n_tracked": 21,
+    "n_frames": 21,
+    "lost": [],
+    "dropped": {},
+    "ncc_min": 0.913,
+    "ncc_median": 0.981,
+    "fb_median_px": 0.348,
+    "fb_max_px": 3.18,
+    "work_scale": 0.3333
+   },
+   "n_obs": 21
+  },
+  "T3": {
+   "kind": "track",
+   "object": "yellow ball",
+   "info": {
+    "tracker": "dense_track.track_pass",
+    "template_px": 48.0,
+    "anchors": [
+     50
+    ],
+    "tolerance_px": 57.5,
+    "n_tracked": 31,
+    "n_frames": 31,
+    "lost": [],
+    "dropped": {},
+    "ncc_min": 0.931,
+    "ncc_median": 0.976,
+    "fb_median_px": 4.404,
+    "fb_max_px": 7.219,
+    "work_scale": 0.3333
+   },
+   "n_obs": 31
+  }
+ },
+ "transcript": [
+  {
+   "role": "system",
+   "content": "You are a measurement agent for QuantiPhy, a benchmark of quantitative physical reasoning from video. For ONE video you answer every question by measuring pixels with tools; a geometry program turns y ..."
+  },
+  {
+   "role": "user",
+   "content": [
+    {
+     "type": "text",
+     "text": "Video internet_0027: 2D video; 3840x2160 px (original pixels); 25 fps; 78 frames, 0..77 (~3.12 s). 10 overview frames follow (full frames downscaled; tick labels in original px)."
+    },
+    {
+     "type": "text",
+     "text": "Frame 0 (t=0.000s), full frame, zoom 0.2667: image px (u, v) -> original x = 0 + (u - 46) / 0.2667, y = 0 + (v - 24) / 0.2667"
+    },
+    {
+     "type": "image",
+     "omitted": true,
+     "bytes": 82947,
+     "file": "img_001_overview_f0.jpg"
+    },
+    {
+     "type": "text",
+     "text": "Frame 11 (t=0.440s), full frame, zoom 0.2667: image px (u, v) -> original x = 0 + (u - 46) / 0.2667, y = 0 + (v - 24) / 0.2667"
+    },
+    {
+     "type": "image",
+     "omitted": true,
+     "bytes": 83400,
+     "file": "img_002_overview_f11.jpg"
+    },
+    {
+     "type": "text",
+     "text": "Frame 22 (t=0.880s), full frame, zoom 0.2667: image px (u, v) -> original x = 0 + (u - 46) / 0.2667, y = 0 + (v - 24) / 0.2667"
+    },
+    {
+     "type": "image",
+     "omitted": true,
+     "bytes": 84528,
+     "file": "img_003_overview_f22.jpg"
+    },
+    {
+     "type": "text",
+     "text": "Frame 25 (t=1.000s), full frame, zoom 0.2667: image px (u, v) -> original x = 0 + (u - 46) / 0.2667, y = 0 + (v - 24) / 0.2667"
+    },
+    {
+     "type": "image",
+     "omitted": true,
+     "bytes": 84177,
+     "file": "img_004_overview_f25.jpg"
+    },
+    {
+     "type": "text",
+     "text": "Frame 33 (t=1.320s), full frame, zoom 0.2667: image px (u, v) -> original x = 0 + (u - 46) / 0.2667, y = 0 + (v - 24) / 0.2667"
+    },
+    {
+     "type": "image",
+     "omitted": true,
+     "bytes": 82959,
+     "file": "img_005_overview_f33.jpg"
+    },
+    {
+     "type": "text",
+     "text": "Frame 44 (t=1.760s), full frame, zoom 0.2667: image px (u, v) -> original x = 0 + (u - 46) / 0.2667, y = 0 + (v - 24) / 0.2667"
+    },
+    {
+     "type": "image",
+     "omitted": true,
+     "bytes": 82827,
+     "file": "img_006_overview_f44.jpg"
+    },
+    {
+     "type": "text",
+     "text": "Frame 50 (t=2.000s), full frame, zoom 0.2667: image px (u, v) -> original x = 0 + (u - 46) / 0.2667, y = 0 + (v - 24) / 0.2667"
+    },
+    {
+     "type": "image",
+     "omitted": true,
+     "bytes": 83640,
+     "file": "img_007_overview_f50.jpg"
+    },
+    {
+     "type": "text",
+     "text": "Frame 55 (t=2.200s), full frame, zoom 0.2667: image px (u, v) -> original x = 0 + (u - 46) / 0.2667, y = 0 + (v - 24) / 0.2667"
+    },
+    {
+     "type": "image",
+     "omitted": true,
+     "bytes": 83514,
+     "file": "img_008_overview_f55.jpg"
+    },
+    {
+     "type": "text",
+     "text": "Frame 66 (t=2.640s), full frame, zoom 0.2667: image px (u, v) -> original x = 0 + (u - 46) / 0.2667, y = 0 + (v - 24) / 0.2667"
+    },
+    {
+     "type": "image",
+     "omitted": true,
+     "bytes": 84114,
+     "file": "img_009_overview_f66.jpg"
+    },
+    {
+     "type": "text",
+     "text": "Frame 77 (t=3.080s), full frame, zoom 0.2667: image px (u, v) -> original x = 0 + (u - 46) / 0.2667, y = 0 + (v - 24) / 0.2667"
+    },
+    {
+     "type": "image",
+     "omitted": true,
+     "bytes": 84648,
+     "file": "img_010_overview_f77.jpg"
+    },
+    {
+     "type": "text",
+     "text": "5 question(s) about this video:\n\nQuestion qid=2272\nPrior: billiard ball diameter = 57.2 mm\nDepth info: none (2D video)\nQuestion: What is the initial distance between the black ball and the purple ball in cm?\nAsked unit: cm\n\nQuestion qid=2273\nPrior: billiard ball diameter = 57.2 mm\nDepth info: none (2D video)\nQuestion: What is the white ball's average velocity in 1.00s to 2.00s in cm/s?\nAsked unit: cm/s\n\nQuestion qid=2274\nPrior: billiard ball diameter = 57.2 mm\nDepth info: none (2D video)\nQuestion: What is the velocity of the orange ball at 1.00s in cm/s?\nAsked unit: cm/s\n\nQuestion qid=2275\nPrior: billiard ball diameter = 57.2 mm\nDepth info: none (2D video)\nQuestion: What is the final distance between the purple ball and the black ball in cm?\nAsked unit: cm\n\nQuestion qid=2276\nPrior: billiard ball diameter = 57.2 mm\nDepth info: none (2D video)\nQuestion: What is the acceleration of the yellow ball on the left at 2.00s in cm/s^2?\nAsked unit: cm/s^2\n\nMeasure and answer all of them (qids 2272, 2273, 2274, 2275, 2276) with the tools, then submit."
+    }
+   ]
+  },
+  {
+   "role": "assistant",
+   "content": [
+    {
+     "thinking": "I should measure the purple and black ball diameters at frame 0 first, using that as a reference. The black ball shifts slightly between frames while the purple ball and white marker look stationary, suggesting the camera is mostly static \u2014 so I'll segment and track the purple, black, white, orange, and yellow balls across frames 0 and 77.\n\n",
+     "type": "thinking"
+    },
+    {
+     "id": "toolu_01Nr43hAp1YCKjadHdQARZDW",
+     "caller": {
+      "type": "direct"
+     },
+     "input": {
+      "object": "purple ball",
+      "frame": 0,
+      "measure": "diameter",
+      "box": [
+       1730,
+       690,
+       1980,
+       960
+      ]
+     },
+     "name": "segment",
+     "type": "tool_use"
+    },
+    {
+     "id": "toolu_01EFHScxZLL86uHoZ8LKaeJv",
+     "caller": {
+      "type": "direct"
+     },
+     "input": {
+      "object": "black ball",
+      "frame": 0,
+      "measure": "diameter",
+      "box": [
+       1960,
+       1240,
+       2220,
+       1520
+      ]
+     },
+     "name": "segment",
+     "type": "tool_use"
+    },
+    {
+     "id": "toolu_01Y1mexcEzYZvqLrDXrMj6xD",
+     "caller": {
+      "type": "direct"
+     },
+     "input": {
+      "object": "black ball",
+      "frame": 77,
+      "measure": "diameter",
+      "box": [
+       2000,
+       1330,
+       2260,
+       1610
+      ]
+     },
+     "name": "segment",
+     "type": "tool_use"
+    },
+    {
+     "id": "toolu_01YMsvvFecveYUy1zr7k2w2A",
+     "caller": {
+      "type": "direct"
+     },
+     "input": {
+      "object": "purple ball",
+      "frame": 77,
+      "measure": "diameter",
+      "box": [
+       1740,
+       680,
+       1990,
+       950
+      ]
+     },
+     "name": "segment",
+     "type": "tool_use"
+    }
+   ]
+  },
+  {
+   "role": "user",
+   "content": [
+    {
+     "type": "tool_result",
+     "tool_use_id": "toolu_01Nr43hAp1YCKjadHdQARZDW",
+     "content": [
+      {
+       "type": "text",
+       "text": "S1 \"purple ball\" frame 0 (t=0.000s): grabcut, measure diameter: extent (1750.00, 843.30) - (1982.12, 843.30), length 232.12 px [edge-refined mask extent: end 1 moved +8.97 px to the strongest edge where the mask reaches its extent; end 2 moved -6.92 px to the strongest edge where the mask reaches its extent; mask extent 248.02 px]. Other axes of the mask (px): long 257.00, short 231.00, horizontal 231.00, vertical 257.00. Mask box [1750.0, 714.0, 1981.0, 971.0] (231.0 x 257.0 px), area 48316.0 px^2, long axis at 90.0 deg, fill 0.524 of your box."
+      },
+      {
+       "type": "text",
+       "text": "S1 overlay (green = mask outline (green crosses: the mask's own endpoints), yellow = your box, magenta = measured extent), frame 0, region x 1641..2069, y 601..1049, zoom 2: image px (u, v) -> original x = 1641 + (u - 46) / 2, y = 601 + (v - 24) / 2"
+      },
+      {
+       "type": "image",
+       "omitted": true,
+       "bytes": 199569,
+       "file": "img_011_S1_f0.jpg"
+      }
+     ]
+    },
+    {
+     "type": "tool_result",
+     "tool_use_id": "toolu_01EFHScxZLL86uHoZ8LKaeJv",
+     "content": [
+      {
+       "type": "text",
+       "text": "S2 \"black ball\" frame 0 (t=0.000s): grabcut, measure diameter: extent (1987.88, 1400.77) - (2224.00, 1400.77), length 236.12 px [edge-refined mask extent: end 1 moved +17.87 px to the strongest edge where the mask reaches its extent; end 2 moved -11.63 px to the strongest edge where the mask reaches its extent; mask extent 265.62 px]. Other axes of the mask (px): long 279.29, short 238.55, horizontal 239.00, vertical 279.00. Mask box [1985.0, 1259.0, 2224.0, 1538.0] (239.0 x 279.0 px), area 55411.0 px^2, long axis at 90.8 deg, fill 0.556 of your box."
+      },
+      {
+       "type": "text",
+       "text": "S2 overlay (green = mask outline (green crosses: the mask's own endpoints), yellow = your box, magenta = measured extent), frame 0, region x 1868..2312, y 1148..1612, zoom 2: image px (u, v) -> original x = 1868 + (u - 46) / 2, y = 1148 + (v - 24) / 2"
+      },
+      {
+       "type": "image",
+       "omitted": true,
+       "bytes": 218112,
+       "file": "img_012_S2_f0.jpg"
+      }
+     ]
+    },
+    {
+     "type": "tool_result",
+     "tool_use_id": "toolu_01Y1mexcEzYZvqLrDXrMj6xD",
+     "content": [
+      {
+       "type": "text",
+       "text": "S3 \"black ball\" frame 77 (t=3.080s): grabcut, measure diameter: extent (2053.87, 1474.23) - (2294.50, 1474.23), length 240.63 px [edge-refined mask extent: end 1 moved +8.05 px to the strongest edge where the mask reaches its extent; end 2 kept at the mask (no clear edge); mask extent 248.68 px]. Other axes of the mask (px): long 268.00, short 227.00, horizontal 227.00, vertical 268.00. Mask box [2055.0, 1342.0, 2282.0, 1610.0] (227.0 x 268.0 px), area 48568.0 px^2, long axis at 90.0 deg, fill 0.487 of your box. Warning: an end without an image edge within +-4.0 px of the mask's boundary keeps the mask's own boundary, which may bleed (1-2 px) or leak into the background there: check it on a zoomed crop, or measure with method 'edges'."
+      },
+      {
+       "type": "text",
+       "text": "S3 overlay (green = mask outline (green crosses: the mask's own endpoints), yellow = your box, magenta = measured extent), frame 77, region x 1908..2352, y 1238..1702, zoom 2: image px (u, v) -> original x = 1908 + (u - 46) / 2, y = 1238 + (v - 24) / 2"
+      },
+      {
+       "type": "image",
+       "omitted": true,
+       "bytes": 239559,
+       "file": "img_013_S3_f77.jpg"
+      }
+     ]
+    },
+    {
+     "type": "tool_result",
+     "tool_use_id": "toolu_01YMsvvFecveYUy1zr7k2w2A",
+     "content": [
+      {
+       "type": "text",
+       "text": "S4 \"purple ball\" frame 77 (t=3.080s): grabcut, measure diameter: extent (1751.00, 818.17) - (1984.00, 818.17), length 233.00 px [edge-refined mask extent: end 1 moved +7.64 px to the strongest edge where the mask reaches its extent; end 2 moved -5.48 px to the strongest edge where the mask reaches its extent; mask extent 246.12 px]. Other axes of the mask (px): long 257.00, short 232.00, horizontal 232.00, vertical 257.00. Mask box [1751.0, 690.0, 1983.0, 947.0] (232.0 x 257.0 px), area 47574.0 px^2, long axis at 90.0 deg, fill 0.516 of your box."
+      },
+      {
+       "type": "text",
+       "text": "S4 overlay (green = mask outline (green crosses: the mask's own endpoints), yellow = your box, magenta = measured extent), frame 77, region x 1651..2079, y 591..1039, zoom 2: image px (u, v) -> original x = 1651 + (u - 46) / 2, y = 591 + (v - 24) / 2"
+      },
+      {
+       "type": "image",
+       "omitted": true,
+       "bytes": 199398,
+       "file": "img_014_S4_f77.jpg"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "role": "assistant",
+   "content": [
+    {
+     "thinking": "I'm measuring the ball diameters across frames, settling on roughly 234 pixels, which gives a scale factor of about 2.444e-4 meters per pixel. Then I'm pinpointing the pixel centers of the purple and black balls at frame 0 by averaging their bounding box edges.\n\nComputing the purple-to-black distance at both frames, I get about 14.6 cm initially and 17.6 cm by frame 77, noting the purple ball drifts slightly but that the inter-ball distance stays camera-invariant. Now I'm tracking the white, orange, and yellow balls across their respective frames to pin down their positions at each timestamp, checking that white ball stays in frame near the bottom edge, and noting there's likely an acceleration event around 2.0 seconds based on the yellow ball's trajectory.\n\n",
+     "type": "thinking"
+    },
+    {
+     "id": "toolu_016yAdLiFfepv5q1zjptdqcU",
+     "caller": {
+      "type": "direct"
+     },
+     "input": {
+      "object": "white ball",
+      "anchors": [
+       {
+        "frame": 33,
+        "box": [
+         2345,
+         1615,
+         2575,
+         1845
+        ]
+       },
+       {
+        "frame": 50,
+        "box": [
+         2765,
+         1030,
+         2995,
+         1260
+        ]
+       }
+      ],
+      "from_t": 0.9,
+      "to_t": 2.1
+     },
+     "name": "track",
+     "type": "tool_use"
+    },
+    {
+     "id": "toolu_01AoiUfKY48Wajeff5DmY9tL",
+     "caller": {
+      "type": "direct"
+     },
+     "input": {
+      "object": "orange ball",
+      "anchors": [
+       {
+        "frame": 25,
+        "box": [
+         815,
+         855,
+         1045,
+         1085
+        ]
+       }
+      ],
+      "from_t": 0.6,
+      "to_t": 1.4
+     },
+     "name": "track",
+     "type": "tool_use"
+    },
+    {
+     "id": "toolu_018opQiJNUGm87ZWb2x6zteA",
+     "caller": {
+      "type": "direct"
+     },
+     "input": {
+      "object": "yellow ball",
+      "anchors": [
+       {
+        "frame": 50,
+        "box": [
+         875,
+         900,
+         1105,
+         1130
+        ]
+       }
+      ],
+      "from_t": 1.4,
+      "to_t": 2.6
+     },
+     "name": "track",
+     "type": "tool_use"
+    }
+   ]
+  },
+  {
+   "role": "user",
+   "content": [
+    {
+     "type": "tool_result",
+     "tool_use_id": "toolu_016yAdLiFfepv5q1zjptdqcU",
+     "content": [
+      {
+       "type": "text",
+       "text": "T1 \"white ball\": tracked 28 of 31 frames (22..52); anchors at frames [33, 50]; tracker dense_track.track_pass (template 48.0 px at the working scale).\nQuality: match score min 0.965 median 0.998; forward-backward error median 9.709 px, max 10.204 px; between anchors: chained_passes {'why': 'residual', 'cover': 1.0, 'resid_med': 6.14, 'resid_max': 6.14, 'n_pieces': 1}, forward pass vs next anchor centre [13.13] px (spread linearly over the frames between; tolerance 57.5 px), used ['forward']; lost frames: 3 (22..24).\nNet displacement frame 25 -> 52: (+684.18, -955.95) px, |d| = 1175.56 px; summed path 1176.25 px; box 229.4x229.4 -> 229.3x229.3 px.\nframe  t(s)    x        y        w      h      score  fb   (every 1 frame(s); all 28 stored in T1)\n25     1.000   2241.68  2037.87  229.4  229.4  0.965  0.0\n26     1.040   2260.54  2020.61  234.0  234.0  0.998  9.916\n27     1.080   2297.90  1965.23  233.5  233.5  0.999  9.756\n28     1.120   2316.54  1938.01  232.8  232.8  0.998  9.801\n29     1.160   2353.70  1885.29  231.7  231.7  0.998  10.204\n30     1.200   2371.94  1858.60  231.5  231.5  0.996  10.063\n31     1.240   2407.60  1805.37  231.7  231.7  0.997  9.661\n32     1.280   2424.88  1780.44  229.9  229.9  0.998  9.611\n33     1.320   2460.00  1730.00  230.0  230.0  1.0    -\n34     1.360   2477.76  1704.98  229.6  229.6  0.997  -\n35     1.400   2512.54  1655.57  228.7  228.7  0.998  -\n36     1.440   2530.00  1630.64  229.4  229.4  0.999  -\n37     1.480   2564.32  1581.12  228.8  228.8  0.998  -\n38     1.520   2581.79  1556.88  227.9  227.9  0.998  -\n39     1.560   2615.57  1508.34  227.6  227.6  0.998  -\n40     1.600   2633.08  1484.23  227.8  227.8  0.997  -\n41     1.640   2667.41  1437.56  227.7  227.7  0.997  -\n42     1.680   2684.81  1414.26  226.6  226.6  0.999  -\n43     1.720   2718.22  1367.35  225.8  225.8  0.998  -\n44     1.760   2734.92  1344.06  225.0  225.0  0.997  -\n45     1.800   2767.28  1298.58  225.4  225.4  0.999  -\n46     1.840   2783.81  1276.30  224.1  224.1  0.999  -\n47     1.880   2816.04  1231.41  224.8  224.8  0.998  -\n48     1.920   2832.57  1209.80  223.7  223.7  0.998  -\n49     1.960   2864.12  1166.76  222.4  222.4  0.996  -\n50     2.000   2880.00  1145.00  230.0  230.0  1.0    -\n51     2.040   2910.47  1102.89  230.1  230.1  0.997  0.366\n52     2.080   2925.86  1081.92  229.3  229.3  0.997  0.0"
+      },
+      {
+       "type": "text",
+       "text": "T1 trajectory drawn on frame 33 (red dots labelled with frame numbers; green box = frame 25, magenta box = frame 52), region x 1933..3235, y 773..2160, zoom 0.7383: image px (u, v) -> original x = 1933 + (u - 46) / 0.7383, y = 773 + (v - 24) / 0.7383"
+      },
+      {
+       "type": "image",
+       "omitted": true,
+       "bytes": 144693,
+       "file": "img_015_T1_path.jpg"
+      },
+      {
+       "type": "text",
+       "text": "T1 on frames [25, 34, 43, 52]: the tracked box and centre on each frame (no ticks)."
+      },
+      {
+       "type": "image",
+       "omitted": true,
+       "bytes": 27732,
+       "file": "img_016_T1_strip.jpg"
+      }
+     ]
+    },
+    {
+     "type": "tool_result",
+     "tool_use_id": "toolu_01AoiUfKY48Wajeff5DmY9tL",
+     "content": [
+      {
+       "type": "text",
+       "text": "T2 \"orange ball\": tracked 21 of 21 frames (15..35); anchors at frames [25]; tracker dense_track.track_pass (template 48.0 px at the working scale).\nQuality: match score min 0.913 median 0.981; forward-backward error median 0.348 px, max 3.18 px; lost frames: 0.\nNet displacement frame 15 -> 35: (+208.10, -779.13) px, |d| = 806.44 px; summed path 806.68 px; box 234.8x234.8 -> 225.3x225.3 px.\nframe  t(s)    x        y        w      h      score  fb   (every 1 frame(s); all 21 stored in T2)\n15     0.600   827.81   1381.32  234.8  234.8  0.993  0.0\n16     0.640   834.76   1352.83  234.5  234.5  0.954  0.663\n17     0.680   848.18   1297.68  234.1  234.2  0.967  0.307\n18     0.720   853.83   1269.77  234.4  234.4  0.913  0.346\n19     0.760   868.13   1213.26  233.3  233.3  0.967  0.647\n20     0.800   874.43   1186.07  233.3  233.3  0.945  0.342\n21     0.840   888.85   1131.85  231.0  231.0  0.984  0.129\n22     0.880   895.80   1105.08  230.6  230.6  0.981  0.156\n23     0.920   909.23   1049.54  230.1  230.1  0.997  0.227\n24     0.960   916.24   1022.85  230.7  230.7  0.981  0.349\n25     1.000   930.00   970.00   230.0  230.0  1.0    0.794\n26     1.040   936.95   941.64   229.3  229.3  0.982  3.18\n27     1.080   952.42   892.14   228.8  228.8  0.936  1.946\n28     1.120   960.64   865.81   229.0  229.0  0.97   2.549\n29     1.160   974.77   816.84   226.7  226.7  0.939  0.823\n30     1.200   981.92   792.54   225.2  225.2  0.983  0.426\n31     1.240   995.77   742.36   225.7  225.7  0.974  0.24\n32     1.280   1003.16  717.83   226.3  226.3  0.994  0.327\n33     1.320   1016.39  670.78   224.6  224.6  0.984  1.465\n34     1.360   1023.00  647.92   224.7  224.7  0.986  1.681\n35     1.400   1035.91  602.19   225.3  225.3  0.948  0.0"
+      },
+      {
+       "type": "text",
+       "text": "T2 trajectory drawn on frame 25 (red dots labelled with frame numbers; green box = frame 15, magenta box = frame 35), region x 543..1316, y 322..1667, zoom 0.7613: image px (u, v) -> original x = 543 + (u - 46) / 0.7613, y = 322 + (v - 24) / 0.7613"
+      },
+      {
+       "type": "image",
+       "omitted": true,
+       "bytes": 75891,
+       "file": "img_017_T2_path.jpg"
+      },
+      {
+       "type": "text",
+       "text": "T2 on frames [15, 22, 28, 35]: the tracked box and centre on each frame (no ticks)."
+      },
+      {
+       "type": "image",
+       "omitted": true,
+       "bytes": 23484,
+       "file": "img_018_T2_strip.jpg"
+      }
+     ]
+    },
+    {
+     "type": "tool_result",
+     "tool_use_id": "toolu_018opQiJNUGm87ZWb2x6zteA",
+     "content": [
+      {
+       "type": "text",
+       "text": "T3 \"yellow ball\": tracked 31 of 31 frames (35..65); anchors at frames [50]; tracker dense_track.track_pass (template 48.0 px at the working scale).\nQuality: match score min 0.931 median 0.976; forward-backward error median 4.404 px, max 7.219 px; lost frames: 0.\nNet displacement frame 35 -> 65: (+1.56, -778.28) px, |d| = 778.28 px; summed path 779.87 px; box 230.4x230.4 -> 219.3x219.3 px.\nframe  t(s)    x        y        w      h      score  fb   (every 2 frame(s); all 31 stored in T3)\n35     1.400   1001.87  1434.60  230.4  230.4  0.975  0.0\n37     1.480   1001.84  1369.85  227.9  227.9  0.978  2.81\n39     1.560   995.21   1310.75  230.1  230.0  0.987  3.637\n41     1.640   992.57   1251.96  229.3  229.3  0.995  3.295\n43     1.720   991.41   1195.08  229.1  229.1  0.993  2.823\n45     1.800   990.18   1140.25  228.8  228.8  0.975  3.243\n47     1.880   989.67   1090.14  228.0  227.9  0.973  1.517\n49     1.960   990.84   1038.31  227.4  227.4  0.976  3.831\n50     2.000   990.00   1015.00  230.0  230.0  1.0    3.024\n51     2.040   988.88   977.34   230.7  230.7  0.941  5.329\n53     2.120   989.61   928.81   226.5  226.5  0.974  5.969\n55     2.200   989.80   880.87   224.9  224.9  0.993  5.062\n57     2.280   989.89   833.14   224.9  224.9  0.992  4.978\n59     2.360   989.84   788.47   224.7  224.7  0.971  5.249\n61     2.440   992.25   745.71   223.8  223.8  0.934  7.219\n63     2.520   996.82   702.57   221.8  221.8  0.933  5.448\n65     2.600   1003.43  656.32   219.3  219.3  0.942  0.0"
+      },
+      {
+       "type": "text",
+       "text": "T3 trajectory drawn on frame 50 (red dots labelled with frame numbers; green box = frame 35, magenta box = frame 65), region x 707..1285, y 380..1717, zoom 0.7659: image px (u, v) -> original x = 707 + (u - 46) / 0.7659, y = 380 + (v - 24) / 0.7659"
+      },
+      {
+       "type": "image",
+       "omitted": true,
+       "bytes": 61065,
+       "file": "img_019_T3_path.jpg"
+      },
+      {
+       "type": "text",
+       "text": "T3 on frames [35, 45, 55, 65]: the tracked box and centre on each frame (no ticks)."
+      },
+      {
+       "type": "image",
+       "omitted": true,
+       "bytes": 23682,
+       "file": "img_020_T3_strip.jpg"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "role": "assistant",
+   "content": [
+    {
+     "thinking": "I notice the frame pattern alternates between big and small displacements, suggesting frame timing jitter that the fits should handle. Calculating white's average velocity over 1-2s, I get roughly 26.8 cm/s, while the camera itself (tracked via purple's drift) seems to move only about 8 px/s, which is fairly negligible. Now I'm moving on to analyze orange's displacement.\n\n",
+     "type": "thinking"
+    },
+    {
+     "id": "toolu_01PDQTkvkFfeFNY7WLG76UFn",
+     "caller": {
+      "type": "direct"
+     },
+     "input": {
+      "qid": 2272,
+      "spec": {
+       "target": {
+        "kind": "distance",
+        "objects": [
+         "black ball",
+         "purple ball"
+        ],
+        "dimension": "",
+        "time": 0,
+        "window": null,
+        "axis": "any",
+        "unit": "cm",
+        "value_si": null
+       },
+       "prior": {
+        "kind": "size",
+        "objects": [
+         "billiard ball"
+        ],
+        "dimension": "diameter",
+        "time": null,
+        "window": null,
+        "axis": "any",
+        "unit": "",
+        "value_si": 0.0572
+       },
+       "notes": "center to center"
+      },
+      "tracks": [
+       {
+        "role": "prior",
+        "object": "billiard ball",
+        "depth_name": "",
+        "range_m": null,
+        "refs": [
+         "S1",
+         "S2",
+         "S3",
+         "S4"
+        ],
+        "obs": []
+       },
+       {
+        "role": "target",
+        "object": "black ball",
+        "depth_name": "",
+        "range_m": null,
+        "refs": [],
+        "obs": [
+         {
+          "frame": 0,
+          "point": [
+           2106,
+           1377
+          ],
+          "extent": null,
+          "box": null
+         }
+        ]
+       },
+       {
+        "role": "target2",
+        "object": "purple ball",
+        "depth_name": "",
+        "range_m": null,
+        "refs": [],
+        "obs": [
+         {
+          "frame": 0,
+          "point": [
+           1866,
+           830
+          ],
+          "extent": null,
+          "box": null
+         }
+        ]
+       }
+      ]
+     },
+     "name": "solve",
+     "type": "tool_use"
+    },
+    {
+     "id": "toolu_01PhTWWyTKgmeGEirMnA41ww",
+     "caller": {
+      "type": "direct"
+     },
+     "input": {
+      "qid": 2275,
+      "spec": {
+       "target": {
+        "kind": "distance",
+        "objects": [
+         "purple ball",
+         "black ball"
+        ],
+        "dimension": "",
+        "time": 3.08,
+        "window": null,
+        "axis": "any",
+        "unit": "cm",
+        "value_si": null
+       },
+       "prior": {
+        "kind": "size",
+        "objects": [
+         "billiard ball"
+        ],
+        "dimension": "diameter",
+        "time": null,
+        "window": null,
+        "axis": "any",
+        "unit": "",
+        "value_si": 0.0572
+       },
+       "notes": "center to center"
+      },
+      "tracks": [
+       {
+        "role": "prior",
+        "object": "billiard ball",
+        "depth_name": "",
+        "range_m": null,
+        "refs": [
+         "S1",
+         "S2",
+         "S3",
+         "S4"
+        ],
+        "obs": []
+       },
+       {
+        "role": "target",
+        "object": "purple ball",
+        "depth_name": "",
+        "range_m": null,
+        "refs": [],
+        "obs": [
+         {
+          "frame": 77,
+          "point": [
+           1867.5,
+           806
+          ],
+          "extent": null,
+          "box": null
+         }
+        ]
+       },
+       {
+        "role": "target2",
+        "object": "black ball",
+        "depth_name": "",
+        "range_m": null,
+        "refs": [],
+        "obs": [
+         {
+          "frame": 77,
+          "point": [
+           2172,
+           1461
+          ],
+          "extent": null,
+          "box": null
+         }
+        ]
+       }
+      ]
+     },
+     "name": "solve",
+     "type": "tool_use"
+    },
+    {
+     "id": "toolu_01EZiZRBnTMAjvfpQEVYyHNv",
+     "caller": {
+      "type": "direct"
+     },
+     "input": {
+      "qid": 2273,
+      "spec": {
+       "target": {
+        "kind": "speed",
+        "objects": [
+         "white ball"
+        ],
+        "dimension": "",
+        "time": null,
+        "window": [
+         1.0,
+         2.0
+        ],
+        "axis": "any",
+        "unit": "cm/s",
+        "value_si": null
+       },
+       "prior": {
+        "kind": "size",
+        "objects": [
+         "billiard ball"
+        ],
+        "dimension": "diameter",
+        "time": null,
+        "window": null,
+        "axis": "any",
+        "unit": "",
+        "value_si": 0.0572
+       },
+       "notes": ""
+      },
+      "tracks": [
+       {
+        "role": "prior",
+        "object": "billiard ball",
+        "depth_name": "",
+        "range_m": null,
+        "refs": [
+         "S1",
+         "S2",
+         "S3",
+         "S4"
+        ],
+        "obs": []
+       },
+       {
+        "role": "target",
+        "object": "white ball",
+        "depth_name": "",
+        "range_m": null,
+        "refs": [
+         "T1"
+        ],
+        "obs": []
+       }
+      ]
+     },
+     "name": "solve",
+     "type": "tool_use"
+    },
+    {
+     "id": "toolu_019c9LkvUYeZUT8wFYNZN2uY",
+     "caller": {
+      "type": "direct"
+     },
+     "input": {
+      "qid": 2274,
+      "spec": {
+       "target": {
+        "kind": "speed",
+        "objects": [
+         "orange ball"
+        ],
+        "dimension": "",
+        "time": 1.0,
+        "window": null,
+        "axis": "any",
+        "unit": "cm/s",
+        "value_si": null
+       },
+       "prior": {
+        "kind": "size",
+        "objects": [
+         "billiard ball"
+        ],
+        "dimension": "diameter",
+        "time": null,
+        "window": null,
+        "axis": "any",
+        "unit": "",
+        "value_si": 0.0572
+       },
+       "notes": ""
+      },
+      "tracks": [
+       {
+        "role": "prior",
+        "object": "billiard ball",
+        "depth_name": "",
+        "range_m": null,
+        "refs": [
+         "S1",
+         "S2",
+         "S3",
+         "S4"
+        ],
+        "obs": []
+       },
+       {
+        "role": "target",
+        "object": "orange ball",
+        "depth_name": "",
+        "range_m": null,
+        "refs": [
+         "T2"
+        ],
+        "obs": []
+       }
+      ]
+     },
+     "name": "solve",
+     "type": "tool_use"
+    },
+    {
+     "id": "toolu_01XKkr3yWVfATaGP4cSz9ij6",
+     "caller": {
+      "type": "direct"
+     },
+     "input": {
+      "qid": 2276,
+      "spec": {
+       "target": {
+        "kind": "acceleration",
+        "objects": [
+         "yellow ball"
+        ],
+        "dimension": "",
+        "time": 2.0,
+        "window": null,
+        "axis": "any",
+        "unit": "cm/s^2",
+        "value_si": null
+       },
+       "prior": {
+        "kind": "size",
+        "objects": [
+         "billiard ball"
+        ],
+        "dimension": "diameter",
+        "time": null,
+        "window": null,
+        "axis": "any",
+        "unit": "",
+        "value_si": 0.0572
+       },
+       "notes": "decelerating; magnitude"
+      },
+      "tracks": [
+       {
+        "role": "prior",
+        "object": "billiard ball",
+        "depth_name": "",
+        "range_m": null,
+        "refs": [
+         "S1",
+         "S2",
+         "S3",
+         "S4"
+        ],
+        "obs": []
+       },
+       {
+        "role": "target",
+        "object": "yellow ball",
+        "depth_name": "",
+        "range_m": null,
+        "refs": [
+         "T3"
+        ],
+        "obs": []
+       }
+      ]
+     },
+     "name": "solve",
+     "type": "tool_use"
+    }
+   ]
+  },
+  {
+   "role": "user",
+   "content": [
+    {
+     "type": "tool_result",
+     "tool_use_id": "toolu_01PDQTkvkFfeFNY7WLG76UFn",
+     "content": [
+      {
+       "type": "text",
+       "text": "qid 2272: geometry answer 14.57 cm (method 2d_scale)\nprior used: size diameter of ['billiard ball'] = 0.0572 SI (from the prior text when it parses), time None, window None, axis any\ntarget: distance  of ['black ball', 'purple ball'], time 0.0, window None, axis any, unit cm\nnumbers: prior_px=234.6, scale_m_per_px=0.0002439, target_px=597.3, value_si=0.1457\nobjects matched to roles: {'prior': 4, 'target': 1, 'target2': 1}\ntrack prior \"billiard ball\": 4 obs (0 points, 4 extents, 4 boxes), frames 0..77\ntrack target \"black ball\": 1 obs (1 points, 0 extents, 0 boxes), frames 0..0\ntrack target2 \"purple ball\": 1 obs (1 points, 0 extents, 0 boxes), frames 0..0"
+      }
+     ]
+    },
+    {
+     "type": "tool_result",
+     "tool_use_id": "toolu_01PhTWWyTKgmeGEirMnA41ww",
+     "content": [
+      {
+       "type": "text",
+       "text": "qid 2275: geometry answer 17.61 cm (method 2d_scale)\nprior used: size diameter of ['billiard ball'] = 0.0572 SI (from the prior text when it parses), time None, window None, axis any\ntarget: distance  of ['purple ball', 'black ball'], time 3.08, window None, axis any, unit cm\nnumbers: prior_px=234.6, scale_m_per_px=0.0002439, target_px=722.3, value_si=0.1761\nobjects matched to roles: {'prior': 4, 'target': 1, 'target2': 1}\ntrack prior \"billiard ball\": 4 obs (0 points, 4 extents, 4 boxes), frames 0..77\ntrack target \"purple ball\": 1 obs (1 points, 0 extents, 0 boxes), frames 77..77\ntrack target2 \"black ball\": 1 obs (1 points, 0 extents, 0 boxes), frames 77..77"
+      }
+     ]
+    },
+    {
+     "type": "tool_result",
+     "tool_use_id": "toolu_01EZiZRBnTMAjvfpQEVYyHNv",
+     "content": [
+      {
+       "type": "text",
+       "text": "qid 2273: geometry answer 27.12 cm/s (method 2d_scale)\nprior used: size diameter of ['billiard ball'] = 0.0572 SI (from the prior text when it parses), time None, window None, axis any\ntarget: speed  of ['white ball'], time None, window [1.0, 2.0], axis any, unit cm/s\nnumbers: prior_px=234.6, scale_m_per_px=0.0002439, target_px=1112, value_si=0.2712\nobjects matched to roles: {'prior': 4, 'target': 28}\ntrack prior \"billiard ball\": 4 obs (0 points, 4 extents, 4 boxes), frames 0..77\ntrack target \"white ball\": 28 obs (28 points, 0 extents, 28 boxes), frames 25..52"
+      }
+     ]
+    },
+    {
+     "type": "tool_result",
+     "tool_use_id": "toolu_019c9LkvUYeZUT8wFYNZN2uY",
+     "content": [
+      {
+       "type": "text",
+       "text": "qid 2274: geometry answer 24.74 cm/s (method 2d_scale)\nprior used: size diameter of ['billiard ball'] = 0.0572 SI (from the prior text when it parses), time None, window None, axis any\ntarget: speed  of ['orange ball'], time 1.0, window None, axis any, unit cm/s\nnumbers: prior_px=234.6, scale_m_per_px=0.0002439, target_px=1015, value_si=0.2474\nobjects matched to roles: {'prior': 4, 'target': 21}\ntrack prior \"billiard ball\": 4 obs (0 points, 4 extents, 4 boxes), frames 0..77\ntrack target \"orange ball\": 21 obs (21 points, 0 extents, 21 boxes), frames 15..35"
+      }
+     ]
+    },
+    {
+     "type": "tool_result",
+     "tool_use_id": "toolu_01XKkr3yWVfATaGP4cSz9ij6",
+     "content": [
+      {
+       "type": "text",
+       "text": "qid 2276: geometry answer 5.514 cm/s^2 (method 2d_scale)\nprior used: size diameter of ['billiard ball'] = 0.0572 SI (from the prior text when it parses), time None, window None, axis any\ntarget: acceleration  of ['yellow ball'], time 2.0, window None, axis any, unit cm/s^2\nnumbers: prior_px=234.6, scale_m_per_px=0.0002439, target_px=226.1, value_si=0.05514\nobjects matched to roles: {'prior': 4, 'target': 31}\ntrack prior \"billiard ball\": 4 obs (0 points, 4 extents, 4 boxes), frames 0..77\ntrack target \"yellow ball\": 31 obs (31 points, 0 extents, 31 boxes), frames 35..65"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "role": "assistant",
+   "content": [
+    {
+     "thinking": "Everything checks out, so I'll submit this.\n\n",
+     "type": "thinking"
+    },
+    {
+     "id": "toolu_01TCe6SoLWAhTL7QVL2yo3Zx",
+     "caller": {
+      "type": "direct"
+     },
+     "input": {
+      "answers": [
+       {
+        "qid": 2272,
+        "use_last_solve": true,
+        "direct_answer": 14.57,
+        "confidence": 0.7,
+        "derivation": "centres 597 px apart at f0; scale 57.2mm/234.6px"
+       },
+       {
+        "qid": 2275,
+        "use_last_solve": true,
+        "direct_answer": 17.61,
+        "confidence": 0.7,
+        "derivation": "centres 722 px apart at f77; scale 57.2mm/234.6px"
+       },
+       {
+        "qid": 2273,
+        "use_last_solve": true,
+        "direct_answer": 27.0,
+        "confidence": 0.65,
+        "derivation": "white disp ~1100 px in 1.0-2.0s; 2.439e-4 m/px"
+       },
+       {
+        "qid": 2274,
+        "use_last_solve": true,
+        "direct_answer": 24.8,
+        "confidence": 0.65,
+        "derivation": "orange ~1015 px/s at 1.0s; 2.439e-4 m/px"
+       },
+       {
+        "qid": 2276,
+        "use_last_solve": true,
+        "direct_answer": 5.4,
+        "confidence": 0.35,
+        "derivation": "yellow speed 736->648->562 px/s over 0.4s steps, ~220 px/s^2 decel; 2.439e-4 m/px"
+       }
+      ]
+     },
+     "name": "submit",
+     "type": "tool_use"
+    }
+   ]
+  }
+ ],
+ "seconds": 71.3,
+ "split": "val_hires"
+}
