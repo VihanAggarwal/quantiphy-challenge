@@ -18,6 +18,10 @@ and, for 3D scenes, camera distances, estimate an object's size, distance, speed
 | `submissions/trackA_probe2_geo_nonlab3d.csv` (v2 with geometry on 3D non-lab) | A | 0.737 | .798 | .810 | .673 | .668 | 2026-10-09 |
 | `submissions/trackA_probe3_s2maxext_d2denseoff_labdirect.csv` (S2 longest-extent prior, D2 dense off, direct on lab 3D) | A | **0.764** | .803 | .810 | .715 | .727 | 2026-10-09 |
 
+Public leaderboard snapshot 2026-10-09 16:48 UTC (before our uploads): Track A 1st 0.842, 2nd 0.835, 3rd 0.825,
+about ten teams at 0.80-0.81, 20th 0.769; Track B 1st 0.803, 2nd 0.772, 3rd 0.756. Probes 4-6 and two diagnostic
+uploads are described in [research/PROBES.md](research/PROBES.md).
+
 Validation (480p, 159 questions) over-predicted D2 (.916 vs .810) and S3 (.784 vs .703) and
 under-predicted S2 (.709 vs .801): its categories have only 32-47 questions each.
 Probe 2 confirms Claude's direct estimate beats geometry on 3D non-lab videos (S3 -.030, D3 -.070 with geometry).

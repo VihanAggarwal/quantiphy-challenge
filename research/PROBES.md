@@ -83,3 +83,11 @@ a valid number). The category drop then gives the subset's current mean item sco
 |---|---|---|---|---|
 | `trackA_diag_A_source.csv` | simulation (281) | simulation, static targets (561) | lab (334) | lab (457) |
 | `trackA_diag_B_motion.csv` | motion targets (331) | motion targets (319) | motion targets (319) | motion targets (268) |
+
+## Dead ends checked (2026-10-10)
+
+- captured_0018 (and s/x): 30 D3 questions ask about t = 3.0-3.4 s in a 2.04 s clip. Not a time-base
+  error: the falling soccer ball accelerates at ~8.9 m/s^2 in video time (2.8 m depth, f 722 px),
+  so the clip was trimmed and those questions cannot be answered from the video.
+- Dimension words: on validation the median truth/prediction ratio is ~1 for width, length, height
+  and diameter; the large misses are single label errors or ambiguous objects, not a convention.
