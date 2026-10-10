@@ -66,6 +66,7 @@ LIMIT_VIDEOS = 0             # 0 = all videos; e.g. 2 for a smoke run
 STAGES = {"specs": True, "cv": True, "annotate": True, "direct": True, "caw": True,
           "geometry": True, "score": True, "submission": True}
 SUBMISSION_FROM = "auto"     # "auto" = best method on val, or a METHODS key (see the scoring cell)
+POSTPROCESS = True           # model-free rules on the test answers before submitting (scripts/postprocess.py)
 SYNC_DATA_TO_GITHUB = False  # push the validation set to the repo's "data" branch (for the offline sandbox)
 SYNC_TEST_DATA = False       # ... and the test set too
 PUSH_OUTPUTS = True          # push small outputs to the "colab-outputs" branch at the end
@@ -463,9 +464,14 @@ if "val" in SPLITS and STAGES.get("score", True):
 
 md("""
 ## 15. Test submission
-Fills the official template from the chosen method's `test` CSV (`scripts/make_submission.py` checks ids,
-order, numeric non-zero values and the 2 MB limit) -> `outputs/<RUN_NAME>/submissions/`. Upload it on the
-portal (3 scored uploads per day).
+With `POSTPROCESS`, the chosen method's `test` CSV first goes through `scripts/postprocess.py`: model-free
+rules from the test inputs only (a `*_segmented` twin takes its pixel-aligned original's answer; lab s/x
+renders take the base render's motion answers; a size / speed / acceleration that another clip of the
+same scene family states as its prior is used as stated). The decision log is written next to it
+(`test/postprocessed/`); frame checks are cached in `runs/_postprocess_cache` (on Drive). If the step
+fails, the raw answers are submitted. Then `scripts/make_submission.py` fills the official template
+(checks ids, order, numeric non-zero values and the 2 MB limit) -> `outputs/<RUN_NAME>/submissions/`.
+Upload it on the portal (3 scored uploads per day).
 """)
 code('''
 if "test" in SPLITS and STAGES.get("submission", True):
@@ -482,8 +488,18 @@ if "test" in SPLITS and STAGES.get("submission", True):
     if method is None:
         print("no test predictions found for", order)
     else:
-        sub = f"outputs/{RUN_NAME}/submissions/{RUN_NAME}_{method}.csv"
-        if stage("submission", "test", f"python scripts/make_submission.py {TEST}/{METHODS[method]} {sub}") == 0:
+        src, tag = f"{TEST}/{METHODS[method]}", ""
+        if POSTPROCESS:
+            post, plog = f"{TEST}/postprocessed/{method}.csv", f"{TEST}/postprocessed/{method}_log.csv"
+            if os.path.exists(post):
+                os.remove(post)   # never submit a stale file from an earlier run
+            if (stage("postprocess", "test", f"python scripts/postprocess.py {src} {post} --log {plog}") == 0
+                    and os.path.exists(post)):
+                src, tag = post, "_post"
+            else:
+                print("postprocess failed: submitting the raw answers")
+        sub = f"outputs/{RUN_NAME}/submissions/{RUN_NAME}_{method}{tag}.csv"
+        if stage("submission", "test", f"python scripts/make_submission.py {src} {sub}") == 0:
             print("submission file on Drive:", f"{DRIVE_ROOT}/{sub}")
 else:
     print("skipped (needs the test split)")

@@ -456,7 +456,7 @@ def test_track_b_notebook_stages_end_to_end(tmp_path, monkeypatch, capsys):
     src = _notebook()
     commands = re.findall(r'stage\("(\w+)", (?:split|"test"), (f"python scripts/[^"\n]+")\)', src)
     assert [c[0] for c in commands] == ["specs", "cv", "annotate", "direct", "caw", "geometry", "geometry",
-                                        "submission"]
+                                        "postprocess", "submission"]
     methods = ast.literal_eval(re.search(r"^METHODS = (\{.*?\})$", src, re.M | re.S).group(1))
 
     split, run = "val", "nb"
@@ -467,7 +467,7 @@ def test_track_b_notebook_stages_end_to_end(tmp_path, monkeypatch, capsys):
     qwen = Q.QwenVL(backend=_Backend())
     mods = {"run_open_vlm": _script("run_open_vlm"), "run_cv": _script("run_cv")}
     for name, fstring in commands:
-        if name == "submission":
+        if name in ("postprocess", "submission"):       # test-split stages, run below on these files
             continue
         fb = next((f for f in (f"{a}/caw.csv", f"{q}/direct.csv") if Path(f).exists()), None)  # stage 13 rule
         ns["fb"], ns["DF"] = fb, (f" --direct-from {fb}" if fb else "")
@@ -502,6 +502,15 @@ def test_track_b_notebook_stages_end_to_end(tmp_path, monkeypatch, capsys):
     assert float(table.loc[str(files["cv_geometry"]), "S2"]) == pytest.approx(1.0)
     sub = _submit(_script("make_submission"), files["cv_geometry"], sorted(truth), tmp_path / "sub.csv", monkeypatch)
     assert sub.parsed_value.tolist() == pytest.approx([truth[k] for k in sorted(truth)], rel=0.03)
+    # stage 15 with POSTPROCESS: scripts/postprocess.py -> make_submission (one clip, no families: unchanged)
+    post_cmd = next(f for n, f in commands if n == "postprocess")
+    assert "{src}" in post_cmd and "--log" in post_cmd
+    post, plog = tmp_path / "post.csv", tmp_path / "post_log.csv"
+    assert _script("postprocess").main([str(files["cv_geometry"]), str(post), "--log", str(plog), "--csv", str(csv),
+                                        "--video-dir", str(videos), "--cache-dir", str(tmp_path / "ppcache")]) == 0
+    assert pd.read_csv(post).columns.tolist() == ["id", "parsed_value"]
+    sub2 = _submit(_script("make_submission"), post, sorted(truth), tmp_path / "sub2.csv", monkeypatch)
+    assert sub2.parsed_value.tolist() == sub.parsed_value.tolist()
 
 
 def test_track_b_missing_dataset_fps_falls_back_to_container(tmp_path):
