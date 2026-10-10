@@ -91,3 +91,12 @@ a valid number). The category drop then gives the subset's current mean item sco
   so the clip was trimmed and those questions cannot be answered from the video.
 - Dimension words: on validation the median truth/prediction ratio is ~1 for width, length, height
   and diameter; the large misses are single label errors or ambiguous objects, not a convention.
+
+### Revised second upload: `trackA_diagA2_s2d2sim_s3d3nonlabmotiongeo.csv` (replaces `trackA_diag_A_source.csv`)
+
+Categories are measured independently, so one upload can diagnose some and test others. On v3:
+- S2: simulation answers zeroed (diagnostic, 281). D2: simulation static targets zeroed (diagnostic, 561).
+- S3/D3: 3D non-lab MOTION answers switched to geometry (S3 115, D3 116 rows). Probe 2 (geometry on
+  all 3D non-lab) solved per kind like the lab split gives geometry -0.194 per static answer but
+  +0.066 per motion answer (rounding-robust; assumes a kind's effect is shared by S3 and D3), so
+  this predicts S3 +0.013 and D3 +0.008 over v3.
