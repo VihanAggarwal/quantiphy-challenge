@@ -16,10 +16,13 @@ and, for 3D scenes, camera distances, estimate an object's size, distance, speed
 |---|---|---|---|---|---|---|---|
 | `submissions/trackA_opus55_high_v2.csv` (Claude Opus 5.5 high, 854 px, geometry + direct) | A | **0.763** | .801 | .810 | .703 | .738 | 2026-10-09 |
 | `submissions/trackA_probe2_geo_nonlab3d.csv` (v2 with geometry on 3D non-lab) | A | 0.737 | .798 | .810 | .673 | .668 | 2026-10-09 |
+| `submissions/trackA_probe3_s2maxext_d2denseoff_labdirect.csv` (S2 longest-extent prior, D2 dense off, direct on lab 3D) | A | **0.764** | .803 | .810 | .715 | .727 | 2026-10-09 |
 
 Validation (480p, 159 questions) over-predicted D2 (.916 vs .810) and S3 (.784 vs .703) and
 under-predicted S2 (.709 vs .801): its categories have only 32-47 questions each.
 Probe 2 confirms Claude's direct estimate beats geometry on 3D non-lab videos (S3 -.030, D3 -.070 with geometry).
+Probe 3: longest-extent S2 priors +.002, dense motion off on D2 +.000, direct answers on lab 3D +.012 on S3 but -.011 on D3.
+`submissions/trackA_v3_best_per_category.csv` takes each category's best measured rows (S2 and S3 from probe 3, D2 and D3 from v2): expected ~.767.
 
 ## Results so far (validation, 159 questions)
 
