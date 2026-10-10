@@ -529,6 +529,40 @@ def test_annotate_keeps_numbered_objects_apart():
 
 
 @needs_sample
+def test_annotate_extents_per_asked_dimension():
+    """One object asked in two dimensions (prior: its width, target: its height): each size role gets the
+    extents of its own dimension (with only the first dimension's, the height came out as the prior)."""
+    from qp.geometry import solve
+    df = sample_df()
+    rows = df[df.video_id == "simulation_0012"].head(2).copy()
+    rows["prior"] = "width of the car = 2m"
+    rows["question"] = ["What is the height of the car in meters?", "What is the speed of the car in m/s?"]
+    rows["target_unit"] = ["m", "m/s"]
+    specs = {int(r.qid): Q.rule_spec(r) for r in rows.itertuples()}
+
+    def reply(r):
+        text = _text(r)
+        if "ends of the width" in text:
+            return '[{"point_2d": [100, 500], "label": "end 1"}, {"point_2d": [300, 500], "label": "end 2"}]'
+        if "ends of the height" in text:
+            return '[{"point_2d": [200, 400], "label": "end 1"}, {"point_2d": [200, 450], "label": "end 2"}]'
+        return '[{"bbox_2d": [100, 400, 300, 450], "label": "car"}]'
+
+    fake = FakeBackend(reply)
+    rec = Q.QwenVL(backend=fake).annotate_videos([rows], specs, n_uniform=4, max_frames=4, extents=True,
+                                                 n_extent=2)["simulation_0012"]
+    asked = [_text(r) for r in fake.calls[0] if "Point to the two ends" in _text(r)]
+    assert sum("width" in a for a in asked) == sum("height" in a for a in asked) == 2
+    W, H = rec["meta"]["image_size"]
+    qid = int(rows.qid.iloc[0])
+    roles = {t["role"]: t for t in rec["tracks"][str(qid)]}
+    lengths = {role: {round(math.dist(*o["extent"]), 6) for o in t["obs"] if o["extent"]} for role, t in roles.items()}
+    assert lengths == {"prior": {round(0.2 * W, 6)}, "target": {round(0.05 * H, 6)}}
+    ans = solve(specs[qid], [Q.RoleTrack.from_dict(t) for t in rec["tracks"][str(qid)]], (W, H), rec["meta"]["fps"])
+    assert ans.value == pytest.approx(2.0 * 0.05 * H / (0.2 * W))
+
+
+@needs_sample
 @pytest.mark.parametrize("reply", ["\n", " ", ""])
 def test_identify_tolerates_blank_replies(reply):
     df = sample_df()

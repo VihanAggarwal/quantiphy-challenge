@@ -197,8 +197,12 @@ def pyrun(src, *args):
     return r.returncode, out
 
 
-if os.path.isdir(f"{{REPO_DIR}}/.git"):
-    sh(f"git -C {{REPO_DIR}} pull -q --ff-only")
+if os.path.isdir(f"{{REPO_DIR}}/.git"):  # same runtime: the Drive symlinks replace tracked folders (runs/),
+    for sub in ("outputs", "runs"):       # so restore them first or the pull refuses to update runs/
+        if os.path.islink(f"{{REPO_DIR}}/{{sub}}"):
+            os.unlink(f"{{REPO_DIR}}/{{sub}}")
+    sh(f"git -C {{REPO_DIR}} ls-files -z --deleted | xargs -0 -r git -C {{REPO_DIR}} checkout -q -- "
+       f"&& git -C {{REPO_DIR}} pull -q --ff-only")
 else:
     sh(f"git clone -q --depth 1 --branch {{REPO_BRANCH}} {{REPO_URL}} {{REPO_DIR}}")
 os.chdir(REPO_DIR)
@@ -479,8 +483,8 @@ if "test" in SPLITS and STAGES.get("submission", True):
         print("no test predictions found for", order)
     else:
         sub = f"outputs/{RUN_NAME}/submissions/{RUN_NAME}_{method}.csv"
-        stage("submission", "test", f"python scripts/make_submission.py {TEST}/{METHODS[method]} {sub}")
-        print("submission file on Drive:", f"{DRIVE_ROOT}/{sub}")
+        if stage("submission", "test", f"python scripts/make_submission.py {TEST}/{METHODS[method]} {sub}") == 0:
+            print("submission file on Drive:", f"{DRIVE_ROOT}/{sub}")
 else:
     print("skipped (needs the test split)")
 ''')
@@ -506,9 +510,9 @@ if PUSH_OUTPUTS:
     n = skipped = 0
     for root, dirs, files in os.walk(src):
         rel = os.path.relpath(root, src)
-        split = rel.split(os.sep)[0]
-        dirs[:] = [d for d in dirs if d not in ("cv_cache", "cache")
-                   and (split in PUSH_RECORDS_FOR or d not in RECORD_DIRS)]
+        parts = [] if rel == "." else rel.split(os.sep)   # <split>/<method>/<record dir>: only the third
+        dirs[:] = [d for d in dirs if d not in ("cv_cache", "cache")   # level holds records (test/caw/ is kept)
+                   and (len(parts) < 2 or parts[0] in PUSH_RECORDS_FOR or d not in RECORD_DIRS)]
         for f in files:
             p = os.path.join(root, f)
             if not f.endswith((".csv", ".json", ".jsonl", ".txt")):

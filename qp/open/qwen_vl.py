@@ -1087,7 +1087,7 @@ class QwenVL:
             frames = read_rgb(path, idxs)
             idxs = sorted(frames)
             H, W = frames[idxs[0]].shape[:2]
-            roles, objects, dims = {}, {}, {}   # roles: qid -> [(role, name, obs key)]
+            roles, objects, dims = {}, {}, {}   # roles: qid -> [(role, name, obs key, size dimension)]
             for r in rs:
                 spec = specs.get(int(r.qid))
                 if spec is None:
@@ -1102,14 +1102,15 @@ class QwenVL:
                     if twin is not None and _key(_base(twin)) == _key(_base(name)):   # two instances of one name
                         k = _key(_base(name)) + " [pair]"
                         objects.setdefault(k, (_base(name), True))
-                        roles[int(r.qid)].append((role, name, k + ("#2" if role.endswith("2") else "#1")))
+                        roles[int(r.qid)].append((role, name, k + ("#2" if role.endswith("2") else "#1"), None))
                         continue
                     k = _key(name)
                     objects.setdefault(k, (name, False))
-                    roles[int(r.qid)].append((role, name, k))
                     q = spec.prior if role.startswith("prior") else spec.target
-                    if q.kind == "size":
-                        dims.setdefault(k, q.dimension or "length")
+                    dim = (q.dimension or "length") if q.kind == "size" else None
+                    if dim is not None and dim not in dims.setdefault(k, []):
+                        dims[k].append(dim)   # every asked dimension of the object gets its own extents
+                    roles[int(r.qid)].append((role, name, k, dim))
             imgs = {i: to_image(frames[i]) for i in idxs}
             ext_idx = set(uniform_indices(len(idxs), n_extent))
             for k, (name, every) in objects.items():
@@ -1117,8 +1118,9 @@ class QwenVL:
                     reqs.append(_ground_request(imgs[i], name, every))
                     where.append((len(plans), k, i, "box"))
                     if extents and k in dims and idxs.index(i) in ext_idx:
-                        reqs.append(_extent_request(imgs[i], name, dims[k]))
-                        where.append((len(plans), k, i, "extent"))
+                        for dim in dims[k]:
+                            reqs.append(_extent_request(imgs[i], name, dim))
+                            where.append((len(plans), k, i, ("extent", dim)))
             plans.append({"rows": rs, "vid": vid, "fps": fps, "size": (W, H), "n_total": n_total, "idxs": idxs,
                           "roles": roles, "objects": objects,
                           "sent": {i: imgs[i].size for i in idxs}})
@@ -1128,7 +1130,8 @@ class QwenVL:
         for (p, k, i, what), text in zip(where, replies):
             if text is None:
                 n_failed[p] += 1
-            got.setdefault((p, k), {"box": {}, "extent": {}})[what][i] = text
+            rep = got.setdefault((p, k), {"box": {}, "extent": {}})   # extent: {dimension: {frame: reply}}
+            (rep["box"] if what == "box" else rep["extent"].setdefault(what[1], {}))[i] = text
         out = {}
         for n, plan in enumerate(plans):
             vid, bad = plan["vid"], n_failed[n] + (plan["vid"] in failed)
@@ -1150,29 +1153,39 @@ class QwenVL:
                              else None, score=round(1.0 / n_c, 3))
             return out
 
+        def with_extents(base: dict[int, Obs], ext: dict[int, list]) -> list[dict]:
+            obs = {i: Obs(**asdict(o)) for i, o in base.items()}
+            for i, e in ext.items():
+                obs.setdefault(i, Obs(t=i / fps)).extent = e
+            return [asdict(obs[i]) for i in sorted(obs)]
+
+        views = {}   # (object key, size dimension) -> obs carrying that dimension's extents only
         for k, (name, every) in plan["objects"].items():
             rep = got.get((n, k), {"box": {}, "extent": {}})
             cands = {i: parse_grounding(t) for i, t in rep["box"].items()}
             raw = {"replies": {str(i): t for i, t in rep["box"].items()},
-                   "extent_replies": {str(i): t for i, t in rep["extent"].items()}}
+                   "extent_replies": {d: {str(i): t for i, t in r.items()} for d, r in rep["extent"].items()}}
             if every:
                 for tag, picked in zip(("#1", "#2"), pick_pair(cands)):
                     obs = to_obs(picked)
                     objs[k + tag] = {"name": name, "obs": [asdict(obs[i]) for i in sorted(obs)], **raw}
                 continue
-            obs = to_obs(pick_continuous(cands))
-            for i, text in rep["extent"].items():
-                pts = [c["point"] for c in parse_grounding(text) if c["point"]]
-                if len(pts) >= 2:
-                    ext = [to_pixels(pts[0], size, plan["sent"][i], self.coord_mode),
-                           to_pixels(pts[1], size, plan["sent"][i], self.coord_mode)]
-                    obs.setdefault(i, Obs(t=i / fps)).extent = ext
-            objs[k] = {"name": name, "obs": [asdict(obs[i]) for i in sorted(obs)], **raw}
+            base, exts = to_obs(pick_continuous(cands)), {}
+            for d, texts in rep["extent"].items():
+                for i, text in texts.items():
+                    pts = [c["point"] for c in parse_grounding(text) if c["point"]]
+                    if len(pts) >= 2:
+                        exts.setdefault(d, {})[i] = [to_pixels(pts[0], size, plan["sent"][i], self.coord_mode),
+                                                     to_pixels(pts[1], size, plan["sent"][i], self.coord_mode)]
+            for d in rep["extent"]:
+                views[(k, d)] = with_extents(base, exts.get(d, {}))
+            # the object's own obs (and motion roles) keep the extents of its first asked dimension
+            objs[k] = {"name": name, "obs": with_extents(base, exts.get(next(iter(rep["extent"]), None), {})), **raw}
         tracks = {}
         for qid, pairs in plan["roles"].items():
             tracks[str(qid)] = [RoleTrack(role=role, object=name, source=self.source,
-                                          obs=[Obs(**o) for o in objs[k]["obs"]]).to_dict()
-                                for role, name, k in pairs]
+                                          obs=[Obs(**o) for o in views.get((k, dim), objs[k]["obs"])]).to_dict()
+                                for role, name, k, dim in pairs]
         meta = {"video_id": plan["vid"], "fps": fps, "image_size": list(size), "n_frames_total": plan["n_total"],
                 "frames": plan["idxs"], "model": self.model, "coord_mode": self.coord_mode}
         return {"video_id": plan["vid"], "meta": meta, "identified_prior_object": identified,
