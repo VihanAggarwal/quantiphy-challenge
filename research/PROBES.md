@@ -59,3 +59,15 @@ Scripts and reports: `research/big_levers_scripts_2026-10-10.tar.gz`.
   across quantities, corrected from the family's stated facts. P: answers about one object are
   pooled across the family. Leave-one-fact-out on 71 D3 facts: raw .790, K .855, P .908, K+P .951.
   LAB: sizes of named lab props reused across events are pooled.
+
+## Probes 5 and 6 (on v3; merges built and verified per category, `research/merge_scripts_2026-10-10.tar.gz`)
+
+| Probe | S2 | D2 | S3 | D3 |
+|---|---|---|---|---|
+| 4 | twin copy (+ longest extent) | refine-off + twin copy | probe-4 S3 (kind split, twin, render, fixes) | probe-4 D3 (relink, twin, transfer, ...) |
+| 5 `trackA_probe5_families_merged.csv` | 4 + stated facts from scene families | refine-off only | 4 + family facts, lab prop pooling (tables, cups, balls), white ball = 4 cm ping-pong ball | 4 + family facts (73), K scale correction, series pooling, lab pooling |
+| 6 `trackA_probe6_s3nosplit_d3labmotion_d2pad.csv` | = 5 | refine-off + 0.8 px padding + twin copy | 5 without the lab kind split (76 rows) | 5 + lab motion answers to Claude's direct (116 rows) |
+
+Reading them: D2 4-5 = twin copy, D2 6-4 = padding; S3 5-6 = kind split; D3 6-5 = lab motion direct;
+S3 5-4 and D3 5-4 = the scene-family rules. Expected (vs v3 .803/.810/.715/.738): probe 4 about
++.006/+.02/+.02/+.01, probe 5 about +.009/+.02/+.03/+.03.
