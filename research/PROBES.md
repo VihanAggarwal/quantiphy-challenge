@@ -71,3 +71,15 @@ Scripts and reports: `research/big_levers_scripts_2026-10-10.tar.gz`.
 Reading them: D2 4-5 = twin copy, D2 6-4 = padding; S3 5-6 = kind split; D3 6-5 = lab motion direct;
 S3 5-4 and D3 5-4 = the scene-family rules. Expected (vs v3 .803/.810/.715/.738): probe 4 about
 +.006/+.02/+.02/+.01, probe 5 about +.009/+.02/+.03/+.03.
+
+## Diagnostic probes (on v3, whose per-category scores are known: .803/.810/.715/.738)
+
+A subset's answers are multiplied by 1e-9 (relative error ~1, so each scores exactly 0 but stays
+a valid number). The category drop then gives the subset's current mean item score:
+`mean(subset) = (v3_cat - probe_cat) * N_cat / n_subset` (N = 579/1163/578/969), precise to about
++-0.001 given the 3-decimal leaderboard. No answer is set from it; it only tells where points are lost.
+
+| File | S2 subset | D2 subset | S3 subset | D3 subset |
+|---|---|---|---|---|
+| `trackA_diag_A_source.csv` | simulation (281) | simulation, static targets (561) | lab (334) | lab (457) |
+| `trackA_diag_B_motion.csv` | motion targets (331) | motion targets (319) | motion targets (319) | motion targets (268) |
