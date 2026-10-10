@@ -34,7 +34,7 @@ MAX_DISAGREE = 10.0          # geometry this many times off the direct answer: u
 DISAGREE_FLAG = 3.0          # ... and flag (diagnostic only) beyond this ratio
 CAMERA_SOURCES = ("lab",)    # video sources whose camera is known (qp.geometry camera prior)
 ASSUMED_FLAGS = frozenset({
-    "target_depth_from_prior", "target_depth_scene_median", "target2_depth_from_target",
+    "target_depth_from_prior", "target_depth_scene_median", "target2_depth_from_target", "target_depth_from_target2",
     "prior_depth_assumed_scene_median", "default_focal",
     "target_depth_claude_estimate", "target2_depth_claude_estimate", "prior_depth_claude_estimate",
     "3d_without_depth",  # a 3D question solved with one image-plane scale (no depth_info at all)

@@ -50,6 +50,8 @@ def test_choose_flags_and_csv_method_strings():
     assert how == "direct" and added == ["geo_direct_disagree", "geo_rejected_disagree"]
     _, how, added = C.choose(2.0, 2.2, ["geo:target2_depth_from_target"], True, "lab", "3d_focal_from_prior")
     assert how == "direct" and added == ["geo_rejected_assumed_depth"]
+    _, how, _ = C.choose(2.0, 2.2, ["geo:target_depth_from_target2"], True, "lab", "3d_focal_from_prior")
+    assert how == "direct"  # a target that borrowed the other object's range is an assumption too
     with pytest.raises(ValueError):
         C.choose(1.0, 1.0, "", False, rule="bogus")
 
