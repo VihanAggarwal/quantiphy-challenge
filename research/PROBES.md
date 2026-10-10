@@ -39,3 +39,23 @@ adversarial reviewers (integrity and legitimacy, evidence, code). Scripts and bu
   direct static answers, twin copy, and sibling-scene transfer (a question asking a quantity that a
   sibling clip of the same scene states as its prior takes that stated value; 14 answers).
   Expected about +.010.
+
+## Second research round (2026-10-10): what did and did not pan out
+
+Scripts and reports: `research/big_levers_scripts_2026-10-10.tar.gz`.
+
+- **No hidden ground-truth convention.** Measuring every test prior with an independent scale (fixed
+  lab camera f ~722 px at 1280 px + depth_info; sibling clips' priors) gives stated/measured ratios
+  near 1: lab speeds 1.00 (a local fit at t matches best), sizes 0.94 (blur on moving balls).
+  The 1.36x lab speed shortfall seen on validation comes from a few scenes whose labels are inflated,
+  not from a convention, so no lab speed factor. Lab clips were captured at 25 fps and converted to
+  24 fps by dropping frames after video frames 11 and 35 (real time stays within 0.02 s of n/24).
+- **3D simulation cameras are not fixed** (hfov 8-103 deg, modes at 15-20 and 35-45 deg; the lens
+  changes between cameras of one scene), so calibrated geometry does not beat Claude's direct answers.
+- **Scene families are the lever.** 60 families of clips show the same scene (twins, lab renders,
+  identical depth_info, near-identical frames, shared prior text), covering 1723 questions.
+  T: a question asking a quantity that a family clip states as its prior takes the stated value
+  (5/5 exact on known rows). K: Claude's direct 3D-sim answers carry a per-clip scale error shared
+  across quantities, corrected from the family's stated facts. P: answers about one object are
+  pooled across the family. Leave-one-fact-out on 71 D3 facts: raw .790, K .855, P .908, K+P .951.
+  LAB: sizes of named lab props reused across events are pooled.
