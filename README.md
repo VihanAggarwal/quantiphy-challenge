@@ -10,6 +10,15 @@ and, for 3D scenes, camera distances, estimate an object's size, distance, speed
   (<90%, <80%, …, <10%, <5%); averaged within S2/D2/S3/D3 (prior static/dynamic × 2D/3D video),
   then over the four. A 50% error is worth 0.4, 10% is 0.9, under 5% is 1.0. Blank/zero scores 0.
 
+## Leaderboard (official test set, 3,289 questions)
+
+| Submission | Track | MRA | S2 | D2 | S3 | D3 | Date |
+|---|---|---|---|---|---|---|---|
+| `submissions/trackA_opus55_high_v2.csv` (Claude Opus 5.5 high, 854 px, geometry + direct) | A | **0.763** | .801 | .810 | .703 | .738 | 2026-10-09 |
+
+Validation (480p, 159 questions) over-predicted D2 (.916 vs .810) and S3 (.784 vs .703) and
+under-predicted S2 (.709 vs .801): its categories have only 32-47 questions each.
+
 ## Results so far (validation, 159 questions)
 
 | Pipeline | MRA | S2 | D2 | S3 | D3 | Cost |
