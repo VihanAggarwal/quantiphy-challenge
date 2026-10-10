@@ -1,0 +1,41 @@
+# Leaderboard probes (Track A)
+
+Each upload measures the four categories independently, and a category's MRA is the mean of its
+item scores, so changes to disjoint question sets add up. A probe changes one thing per category
+against the best measured rows of that category (`scripts/compose_submission.py`).
+
+| Probe | S2 | D2 | S3 | D3 | MRA |
+|---|---|---|---|---|---|
+| v2 | .801 | .810 | .703 | .738 | .763 |
+| 2: geometry on 3D non-lab | .798 | .810 | .673 | .668 | .737 |
+| 3: S2 longest-extent prior / D2 dense off / direct on lab 3D | .803 | .810 | .715 | .727 | .764 |
+| v3 = best rows per category (S2, S3 from probe 3; D2, D3 from v2) | .803 | .810 | .715 | .738 | (~.767) |
+
+## Probe 4 (`submissions/trackA_probe4_s2twin_d2refineoff_s3split_d3fixes.csv`, on v3)
+
+Free replays and post-hoc rules on the cached Claude run; every variant was checked by three
+adversarial reviewers (integrity and legitimacy, evidence, code). Scripts and bundles:
+`research/hyp_scripts_2026-10-10.tar.gz`.
+
+- **Twin renders.** Test clips come in families: `simulation_X` + `simulation_X_segmented`
+  (pixel-aligned, white background), lab `captured_X` + `Xs` + `Xx` (same event, replaced
+  background). A segmented clip takes its original clip's answer when the question text and prior
+  match (not when the original is a rotated view); on lab s/x renders motion answers take the
+  original render's direct answer.
+- **S2** (75 changed): longest-extent prior (probe 3) + twin copy. Expected +.004 to +.009.
+  The 0.8 px extent padding was dropped: its bias measurement used an inflated reference.
+- **D2** (560 changed): `qp.refine` off. The optical-flow prior refinement lags on large or
+  articulated movers (walking horses, cats, a glass chess piece: 0.49-0.90 of the true pixel speed),
+  inflating every answer in those videos; mask tracks on the segmented twins agree with refine-off
+  (mean prior error 2% vs 3-6%). Plus twin copy. Expected about +.02.
+- **S3** (275 changed vs probe 3): lab sizes and distances back to geometry, lab motion stays
+  direct (from probes 3's S3/D3 deltas solved per kind; the assumption that a kind's effect is
+  shared by S3 and D3 cannot be checked by those two numbers), twin copy, 0040 depth typo
+  ("8420m" -> 0.842 m), 0034b (a second camera carrying 0034a's depth_info) static answers from
+  0034a, and 4 rows whose depth entry names the ball differently ("ping_pong_ball" vs "white
+  ball") re-solved with the right depth. Expected +.005 to +.03.
+- **D3** (100 changed): lab depth-name relinking ("ball" in depth_info vs "toy"/"basketball" in the
+  question), "velocity at the end of the slope" (no time) to direct, per-video scale correction of
+  direct static answers, twin copy, and sibling-scene transfer (a question asking a quantity that a
+  sibling clip of the same scene states as its prior takes that stated value; 14 answers).
+  Expected about +.010.
