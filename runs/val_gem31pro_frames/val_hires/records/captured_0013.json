@@ -1,0 +1,65 @@
+{
+ "video_id": "captured_0013",
+ "model": "gemini-3.1-pro-preview",
+ "input": "frames",
+ "thinking": "high",
+ "media_resolution": "high",
+ "answers": [
+  {
+   "qid": 2345,
+   "value": 32.5,
+   "unit": "cm",
+   "how": "Using the ball's motion to determine the focal length (f \u2248 294 px), the cup's height in the image (79 px) and its distance (1.210 m) give Height = 79 * 1.210 / 294 = 32.5 cm."
+  },
+  {
+   "qid": 2346,
+   "value": 16.9,
+   "unit": "cm",
+   "how": "The pen spans 42.2 pixels diagonally. Using its depth of 1.175 m and the derived focal length, its length is 42.2 * 1.175 / 294 = 16.9 cm."
+  },
+  {
+   "qid": 2347,
+   "value": 12.8,
+   "unit": "cm",
+   "how": "The cookie's width in the frame is 32 pixels. Given its depth of 1.182 m, its diameter is 32 * 1.182 / 294 = 12.8 cm."
+  },
+  {
+   "qid": 2348,
+   "value": 15.8,
+   "unit": "cm",
+   "how": "The longest visible side of the notebook is 48.4 pixels. With a depth of 0.962 m, the width/length is 48.4 * 0.962 / 294 = 15.8 cm."
+  },
+  {
+   "qid": 2349,
+   "value": 101.1,
+   "unit": "cm",
+   "how": "The desk spans from x=281 to x=627 (346 px) at an average depth of roughly 0.86 m. Calculating the exact 3D coordinates using left and right depths yields a width of 101.1 cm."
+  },
+  {
+   "qid": 2350,
+   "value": 43.2,
+   "unit": "cm",
+   "how": "The slope starts at Z=1.345 m and ends at Z=1.104 m. Measuring its endpoints in the image and computing their 3D distance yields a physical length of 43.2 cm."
+  },
+  {
+   "qid": 2351,
+   "value": 10.5,
+   "unit": "cm",
+   "how": "The ball measures 23 pixels across at the top of the slope (Z=1.345 m). Its diameter is 23 * 1.345 / 294 = 10.5 cm."
+  },
+  {
+   "qid": 2352,
+   "value": 108.4,
+   "unit": "cm/s",
+   "how": "From tracking the ball's Y-pixel coordinates, its acceleration curve and pixel velocity at 1.5s is translated to the 3D velocity along the slope using the slope's physical length, yielding 108.4 cm/s."
+  }
+ ],
+ "raw_text": "{\n  \"answers\": [\n    {\n      \"qid\": 2345,\n      \"value\": 32.5,\n      \"unit\": \"cm\",\n      \"how\": \"Using the ball's motion to determine the focal length (f \u2248 294 px), the cup's height in the image (79 px) and its distance (1.210 m) give Height = 79 * 1.210 / 294 = 32.5 cm.\"\n    },\n    {\n      \"qid\": 2346,\n      \"value\": 16.9,\n      \"unit\": \"cm\",\n      \"how\": \"The pen spans 42.2 pixels diagonally. Using its depth of 1.175 m and the derived focal length, its length is 42.2 * 1.175 / 294 = 16.9 cm.\"\n    },\n    {\n      \"qid\": 2347,\n      \"value\": 12.8,\n      \"unit\": \"cm\",\n      \"how\": \"The cookie's width in the frame is 32 pixels. Given its depth of 1.182 m, its diameter is 32 * 1.182 / 294 = 12.8 cm.\"\n    },\n    {\n      \"qid\": 2348,\n      \"value\": 15.8,\n      \"unit\": \"cm\",\n      \"how\": \"The longest visible side of the notebook is 48.4 pixels. With a depth of 0.962 m, the width/length is 48.4 * 0.962 / 294 = 15.8 cm.\"\n    },\n    {\n      \"qid\": 2349,\n      \"value\": 101.1,\n      \"unit\": \"cm\",\n      \"how\": \"The desk spans from x=281 to x=627 (346 px) at an average depth of roughly 0.86 m. Calculating the exact 3D coordinates using left and right depths yields a width of 101.1 cm.\"\n    },\n    {\n      \"qid\": 2350,\n      \"value\": 43.2,\n      \"unit\": \"cm\",\n      \"how\": \"The slope starts at Z=1.345 m and ends at Z=1.104 m. Measuring its endpoints in the image and computing their 3D distance yields a physical length of 43.2 cm.\"\n    },\n    {\n      \"qid\": 2351,\n      \"value\": 10.5,\n      \"unit\": \"cm\",\n      \"how\": \"The ball measures 23 pixels across at the top of the slope (Z=1.345 m). Its diameter is 23 * 1.345 / 294 = 10.5 cm.\"\n    },\n    {\n      \"qid\": 2352,\n      \"value\": 108.4,\n      \"unit\": \"cm/s\",\n      \"how\": \"From tracking the ball's Y-pixel coordinates, its acceleration curve and pixel velocity at 1.5s is translated to the 3D velocity along the slope using the slope's physical length, yielding 108.4 cm/s.\"\n    }\n  ]\n}",
+ "usage": {
+  "prompt": 23153,
+  "output": 797,
+  "thoughts": 27179
+ },
+ "usd": 0.382018,
+ "secs": 179.9
+}

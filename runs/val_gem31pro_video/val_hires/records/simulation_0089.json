@@ -1,0 +1,53 @@
+{
+ "video_id": "simulation_0089",
+ "model": "gemini-3.1-pro-preview",
+ "input": "video",
+ "thinking": "high",
+ "media_resolution": "high",
+ "answers": [
+  {
+   "qid": 139,
+   "value": 1.626,
+   "unit": "m",
+   "how": "The length of the small bird is 74 pixels, which corresponds to 0.94 m (scale factor: 0.0127 m/pixel). The length of the big bird is measured as 128 pixels. Multiplying by the scale factor gives 128 * 0.0127 = 1.626 m."
+  },
+  {
+   "qid": 140,
+   "value": 2.248,
+   "unit": "m",
+   "how": "The width (wingspan) of the big bird in the frame is 177 pixels. Using the scale of 0.0127 m/pixel derived from the small bird's length, the big bird's width is 177 * 0.0127 = 2.248 m."
+  },
+  {
+   "qid": 141,
+   "value": 1.283,
+   "unit": "m",
+   "how": "The width (wingspan) of the small bird is 101 pixels. Applying the scale factor of 0.0127 m/pixel, we get 101 * 0.0127 = 1.283 m."
+  },
+  {
+   "qid": 142,
+   "value": 4.992,
+   "unit": "m/s",
+   "how": "The small bird moves 131 pixels horizontally over 4 frames (which is 0.333 seconds at 12 fps). This results in a speed of 393 pixels/s. Converting to meters gives 393 * 0.0127 = 4.992 m/s."
+  },
+  {
+   "qid": 143,
+   "value": 9.502,
+   "unit": "m/s",
+   "how": "The big bird moves 187 pixels horizontally over 3 frames (which is 0.25 seconds). This results in a speed of 748 pixels/s. Converting to meters gives 748 * 0.0127 = 9.502 m/s."
+  },
+  {
+   "qid": 144,
+   "value": 8.644,
+   "unit": "m",
+   "how": "At frame 0, the horizontal distance between the centers of the two birds is 503 pixels (1185 - 682). The relative speed at which they move apart is 355 pixels/s (748 - 393). At 0.5 s, the distance increases by 177.5 pixels to a total of 680.5 pixels. Converting to meters: 680.5 * 0.0127 = 8.644 m."
+  }
+ ],
+ "raw_text": "{\n  \"answers\": [\n    {\n      \"qid\": 139,\n      \"value\": 1.626,\n      \"unit\": \"m\",\n      \"how\": \"The length of the small bird is 74 pixels, which corresponds to 0.94 m (scale factor: 0.0127 m/pixel). The length of the big bird is measured as 128 pixels. Multiplying by the scale factor gives 128 * 0.0127 = 1.626 m.\"\n    },\n    {\n      \"qid\": 140,\n      \"value\": 2.248,\n      \"unit\": \"m\",\n      \"how\": \"The width (wingspan) of the big bird in the frame is 177 pixels. Using the scale of 0.0127 m/pixel derived from the small bird's length, the big bird's width is 177 * 0.0127 = 2.248 m.\"\n    },\n    {\n      \"qid\": 141,\n      \"value\": 1.283,\n      \"unit\": \"m\",\n      \"how\": \"The width (wingspan) of the small bird is 101 pixels. Applying the scale factor of 0.0127 m/pixel, we get 101 * 0.0127 = 1.283 m.\"\n    },\n    {\n      \"qid\": 142,\n      \"value\": 4.992,\n      \"unit\": \"m/s\",\n      \"how\": \"The small bird moves 131 pixels horizontally over 4 frames (which is 0.333 seconds at 12 fps). This results in a speed of 393 pixels/s. Converting to meters gives 393 * 0.0127 = 4.992 m/s.\"\n    },\n    {\n      \"qid\": 143,\n      \"value\": 9.502,\n      \"unit\": \"m/s\",\n      \"how\": \"The big bird moves 187 pixels horizontally over 3 frames (which is 0.25 seconds). This results in a speed of 748 pixels/s. Converting to meters gives 748 * 0.0127 = 9.502 m/s.\"\n    },\n    {\n      \"qid\": 144,\n      \"value\": 8.644,\n      \"unit\": \"m\",\n      \"how\": \"At frame 0, the horizontal distance between the centers of the two birds is 503 pixels (1185 - 682). The relative speed at which they move apart is 355 pixels/s (748 - 393). At 0.5 s, the distance increases by 177.5 pixels to a total of 680.5 pixels. Converting to meters: 680.5 * 0.0127 = 8.644 m.\"\n    }\n  ]\n}",
+ "usage": {
+  "prompt": 4520,
+  "output": 725,
+  "thoughts": 6752
+ },
+ "usd": 0.098764,
+ "secs": 51.3
+}

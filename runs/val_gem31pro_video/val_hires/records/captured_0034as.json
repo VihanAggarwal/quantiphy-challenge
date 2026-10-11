@@ -1,0 +1,71 @@
+{
+ "video_id": "captured_0034as",
+ "model": "gemini-3.1-pro-preview",
+ "input": "video",
+ "thinking": "high",
+ "media_resolution": "high",
+ "answers": [
+  {
+   "qid": 2714,
+   "value": 68.4,
+   "unit": "cm/s",
+   "how": "The left tennis ball maintains a constant apparent width of 77 pixels, indicating its depth remains 0.7060 m. Using the prior diameter (6.7 cm), the camera focal length is f = 77 px * 70.6 cm / 6.7 cm = 811 pixels. From 1.000s to 1.417s, the left ball moves 65.5 pixels per frame (at 12 fps), which is 786 pixels/s. Scaling to physical units gives 786 * (70.6 / 811) = 68.4 cm/s."
+  },
+  {
+   "qid": 2715,
+   "value": 75.2,
+   "unit": "cm/s",
+   "how": "The right tennis ball has a constant apparent width of 70 pixels, indicating its depth remains 0.7760 m. The focal length is consistently f = 70 px * 77.6 cm / 6.7 cm = 811 pixels. It also moves 65.5 pixels per frame (786 px/s) before the collision. Speed = 786 * (77.6 / 811) = 75.2 cm/s."
+  },
+  {
+   "qid": 2716,
+   "value": 5.8,
+   "unit": "cm",
+   "how": "Using the focal length of 811 pixels, the pencil bag is at a distance of 1.0500 m. Its height in the image is measured as 45 pixels. Physical height = 45 * (105 cm / 811 px) = 5.8 cm."
+  },
+  {
+   "qid": 2717,
+   "value": 17.1,
+   "unit": "cm",
+   "how": "The pencil bag's length (width in the image) is roughly 132 pixels. Using the distance of 1.0500 m and focal length of 811 px: Length = 132 * (105 / 811) = 17.1 cm."
+  },
+  {
+   "qid": 2718,
+   "value": 18.7,
+   "unit": "cm",
+   "how": "The soccer ball is located at 0.8940 m. Its diameter in the image is measured at 170 pixels. Physical diameter = 170 * (89.4 cm / 811 px) = 18.7 cm."
+  },
+  {
+   "qid": 2719,
+   "value": 68.4,
+   "unit": "cm/s",
+   "how": "At 1.3s, the left tennis ball is still in its forward motion phase, moving at the exact same constant rate of 65.5 pixels/frame. Thus, its speed remains 68.4 cm/s."
+  },
+  {
+   "qid": 2720,
+   "value": 75.2,
+   "unit": "cm/s",
+   "how": "At 1.3s, the right tennis ball is also continuing its forward motion at 65.5 pixels/frame, so its speed is constant at 75.2 cm/s."
+  },
+  {
+   "qid": 2721,
+   "value": 54.4,
+   "unit": "cm",
+   "how": "The left tennis ball moves forward for 328 pixels (from x=255.5 to x=583.5), then bounces back, traveling 297 pixels backward by the end of the video. Total distance is 625 pixels. In physical units: 625 * (70.6 cm / 811 px) = 54.4 cm."
+  },
+  {
+   "qid": 2722,
+   "value": 58.7,
+   "unit": "cm",
+   "how": "The right tennis ball moves forward for 327 pixels (from x=991 to x=664), then bounces back, traveling 286 pixels backward by the end. Total pixel distance is 613 pixels. In physical units: 613 * (77.6 cm / 811 px) = 58.7 cm."
+  }
+ ],
+ "raw_text": "{\n  \"answers\": [\n    {\n      \"qid\": 2714,\n      \"value\": 68.4,\n      \"unit\": \"cm/s\",\n      \"how\": \"The left tennis ball maintains a constant apparent width of 77 pixels, indicating its depth remains 0.7060 m. Using the prior diameter (6.7 cm), the camera focal length is f = 77 px * 70.6 cm / 6.7 cm = 811 pixels. From 1.000s to 1.417s, the left ball moves 65.5 pixels per frame (at 12 fps), which is 786 pixels/s. Scaling to physical units gives 786 * (70.6 / 811) = 68.4 cm/s.\"\n    },\n    {\n      \"qid\": 2715,\n      \"value\": 75.2,\n      \"unit\": \"cm/s\",\n      \"how\": \"The right tennis ball has a constant apparent width of 70 pixels, indicating its depth remains 0.7760 m. The focal length is consistently f = 70 px * 77.6 cm / 6.7 cm = 811 pixels. It also moves 65.5 pixels per frame (786 px/s) before the collision. Speed = 786 * (77.6 / 811) = 75.2 cm/s.\"\n    },\n    {\n      \"qid\": 2716,\n      \"value\": 5.8,\n      \"unit\": \"cm\",\n      \"how\": \"Using the focal length of 811 pixels, the pencil bag is at a distance of 1.0500 m. Its height in the image is measured as 45 pixels. Physical height = 45 * (105 cm / 811 px) = 5.8 cm.\"\n    },\n    {\n      \"qid\": 2717,\n      \"value\": 17.1,\n      \"unit\": \"cm\",\n      \"how\": \"The pencil bag's length (width in the image) is roughly 132 pixels. Using the distance of 1.0500 m and focal length of 811 px: Length = 132 * (105 / 811) = 17.1 cm.\"\n    },\n    {\n      \"qid\": 2718,\n      \"value\": 18.7,\n      \"unit\": \"cm\",\n      \"how\": \"The soccer ball is located at 0.8940 m. Its diameter in the image is measured at 170 pixels. Physical diameter = 170 * (89.4 cm / 811 px) = 18.7 cm.\"\n    },\n    {\n      \"qid\": 2719,\n      \"value\": 68.4,\n      \"unit\": \"cm/s\",\n      \"how\": \"At 1.3s, the left tennis ball is still in its forward motion phase, moving at the exact same constant rate of 65.5 pixels/frame. Thus, its speed remains 68.4 cm/s.\"\n    },\n    {\n      \"qid\": 2720,\n      \"value\": 75.2,\n      \"unit\": \"cm/s\",\n      \"how\": \"At 1.3s, the right tennis ball is also continuing its forward motion at 65.5 pixels/frame, so its speed is constant at 75.2 cm/s.\"\n    },\n    {\n      \"qid\": 2721,\n      \"value\": 54.4,\n      \"unit\": \"cm\",\n      \"how\": \"The left tennis ball moves forward for 328 pixels (from x=255.5 to x=583.5), then bounces back, traveling 297 pixels backward by the end of the video. Total distance is 625 pixels. In physical units: 625 * (70.6 cm / 811 px) = 54.4 cm.\"\n    },\n    {\n      \"qid\": 2722,\n      \"value\": 58.7,\n      \"unit\": \"cm\",\n      \"how\": \"The right tennis ball moves forward for 327 pixels (from x=991 to x=664), then bounces back, traveling 286 pixels backward by the end. Total pixel distance is 613 pixels. In physical units: 613 * (77.6 cm / 811 px) = 58.7 cm.\"\n    }\n  ]\n}",
+ "usage": {
+  "prompt": 7787,
+  "output": 1105,
+  "thoughts": 27414
+ },
+ "usd": 0.357802,
+ "secs": 184.7
+}
