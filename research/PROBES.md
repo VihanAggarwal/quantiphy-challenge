@@ -215,3 +215,9 @@ Built by `research/levers_2026-10-11/build_probe8.py`: D2 = 7b + 0191 free-fall 
 initial speed (6 rows, ~2.04 m/s); D3 = 7b + lab capture clock (175 rows, median x1.003) + lab 3D fits for 0020/0047
 (15 rows, median x1.31). S2, S3 = 7b. Expected about D2 +.004, D3 +.001..+.005 (each fix below leaderboard resolution
 alone); read as probe 8 minus probe 7b.
+
+### Camera motion in internet clips: not a lever (2026-10-11)
+`research/levers_2026-10-11/camera_motion_check.py`: background affine per frame pair (LK flow outside Claude's
+boxes, RANSAC), chained between the prior track's frames; stabilised vs raw prior pixel path. Over 36 motion-prior
+tracks in 33 internet clips (test + validation), 34 change by < 5% (median 0.3%). internet_0028's "background" is the
+moving conveyor belt itself (stabilising would be wrong); internet_0068 moves 8%. No change made.
