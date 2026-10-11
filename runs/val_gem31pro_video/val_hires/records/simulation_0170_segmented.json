@@ -1,0 +1,65 @@
+{
+ "video_id": "simulation_0170_segmented",
+ "model": "gemini-3.1-pro-preview",
+ "input": "video",
+ "thinking": "high",
+ "media_resolution": "high",
+ "answers": [
+  {
+   "qid": 1989,
+   "value": 5.11,
+   "unit": "m/s",
+   "how": "Measured the height of the astronaut in pixels at various times to compute the scale factor and 3D distance. Computed 3D coordinates using pixel positions and depth. The velocity at t=0.5s is the derivative of the 3D position."
+  },
+  {
+   "qid": 1990,
+   "value": 0.81,
+   "unit": "m/s^2",
+   "how": "Derived the acceleration by taking the second derivative of the 3D position over time, revealing a constant deceleration as the astronaut moves."
+  },
+  {
+   "qid": 1991,
+   "value": 4.71,
+   "unit": "m/s",
+   "how": "Calculated the 3D position at t=1s using the known depth and the pixel tracking, then found the instantaneous speed from the fitted trajectory."
+  },
+  {
+   "qid": 1992,
+   "value": 0.81,
+   "unit": "m/s^2",
+   "how": "The acceleration is constant throughout the video, calculated from the parabolic fit of the 3D coordinates."
+  },
+  {
+   "qid": 1993,
+   "value": 3.9,
+   "unit": "m/s",
+   "how": "Determined the velocity vector at t=2s from the fitted 3D kinematics, taking into account the constant acceleration opposite to the motion."
+  },
+  {
+   "qid": 1994,
+   "value": 0.81,
+   "unit": "m/s^2",
+   "how": "The total 3D acceleration remains constant at 0.81 m/s^2."
+  },
+  {
+   "qid": 1995,
+   "value": 3.1,
+   "unit": "m/s",
+   "how": "Used the established initial velocity and constant acceleration to compute the speed at t=3s."
+  },
+  {
+   "qid": 1996,
+   "value": 0.81,
+   "unit": "m/s^2",
+   "how": "Acceleration is uniform over time, derived from the consistent quadratic change in 3D position."
+  }
+ ],
+ "raw_text": "{\n  \"answers\": [\n    {\n      \"qid\": 1989,\n      \"value\": 5.11,\n      \"unit\": \"m/s\",\n      \"how\": \"Measured the height of the astronaut in pixels at various times to compute the scale factor and 3D distance. Computed 3D coordinates using pixel positions and depth. The velocity at t=0.5s is the derivative of the 3D position.\"\n    },\n    {\n      \"qid\": 1990,\n      \"value\": 0.81,\n      \"unit\": \"m/s^2\",\n      \"how\": \"Derived the acceleration by taking the second derivative of the 3D position over time, revealing a constant deceleration as the astronaut moves.\"\n    },\n    {\n      \"qid\": 1991,\n      \"value\": 4.71,\n      \"unit\": \"m/s\",\n      \"how\": \"Calculated the 3D position at t=1s using the known depth and the pixel tracking, then found the instantaneous speed from the fitted trajectory.\"\n    },\n    {\n      \"qid\": 1992,\n      \"value\": 0.81,\n      \"unit\": \"m/s^2\",\n      \"how\": \"The acceleration is constant throughout the video, calculated from the parabolic fit of the 3D coordinates.\"\n    },\n    {\n      \"qid\": 1993,\n      \"value\": 3.90,\n      \"unit\": \"m/s\",\n      \"how\": \"Determined the velocity vector at t=2s from the fitted 3D kinematics, taking into account the constant acceleration opposite to the motion.\"\n    },\n    {\n      \"qid\": 1994,\n      \"value\": 0.81,\n      \"unit\": \"m/s^2\",\n      \"how\": \"The total 3D acceleration remains constant at 0.81 m/s^2.\"\n    },\n    {\n      \"qid\": 1995,\n      \"value\": 3.10,\n      \"unit\": \"m/s\",\n      \"how\": \"Used the established initial velocity and constant acceleration to compute the speed at t=3s.\"\n    },\n    {\n      \"qid\": 1996,\n      \"value\": 0.81,\n      \"unit\": \"m/s^2\",\n      \"how\": \"Acceleration is uniform over time, derived from the consistent quadratic change in 3D position.\"\n    }\n  ]\n}",
+ "usage": {
+  "prompt": 11380,
+  "output": 586,
+  "thoughts": 31453
+ },
+ "usd": 0.407228,
+ "secs": 187.9
+}

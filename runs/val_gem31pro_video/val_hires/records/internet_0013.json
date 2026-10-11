@@ -1,0 +1,53 @@
+{
+ "video_id": "internet_0013",
+ "model": "gemini-3.1-pro-preview",
+ "input": "video",
+ "thinking": "high",
+ "media_resolution": "high",
+ "answers": [
+  {
+   "qid": 2200,
+   "value": 3.3,
+   "unit": "m",
+   "how": "By tracking a pedestrian walking on the sidewalk (e.g., bottom-left) over 9.25 seconds, we find they travel about 151 pixels. At a typical speed of 1.1 m/s, the scale is roughly 14.86 pixels per meter. Measuring a straight entrance lane (between the dashed and solid lines) yields a width of about 49 pixels, which converts to approximately 3.3 meters."
+  },
+  {
+   "qid": 2201,
+   "value": 6.6,
+   "unit": "m",
+   "how": "Using the scale of 14.86 pixels/meter, the width of the circular roundabout lane from the inner planter curb to the outer road edge is measured at 98 pixels. This converts to about 6.6 meters."
+  },
+  {
+   "qid": 2202,
+   "value": 28.8,
+   "unit": "m",
+   "how": "Based on the 14.86 pixels/meter scale, the diameter of the central planter is 428 pixels across (from curb to curb). Converting this yields 28.8 meters."
+  },
+  {
+   "qid": 2203,
+   "value": 13.8,
+   "unit": "m/s",
+   "how": "The white car's center moves from approximately (931, 220) at 2.75s to (829, 233) at 3.25s, traveling a distance of 103 pixels in 0.5 seconds, or 206 pixels/second. Using the established scale of 14.86 pixels/meter, the speed is roughly 13.8 m/s."
+  },
+  {
+   "qid": 2204,
+   "value": 5.2,
+   "unit": "m/s",
+   "how": "Tracking the bicycle in the top left from 2.5s to 3.5s shows it moves about 78 pixels over 1.0 second. Using the 14.86 pixels/meter scale, the speed is roughly 5.2 m/s."
+  },
+  {
+   "qid": 2205,
+   "value": 35.6,
+   "unit": "m",
+   "how": "At 1.0s, the center of the black car exiting top-left is around (585, 256) and the black car at the bottom is around (698, 773). The pixel distance between them is about 530 pixels. Converting with the 14.86 pixels/meter scale gives approximately 35.6 meters."
+  }
+ ],
+ "raw_text": "{\n  \"answers\": [\n    {\n      \"qid\": 2200,\n      \"value\": 3.3,\n      \"unit\": \"m\",\n      \"how\": \"By tracking a pedestrian walking on the sidewalk (e.g., bottom-left) over 9.25 seconds, we find they travel about 151 pixels. At a typical speed of 1.1 m/s, the scale is roughly 14.86 pixels per meter. Measuring a straight entrance lane (between the dashed and solid lines) yields a width of about 49 pixels, which converts to approximately 3.3 meters.\"\n    },\n    {\n      \"qid\": 2201,\n      \"value\": 6.6,\n      \"unit\": \"m\",\n      \"how\": \"Using the scale of 14.86 pixels/meter, the width of the circular roundabout lane from the inner planter curb to the outer road edge is measured at 98 pixels. This converts to about 6.6 meters.\"\n    },\n    {\n      \"qid\": 2202,\n      \"value\": 28.8,\n      \"unit\": \"m\",\n      \"how\": \"Based on the 14.86 pixels/meter scale, the diameter of the central planter is 428 pixels across (from curb to curb). Converting this yields 28.8 meters.\"\n    },\n    {\n      \"qid\": 2203,\n      \"value\": 13.8,\n      \"unit\": \"m/s\",\n      \"how\": \"The white car's center moves from approximately (931, 220) at 2.75s to (829, 233) at 3.25s, traveling a distance of 103 pixels in 0.5 seconds, or 206 pixels/second. Using the established scale of 14.86 pixels/meter, the speed is roughly 13.8 m/s.\"\n    },\n    {\n      \"qid\": 2204,\n      \"value\": 5.2,\n      \"unit\": \"m/s\",\n      \"how\": \"Tracking the bicycle in the top left from 2.5s to 3.5s shows it moves about 78 pixels over 1.0 second. Using the 14.86 pixels/meter scale, the speed is roughly 5.2 m/s.\"\n    },\n    {\n      \"qid\": 2205,\n      \"value\": 35.6,\n      \"unit\": \"m\",\n      \"how\": \"At 1.0s, the center of the black car exiting top-left is around (585, 256) and the black car at the bottom is around (698, 773). The pixel distance between them is about 530 pixels. Converting with the 14.86 pixels/meter scale gives approximately 35.6 meters.\"\n    }\n  ]\n}",
+ "usage": {
+  "prompt": 30138,
+  "output": 693,
+  "thoughts": 9658
+ },
+ "usd": 0.184488,
+ "secs": 79.4
+}

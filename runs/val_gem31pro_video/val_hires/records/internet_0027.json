@@ -1,0 +1,47 @@
+{
+ "video_id": "internet_0027",
+ "model": "gemini-3.1-pro-preview",
+ "input": "video",
+ "thinking": "high",
+ "media_resolution": "high",
+ "answers": [
+  {
+   "qid": 2272,
+   "value": 14.69,
+   "unit": "cm",
+   "how": "Measured the centers of the purple ball (1862, 840) and black ball (2090, 1385). The distance between them is 590.77 pixels. Given the ball diameter is 230 pixels, the scale is 5.72 cm / 230 px = 0.02487 cm/px. Multiplying the distance by the scale gives 14.69 cm."
+  },
+  {
+   "qid": 2273,
+   "value": 24.07,
+   "unit": "cm/s",
+   "how": "Located the solid white cue ball at 1.00s (center x=2200, y=2097) and at 2.00s (center x=2730, y=1287). The distance traveled in 1 second is 967.99 pixels. Using the scale factor of 0.02487 cm/px, the velocity is 24.07 cm/s."
+  },
+  {
+   "qid": 2274,
+   "value": 24.8,
+   "unit": "cm/s",
+   "how": "Tracked the solid orange ball (number 5). At 0.50s its center is at (755, 1515) and at 1.50s it is at (1025, 555), moving in perfectly linear motion. This yields a distance of 997.25 pixels in 1 second. Converting to cm using the 0.02487 cm/px scale gives 24.80 cm/s."
+  },
+  {
+   "qid": 2275,
+   "value": 14.69,
+   "unit": "cm",
+   "how": "The purple and black balls remain perfectly stationary throughout the entire video. Therefore, their final distance is identical to their initial distance, which is 14.69 cm."
+  },
+  {
+   "qid": 2276,
+   "value": 0.0,
+   "unit": "cm/s^2",
+   "how": "Tracked the yellow ball (number 1) on the left. Its velocity is perfectly constant in exactly straight lines frame by frame (moving exactly 10 pixels right and 120 pixels up every two frames), meaning it undergoes zero acceleration."
+  }
+ ],
+ "raw_text": "{\n  \"answers\": [\n    {\n      \"qid\": 2272,\n      \"value\": 14.69,\n      \"unit\": \"cm\",\n      \"how\": \"Measured the centers of the purple ball (1862, 840) and black ball (2090, 1385). The distance between them is 590.77 pixels. Given the ball diameter is 230 pixels, the scale is 5.72 cm / 230 px = 0.02487 cm/px. Multiplying the distance by the scale gives 14.69 cm.\"\n    },\n    {\n      \"qid\": 2273,\n      \"value\": 24.07,\n      \"unit\": \"cm/s\",\n      \"how\": \"Located the solid white cue ball at 1.00s (center x=2200, y=2097) and at 2.00s (center x=2730, y=1287). The distance traveled in 1 second is 967.99 pixels. Using the scale factor of 0.02487 cm/px, the velocity is 24.07 cm/s.\"\n    },\n    {\n      \"qid\": 2274,\n      \"value\": 24.80,\n      \"unit\": \"cm/s\",\n      \"how\": \"Tracked the solid orange ball (number 5). At 0.50s its center is at (755, 1515) and at 1.50s it is at (1025, 555), moving in perfectly linear motion. This yields a distance of 997.25 pixels in 1 second. Converting to cm using the 0.02487 cm/px scale gives 24.80 cm/s.\"\n    },\n    {\n      \"qid\": 2275,\n      \"value\": 14.69,\n      \"unit\": \"cm\",\n      \"how\": \"The purple and black balls remain perfectly stationary throughout the entire video. Therefore, their final distance is identical to their initial distance, which is 14.69 cm.\"\n    },\n    {\n      \"qid\": 2276,\n      \"value\": 0.0,\n      \"unit\": \"cm/s^2\",\n      \"how\": \"Tracked the yellow ball (number 1) on the left. Its velocity is perfectly constant in exactly straight lines frame by frame (moving exactly 10 pixels right and 120 pixels up every two frames), meaning it undergoes zero acceleration.\"\n    }\n  ]\n}",
+ "usage": {
+  "prompt": 11623,
+  "output": 628,
+  "thoughts": 16146
+ },
+ "usd": 0.224534,
+ "secs": 114.1
+}

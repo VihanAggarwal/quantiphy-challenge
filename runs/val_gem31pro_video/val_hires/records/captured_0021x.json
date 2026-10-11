@@ -1,0 +1,47 @@
+{
+ "video_id": "captured_0021x",
+ "model": "gemini-3.1-pro-preview",
+ "input": "video",
+ "thinking": "high",
+ "media_resolution": "high",
+ "answers": [
+  {
+   "qid": 2520,
+   "value": 121,
+   "unit": "cm/s",
+   "how": "Using the focal length derived from the ball's size and known prior (f ~ 529 px), we compute the 3D coordinates of the ping pong ball. At t=1.0s, the ball is at (X=4.0, Y=23.4, Z=151.1) cm. At t=1.4s, it is at (X=-1.4, Y=20.5, Z=103.0) cm. The velocity is constant over this interval. The 3D displacement is ~48.5 cm over 0.4 seconds, yielding a velocity of 121 cm/s."
+  },
+  {
+   "qid": 2521,
+   "value": 121,
+   "unit": "cm/s",
+   "how": "The ball moves with constant velocity as it rolls toward the camera. We use the 3D positions calculated from the depth info and pixel coordinates to find a displacement of 48.5 cm between 1.0s and 1.4s. Dividing by 0.4s gives 121 cm/s."
+  },
+  {
+   "qid": 2522,
+   "value": 48.5,
+   "unit": "cm",
+   "how": "From the depth information and focal length, the ball's 3D position at 1.0s is (4.0, 23.4, 151.1) cm and at 1.4s is (-1.4, 20.5, 103.0) cm. The Euclidean distance between these two points is sqrt((-5.4)^2 + (-2.9)^2 + (-48.1)^2) = 48.5 cm."
+  },
+  {
+   "qid": 2523,
+   "value": 111,
+   "unit": "cm",
+   "how": "The left and right edges of the table intersect at a vanishing point corresponding to y=269, defining the horizon. Assuming a rectangular table, the depth constraint Z = c/(y - 269) applies. Evaluating c using the ball's contact point at 1.0s gives c ~ 27198. The front edge of the table (y=502) is at Z ~ 116.7 cm, and spans 502 pixels. Width = (502 px * 116.7 cm) / 529 px = 111 cm."
+  },
+  {
+   "qid": 2524,
+   "value": 60,
+   "unit": "cm",
+   "how": "Using the depth constraint Z = 27198 / (y - 269) for the rectangular table, the front edge (y=502) is at Z=116.7 cm and the back edge (y=424) is at Z=175.5 cm. Calculating the full 3D distance between the center of the front edge and the center of the back edge gives a length of approximately 60 cm."
+  }
+ ],
+ "raw_text": "{\n  \"answers\": [\n    {\n      \"qid\": 2520,\n      \"value\": 121,\n      \"unit\": \"cm/s\",\n      \"how\": \"Using the focal length derived from the ball's size and known prior (f ~ 529 px), we compute the 3D coordinates of the ping pong ball. At t=1.0s, the ball is at (X=4.0, Y=23.4, Z=151.1) cm. At t=1.4s, it is at (X=-1.4, Y=20.5, Z=103.0) cm. The velocity is constant over this interval. The 3D displacement is ~48.5 cm over 0.4 seconds, yielding a velocity of 121 cm/s.\"\n    },\n    {\n      \"qid\": 2521,\n      \"value\": 121,\n      \"unit\": \"cm/s\",\n      \"how\": \"The ball moves with constant velocity as it rolls toward the camera. We use the 3D positions calculated from the depth info and pixel coordinates to find a displacement of 48.5 cm between 1.0s and 1.4s. Dividing by 0.4s gives 121 cm/s.\"\n    },\n    {\n      \"qid\": 2522,\n      \"value\": 48.5,\n      \"unit\": \"cm\",\n      \"how\": \"From the depth information and focal length, the ball's 3D position at 1.0s is (4.0, 23.4, 151.1) cm and at 1.4s is (-1.4, 20.5, 103.0) cm. The Euclidean distance between these two points is sqrt((-5.4)^2 + (-2.9)^2 + (-48.1)^2) = 48.5 cm.\"\n    },\n    {\n      \"qid\": 2523,\n      \"value\": 111,\n      \"unit\": \"cm\",\n      \"how\": \"The left and right edges of the table intersect at a vanishing point corresponding to y=269, defining the horizon. Assuming a rectangular table, the depth constraint Z = c/(y - 269) applies. Evaluating c using the ball's contact point at 1.0s gives c ~ 27198. The front edge of the table (y=502) is at Z ~ 116.7 cm, and spans 502 pixels. Width = (502 px * 116.7 cm) / 529 px = 111 cm.\"\n    },\n    {\n      \"qid\": 2524,\n      \"value\": 60,\n      \"unit\": \"cm\",\n      \"how\": \"Using the depth constraint Z = 27198 / (y - 269) for the rectangular table, the front edge (y=502) is at Z=116.7 cm and the back edge (y=424) is at Z=175.5 cm. Calculating the full 3D distance between the center of the front edge and the center of the back edge gives a length of approximately 60 cm.\"\n    }\n  ]\n}",
+ "usage": {
+  "prompt": 7021,
+  "output": 777,
+  "thoughts": 31455
+ },
+ "usd": 0.400826,
+ "secs": 218.6
+}

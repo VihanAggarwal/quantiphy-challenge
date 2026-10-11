@@ -1,0 +1,41 @@
+{
+ "video_id": "simulation_0196",
+ "model": "gemini-3.1-pro-preview",
+ "input": "video",
+ "thinking": "high",
+ "media_resolution": "high",
+ "answers": [
+  {
+   "qid": 513,
+   "value": 0.001556,
+   "unit": "m",
+   "how": "The bubble moves vertically from y=1028 to y=931 over 19 frames (1.583 seconds), covering 97 pixels. This gives a speed of 61.26 pixels/second. Using the prior of 0.00144 m/s, the scale is 0.0000235 m/px. The plunge tube (pipette) extends diagonally. At a given x-coordinate, the vertical distance between its outer top and bottom edges is 74 pixels, and its angle is approximately 26.6 degrees. Its perpendicular diameter is 74 * cos(26.6) = 66.2 pixels. Multiplying by the scale yields 0.001556 meters."
+  },
+  {
+   "qid": 514,
+   "value": 0.002515,
+   "unit": "m",
+   "how": "Based on the calculated scale of 0.0000235 m/px from the bubble's motion, the maximum horizontal width of the droplet hanging from the tip is measured from x=601 to x=708, giving a width of 107 pixels. Multiplying 107 pixels by the scale gives 0.002515 meters."
+  },
+  {
+   "qid": 515,
+   "value": 0.001293,
+   "unit": "m",
+   "how": "Using the scale of 0.0000235 m/px, the horizontal width of the vertically written 'SKYNOVA' text on the bottle is its bounding box width along the x-axis. The leftmost edge is on the 'O' at x=731, and the rightmost edge is on the 'A' at x=786, resulting in a width of 55 pixels. Multiplying by the scale gives 0.001293 meters."
+  },
+  {
+   "qid": 516,
+   "value": 0.01213,
+   "unit": "m",
+   "how": "Using the scale of 0.0000235 m/px, the vertical height of the 'SKYNOVA' text is its bounding box length along the y-axis. It spans from the top of the 'S' at y=462 to the bottom of the 'A' at y=978, which is a vertical distance of 516 pixels. Multiplying 516 pixels by the scale gives 0.01213 meters."
+  }
+ ],
+ "raw_text": "{\n  \"answers\": [\n    {\n      \"qid\": 513,\n      \"value\": 0.001556,\n      \"unit\": \"m\",\n      \"how\": \"The bubble moves vertically from y=1028 to y=931 over 19 frames (1.583 seconds), covering 97 pixels. This gives a speed of 61.26 pixels/second. Using the prior of 0.00144 m/s, the scale is 0.0000235 m/px. The plunge tube (pipette) extends diagonally. At a given x-coordinate, the vertical distance between its outer top and bottom edges is 74 pixels, and its angle is approximately 26.6 degrees. Its perpendicular diameter is 74 * cos(26.6) = 66.2 pixels. Multiplying by the scale yields 0.001556 meters.\"\n    },\n    {\n      \"qid\": 514,\n      \"value\": 0.002515,\n      \"unit\": \"m\",\n      \"how\": \"Based on the calculated scale of 0.0000235 m/px from the bubble's motion, the maximum horizontal width of the droplet hanging from the tip is measured from x=601 to x=708, giving a width of 107 pixels. Multiplying 107 pixels by the scale gives 0.002515 meters.\"\n    },\n    {\n      \"qid\": 515,\n      \"value\": 0.001293,\n      \"unit\": \"m\",\n      \"how\": \"Using the scale of 0.0000235 m/px, the horizontal width of the vertically written 'SKYNOVA' text on the bottle is its bounding box width along the x-axis. The leftmost edge is on the 'O' at x=731, and the rightmost edge is on the 'A' at x=786, resulting in a width of 55 pixels. Multiplying by the scale gives 0.001293 meters.\"\n    },\n    {\n      \"qid\": 516,\n      \"value\": 0.01213,\n      \"unit\": \"m\",\n      \"how\": \"Using the scale of 0.0000235 m/px, the vertical height of the 'SKYNOVA' text is its bounding box length along the y-axis. It spans from the top of the 'S' at y=462 to the bottom of the 'A' at y=978, which is a vertical distance of 516 pixels. Multiplying 516 pixels by the scale gives 0.01213 meters.\"\n    }\n  ]\n}",
+ "usage": {
+  "prompt": 5593,
+  "output": 654,
+  "thoughts": 10257
+ },
+ "usd": 0.142118,
+ "secs": 71.4
+}

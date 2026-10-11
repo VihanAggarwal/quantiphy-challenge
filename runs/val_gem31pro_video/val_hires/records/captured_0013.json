@@ -1,0 +1,65 @@
+{
+ "video_id": "captured_0013",
+ "model": "gemini-3.1-pro-preview",
+ "input": "video",
+ "thinking": "high",
+ "media_resolution": "high",
+ "answers": [
+  {
+   "qid": 2345,
+   "value": 16.5,
+   "unit": "cm",
+   "how": "Using the ball's falling apparent vertical acceleration to find the focal length (f \u2248 556 px), the cup's height in pixels (76 px) is scaled by its depth (1.21 m) over the focal length."
+  },
+  {
+   "qid": 2346,
+   "value": 12.8,
+   "unit": "cm",
+   "how": "The pen measures approximately 60.5 pixels in length. Scaled with its depth of 1.175 m and the derived camera focal length, its physical length is calculated."
+  },
+  {
+   "qid": 2347,
+   "value": 7.4,
+   "unit": "cm",
+   "how": "The cookie's horizontal width is unaffected by the camera's tilt. It measures about 35 pixels. Using its distance of 1.182 m, we compute its physical diameter."
+  },
+  {
+   "qid": 2348,
+   "value": 13.5,
+   "unit": "cm",
+   "how": "The notebook's horizontal width across the frame is roughly 78 pixels. Converted with its depth of 0.962 m, we get the physical width."
+  },
+  {
+   "qid": 2349,
+   "value": 104.5,
+   "unit": "cm",
+   "how": "The desk's front edge spans about 674 pixels in the image. Factoring in the depth of its left and right corners (avg 0.86 m) gives its 3D physical width."
+  },
+  {
+   "qid": 2350,
+   "value": 32.5,
+   "unit": "cm",
+   "how": "We find the 3D coordinates of the near and far centers of the slope (using Z = 1.104 m and 1.345 m) and compute the Euclidean distance between them."
+  },
+  {
+   "qid": 2351,
+   "value": 10.6,
+   "unit": "cm",
+   "how": "At the top of the slope (Z = 1.345 m), the ball measures 44 pixels across. This apparent size is scaled by the depth to yield its physical diameter."
+  },
+  {
+   "qid": 2352,
+   "value": 166.0,
+   "unit": "cm/s",
+   "how": "At t=1.5s, the ball is falling. We derive its 3D velocity components by combining its observed vertical pixel velocity, its depth rate-of-change from apparent scaling, and its trajectory inherited from the slope."
+  }
+ ],
+ "raw_text": "{\n  \"answers\": [\n    {\n      \"qid\": 2345,\n      \"value\": 16.5,\n      \"unit\": \"cm\",\n      \"how\": \"Using the ball's falling apparent vertical acceleration to find the focal length (f \u2248 556 px), the cup's height in pixels (76 px) is scaled by its depth (1.21 m) over the focal length.\"\n    },\n    {\n      \"qid\": 2346,\n      \"value\": 12.8,\n      \"unit\": \"cm\",\n      \"how\": \"The pen measures approximately 60.5 pixels in length. Scaled with its depth of 1.175 m and the derived camera focal length, its physical length is calculated.\"\n    },\n    {\n      \"qid\": 2347,\n      \"value\": 7.4,\n      \"unit\": \"cm\",\n      \"how\": \"The cookie's horizontal width is unaffected by the camera's tilt. It measures about 35 pixels. Using its distance of 1.182 m, we compute its physical diameter.\"\n    },\n    {\n      \"qid\": 2348,\n      \"value\": 13.5,\n      \"unit\": \"cm\",\n      \"how\": \"The notebook's horizontal width across the frame is roughly 78 pixels. Converted with its depth of 0.962 m, we get the physical width.\"\n    },\n    {\n      \"qid\": 2349,\n      \"value\": 104.5,\n      \"unit\": \"cm\",\n      \"how\": \"The desk's front edge spans about 674 pixels in the image. Factoring in the depth of its left and right corners (avg 0.86 m) gives its 3D physical width.\"\n    },\n    {\n      \"qid\": 2350,\n      \"value\": 32.5,\n      \"unit\": \"cm\",\n      \"how\": \"We find the 3D coordinates of the near and far centers of the slope (using Z = 1.104 m and 1.345 m) and compute the Euclidean distance between them.\"\n    },\n    {\n      \"qid\": 2351,\n      \"value\": 10.6,\n      \"unit\": \"cm\",\n      \"how\": \"At the top of the slope (Z = 1.345 m), the ball measures 44 pixels across. This apparent size is scaled by the depth to yield its physical diameter.\"\n    },\n    {\n      \"qid\": 2352,\n      \"value\": 166.0,\n      \"unit\": \"cm/s\",\n      \"how\": \"At t=1.5s, the ball is falling. We derive its 3D velocity components by combining its observed vertical pixel velocity, its depth rate-of-change from apparent scaling, and its trajectory inherited from the slope.\"\n    }\n  ]\n}",
+ "usage": {
+  "prompt": 8336,
+  "output": 696,
+  "thoughts": 31457
+ },
+ "usd": 0.402508,
+ "secs": 226.9
+}

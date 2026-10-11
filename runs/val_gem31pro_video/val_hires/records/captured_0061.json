@@ -1,0 +1,71 @@
+{
+ "video_id": "captured_0061",
+ "model": "gemini-3.1-pro-preview",
+ "input": "video",
+ "thinking": "high",
+ "media_resolution": "high",
+ "answers": [
+  {
+   "qid": 3047,
+   "value": 158.1,
+   "unit": "cm",
+   "how": "Using the velocity prior of the yoga ball at 0.6s, the 3D velocity magnitude is known (2.5104 m/s). By measuring the change in the ball's apparent diameter and image center position from frame to frame, the 3D velocity components are expressed in terms of the camera focal length. Solving the velocity equation yields a focal length of ~307.5 pixels. With the depth given at 0.6s (2.1330 m), the measured diameter in pixels (~228 px) is converted to a physical diameter of 158.1 cm."
+  },
+  {
+   "qid": 3048,
+   "value": 38.7,
+   "unit": "cm",
+   "how": "Using the calculated focal length of 307.5 pixels, the apparent diameter of the soccer ball is measured in the frames near 0.6s and 0.9s (around 57 px and 81 px, respectively). Applying the provided depths (1.937 m and 1.585 m), the physical diameter is calculated at both times and averaged to approximately 38.7 cm."
+  },
+  {
+   "qid": 3049,
+   "value": 3.146,
+   "unit": "m",
+   "how": "The 3D positions of the soccer ball and basketball are tracked up to the frames they are visible. The soccer ball's 3D velocity is computed from its trajectory and linearly extrapolated to 2.0s, yielding a position of roughly (-3.71, -0.46, 0.29). For the basketball, its final visible position at 2.0s is converted to 3D using the linearly extrapolated depth (1.469 m), yielding (-0.99, 0.58, 1.47). The Euclidean distance between these two extrapolated positions is calculated to be 3.146 m."
+  },
+  {
+   "qid": 3050,
+   "value": 4.446,
+   "unit": "m",
+   "how": "The yoga ball's constant 3D velocity is calculated using its earlier positions and depth information. Extrapolating its position to 2.0s yields a 3D coordinate of roughly (1.22, 3.89, -0.51). Using the basketball's 3D position at 2.0s (-0.99, 0.58, 1.47), the Euclidean distance between them is computed as 4.446 m."
+  },
+  {
+   "qid": 3051,
+   "value": 3.557,
+   "unit": "m",
+   "how": "Since the yoga ball rolls on the floor, the floor's Y-coordinate is determined by adding the ball's radius (0.79 m) to its center's Y-coordinate, resulting in a floor depth of Y=3.093 m. The soccer ball's Y-coordinate at 2.0s is extrapolated to be -0.464 m. The absolute difference between the soccer ball's Y-level and the floor's Y-level gives a distance of 3.557 m."
+  },
+  {
+   "qid": 3052,
+   "value": 2.127,
+   "unit": "m/s",
+   "how": "The 3D velocity of the soccer ball at 0.6s is obtained by calculating the finite differences of its X, Y, and Z coordinates between the frames near 0.583s and 0.667s. With Vx=-1.356 m/s, Vy=-1.140 m/s, and Vz=-1.177 m/s, the velocity vector magnitude evaluates to 2.127 m/s."
+  },
+  {
+   "qid": 3053,
+   "value": 1.389,
+   "unit": "m/s",
+   "how": "The 3D velocity of the soccer ball at 0.9s is calculated from the position differences between the frames at 0.833s and 0.917s. The resulting components are Vx=-0.720 m/s, Vy=-0.168 m/s, and Vz=-1.177 m/s, which gives a speed of 1.389 m/s."
+  },
+  {
+   "qid": 3054,
+   "value": 12.11,
+   "unit": "m/s",
+   "how": "The velocity of the basketball at 1.1s is found by measuring its 3D displacement between 1.083s and 1.167s. The ball drops significantly in the image over this short interval (due to being dribbled downward forcefully), resulting in a high Vy of ~12.02 m/s. Combined with its X and Z velocities, the magnitude is 12.11 m/s."
+  },
+  {
+   "qid": 3055,
+   "value": 1.979,
+   "unit": "m/s",
+   "how": "The basketball's velocity at 1.6s is determined from its displacement between 1.583s and 1.667s. Using the interpolated depths and the calculated focal length, the components are calculated as Vx=-0.792 m/s, Vy=-1.488 m/s, and Vz=-1.037 m/s. The magnitude of this vector is 1.979 m/s."
+  }
+ ],
+ "raw_text": "{\n  \"answers\": [\n    {\n      \"qid\": 3047,\n      \"value\": 158.1,\n      \"unit\": \"cm\",\n      \"how\": \"Using the velocity prior of the yoga ball at 0.6s, the 3D velocity magnitude is known (2.5104 m/s). By measuring the change in the ball's apparent diameter and image center position from frame to frame, the 3D velocity components are expressed in terms of the camera focal length. Solving the velocity equation yields a focal length of ~307.5 pixels. With the depth given at 0.6s (2.1330 m), the measured diameter in pixels (~228 px) is converted to a physical diameter of 158.1 cm.\"\n    },\n    {\n      \"qid\": 3048,\n      \"value\": 38.7,\n      \"unit\": \"cm\",\n      \"how\": \"Using the calculated focal length of 307.5 pixels, the apparent diameter of the soccer ball is measured in the frames near 0.6s and 0.9s (around 57 px and 81 px, respectively). Applying the provided depths (1.937 m and 1.585 m), the physical diameter is calculated at both times and averaged to approximately 38.7 cm.\"\n    },\n    {\n      \"qid\": 3049,\n      \"value\": 3.146,\n      \"unit\": \"m\",\n      \"how\": \"The 3D positions of the soccer ball and basketball are tracked up to the frames they are visible. The soccer ball's 3D velocity is computed from its trajectory and linearly extrapolated to 2.0s, yielding a position of roughly (-3.71, -0.46, 0.29). For the basketball, its final visible position at 2.0s is converted to 3D using the linearly extrapolated depth (1.469 m), yielding (-0.99, 0.58, 1.47). The Euclidean distance between these two extrapolated positions is calculated to be 3.146 m.\"\n    },\n    {\n      \"qid\": 3050,\n      \"value\": 4.446,\n      \"unit\": \"m\",\n      \"how\": \"The yoga ball's constant 3D velocity is calculated using its earlier positions and depth information. Extrapolating its position to 2.0s yields a 3D coordinate of roughly (1.22, 3.89, -0.51). Using the basketball's 3D position at 2.0s (-0.99, 0.58, 1.47), the Euclidean distance between them is computed as 4.446 m.\"\n    },\n    {\n      \"qid\": 3051,\n      \"value\": 3.557,\n      \"unit\": \"m\",\n      \"how\": \"Since the yoga ball rolls on the floor, the floor's Y-coordinate is determined by adding the ball's radius (0.79 m) to its center's Y-coordinate, resulting in a floor depth of Y=3.093 m. The soccer ball's Y-coordinate at 2.0s is extrapolated to be -0.464 m. The absolute difference between the soccer ball's Y-level and the floor's Y-level gives a distance of 3.557 m.\"\n    },\n    {\n      \"qid\": 3052,\n      \"value\": 2.127,\n      \"unit\": \"m/s\",\n      \"how\": \"The 3D velocity of the soccer ball at 0.6s is obtained by calculating the finite differences of its X, Y, and Z coordinates between the frames near 0.583s and 0.667s. With Vx=-1.356 m/s, Vy=-1.140 m/s, and Vz=-1.177 m/s, the velocity vector magnitude evaluates to 2.127 m/s.\"\n    },\n    {\n      \"qid\": 3053,\n      \"value\": 1.389,\n      \"unit\": \"m/s\",\n      \"how\": \"The 3D velocity of the soccer ball at 0.9s is calculated from the position differences between the frames at 0.833s and 0.917s. The resulting components are Vx=-0.720 m/s, Vy=-0.168 m/s, and Vz=-1.177 m/s, which gives a speed of 1.389 m/s.\"\n    },\n    {\n      \"qid\": 3054,\n      \"value\": 12.11,\n      \"unit\": \"m/s\",\n      \"how\": \"The velocity of the basketball at 1.1s is found by measuring its 3D displacement between 1.083s and 1.167s. The ball drops significantly in the image over this short interval (due to being dribbled downward forcefully), resulting in a high Vy of ~12.02 m/s. Combined with its X and Z velocities, the magnitude is 12.11 m/s.\"\n    },\n    {\n      \"qid\": 3055,\n      \"value\": 1.979,\n      \"unit\": \"m/s\",\n      \"how\": \"The basketball's velocity at 1.6s is determined from its displacement between 1.583s and 1.667s. Using the interpolated depths and the calculated focal length, the components are calculated as Vx=-0.792 m/s, Vy=-1.488 m/s, and Vz=-1.037 m/s. The magnitude of this vector is 1.979 m/s.\"\n    }\n  ]\n}",
+ "usage": {
+  "prompt": 8170,
+  "output": 1381,
+  "thoughts": 29479
+ },
+ "usd": 0.38666,
+ "secs": 200.9
+}

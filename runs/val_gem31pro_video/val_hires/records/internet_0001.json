@@ -1,0 +1,35 @@
+{
+ "video_id": "internet_0001",
+ "model": "gemini-3.1-pro-preview",
+ "input": "video",
+ "thinking": "high",
+ "media_resolution": "high",
+ "answers": [
+  {
+   "qid": 2151,
+   "value": 4.985,
+   "unit": "m",
+   "how": "I measured the lane width between the dashed lines to establish the scale. The lanes are separated by 347.25 pixels on average. Since the prior lane width is 3.66 m, the scale is 3.66 / 347.25 = 0.01054 m/pixel. Measuring the black car's length from bumper to bumper gives 473 pixels. Multiplying by the scale yields 473 * 0.01054 = 4.985 meters."
+  },
+  {
+   "qid": 2152,
+   "value": 1.855,
+   "unit": "m",
+   "how": "Using the same scale of 0.01054 m/pixel, I measured the width of the black car (top to bottom in the image frame, excluding the shadow) which is 176 pixels. Multiplying by the scale gives 176 * 0.01054 = 1.855 meters."
+  },
+  {
+   "qid": 2153,
+   "value": 27.64,
+   "unit": "m/s",
+   "how": "I tracked the position of the black car's front bumper over a 1-second interval (from frame 0 at 00:00.000 to frame 12 at 00:01.000). The front bumper moves from X=705 to X=3327, which is a distance of 2622 pixels. With the scale of 0.01054 m/pixel, the distance traveled in 1 second is 2622 * 0.01054 = 27.64 meters. Thus, the speed is 27.64 m/s."
+  }
+ ],
+ "raw_text": "{\n  \"answers\": [\n    {\n      \"qid\": 2151,\n      \"value\": 4.985,\n      \"unit\": \"m\",\n      \"how\": \"I measured the lane width between the dashed lines to establish the scale. The lanes are separated by 347.25 pixels on average. Since the prior lane width is 3.66 m, the scale is 3.66 / 347.25 = 0.01054 m/pixel. Measuring the black car's length from bumper to bumper gives 473 pixels. Multiplying by the scale yields 473 * 0.01054 = 4.985 meters.\"\n    },\n    {\n      \"qid\": 2152,\n      \"value\": 1.855,\n      \"unit\": \"m\",\n      \"how\": \"Using the same scale of 0.01054 m/pixel, I measured the width of the black car (top to bottom in the image frame, excluding the shadow) which is 176 pixels. Multiplying by the scale gives 176 * 0.01054 = 1.855 meters.\"\n    },\n    {\n      \"qid\": 2153,\n      \"value\": 27.64,\n      \"unit\": \"m/s\",\n      \"how\": \"I tracked the position of the black car's front bumper over a 1-second interval (from frame 0 at 00:00.000 to frame 12 at 00:01.000). The front bumper moves from X=705 to X=3327, which is a distance of 2622 pixels. With the scale of 0.01054 m/pixel, the distance traveled in 1 second is 2622 * 0.01054 = 27.64 meters. Thus, the speed is 27.64 m/s.\"\n    }\n  ]\n}",
+ "usage": {
+  "prompt": 5129,
+  "output": 479,
+  "thoughts": 4977
+ },
+ "usd": 0.07573,
+ "secs": 41.2
+}

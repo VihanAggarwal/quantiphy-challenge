@@ -1,0 +1,65 @@
+{
+ "video_id": "simulation_0171",
+ "model": "gemini-3.1-pro-preview",
+ "input": "video",
+ "thinking": "high",
+ "media_resolution": "high",
+ "answers": [
+  {
+   "qid": 427,
+   "value": 1.87,
+   "unit": "m/s",
+   "how": "Measured standing astronaut height at 314 px to set scale (2.2m / 314px = 0.007006 m/px). Tracked root position (belt) to find v_x = 252 px/s and v_y at 0.5s = 87 px/s. Resulting total speed is 266.6 px/s, converted to 1.87 m/s."
+  },
+  {
+   "qid": 428,
+   "value": 3.66,
+   "unit": "m/s^2",
+   "how": "Tracked the parabolic trajectory of the astronaut's belt during flight. The constant vertical acceleration is 522 px/s^2. Converted with scale 0.007006 m/px to 3.66 m/s^2."
+  },
+  {
+   "qid": 429,
+   "value": 1.87,
+   "unit": "m/s",
+   "how": "At 1.0s, the astronaut is in flight at the same relative position in the jump cycle as 0.5s (0.167s before peak instead of after), yielding identical speed: v_x = 252 px/s, |v_y| = 87 px/s, giving 266.6 px/s or 1.87 m/s."
+  },
+  {
+   "qid": 430,
+   "value": 3.66,
+   "unit": "m/s^2",
+   "how": "The astronaut is in free-fall flight at 1.0s, so acceleration is the constant 522 px/s^2 or 3.66 m/s^2."
+  },
+  {
+   "qid": 431,
+   "value": 1.77,
+   "unit": "m/s",
+   "how": "At 2.0s, the astronaut is exactly at the peak of the jump (v_y = 0). The speed is purely horizontal: 252 px/s, converted to 1.77 m/s."
+  },
+  {
+   "qid": 432,
+   "value": 3.66,
+   "unit": "m/s^2",
+   "how": "Even at the peak of the trajectory (2.0s), the vertical acceleration remains the constant gravity of 522 px/s^2 or 3.66 m/s^2."
+  },
+  {
+   "qid": 433,
+   "value": 1.87,
+   "unit": "m/s",
+   "how": "At 3.0s, the astronaut is again at the same relative jump phase (0.167s after the peak). Speed is identical to 0.5s: 1.87 m/s."
+  },
+  {
+   "qid": 434,
+   "value": 3.66,
+   "unit": "m/s^2",
+   "how": "The astronaut is in flight at 3.0s, undergoing the constant vertical acceleration of 3.66 m/s^2."
+  }
+ ],
+ "raw_text": "{\n  \"answers\": [\n    {\n      \"qid\": 427,\n      \"value\": 1.87,\n      \"unit\": \"m/s\",\n      \"how\": \"Measured standing astronaut height at 314 px to set scale (2.2m / 314px = 0.007006 m/px). Tracked root position (belt) to find v_x = 252 px/s and v_y at 0.5s = 87 px/s. Resulting total speed is 266.6 px/s, converted to 1.87 m/s.\"\n    },\n    {\n      \"qid\": 428,\n      \"value\": 3.66,\n      \"unit\": \"m/s^2\",\n      \"how\": \"Tracked the parabolic trajectory of the astronaut's belt during flight. The constant vertical acceleration is 522 px/s^2. Converted with scale 0.007006 m/px to 3.66 m/s^2.\"\n    },\n    {\n      \"qid\": 429,\n      \"value\": 1.87,\n      \"unit\": \"m/s\",\n      \"how\": \"At 1.0s, the astronaut is in flight at the same relative position in the jump cycle as 0.5s (0.167s before peak instead of after), yielding identical speed: v_x = 252 px/s, |v_y| = 87 px/s, giving 266.6 px/s or 1.87 m/s.\"\n    },\n    {\n      \"qid\": 430,\n      \"value\": 3.66,\n      \"unit\": \"m/s^2\",\n      \"how\": \"The astronaut is in free-fall flight at 1.0s, so acceleration is the constant 522 px/s^2 or 3.66 m/s^2.\"\n    },\n    {\n      \"qid\": 431,\n      \"value\": 1.77,\n      \"unit\": \"m/s\",\n      \"how\": \"At 2.0s, the astronaut is exactly at the peak of the jump (v_y = 0). The speed is purely horizontal: 252 px/s, converted to 1.77 m/s.\"\n    },\n    {\n      \"qid\": 432,\n      \"value\": 3.66,\n      \"unit\": \"m/s^2\",\n      \"how\": \"Even at the peak of the trajectory (2.0s), the vertical acceleration remains the constant gravity of 522 px/s^2 or 3.66 m/s^2.\"\n    },\n    {\n      \"qid\": 433,\n      \"value\": 1.87,\n      \"unit\": \"m/s\",\n      \"how\": \"At 3.0s, the astronaut is again at the same relative jump phase (0.167s after the peak). Speed is identical to 0.5s: 1.87 m/s.\"\n    },\n    {\n      \"qid\": 434,\n      \"value\": 3.66,\n      \"unit\": \"m/s^2\",\n      \"how\": \"The astronaut is in flight at 3.0s, undergoing the constant vertical acceleration of 3.66 m/s^2.\"\n    }\n  ]\n}",
+ "usage": {
+  "prompt": 11266,
+  "output": 822,
+  "thoughts": 19095
+ },
+ "usd": 0.261536,
+ "secs": 124.5
+}

@@ -1,0 +1,41 @@
+{
+ "video_id": "captured_0027s",
+ "model": "gemini-3.1-pro-preview",
+ "input": "video",
+ "thinking": "high",
+ "media_resolution": "high",
+ "answers": [
+  {
+   "qid": 2604,
+   "value": 38.0,
+   "unit": "cm/s",
+   "how": "The red ball's diameter is about 62.5 pixels, mapping to 7 cm (scale = 0.112 cm/px). I tracked the ball's position at 0.083s, 0.167s, and 0.250s. Using a quadratic fit on these positions, the velocity components at exactly 0.2s were calculated, yielding a speed of about 339 pixels/s, which converts to 38.0 cm/s."
+  },
+  {
+   "qid": 2605,
+   "value": 65.3,
+   "unit": "cm/s",
+   "how": "Using the same scale (1 px = 0.112 cm), I tracked the ball around 0.6s (frames at 0.500s, 0.583s, and 0.667s). A quadratic interpolation gives the instantaneous velocity at 0.6s as approximately 583 pixels/s. Converting this with the scale gives 65.3 cm/s."
+  },
+  {
+   "qid": 2606,
+   "value": 935.4,
+   "unit": "cm/s^2",
+   "how": "From the quadratic fit of the trajectory between 0.083s and 0.250s (during the bounce at the end of the stem), the constant acceleration in this interval is approximately 8352 pixels/s^2 directed upwards. Multiplying by the 0.112 cm/px scale yields 935.4 cm/s^2."
+  },
+  {
+   "qid": 2607,
+   "value": 45.0,
+   "unit": "cm",
+   "how": "The video has been heavily segmented (Segment Anything 2 Demo) leaving a solid blue background, and the person is completely masked out. Without visual reference to the person in the video frames, their shoulder breadth cannot be measured directly in pixels. A standard fallback estimate for shoulder breadth is provided."
+  }
+ ],
+ "raw_text": "{\n  \"answers\": [\n    {\n      \"qid\": 2604,\n      \"value\": 38.0,\n      \"unit\": \"cm/s\",\n      \"how\": \"The red ball's diameter is about 62.5 pixels, mapping to 7 cm (scale = 0.112 cm/px). I tracked the ball's position at 0.083s, 0.167s, and 0.250s. Using a quadratic fit on these positions, the velocity components at exactly 0.2s were calculated, yielding a speed of about 339 pixels/s, which converts to 38.0 cm/s.\"\n    },\n    {\n      \"qid\": 2605,\n      \"value\": 65.3,\n      \"unit\": \"cm/s\",\n      \"how\": \"Using the same scale (1 px = 0.112 cm), I tracked the ball around 0.6s (frames at 0.500s, 0.583s, and 0.667s). A quadratic interpolation gives the instantaneous velocity at 0.6s as approximately 583 pixels/s. Converting this with the scale gives 65.3 cm/s.\"\n    },\n    {\n      \"qid\": 2606,\n      \"value\": 935.4,\n      \"unit\": \"cm/s^2\",\n      \"how\": \"From the quadratic fit of the trajectory between 0.083s and 0.250s (during the bounce at the end of the stem), the constant acceleration in this interval is approximately 8352 pixels/s^2 directed upwards. Multiplying by the 0.112 cm/px scale yields 935.4 cm/s^2.\"\n    },\n    {\n      \"qid\": 2607,\n      \"value\": 45.0,\n      \"unit\": \"cm\",\n      \"how\": \"The video has been heavily segmented (Segment Anything 2 Demo) leaving a solid blue background, and the person is completely masked out. Without visual reference to the person in the video frames, their shoulder breadth cannot be measured directly in pixels. A standard fallback estimate for shoulder breadth is provided.\"\n    }\n  ]\n}",
+ "usage": {
+  "prompt": 7060,
+  "output": 533,
+  "thoughts": 23462
+ },
+ "usd": 0.30206,
+ "secs": 171.6
+}

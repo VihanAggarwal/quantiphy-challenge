@@ -1,0 +1,59 @@
+{
+ "video_id": "internet_0019",
+ "model": "gemini-3.1-pro-preview",
+ "input": "video",
+ "thinking": "high",
+ "media_resolution": "high",
+ "answers": [
+  {
+   "qid": 2228,
+   "value": 24,
+   "unit": "cm",
+   "how": "The ball's parabolic trajectory was mapped across the video's timestamps. The vertical acceleration of the ball was found to be approximately 475 pixels/s^2. Given the prior of gravity (9.8 m/s^2), the scale of the video is 48.5 pixels/meter. The diameter of the ball measures about 11.5 pixels. Applying the scale yields 11.5 / 48.5 = 0.237 meters, or about 24 cm."
+  },
+  {
+   "qid": 2229,
+   "value": 299,
+   "unit": "cm",
+   "how": "The person standing in the middle is the tallest individual, with their head at y=214 and feet at the beach line y=359, resulting in a height of 145 pixels. Using the calculated scale of 48.5 pixels/meter, their height is 145 / 48.5 = 2.99 meters, or 299 cm."
+  },
+  {
+   "qid": 2230,
+   "value": 256,
+   "unit": "cm",
+   "how": "The passer on the left stands fully upright later in the video (e.g., at 1.58s), measuring from y=236 to y=360, giving a height of 124 pixels. Using the scale of 48.5 pixels/meter, this equates to 124 / 48.5 = 2.56 meters, or 256 cm."
+  },
+  {
+   "qid": 2231,
+   "value": 295,
+   "unit": "cm",
+   "how": "The receiver on the right is standing still at the start of the video (0.00s). Their head is at y=216 and feet at y=359, giving a height of 143 pixels. Using the scale of 48.5 pixels/meter, this converts to 143 / 48.5 = 2.95 meters, or 295 cm."
+  },
+  {
+   "qid": 2232,
+   "value": 7.46,
+   "unit": "m",
+   "how": "At 0.00s, the passer on the left is centered at x=463, while the receiver on the right is centered at x=825. The horizontal distance between them is 362 pixels. Using the scale factor of 48.5 pixels/meter, the distance is 362 / 48.5 = 7.46 meters."
+  },
+  {
+   "qid": 2233,
+   "value": 3.22,
+   "unit": "m/s",
+   "how": "At 1.00s, the ball is at the peak of its trajectory, meaning the vertical velocity is effectively 0 m/s. Tracking the ball's horizontal position over 1.4 seconds shows a constant horizontal displacement of roughly 13 pixels per frame (156 pixels/second). With the scale of 48.5 pixels/meter, the velocity is 156 / 48.5 = 3.22 m/s."
+  },
+  {
+   "qid": 2234,
+   "value": 3.22,
+   "unit": "m/s",
+   "how": "The ball's average horizontal velocity is determined by its total horizontal displacement over time. It travels horizontally at a very steady rate of 156 pixels per second. Converting this with the established scale (48.5 px/m), the average horizontal velocity is 156 / 48.5 = 3.22 m/s."
+  }
+ ],
+ "raw_text": "{\n  \"answers\": [\n    {\n      \"qid\": 2228,\n      \"value\": 24,\n      \"unit\": \"cm\",\n      \"how\": \"The ball's parabolic trajectory was mapped across the video's timestamps. The vertical acceleration of the ball was found to be approximately 475 pixels/s^2. Given the prior of gravity (9.8 m/s^2), the scale of the video is 48.5 pixels/meter. The diameter of the ball measures about 11.5 pixels. Applying the scale yields 11.5 / 48.5 = 0.237 meters, or about 24 cm.\"\n    },\n    {\n      \"qid\": 2229,\n      \"value\": 299,\n      \"unit\": \"cm\",\n      \"how\": \"The person standing in the middle is the tallest individual, with their head at y=214 and feet at the beach line y=359, resulting in a height of 145 pixels. Using the calculated scale of 48.5 pixels/meter, their height is 145 / 48.5 = 2.99 meters, or 299 cm.\"\n    },\n    {\n      \"qid\": 2230,\n      \"value\": 256,\n      \"unit\": \"cm\",\n      \"how\": \"The passer on the left stands fully upright later in the video (e.g., at 1.58s), measuring from y=236 to y=360, giving a height of 124 pixels. Using the scale of 48.5 pixels/meter, this equates to 124 / 48.5 = 2.56 meters, or 256 cm.\"\n    },\n    {\n      \"qid\": 2231,\n      \"value\": 295,\n      \"unit\": \"cm\",\n      \"how\": \"The receiver on the right is standing still at the start of the video (0.00s). Their head is at y=216 and feet at y=359, giving a height of 143 pixels. Using the scale of 48.5 pixels/meter, this converts to 143 / 48.5 = 2.95 meters, or 295 cm.\"\n    },\n    {\n      \"qid\": 2232,\n      \"value\": 7.46,\n      \"unit\": \"m\",\n      \"how\": \"At 0.00s, the passer on the left is centered at x=463, while the receiver on the right is centered at x=825. The horizontal distance between them is 362 pixels. Using the scale factor of 48.5 pixels/meter, the distance is 362 / 48.5 = 7.46 meters.\"\n    },\n    {\n      \"qid\": 2233,\n      \"value\": 3.22,\n      \"unit\": \"m/s\",\n      \"how\": \"At 1.00s, the ball is at the peak of its trajectory, meaning the vertical velocity is effectively 0 m/s. Tracking the ball's horizontal position over 1.4 seconds shows a constant horizontal displacement of roughly 13 pixels per frame (156 pixels/second). With the scale of 48.5 pixels/meter, the velocity is 156 / 48.5 = 3.22 m/s.\"\n    },\n    {\n      \"qid\": 2234,\n      \"value\": 3.22,\n      \"unit\": \"m/s\",\n      \"how\": \"The ball's average horizontal velocity is determined by its total horizontal displacement over time. It travels horizontally at a very steady rate of 156 pixels per second. Converting this with the established scale (48.5 px/m), the average horizontal velocity is 156 / 48.5 = 3.22 m/s.\"\n    }\n  ]\n}",
+ "usage": {
+  "prompt": 6176,
+  "output": 940,
+  "thoughts": 16797
+ },
+ "usd": 0.225196,
+ "secs": 136.5
+}

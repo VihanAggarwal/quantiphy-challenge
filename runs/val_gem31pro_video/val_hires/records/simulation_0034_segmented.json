@@ -1,0 +1,53 @@
+{
+ "video_id": "simulation_0034_segmented",
+ "model": "gemini-3.1-pro-preview",
+ "input": "video",
+ "thinking": "high",
+ "media_resolution": "high",
+ "answers": [
+  {
+   "qid": 1828,
+   "value": 4.1,
+   "unit": "m/s",
+   "how": "Measure the boat's pixel position across frames. Using the given person's height (1.75 m) and their pixel height to establish the focal length, map the boat's image coordinates to 3D coordinates at t=1s and t=2s using the provided depths. Calculate the 3D displacement and divide by the 1-second time difference."
+  },
+  {
+   "qid": 1829,
+   "value": 9.1,
+   "unit": "m",
+   "how": "Measure the boat's vertical pixel size from the bottom of its hull to the top of its mast. Convert this pixel height to meters using the focal length derived from the person's height and the boat's given distance."
+  },
+  {
+   "qid": 1830,
+   "value": 3.1,
+   "unit": "m",
+   "how": "Measure the pixel width of the boat's hull. Convert this pixel width to physical width using the focal length obtained from the person's dimensions and the boat's depth at that moment."
+  },
+  {
+   "qid": 1831,
+   "value": 1.5,
+   "unit": "m/s",
+   "how": "Measure the horizontal and vertical pixel displacement of the person from t=1s to t=2s. Convert these pixel displacements to 3D distance using the established focal length and the person's nearly constant depth, yielding their average speed."
+  },
+  {
+   "qid": 1832,
+   "value": 1.9,
+   "unit": "m",
+   "how": "Locate a frame where the eagle's wings are fully extended and measure its wingspan in pixels. Interpolate its depth for that frame using the given depths at t=1s and t=2s, then convert the pixel wingspan to physical scale using the derived focal length."
+  },
+  {
+   "qid": 1833,
+   "value": 11.9,
+   "unit": "m/s",
+   "how": "Track the eagle's position in the image at t=1s and t=2s. Using the respective depth values, calculate its exact 3D coordinates for both frames based on the focal length. The 3D distance between these two points over 1 second gives the eagle's average speed."
+  }
+ ],
+ "raw_text": "{\n  \"answers\": [\n    {\n      \"qid\": 1828,\n      \"value\": 4.1,\n      \"unit\": \"m/s\",\n      \"how\": \"Measure the boat's pixel position across frames. Using the given person's height (1.75 m) and their pixel height to establish the focal length, map the boat's image coordinates to 3D coordinates at t=1s and t=2s using the provided depths. Calculate the 3D displacement and divide by the 1-second time difference.\"\n    },\n    {\n      \"qid\": 1829,\n      \"value\": 9.1,\n      \"unit\": \"m\",\n      \"how\": \"Measure the boat's vertical pixel size from the bottom of its hull to the top of its mast. Convert this pixel height to meters using the focal length derived from the person's height and the boat's given distance.\"\n    },\n    {\n      \"qid\": 1830,\n      \"value\": 3.1,\n      \"unit\": \"m\",\n      \"how\": \"Measure the pixel width of the boat's hull. Convert this pixel width to physical width using the focal length obtained from the person's dimensions and the boat's depth at that moment.\"\n    },\n    {\n      \"qid\": 1831,\n      \"value\": 1.5,\n      \"unit\": \"m/s\",\n      \"how\": \"Measure the horizontal and vertical pixel displacement of the person from t=1s to t=2s. Convert these pixel displacements to 3D distance using the established focal length and the person's nearly constant depth, yielding their average speed.\"\n    },\n    {\n      \"qid\": 1832,\n      \"value\": 1.9,\n      \"unit\": \"m\",\n      \"how\": \"Locate a frame where the eagle's wings are fully extended and measure its wingspan in pixels. Interpolate its depth for that frame using the given depths at t=1s and t=2s, then convert the pixel wingspan to physical scale using the derived focal length.\"\n    },\n    {\n      \"qid\": 1833,\n      \"value\": 11.9,\n      \"unit\": \"m/s\",\n      \"how\": \"Track the eagle's position in the image at t=1s and t=2s. Using the respective depth values, calculate its exact 3D coordinates for both frames based on the focal length. The 3D distance between these two points over 1 second gives the eagle's average speed.\"\n    }\n  ]\n}",
+ "usage": {
+  "prompt": 10501,
+  "output": 598,
+  "thoughts": 10336
+ },
+ "usd": 0.15221,
+ "secs": 69.8
+}

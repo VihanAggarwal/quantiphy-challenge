@@ -173,3 +173,17 @@ where its line is within 8 deg of the original, since crops lose context and som
 |log err| .0153 / .0158 / .0144. Validation answers (51): original .806, hybrid .812. Modelled test effect about
 S2 +0.010 (weak: the 9 measured priors were neutral), D2 +0.003, i.e. ~+0.003 overall for ~$6-12. Spent $3.19
 (ledger $137.40 of $200). Not scaled up.
+
+## Gemini 3.1 Pro pilot (2026-10-11): not adopted
+
+`scripts/run_gemini_direct.py` (now with its own ledger `budget/ledger_gemini.jsonl` and a $15 cap on the $19 key). Same
+questions and system prompt as the Astra pilot, high thinking, high media resolution. Validation (val_hires):
+- Native video (Files API, sampled at 12 fps), 24 videos, 156/159 answered, $6.05 (~$0.25/video, mostly thinking;
+  many requests hit the 32k output cap): MRA **.565** vs Claude pipeline .786 (S2 .55 / D2 .57 / S3 .67 / D3 .47).
+  Its answers are far from Claude's (median |log ratio| .31 vs .055 for Astra) because they are less accurate:
+  the geometric mean with Claude scores .708 (worse on 17 of 24 videos; video bootstrap -0.075, 90% CI [-.116, -.033]).
+  A median of Claude v1, Claude v2 and Gemini gives .792 vs .786 (noise). Only lab accel (1 question) favoured Gemini.
+  The first two videos (15 questions) had suggested the opposite (.707 vs .660): too small a sample.
+- Frames (the Claude frame plan): 3 videos before it was stopped, .567 on the first 15 questions.
+Total Gemini spend $7.38 recorded (+ up to ~$0.40 for one frames request cut off when the run was stopped).
+Gemini as a direct answerer is not used; the remaining credit is kept for a possible pointing/localisation pilot.

@@ -1,0 +1,71 @@
+{
+ "video_id": "simulation_0009",
+ "model": "gemini-3.1-pro-preview",
+ "input": "video",
+ "thinking": "high",
+ "media_resolution": "high",
+ "answers": [
+  {
+   "qid": 1090,
+   "value": 1.77,
+   "unit": "m",
+   "how": "Calculated the 3D positions of the bow and stern at t=0s using the focal length derived from the boat's known speed. The distance between these points in 3D space gives the length."
+  },
+  {
+   "qid": 1091,
+   "value": 1.02,
+   "unit": "m",
+   "how": "Measured the transverse apparent width of the boat in pixels and de-projected it using the camera's viewing angle (derived from its height above the water) and depth."
+  },
+  {
+   "qid": 1092,
+   "value": 0.22,
+   "unit": "m",
+   "how": "Measured the vertical pixel distance from the waterline to the top of the gunwale, then converted to meters using the boat's depth and camera focal length."
+  },
+  {
+   "qid": 1093,
+   "value": 1.34,
+   "unit": "m",
+   "how": "Found the 3D coordinates of the near and far corners of the outer edge of the pier by triangulating with the constant deck height, then computed the 3D distance."
+  },
+  {
+   "qid": 1094,
+   "value": 5.5,
+   "unit": "m",
+   "how": "Calculated the 3D coordinates of the water-side edge and the shore-side edge of the pier along its front face, using the water level to establish precise depth at each point."
+  },
+  {
+   "qid": 1095,
+   "value": 0.84,
+   "unit": "m",
+   "how": "Extrapolated the boat's 3D position to t=3s using its calculated velocity vector, then found the shortest 3D distance between the boat's bow tip and the outer corner of the pier."
+  },
+  {
+   "qid": 1096,
+   "value": 0.68,
+   "unit": "m",
+   "how": "Measured the pixel width of the stairs at the provided cabin depth, then scaled it to meters."
+  },
+  {
+   "qid": 1097,
+   "value": 0.2,
+   "unit": "m",
+   "how": "Measured the vertical pixel difference between the top of the pier deck and the start of its reflection on the water, then converted to meters at the pier's depth."
+  },
+  {
+   "qid": 1098,
+   "value": 0.35,
+   "unit": "m",
+   "how": "Measured the vertical pixel span of the stairs from the ground to the cabin floor, then converted to meters using the stairs' depth."
+  }
+ ],
+ "raw_text": "{\n  \"answers\": [\n    {\n      \"qid\": 1090,\n      \"value\": 1.77,\n      \"unit\": \"m\",\n      \"how\": \"Calculated the 3D positions of the bow and stern at t=0s using the focal length derived from the boat's known speed. The distance between these points in 3D space gives the length.\"\n    },\n    {\n      \"qid\": 1091,\n      \"value\": 1.02,\n      \"unit\": \"m\",\n      \"how\": \"Measured the transverse apparent width of the boat in pixels and de-projected it using the camera's viewing angle (derived from its height above the water) and depth.\"\n    },\n    {\n      \"qid\": 1092,\n      \"value\": 0.22,\n      \"unit\": \"m\",\n      \"how\": \"Measured the vertical pixel distance from the waterline to the top of the gunwale, then converted to meters using the boat's depth and camera focal length.\"\n    },\n    {\n      \"qid\": 1093,\n      \"value\": 1.34,\n      \"unit\": \"m\",\n      \"how\": \"Found the 3D coordinates of the near and far corners of the outer edge of the pier by triangulating with the constant deck height, then computed the 3D distance.\"\n    },\n    {\n      \"qid\": 1094,\n      \"value\": 5.50,\n      \"unit\": \"m\",\n      \"how\": \"Calculated the 3D coordinates of the water-side edge and the shore-side edge of the pier along its front face, using the water level to establish precise depth at each point.\"\n    },\n    {\n      \"qid\": 1095,\n      \"value\": 0.84,\n      \"unit\": \"m\",\n      \"how\": \"Extrapolated the boat's 3D position to t=3s using its calculated velocity vector, then found the shortest 3D distance between the boat's bow tip and the outer corner of the pier.\"\n    },\n    {\n      \"qid\": 1096,\n      \"value\": 0.68,\n      \"unit\": \"m\",\n      \"how\": \"Measured the pixel width of the stairs at the provided cabin depth, then scaled it to meters.\"\n    },\n    {\n      \"qid\": 1097,\n      \"value\": 0.20,\n      \"unit\": \"m\",\n      \"how\": \"Measured the vertical pixel difference between the top of the pier deck and the start of its reflection on the water, then converted to meters at the pier's depth.\"\n    },\n    {\n      \"qid\": 1098,\n      \"value\": 0.35,\n      \"unit\": \"m\",\n      \"how\": \"Measured the vertical pixel span of the stairs from the ground to the cabin floor, then converted to meters using the stairs' depth.\"\n    }\n  ]\n}",
+ "usage": {
+  "prompt": 10245,
+  "output": 698,
+  "thoughts": 29803
+ },
+ "usd": 0.386502,
+ "secs": 207.9
+}

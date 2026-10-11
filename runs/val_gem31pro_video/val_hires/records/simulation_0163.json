@@ -1,0 +1,53 @@
+{
+ "video_id": "simulation_0163",
+ "model": "gemini-3.1-pro-preview",
+ "input": "video",
+ "thinking": "high",
+ "media_resolution": "high",
+ "answers": [
+  {
+   "qid": 398,
+   "value": 3.78,
+   "unit": "m/s",
+   "how": "The ball's diameter is given as 0.21 m. Measuring the ball in the images yields a diameter of 74 pixels, providing a scale of 0.21 / 74 = 0.002838 m/px. At t=0.417s, the ball's center is at x=463 px. At t=0.500s, it is at x=574 px. At t=0.583s, it is at x=685 px. The ball moves constantly at 111 pixels per frame. At 12 frames per second, this is a speed of 111 * 12 = 1332 px/s. Multiplying by the scale gives 1332 * 0.002838 = 3.78 m/s."
+  },
+  {
+   "qid": 399,
+   "value": 0,
+   "unit": "m/s^2",
+   "how": "The ball moves at a constant velocity of 111 pixels per frame leading up to and during t=0.5s. Because the velocity is constant, the acceleration is 0 m/s^2."
+  },
+  {
+   "qid": 400,
+   "value": 3.78,
+   "unit": "m/s",
+   "how": "At t=1.0s (frame 12), the ball is still rolling unobstructed towards the pins. Measuring its position across frames 11, 12, and 13 shows it continues to cover exactly 111 pixels per frame. Using the same conversion as before, the speed remains 1332 px/s * 0.002838 m/px = 3.78 m/s."
+  },
+  {
+   "qid": 401,
+   "value": 0,
+   "unit": "m/s^2",
+   "how": "At t=1.0s, the ball has not yet struck the pins and its velocity remains constant at 111 px/frame. Therefore, its acceleration is 0 m/s^2."
+  },
+  {
+   "qid": 402,
+   "value": 0.4,
+   "unit": "m",
+   "how": "The height of a bowling pin (the head pin) is measured from its base on the lane (y=646) to its top (y=506), which is 141 pixels. Using the scale of 0.002838 m/px, the height is 141 * 0.002838 = 0.40 meters."
+  },
+  {
+   "qid": 403,
+   "value": 0.19,
+   "unit": "m",
+   "how": "The ball return opening is the arched dark cutout on the right wall where the ball return track enters. The top of the arched opening is at y=683 and its bottom is at the track floor at y=749, giving a height of 67 pixels. Converting this using the scale gives 67 * 0.002838 = 0.19 meters."
+  }
+ ],
+ "raw_text": "{\n  \"answers\": [\n    {\n      \"qid\": 398,\n      \"value\": 3.78,\n      \"unit\": \"m/s\",\n      \"how\": \"The ball's diameter is given as 0.21 m. Measuring the ball in the images yields a diameter of 74 pixels, providing a scale of 0.21 / 74 = 0.002838 m/px. At t=0.417s, the ball's center is at x=463 px. At t=0.500s, it is at x=574 px. At t=0.583s, it is at x=685 px. The ball moves constantly at 111 pixels per frame. At 12 frames per second, this is a speed of 111 * 12 = 1332 px/s. Multiplying by the scale gives 1332 * 0.002838 = 3.78 m/s.\"\n    },\n    {\n      \"qid\": 399,\n      \"value\": 0,\n      \"unit\": \"m/s^2\",\n      \"how\": \"The ball moves at a constant velocity of 111 pixels per frame leading up to and during t=0.5s. Because the velocity is constant, the acceleration is 0 m/s^2.\"\n    },\n    {\n      \"qid\": 400,\n      \"value\": 3.78,\n      \"unit\": \"m/s\",\n      \"how\": \"At t=1.0s (frame 12), the ball is still rolling unobstructed towards the pins. Measuring its position across frames 11, 12, and 13 shows it continues to cover exactly 111 pixels per frame. Using the same conversion as before, the speed remains 1332 px/s * 0.002838 m/px = 3.78 m/s.\"\n    },\n    {\n      \"qid\": 401,\n      \"value\": 0,\n      \"unit\": \"m/s^2\",\n      \"how\": \"At t=1.0s, the ball has not yet struck the pins and its velocity remains constant at 111 px/frame. Therefore, its acceleration is 0 m/s^2.\"\n    },\n    {\n      \"qid\": 402,\n      \"value\": 0.40,\n      \"unit\": \"m\",\n      \"how\": \"The height of a bowling pin (the head pin) is measured from its base on the lane (y=646) to its top (y=506), which is 141 pixels. Using the scale of 0.002838 m/px, the height is 141 * 0.002838 = 0.40 meters.\"\n    },\n    {\n      \"qid\": 403,\n      \"value\": 0.19,\n      \"unit\": \"m\",\n      \"how\": \"The ball return opening is the arched dark cutout on the right wall where the ball return track enters. The top of the arched opening is at y=683 and its bottom is at the track floor at y=749, giving a height of 67 pixels. Converting this using the scale gives 67 * 0.002838 = 0.19 meters.\"\n    }\n  ]\n}",
+ "usage": {
+  "prompt": 7437,
+  "output": 812,
+  "thoughts": 18666
+ },
+ "usd": 0.24861,
+ "secs": 139.4
+}
