@@ -1,0 +1,24 @@
+1. stated speed priors with a timed depth track of the same object: 42 clips; radial fraction f = |dr/dt|/v: median 0.52, max 1.040, f > 1.05: 0, f > 0.8: 16
+2. LOFO speed answers (median of 3 runs) / stated: n=42 (with depth track 26), median 0.972; Spearman(f, ratio) = +0.52
+     f in [0,0.3): n=14 median ratio 0.845
+     f in [0.3,0.7): n=6 median ratio 1.138
+     f in [0.7,1.01): n=5 median ratio 0.975
+3. LOFO size answers in speed-prior clips: n=28; Spearman(f_prior, ratio) = -0.75; image-motion-only scaling predicts a POSITIVE slope
+     f in [0,0.3): n=19 clips=9 median ratio 1.250 (predicted if image-motion only: 1.00)
+     f in [0.3,1.01): n=8 clips=4 median ratio 0.865 (predicted if image-motion only: 1.30)
+4. speed questions whose object has a timed depth track: 127; p8 below 0.95 x |dr/dt|: 6 (1448:simulation_0299, 1453:simulation_0300, 1458:simulation_0301, 1488:simulation_0310, 1493:simulation_0311, 1618:simulation_0212) -- all accelerating objects asked outside the depth window
+
+(a') speed answers sitting on the radial lower bound |dr/dt| (within +5%): 12 of 127; with a family-stated label 3: 1127 simulation_0031 ans 3.5 |dr/dt| 3.39 stated 4, 1716 simulation_0034_segmented ans 4.06 |dr/dt| 4.05 stated 4, 1743 simulation_0039_segmented ans 2.2 |dr/dt| 2.17 stated 11.84
+(c) acceleration questions: S3 33, D3 6; objects: {'astronaut': 16, 'car': 6, 'box': 3, 'yellow car': 3, 'blue car': 3, 'ball': 2, 'white car': 1, 'man': 1, 'forklift': 1, 'rocket': 1, 'shark': 1, 'orange car': 1}
+    stated (LOFO) accelerations: 3; ratio ours/stated [0.96, 1.0, 0.08]
+    priors stating a free-fall phase as ~9.8 m/s^2: ['Gravity acc = 9.8m/s^2', 'acceleration = 9.8 m/s^2', 'acceleration of the droplet = 9.7m/s^2', 'acceleration of the magnifying glass before 0.5s = 9.8m/s^2', 'acceleration of the mug cup before 0.5s = 9.8m/s^2', 'acceleration of the mug cup before 1s = 9.8m/s^2', 'acceleration of the pen before 0.5s = 9.8m/s^2', 'acceleration of the plant before 0.5s = 9.8m/s^2', 'acceleration of the red cup before 0.5s = 9.8m/s^2', 'acceleration of the red cup before 0.75s = 9.8m/s^2', 'acceleration of the typewriter before 0.45s = 9.8m/s^2', 'gravity acc = 9.8m/s^2', 'gravity acceleration = 9.8 m/s^2', 'gravity acceleration = 9.8m/s^2', 'gravity_acceleration = 9.8 m/s^2']
+(d) LOFO size answers (median of 3 runs) / stated, by dimension:
+        size  median
+dim                 
+height    14   1.048
+length    47   0.974
+    person heights (label = T-pose height): n=10, median ours/stated 1.126 (a walking-pose underestimate would read < 1)
+    'length of the turning yellow car' asked in 15 clips; stated once per scenario: 'length of the yellow car = 5.44m' (0070/0071) -> one length for a car that turns (no yaw-dependent AABB)
+(e) target units in 3D non-lab: {'m': 531, 'm/s': 186, 'm/s^2': 39}
+    fps from the container (instead of the dataset): 0 of 123 clips
+    questions asked after the clip ends: 3 (1039, 1049, 1639: 'minimum distance at t=3s' in 2.75 s clips)

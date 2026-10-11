@@ -260,3 +260,21 @@ S2, D2 = probe 8 except probe 11 (Blender emulation).
 | 13 `trackA_probe13_p8_s3sz3_d3x140.csv` | sz 3 cm (157, x1.28) | x1.40 |
 | 14 `trackA_probe14_p8_s3sz4_d3x115.csv` | sz 4 cm (167, x1.38) | x1.15 |
 Pick each category's best rung, then refine between rungs (and by object class) with later uploads.
+
+## 3D simulation / segmentation convention audit (2026-10-12): candidates on probe 8
+`research/sim3d/` (test inputs only for evidence; validation only in `evaluate_val.py`). Checked against the Blender
+label conventions (3D origin speed, backward differences, tangential acceleration, world-AABB sizes, range depth):
+- (a) radial speeds: labels include depth (42 stated speed priors have |dr/dt| <= v, up to 0.99 v), and our direct
+  answers include it too (no constant-speed answer below |dr/dt|; leave-one-fact-out ratio 0.975 for mostly-radial
+  objects). The real deviation is the reverse: 12 of 127 answers sit on |dr/dt| itself (lateral part dropped), e.g.
+  0031 boat 3.5 vs stated 4, 0039_seg eagle 2.2 vs 11.84, 0048 bike 4.6 vs 4.87.
+- (b) speed priors converted from image motion only: refuted (sizes in speed-prior clips fall, not rise, with the
+  prior's radial fraction: Spearman -0.75, n=28). (c) tangential accel: no curved-path accel rows with evidence;
+  free-fall phases are labelled 9.8 (priors say so). (d) AABB sizes: no test evidence (the turning car keeps one
+  length 5.44; person heights run 1.13x stated, not low). (e) units, fps, times: clean.
+- Candidate `trackA_cand_sim3d_motionfam_on_p8.csv` (S3 20, D3 9 rows): speed / acceleration labels stated by
+  another camera of the same Blender scene (incl. the photo-lab street 0045-0050 and the beach person 1.3 m/s past
+  the 2x guard), gated by 3D consistency (|dr/dt| <= 1.05 v in every camera) + free-fall boxes -> 9.8.
+  `_guard` variant (S3 15, D3 9) keeps the 2x guard. Validation premise check: the gates reach 4 validation
+  questions and transfer the label within 0.8% in all 4. Upside if the stated labels hold: S3 +.009 (guard +.003),
+  D3 +.001.
