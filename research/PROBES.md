@@ -163,3 +163,13 @@ vs .774). Its answers track Claude's closely (median |log ratio| 0.045), so the 
 Recorded OpenAI spend $9.82 (23 requests); one retry of simulation_0060 was cut off after 15 min without a
 recorded response, so up to ~$2.50 more may show on the OpenAI bill. Not retried, not run on the test set. Gemini (`scripts/run_gemini_direct.py`, native video or frames) is blocked until the
 key's Google project has credits.
+
+## Zoomed extent re-measurement pilot (2026-10-11): small, parked
+
+`research/zoom_pilot_2026-10-11.tar.gz`. Claude re-measures an object's asked dimension on 3 full-resolution crops
+(object ~600 px) + an overview; scored against pixel-exact masks from the 43 2D simulation clips with a segmented
+twin (121 objects; rotation-robust reference). Within 5%: original .736, zoom .769, hybrid .826 (zoomed value only
+where its line is within 8 deg of the original, since crops lose context and sometimes swap length/width); median
+|log err| .0153 / .0158 / .0144. Validation answers (51): original .806, hybrid .812. Modelled test effect about
+S2 +0.010 (weak: the 9 measured priors were neutral), D2 +0.003, i.e. ~+0.003 overall for ~$6-12. Spent $3.19
+(ledger $137.40 of $200). Not scaled up.
