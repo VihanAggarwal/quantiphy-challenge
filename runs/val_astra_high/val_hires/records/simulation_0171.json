@@ -1,0 +1,64 @@
+{
+ "video_id": "simulation_0171",
+ "model": "gpt-6-astra",
+ "effort": "high",
+ "status": "completed",
+ "n_frames": 26,
+ "secs": 153.3,
+ "usd": 0.56394,
+ "usage": {
+  "input_tokens": 13654,
+  "output_tokens": 8548
+ },
+ "answers": [
+  {
+   "qid": 427,
+   "value": 1.97,
+   "unit": "m/s",
+   "how": "Used an astronaut height of approximately 132 px, giving 2.2/132 m per pixel. Tracking the torso near 0.5 s gives a speed of approximately 118 px/s."
+  },
+  {
+   "qid": 428,
+   "value": 1.6,
+   "unit": "m/s^2",
+   "how": "Estimated the local second derivative of tracked torso positions near 0.5 s and converted using 2.2/132 m per pixel."
+  },
+  {
+   "qid": 429,
+   "value": 5.17,
+   "unit": "m/s",
+   "how": "The local horizontal and vertical motion near 1 s gives approximately 310 px/s, converted using 2.2/132 m per pixel."
+  },
+  {
+   "qid": 430,
+   "value": 4,
+   "unit": "m/s^2",
+   "how": "Estimated acceleration from the change in the tracked torso's velocity around 1 s, using the astronaut's height for scale."
+  },
+  {
+   "qid": 431,
+   "value": 2.2,
+   "unit": "m/s",
+   "how": "Tracked motion near 2 s gives approximately 132 px/s; multiplied by the height-based scale of 2.2/132 m per pixel."
+  },
+  {
+   "qid": 432,
+   "value": 1.2,
+   "unit": "m/s^2",
+   "how": "Estimated the local second derivative of tracked torso positions around 2 s and applied the height-based pixel scale."
+  },
+  {
+   "qid": 433,
+   "value": 1.43,
+   "unit": "m/s",
+   "how": "Tracked torso displacement around 3 s gives approximately 86 px/s, converted using 2.2/132 m per pixel."
+  },
+  {
+   "qid": 434,
+   "value": 1.4,
+   "unit": "m/s^2",
+   "how": "Estimated the change in the torso's velocity around 3 s and converted its magnitude using the astronaut's known height."
+  }
+ ],
+ "raw_text": "{\"answers\":[{\"qid\":427,\"value\":1.97,\"unit\":\"m/s\",\"how\":\"Used an astronaut height of approximately 132 px, giving 2.2/132 m per pixel. Tracking the torso near 0.5 s gives a speed of approximately 118 px/s.\"},{\"qid\":428,\"value\":1.6,\"unit\":\"m/s^2\",\"how\":\"Estimated the local second derivative of tracked torso positions near 0.5 s and converted using 2.2/132 m per pixel.\"},{\"qid\":429,\"value\":5.17,\"unit\":\"m/s\",\"how\":\"The local horizontal and vertical motion near 1 s gives approximately 310 px/s, converted using 2.2/132 m per pixel.\"},{\"qid\":430,\"value\":4,\"unit\":\"m/s^2\",\"how\":\"Estimated acceleration from the change in the tracked torso's velocity around 1 s, using the astronaut's height for scale.\"},{\"qid\":431,\"value\":2.2,\"unit\":\"m/s\",\"how\":\"Tracked motion near 2 s gives approximately 132 px/s; multiplied by the height-based scale of 2.2/132 m per pixel.\"},{\"qid\":432,\"value\":1.2,\"unit\":\"m/s^2\",\"how\":\"Estimated the local second derivative of tracked torso positions around 2 s and applied the height-based pixel scale.\"},{\"qid\":433,\"value\":1.43,\"unit\":\"m/s\",\"how\":\"Tracked torso displacement around 3 s gives approximately 86 px/s, converted using 2.2/132 m per pixel.\"},{\"qid\":434,\"value\":1.4,\"unit\":\"m/s^2\",\"how\":\"Estimated the change in the torso's velocity around 3 s and converted its magnitude using the astronaut's known height.\"}]}"
+}
