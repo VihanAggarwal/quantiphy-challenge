@@ -237,3 +237,13 @@ moving conveyor belt itself (stabilising would be wrong); internet_0068 moves 8%
 Zeroes (x1e-9) S2 acceleration targets (79/579), S3 lab motion (176/578), D3 lab motion (110/969), D2 internet
 (217/1163). Decode with probe 7b's scores: subset mean = (7b - diagC) * N_cat / n_subset. Purpose: the target is
 .84 in S2/S3/D3 (estimates now ~.813/.755/.80); S3 is 58% lab and its lab-motion share has never been measured.
+
+## Probes 11 and 12 (on probe 8): label-process emulation from the QuantiPhy appendix (2026-10-12)
+Built by `scripts/compose_submission.py` from candidates in `research/{blenderemu,labnoise,sizeconv}/`.
+| Probe | S2 | D2 | S3 | D3 |
+|---|---|---|---|---|
+| 11 `trackA_probe11_p8_emu_labnoise.csv` | Blender label emulation (backward-difference speed, tangential accel; 128 rows) | same + refine-off rows (116) | lab label-noise emulator (148, median x1.17) | same (34, x1.06) |
+| 12 `trackA_probe12_p8_sizeenv_lat13.csv` | size envelope (49) | size envelope (65) | lateral balls x1.3 (92) | same (40) |
+Read each category against probe 8. Validation: Blender emulation S2 +.003..+.019 over 7 runs (one clip);
+lab noise emulator .741 vs .659 on 17 lab motion questions (out of sample); x1.3 .735 (in sample); size envelope
+slightly negative. Probe 10 (all lab motion x1.25 on 7b) is the cruder version of the S3/D3 test.
