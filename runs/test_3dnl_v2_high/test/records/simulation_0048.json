@@ -1,0 +1,867 @@
+{
+ "video_id": "simulation_0048",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfuoK8LhSuwRxfChjAFXw",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 44,
+  "prompt_version": "v2",
+  "max_side": 854
+ },
+ "ts": "2026-10-11T04:21:11+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_01WcjD8TKm5zJhFoMXh6dbVa",
+ "custom_id": "simulation_0048",
+ "usage": {
+  "input_tokens": 19502,
+  "output_tokens": 5173,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 5593,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.091293,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0048",
+  "fps": 33.0,
+  "fps_from_container": false,
+  "video_type": "S3MC",
+  "n_frames_total": 99,
+  "scale": 0.44479166666666664,
+  "image_size": [
+   1920,
+   767
+  ],
+  "frames": [
+   0,
+   2,
+   7,
+   9,
+   13,
+   14,
+   18,
+   20,
+   21,
+   25,
+   26,
+   30,
+   31,
+   32,
+   33,
+   34,
+   35,
+   36,
+   39,
+   41,
+   46,
+   48,
+   52,
+   55,
+   59,
+   62,
+   63,
+   64,
+   65,
+   66,
+   67,
+   68,
+   69,
+   72,
+   73,
+   77,
+   78,
+   80,
+   84,
+   85,
+   89,
+   91,
+   96,
+   98
+  ],
+  "questions": [
+   {
+    "qid": 1191,
+    "target_unit": "m/s",
+    "prior": "height of the walking person = 1.8m",
+    "depth_info": "t=1s, distance_bike_camera = 16.4919m\nt=2s, distance_bike_camera = 11.9277m\nt=1s, distance_human_camera = 11.9259m\nt=2s, distance_human_camera = 10.8165m"
+   },
+   {
+    "qid": 1192,
+    "target_unit": "m",
+    "prior": "height of the walking person = 1.8m",
+    "depth_info": "t=1s, distance_bike_camera = 16.4919m\nt=2s, distance_bike_camera = 11.9277m\nt=1s, distance_human_camera = 11.9259m\nt=2s, distance_human_camera = 10.8165m"
+   },
+   {
+    "qid": 1193,
+    "target_unit": "m",
+    "prior": "height of the walking person = 1.8m",
+    "depth_info": "t=1s, distance_bike_camera = 16.4919m\nt=2s, distance_bike_camera = 11.9277m\nt=1s, distance_human_camera = 11.9259m\nt=2s, distance_human_camera = 10.8165m"
+   },
+   {
+    "qid": 1194,
+    "target_unit": "m",
+    "prior": "height of the walking person = 1.8m",
+    "depth_info": "t=1s, distance_bike_camera = 16.4919m\nt=2s, distance_bike_camera = 11.9277m\nt=1s, distance_human_camera = 11.9259m\nt=2s, distance_human_camera = 10.8165m"
+   },
+   {
+    "qid": 1195,
+    "target_unit": "m/s",
+    "prior": "height of the walking person = 1.8m",
+    "depth_info": "t=1s, distance_bike_camera = 16.4919m\nt=2s, distance_bike_camera = 11.9277m\nt=1s, distance_human_camera = 11.9259m\nt=2s, distance_human_camera = 10.8165m"
+   },
+   {
+    "qid": 1196,
+    "target_unit": "m",
+    "prior": "height of the walking person = 1.8m",
+    "depth_info": "t=1s, distance_bike_camera = 16.4919m\nt=2s, distance_bike_camera = 11.9277m\nt=1s, distance_human_camera = 11.9259m\nt=2s, distance_human_camera = 10.8165m"
+   }
+  ],
+  "prompt_version": "v2"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":1191,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"walking person\"],\"dimension\":\"\",\"time\":1.0,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"walking person\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":1.8,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"walking person\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[685,102],[685,186]],\"box\":[673,102,698,186]},{\"frame\":33,\"point\":null,\"extent\":[[681,112],[681,199]],\"box\":[668,112,694,199]},{\"frame\":66,\"point\":null,\"extent\":[[674,122],[674,216]],\"box\":[660,122,688,216]}],\"depth_name\":\"human\",\"range_m\":null,\"range_basis\":\"\"},{\"role\":\"target\",\"object\":\"walking person\",\"obs\":[{\"frame\":0,\"point\":[685.5,144],\"extent\":null,\"box\":[673,102,698,186]},{\"frame\":30,\"point\":[681,154],\"extent\":null,\"box\":[668,111,694,197]},{\"frame\":33,\"point\":[681,155.5],\"extent\":null,\"box\":[668,112,694,199]},{\"frame\":36,\"point\":[680,158],\"extent\":null,\"box\":[667,114,693,202]},{\"frame\":66,\"point\":[674,169],\"extent\":null,\"box\":[660,122,688,216]},{\"frame\":98,\"point\":[666,187],\"extent\":null,\"box\":[651,140,681,234]}],\"depth_name\":\"human\",\"range_m\":null,\"range_basis\":\"\"}],\"direct_answer\":1.13,\"confidence\":0.5,\"derivation\":\"f~560 px (person 86 px at 11.93 m); depth change 11.93->10.82 m in 1 s =1.11 m/s, lateral ~10 px/s at 11.4 m =0.2 m/s -> 1.13 m/s\"},{\"qid\":1192,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"telephone booth\"],\"dimension\":\"width\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"walking person\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":1.8,\"unit\":\"\"},\"depth\":[],\"notes\":\"telephone booth = the box-shaped booth in the foreground centre; its base is out of frame\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"walking person\",\"obs\":[],\"depth_name\":\"human\",\"range_m\":null,\"range_basis\":\"\"},{\"role\":\"target\",\"object\":\"telephone booth\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[492,200],[612,200]],\"box\":[490,148,652,341]},{\"frame\":33,\"point\":null,\"extent\":[[492,200],[612,200]],\"box\":[490,148,652,341]},{\"frame\":66,\"point\":null,\"extent\":[[492,200],[612,200]],\"box\":[490,148,652,341]}],\"depth_name\":\"\",\"range_m\":4.6,\"range_basis\":\"Ground-plane geometry from the walking person's feet positions and the booth top edge.\"}],\"direct_answer\":1.0,\"confidence\":0.25,\"derivation\":\"front face 120 px at ~4.6 m, f~560 -> ~1.0 m\"},{\"qid\":1193,\"spec\":{\"target\":{\"kind\":\"distance\",\"objects\":[\"left pillar of near door\",\"right pillar of far door\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"walking person\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":1.8,\"unit\":\"\"},\"depth\":[],\"notes\":\"pillar identification ambiguous\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"walking person\",\"obs\":[],\"depth_name\":\"human\",\"range_m\":null,\"range_basis\":\"\"},{\"role\":\"target\",\"object\":\"left pillar of near door\",\"obs\":[{\"frame\":0,\"point\":[523,100],\"extent\":null,\"box\":null}],\"depth_name\":\"\",\"range_m\":10.5,\"range_basis\":\"Facade beside sidewalk slightly nearer than the person at 11.9 m.\"},{\"role\":\"target2\",\"object\":\"right pillar of far door\",\"obs\":[{\"frame\":0,\"point\":[585,80],\"extent\":null,\"box\":null}],\"depth_name\":\"\",\"range_m\":14.0,\"range_basis\":\"Farther along the facade, beyond the person's position.\"}],\"direct_answer\":4.0,\"confidence\":0.15,\"derivation\":\"pillars 62 px apart laterally at ~10.5-14 m, f~560, plus ~3.5 m depth separation -> ~4 m\"},{\"qid\":1194,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"moving bicycle\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"walking person\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":1.8,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"walking person\",\"obs\":[],\"depth_name\":\"human\",\"range_m\":null,\"range_basis\":\"\"},{\"role\":\"target\",\"object\":\"moving bicycle\",\"obs\":[{\"frame\":31,\"point\":null,\"extent\":[[766,186],[766,222]],\"box\":[754,143,782,222]},{\"frame\":33,\"point\":null,\"extent\":[[766,188],[766,225]],\"box\":[752,146,782,225]},{\"frame\":35,\"point\":null,\"extent\":[[765,192],[765,230]],\"box\":[752,150,782,230]}],\"depth_name\":\"bike\",\"range_m\":null,\"range_basis\":\"\"}],\"direct_answer\":1.05,\"confidence\":0.35,\"derivation\":\"handlebar-ground ~36 px at 16.49 m, f~560 -> ~1.05 m\"},{\"qid\":1195,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"moving bicycle\"],\"dimension\":\"\",\"time\":1.0,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"walking person\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":1.8,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"walking person\",\"obs\":[],\"depth_name\":\"human\",\"range_m\":null,\"range_basis\":\"\"},{\"role\":\"target\",\"object\":\"moving bicycle\",\"obs\":[{\"frame\":30,\"point\":[767,183],\"extent\":null,\"box\":[754,142,781,224]},{\"frame\":33,\"point\":[767,186],\"extent\":null,\"box\":[752,146,782,226]},{\"frame\":36,\"point\":[767,191],\"extent\":null,\"box\":[752,151,782,231]},{\"frame\":46,\"point\":[765,210],\"extent\":null,\"box\":[748,170,782,256]},{\"frame\":55,\"point\":[761,240],\"extent\":null,\"box\":[744,190,782,292]},{\"frame\":66,\"point\":[760,280],\"extent\":null,\"box\":[738,222,782,341]}],\"depth_name\":\"bike\",\"range_m\":null,\"range_basis\":\"\"}],\"direct_answer\":4.6,\"confidence\":0.5,\"derivation\":\"depth 16.49->11.93 m in 1 s = 4.56 m/s, small lateral component -> ~4.6 m/s\"},{\"qid\":1196,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"wheel of moving bicycle\"],\"dimension\":\"diameter\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"walking person\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":1.8,\"unit\":\"\"},\"depth\":[],\"notes\":\"wheel seen nearly edge-on; diameter taken vertically\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"walking person\",\"obs\":[],\"depth_name\":\"human\",\"range_m\":null,\"range_basis\":\"\"},{\"role\":\"target\",\"object\":\"wheel of moving bicycle\",\"obs\":[{\"frame\":33,\"point\":null,\"extent\":[[766,204],[766,225]],\"box\":[763,204,770,225]},{\"frame\":35,\"point\":null,\"extent\":[[765,208],[765,230]],\"box\":[762,208,769,230]}],\"depth_name\":\"bike\",\"range_m\":null,\"range_basis\":\"\"}],\"direct_answer\":0.65,\"confidence\":0.3,\"derivation\":\"wheel ~21-22 px at ~16.5 m, f~560 -> ~0.63 m\"}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 1191,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "walking person"
+      ],
+      "dimension": "",
+      "time": 1.0,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "walking person"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 1.8,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "walking person",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          685,
+          102
+         ],
+         [
+          685,
+          186
+         ]
+        ],
+        "box": [
+         673,
+         102,
+         698,
+         186
+        ]
+       },
+       {
+        "frame": 33,
+        "point": null,
+        "extent": [
+         [
+          681,
+          112
+         ],
+         [
+          681,
+          199
+         ]
+        ],
+        "box": [
+         668,
+         112,
+         694,
+         199
+        ]
+       },
+       {
+        "frame": 66,
+        "point": null,
+        "extent": [
+         [
+          674,
+          122
+         ],
+         [
+          674,
+          216
+         ]
+        ],
+        "box": [
+         660,
+         122,
+         688,
+         216
+        ]
+       }
+      ],
+      "depth_name": "human",
+      "range_m": null,
+      "range_basis": ""
+     },
+     {
+      "role": "target",
+      "object": "walking person",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         685.5,
+         144
+        ],
+        "extent": null,
+        "box": [
+         673,
+         102,
+         698,
+         186
+        ]
+       },
+       {
+        "frame": 30,
+        "point": [
+         681,
+         154
+        ],
+        "extent": null,
+        "box": [
+         668,
+         111,
+         694,
+         197
+        ]
+       },
+       {
+        "frame": 33,
+        "point": [
+         681,
+         155.5
+        ],
+        "extent": null,
+        "box": [
+         668,
+         112,
+         694,
+         199
+        ]
+       },
+       {
+        "frame": 36,
+        "point": [
+         680,
+         158
+        ],
+        "extent": null,
+        "box": [
+         667,
+         114,
+         693,
+         202
+        ]
+       },
+       {
+        "frame": 66,
+        "point": [
+         674,
+         169
+        ],
+        "extent": null,
+        "box": [
+         660,
+         122,
+         688,
+         216
+        ]
+       },
+       {
+        "frame": 98,
+        "point": [
+         666,
+         187
+        ],
+        "extent": null,
+        "box": [
+         651,
+         140,
+         681,
+         234
+        ]
+       }
+      ],
+      "depth_name": "human",
+      "range_m": null,
+      "range_basis": ""
+     }
+    ],
+    "direct_answer": 1.13,
+    "confidence": 0.5,
+    "derivation": "f~560 px (person 86 px at 11.93 m); depth change 11.93->10.82 m in 1 s =1.11 m/s, lateral ~10 px/s at 11.4 m =0.2 m/s -> 1.13 m/s"
+   },
+   {
+    "qid": 1192,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "telephone booth"
+      ],
+      "dimension": "width",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "walking person"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 1.8,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "telephone booth = the box-shaped booth in the foreground centre; its base is out of frame"
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "walking person",
+      "obs": [],
+      "depth_name": "human",
+      "range_m": null,
+      "range_basis": ""
+     },
+     {
+      "role": "target",
+      "object": "telephone booth",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          492,
+          200
+         ],
+         [
+          612,
+          200
+         ]
+        ],
+        "box": [
+         490,
+         148,
+         652,
+         341
+        ]
+       },
+       {
+        "frame": 33,
+        "point": null,
+        "extent": [
+         [
+          492,
+          200
+         ],
+         [
+          612,
+          200
+         ]
+        ],
+        "box": [
+         490,
+         148,
+         652,
+         341
+        ]
+       },
+       {
+        "frame": 66,
+        "point": null,
+        "extent": [
+         [
+          492,
+          200
+         ],
+         [
+          612,
+          200
+         ]
+        ],
+        "box": [
+         490,
+         148,
+         652,
+         341
+        ]
+       }
+      ],
+      "depth_name": "",
+      "range_m": 4.6,
+      "range_basis": "Ground-plane geometry from the walking person's feet positions and the booth top edge."
+     }
+    ],
+    "direct_answer": 1.0,
+    "confidence": 0.25,
+    "derivation": "front face 120 px at ~4.6 m, f~560 -> ~1.0 m"
+   },
+   {
+    "qid": 1193,
+    "spec": {
+     "target": {
+      "kind": "distance",
+      "objects": [
+       "left pillar of near door",
+       "right pillar of far door"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "walking person"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 1.8,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "pillar identification ambiguous"
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "walking person",
+      "obs": [],
+      "depth_name": "human",
+      "range_m": null,
+      "range_basis": ""
+     },
+     {
+      "role": "target",
+      "object": "left pillar of near door",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         523,
+         100
+        ],
+        "extent": null,
+        "box": null
+       }
+      ],
+      "depth_name": "",
+      "range_m": 10.5,
+      "range_basis": "Facade beside sidewalk slightly nearer than the person at 11.9 m."
+     },
+     {
+      "role": "target2",
+      "object": "right pillar of far door",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         585,
+         80
+        ],
+        "extent": null,
+        "box": null
+       }
+      ],
+      "depth_name": "",
+      "range_m": 14.0,
+      "range_basis": "Farther along the facade, beyond the person's position."
+     }
+    ],
+    "direct_answer": 4.0,
+    "confidence": 0.15,
+    "derivation": "pillars 62 px apart laterally at ~10.5-14 m, f~560, plus ~3.5 m depth separation -> ~4 m"
+   },
+   {
+    "qid": 1194,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "moving bicycle"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "walking person"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 1.8,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "walking person",
+      "obs": [],
+      "depth_name": "human",
+      "range_m": null,
+      "range_basis": ""
+     },
+     {
+      "role": "target",
+      "object": "moving bicycle",
+      "obs": [
+       {
+        "frame": 31,
+        "point": null,
+        "extent": [
+         [
+          766,
+          186
+         ],
+         [
+          766,
+          222
+         ]
+        ],
+        "box": [
+         754,
+         143,
+         782,
+         222
+        ]
+       },
+       {
+        "frame": 33,
+        "point": null,
+        "extent": [
+         [
+          766,
+          188
+         ],
+         [
+          766,
+          225
+         ]
+        ],
+        "box": [
+         752,
+         146,
+         782,
+         225
+        ]
+       },
+       {
+        "frame": 35,
+        "point": null,
+        "extent": [
+         [
+          765,
+          192
+         ],
+         [
+          765,
+          230
+         ]
+        ],
+        "box": [
+         752,
+         150,
+         782,
+         230
+        ]
+       }
+      ],
+      "depth_name": "bike",
+      "range_m": null,
+      "range_basis": ""
+     }
+    ],
+    "direct_answer": 1.05,
+    "confidence": 0.35,
+    "derivation": "handlebar-ground ~36 px at 16.49 m, f~560 -> ~1.05 m"
+   },
+   {
+    "qid": 1195,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "moving bicycle"
+      ],
+      "dimension": "",
+      "time": 1.0,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "walking person"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 1.8,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "walking person",
+      "obs": [],
+      "depth_name": "human",
+      "range_m": null,
+      "range_basis": ""
+     },
+     {
+      "role": "target",
+      "object": "moving bicycle",
+      "obs": [
+       {
+        "frame": 30,
+        "point": [
+         767,
+         183
+        ],
+        "extent": null,
+        "box": [
+         754,
+         142,
+         781,
+         224
+        ]
+       },
+       {
+        "frame": 33,
+        "point": [
+         767,
+         186
+        ],
+        "extent": null,
+        "box": [
+         752,
+         146,
+         782,
+         226
+        ]
+       },
+       {
+        "frame": 36,
+        "point": [
+         767,
+         191
+        ],
+        "extent": null,
+        "box": [
+         752,
+         151,
+         782,
+         231
+        ]
+       },
+       {
+        "frame": 46,
+        "point": [
+         765,
+         210
+        ],
+        "extent": null,
+        "box": [
+         748,
+         170,
+         782,
+         256
+        ]
+       },
+       {
+        "frame": 55,
+        "point": [
+         761,
+         240
+        ],
+        "extent": null,
+        "box": [
+         744,
+         190,
+         782,
+         292
+        ]
+       },
+       {
+        "frame": 66,
+        "point": [
+         760,
+         280
+        ],
+        "extent": null,
+        "box": [
+         738,
+         222,
+         782,
+         341
+        ]
+       }
+      ],
+      "depth_name": "bike",
+      "range_m": null,
+      "range_basis": ""
+     }
+    ],
+    "direct_answer": 4.6,
+    "confidence": 0.5,
+    "derivation": "depth 16.49->11.93 m in 1 s = 4.56 m/s, small lateral component -> ~4.6 m/s"
+   },
+   {
+    "qid": 1196,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "wheel of moving bicycle"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "walking person"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 1.8,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "wheel seen nearly edge-on; diameter taken vertically"
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "walking person",
+      "obs": [],
+      "depth_name": "human",
+      "range_m": null,
+      "range_basis": ""
+     },
+     {
+      "role": "target",
+      "object": "wheel of moving bicycle",
+      "obs": [
+       {
+        "frame": 33,
+        "point": null,
+        "extent": [
+         [
+          766,
+          204
+         ],
+         [
+          766,
+          225
+         ]
+        ],
+        "box": [
+         763,
+         204,
+         770,
+         225
+        ]
+       },
+       {
+        "frame": 35,
+        "point": null,
+        "extent": [
+         [
+          765,
+          208
+         ],
+         [
+          765,
+          230
+         ]
+        ],
+        "box": [
+         762,
+         208,
+         769,
+         230
+        ]
+       }
+      ],
+      "depth_name": "bike",
+      "range_m": null,
+      "range_basis": ""
+     }
+    ],
+    "direct_answer": 0.65,
+    "confidence": 0.3,
+    "derivation": "wheel ~21-22 px at ~16.5 m, f~560 -> ~0.63 m"
+   }
+  ]
+ }
+}

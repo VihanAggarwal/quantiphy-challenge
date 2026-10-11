@@ -1,0 +1,1044 @@
+{
+ "video_id": "simulation_0149",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfuoMYnBXXue2TKKKSXdu",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 44,
+  "prompt_version": "v2",
+  "max_side": 854
+ },
+ "ts": "2026-10-11T04:18:06+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_01J8QTVToieV2fdZ5XWS1iT3",
+ "custom_id": "simulation_0149",
+ "usage": {
+  "input_tokens": 26098,
+  "output_tokens": 7218,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 5593,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.124935,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0149",
+  "fps": 24.0,
+  "fps_from_container": false,
+  "video_type": "S3MC",
+  "n_frames_total": 50,
+  "scale": 0.44479166666666664,
+  "image_size": [
+   1920,
+   1079
+  ],
+  "frames": [
+   0,
+   1,
+   2,
+   3,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   12,
+   13,
+   14,
+   15,
+   16,
+   18,
+   19,
+   20,
+   21,
+   22,
+   23,
+   24,
+   25,
+   26,
+   27,
+   28,
+   29,
+   30,
+   31,
+   33,
+   34,
+   35,
+   36,
+   38,
+   39,
+   40,
+   41,
+   42,
+   44,
+   46,
+   47,
+   48,
+   49
+  ],
+  "questions": [
+   {
+    "qid": 1519,
+    "target_unit": "m",
+    "prior": "diameter of the tire = 0.764m",
+    "depth_info": "t=0s, distance_yellowCarRightFrontTire_camera = 14.244m"
+   },
+   {
+    "qid": 1520,
+    "target_unit": "m",
+    "prior": "diameter of the tire = 0.764m",
+    "depth_info": "t=0s, distance_yellowCarRightFrontTire_camera = 14.244m"
+   },
+   {
+    "qid": 1521,
+    "target_unit": "m",
+    "prior": "diameter of the tire = 0.764m",
+    "depth_info": "t=0s, distance_yellowCarRightFrontTire_camera = 14.244m"
+   },
+   {
+    "qid": 1522,
+    "target_unit": "m/s",
+    "prior": "diameter of the tire = 0.764m",
+    "depth_info": "t=0s, distance_yellowCarRightFrontTire_camera = 14.244m"
+   },
+   {
+    "qid": 1523,
+    "target_unit": "m/s^2",
+    "prior": "diameter of the tire = 0.764m",
+    "depth_info": "t=0s, distance_yellowCarRightFrontTire_camera = 14.244m"
+   },
+   {
+    "qid": 1524,
+    "target_unit": "m/s",
+    "prior": "diameter of the tire = 0.764m",
+    "depth_info": "t=0s, distance_yellowCarRightFrontTire_camera = 14.244m"
+   },
+   {
+    "qid": 1525,
+    "target_unit": "m/s^2",
+    "prior": "diameter of the tire = 0.764m",
+    "depth_info": "t=0s, distance_yellowCarRightFrontTire_camera = 14.244m"
+   }
+  ],
+  "prompt_version": "v2"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":1519,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"car\"],\"dimension\":\"width\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"tire\"],\"dimension\":\"diameter\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.764,\"unit\":\"\"},\"depth\":[],\"notes\":\"Car width measured across the front at t=0, near the depth of the right front tire. The car's left side is near the image border.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"right front tire\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[33,340],[33,397]],\"box\":[20,340,46,397]},{\"frame\":1,\"point\":null,\"extent\":[[33,340],[33,397]],\"box\":[20,340,46,397]},{\"frame\":2,\"point\":null,\"extent\":[[34,340],[34,397]],\"box\":[21,340,47,397]}],\"depth_name\":\"yellowCarRightFrontTire\",\"range_m\":null,\"range_basis\":\"\"},{\"role\":\"target\",\"object\":\"car\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[15,365],[197,365]],\"box\":[0,322,198,397]},{\"frame\":1,\"point\":null,\"extent\":[[15,365],[198,365]],\"box\":[0,322,199,397]},{\"frame\":2,\"point\":null,\"extent\":[[16,365],[199,365]],\"box\":[0,322,200,397]}],\"depth_name\":\"\",\"range_m\":14.2,\"range_basis\":\"Car front is at about the same depth as its right front tire.\"}],\"direct_answer\":2.4,\"confidence\":0.3,\"derivation\":\"tire 57 px = 0.764 m -> 0.0134 m/px; car width 180 px -> 2.4 m\"},{\"qid\":1520,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"collision warning markings\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"tire\"],\"dimension\":\"diameter\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.764,\"unit\":\"\"},\"depth\":[],\"notes\":\"Markings on the pillar next to the parked car; the pillar base lies at a similar image height as the tire contact.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"right front tire\",\"obs\":[],\"depth_name\":\"yellowCarRightFrontTire\",\"range_m\":null,\"range_basis\":\"\"},{\"role\":\"target\",\"object\":\"pillar markings\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[246,340],[246,397]],\"box\":[242,340,250,397]},{\"frame\":48,\"point\":null,\"extent\":[[246,340],[246,397]],\"box\":[242,340,250,397]},{\"frame\":49,\"point\":null,\"extent\":[[246,340],[246,397]],\"box\":[242,340,250,397]}],\"depth_name\":\"\",\"range_m\":14.5,\"range_basis\":\"The pillar base is at a similar floor image height as the car tire at 14.2 m.\"}],\"direct_answer\":0.77,\"confidence\":0.3,\"derivation\":\"0.0134 m/px; markings 57 px -> 0.77 m\"},{\"qid\":1521,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"pillar\"],\"dimension\":\"width\",\"time\":null,\"window\":null,\"axis\":\"horizontal\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"tire\"],\"dimension\":\"diameter\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.764,\"unit\":\"\"},\"depth\":[],\"notes\":\"The pillar next to the car at x 213-310.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"right front tire\",\"obs\":[],\"depth_name\":\"yellowCarRightFrontTire\",\"range_m\":null,\"range_basis\":\"\"},{\"role\":\"target\",\"object\":\"pillar\",\"obs\":[{\"frame\":48,\"point\":null,\"extent\":[[213,320],[310,320]],\"box\":[213,170,310,397]},{\"frame\":49,\"point\":null,\"extent\":[[213,320],[310,320]],\"box\":[213,170,310,397]},{\"frame\":0,\"point\":null,\"extent\":[[213,320],[310,320]],\"box\":[213,170,310,397]}],\"depth_name\":\"\",\"range_m\":14.5,\"range_basis\":\"Pillar base at similar floor image height as the car tire at 14.2 m.\"}],\"direct_answer\":1.3,\"confidence\":0.3,\"derivation\":\"0.0134 m/px; pillar 97 px -> 1.3 m\"},{\"qid\":1522,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"car\"],\"dimension\":\"\",\"time\":0.5,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"tire\"],\"dimension\":\"diameter\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.764,\"unit\":\"\"},\"depth\":[],\"notes\":\"The car approaches the camera, so its depth is estimated from the tire's apparent diameter.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"right front tire\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[33,340],[33,397]],\"box\":[20,340,46,397]},{\"frame\":12,\"point\":null,\"extent\":[[83,340],[83,401]],\"box\":[70,340,96,401]},{\"frame\":18,\"point\":null,\"extent\":[[150,335],[150,405]],\"box\":[135,335,165,405]},{\"frame\":24,\"point\":null,\"extent\":[[265,331],[265,415]],\"box\":[245,331,285,415]},{\"frame\":30,\"point\":null,\"extent\":[[476,330],[476,428]],\"box\":[430,330,522,428]}],\"depth_name\":\"yellowCarRightFrontTire\",\"range_m\":null,\"range_basis\":\"\"},{\"role\":\"target\",\"object\":\"car\",\"obs\":[{\"frame\":0,\"point\":[99,359.5],\"extent\":null,\"box\":[0,322,198,397]},{\"frame\":6,\"point\":[106.5,359],\"extent\":null,\"box\":[0,320,213,398]},{\"frame\":10,\"point\":[121,350],\"extent\":null,\"box\":[0,300,242,400]},{\"frame\":11,\"point\":[126,347],\"extent\":null,\"box\":[0,294,252,400]},{\"frame\":12,\"point\":[143.5,345],\"extent\":null,\"box\":[25,290,262,400]},{\"frame\":13,\"point\":[143,344],\"extent\":null,\"box\":[10,288,276,400]},{\"frame\":14,\"point\":[150,340],\"extent\":null,\"box\":[10,286,290,402]},{\"frame\":18,\"point\":[193.5,342],\"extent\":null,\"box\":[35,278,352,406]},{\"frame\":22,\"point\":[258,342],\"extent\":null,\"box\":[76,268,440,412]},{\"frame\":23,\"point\":[279,341],\"extent\":null,\"box\":[88,266,470,414]},{\"frame\":24,\"point\":[300,339],\"extent\":null,\"box\":[102,263,498,415]},{\"frame\":25,\"point\":[322,338],\"extent\":null,\"box\":[116,260,528,416]},{\"frame\":26,\"point\":[348,337],\"extent\":null,\"box\":[131,256,565,418]},{\"frame\":30,\"point\":[469,334],\"extent\":null,\"box\":[200,238,738,430]}],\"depth_name\":\"\",\"range_m\":null,\"range_basis\":\"\"}],\"direct_answer\":6.0,\"confidence\":0.3,\"derivation\":\"f~1060 px; tire depth 14.2->13.1 m, X -5.3->-4.2 m in 0.5 s; consistent with a~12 m/s^2 from rest -> v(0.5)~6 m/s\"},{\"qid\":1523,\"spec\":{\"target\":{\"kind\":\"acceleration\",\"objects\":[\"car\"],\"dimension\":\"\",\"time\":0.5,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s^2\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"tire\"],\"dimension\":\"diameter\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.764,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"right front tire\",\"obs\":[],\"depth_name\":\"yellowCarRightFrontTire\",\"range_m\":null,\"range_basis\":\"\"},{\"role\":\"target\",\"object\":\"car\",\"obs\":[],\"depth_name\":\"\",\"range_m\":null,\"range_basis\":\"\"}],\"direct_answer\":12.0,\"confidence\":0.2,\"derivation\":\"3D displacements of 1.58 m (0-0.5 s) and 6.07 m (0-1 s) fit 0.5*a*t^2 with a~12 m/s^2\"},{\"qid\":1524,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"car\"],\"dimension\":\"\",\"time\":1.0,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"tire\"],\"dimension\":\"diameter\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.764,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"right front tire\",\"obs\":[],\"depth_name\":\"yellowCarRightFrontTire\",\"range_m\":null,\"range_basis\":\"\"},{\"role\":\"target\",\"object\":\"car\",\"obs\":[],\"depth_name\":\"\",\"range_m\":null,\"range_basis\":\"\"}],\"direct_answer\":10.5,\"confidence\":0.25,\"derivation\":\"frames 18->24: 2.57 m/0.25 s = 10.3 m/s; frames 22->26: 1.78 m/0.167 s = 10.7 m/s\"},{\"qid\":1525,\"spec\":{\"target\":{\"kind\":\"acceleration\",\"objects\":[\"car\"],\"dimension\":\"\",\"time\":1.0,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s^2\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"tire\"],\"dimension\":\"diameter\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.764,\"unit\":\"\"},\"depth\":[],\"notes\":\"Highly uncertain; the speed appears to level off near 1 s.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"right front tire\",\"obs\":[],\"depth_name\":\"yellowCarRightFrontTire\",\"range_m\":null,\"range_basis\":\"\"},{\"role\":\"target\",\"object\":\"car\",\"obs\":[],\"depth_name\":\"\",\"range_m\":null,\"range_basis\":\"\"}],\"direct_answer\":3.0,\"confidence\":0.1,\"derivation\":\"speed ~10.3 m/s at 0.875 s and ~8.9 m/s at 1.125 s (noisy); earlier acceleration ~12 m/s^2; estimate ~3 m/s^2\"}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 1519,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "car"
+      ],
+      "dimension": "width",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "tire"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.764,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Car width measured across the front at t=0, near the depth of the right front tire. The car's left side is near the image border."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "right front tire",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          33,
+          340
+         ],
+         [
+          33,
+          397
+         ]
+        ],
+        "box": [
+         20,
+         340,
+         46,
+         397
+        ]
+       },
+       {
+        "frame": 1,
+        "point": null,
+        "extent": [
+         [
+          33,
+          340
+         ],
+         [
+          33,
+          397
+         ]
+        ],
+        "box": [
+         20,
+         340,
+         46,
+         397
+        ]
+       },
+       {
+        "frame": 2,
+        "point": null,
+        "extent": [
+         [
+          34,
+          340
+         ],
+         [
+          34,
+          397
+         ]
+        ],
+        "box": [
+         21,
+         340,
+         47,
+         397
+        ]
+       }
+      ],
+      "depth_name": "yellowCarRightFrontTire",
+      "range_m": null,
+      "range_basis": ""
+     },
+     {
+      "role": "target",
+      "object": "car",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          15,
+          365
+         ],
+         [
+          197,
+          365
+         ]
+        ],
+        "box": [
+         0,
+         322,
+         198,
+         397
+        ]
+       },
+       {
+        "frame": 1,
+        "point": null,
+        "extent": [
+         [
+          15,
+          365
+         ],
+         [
+          198,
+          365
+         ]
+        ],
+        "box": [
+         0,
+         322,
+         199,
+         397
+        ]
+       },
+       {
+        "frame": 2,
+        "point": null,
+        "extent": [
+         [
+          16,
+          365
+         ],
+         [
+          199,
+          365
+         ]
+        ],
+        "box": [
+         0,
+         322,
+         200,
+         397
+        ]
+       }
+      ],
+      "depth_name": "",
+      "range_m": 14.2,
+      "range_basis": "Car front is at about the same depth as its right front tire."
+     }
+    ],
+    "direct_answer": 2.4,
+    "confidence": 0.3,
+    "derivation": "tire 57 px = 0.764 m -> 0.0134 m/px; car width 180 px -> 2.4 m"
+   },
+   {
+    "qid": 1520,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "collision warning markings"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "tire"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.764,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Markings on the pillar next to the parked car; the pillar base lies at a similar image height as the tire contact."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "right front tire",
+      "obs": [],
+      "depth_name": "yellowCarRightFrontTire",
+      "range_m": null,
+      "range_basis": ""
+     },
+     {
+      "role": "target",
+      "object": "pillar markings",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          246,
+          340
+         ],
+         [
+          246,
+          397
+         ]
+        ],
+        "box": [
+         242,
+         340,
+         250,
+         397
+        ]
+       },
+       {
+        "frame": 48,
+        "point": null,
+        "extent": [
+         [
+          246,
+          340
+         ],
+         [
+          246,
+          397
+         ]
+        ],
+        "box": [
+         242,
+         340,
+         250,
+         397
+        ]
+       },
+       {
+        "frame": 49,
+        "point": null,
+        "extent": [
+         [
+          246,
+          340
+         ],
+         [
+          246,
+          397
+         ]
+        ],
+        "box": [
+         242,
+         340,
+         250,
+         397
+        ]
+       }
+      ],
+      "depth_name": "",
+      "range_m": 14.5,
+      "range_basis": "The pillar base is at a similar floor image height as the car tire at 14.2 m."
+     }
+    ],
+    "direct_answer": 0.77,
+    "confidence": 0.3,
+    "derivation": "0.0134 m/px; markings 57 px -> 0.77 m"
+   },
+   {
+    "qid": 1521,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "pillar"
+      ],
+      "dimension": "width",
+      "time": null,
+      "window": null,
+      "axis": "horizontal",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "tire"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.764,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "The pillar next to the car at x 213-310."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "right front tire",
+      "obs": [],
+      "depth_name": "yellowCarRightFrontTire",
+      "range_m": null,
+      "range_basis": ""
+     },
+     {
+      "role": "target",
+      "object": "pillar",
+      "obs": [
+       {
+        "frame": 48,
+        "point": null,
+        "extent": [
+         [
+          213,
+          320
+         ],
+         [
+          310,
+          320
+         ]
+        ],
+        "box": [
+         213,
+         170,
+         310,
+         397
+        ]
+       },
+       {
+        "frame": 49,
+        "point": null,
+        "extent": [
+         [
+          213,
+          320
+         ],
+         [
+          310,
+          320
+         ]
+        ],
+        "box": [
+         213,
+         170,
+         310,
+         397
+        ]
+       },
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          213,
+          320
+         ],
+         [
+          310,
+          320
+         ]
+        ],
+        "box": [
+         213,
+         170,
+         310,
+         397
+        ]
+       }
+      ],
+      "depth_name": "",
+      "range_m": 14.5,
+      "range_basis": "Pillar base at similar floor image height as the car tire at 14.2 m."
+     }
+    ],
+    "direct_answer": 1.3,
+    "confidence": 0.3,
+    "derivation": "0.0134 m/px; pillar 97 px -> 1.3 m"
+   },
+   {
+    "qid": 1522,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "car"
+      ],
+      "dimension": "",
+      "time": 0.5,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "tire"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.764,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "The car approaches the camera, so its depth is estimated from the tire's apparent diameter."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "right front tire",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          33,
+          340
+         ],
+         [
+          33,
+          397
+         ]
+        ],
+        "box": [
+         20,
+         340,
+         46,
+         397
+        ]
+       },
+       {
+        "frame": 12,
+        "point": null,
+        "extent": [
+         [
+          83,
+          340
+         ],
+         [
+          83,
+          401
+         ]
+        ],
+        "box": [
+         70,
+         340,
+         96,
+         401
+        ]
+       },
+       {
+        "frame": 18,
+        "point": null,
+        "extent": [
+         [
+          150,
+          335
+         ],
+         [
+          150,
+          405
+         ]
+        ],
+        "box": [
+         135,
+         335,
+         165,
+         405
+        ]
+       },
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          265,
+          331
+         ],
+         [
+          265,
+          415
+         ]
+        ],
+        "box": [
+         245,
+         331,
+         285,
+         415
+        ]
+       },
+       {
+        "frame": 30,
+        "point": null,
+        "extent": [
+         [
+          476,
+          330
+         ],
+         [
+          476,
+          428
+         ]
+        ],
+        "box": [
+         430,
+         330,
+         522,
+         428
+        ]
+       }
+      ],
+      "depth_name": "yellowCarRightFrontTire",
+      "range_m": null,
+      "range_basis": ""
+     },
+     {
+      "role": "target",
+      "object": "car",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         99,
+         359.5
+        ],
+        "extent": null,
+        "box": [
+         0,
+         322,
+         198,
+         397
+        ]
+       },
+       {
+        "frame": 6,
+        "point": [
+         106.5,
+         359
+        ],
+        "extent": null,
+        "box": [
+         0,
+         320,
+         213,
+         398
+        ]
+       },
+       {
+        "frame": 10,
+        "point": [
+         121,
+         350
+        ],
+        "extent": null,
+        "box": [
+         0,
+         300,
+         242,
+         400
+        ]
+       },
+       {
+        "frame": 11,
+        "point": [
+         126,
+         347
+        ],
+        "extent": null,
+        "box": [
+         0,
+         294,
+         252,
+         400
+        ]
+       },
+       {
+        "frame": 12,
+        "point": [
+         143.5,
+         345
+        ],
+        "extent": null,
+        "box": [
+         25,
+         290,
+         262,
+         400
+        ]
+       },
+       {
+        "frame": 13,
+        "point": [
+         143,
+         344
+        ],
+        "extent": null,
+        "box": [
+         10,
+         288,
+         276,
+         400
+        ]
+       },
+       {
+        "frame": 14,
+        "point": [
+         150,
+         340
+        ],
+        "extent": null,
+        "box": [
+         10,
+         286,
+         290,
+         402
+        ]
+       },
+       {
+        "frame": 18,
+        "point": [
+         193.5,
+         342
+        ],
+        "extent": null,
+        "box": [
+         35,
+         278,
+         352,
+         406
+        ]
+       },
+       {
+        "frame": 22,
+        "point": [
+         258,
+         342
+        ],
+        "extent": null,
+        "box": [
+         76,
+         268,
+         440,
+         412
+        ]
+       },
+       {
+        "frame": 23,
+        "point": [
+         279,
+         341
+        ],
+        "extent": null,
+        "box": [
+         88,
+         266,
+         470,
+         414
+        ]
+       },
+       {
+        "frame": 24,
+        "point": [
+         300,
+         339
+        ],
+        "extent": null,
+        "box": [
+         102,
+         263,
+         498,
+         415
+        ]
+       },
+       {
+        "frame": 25,
+        "point": [
+         322,
+         338
+        ],
+        "extent": null,
+        "box": [
+         116,
+         260,
+         528,
+         416
+        ]
+       },
+       {
+        "frame": 26,
+        "point": [
+         348,
+         337
+        ],
+        "extent": null,
+        "box": [
+         131,
+         256,
+         565,
+         418
+        ]
+       },
+       {
+        "frame": 30,
+        "point": [
+         469,
+         334
+        ],
+        "extent": null,
+        "box": [
+         200,
+         238,
+         738,
+         430
+        ]
+       }
+      ],
+      "depth_name": "",
+      "range_m": null,
+      "range_basis": ""
+     }
+    ],
+    "direct_answer": 6.0,
+    "confidence": 0.3,
+    "derivation": "f~1060 px; tire depth 14.2->13.1 m, X -5.3->-4.2 m in 0.5 s; consistent with a~12 m/s^2 from rest -> v(0.5)~6 m/s"
+   },
+   {
+    "qid": 1523,
+    "spec": {
+     "target": {
+      "kind": "acceleration",
+      "objects": [
+       "car"
+      ],
+      "dimension": "",
+      "time": 0.5,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s^2"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "tire"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.764,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "right front tire",
+      "obs": [],
+      "depth_name": "yellowCarRightFrontTire",
+      "range_m": null,
+      "range_basis": ""
+     },
+     {
+      "role": "target",
+      "object": "car",
+      "obs": [],
+      "depth_name": "",
+      "range_m": null,
+      "range_basis": ""
+     }
+    ],
+    "direct_answer": 12.0,
+    "confidence": 0.2,
+    "derivation": "3D displacements of 1.58 m (0-0.5 s) and 6.07 m (0-1 s) fit 0.5*a*t^2 with a~12 m/s^2"
+   },
+   {
+    "qid": 1524,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "car"
+      ],
+      "dimension": "",
+      "time": 1.0,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "tire"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.764,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "right front tire",
+      "obs": [],
+      "depth_name": "yellowCarRightFrontTire",
+      "range_m": null,
+      "range_basis": ""
+     },
+     {
+      "role": "target",
+      "object": "car",
+      "obs": [],
+      "depth_name": "",
+      "range_m": null,
+      "range_basis": ""
+     }
+    ],
+    "direct_answer": 10.5,
+    "confidence": 0.25,
+    "derivation": "frames 18->24: 2.57 m/0.25 s = 10.3 m/s; frames 22->26: 1.78 m/0.167 s = 10.7 m/s"
+   },
+   {
+    "qid": 1525,
+    "spec": {
+     "target": {
+      "kind": "acceleration",
+      "objects": [
+       "car"
+      ],
+      "dimension": "",
+      "time": 1.0,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s^2"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "tire"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.764,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Highly uncertain; the speed appears to level off near 1 s."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "right front tire",
+      "obs": [],
+      "depth_name": "yellowCarRightFrontTire",
+      "range_m": null,
+      "range_basis": ""
+     },
+     {
+      "role": "target",
+      "object": "car",
+      "obs": [],
+      "depth_name": "",
+      "range_m": null,
+      "range_basis": ""
+     }
+    ],
+    "direct_answer": 3.0,
+    "confidence": 0.1,
+    "derivation": "speed ~10.3 m/s at 0.875 s and ~8.9 m/s at 1.125 s (noisy); earlier acceleration ~12 m/s^2; estimate ~3 m/s^2"
+   }
+  ]
+ }
+}

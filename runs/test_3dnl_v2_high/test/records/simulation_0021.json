@@ -1,0 +1,580 @@
+{
+ "video_id": "simulation_0021",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfuoGrYP3tWbWiHNYgsCa",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 44,
+  "prompt_version": "v2",
+  "max_side": 854
+ },
+ "ts": "2026-10-11T04:19:07+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_01QkUUUv9TagrnzfiJLrBifT",
+ "custom_id": "simulation_0021",
+ "usage": {
+  "input_tokens": 43557,
+  "output_tokens": 2752,
+  "cache_creation_input_tokens": 5593,
+  "cache_read_input_tokens": 0,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.128616,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0021",
+  "fps": 30.0,
+  "fps_from_container": false,
+  "video_type": "S3MC",
+  "n_frames_total": 89,
+  "scale": 0.7907407407407407,
+  "image_size": [
+   1080,
+   1080
+  ],
+  "frames": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   6,
+   8,
+   12,
+   14,
+   16,
+   18,
+   20,
+   23,
+   25,
+   27,
+   28,
+   29,
+   30,
+   31,
+   32,
+   33,
+   35,
+   39,
+   41,
+   43,
+   45,
+   47,
+   51,
+   53,
+   55,
+   57,
+   59,
+   61,
+   65,
+   68,
+   70,
+   72,
+   74,
+   76,
+   78,
+   82,
+   84,
+   86,
+   88
+  ],
+  "questions": [
+   {
+    "qid": 1096,
+    "target_unit": "m/s",
+    "prior": "height of the person = 1.87m",
+    "depth_info": "t=0s, distance_human_camera = 13.882m\nt=1s, distance_human_camera = 13.768m\ndistance_fire_hydrant_camera = 12.565m\ndistance_streetlight_camera = 12.325m"
+   },
+   {
+    "qid": 1097,
+    "target_unit": "m",
+    "prior": "height of the person = 1.87m",
+    "depth_info": "t=0s, distance_human_camera = 13.882m\nt=1s, distance_human_camera = 13.768m\ndistance_fire_hydrant_camera = 12.565m\ndistance_streetlight_camera = 12.325m"
+   },
+   {
+    "qid": 1098,
+    "target_unit": "m",
+    "prior": "height of the person = 1.87m",
+    "depth_info": "t=0s, distance_human_camera = 13.882m\nt=1s, distance_human_camera = 13.768m\ndistance_fire_hydrant_camera = 12.565m\ndistance_streetlight_camera = 12.325m"
+   }
+  ],
+  "prompt_version": "v2"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":1096,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"person\"],\"dimension\":\"\",\"time\":1.0,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"person\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":1.87,\"unit\":\"\"},\"depth\":[],\"notes\":\"Person pauses near 0.9 s and starts walking again around 1.0 s.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"person\",\"obs\":[{\"frame\":29,\"point\":null,\"extent\":[[104,514],[104,686]],\"box\":[88,514,121,686]},{\"frame\":41,\"point\":null,\"extent\":[[122,514],[122,686]],\"box\":[104,514,137,686]},{\"frame\":72,\"point\":null,\"extent\":[[172,514],[172,686]],\"box\":[156,514,189,686]}],\"depth_name\":\"human\",\"range_m\":null,\"range_basis\":\"\"},{\"role\":\"target\",\"object\":\"person\",\"obs\":[{\"frame\":25,\"point\":[102,600],\"extent\":null,\"box\":[84,514,120,686]},{\"frame\":27,\"point\":[103.5,600],\"extent\":null,\"box\":[86,514,121,686]},{\"frame\":28,\"point\":[104,600],\"extent\":null,\"box\":[87,514,121,686]},{\"frame\":29,\"point\":[104.5,600],\"extent\":null,\"box\":[88,514,121,686]},{\"frame\":30,\"point\":[107,600],\"extent\":null,\"box\":[88,514,126,686]},{\"frame\":31,\"point\":[111,600],\"extent\":null,\"box\":[88,514,134,686]},{\"frame\":32,\"point\":[112.5,600],\"extent\":null,\"box\":[89,514,136,686]},{\"frame\":33,\"point\":[113,600.5],\"extent\":null,\"box\":[89,515,137,686]},{\"frame\":35,\"point\":[114,601],\"extent\":null,\"box\":[90,516,138,686]}],\"depth_name\":\"human\",\"range_m\":null,\"range_basis\":\"\"}],\"direct_answer\":0.52,\"confidence\":0.3,\"derivation\":\"person 172 px = 1.87 m at 13.77 m -> f=1266 px, 0.01088 m/px; center 103.5->113 px over frames 27-33 (0.2 s) = 47 px/s -> 0.52 m/s\"},{\"qid\":1097,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"fire hydrant\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"person\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":1.87,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"person\",\"obs\":[],\"depth_name\":\"human\",\"range_m\":null,\"range_basis\":\"\"},{\"role\":\"target\",\"object\":\"fire hydrant\",\"obs\":[{\"frame\":41,\"point\":null,\"extent\":[[75,597],[75,704]],\"box\":[49,597,108,704]},{\"frame\":72,\"point\":null,\"extent\":[[75,597],[75,704]],\"box\":[49,597,108,704]},{\"frame\":88,\"point\":null,\"extent\":[[75,597],[75,704]],\"box\":[49,597,108,704]}],\"depth_name\":\"fire_hydrant\",\"range_m\":null,\"range_basis\":\"\"}],\"direct_answer\":1.06,\"confidence\":0.6,\"derivation\":\"f=1266 px from person 172 px at 13.77 m; hydrant 107 px at 12.565 m -> 1.06 m\"},{\"qid\":1098,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"streetlight\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"person\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":1.87,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"person\",\"obs\":[],\"depth_name\":\"human\",\"range_m\":null,\"range_basis\":\"\"},{\"role\":\"target\",\"object\":\"streetlight\",\"obs\":[{\"frame\":41,\"point\":null,\"extent\":[[155,260],[149,705]],\"box\":[124,260,186,705]},{\"frame\":72,\"point\":null,\"extent\":[[155,260],[149,705]],\"box\":[124,260,186,705]},{\"frame\":88,\"point\":null,\"extent\":[[155,260],[149,705]],\"box\":[124,260,186,705]}],\"depth_name\":\"streetlight\",\"range_m\":null,\"range_basis\":\"\"}],\"direct_answer\":4.33,\"confidence\":0.6,\"derivation\":\"f=1266 px; streetlight 445 px at 12.325 m -> 4.33 m\"}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 1096,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "person"
+      ],
+      "dimension": "",
+      "time": 1.0,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "person"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": 1.87,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Person pauses near 0.9 s and starts walking again around 1.0 s."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "person",
+      "obs": [
+       {
+        "frame": 29,
+        "point": null,
+        "extent": [
+         [
+          104,
+          514
+         ],
+         [
+          104,
+          686
+         ]
+        ],
+        "box": [
+         88,
+         514,
+         121,
+         686
+        ]
+       },
+       {
+        "frame": 41,
+        "point": null,
+        "extent": [
+         [
+          122,
+          514
+         ],
+         [
+          122,
+          686
+         ]
+        ],
+        "box": [
+         104,
+         514,
+         137,
+         686
+        ]
+       },
+       {
+        "frame": 72,
+        "point": null,
+        "extent": [
+         [
+          172,
+          514
+         ],
+         [
+          172,
+          686
+         ]
+        ],
+        "box": [
+         156,
+         514,
+         189,
+         686
+        ]
+       }
+      ],
+      "depth_name": "human",
+      "range_m": null,
+      "range_basis": ""
+     },
+     {
+      "role": "target",
+      "object": "person",
+      "obs": [
+       {
+        "frame": 25,
+        "point": [
+         102,
+         600
+        ],
+        "extent": null,
+        "box": [
+         84,
+         514,
+         120,
+         686
+        ]
+       },
+       {
+        "frame": 27,
+        "point": [
+         103.5,
+         600
+        ],
+        "extent": null,
+        "box": [
+         86,
+         514,
+         121,
+         686
+        ]
+       },
+       {
+        "frame": 28,
+        "point": [
+         104,
+         600
+        ],
+        "extent": null,
+        "box": [
+         87,
+         514,
+         121,
+         686
+        ]
+       },
+       {
+        "frame": 29,
+        "point": [
+         104.5,
+         600
+        ],
+        "extent": null,
+        "box": [
+         88,
+         514,
+         121,
+         686
+        ]
+       },
+       {
+        "frame": 30,
+        "point": [
+         107,
+         600
+        ],
+        "extent": null,
+        "box": [
+         88,
+         514,
+         126,
+         686
+        ]
+       },
+       {
+        "frame": 31,
+        "point": [
+         111,
+         600
+        ],
+        "extent": null,
+        "box": [
+         88,
+         514,
+         134,
+         686
+        ]
+       },
+       {
+        "frame": 32,
+        "point": [
+         112.5,
+         600
+        ],
+        "extent": null,
+        "box": [
+         89,
+         514,
+         136,
+         686
+        ]
+       },
+       {
+        "frame": 33,
+        "point": [
+         113,
+         600.5
+        ],
+        "extent": null,
+        "box": [
+         89,
+         515,
+         137,
+         686
+        ]
+       },
+       {
+        "frame": 35,
+        "point": [
+         114,
+         601
+        ],
+        "extent": null,
+        "box": [
+         90,
+         516,
+         138,
+         686
+        ]
+       }
+      ],
+      "depth_name": "human",
+      "range_m": null,
+      "range_basis": ""
+     }
+    ],
+    "direct_answer": 0.52,
+    "confidence": 0.3,
+    "derivation": "person 172 px = 1.87 m at 13.77 m -> f=1266 px, 0.01088 m/px; center 103.5->113 px over frames 27-33 (0.2 s) = 47 px/s -> 0.52 m/s"
+   },
+   {
+    "qid": 1097,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "fire hydrant"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "person"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": 1.87,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "person",
+      "obs": [],
+      "depth_name": "human",
+      "range_m": null,
+      "range_basis": ""
+     },
+     {
+      "role": "target",
+      "object": "fire hydrant",
+      "obs": [
+       {
+        "frame": 41,
+        "point": null,
+        "extent": [
+         [
+          75,
+          597
+         ],
+         [
+          75,
+          704
+         ]
+        ],
+        "box": [
+         49,
+         597,
+         108,
+         704
+        ]
+       },
+       {
+        "frame": 72,
+        "point": null,
+        "extent": [
+         [
+          75,
+          597
+         ],
+         [
+          75,
+          704
+         ]
+        ],
+        "box": [
+         49,
+         597,
+         108,
+         704
+        ]
+       },
+       {
+        "frame": 88,
+        "point": null,
+        "extent": [
+         [
+          75,
+          597
+         ],
+         [
+          75,
+          704
+         ]
+        ],
+        "box": [
+         49,
+         597,
+         108,
+         704
+        ]
+       }
+      ],
+      "depth_name": "fire_hydrant",
+      "range_m": null,
+      "range_basis": ""
+     }
+    ],
+    "direct_answer": 1.06,
+    "confidence": 0.6,
+    "derivation": "f=1266 px from person 172 px at 13.77 m; hydrant 107 px at 12.565 m -> 1.06 m"
+   },
+   {
+    "qid": 1098,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "streetlight"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "person"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": 1.87,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "person",
+      "obs": [],
+      "depth_name": "human",
+      "range_m": null,
+      "range_basis": ""
+     },
+     {
+      "role": "target",
+      "object": "streetlight",
+      "obs": [
+       {
+        "frame": 41,
+        "point": null,
+        "extent": [
+         [
+          155,
+          260
+         ],
+         [
+          149,
+          705
+         ]
+        ],
+        "box": [
+         124,
+         260,
+         186,
+         705
+        ]
+       },
+       {
+        "frame": 72,
+        "point": null,
+        "extent": [
+         [
+          155,
+          260
+         ],
+         [
+          149,
+          705
+         ]
+        ],
+        "box": [
+         124,
+         260,
+         186,
+         705
+        ]
+       },
+       {
+        "frame": 88,
+        "point": null,
+        "extent": [
+         [
+          155,
+          260
+         ],
+         [
+          149,
+          705
+         ]
+        ],
+        "box": [
+         124,
+         260,
+         186,
+         705
+        ]
+       }
+      ],
+      "depth_name": "streetlight",
+      "range_m": null,
+      "range_basis": ""
+     }
+    ],
+    "direct_answer": 4.33,
+    "confidence": 0.6,
+    "derivation": "f=1266 px; streetlight 445 px at 12.325 m -> 4.33 m"
+   }
+  ]
+ }
+}

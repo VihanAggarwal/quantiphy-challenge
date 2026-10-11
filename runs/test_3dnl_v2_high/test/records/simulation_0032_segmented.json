@@ -1,0 +1,955 @@
+{
+ "video_id": "simulation_0032_segmented",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfuoMdaA8ayCuZdbL7Eqg",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 44,
+  "prompt_version": "v2",
+  "max_side": 854
+ },
+ "ts": "2026-10-11T04:19:09+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_01U8U2AUc3A3tdvG9FuKjK3c",
+ "custom_id": "simulation_0032_segmented",
+ "usage": {
+  "input_tokens": 26434,
+  "output_tokens": 5878,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 5593,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.112207,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0032_segmented",
+  "fps": 30.0,
+  "fps_from_container": false,
+  "video_type": "A3MX",
+  "n_frames_total": 130,
+  "scale": 0.44479166666666664,
+  "image_size": [
+   1920,
+   1079
+  ],
+  "frames": [
+   0,
+   9,
+   17,
+   26,
+   27,
+   28,
+   29,
+   30,
+   31,
+   32,
+   34,
+   42,
+   43,
+   44,
+   45,
+   46,
+   47,
+   52,
+   57,
+   58,
+   59,
+   60,
+   61,
+   62,
+   63,
+   69,
+   73,
+   74,
+   75,
+   76,
+   77,
+   78,
+   86,
+   88,
+   89,
+   90,
+   91,
+   92,
+   93,
+   95,
+   103,
+   112,
+   120,
+   129
+  ],
+  "questions": [
+   {
+    "qid": 1711,
+    "target_unit": "m",
+    "prior": "gravity acc = 9.8m/s^2",
+    "depth_info": "t=1s, distance_ball_camera = 13.7978 m\nt=2s, distance_ball_camera = 13.8028 m\nt=1.5s, distance_orange_car_camera = 10.1755m\nt=2s, distance_orange_car_camera = 10.4022m\nt=2.5s, distance_green_car_camera = 4.3204m\nt=3s, distance_green_car_camera = 6.9142m"
+   },
+   {
+    "qid": 1712,
+    "target_unit": "m/s",
+    "prior": "gravity acc = 9.8m/s^2",
+    "depth_info": "t=1s, distance_ball_camera = 13.7978 m\nt=2s, distance_ball_camera = 13.8028 m\nt=1.5s, distance_orange_car_camera = 10.1755m\nt=2s, distance_orange_car_camera = 10.4022m\nt=2.5s, distance_green_car_camera = 4.3204m\nt=3s, distance_green_car_camera = 6.9142m"
+   },
+   {
+    "qid": 1713,
+    "target_unit": "m",
+    "prior": "gravity acc = 9.8m/s^2",
+    "depth_info": "t=1s, distance_ball_camera = 13.7978 m\nt=2s, distance_ball_camera = 13.8028 m\nt=1.5s, distance_orange_car_camera = 10.1755m\nt=2s, distance_orange_car_camera = 10.4022m\nt=2.5s, distance_green_car_camera = 4.3204m\nt=3s, distance_green_car_camera = 6.9142m"
+   },
+   {
+    "qid": 1714,
+    "target_unit": "m/s^2",
+    "prior": "gravity acc = 9.8m/s^2",
+    "depth_info": "t=1s, distance_ball_camera = 13.7978 m\nt=2s, distance_ball_camera = 13.8028 m\nt=1.5s, distance_orange_car_camera = 10.1755m\nt=2s, distance_orange_car_camera = 10.4022m\nt=2.5s, distance_green_car_camera = 4.3204m\nt=3s, distance_green_car_camera = 6.9142m"
+   },
+   {
+    "qid": 1715,
+    "target_unit": "m/s",
+    "prior": "gravity acc = 9.8m/s^2",
+    "depth_info": "t=1s, distance_ball_camera = 13.7978 m\nt=2s, distance_ball_camera = 13.8028 m\nt=1.5s, distance_orange_car_camera = 10.1755m\nt=2s, distance_orange_car_camera = 10.4022m\nt=2.5s, distance_green_car_camera = 4.3204m\nt=3s, distance_green_car_camera = 6.9142m"
+   }
+  ],
+  "prompt_version": "v2"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":1711,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"person\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"ball\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":9.8,\"unit\":\"\"},\"depth\":[],\"notes\":\"Person distance not given; assumed at about the ball's depth (ball released from his hands, ball depth nearly constant).\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"ball\",\"obs\":[{\"frame\":26,\"point\":[514,233],\"extent\":null,\"box\":[506.5,225.5,521.5,240.5]},{\"frame\":27,\"point\":[510,231],\"extent\":null,\"box\":[502.5,223.5,517.5,238.5]},{\"frame\":28,\"point\":[506,228],\"extent\":null,\"box\":[498.5,220.5,513.5,235.5]},{\"frame\":29,\"point\":[501,226],\"extent\":null,\"box\":[493.5,218.5,508.5,233.5]},{\"frame\":30,\"point\":[496.5,223.5],\"extent\":null,\"box\":[489,216,504,231]},{\"frame\":31,\"point\":[492,221.5],\"extent\":null,\"box\":[484.5,214,499.5,229]},{\"frame\":32,\"point\":[488,219.5],\"extent\":null,\"box\":[480.5,212,495.5,227]},{\"frame\":34,\"point\":[478.5,215.5],\"extent\":null,\"box\":[471,208,486,223]},{\"frame\":42,\"point\":[438,204],\"extent\":null,\"box\":[430.5,196.5,445.5,211.5]},{\"frame\":43,\"point\":[432.5,203],\"extent\":null,\"box\":[425,195.5,440,210.5]},{\"frame\":44,\"point\":[428,202],\"extent\":null,\"box\":[420.5,194.5,435.5,209.5]},{\"frame\":45,\"point\":[423,201.5],\"extent\":null,\"box\":[415.5,194,430.5,209]},{\"frame\":46,\"point\":[418,201],\"extent\":null,\"box\":[410.5,193.5,425.5,208.5]},{\"frame\":47,\"point\":[413,200.5],\"extent\":null,\"box\":[405.5,193,420.5,208]},{\"frame\":52,\"point\":[389,199],\"extent\":null,\"box\":[381.5,191.5,396.5,206.5]},{\"frame\":57,\"point\":[367.5,198.5],\"extent\":null,\"box\":[360,191,375,206]},{\"frame\":58,\"point\":[363,199],\"extent\":null,\"box\":[355.5,191.5,370.5,206.5]},{\"frame\":59,\"point\":[359,199],\"extent\":null,\"box\":[351.5,191.5,366.5,206.5]},{\"frame\":60,\"point\":[355.5,199],\"extent\":null,\"box\":[348,191.5,363,206.5]},{\"frame\":61,\"point\":[352.5,199.5],\"extent\":null,\"box\":[345,192,360,207]},{\"frame\":62,\"point\":[349,199.5],\"extent\":null,\"box\":[341.5,192,356.5,207]},{\"frame\":63,\"point\":[346,200],\"extent\":null,\"box\":[338.5,192.5,353.5,207.5]},{\"frame\":69,\"point\":[330.5,204.5],\"extent\":null,\"box\":[323,197,338,212]},{\"frame\":73,\"point\":[323.5,208],\"extent\":null,\"box\":[316,200.5,331,215.5]},{\"frame\":74,\"point\":[322,209],\"extent\":null,\"box\":[314.5,201.5,329.5,216.5]},{\"frame\":75,\"point\":[321,210],\"extent\":null,\"box\":[313.5,202.5,328.5,217.5]},{\"frame\":76,\"point\":[320.5,210.5],\"extent\":null,\"box\":[313,203,328,218]},{\"frame\":77,\"point\":[319.5,211.5],\"extent\":null,\"box\":[312,204,327,219]},{\"frame\":78,\"point\":[319,212],\"extent\":null,\"box\":[311.5,204.5,326.5,219.5]}],\"depth_name\":\"ball\",\"range_m\":null,\"range_basis\":\"\"},{\"role\":\"target\",\"object\":\"person\",\"obs\":[{\"frame\":60,\"point\":null,\"extent\":[[547,258],[546,355]],\"box\":[534,258,561,355]},{\"frame\":63,\"point\":null,\"extent\":[[547,258],[546,355.5]],\"box\":[534,258,561,356]},{\"frame\":75,\"point\":null,\"extent\":[[547,258],[546,355]],\"box\":[534,258,561,355]},{\"frame\":90,\"point\":null,\"extent\":[[547,258],[546,355]],\"box\":[534,258,561,355]}],\"depth_name\":\"\",\"range_m\":13.8,\"range_basis\":\"Ball leaves his hands at ~13.8 m and its depth stays ~constant, so the shooter is at about the same depth.\"}],\"direct_answer\":15.3,\"confidence\":0.3,\"derivation\":\"ball parabola a=0.0345 px/frame^2 -> 62 px/s^2 = 9.8 m/s^2 -> 0.158 m/px (f~87 px at 13.8 m); person 97 px -> 15.3 m\"},{\"qid\":1712,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"ball\"],\"dimension\":\"\",\"time\":0.867,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"ball\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":9.8,\"unit\":\"\"},\"depth\":[],\"notes\":\"Initial velocity taken at release (~frame 26, t=0.867 s).\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"ball\",\"obs\":[],\"depth_name\":\"ball\",\"range_m\":null,\"range_basis\":\"\"},{\"role\":\"target\",\"object\":\"ball\",\"obs\":[],\"depth_name\":\"ball\",\"range_m\":null,\"range_basis\":\"\"}],\"direct_answer\":23.0,\"confidence\":0.3,\"derivation\":\"release frames 26-30: dx -17.5, dy -9.5 px in 4 frames -> ~145 px/s x 0.158 m/px -> ~23 m/s\"},{\"qid\":1713,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"ball\"],\"dimension\":\"diameter\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"ball\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":9.8,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"ball\",\"obs\":[],\"depth_name\":\"ball\",\"range_m\":null,\"range_basis\":\"\"},{\"role\":\"target\",\"object\":\"ball\",\"obs\":[{\"frame\":30,\"point\":null,\"extent\":[[489,223.5],[504,223.5]],\"box\":[489,216,504,231]},{\"frame\":42,\"point\":null,\"extent\":[[430.5,204],[445.5,204]],\"box\":[430.5,196.5,445.5,211.5]},{\"frame\":60,\"point\":null,\"extent\":[[348,199],[363,199]],\"box\":[348,191.5,363,206.5]},{\"frame\":69,\"point\":null,\"extent\":[[323,204.5],[338,204.5]],\"box\":[323,197,338,212]}],\"depth_name\":\"ball\",\"range_m\":null,\"range_basis\":\"\"}],\"direct_answer\":2.37,\"confidence\":0.35,\"derivation\":\"ball 15 px x 0.158 m/px (gravity scale at 13.8 m) -> 2.37 m\"},{\"qid\":1714,\"spec\":{\"target\":{\"kind\":\"acceleration\",\"objects\":[\"orange car\"],\"dimension\":\"\",\"time\":2.0,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s^2\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"ball\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":9.8,\"unit\":\"\"},\"depth\":[],\"notes\":\"Orange car is not visible in the segmented frames; answer is a guess.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"ball\",\"obs\":[],\"depth_name\":\"ball\",\"range_m\":null,\"range_basis\":\"\"},{\"role\":\"target\",\"object\":\"orange car\",\"obs\":[],\"depth_name\":\"orange_car\",\"range_m\":null,\"range_basis\":\"\"}],\"direct_answer\":2.0,\"confidence\":0.05,\"derivation\":\"car not visible; guess\"},{\"qid\":1715,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"green car\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"ball\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":9.8,\"unit\":\"\"},\"depth\":[],\"notes\":\"Green car not visible in segmented frames; estimate from radial depth change only.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"ball\",\"obs\":[],\"depth_name\":\"ball\",\"range_m\":null,\"range_basis\":\"\"},{\"role\":\"target\",\"object\":\"green car\",\"obs\":[],\"depth_name\":\"green_car\",\"range_m\":null,\"range_basis\":\"\"}],\"direct_answer\":6.0,\"confidence\":0.1,\"derivation\":\"depth 4.32->6.91 m in 0.5 s -> radial >=5.2 m/s; car not visible, ~6 m/s\"}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 1711,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "person"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "ball"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": 9.8,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Person distance not given; assumed at about the ball's depth (ball released from his hands, ball depth nearly constant)."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "ball",
+      "obs": [
+       {
+        "frame": 26,
+        "point": [
+         514,
+         233
+        ],
+        "extent": null,
+        "box": [
+         506.5,
+         225.5,
+         521.5,
+         240.5
+        ]
+       },
+       {
+        "frame": 27,
+        "point": [
+         510,
+         231
+        ],
+        "extent": null,
+        "box": [
+         502.5,
+         223.5,
+         517.5,
+         238.5
+        ]
+       },
+       {
+        "frame": 28,
+        "point": [
+         506,
+         228
+        ],
+        "extent": null,
+        "box": [
+         498.5,
+         220.5,
+         513.5,
+         235.5
+        ]
+       },
+       {
+        "frame": 29,
+        "point": [
+         501,
+         226
+        ],
+        "extent": null,
+        "box": [
+         493.5,
+         218.5,
+         508.5,
+         233.5
+        ]
+       },
+       {
+        "frame": 30,
+        "point": [
+         496.5,
+         223.5
+        ],
+        "extent": null,
+        "box": [
+         489,
+         216,
+         504,
+         231
+        ]
+       },
+       {
+        "frame": 31,
+        "point": [
+         492,
+         221.5
+        ],
+        "extent": null,
+        "box": [
+         484.5,
+         214,
+         499.5,
+         229
+        ]
+       },
+       {
+        "frame": 32,
+        "point": [
+         488,
+         219.5
+        ],
+        "extent": null,
+        "box": [
+         480.5,
+         212,
+         495.5,
+         227
+        ]
+       },
+       {
+        "frame": 34,
+        "point": [
+         478.5,
+         215.5
+        ],
+        "extent": null,
+        "box": [
+         471,
+         208,
+         486,
+         223
+        ]
+       },
+       {
+        "frame": 42,
+        "point": [
+         438,
+         204
+        ],
+        "extent": null,
+        "box": [
+         430.5,
+         196.5,
+         445.5,
+         211.5
+        ]
+       },
+       {
+        "frame": 43,
+        "point": [
+         432.5,
+         203
+        ],
+        "extent": null,
+        "box": [
+         425,
+         195.5,
+         440,
+         210.5
+        ]
+       },
+       {
+        "frame": 44,
+        "point": [
+         428,
+         202
+        ],
+        "extent": null,
+        "box": [
+         420.5,
+         194.5,
+         435.5,
+         209.5
+        ]
+       },
+       {
+        "frame": 45,
+        "point": [
+         423,
+         201.5
+        ],
+        "extent": null,
+        "box": [
+         415.5,
+         194,
+         430.5,
+         209
+        ]
+       },
+       {
+        "frame": 46,
+        "point": [
+         418,
+         201
+        ],
+        "extent": null,
+        "box": [
+         410.5,
+         193.5,
+         425.5,
+         208.5
+        ]
+       },
+       {
+        "frame": 47,
+        "point": [
+         413,
+         200.5
+        ],
+        "extent": null,
+        "box": [
+         405.5,
+         193,
+         420.5,
+         208
+        ]
+       },
+       {
+        "frame": 52,
+        "point": [
+         389,
+         199
+        ],
+        "extent": null,
+        "box": [
+         381.5,
+         191.5,
+         396.5,
+         206.5
+        ]
+       },
+       {
+        "frame": 57,
+        "point": [
+         367.5,
+         198.5
+        ],
+        "extent": null,
+        "box": [
+         360,
+         191,
+         375,
+         206
+        ]
+       },
+       {
+        "frame": 58,
+        "point": [
+         363,
+         199
+        ],
+        "extent": null,
+        "box": [
+         355.5,
+         191.5,
+         370.5,
+         206.5
+        ]
+       },
+       {
+        "frame": 59,
+        "point": [
+         359,
+         199
+        ],
+        "extent": null,
+        "box": [
+         351.5,
+         191.5,
+         366.5,
+         206.5
+        ]
+       },
+       {
+        "frame": 60,
+        "point": [
+         355.5,
+         199
+        ],
+        "extent": null,
+        "box": [
+         348,
+         191.5,
+         363,
+         206.5
+        ]
+       },
+       {
+        "frame": 61,
+        "point": [
+         352.5,
+         199.5
+        ],
+        "extent": null,
+        "box": [
+         345,
+         192,
+         360,
+         207
+        ]
+       },
+       {
+        "frame": 62,
+        "point": [
+         349,
+         199.5
+        ],
+        "extent": null,
+        "box": [
+         341.5,
+         192,
+         356.5,
+         207
+        ]
+       },
+       {
+        "frame": 63,
+        "point": [
+         346,
+         200
+        ],
+        "extent": null,
+        "box": [
+         338.5,
+         192.5,
+         353.5,
+         207.5
+        ]
+       },
+       {
+        "frame": 69,
+        "point": [
+         330.5,
+         204.5
+        ],
+        "extent": null,
+        "box": [
+         323,
+         197,
+         338,
+         212
+        ]
+       },
+       {
+        "frame": 73,
+        "point": [
+         323.5,
+         208
+        ],
+        "extent": null,
+        "box": [
+         316,
+         200.5,
+         331,
+         215.5
+        ]
+       },
+       {
+        "frame": 74,
+        "point": [
+         322,
+         209
+        ],
+        "extent": null,
+        "box": [
+         314.5,
+         201.5,
+         329.5,
+         216.5
+        ]
+       },
+       {
+        "frame": 75,
+        "point": [
+         321,
+         210
+        ],
+        "extent": null,
+        "box": [
+         313.5,
+         202.5,
+         328.5,
+         217.5
+        ]
+       },
+       {
+        "frame": 76,
+        "point": [
+         320.5,
+         210.5
+        ],
+        "extent": null,
+        "box": [
+         313,
+         203,
+         328,
+         218
+        ]
+       },
+       {
+        "frame": 77,
+        "point": [
+         319.5,
+         211.5
+        ],
+        "extent": null,
+        "box": [
+         312,
+         204,
+         327,
+         219
+        ]
+       },
+       {
+        "frame": 78,
+        "point": [
+         319,
+         212
+        ],
+        "extent": null,
+        "box": [
+         311.5,
+         204.5,
+         326.5,
+         219.5
+        ]
+       }
+      ],
+      "depth_name": "ball",
+      "range_m": null,
+      "range_basis": ""
+     },
+     {
+      "role": "target",
+      "object": "person",
+      "obs": [
+       {
+        "frame": 60,
+        "point": null,
+        "extent": [
+         [
+          547,
+          258
+         ],
+         [
+          546,
+          355
+         ]
+        ],
+        "box": [
+         534,
+         258,
+         561,
+         355
+        ]
+       },
+       {
+        "frame": 63,
+        "point": null,
+        "extent": [
+         [
+          547,
+          258
+         ],
+         [
+          546,
+          355.5
+         ]
+        ],
+        "box": [
+         534,
+         258,
+         561,
+         356
+        ]
+       },
+       {
+        "frame": 75,
+        "point": null,
+        "extent": [
+         [
+          547,
+          258
+         ],
+         [
+          546,
+          355
+         ]
+        ],
+        "box": [
+         534,
+         258,
+         561,
+         355
+        ]
+       },
+       {
+        "frame": 90,
+        "point": null,
+        "extent": [
+         [
+          547,
+          258
+         ],
+         [
+          546,
+          355
+         ]
+        ],
+        "box": [
+         534,
+         258,
+         561,
+         355
+        ]
+       }
+      ],
+      "depth_name": "",
+      "range_m": 13.8,
+      "range_basis": "Ball leaves his hands at ~13.8 m and its depth stays ~constant, so the shooter is at about the same depth."
+     }
+    ],
+    "direct_answer": 15.3,
+    "confidence": 0.3,
+    "derivation": "ball parabola a=0.0345 px/frame^2 -> 62 px/s^2 = 9.8 m/s^2 -> 0.158 m/px (f~87 px at 13.8 m); person 97 px -> 15.3 m"
+   },
+   {
+    "qid": 1712,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "ball"
+      ],
+      "dimension": "",
+      "time": 0.867,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "ball"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": 9.8,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Initial velocity taken at release (~frame 26, t=0.867 s)."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "ball",
+      "obs": [],
+      "depth_name": "ball",
+      "range_m": null,
+      "range_basis": ""
+     },
+     {
+      "role": "target",
+      "object": "ball",
+      "obs": [],
+      "depth_name": "ball",
+      "range_m": null,
+      "range_basis": ""
+     }
+    ],
+    "direct_answer": 23.0,
+    "confidence": 0.3,
+    "derivation": "release frames 26-30: dx -17.5, dy -9.5 px in 4 frames -> ~145 px/s x 0.158 m/px -> ~23 m/s"
+   },
+   {
+    "qid": 1713,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "ball"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "ball"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": 9.8,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "ball",
+      "obs": [],
+      "depth_name": "ball",
+      "range_m": null,
+      "range_basis": ""
+     },
+     {
+      "role": "target",
+      "object": "ball",
+      "obs": [
+       {
+        "frame": 30,
+        "point": null,
+        "extent": [
+         [
+          489,
+          223.5
+         ],
+         [
+          504,
+          223.5
+         ]
+        ],
+        "box": [
+         489,
+         216,
+         504,
+         231
+        ]
+       },
+       {
+        "frame": 42,
+        "point": null,
+        "extent": [
+         [
+          430.5,
+          204
+         ],
+         [
+          445.5,
+          204
+         ]
+        ],
+        "box": [
+         430.5,
+         196.5,
+         445.5,
+         211.5
+        ]
+       },
+       {
+        "frame": 60,
+        "point": null,
+        "extent": [
+         [
+          348,
+          199
+         ],
+         [
+          363,
+          199
+         ]
+        ],
+        "box": [
+         348,
+         191.5,
+         363,
+         206.5
+        ]
+       },
+       {
+        "frame": 69,
+        "point": null,
+        "extent": [
+         [
+          323,
+          204.5
+         ],
+         [
+          338,
+          204.5
+         ]
+        ],
+        "box": [
+         323,
+         197,
+         338,
+         212
+        ]
+       }
+      ],
+      "depth_name": "ball",
+      "range_m": null,
+      "range_basis": ""
+     }
+    ],
+    "direct_answer": 2.37,
+    "confidence": 0.35,
+    "derivation": "ball 15 px x 0.158 m/px (gravity scale at 13.8 m) -> 2.37 m"
+   },
+   {
+    "qid": 1714,
+    "spec": {
+     "target": {
+      "kind": "acceleration",
+      "objects": [
+       "orange car"
+      ],
+      "dimension": "",
+      "time": 2.0,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s^2"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "ball"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": 9.8,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Orange car is not visible in the segmented frames; answer is a guess."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "ball",
+      "obs": [],
+      "depth_name": "ball",
+      "range_m": null,
+      "range_basis": ""
+     },
+     {
+      "role": "target",
+      "object": "orange car",
+      "obs": [],
+      "depth_name": "orange_car",
+      "range_m": null,
+      "range_basis": ""
+     }
+    ],
+    "direct_answer": 2.0,
+    "confidence": 0.05,
+    "derivation": "car not visible; guess"
+   },
+   {
+    "qid": 1715,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "green car"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "ball"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": 9.8,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Green car not visible in segmented frames; estimate from radial depth change only."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "ball",
+      "obs": [],
+      "depth_name": "ball",
+      "range_m": null,
+      "range_basis": ""
+     },
+     {
+      "role": "target",
+      "object": "green car",
+      "obs": [],
+      "depth_name": "green_car",
+      "range_m": null,
+      "range_basis": ""
+     }
+    ],
+    "direct_answer": 6.0,
+    "confidence": 0.1,
+    "derivation": "depth 4.32->6.91 m in 0.5 s -> radial >=5.2 m/s; car not visible, ~6 m/s"
+   }
+  ]
+ }
+}

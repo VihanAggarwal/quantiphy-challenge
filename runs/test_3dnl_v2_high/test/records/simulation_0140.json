@@ -1,0 +1,992 @@
+{
+ "video_id": "simulation_0140",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfuoNPXLo72orDfEuSj32",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 44,
+  "prompt_version": "v2",
+  "max_side": 854
+ },
+ "ts": "2026-10-11T04:18:06+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_01J8QTVToieV2fdZ5XWS1iT3",
+ "custom_id": "simulation_0140",
+ "usage": {
+  "input_tokens": 26147,
+  "output_tokens": 5538,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 5593,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.108233,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0140",
+  "fps": 24.0,
+  "fps_from_container": false,
+  "video_type": "S3MC",
+  "n_frames_total": 100,
+  "scale": 0.44479166666666664,
+  "image_size": [
+   1920,
+   1079
+  ],
+  "frames": [
+   0,
+   1,
+   2,
+   3,
+   5,
+   7,
+   9,
+   10,
+   11,
+   12,
+   13,
+   14,
+   15,
+   18,
+   20,
+   21,
+   22,
+   23,
+   24,
+   25,
+   26,
+   27,
+   32,
+   33,
+   39,
+   40,
+   44,
+   46,
+   51,
+   53,
+   59,
+   60,
+   66,
+   67,
+   71,
+   73,
+   76,
+   79,
+   83,
+   86,
+   90,
+   92,
+   97,
+   99
+  ],
+  "questions": [
+   {
+    "qid": 1502,
+    "target_unit": "m",
+    "prior": "width of each window frame = 1.48m",
+    "depth_info": "t=0s, distance_bird_camera = 25.328m\nt=0.5s, distance_bird_camera = 24.899m\ndistance_neonsign_camera = 34.5m"
+   },
+   {
+    "qid": 1503,
+    "target_unit": "m",
+    "prior": "width of each window frame = 1.48m",
+    "depth_info": "t=0s, distance_bird_camera = 25.328m\nt=0.5s, distance_bird_camera = 24.899m\ndistance_neonsign_camera = 34.5m"
+   },
+   {
+    "qid": 1504,
+    "target_unit": "m",
+    "prior": "width of each window frame = 1.48m",
+    "depth_info": "t=0s, distance_bird_camera = 25.328m\nt=0.5s, distance_bird_camera = 24.899m\ndistance_neonsign_camera = 34.5m"
+   },
+   {
+    "qid": 1505,
+    "target_unit": "m",
+    "prior": "width of each window frame = 1.48m",
+    "depth_info": "t=0s, distance_bird_camera = 25.328m\nt=0.5s, distance_bird_camera = 24.899m\ndistance_neonsign_camera = 34.5m"
+   },
+   {
+    "qid": 1506,
+    "target_unit": "m",
+    "prior": "width of each window frame = 1.48m",
+    "depth_info": "t=0s, distance_bird_camera = 25.328m\nt=0.5s, distance_bird_camera = 24.899m\ndistance_neonsign_camera = 34.5m"
+   },
+   {
+    "qid": 1507,
+    "target_unit": "m/s",
+    "prior": "width of each window frame = 1.48m",
+    "depth_info": "t=0s, distance_bird_camera = 25.328m\nt=0.5s, distance_bird_camera = 24.899m\ndistance_neonsign_camera = 34.5m"
+   }
+  ],
+  "prompt_version": "v2"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":1502,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"window frame\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"window frame\"],\"dimension\":\"width\",\"time\":null,\"window\":null,\"axis\":\"horizontal\",\"value_si\":1.48,\"unit\":\"\"},\"depth\":[],\"notes\":\"Window frames are on the back wall with the neon sign.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"window frame\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[379.5,201.5],[429.5,201.5]],\"box\":[379.5,167.5,429.5,236.5]},{\"frame\":24,\"point\":null,\"extent\":[[379.5,201.5],[429.5,201.5]],\"box\":[379.5,167.5,429.5,236.5]},{\"frame\":60,\"point\":null,\"extent\":[[379.5,201.5],[429.5,201.5]],\"box\":[379.5,167.5,429.5,236.5]}],\"depth_name\":\"neonsign\",\"range_m\":null,\"range_basis\":\"\"},{\"role\":\"target\",\"object\":\"window frame height\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[404.5,167.5],[404.5,236.5]],\"box\":[379.5,167.5,429.5,236.5]},{\"frame\":24,\"point\":null,\"extent\":[[404.5,167.5],[404.5,236.5]],\"box\":[379.5,167.5,429.5,236.5]},{\"frame\":60,\"point\":null,\"extent\":[[404.5,167.5],[404.5,236.5]],\"box\":[379.5,167.5,429.5,236.5]}],\"depth_name\":\"neonsign\",\"range_m\":null,\"range_basis\":\"\"}],\"direct_answer\":2.04,\"confidence\":0.6,\"derivation\":\"window 50 px = 1.48 m -> 0.0296 m/px; height 69 px -> 2.04 m\"},{\"qid\":1503,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"neon sign\"],\"dimension\":\"width\",\"time\":null,\"window\":null,\"axis\":\"horizontal\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"window frame\"],\"dimension\":\"width\",\"time\":null,\"window\":null,\"axis\":\"horizontal\",\"value_si\":1.48,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"window frame\",\"obs\":[],\"depth_name\":\"neonsign\",\"range_m\":null,\"range_basis\":\"\"},{\"role\":\"target\",\"object\":\"neon sign width\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[284.5,139.5],[594.5,139.5]],\"box\":[284.5,118.5,594.5,160.5]},{\"frame\":24,\"point\":null,\"extent\":[[284.5,139.5],[594.5,139.5]],\"box\":[284.5,118.5,594.5,160.5]},{\"frame\":60,\"point\":null,\"extent\":[[284.5,139.5],[594.5,139.5]],\"box\":[284.5,118.5,594.5,160.5]}],\"depth_name\":\"neonsign\",\"range_m\":null,\"range_basis\":\"\"}],\"direct_answer\":9.18,\"confidence\":0.6,\"derivation\":\"0.0296 m/px; sign 310 px -> 9.18 m\"},{\"qid\":1504,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"neon sign\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"window frame\"],\"dimension\":\"width\",\"time\":null,\"window\":null,\"axis\":\"horizontal\",\"value_si\":1.48,\"unit\":\"\"},\"depth\":[],\"notes\":\"Letter height of the sign.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"window frame\",\"obs\":[],\"depth_name\":\"neonsign\",\"range_m\":null,\"range_basis\":\"\"},{\"role\":\"target\",\"object\":\"neon sign height\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[320.5,118.5],[320.5,160.5]],\"box\":[284.5,118.5,594.5,160.5]},{\"frame\":24,\"point\":null,\"extent\":[[320.5,118.5],[320.5,160.5]],\"box\":[284.5,118.5,594.5,160.5]},{\"frame\":60,\"point\":null,\"extent\":[[320.5,118.5],[320.5,160.5]],\"box\":[284.5,118.5,594.5,160.5]}],\"depth_name\":\"neonsign\",\"range_m\":null,\"range_basis\":\"\"}],\"direct_answer\":1.24,\"confidence\":0.5,\"derivation\":\"0.0296 m/px; letters 42 px -> 1.24 m\"},{\"qid\":1505,\"spec\":{\"target\":{\"kind\":\"distance\",\"objects\":[\"bird flight path\",\"wall\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"window frame\"],\"dimension\":\"width\",\"time\":null,\"window\":null,\"axis\":\"horizontal\",\"value_si\":1.48,\"unit\":\"\"},\"depth\":[],\"notes\":\"Bird distances are Euclidean; off-axis correction gives bird depth ~24.2 m, wall at 34.5 m.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"window frame\",\"obs\":[],\"depth_name\":\"neonsign\",\"range_m\":null,\"range_basis\":\"\"},{\"role\":\"target\",\"object\":\"bird\",\"obs\":[{\"frame\":5,\"point\":[117,357],\"extent\":null,\"box\":[111,352,123,362]},{\"frame\":7,\"point\":[122,346],\"extent\":null,\"box\":[116,341,128,351]},{\"frame\":10,\"point\":[140,328],\"extent\":null,\"box\":[134,323,146,333]},{\"frame\":12,\"point\":[150,315],\"extent\":null,\"box\":[144,310,156,320]},{\"frame\":14,\"point\":[155,307],\"extent\":null,\"box\":[149,302,161,312]},{\"frame\":18,\"point\":[182,290],\"extent\":null,\"box\":[176,285,188,295]},{\"frame\":20,\"point\":[195,280],\"extent\":null,\"box\":[189,275,201,285]},{\"frame\":22,\"point\":[204,268],\"extent\":null,\"box\":[198,263,210,273]},{\"frame\":24,\"point\":[213,258],\"extent\":null,\"box\":[207,253,219,263]},{\"frame\":26,\"point\":[232,248],\"extent\":null,\"box\":[226,243,238,253]},{\"frame\":32,\"point\":[268,230],\"extent\":null,\"box\":[262,225,274,235]},{\"frame\":40,\"point\":[325,210],\"extent\":null,\"box\":[319,205,331,215]},{\"frame\":46,\"point\":[365,188],\"extent\":null,\"box\":[359,183,371,193]},{\"frame\":51,\"point\":[410,170],\"extent\":null,\"box\":[404,165,416,175]},{\"frame\":60,\"point\":[465,168],\"extent\":null,\"box\":[459,163,471,173]},{\"frame\":66,\"point\":[512,170],\"extent\":null,\"box\":[506,165,518,175]},{\"frame\":71,\"point\":[548,170],\"extent\":null,\"box\":[542,165,554,175]},{\"frame\":79,\"point\":[605,178],\"extent\":null,\"box\":[599,173,611,183]},{\"frame\":90,\"point\":[685,203],\"extent\":null,\"box\":[679,198,691,208]},{\"frame\":92,\"point\":[690,210],\"extent\":null,\"box\":[684,205,696,215]},{\"frame\":99,\"point\":[745,232],\"extent\":null,\"box\":[739,227,751,237]}],\"depth_name\":\"bird\",\"range_m\":null,\"range_basis\":\"\"},{\"role\":\"target2\",\"object\":\"wall\",\"obs\":[],\"depth_name\":\"neonsign\",\"range_m\":null,\"range_basis\":\"\"}],\"direct_answer\":10.3,\"confidence\":0.4,\"derivation\":\"f=1166 px; bird r~330 px off-axis -> depth 25.33/1.04~24.2 m; 34.5-24.2 = 10.3 m\"},{\"qid\":1506,\"spec\":{\"target\":{\"kind\":\"path_length\",\"objects\":[\"bird\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"window frame\"],\"dimension\":\"width\",\"time\":null,\"window\":null,\"axis\":\"horizontal\",\"value_si\":1.48,\"unit\":\"\"},\"depth\":[],\"notes\":\"Whole clip.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"window frame\",\"obs\":[],\"depth_name\":\"neonsign\",\"range_m\":null,\"range_basis\":\"\"},{\"role\":\"target\",\"object\":\"bird\",\"obs\":[],\"depth_name\":\"bird\",\"range_m\":null,\"range_basis\":\"\"}],\"direct_answer\":15.0,\"confidence\":0.35,\"derivation\":\"f=1166; bird depth 24.2 m -> 0.0208 m/px; path ~724 px -> 15.0 m\"},{\"qid\":1507,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"bird\"],\"dimension\":\"\",\"time\":1.0,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"window frame\"],\"dimension\":\"width\",\"time\":null,\"window\":null,\"axis\":\"horizontal\",\"value_si\":1.48,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"window frame\",\"obs\":[],\"depth_name\":\"neonsign\",\"range_m\":null,\"range_basis\":\"\"},{\"role\":\"target\",\"object\":\"bird\",\"obs\":[],\"depth_name\":\"bird\",\"range_m\":null,\"range_basis\":\"\"}],\"direct_answer\":3.9,\"confidence\":0.35,\"derivation\":\"~190 px/s around t=1 s x 0.0208 m/px -> 3.9 m/s\"}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 1502,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "window frame"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "window frame"
+      ],
+      "dimension": "width",
+      "time": null,
+      "window": null,
+      "axis": "horizontal",
+      "value_si": 1.48,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Window frames are on the back wall with the neon sign."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "window frame",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          379.5,
+          201.5
+         ],
+         [
+          429.5,
+          201.5
+         ]
+        ],
+        "box": [
+         379.5,
+         167.5,
+         429.5,
+         236.5
+        ]
+       },
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          379.5,
+          201.5
+         ],
+         [
+          429.5,
+          201.5
+         ]
+        ],
+        "box": [
+         379.5,
+         167.5,
+         429.5,
+         236.5
+        ]
+       },
+       {
+        "frame": 60,
+        "point": null,
+        "extent": [
+         [
+          379.5,
+          201.5
+         ],
+         [
+          429.5,
+          201.5
+         ]
+        ],
+        "box": [
+         379.5,
+         167.5,
+         429.5,
+         236.5
+        ]
+       }
+      ],
+      "depth_name": "neonsign",
+      "range_m": null,
+      "range_basis": ""
+     },
+     {
+      "role": "target",
+      "object": "window frame height",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          404.5,
+          167.5
+         ],
+         [
+          404.5,
+          236.5
+         ]
+        ],
+        "box": [
+         379.5,
+         167.5,
+         429.5,
+         236.5
+        ]
+       },
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          404.5,
+          167.5
+         ],
+         [
+          404.5,
+          236.5
+         ]
+        ],
+        "box": [
+         379.5,
+         167.5,
+         429.5,
+         236.5
+        ]
+       },
+       {
+        "frame": 60,
+        "point": null,
+        "extent": [
+         [
+          404.5,
+          167.5
+         ],
+         [
+          404.5,
+          236.5
+         ]
+        ],
+        "box": [
+         379.5,
+         167.5,
+         429.5,
+         236.5
+        ]
+       }
+      ],
+      "depth_name": "neonsign",
+      "range_m": null,
+      "range_basis": ""
+     }
+    ],
+    "direct_answer": 2.04,
+    "confidence": 0.6,
+    "derivation": "window 50 px = 1.48 m -> 0.0296 m/px; height 69 px -> 2.04 m"
+   },
+   {
+    "qid": 1503,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "neon sign"
+      ],
+      "dimension": "width",
+      "time": null,
+      "window": null,
+      "axis": "horizontal",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "window frame"
+      ],
+      "dimension": "width",
+      "time": null,
+      "window": null,
+      "axis": "horizontal",
+      "value_si": 1.48,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "window frame",
+      "obs": [],
+      "depth_name": "neonsign",
+      "range_m": null,
+      "range_basis": ""
+     },
+     {
+      "role": "target",
+      "object": "neon sign width",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          284.5,
+          139.5
+         ],
+         [
+          594.5,
+          139.5
+         ]
+        ],
+        "box": [
+         284.5,
+         118.5,
+         594.5,
+         160.5
+        ]
+       },
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          284.5,
+          139.5
+         ],
+         [
+          594.5,
+          139.5
+         ]
+        ],
+        "box": [
+         284.5,
+         118.5,
+         594.5,
+         160.5
+        ]
+       },
+       {
+        "frame": 60,
+        "point": null,
+        "extent": [
+         [
+          284.5,
+          139.5
+         ],
+         [
+          594.5,
+          139.5
+         ]
+        ],
+        "box": [
+         284.5,
+         118.5,
+         594.5,
+         160.5
+        ]
+       }
+      ],
+      "depth_name": "neonsign",
+      "range_m": null,
+      "range_basis": ""
+     }
+    ],
+    "direct_answer": 9.18,
+    "confidence": 0.6,
+    "derivation": "0.0296 m/px; sign 310 px -> 9.18 m"
+   },
+   {
+    "qid": 1504,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "neon sign"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "window frame"
+      ],
+      "dimension": "width",
+      "time": null,
+      "window": null,
+      "axis": "horizontal",
+      "value_si": 1.48,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Letter height of the sign."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "window frame",
+      "obs": [],
+      "depth_name": "neonsign",
+      "range_m": null,
+      "range_basis": ""
+     },
+     {
+      "role": "target",
+      "object": "neon sign height",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          320.5,
+          118.5
+         ],
+         [
+          320.5,
+          160.5
+         ]
+        ],
+        "box": [
+         284.5,
+         118.5,
+         594.5,
+         160.5
+        ]
+       },
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          320.5,
+          118.5
+         ],
+         [
+          320.5,
+          160.5
+         ]
+        ],
+        "box": [
+         284.5,
+         118.5,
+         594.5,
+         160.5
+        ]
+       },
+       {
+        "frame": 60,
+        "point": null,
+        "extent": [
+         [
+          320.5,
+          118.5
+         ],
+         [
+          320.5,
+          160.5
+         ]
+        ],
+        "box": [
+         284.5,
+         118.5,
+         594.5,
+         160.5
+        ]
+       }
+      ],
+      "depth_name": "neonsign",
+      "range_m": null,
+      "range_basis": ""
+     }
+    ],
+    "direct_answer": 1.24,
+    "confidence": 0.5,
+    "derivation": "0.0296 m/px; letters 42 px -> 1.24 m"
+   },
+   {
+    "qid": 1505,
+    "spec": {
+     "target": {
+      "kind": "distance",
+      "objects": [
+       "bird flight path",
+       "wall"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "window frame"
+      ],
+      "dimension": "width",
+      "time": null,
+      "window": null,
+      "axis": "horizontal",
+      "value_si": 1.48,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Bird distances are Euclidean; off-axis correction gives bird depth ~24.2 m, wall at 34.5 m."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "window frame",
+      "obs": [],
+      "depth_name": "neonsign",
+      "range_m": null,
+      "range_basis": ""
+     },
+     {
+      "role": "target",
+      "object": "bird",
+      "obs": [
+       {
+        "frame": 5,
+        "point": [
+         117,
+         357
+        ],
+        "extent": null,
+        "box": [
+         111,
+         352,
+         123,
+         362
+        ]
+       },
+       {
+        "frame": 7,
+        "point": [
+         122,
+         346
+        ],
+        "extent": null,
+        "box": [
+         116,
+         341,
+         128,
+         351
+        ]
+       },
+       {
+        "frame": 10,
+        "point": [
+         140,
+         328
+        ],
+        "extent": null,
+        "box": [
+         134,
+         323,
+         146,
+         333
+        ]
+       },
+       {
+        "frame": 12,
+        "point": [
+         150,
+         315
+        ],
+        "extent": null,
+        "box": [
+         144,
+         310,
+         156,
+         320
+        ]
+       },
+       {
+        "frame": 14,
+        "point": [
+         155,
+         307
+        ],
+        "extent": null,
+        "box": [
+         149,
+         302,
+         161,
+         312
+        ]
+       },
+       {
+        "frame": 18,
+        "point": [
+         182,
+         290
+        ],
+        "extent": null,
+        "box": [
+         176,
+         285,
+         188,
+         295
+        ]
+       },
+       {
+        "frame": 20,
+        "point": [
+         195,
+         280
+        ],
+        "extent": null,
+        "box": [
+         189,
+         275,
+         201,
+         285
+        ]
+       },
+       {
+        "frame": 22,
+        "point": [
+         204,
+         268
+        ],
+        "extent": null,
+        "box": [
+         198,
+         263,
+         210,
+         273
+        ]
+       },
+       {
+        "frame": 24,
+        "point": [
+         213,
+         258
+        ],
+        "extent": null,
+        "box": [
+         207,
+         253,
+         219,
+         263
+        ]
+       },
+       {
+        "frame": 26,
+        "point": [
+         232,
+         248
+        ],
+        "extent": null,
+        "box": [
+         226,
+         243,
+         238,
+         253
+        ]
+       },
+       {
+        "frame": 32,
+        "point": [
+         268,
+         230
+        ],
+        "extent": null,
+        "box": [
+         262,
+         225,
+         274,
+         235
+        ]
+       },
+       {
+        "frame": 40,
+        "point": [
+         325,
+         210
+        ],
+        "extent": null,
+        "box": [
+         319,
+         205,
+         331,
+         215
+        ]
+       },
+       {
+        "frame": 46,
+        "point": [
+         365,
+         188
+        ],
+        "extent": null,
+        "box": [
+         359,
+         183,
+         371,
+         193
+        ]
+       },
+       {
+        "frame": 51,
+        "point": [
+         410,
+         170
+        ],
+        "extent": null,
+        "box": [
+         404,
+         165,
+         416,
+         175
+        ]
+       },
+       {
+        "frame": 60,
+        "point": [
+         465,
+         168
+        ],
+        "extent": null,
+        "box": [
+         459,
+         163,
+         471,
+         173
+        ]
+       },
+       {
+        "frame": 66,
+        "point": [
+         512,
+         170
+        ],
+        "extent": null,
+        "box": [
+         506,
+         165,
+         518,
+         175
+        ]
+       },
+       {
+        "frame": 71,
+        "point": [
+         548,
+         170
+        ],
+        "extent": null,
+        "box": [
+         542,
+         165,
+         554,
+         175
+        ]
+       },
+       {
+        "frame": 79,
+        "point": [
+         605,
+         178
+        ],
+        "extent": null,
+        "box": [
+         599,
+         173,
+         611,
+         183
+        ]
+       },
+       {
+        "frame": 90,
+        "point": [
+         685,
+         203
+        ],
+        "extent": null,
+        "box": [
+         679,
+         198,
+         691,
+         208
+        ]
+       },
+       {
+        "frame": 92,
+        "point": [
+         690,
+         210
+        ],
+        "extent": null,
+        "box": [
+         684,
+         205,
+         696,
+         215
+        ]
+       },
+       {
+        "frame": 99,
+        "point": [
+         745,
+         232
+        ],
+        "extent": null,
+        "box": [
+         739,
+         227,
+         751,
+         237
+        ]
+       }
+      ],
+      "depth_name": "bird",
+      "range_m": null,
+      "range_basis": ""
+     },
+     {
+      "role": "target2",
+      "object": "wall",
+      "obs": [],
+      "depth_name": "neonsign",
+      "range_m": null,
+      "range_basis": ""
+     }
+    ],
+    "direct_answer": 10.3,
+    "confidence": 0.4,
+    "derivation": "f=1166 px; bird r~330 px off-axis -> depth 25.33/1.04~24.2 m; 34.5-24.2 = 10.3 m"
+   },
+   {
+    "qid": 1506,
+    "spec": {
+     "target": {
+      "kind": "path_length",
+      "objects": [
+       "bird"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "window frame"
+      ],
+      "dimension": "width",
+      "time": null,
+      "window": null,
+      "axis": "horizontal",
+      "value_si": 1.48,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Whole clip."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "window frame",
+      "obs": [],
+      "depth_name": "neonsign",
+      "range_m": null,
+      "range_basis": ""
+     },
+     {
+      "role": "target",
+      "object": "bird",
+      "obs": [],
+      "depth_name": "bird",
+      "range_m": null,
+      "range_basis": ""
+     }
+    ],
+    "direct_answer": 15.0,
+    "confidence": 0.35,
+    "derivation": "f=1166; bird depth 24.2 m -> 0.0208 m/px; path ~724 px -> 15.0 m"
+   },
+   {
+    "qid": 1507,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "bird"
+      ],
+      "dimension": "",
+      "time": 1.0,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "window frame"
+      ],
+      "dimension": "width",
+      "time": null,
+      "window": null,
+      "axis": "horizontal",
+      "value_si": 1.48,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "window frame",
+      "obs": [],
+      "depth_name": "neonsign",
+      "range_m": null,
+      "range_basis": ""
+     },
+     {
+      "role": "target",
+      "object": "bird",
+      "obs": [],
+      "depth_name": "bird",
+      "range_m": null,
+      "range_basis": ""
+     }
+    ],
+    "direct_answer": 3.9,
+    "confidence": 0.35,
+    "derivation": "~190 px/s around t=1 s x 0.0208 m/px -> 3.9 m/s"
+   }
+  ]
+ }
+}

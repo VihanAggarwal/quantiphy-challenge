@@ -1,0 +1,1080 @@
+{
+ "video_id": "simulation_0186",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfuoMd6tEbxZaLnLD38Fd",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 44,
+  "prompt_version": "v2",
+  "max_side": 854
+ },
+ "ts": "2026-10-11T04:18:06+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_01J8QTVToieV2fdZ5XWS1iT3",
+ "custom_id": "simulation_0186",
+ "usage": {
+  "input_tokens": 23724,
+  "output_tokens": 6483,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 5593,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.112837,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0186",
+  "fps": 24.0,
+  "fps_from_container": false,
+  "video_type": "A3SC",
+  "n_frames_total": 40,
+  "scale": 0.44479166666666664,
+  "image_size": [
+   1920,
+   1079
+  ],
+  "frames": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   12,
+   13,
+   14,
+   15,
+   16,
+   17,
+   18,
+   19,
+   20,
+   21,
+   22,
+   23,
+   24,
+   25,
+   26,
+   27,
+   28,
+   29,
+   30,
+   31,
+   32,
+   33,
+   34,
+   35,
+   36,
+   37,
+   38,
+   39
+  ],
+  "questions": [
+   {
+    "qid": 1434,
+    "target_unit": "m/s^2",
+    "prior": "acceleration of the gift box after 1s = 3.18m/s^2",
+    "depth_info": "t = 0s, distance_gift_box_camera = 9.859m   \nt = 0.5s, distance_gift_box_camera = 9.741m"
+   },
+   {
+    "qid": 1435,
+    "target_unit": "m/s",
+    "prior": "acceleration of the gift box after 1s = 3.18m/s^2",
+    "depth_info": "t = 0s, distance_gift_box_camera = 9.859m   \nt = 0.5s, distance_gift_box_camera = 9.741m"
+   },
+   {
+    "qid": 1436,
+    "target_unit": "m/s",
+    "prior": "acceleration of the gift box after 1s = 3.18m/s^2",
+    "depth_info": "t = 0s, distance_gift_box_camera = 9.859m   \nt = 0.5s, distance_gift_box_camera = 9.741m"
+   },
+   {
+    "qid": 1437,
+    "target_unit": "m",
+    "prior": "acceleration of the gift box after 1s = 3.18m/s^2",
+    "depth_info": "t = 0s, distance_gift_box_camera = 9.859m   \nt = 0.5s, distance_gift_box_camera = 9.741m"
+   },
+   {
+    "qid": 1438,
+    "target_unit": "m",
+    "prior": "acceleration of the gift box after 1s = 3.18m/s^2",
+    "depth_info": "t = 0s, distance_gift_box_camera = 9.859m   \nt = 0.5s, distance_gift_box_camera = 9.741m"
+   }
+  ],
+  "prompt_version": "v2"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":1434,\"spec\":{\"target\":{\"kind\":\"acceleration\",\"objects\":[\"gift box\"],\"dimension\":\"\",\"time\":0.2,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s^2\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"gift box\"],\"dimension\":\"\",\"time\":null,\"window\":[1.0,1.625],\"axis\":\"any\",\"value_si\":3.18,\"unit\":\"\"},\"depth\":[],\"notes\":\"At 0.2 s the box is falling onto the conveyor, close to free fall.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"gift box\",\"obs\":[{\"frame\":0,\"point\":[246,172],\"extent\":null,\"box\":[215,142,278,201]},{\"frame\":1,\"point\":[246,172],\"extent\":null,\"box\":[215,142,278,201]},{\"frame\":2,\"point\":[246,176],\"extent\":null,\"box\":[215,146,278,205]},{\"frame\":3,\"point\":[246,180],\"extent\":null,\"box\":[215,150,278,209]},{\"frame\":4,\"point\":[246,184],\"extent\":null,\"box\":[215,154,278,213]},{\"frame\":5,\"point\":[246,192],\"extent\":null,\"box\":[215,162,278,221]},{\"frame\":6,\"point\":[246,202],\"extent\":null,\"box\":[215,172,278,231]},{\"frame\":7,\"point\":[246,214],\"extent\":null,\"box\":[215,184,278,243]},{\"frame\":8,\"point\":[246,226],\"extent\":null,\"box\":[215,196,278,255]},{\"frame\":9,\"point\":[250,232],\"extent\":null,\"box\":[219,203,281,260]},{\"frame\":10,\"point\":[254,235],\"extent\":null,\"box\":[223,206,285,263]},{\"frame\":11,\"point\":[259,239],\"extent\":null,\"box\":[228,210,290,267]},{\"frame\":12,\"point\":[264,242],\"extent\":null,\"box\":[233,213,295,270]},{\"frame\":13,\"point\":[270,245],\"extent\":null,\"box\":[239,216,301,273]},{\"frame\":14,\"point\":[276,248],\"extent\":null,\"box\":[245,219,307,276]},{\"frame\":15,\"point\":[283,252],\"extent\":null,\"box\":[252,223,314,280]},{\"frame\":16,\"point\":[289,256],\"extent\":null,\"box\":[258,227,320,284]},{\"frame\":17,\"point\":[297,261],\"extent\":null,\"box\":[266,232,328,289]},{\"frame\":18,\"point\":[305,266],\"extent\":null,\"box\":[274,237,336,294]},{\"frame\":19,\"point\":[313,271],\"extent\":null,\"box\":[282,242,344,299]},{\"frame\":20,\"point\":[322,276],\"extent\":null,\"box\":[291,247,353,304]},{\"frame\":21,\"point\":[331,283],\"extent\":null,\"box\":[300,254,362,311]},{\"frame\":22,\"point\":[341,289],\"extent\":null,\"box\":[310,260,372,317]},{\"frame\":23,\"point\":[351,296],\"extent\":null,\"box\":[320,267,382,324]},{\"frame\":24,\"point\":[363,303],\"extent\":null,\"box\":[332,274,394,331]},{\"frame\":25,\"point\":[374,310],\"extent\":null,\"box\":[343,281,405,338]},{\"frame\":26,\"point\":[386,318],\"extent\":null,\"box\":[355,289,417,346]},{\"frame\":27,\"point\":[399,326],\"extent\":null,\"box\":[368,297,430,354]},{\"frame\":28,\"point\":[413,335],\"extent\":null,\"box\":[382,306,444,363]},{\"frame\":29,\"point\":[427,344],\"extent\":null,\"box\":[396,315,458,372]},{\"frame\":30,\"point\":[441,353],\"extent\":null,\"box\":[410,324,472,381]},{\"frame\":31,\"point\":[456,362],\"extent\":null,\"box\":[425,333,487,390]},{\"frame\":32,\"point\":[472,372],\"extent\":null,\"box\":[441,343,503,400]},{\"frame\":33,\"point\":[490,381],\"extent\":null,\"box\":[459,352,521,409]},{\"frame\":34,\"point\":[508,392],\"extent\":null,\"box\":[477,363,539,420]},{\"frame\":35,\"point\":[526,403],\"extent\":null,\"box\":[495,374,557,431]},{\"frame\":36,\"point\":[545,414],\"extent\":null,\"box\":[514,385,576,442]},{\"frame\":37,\"point\":[564,425],\"extent\":null,\"box\":[533,396,596,454]},{\"frame\":38,\"point\":[586,438],\"extent\":null,\"box\":[554,409,617,467]},{\"frame\":39,\"point\":[606,450],\"extent\":null,\"box\":[574,420,639,480]}],\"depth_name\":\"gift_box\",\"range_m\":null,\"range_basis\":\"\"},{\"role\":\"target\",\"object\":\"gift box\",\"obs\":[],\"depth_name\":\"gift_box\",\"range_m\":null,\"range_basis\":\"\"}],\"direct_answer\":9.8,\"confidence\":0.45,\"derivation\":\"slope accel 0.78 px/f^2=450 px/s^2 -> 0.00707 m/px; fall f1-f8 54 px in 7 f -> ~2.2 px/f^2 ~9 m/s^2, consistent with gravity 9.8\"},{\"qid\":1435,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"gift box\"],\"dimension\":\"\",\"time\":1.0,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"gift box\"],\"dimension\":\"\",\"time\":null,\"window\":[1.0,1.625],\"axis\":\"any\",\"value_si\":3.18,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"gift box\",\"obs\":[],\"depth_name\":\"gift_box\",\"range_m\":null,\"range_basis\":\"\"},{\"role\":\"target\",\"object\":\"gift box\",\"obs\":[],\"depth_name\":\"gift_box\",\"range_m\":null,\"range_basis\":\"\"}],\"direct_answer\":2.3,\"confidence\":0.45,\"derivation\":\"accel 450 px/s^2 = 3.18 -> 0.00707 m/px; v at f24 ~13.5 px/f = 324 px/s -> 2.29 m/s\"},{\"qid\":1436,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"gift box\"],\"dimension\":\"\",\"time\":1.5,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"gift box\"],\"dimension\":\"\",\"time\":null,\"window\":[1.0,1.625],\"axis\":\"any\",\"value_si\":3.18,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"gift box\",\"obs\":[],\"depth_name\":\"gift_box\",\"range_m\":null,\"range_basis\":\"\"},{\"role\":\"target\",\"object\":\"gift box\",\"obs\":[],\"depth_name\":\"gift_box\",\"range_m\":null,\"range_basis\":\"\"}],\"direct_answer\":3.83,\"confidence\":0.45,\"derivation\":\"0.00707 m/px; v at f36 ~22.3 px/f = 535 px/s -> 3.78; v(1)+3.18*0.5=3.88; avg 3.83 m/s\"},{\"qid\":1437,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"gift box\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"gift box\"],\"dimension\":\"\",\"time\":null,\"window\":[1.0,1.625],\"axis\":\"any\",\"value_si\":3.18,\"unit\":\"\"},\"depth\":[],\"notes\":\"Box seen at an angle; length edge estimated.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"gift box\",\"obs\":[],\"depth_name\":\"gift_box\",\"range_m\":null,\"range_basis\":\"\"},{\"role\":\"target\",\"object\":\"gift box\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[217,160],[266,176]],\"box\":[215,142,278,201]},{\"frame\":1,\"point\":null,\"extent\":[[217,160],[266,176]],\"box\":[215,142,278,201]},{\"frame\":12,\"point\":null,\"extent\":[[235,226],[284,238]],\"box\":[233,210,295,268]}],\"depth_name\":\"gift_box\",\"range_m\":null,\"range_basis\":\"\"}],\"direct_answer\":0.36,\"confidence\":0.3,\"derivation\":\"f~1358 px (0.00707 m/px at ~9.6 m); length ~50 px at 9.86 m -> 0.00726 m/px -> 0.36 m\"},{\"qid\":1438,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"gift box\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"gift box\"],\"dimension\":\"\",\"time\":null,\"window\":[1.0,1.625],\"axis\":\"any\",\"value_si\":3.18,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"gift box\",\"obs\":[],\"depth_name\":\"gift_box\",\"range_m\":null,\"range_basis\":\"\"},{\"role\":\"target\",\"object\":\"gift box\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[240,158],[240,201]],\"box\":[215,142,278,201]},{\"frame\":1,\"point\":null,\"extent\":[[240,158],[240,201]],\"box\":[215,142,278,201]},{\"frame\":2,\"point\":null,\"extent\":[[240,162],[240,205]],\"box\":[215,146,278,205]}],\"depth_name\":\"gift_box\",\"range_m\":null,\"range_basis\":\"\"}],\"direct_answer\":0.31,\"confidence\":0.3,\"derivation\":\"f~1358 px; height ~43 px at 9.86 m -> 0.00726 m/px -> 0.31 m\"}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 1434,
+    "spec": {
+     "target": {
+      "kind": "acceleration",
+      "objects": [
+       "gift box"
+      ],
+      "dimension": "",
+      "time": 0.2,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s^2"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "gift box"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": [
+       1.0,
+       1.625
+      ],
+      "axis": "any",
+      "value_si": 3.18,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "At 0.2 s the box is falling onto the conveyor, close to free fall."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "gift box",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         246,
+         172
+        ],
+        "extent": null,
+        "box": [
+         215,
+         142,
+         278,
+         201
+        ]
+       },
+       {
+        "frame": 1,
+        "point": [
+         246,
+         172
+        ],
+        "extent": null,
+        "box": [
+         215,
+         142,
+         278,
+         201
+        ]
+       },
+       {
+        "frame": 2,
+        "point": [
+         246,
+         176
+        ],
+        "extent": null,
+        "box": [
+         215,
+         146,
+         278,
+         205
+        ]
+       },
+       {
+        "frame": 3,
+        "point": [
+         246,
+         180
+        ],
+        "extent": null,
+        "box": [
+         215,
+         150,
+         278,
+         209
+        ]
+       },
+       {
+        "frame": 4,
+        "point": [
+         246,
+         184
+        ],
+        "extent": null,
+        "box": [
+         215,
+         154,
+         278,
+         213
+        ]
+       },
+       {
+        "frame": 5,
+        "point": [
+         246,
+         192
+        ],
+        "extent": null,
+        "box": [
+         215,
+         162,
+         278,
+         221
+        ]
+       },
+       {
+        "frame": 6,
+        "point": [
+         246,
+         202
+        ],
+        "extent": null,
+        "box": [
+         215,
+         172,
+         278,
+         231
+        ]
+       },
+       {
+        "frame": 7,
+        "point": [
+         246,
+         214
+        ],
+        "extent": null,
+        "box": [
+         215,
+         184,
+         278,
+         243
+        ]
+       },
+       {
+        "frame": 8,
+        "point": [
+         246,
+         226
+        ],
+        "extent": null,
+        "box": [
+         215,
+         196,
+         278,
+         255
+        ]
+       },
+       {
+        "frame": 9,
+        "point": [
+         250,
+         232
+        ],
+        "extent": null,
+        "box": [
+         219,
+         203,
+         281,
+         260
+        ]
+       },
+       {
+        "frame": 10,
+        "point": [
+         254,
+         235
+        ],
+        "extent": null,
+        "box": [
+         223,
+         206,
+         285,
+         263
+        ]
+       },
+       {
+        "frame": 11,
+        "point": [
+         259,
+         239
+        ],
+        "extent": null,
+        "box": [
+         228,
+         210,
+         290,
+         267
+        ]
+       },
+       {
+        "frame": 12,
+        "point": [
+         264,
+         242
+        ],
+        "extent": null,
+        "box": [
+         233,
+         213,
+         295,
+         270
+        ]
+       },
+       {
+        "frame": 13,
+        "point": [
+         270,
+         245
+        ],
+        "extent": null,
+        "box": [
+         239,
+         216,
+         301,
+         273
+        ]
+       },
+       {
+        "frame": 14,
+        "point": [
+         276,
+         248
+        ],
+        "extent": null,
+        "box": [
+         245,
+         219,
+         307,
+         276
+        ]
+       },
+       {
+        "frame": 15,
+        "point": [
+         283,
+         252
+        ],
+        "extent": null,
+        "box": [
+         252,
+         223,
+         314,
+         280
+        ]
+       },
+       {
+        "frame": 16,
+        "point": [
+         289,
+         256
+        ],
+        "extent": null,
+        "box": [
+         258,
+         227,
+         320,
+         284
+        ]
+       },
+       {
+        "frame": 17,
+        "point": [
+         297,
+         261
+        ],
+        "extent": null,
+        "box": [
+         266,
+         232,
+         328,
+         289
+        ]
+       },
+       {
+        "frame": 18,
+        "point": [
+         305,
+         266
+        ],
+        "extent": null,
+        "box": [
+         274,
+         237,
+         336,
+         294
+        ]
+       },
+       {
+        "frame": 19,
+        "point": [
+         313,
+         271
+        ],
+        "extent": null,
+        "box": [
+         282,
+         242,
+         344,
+         299
+        ]
+       },
+       {
+        "frame": 20,
+        "point": [
+         322,
+         276
+        ],
+        "extent": null,
+        "box": [
+         291,
+         247,
+         353,
+         304
+        ]
+       },
+       {
+        "frame": 21,
+        "point": [
+         331,
+         283
+        ],
+        "extent": null,
+        "box": [
+         300,
+         254,
+         362,
+         311
+        ]
+       },
+       {
+        "frame": 22,
+        "point": [
+         341,
+         289
+        ],
+        "extent": null,
+        "box": [
+         310,
+         260,
+         372,
+         317
+        ]
+       },
+       {
+        "frame": 23,
+        "point": [
+         351,
+         296
+        ],
+        "extent": null,
+        "box": [
+         320,
+         267,
+         382,
+         324
+        ]
+       },
+       {
+        "frame": 24,
+        "point": [
+         363,
+         303
+        ],
+        "extent": null,
+        "box": [
+         332,
+         274,
+         394,
+         331
+        ]
+       },
+       {
+        "frame": 25,
+        "point": [
+         374,
+         310
+        ],
+        "extent": null,
+        "box": [
+         343,
+         281,
+         405,
+         338
+        ]
+       },
+       {
+        "frame": 26,
+        "point": [
+         386,
+         318
+        ],
+        "extent": null,
+        "box": [
+         355,
+         289,
+         417,
+         346
+        ]
+       },
+       {
+        "frame": 27,
+        "point": [
+         399,
+         326
+        ],
+        "extent": null,
+        "box": [
+         368,
+         297,
+         430,
+         354
+        ]
+       },
+       {
+        "frame": 28,
+        "point": [
+         413,
+         335
+        ],
+        "extent": null,
+        "box": [
+         382,
+         306,
+         444,
+         363
+        ]
+       },
+       {
+        "frame": 29,
+        "point": [
+         427,
+         344
+        ],
+        "extent": null,
+        "box": [
+         396,
+         315,
+         458,
+         372
+        ]
+       },
+       {
+        "frame": 30,
+        "point": [
+         441,
+         353
+        ],
+        "extent": null,
+        "box": [
+         410,
+         324,
+         472,
+         381
+        ]
+       },
+       {
+        "frame": 31,
+        "point": [
+         456,
+         362
+        ],
+        "extent": null,
+        "box": [
+         425,
+         333,
+         487,
+         390
+        ]
+       },
+       {
+        "frame": 32,
+        "point": [
+         472,
+         372
+        ],
+        "extent": null,
+        "box": [
+         441,
+         343,
+         503,
+         400
+        ]
+       },
+       {
+        "frame": 33,
+        "point": [
+         490,
+         381
+        ],
+        "extent": null,
+        "box": [
+         459,
+         352,
+         521,
+         409
+        ]
+       },
+       {
+        "frame": 34,
+        "point": [
+         508,
+         392
+        ],
+        "extent": null,
+        "box": [
+         477,
+         363,
+         539,
+         420
+        ]
+       },
+       {
+        "frame": 35,
+        "point": [
+         526,
+         403
+        ],
+        "extent": null,
+        "box": [
+         495,
+         374,
+         557,
+         431
+        ]
+       },
+       {
+        "frame": 36,
+        "point": [
+         545,
+         414
+        ],
+        "extent": null,
+        "box": [
+         514,
+         385,
+         576,
+         442
+        ]
+       },
+       {
+        "frame": 37,
+        "point": [
+         564,
+         425
+        ],
+        "extent": null,
+        "box": [
+         533,
+         396,
+         596,
+         454
+        ]
+       },
+       {
+        "frame": 38,
+        "point": [
+         586,
+         438
+        ],
+        "extent": null,
+        "box": [
+         554,
+         409,
+         617,
+         467
+        ]
+       },
+       {
+        "frame": 39,
+        "point": [
+         606,
+         450
+        ],
+        "extent": null,
+        "box": [
+         574,
+         420,
+         639,
+         480
+        ]
+       }
+      ],
+      "depth_name": "gift_box",
+      "range_m": null,
+      "range_basis": ""
+     },
+     {
+      "role": "target",
+      "object": "gift box",
+      "obs": [],
+      "depth_name": "gift_box",
+      "range_m": null,
+      "range_basis": ""
+     }
+    ],
+    "direct_answer": 9.8,
+    "confidence": 0.45,
+    "derivation": "slope accel 0.78 px/f^2=450 px/s^2 -> 0.00707 m/px; fall f1-f8 54 px in 7 f -> ~2.2 px/f^2 ~9 m/s^2, consistent with gravity 9.8"
+   },
+   {
+    "qid": 1435,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "gift box"
+      ],
+      "dimension": "",
+      "time": 1.0,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "gift box"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": [
+       1.0,
+       1.625
+      ],
+      "axis": "any",
+      "value_si": 3.18,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "gift box",
+      "obs": [],
+      "depth_name": "gift_box",
+      "range_m": null,
+      "range_basis": ""
+     },
+     {
+      "role": "target",
+      "object": "gift box",
+      "obs": [],
+      "depth_name": "gift_box",
+      "range_m": null,
+      "range_basis": ""
+     }
+    ],
+    "direct_answer": 2.3,
+    "confidence": 0.45,
+    "derivation": "accel 450 px/s^2 = 3.18 -> 0.00707 m/px; v at f24 ~13.5 px/f = 324 px/s -> 2.29 m/s"
+   },
+   {
+    "qid": 1436,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "gift box"
+      ],
+      "dimension": "",
+      "time": 1.5,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "gift box"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": [
+       1.0,
+       1.625
+      ],
+      "axis": "any",
+      "value_si": 3.18,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "gift box",
+      "obs": [],
+      "depth_name": "gift_box",
+      "range_m": null,
+      "range_basis": ""
+     },
+     {
+      "role": "target",
+      "object": "gift box",
+      "obs": [],
+      "depth_name": "gift_box",
+      "range_m": null,
+      "range_basis": ""
+     }
+    ],
+    "direct_answer": 3.83,
+    "confidence": 0.45,
+    "derivation": "0.00707 m/px; v at f36 ~22.3 px/f = 535 px/s -> 3.78; v(1)+3.18*0.5=3.88; avg 3.83 m/s"
+   },
+   {
+    "qid": 1437,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "gift box"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "gift box"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": [
+       1.0,
+       1.625
+      ],
+      "axis": "any",
+      "value_si": 3.18,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Box seen at an angle; length edge estimated."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "gift box",
+      "obs": [],
+      "depth_name": "gift_box",
+      "range_m": null,
+      "range_basis": ""
+     },
+     {
+      "role": "target",
+      "object": "gift box",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          217,
+          160
+         ],
+         [
+          266,
+          176
+         ]
+        ],
+        "box": [
+         215,
+         142,
+         278,
+         201
+        ]
+       },
+       {
+        "frame": 1,
+        "point": null,
+        "extent": [
+         [
+          217,
+          160
+         ],
+         [
+          266,
+          176
+         ]
+        ],
+        "box": [
+         215,
+         142,
+         278,
+         201
+        ]
+       },
+       {
+        "frame": 12,
+        "point": null,
+        "extent": [
+         [
+          235,
+          226
+         ],
+         [
+          284,
+          238
+         ]
+        ],
+        "box": [
+         233,
+         210,
+         295,
+         268
+        ]
+       }
+      ],
+      "depth_name": "gift_box",
+      "range_m": null,
+      "range_basis": ""
+     }
+    ],
+    "direct_answer": 0.36,
+    "confidence": 0.3,
+    "derivation": "f~1358 px (0.00707 m/px at ~9.6 m); length ~50 px at 9.86 m -> 0.00726 m/px -> 0.36 m"
+   },
+   {
+    "qid": 1438,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "gift box"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "gift box"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": [
+       1.0,
+       1.625
+      ],
+      "axis": "any",
+      "value_si": 3.18,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "gift box",
+      "obs": [],
+      "depth_name": "gift_box",
+      "range_m": null,
+      "range_basis": ""
+     },
+     {
+      "role": "target",
+      "object": "gift box",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          240,
+          158
+         ],
+         [
+          240,
+          201
+         ]
+        ],
+        "box": [
+         215,
+         142,
+         278,
+         201
+        ]
+       },
+       {
+        "frame": 1,
+        "point": null,
+        "extent": [
+         [
+          240,
+          158
+         ],
+         [
+          240,
+          201
+         ]
+        ],
+        "box": [
+         215,
+         142,
+         278,
+         201
+        ]
+       },
+       {
+        "frame": 2,
+        "point": null,
+        "extent": [
+         [
+          240,
+          162
+         ],
+         [
+          240,
+          205
+         ]
+        ],
+        "box": [
+         215,
+         146,
+         278,
+         205
+        ]
+       }
+      ],
+      "depth_name": "gift_box",
+      "range_m": null,
+      "range_basis": ""
+     }
+    ],
+    "direct_answer": 0.31,
+    "confidence": 0.3,
+    "derivation": "f~1358 px; height ~43 px at 9.86 m -> 0.00726 m/px -> 0.31 m"
+   }
+  ]
+ }
+}

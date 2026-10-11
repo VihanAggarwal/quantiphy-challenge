@@ -1,0 +1,627 @@
+{
+ "video_id": "simulation_0305",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfuoMckJNdYgnbzs4MEfB",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 44,
+  "prompt_version": "v2",
+  "max_side": 854
+ },
+ "ts": "2026-10-11T04:18:06+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_01J8QTVToieV2fdZ5XWS1iT3",
+ "custom_id": "simulation_0305",
+ "usage": {
+  "input_tokens": 25765,
+  "output_tokens": 4253,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 5593,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.094619,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0305",
+  "fps": 24.0,
+  "fps_from_container": false,
+  "video_type": "V3SS",
+  "n_frames_total": 72,
+  "scale": 0.33359375,
+  "image_size": [
+   2560,
+   1439
+  ],
+  "frames": [
+   1,
+   3,
+   6,
+   8,
+   9,
+   10,
+   11,
+   12,
+   13,
+   14,
+   15,
+   17,
+   20,
+   21,
+   22,
+   23,
+   24,
+   25,
+   26,
+   27,
+   29,
+   30,
+   34,
+   35,
+   38,
+   40,
+   43,
+   45,
+   46,
+   47,
+   48,
+   49,
+   50,
+   51,
+   52,
+   55,
+   57,
+   58,
+   61,
+   62,
+   64,
+   66,
+   69,
+   71
+  ],
+  "questions": [
+   {
+    "qid": 1476,
+    "target_unit": "m",
+    "prior": "speed of the plane = 22.16 m/s",
+    "depth_info": "t = 1.0s, distance_plane_camera = 102.6664 m\nt = 2.0s, distance_plane_camera = 121.8263 m"
+   },
+   {
+    "qid": 1477,
+    "target_unit": "m",
+    "prior": "speed of the plane = 22.16 m/s",
+    "depth_info": "t = 1.0s, distance_plane_camera = 102.6664 m\nt = 2.0s, distance_plane_camera = 121.8263 m"
+   },
+   {
+    "qid": 1478,
+    "target_unit": "m",
+    "prior": "speed of the plane = 22.16 m/s",
+    "depth_info": "t = 1.0s, distance_plane_camera = 102.6664 m\nt = 2.0s, distance_plane_camera = 121.8263 m"
+   }
+  ],
+  "prompt_version": "v2",
+  "frozen_first_frame": true
+ },
+ "raw_text": "{\"questions\":[{\"qid\":1476,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"plane\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"plane\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":22.16,\"unit\":\"\"},\"depth\":[],\"notes\":\"Plane flies mostly away from camera; its length is strongly foreshortened in every frame.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"plane\",\"obs\":[{\"frame\":1,\"point\":[556,283.5],\"extent\":null,\"box\":[447,237,665,330]},{\"frame\":6,\"point\":[523,265.5],\"extent\":null,\"box\":[418,222,628,309]},{\"frame\":12,\"point\":[487.5,245],\"extent\":null,\"box\":[385,205,590,285]},{\"frame\":17,\"point\":[459,230],\"extent\":null,\"box\":[360,192,558,268]},{\"frame\":20,\"point\":[443.5,221],\"extent\":null,\"box\":[346,184,541,258]},{\"frame\":24,\"point\":[423.5,210],\"extent\":null,\"box\":[329,175,518,245]},{\"frame\":30,\"point\":[396.5,194.5],\"extent\":null,\"box\":[305,162,488,227]},{\"frame\":35,\"point\":[375.5,183.5],\"extent\":null,\"box\":[286,152,465,215]},{\"frame\":40,\"point\":[355,171.5],\"extent\":null,\"box\":[268,141,442,202]},{\"frame\":45,\"point\":[336,161.5],\"extent\":null,\"box\":[251,132,421,191]},{\"frame\":48,\"point\":[325.5,155.5],\"extent\":null,\"box\":[242,127,409,184]},{\"frame\":52,\"point\":[312.5,148.5],\"extent\":null,\"box\":[230,121,395,176]},{\"frame\":58,\"point\":[293,137],\"extent\":null,\"box\":[213,111,373,163]},{\"frame\":64,\"point\":[275.5,127.5],\"extent\":null,\"box\":[197,102,354,153]},{\"frame\":71,\"point\":[256,117],\"extent\":null,\"box\":[180,93,332,141]}],\"depth_name\":\"plane\",\"range_m\":null,\"range_basis\":\"\"},{\"role\":\"target\",\"object\":\"plane length\",\"obs\":[{\"frame\":24,\"point\":null,\"extent\":[[404,186],[476,233]],\"box\":[329,175,518,245]},{\"frame\":48,\"point\":null,\"extent\":[[313,135],[375,172]],\"box\":[242,127,409,184]},{\"frame\":20,\"point\":null,\"extent\":[[425,193],[502,240]],\"box\":[346,184,541,258]}],\"depth_name\":\"plane\",\"range_m\":null,\"range_basis\":\"\"}],\"direct_answer\":9.0,\"confidence\":0.15,\"derivation\":\"f fit from speed+depths: ~1130 px. Foreshortened length ~86 px at 102.7 m -> ~7.8 m; adjusted for foreshortening ~9 m\"},{\"qid\":1477,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"plane\"],\"dimension\":\"width\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"plane\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":22.16,\"unit\":\"\"},\"depth\":[],\"notes\":\"Width taken as wingtip to wingtip.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"plane\",\"obs\":[],\"depth_name\":\"plane\",\"range_m\":null,\"range_basis\":\"\"},{\"role\":\"target\",\"object\":\"plane width\",\"obs\":[{\"frame\":24,\"point\":null,\"extent\":[[329,215],[517,176]],\"box\":[329,175,518,245]},{\"frame\":48,\"point\":null,\"extent\":[[242,158],[409,128]],\"box\":[242,127,409,184]},{\"frame\":23,\"point\":null,\"extent\":[[333,218],[523,179]],\"box\":[333,178,524,248]},{\"frame\":47,\"point\":null,\"extent\":[[246,160],[413,130]],\"box\":[246,130,413,187]}],\"depth_name\":\"plane\",\"range_m\":null,\"range_basis\":\"\"}],\"direct_answer\":17.9,\"confidence\":0.4,\"derivation\":\"f~1130 px from speed fit; span 193 px at 102.7 m -> 17.5 m; 170 px at 121.8 m -> 18.3 m; avg 17.9 m\"},{\"qid\":1478,\"spec\":{\"target\":{\"kind\":\"displacement\",\"objects\":[\"plane\"],\"dimension\":\"\",\"time\":null,\"window\":[0.5,1.0],\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"plane\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":22.16,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"plane\",\"obs\":[],\"depth_name\":\"plane\",\"range_m\":null,\"range_basis\":\"\"},{\"role\":\"target\",\"object\":\"plane\",\"obs\":[],\"depth_name\":\"plane\",\"range_m\":null,\"range_basis\":\"\"}],\"direct_answer\":11.08,\"confidence\":0.6,\"derivation\":\"near-straight constant-speed flight (pixel motion 73 px in 0.5 s vs 112 px in 1 s); 22.16 m/s x 0.5 s = 11.08 m\"}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 1476,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "plane"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "plane"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 22.16,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Plane flies mostly away from camera; its length is strongly foreshortened in every frame."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "plane",
+      "obs": [
+       {
+        "frame": 1,
+        "point": [
+         556,
+         283.5
+        ],
+        "extent": null,
+        "box": [
+         447,
+         237,
+         665,
+         330
+        ]
+       },
+       {
+        "frame": 6,
+        "point": [
+         523,
+         265.5
+        ],
+        "extent": null,
+        "box": [
+         418,
+         222,
+         628,
+         309
+        ]
+       },
+       {
+        "frame": 12,
+        "point": [
+         487.5,
+         245
+        ],
+        "extent": null,
+        "box": [
+         385,
+         205,
+         590,
+         285
+        ]
+       },
+       {
+        "frame": 17,
+        "point": [
+         459,
+         230
+        ],
+        "extent": null,
+        "box": [
+         360,
+         192,
+         558,
+         268
+        ]
+       },
+       {
+        "frame": 20,
+        "point": [
+         443.5,
+         221
+        ],
+        "extent": null,
+        "box": [
+         346,
+         184,
+         541,
+         258
+        ]
+       },
+       {
+        "frame": 24,
+        "point": [
+         423.5,
+         210
+        ],
+        "extent": null,
+        "box": [
+         329,
+         175,
+         518,
+         245
+        ]
+       },
+       {
+        "frame": 30,
+        "point": [
+         396.5,
+         194.5
+        ],
+        "extent": null,
+        "box": [
+         305,
+         162,
+         488,
+         227
+        ]
+       },
+       {
+        "frame": 35,
+        "point": [
+         375.5,
+         183.5
+        ],
+        "extent": null,
+        "box": [
+         286,
+         152,
+         465,
+         215
+        ]
+       },
+       {
+        "frame": 40,
+        "point": [
+         355,
+         171.5
+        ],
+        "extent": null,
+        "box": [
+         268,
+         141,
+         442,
+         202
+        ]
+       },
+       {
+        "frame": 45,
+        "point": [
+         336,
+         161.5
+        ],
+        "extent": null,
+        "box": [
+         251,
+         132,
+         421,
+         191
+        ]
+       },
+       {
+        "frame": 48,
+        "point": [
+         325.5,
+         155.5
+        ],
+        "extent": null,
+        "box": [
+         242,
+         127,
+         409,
+         184
+        ]
+       },
+       {
+        "frame": 52,
+        "point": [
+         312.5,
+         148.5
+        ],
+        "extent": null,
+        "box": [
+         230,
+         121,
+         395,
+         176
+        ]
+       },
+       {
+        "frame": 58,
+        "point": [
+         293,
+         137
+        ],
+        "extent": null,
+        "box": [
+         213,
+         111,
+         373,
+         163
+        ]
+       },
+       {
+        "frame": 64,
+        "point": [
+         275.5,
+         127.5
+        ],
+        "extent": null,
+        "box": [
+         197,
+         102,
+         354,
+         153
+        ]
+       },
+       {
+        "frame": 71,
+        "point": [
+         256,
+         117
+        ],
+        "extent": null,
+        "box": [
+         180,
+         93,
+         332,
+         141
+        ]
+       }
+      ],
+      "depth_name": "plane",
+      "range_m": null,
+      "range_basis": ""
+     },
+     {
+      "role": "target",
+      "object": "plane length",
+      "obs": [
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          404,
+          186
+         ],
+         [
+          476,
+          233
+         ]
+        ],
+        "box": [
+         329,
+         175,
+         518,
+         245
+        ]
+       },
+       {
+        "frame": 48,
+        "point": null,
+        "extent": [
+         [
+          313,
+          135
+         ],
+         [
+          375,
+          172
+         ]
+        ],
+        "box": [
+         242,
+         127,
+         409,
+         184
+        ]
+       },
+       {
+        "frame": 20,
+        "point": null,
+        "extent": [
+         [
+          425,
+          193
+         ],
+         [
+          502,
+          240
+         ]
+        ],
+        "box": [
+         346,
+         184,
+         541,
+         258
+        ]
+       }
+      ],
+      "depth_name": "plane",
+      "range_m": null,
+      "range_basis": ""
+     }
+    ],
+    "direct_answer": 9.0,
+    "confidence": 0.15,
+    "derivation": "f fit from speed+depths: ~1130 px. Foreshortened length ~86 px at 102.7 m -> ~7.8 m; adjusted for foreshortening ~9 m"
+   },
+   {
+    "qid": 1477,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "plane"
+      ],
+      "dimension": "width",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "plane"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 22.16,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Width taken as wingtip to wingtip."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "plane",
+      "obs": [],
+      "depth_name": "plane",
+      "range_m": null,
+      "range_basis": ""
+     },
+     {
+      "role": "target",
+      "object": "plane width",
+      "obs": [
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          329,
+          215
+         ],
+         [
+          517,
+          176
+         ]
+        ],
+        "box": [
+         329,
+         175,
+         518,
+         245
+        ]
+       },
+       {
+        "frame": 48,
+        "point": null,
+        "extent": [
+         [
+          242,
+          158
+         ],
+         [
+          409,
+          128
+         ]
+        ],
+        "box": [
+         242,
+         127,
+         409,
+         184
+        ]
+       },
+       {
+        "frame": 23,
+        "point": null,
+        "extent": [
+         [
+          333,
+          218
+         ],
+         [
+          523,
+          179
+         ]
+        ],
+        "box": [
+         333,
+         178,
+         524,
+         248
+        ]
+       },
+       {
+        "frame": 47,
+        "point": null,
+        "extent": [
+         [
+          246,
+          160
+         ],
+         [
+          413,
+          130
+         ]
+        ],
+        "box": [
+         246,
+         130,
+         413,
+         187
+        ]
+       }
+      ],
+      "depth_name": "plane",
+      "range_m": null,
+      "range_basis": ""
+     }
+    ],
+    "direct_answer": 17.9,
+    "confidence": 0.4,
+    "derivation": "f~1130 px from speed fit; span 193 px at 102.7 m -> 17.5 m; 170 px at 121.8 m -> 18.3 m; avg 17.9 m"
+   },
+   {
+    "qid": 1478,
+    "spec": {
+     "target": {
+      "kind": "displacement",
+      "objects": [
+       "plane"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": [
+       0.5,
+       1.0
+      ],
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "plane"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 22.16,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "plane",
+      "obs": [],
+      "depth_name": "plane",
+      "range_m": null,
+      "range_basis": ""
+     },
+     {
+      "role": "target",
+      "object": "plane",
+      "obs": [],
+      "depth_name": "plane",
+      "range_m": null,
+      "range_basis": ""
+     }
+    ],
+    "direct_answer": 11.08,
+    "confidence": 0.6,
+    "derivation": "near-straight constant-speed flight (pixel motion 73 px in 0.5 s vs 112 px in 1 s); 22.16 m/s x 0.5 s = 11.08 m"
+   }
+  ]
+ }
+}

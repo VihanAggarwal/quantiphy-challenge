@@ -1,0 +1,691 @@
+{
+ "video_id": "simulation_0027_segmented",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfuoNmrm8pQTMkxWxRjuw",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 44,
+  "prompt_version": "v2",
+  "max_side": 854
+ },
+ "ts": "2026-10-11T04:19:09+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_01U8U2AUc3A3tdvG9FuKjK3c",
+ "custom_id": "simulation_0027_segmented",
+ "usage": {
+  "input_tokens": 43534,
+  "output_tokens": 3038,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 5593,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.118007,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0027_segmented",
+  "fps": 24.0,
+  "fps_from_container": false,
+  "video_type": "S3MX",
+  "n_frames_total": 75,
+  "scale": 0.8895833333333333,
+  "image_size": [
+   960,
+   960
+  ],
+  "frames": [
+   0,
+   2,
+   5,
+   7,
+   10,
+   12,
+   14,
+   15,
+   19,
+   20,
+   21,
+   22,
+   23,
+   24,
+   25,
+   26,
+   27,
+   29,
+   30,
+   33,
+   35,
+   36,
+   38,
+   39,
+   41,
+   44,
+   45,
+   46,
+   47,
+   48,
+   49,
+   50,
+   51,
+   52,
+   54,
+   55,
+   59,
+   60,
+   62,
+   64,
+   67,
+   69,
+   72,
+   74
+  ],
+  "questions": [
+   {
+    "qid": 1690,
+    "target_unit": "m",
+    "prior": "height of the person = 1.75m",
+    "depth_info": "t=1s, distance_human_camera = 100.5638m\nt=2s, distance_human_camera = 100.5996m"
+   },
+   {
+    "qid": 1691,
+    "target_unit": "m",
+    "prior": "height of the person = 1.75m",
+    "depth_info": "t=1s, distance_human_camera = 100.5638m\nt=2s, distance_human_camera = 100.5996m"
+   },
+   {
+    "qid": 1692,
+    "target_unit": "m",
+    "prior": "height of the person = 1.75m",
+    "depth_info": "t=1s, distance_human_camera = 100.5638m\nt=2s, distance_human_camera = 100.5996m"
+   },
+   {
+    "qid": 1693,
+    "target_unit": "m/s",
+    "prior": "height of the person = 1.75m",
+    "depth_info": "t=1s, distance_human_camera = 100.5638m\nt=2s, distance_human_camera = 100.5996m"
+   }
+  ],
+  "prompt_version": "v2"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":1690,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"rock\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"person\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":1.75,\"unit\":\"\"},\"depth\":[],\"notes\":\"Rock distance not given; assumed similar to the person's (~100.6 m).\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"person\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[361.5,298],[362.5,351]],\"box\":[354,298,369,351]},{\"frame\":24,\"point\":null,\"extent\":[[370.5,312],[372,365]],\"box\":[362,312,378,365]},{\"frame\":48,\"point\":null,\"extent\":[[380.5,325],[381.5,377]],\"box\":[374,325,389,377]},{\"frame\":74,\"point\":null,\"extent\":[[393,341],[394,391]],\"box\":[386,341,401,391]}],\"depth_name\":\"human\",\"range_m\":null,\"range_basis\":\"\"},{\"role\":\"target\",\"object\":\"rock\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[292,140],[852,135]],\"box\":[292,22,852,274]},{\"frame\":36,\"point\":null,\"extent\":[[292,140],[852,135]],\"box\":[292,22,852,274]},{\"frame\":72,\"point\":null,\"extent\":[[292,140],[852,135]],\"box\":[292,22,852,274]}],\"depth_name\":\"\",\"range_m\":100.6,\"range_basis\":\"Assumed at roughly the person's distance, as it hovers just behind/above them.\"}],\"direct_answer\":18.8,\"confidence\":0.3,\"derivation\":\"person 52 px = 1.75 m -> 0.0337 m/px; rock length 560 px -> 18.8 m\"},{\"qid\":1691,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"rock\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"person\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":1.75,\"unit\":\"\"},\"depth\":[],\"notes\":\"Rock distance unknown; same scale as person assumed.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"person\",\"obs\":[],\"depth_name\":\"human\",\"range_m\":null,\"range_basis\":\"\"},{\"role\":\"target\",\"object\":\"rock\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[560,22],[560,273]],\"box\":[292,22,852,274]},{\"frame\":36,\"point\":null,\"extent\":[[560,22],[560,273]],\"box\":[292,22,852,274]},{\"frame\":72,\"point\":null,\"extent\":[[560,22],[560,273]],\"box\":[292,22,852,274]}],\"depth_name\":\"\",\"range_m\":100.6,\"range_basis\":\"Assumed at roughly the person's distance.\"}],\"direct_answer\":8.4,\"confidence\":0.25,\"derivation\":\"0.0337 m/px; rock vertical 251 px -> 8.4 m\"},{\"qid\":1692,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"rock\"],\"dimension\":\"width\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"person\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":1.75,\"unit\":\"\"},\"depth\":[],\"notes\":\"Width (depth direction) is foreshortened; rough guess.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"person\",\"obs\":[],\"depth_name\":\"human\",\"range_m\":null,\"range_basis\":\"\"},{\"role\":\"target\",\"object\":\"rock\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[480,25],[600,272]],\"box\":[292,22,852,274]},{\"frame\":36,\"point\":null,\"extent\":[[480,25],[600,272]],\"box\":[292,22,852,274]},{\"frame\":72,\"point\":null,\"extent\":[[480,25],[600,272]],\"box\":[292,22,852,274]}],\"depth_name\":\"\",\"range_m\":100.6,\"range_basis\":\"Assumed at roughly the person's distance.\"}],\"direct_answer\":9.3,\"confidence\":0.15,\"derivation\":\"0.0337 m/px; rock width ~275 px -> 9.3 m\"},{\"qid\":1693,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"person\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"person\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":1.75,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"person\",\"obs\":[],\"depth_name\":\"human\",\"range_m\":null,\"range_basis\":\"\"},{\"role\":\"target\",\"object\":\"person\",\"obs\":[{\"frame\":0,\"point\":[361.5,324.5],\"extent\":null,\"box\":[354,298,369,351]},{\"frame\":12,\"point\":[366,331],\"extent\":null,\"box\":[358,305,374,357]},{\"frame\":24,\"point\":[370,338.5],\"extent\":null,\"box\":[362,312,378,365]},{\"frame\":36,\"point\":[376,345],\"extent\":null,\"box\":[369,320,384,370]},{\"frame\":48,\"point\":[381.5,351],\"extent\":null,\"box\":[374,325,389,377]},{\"frame\":60,\"point\":[386.5,358],\"extent\":null,\"box\":[379,333,394,384]},{\"frame\":74,\"point\":[393.5,366],\"extent\":null,\"box\":[386,341,401,391]}],\"depth_name\":\"human\",\"range_m\":null,\"range_basis\":\"\"}],\"direct_answer\":0.56,\"confidence\":0.4,\"derivation\":\"centre moves (32,41.5) px = 52 px in 3.08 s -> 16.9 px/s x 0.0337 m/px = 0.57 m/s\"}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 1690,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "rock"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "person"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": 1.75,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Rock distance not given; assumed similar to the person's (~100.6 m)."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "person",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          361.5,
+          298
+         ],
+         [
+          362.5,
+          351
+         ]
+        ],
+        "box": [
+         354,
+         298,
+         369,
+         351
+        ]
+       },
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          370.5,
+          312
+         ],
+         [
+          372,
+          365
+         ]
+        ],
+        "box": [
+         362,
+         312,
+         378,
+         365
+        ]
+       },
+       {
+        "frame": 48,
+        "point": null,
+        "extent": [
+         [
+          380.5,
+          325
+         ],
+         [
+          381.5,
+          377
+         ]
+        ],
+        "box": [
+         374,
+         325,
+         389,
+         377
+        ]
+       },
+       {
+        "frame": 74,
+        "point": null,
+        "extent": [
+         [
+          393,
+          341
+         ],
+         [
+          394,
+          391
+         ]
+        ],
+        "box": [
+         386,
+         341,
+         401,
+         391
+        ]
+       }
+      ],
+      "depth_name": "human",
+      "range_m": null,
+      "range_basis": ""
+     },
+     {
+      "role": "target",
+      "object": "rock",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          292,
+          140
+         ],
+         [
+          852,
+          135
+         ]
+        ],
+        "box": [
+         292,
+         22,
+         852,
+         274
+        ]
+       },
+       {
+        "frame": 36,
+        "point": null,
+        "extent": [
+         [
+          292,
+          140
+         ],
+         [
+          852,
+          135
+         ]
+        ],
+        "box": [
+         292,
+         22,
+         852,
+         274
+        ]
+       },
+       {
+        "frame": 72,
+        "point": null,
+        "extent": [
+         [
+          292,
+          140
+         ],
+         [
+          852,
+          135
+         ]
+        ],
+        "box": [
+         292,
+         22,
+         852,
+         274
+        ]
+       }
+      ],
+      "depth_name": "",
+      "range_m": 100.6,
+      "range_basis": "Assumed at roughly the person's distance, as it hovers just behind/above them."
+     }
+    ],
+    "direct_answer": 18.8,
+    "confidence": 0.3,
+    "derivation": "person 52 px = 1.75 m -> 0.0337 m/px; rock length 560 px -> 18.8 m"
+   },
+   {
+    "qid": 1691,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "rock"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "person"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": 1.75,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Rock distance unknown; same scale as person assumed."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "person",
+      "obs": [],
+      "depth_name": "human",
+      "range_m": null,
+      "range_basis": ""
+     },
+     {
+      "role": "target",
+      "object": "rock",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          560,
+          22
+         ],
+         [
+          560,
+          273
+         ]
+        ],
+        "box": [
+         292,
+         22,
+         852,
+         274
+        ]
+       },
+       {
+        "frame": 36,
+        "point": null,
+        "extent": [
+         [
+          560,
+          22
+         ],
+         [
+          560,
+          273
+         ]
+        ],
+        "box": [
+         292,
+         22,
+         852,
+         274
+        ]
+       },
+       {
+        "frame": 72,
+        "point": null,
+        "extent": [
+         [
+          560,
+          22
+         ],
+         [
+          560,
+          273
+         ]
+        ],
+        "box": [
+         292,
+         22,
+         852,
+         274
+        ]
+       }
+      ],
+      "depth_name": "",
+      "range_m": 100.6,
+      "range_basis": "Assumed at roughly the person's distance."
+     }
+    ],
+    "direct_answer": 8.4,
+    "confidence": 0.25,
+    "derivation": "0.0337 m/px; rock vertical 251 px -> 8.4 m"
+   },
+   {
+    "qid": 1692,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "rock"
+      ],
+      "dimension": "width",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "person"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": 1.75,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Width (depth direction) is foreshortened; rough guess."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "person",
+      "obs": [],
+      "depth_name": "human",
+      "range_m": null,
+      "range_basis": ""
+     },
+     {
+      "role": "target",
+      "object": "rock",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          480,
+          25
+         ],
+         [
+          600,
+          272
+         ]
+        ],
+        "box": [
+         292,
+         22,
+         852,
+         274
+        ]
+       },
+       {
+        "frame": 36,
+        "point": null,
+        "extent": [
+         [
+          480,
+          25
+         ],
+         [
+          600,
+          272
+         ]
+        ],
+        "box": [
+         292,
+         22,
+         852,
+         274
+        ]
+       },
+       {
+        "frame": 72,
+        "point": null,
+        "extent": [
+         [
+          480,
+          25
+         ],
+         [
+          600,
+          272
+         ]
+        ],
+        "box": [
+         292,
+         22,
+         852,
+         274
+        ]
+       }
+      ],
+      "depth_name": "",
+      "range_m": 100.6,
+      "range_basis": "Assumed at roughly the person's distance."
+     }
+    ],
+    "direct_answer": 9.3,
+    "confidence": 0.15,
+    "derivation": "0.0337 m/px; rock width ~275 px -> 9.3 m"
+   },
+   {
+    "qid": 1693,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "person"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "person"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": 1.75,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "person",
+      "obs": [],
+      "depth_name": "human",
+      "range_m": null,
+      "range_basis": ""
+     },
+     {
+      "role": "target",
+      "object": "person",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         361.5,
+         324.5
+        ],
+        "extent": null,
+        "box": [
+         354,
+         298,
+         369,
+         351
+        ]
+       },
+       {
+        "frame": 12,
+        "point": [
+         366,
+         331
+        ],
+        "extent": null,
+        "box": [
+         358,
+         305,
+         374,
+         357
+        ]
+       },
+       {
+        "frame": 24,
+        "point": [
+         370,
+         338.5
+        ],
+        "extent": null,
+        "box": [
+         362,
+         312,
+         378,
+         365
+        ]
+       },
+       {
+        "frame": 36,
+        "point": [
+         376,
+         345
+        ],
+        "extent": null,
+        "box": [
+         369,
+         320,
+         384,
+         370
+        ]
+       },
+       {
+        "frame": 48,
+        "point": [
+         381.5,
+         351
+        ],
+        "extent": null,
+        "box": [
+         374,
+         325,
+         389,
+         377
+        ]
+       },
+       {
+        "frame": 60,
+        "point": [
+         386.5,
+         358
+        ],
+        "extent": null,
+        "box": [
+         379,
+         333,
+         394,
+         384
+        ]
+       },
+       {
+        "frame": 74,
+        "point": [
+         393.5,
+         366
+        ],
+        "extent": null,
+        "box": [
+         386,
+         341,
+         401,
+         391
+        ]
+       }
+      ],
+      "depth_name": "human",
+      "range_m": null,
+      "range_basis": ""
+     }
+    ],
+    "direct_answer": 0.56,
+    "confidence": 0.4,
+    "derivation": "centre moves (32,41.5) px = 52 px in 3.08 s -> 16.9 px/s x 0.0337 m/px = 0.57 m/s"
+   }
+  ]
+ }
+}

@@ -1,0 +1,564 @@
+{
+ "video_id": "simulation_0030_segmented",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfuoMdvzZAxNK3veRxLnY",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 44,
+  "prompt_version": "v2",
+  "max_side": 854
+ },
+ "ts": "2026-10-11T04:19:10+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_01JUDg7jHUzJcuQ96HVCjcbd",
+ "custom_id": "simulation_0030_segmented",
+ "usage": {
+  "input_tokens": 43261,
+  "output_tokens": 2291,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 5593,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.109991,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0030_segmented",
+  "fps": 24.0,
+  "fps_from_container": false,
+  "video_type": "V3MX",
+  "n_frames_total": 75,
+  "scale": 0.8895833333333333,
+  "image_size": [
+   960,
+   960
+  ],
+  "frames": [
+   0,
+   2,
+   5,
+   7,
+   10,
+   12,
+   14,
+   15,
+   19,
+   20,
+   21,
+   22,
+   23,
+   24,
+   25,
+   26,
+   27,
+   29,
+   30,
+   33,
+   35,
+   36,
+   38,
+   39,
+   41,
+   44,
+   45,
+   46,
+   47,
+   48,
+   49,
+   50,
+   51,
+   52,
+   54,
+   55,
+   59,
+   60,
+   62,
+   64,
+   67,
+   69,
+   72,
+   74
+  ],
+  "questions": [
+   {
+    "qid": 2010,
+    "target_unit": "m",
+    "prior": "speed of the eagle = 12m/s",
+    "depth_info": "t=1s, distance_eagle_camera = 106.642m\nt=2s, distance_eagle_camera = 111.231m"
+   }
+  ],
+  "prompt_version": "v2"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":2010,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"eagle\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"eagle\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":12,\"unit\":\"\"},\"depth\":[],\"notes\":\"Eagle is tiny (~20 px) and flapping; its length is hard to separate from wing extent.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"eagle\",\"obs\":[{\"frame\":0,\"point\":[337,240],\"extent\":null,\"box\":[327,226,347,254]},{\"frame\":2,\"point\":[366,241],\"extent\":null,\"box\":[355,230,377,253]},{\"frame\":5,\"point\":[407,249],\"extent\":null,\"box\":[394,244,421,255]},{\"frame\":7,\"point\":[434,258],\"extent\":null,\"box\":[424,250,445,268]},{\"frame\":10,\"point\":[476,262],\"extent\":null,\"box\":[467,250,485,274]},{\"frame\":12,\"point\":[503,261],\"extent\":null,\"box\":[495,250,512,273]},{\"frame\":14,\"point\":[531,261],\"extent\":null,\"box\":[521,252,541,271]},{\"frame\":15,\"point\":[545,260],\"extent\":null,\"box\":[535,252,555,269]},{\"frame\":19,\"point\":[600,248],\"extent\":null,\"box\":[589,238,611,258]},{\"frame\":20,\"point\":[613,245],\"extent\":null,\"box\":[604,235,623,256]},{\"frame\":21,\"point\":[626,243],\"extent\":null,\"box\":[616,231,637,256]},{\"frame\":22,\"point\":[640,243],\"extent\":null,\"box\":[631,229,650,257]},{\"frame\":23,\"point\":[654,242],\"extent\":null,\"box\":[643,228,665,257]},{\"frame\":24,\"point\":[667,242],\"extent\":null,\"box\":[657,228,679,257]},{\"frame\":25,\"point\":[681,243],\"extent\":null,\"box\":[670,229,693,257]},{\"frame\":26,\"point\":[695,243],\"extent\":null,\"box\":[685,229,707,257]},{\"frame\":27,\"point\":[709,244],\"extent\":null,\"box\":[698,231,721,258]},{\"frame\":29,\"point\":[737,248],\"extent\":null,\"box\":[724,238,751,259]},{\"frame\":30,\"point\":[751,250],\"extent\":null,\"box\":[737,241,766,259]},{\"frame\":33,\"point\":[789,260],\"extent\":null,\"box\":[776,254,801,267]},{\"frame\":35,\"point\":[814,264],\"extent\":null,\"box\":[803,256,826,272]},{\"frame\":36,\"point\":[826,264],\"extent\":null,\"box\":[815,256,838,273]}],\"depth_name\":\"eagle\",\"range_m\":null,\"range_basis\":\"\"},{\"role\":\"target\",\"object\":\"eagle\",\"obs\":[{\"frame\":19,\"point\":null,\"extent\":[[589,249],[611,246]],\"box\":[589,238,611,258]},{\"frame\":20,\"point\":null,\"extent\":[[603,250],[623,242]],\"box\":[604,235,623,256]},{\"frame\":29,\"point\":null,\"extent\":[[725,253],[750,242]],\"box\":[724,238,751,259]},{\"frame\":30,\"point\":null,\"extent\":[[738,255],[765,245]],\"box\":[737,241,766,259]},{\"frame\":12,\"point\":null,\"extent\":[[495,262],[512,260]],\"box\":[495,250,512,273]}],\"depth_name\":\"eagle\",\"range_m\":null,\"range_basis\":\"\"}],\"direct_answer\":0.75,\"confidence\":0.3,\"derivation\":\"~13.6 px/frame = 326 px/s near t=1s at 106.6 m; transverse speed ~11.1 m/s (radial 4.6) -> 0.034 m/px; length ~22 px -> ~0.75 m\"}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 2010,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "eagle"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "eagle"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 12,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Eagle is tiny (~20 px) and flapping; its length is hard to separate from wing extent."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "eagle",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         337,
+         240
+        ],
+        "extent": null,
+        "box": [
+         327,
+         226,
+         347,
+         254
+        ]
+       },
+       {
+        "frame": 2,
+        "point": [
+         366,
+         241
+        ],
+        "extent": null,
+        "box": [
+         355,
+         230,
+         377,
+         253
+        ]
+       },
+       {
+        "frame": 5,
+        "point": [
+         407,
+         249
+        ],
+        "extent": null,
+        "box": [
+         394,
+         244,
+         421,
+         255
+        ]
+       },
+       {
+        "frame": 7,
+        "point": [
+         434,
+         258
+        ],
+        "extent": null,
+        "box": [
+         424,
+         250,
+         445,
+         268
+        ]
+       },
+       {
+        "frame": 10,
+        "point": [
+         476,
+         262
+        ],
+        "extent": null,
+        "box": [
+         467,
+         250,
+         485,
+         274
+        ]
+       },
+       {
+        "frame": 12,
+        "point": [
+         503,
+         261
+        ],
+        "extent": null,
+        "box": [
+         495,
+         250,
+         512,
+         273
+        ]
+       },
+       {
+        "frame": 14,
+        "point": [
+         531,
+         261
+        ],
+        "extent": null,
+        "box": [
+         521,
+         252,
+         541,
+         271
+        ]
+       },
+       {
+        "frame": 15,
+        "point": [
+         545,
+         260
+        ],
+        "extent": null,
+        "box": [
+         535,
+         252,
+         555,
+         269
+        ]
+       },
+       {
+        "frame": 19,
+        "point": [
+         600,
+         248
+        ],
+        "extent": null,
+        "box": [
+         589,
+         238,
+         611,
+         258
+        ]
+       },
+       {
+        "frame": 20,
+        "point": [
+         613,
+         245
+        ],
+        "extent": null,
+        "box": [
+         604,
+         235,
+         623,
+         256
+        ]
+       },
+       {
+        "frame": 21,
+        "point": [
+         626,
+         243
+        ],
+        "extent": null,
+        "box": [
+         616,
+         231,
+         637,
+         256
+        ]
+       },
+       {
+        "frame": 22,
+        "point": [
+         640,
+         243
+        ],
+        "extent": null,
+        "box": [
+         631,
+         229,
+         650,
+         257
+        ]
+       },
+       {
+        "frame": 23,
+        "point": [
+         654,
+         242
+        ],
+        "extent": null,
+        "box": [
+         643,
+         228,
+         665,
+         257
+        ]
+       },
+       {
+        "frame": 24,
+        "point": [
+         667,
+         242
+        ],
+        "extent": null,
+        "box": [
+         657,
+         228,
+         679,
+         257
+        ]
+       },
+       {
+        "frame": 25,
+        "point": [
+         681,
+         243
+        ],
+        "extent": null,
+        "box": [
+         670,
+         229,
+         693,
+         257
+        ]
+       },
+       {
+        "frame": 26,
+        "point": [
+         695,
+         243
+        ],
+        "extent": null,
+        "box": [
+         685,
+         229,
+         707,
+         257
+        ]
+       },
+       {
+        "frame": 27,
+        "point": [
+         709,
+         244
+        ],
+        "extent": null,
+        "box": [
+         698,
+         231,
+         721,
+         258
+        ]
+       },
+       {
+        "frame": 29,
+        "point": [
+         737,
+         248
+        ],
+        "extent": null,
+        "box": [
+         724,
+         238,
+         751,
+         259
+        ]
+       },
+       {
+        "frame": 30,
+        "point": [
+         751,
+         250
+        ],
+        "extent": null,
+        "box": [
+         737,
+         241,
+         766,
+         259
+        ]
+       },
+       {
+        "frame": 33,
+        "point": [
+         789,
+         260
+        ],
+        "extent": null,
+        "box": [
+         776,
+         254,
+         801,
+         267
+        ]
+       },
+       {
+        "frame": 35,
+        "point": [
+         814,
+         264
+        ],
+        "extent": null,
+        "box": [
+         803,
+         256,
+         826,
+         272
+        ]
+       },
+       {
+        "frame": 36,
+        "point": [
+         826,
+         264
+        ],
+        "extent": null,
+        "box": [
+         815,
+         256,
+         838,
+         273
+        ]
+       }
+      ],
+      "depth_name": "eagle",
+      "range_m": null,
+      "range_basis": ""
+     },
+     {
+      "role": "target",
+      "object": "eagle",
+      "obs": [
+       {
+        "frame": 19,
+        "point": null,
+        "extent": [
+         [
+          589,
+          249
+         ],
+         [
+          611,
+          246
+         ]
+        ],
+        "box": [
+         589,
+         238,
+         611,
+         258
+        ]
+       },
+       {
+        "frame": 20,
+        "point": null,
+        "extent": [
+         [
+          603,
+          250
+         ],
+         [
+          623,
+          242
+         ]
+        ],
+        "box": [
+         604,
+         235,
+         623,
+         256
+        ]
+       },
+       {
+        "frame": 29,
+        "point": null,
+        "extent": [
+         [
+          725,
+          253
+         ],
+         [
+          750,
+          242
+         ]
+        ],
+        "box": [
+         724,
+         238,
+         751,
+         259
+        ]
+       },
+       {
+        "frame": 30,
+        "point": null,
+        "extent": [
+         [
+          738,
+          255
+         ],
+         [
+          765,
+          245
+         ]
+        ],
+        "box": [
+         737,
+         241,
+         766,
+         259
+        ]
+       },
+       {
+        "frame": 12,
+        "point": null,
+        "extent": [
+         [
+          495,
+          262
+         ],
+         [
+          512,
+          260
+         ]
+        ],
+        "box": [
+         495,
+         250,
+         512,
+         273
+        ]
+       }
+      ],
+      "depth_name": "eagle",
+      "range_m": null,
+      "range_basis": ""
+     }
+    ],
+    "direct_answer": 0.75,
+    "confidence": 0.3,
+    "derivation": "~13.6 px/frame = 326 px/s near t=1s at 106.6 m; transverse speed ~11.1 m/s (radial 4.6) -> 0.034 m/px; length ~22 px -> ~0.75 m"
+   }
+  ]
+ }
+}

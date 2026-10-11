@@ -1,0 +1,1094 @@
+{
+ "video_id": "simulation_0010_segmented",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfuoNLcy6e4ek1XWR44Sv",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 44,
+  "prompt_version": "v2",
+  "max_side": 854
+ },
+ "ts": "2026-10-11T04:19:09+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_01U8U2AUc3A3tdvG9FuKjK3c",
+ "custom_id": "simulation_0010_segmented",
+ "usage": {
+  "input_tokens": 42440,
+  "output_tokens": 4408,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 5593,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.129519,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0010_segmented",
+  "fps": 24.0,
+  "fps_from_container": false,
+  "video_type": "V3MX",
+  "n_frames_total": 59,
+  "scale": 0.43705220061412486,
+  "image_size": [
+   1920,
+   1954
+  ],
+  "frames": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   7,
+   8,
+   9,
+   11,
+   12,
+   15,
+   16,
+   18,
+   19,
+   20,
+   21,
+   22,
+   23,
+   24,
+   25,
+   26,
+   27,
+   28,
+   30,
+   31,
+   32,
+   35,
+   36,
+   38,
+   39,
+   40,
+   42,
+   43,
+   45,
+   46,
+   47,
+   50,
+   51,
+   53,
+   54,
+   55,
+   57,
+   58
+  ],
+  "questions": [
+   {
+    "qid": 1643,
+    "target_unit": "m",
+    "prior": "length of the bird = 1.19m",
+    "depth_info": "t=0s, distance_bird_camera = 34.584m\nt=1s, distance_bird_camera = 33.999m\ndistance_cart_camera = 30.374m\ndistance_house_camera = 55.083m"
+   },
+   {
+    "qid": 1644,
+    "target_unit": "m",
+    "prior": "length of the bird = 1.19m",
+    "depth_info": "t=0s, distance_bird_camera = 34.584m\nt=1s, distance_bird_camera = 33.999m\ndistance_cart_camera = 30.374m\ndistance_house_camera = 55.083m"
+   },
+   {
+    "qid": 1645,
+    "target_unit": "m",
+    "prior": "length of the bird = 1.19m",
+    "depth_info": "t=0s, distance_bird_camera = 34.584m\nt=1s, distance_bird_camera = 33.999m\ndistance_cart_camera = 30.374m\ndistance_house_camera = 55.083m"
+   },
+   {
+    "qid": 1646,
+    "target_unit": "m",
+    "prior": "length of the bird = 1.19m",
+    "depth_info": "t=0s, distance_bird_camera = 34.584m\nt=1s, distance_bird_camera = 33.999m\ndistance_cart_camera = 30.374m\ndistance_house_camera = 55.083m"
+   },
+   {
+    "qid": 1647,
+    "target_unit": "m/s",
+    "prior": "length of the bird = 1.19m",
+    "depth_info": "t=0s, distance_bird_camera = 34.584m\nt=1s, distance_bird_camera = 33.999m\ndistance_cart_camera = 30.374m\ndistance_house_camera = 55.083m"
+   }
+  ],
+  "prompt_version": "v2"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":1643,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"house\"],\"dimension\":\"width between eaves\",\"time\":null,\"window\":null,\"axis\":\"horizontal\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"bird\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":1.19,\"unit\":\"\"},\"depth\":[],\"notes\":\"Bird length is foreshortened during flapping; the focal length is estimated from frames 0, 24 and 36.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"bird\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[128,340],[182,340]],\"box\":[128,323,182,357]},{\"frame\":24,\"point\":null,\"extent\":[[317,350],[364,350]],\"box\":[317,340,364,378]},{\"frame\":36,\"point\":null,\"extent\":[[437,349],[491,349]],\"box\":[437,340,491,358]}],\"depth_name\":\"bird\",\"range_m\":null,\"range_basis\":\"\"},{\"role\":\"target\",\"object\":\"house\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[38,343],[446,350]],\"box\":[38,155,446,513]},{\"frame\":24,\"point\":null,\"extent\":[[38,343],[446,350]],\"box\":[38,155,446,513]},{\"frame\":50,\"point\":null,\"extent\":[[38,343],[446,350]],\"box\":[38,155,446,513]}],\"depth_name\":\"house\",\"range_m\":null,\"range_basis\":\"\"}],\"direct_answer\":15.5,\"confidence\":0.4,\"derivation\":\"bird ~50 px at 34.3 m -> f~1450 px; eaves 408 px at 55.08 m -> 15.5 m\"},{\"qid\":1644,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"house door\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"bird\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":1.19,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"bird\",\"obs\":[],\"depth_name\":\"bird\",\"range_m\":null,\"range_basis\":\"\"},{\"role\":\"target\",\"object\":\"house door\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[196,383],[196,507]],\"box\":[172,383,220,507]},{\"frame\":24,\"point\":null,\"extent\":[[196,383],[196,507]],\"box\":[172,383,220,507]},{\"frame\":50,\"point\":null,\"extent\":[[196,383],[196,507]],\"box\":[172,383,220,507]}],\"depth_name\":\"house\",\"range_m\":null,\"range_basis\":\"\"}],\"direct_answer\":4.7,\"confidence\":0.4,\"derivation\":\"f~1450 px; door 124 px at 55.08 m -> 4.71 m\"},{\"qid\":1645,\"spec\":{\"target\":{\"kind\":\"distance\",\"objects\":[\"cart\",\"ground\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"bird\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":1.19,\"unit\":\"\"},\"depth\":[],\"notes\":\"Ground is taken at the wheel bottom.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"bird\",\"obs\":[],\"depth_name\":\"bird\",\"range_m\":null,\"range_basis\":\"\"},{\"role\":\"target\",\"object\":\"cart\",\"obs\":[{\"frame\":0,\"point\":[790,443],\"extent\":null,\"box\":[566,442,826,553]},{\"frame\":24,\"point\":[790,443],\"extent\":null,\"box\":[566,442,826,553]}],\"depth_name\":\"cart\",\"range_m\":null,\"range_basis\":\"\"},{\"role\":\"target2\",\"object\":\"ground\",\"obs\":[{\"frame\":0,\"point\":[790,553],\"extent\":null,\"box\":null},{\"frame\":24,\"point\":[790,553],\"extent\":null,\"box\":null}],\"depth_name\":\"\",\"range_m\":30.374,\"range_basis\":\"Ground directly beneath the cart, at the cart's distance.\"}],\"direct_answer\":2.3,\"confidence\":0.35,\"derivation\":\"f~1450 px; cart top 443 to ground 553 = 110 px at 30.37 m -> 2.30 m\"},{\"qid\":1646,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"cart wheel\"],\"dimension\":\"diameter\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"bird\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":1.19,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"bird\",\"obs\":[],\"depth_name\":\"bird\",\"range_m\":null,\"range_basis\":\"\"},{\"role\":\"target\",\"object\":\"cart wheel\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[757,465],[757,552]],\"box\":[713,465,800,552]},{\"frame\":24,\"point\":null,\"extent\":[[757,465],[757,552]],\"box\":[713,465,800,552]},{\"frame\":50,\"point\":null,\"extent\":[[757,465],[757,552]],\"box\":[713,465,800,552]}],\"depth_name\":\"cart\",\"range_m\":null,\"range_basis\":\"\"}],\"direct_answer\":1.82,\"confidence\":0.4,\"derivation\":\"f~1450 px; wheel 87 px at 30.37 m -> 1.82 m\"},{\"qid\":1647,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"bird\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"bird\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":1.19,\"unit\":\"\"},\"depth\":[],\"notes\":\"Average over the whole clip.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"bird\",\"obs\":[],\"depth_name\":\"bird\",\"range_m\":null,\"range_basis\":\"\"},{\"role\":\"target\",\"object\":\"bird\",\"obs\":[{\"frame\":0,\"point\":[155,340],\"extent\":null,\"box\":[128,323,182,357]},{\"frame\":3,\"point\":[170,352],\"extent\":null,\"box\":[143,338,197,366]},{\"frame\":5,\"point\":[180,357],\"extent\":null,\"box\":[155,338,207,379]},{\"frame\":8,\"point\":[195,355],\"extent\":null,\"box\":[168,336,222,375]},{\"frame\":11,\"point\":[218,340],\"extent\":null,\"box\":[194,327,242,355]},{\"frame\":12,\"point\":[224,338],\"extent\":null,\"box\":[202,321,247,355]},{\"frame\":15,\"point\":[250,333],\"extent\":null,\"box\":[228,306,273,357]},{\"frame\":16,\"point\":[260,335],\"extent\":null,\"box\":[238,314,282,357]},{\"frame\":18,\"point\":[282,345],\"extent\":null,\"box\":[258,336,307,354]},{\"frame\":20,\"point\":[300,355],\"extent\":null,\"box\":[280,340,322,370]},{\"frame\":22,\"point\":[320,357],\"extent\":null,\"box\":[295,339,343,377]},{\"frame\":24,\"point\":[340,359],\"extent\":null,\"box\":[317,340,364,378]},{\"frame\":26,\"point\":[360,353],\"extent\":null,\"box\":[338,335,381,372]},{\"frame\":28,\"point\":[382,342],\"extent\":null,\"box\":[352,327,413,357]},{\"frame\":30,\"point\":[405,333],\"extent\":null,\"box\":[380,313,430,357]},{\"frame\":32,\"point\":[425,332],\"extent\":null,\"box\":[400,307,451,357]},{\"frame\":35,\"point\":[457,345],\"extent\":null,\"box\":[433,332,482,357]},{\"frame\":36,\"point\":[465,349],\"extent\":null,\"box\":[437,340,491,358]},{\"frame\":38,\"point\":[483,355],\"extent\":null,\"box\":[449,341,511,374]},{\"frame\":40,\"point\":[502,360],\"extent\":null,\"box\":[476,341,531,382]},{\"frame\":42,\"point\":[518,360],\"extent\":null,\"box\":[493,340,550,381]},{\"frame\":45,\"point\":[543,345],\"extent\":null,\"box\":[511,331,575,359]},{\"frame\":47,\"point\":[558,338],\"extent\":null,\"box\":[527,320,590,357]},{\"frame\":50,\"point\":[585,333],\"extent\":null,\"box\":[551,313,617,357]},{\"frame\":51,\"point\":[590,341],\"extent\":null,\"box\":[559,326,614,358]},{\"frame\":53,\"point\":[603,350],\"extent\":null,\"box\":[592,341,614,360]},{\"frame\":55,\"point\":[612,358],\"extent\":null,\"box\":[596,342,629,374]},{\"frame\":57,\"point\":[617,365],\"extent\":null,\"box\":[606,347,631,382]},{\"frame\":58,\"point\":[620,367],\"extent\":null,\"box\":[610,349,631,383]}],\"depth_name\":\"bird\",\"range_m\":null,\"range_basis\":\"\"}],\"direct_answer\":4.8,\"confidence\":0.3,\"derivation\":\"f~1450 px; path ~505 px at ~33.8 m -> ~11.6 m over 2.417 s -> ~4.8 m/s\"}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 1643,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "house"
+      ],
+      "dimension": "width between eaves",
+      "time": null,
+      "window": null,
+      "axis": "horizontal",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "bird"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 1.19,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Bird length is foreshortened during flapping; the focal length is estimated from frames 0, 24 and 36."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "bird",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          128,
+          340
+         ],
+         [
+          182,
+          340
+         ]
+        ],
+        "box": [
+         128,
+         323,
+         182,
+         357
+        ]
+       },
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          317,
+          350
+         ],
+         [
+          364,
+          350
+         ]
+        ],
+        "box": [
+         317,
+         340,
+         364,
+         378
+        ]
+       },
+       {
+        "frame": 36,
+        "point": null,
+        "extent": [
+         [
+          437,
+          349
+         ],
+         [
+          491,
+          349
+         ]
+        ],
+        "box": [
+         437,
+         340,
+         491,
+         358
+        ]
+       }
+      ],
+      "depth_name": "bird",
+      "range_m": null,
+      "range_basis": ""
+     },
+     {
+      "role": "target",
+      "object": "house",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          38,
+          343
+         ],
+         [
+          446,
+          350
+         ]
+        ],
+        "box": [
+         38,
+         155,
+         446,
+         513
+        ]
+       },
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          38,
+          343
+         ],
+         [
+          446,
+          350
+         ]
+        ],
+        "box": [
+         38,
+         155,
+         446,
+         513
+        ]
+       },
+       {
+        "frame": 50,
+        "point": null,
+        "extent": [
+         [
+          38,
+          343
+         ],
+         [
+          446,
+          350
+         ]
+        ],
+        "box": [
+         38,
+         155,
+         446,
+         513
+        ]
+       }
+      ],
+      "depth_name": "house",
+      "range_m": null,
+      "range_basis": ""
+     }
+    ],
+    "direct_answer": 15.5,
+    "confidence": 0.4,
+    "derivation": "bird ~50 px at 34.3 m -> f~1450 px; eaves 408 px at 55.08 m -> 15.5 m"
+   },
+   {
+    "qid": 1644,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "house door"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "bird"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 1.19,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "bird",
+      "obs": [],
+      "depth_name": "bird",
+      "range_m": null,
+      "range_basis": ""
+     },
+     {
+      "role": "target",
+      "object": "house door",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          196,
+          383
+         ],
+         [
+          196,
+          507
+         ]
+        ],
+        "box": [
+         172,
+         383,
+         220,
+         507
+        ]
+       },
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          196,
+          383
+         ],
+         [
+          196,
+          507
+         ]
+        ],
+        "box": [
+         172,
+         383,
+         220,
+         507
+        ]
+       },
+       {
+        "frame": 50,
+        "point": null,
+        "extent": [
+         [
+          196,
+          383
+         ],
+         [
+          196,
+          507
+         ]
+        ],
+        "box": [
+         172,
+         383,
+         220,
+         507
+        ]
+       }
+      ],
+      "depth_name": "house",
+      "range_m": null,
+      "range_basis": ""
+     }
+    ],
+    "direct_answer": 4.7,
+    "confidence": 0.4,
+    "derivation": "f~1450 px; door 124 px at 55.08 m -> 4.71 m"
+   },
+   {
+    "qid": 1645,
+    "spec": {
+     "target": {
+      "kind": "distance",
+      "objects": [
+       "cart",
+       "ground"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "bird"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 1.19,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Ground is taken at the wheel bottom."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "bird",
+      "obs": [],
+      "depth_name": "bird",
+      "range_m": null,
+      "range_basis": ""
+     },
+     {
+      "role": "target",
+      "object": "cart",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         790,
+         443
+        ],
+        "extent": null,
+        "box": [
+         566,
+         442,
+         826,
+         553
+        ]
+       },
+       {
+        "frame": 24,
+        "point": [
+         790,
+         443
+        ],
+        "extent": null,
+        "box": [
+         566,
+         442,
+         826,
+         553
+        ]
+       }
+      ],
+      "depth_name": "cart",
+      "range_m": null,
+      "range_basis": ""
+     },
+     {
+      "role": "target2",
+      "object": "ground",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         790,
+         553
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 24,
+        "point": [
+         790,
+         553
+        ],
+        "extent": null,
+        "box": null
+       }
+      ],
+      "depth_name": "",
+      "range_m": 30.374,
+      "range_basis": "Ground directly beneath the cart, at the cart's distance."
+     }
+    ],
+    "direct_answer": 2.3,
+    "confidence": 0.35,
+    "derivation": "f~1450 px; cart top 443 to ground 553 = 110 px at 30.37 m -> 2.30 m"
+   },
+   {
+    "qid": 1646,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "cart wheel"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "bird"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 1.19,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "bird",
+      "obs": [],
+      "depth_name": "bird",
+      "range_m": null,
+      "range_basis": ""
+     },
+     {
+      "role": "target",
+      "object": "cart wheel",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          757,
+          465
+         ],
+         [
+          757,
+          552
+         ]
+        ],
+        "box": [
+         713,
+         465,
+         800,
+         552
+        ]
+       },
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          757,
+          465
+         ],
+         [
+          757,
+          552
+         ]
+        ],
+        "box": [
+         713,
+         465,
+         800,
+         552
+        ]
+       },
+       {
+        "frame": 50,
+        "point": null,
+        "extent": [
+         [
+          757,
+          465
+         ],
+         [
+          757,
+          552
+         ]
+        ],
+        "box": [
+         713,
+         465,
+         800,
+         552
+        ]
+       }
+      ],
+      "depth_name": "cart",
+      "range_m": null,
+      "range_basis": ""
+     }
+    ],
+    "direct_answer": 1.82,
+    "confidence": 0.4,
+    "derivation": "f~1450 px; wheel 87 px at 30.37 m -> 1.82 m"
+   },
+   {
+    "qid": 1647,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "bird"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "bird"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 1.19,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Average over the whole clip."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "bird",
+      "obs": [],
+      "depth_name": "bird",
+      "range_m": null,
+      "range_basis": ""
+     },
+     {
+      "role": "target",
+      "object": "bird",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         155,
+         340
+        ],
+        "extent": null,
+        "box": [
+         128,
+         323,
+         182,
+         357
+        ]
+       },
+       {
+        "frame": 3,
+        "point": [
+         170,
+         352
+        ],
+        "extent": null,
+        "box": [
+         143,
+         338,
+         197,
+         366
+        ]
+       },
+       {
+        "frame": 5,
+        "point": [
+         180,
+         357
+        ],
+        "extent": null,
+        "box": [
+         155,
+         338,
+         207,
+         379
+        ]
+       },
+       {
+        "frame": 8,
+        "point": [
+         195,
+         355
+        ],
+        "extent": null,
+        "box": [
+         168,
+         336,
+         222,
+         375
+        ]
+       },
+       {
+        "frame": 11,
+        "point": [
+         218,
+         340
+        ],
+        "extent": null,
+        "box": [
+         194,
+         327,
+         242,
+         355
+        ]
+       },
+       {
+        "frame": 12,
+        "point": [
+         224,
+         338
+        ],
+        "extent": null,
+        "box": [
+         202,
+         321,
+         247,
+         355
+        ]
+       },
+       {
+        "frame": 15,
+        "point": [
+         250,
+         333
+        ],
+        "extent": null,
+        "box": [
+         228,
+         306,
+         273,
+         357
+        ]
+       },
+       {
+        "frame": 16,
+        "point": [
+         260,
+         335
+        ],
+        "extent": null,
+        "box": [
+         238,
+         314,
+         282,
+         357
+        ]
+       },
+       {
+        "frame": 18,
+        "point": [
+         282,
+         345
+        ],
+        "extent": null,
+        "box": [
+         258,
+         336,
+         307,
+         354
+        ]
+       },
+       {
+        "frame": 20,
+        "point": [
+         300,
+         355
+        ],
+        "extent": null,
+        "box": [
+         280,
+         340,
+         322,
+         370
+        ]
+       },
+       {
+        "frame": 22,
+        "point": [
+         320,
+         357
+        ],
+        "extent": null,
+        "box": [
+         295,
+         339,
+         343,
+         377
+        ]
+       },
+       {
+        "frame": 24,
+        "point": [
+         340,
+         359
+        ],
+        "extent": null,
+        "box": [
+         317,
+         340,
+         364,
+         378
+        ]
+       },
+       {
+        "frame": 26,
+        "point": [
+         360,
+         353
+        ],
+        "extent": null,
+        "box": [
+         338,
+         335,
+         381,
+         372
+        ]
+       },
+       {
+        "frame": 28,
+        "point": [
+         382,
+         342
+        ],
+        "extent": null,
+        "box": [
+         352,
+         327,
+         413,
+         357
+        ]
+       },
+       {
+        "frame": 30,
+        "point": [
+         405,
+         333
+        ],
+        "extent": null,
+        "box": [
+         380,
+         313,
+         430,
+         357
+        ]
+       },
+       {
+        "frame": 32,
+        "point": [
+         425,
+         332
+        ],
+        "extent": null,
+        "box": [
+         400,
+         307,
+         451,
+         357
+        ]
+       },
+       {
+        "frame": 35,
+        "point": [
+         457,
+         345
+        ],
+        "extent": null,
+        "box": [
+         433,
+         332,
+         482,
+         357
+        ]
+       },
+       {
+        "frame": 36,
+        "point": [
+         465,
+         349
+        ],
+        "extent": null,
+        "box": [
+         437,
+         340,
+         491,
+         358
+        ]
+       },
+       {
+        "frame": 38,
+        "point": [
+         483,
+         355
+        ],
+        "extent": null,
+        "box": [
+         449,
+         341,
+         511,
+         374
+        ]
+       },
+       {
+        "frame": 40,
+        "point": [
+         502,
+         360
+        ],
+        "extent": null,
+        "box": [
+         476,
+         341,
+         531,
+         382
+        ]
+       },
+       {
+        "frame": 42,
+        "point": [
+         518,
+         360
+        ],
+        "extent": null,
+        "box": [
+         493,
+         340,
+         550,
+         381
+        ]
+       },
+       {
+        "frame": 45,
+        "point": [
+         543,
+         345
+        ],
+        "extent": null,
+        "box": [
+         511,
+         331,
+         575,
+         359
+        ]
+       },
+       {
+        "frame": 47,
+        "point": [
+         558,
+         338
+        ],
+        "extent": null,
+        "box": [
+         527,
+         320,
+         590,
+         357
+        ]
+       },
+       {
+        "frame": 50,
+        "point": [
+         585,
+         333
+        ],
+        "extent": null,
+        "box": [
+         551,
+         313,
+         617,
+         357
+        ]
+       },
+       {
+        "frame": 51,
+        "point": [
+         590,
+         341
+        ],
+        "extent": null,
+        "box": [
+         559,
+         326,
+         614,
+         358
+        ]
+       },
+       {
+        "frame": 53,
+        "point": [
+         603,
+         350
+        ],
+        "extent": null,
+        "box": [
+         592,
+         341,
+         614,
+         360
+        ]
+       },
+       {
+        "frame": 55,
+        "point": [
+         612,
+         358
+        ],
+        "extent": null,
+        "box": [
+         596,
+         342,
+         629,
+         374
+        ]
+       },
+       {
+        "frame": 57,
+        "point": [
+         617,
+         365
+        ],
+        "extent": null,
+        "box": [
+         606,
+         347,
+         631,
+         382
+        ]
+       },
+       {
+        "frame": 58,
+        "point": [
+         620,
+         367
+        ],
+        "extent": null,
+        "box": [
+         610,
+         349,
+         631,
+         383
+        ]
+       }
+      ],
+      "depth_name": "bird",
+      "range_m": null,
+      "range_basis": ""
+     }
+    ],
+    "direct_answer": 4.8,
+    "confidence": 0.3,
+    "derivation": "f~1450 px; path ~505 px at ~33.8 m -> ~11.6 m over 2.417 s -> ~4.8 m/s"
+   }
+  ]
+ }
+}

@@ -1,0 +1,1142 @@
+{
+ "video_id": "simulation_0310",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfuoNZ7o7qvQRUAnXoTdm",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 44,
+  "prompt_version": "v2",
+  "max_side": 854
+ },
+ "ts": "2026-10-11T04:18:06+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_01J8QTVToieV2fdZ5XWS1iT3",
+ "custom_id": "simulation_0310",
+ "usage": {
+  "input_tokens": 26029,
+  "output_tokens": 10445,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 5593,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.157067,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0310",
+  "fps": 24.0,
+  "fps_from_container": false,
+  "video_type": "S3SC",
+  "n_frames_total": 72,
+  "scale": 0.33359375,
+  "image_size": [
+   2560,
+   1439
+  ],
+  "frames": [
+   0,
+   2,
+   5,
+   7,
+   8,
+   9,
+   12,
+   14,
+   15,
+   18,
+   19,
+   20,
+   21,
+   22,
+   23,
+   24,
+   25,
+   26,
+   27,
+   28,
+   31,
+   33,
+   36,
+   38,
+   41,
+   43,
+   45,
+   46,
+   47,
+   48,
+   49,
+   50,
+   51,
+   52,
+   53,
+   56,
+   57,
+   59,
+   62,
+   63,
+   64,
+   66,
+   69,
+   71
+  ],
+  "questions": [
+   {
+    "qid": 1488,
+    "target_unit": "m/s",
+    "prior": "height of the forklift = 2.47m",
+    "depth_info": "t = 1.0s, distance_forklift_camera = 16.7953 m\nt = 2.0s, distance_forklift_camera = 19.0980 m"
+   },
+   {
+    "qid": 1489,
+    "target_unit": "m/s",
+    "prior": "height of the forklift = 2.47m",
+    "depth_info": "t = 1.0s, distance_forklift_camera = 16.7953 m\nt = 2.0s, distance_forklift_camera = 19.0980 m"
+   },
+   {
+    "qid": 1490,
+    "target_unit": "m",
+    "prior": "height of the forklift = 2.47m",
+    "depth_info": "t = 1.0s, distance_forklift_camera = 16.7953 m\nt = 2.0s, distance_forklift_camera = 19.0980 m"
+   },
+   {
+    "qid": 1491,
+    "target_unit": "m",
+    "prior": "height of the forklift = 2.47m",
+    "depth_info": "t = 1.0s, distance_forklift_camera = 16.7953 m\nt = 2.0s, distance_forklift_camera = 19.0980 m"
+   },
+   {
+    "qid": 1492,
+    "target_unit": "m/s^2",
+    "prior": "height of the forklift = 2.47m",
+    "depth_info": "t = 1.0s, distance_forklift_camera = 16.7953 m\nt = 2.0s, distance_forklift_camera = 19.0980 m"
+   }
+  ],
+  "prompt_version": "v2"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":1488,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"forklift\"],\"dimension\":\"\",\"time\":1.0,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"forklift\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":2.47,\"unit\":\"\"},\"depth\":[],\"notes\":\"Forklift is accelerating, so speed is time-dependent. Motion is partly along the line of sight.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"forklift\",\"obs\":[{\"frame\":22,\"point\":null,\"extent\":[[640,256],[640,441]],\"box\":[463,195,735,443]},{\"frame\":24,\"point\":null,\"extent\":[[629,250],[631,436]],\"box\":[456,192,722,437]},{\"frame\":26,\"point\":null,\"extent\":[[619,247],[622,431]],\"box\":[447,188,714,431]},{\"frame\":48,\"point\":null,\"extent\":[[472,190],[478,350]],\"box\":[338,140,558,350]}],\"depth_name\":\"forklift\",\"range_m\":null,\"range_basis\":\"\"},{\"role\":\"target\",\"object\":\"forklift motion\",\"obs\":[{\"frame\":0,\"point\":[646.5,342.5],\"extent\":null,\"box\":[502,213,791,472]},{\"frame\":5,\"point\":[644,341],\"extent\":null,\"box\":[500,212,788,470]},{\"frame\":9,\"point\":[638,338.5],\"extent\":null,\"box\":[495,210,781,467]},{\"frame\":12,\"point\":[632,335],\"extent\":null,\"box\":[490,207,774,463]},{\"frame\":15,\"point\":[624,332],\"extent\":null,\"box\":[483,205,765,459]},{\"frame\":18,\"point\":[615,327],\"extent\":null,\"box\":[477,201,753,453]},{\"frame\":20,\"point\":[608,324],\"extent\":null,\"box\":[470,199,746,449]},{\"frame\":21,\"point\":[603.5,321],\"extent\":null,\"box\":[466,197,741,445]},{\"frame\":22,\"point\":[599,319],\"extent\":null,\"box\":[463,195,735,443]},{\"frame\":23,\"point\":[594,316.5],\"extent\":null,\"box\":[460,193,728,440]},{\"frame\":24,\"point\":[589,314.5],\"extent\":null,\"box\":[456,192,722,437]},{\"frame\":25,\"point\":[585,311.5],\"extent\":null,\"box\":[452,190,718,433]},{\"frame\":26,\"point\":[580.5,309.5],\"extent\":null,\"box\":[447,188,714,431]},{\"frame\":27,\"point\":[576,307],\"extent\":null,\"box\":[444,186,708,428]},{\"frame\":28,\"point\":[571.5,305],\"extent\":null,\"box\":[440,185,703,425]},{\"frame\":31,\"point\":[556,297],\"extent\":null,\"box\":[427,179,685,415]},{\"frame\":33,\"point\":[544.5,292],\"extent\":null,\"box\":[418,175,671,409]},{\"frame\":36,\"point\":[527,283.5],\"extent\":null,\"box\":[403,169,651,398]},{\"frame\":38,\"point\":[515,277],\"extent\":null,\"box\":[393,164,637,390]},{\"frame\":41,\"point\":[496,268],\"extent\":null,\"box\":[378,157,614,379]},{\"frame\":43,\"point\":[482,261.5],\"extent\":null,\"box\":[366,152,598,371]},{\"frame\":45,\"point\":[469,255.5],\"extent\":null,\"box\":[355,148,583,363]},{\"frame\":46,\"point\":[462.5,252.5],\"extent\":null,\"box\":[350,145,575,360]},{\"frame\":47,\"point\":[455.5,249],\"extent\":null,\"box\":[344,143,567,355]},{\"frame\":48,\"point\":[448,245],\"extent\":null,\"box\":[338,140,558,350]},{\"frame\":49,\"point\":[441,241.5],\"extent\":null,\"box\":[332,137,550,346]},{\"frame\":50,\"point\":[434,238.5],\"extent\":null,\"box\":[326,135,542,342]},{\"frame\":51,\"point\":[427,235],\"extent\":null,\"box\":[320,132,534,338]},{\"frame\":52,\"point\":[420,232],\"extent\":null,\"box\":[314,130,526,334]},{\"frame\":53,\"point\":[412,228],\"extent\":null,\"box\":[307,127,517,329]},{\"frame\":56,\"point\":[391,217.5],\"extent\":null,\"box\":[290,119,492,316]},{\"frame\":57,\"point\":[383,213.5],\"extent\":null,\"box\":[283,116,483,311]},{\"frame\":59,\"point\":[368,207],\"extent\":null,\"box\":[270,111,466,303]},{\"frame\":62,\"point\":[345.5,196.5],\"extent\":null,\"box\":[250,103,441,290]},{\"frame\":64,\"point\":[331,189],\"extent\":null,\"box\":[238,97,424,281]},{\"frame\":66,\"point\":[316,182],\"extent\":null,\"box\":[225,92,407,272]},{\"frame\":69,\"point\":[293,171],\"extent\":null,\"box\":[206,83,380,259]},{\"frame\":71,\"point\":[280,163.5],\"extent\":null,\"box\":[197,78,363,249]}],\"depth_name\":\"forklift\",\"range_m\":null,\"range_basis\":\"\"}],\"direct_answer\":2.35,\"confidence\":0.3,\"derivation\":\"height 185px@16.8m -> f~1258px, 0.01335 m/px; image speed ~125 px/s ->1.67 m/s lateral; radial/lateral ~1.02 from depth change -> ~2.35 m/s\"},{\"qid\":1489,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"forklift\"],\"dimension\":\"\",\"time\":2.0,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"forklift\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":2.47,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"forklift\",\"obs\":[],\"depth_name\":\"forklift\",\"range_m\":null,\"range_basis\":\"\"},{\"role\":\"target\",\"object\":\"forklift motion\",\"obs\":[],\"depth_name\":\"forklift\",\"range_m\":null,\"range_basis\":\"\"}],\"direct_answer\":4.1,\"confidence\":0.3,\"derivation\":\"scale 19.1/1258=0.01518 m/px; image speed ~191 px/s -> 2.89 m/s lateral; x1.43 for radial component -> ~4.1 m/s\"},{\"qid\":1490,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"forklift\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"forklift\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":2.47,\"unit\":\"\"},\"depth\":[],\"notes\":\"Length axis is strongly foreshortened (receding ~45 deg); no fronto-parallel view.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"forklift\",\"obs\":[],\"depth_name\":\"forklift\",\"range_m\":null,\"range_basis\":\"\"},{\"role\":\"target\",\"object\":\"forklift length\",\"obs\":[{\"frame\":22,\"point\":null,\"extent\":[[464,322],[734,392]],\"box\":[463,195,735,443]},{\"frame\":24,\"point\":null,\"extent\":[[457,318],[721,386]],\"box\":[456,192,722,437]},{\"frame\":26,\"point\":null,\"extent\":[[448,316],[713,381]],\"box\":[447,188,714,431]},{\"frame\":48,\"point\":null,\"extent\":[[339,259],[557,315]],\"box\":[338,140,558,350]}],\"depth_name\":\"forklift\",\"range_m\":null,\"range_basis\":\"\"}],\"direct_answer\":5.0,\"confidence\":0.2,\"derivation\":\"image length ~274px@16.8m; 0.01335 m/px; foreshortening x~1.4 from motion direction -> ~5.0 m\"},{\"qid\":1491,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"forklift\"],\"dimension\":\"width\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"forklift\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":2.47,\"unit\":\"\"},\"depth\":[],\"notes\":\"Far-side wheels hidden; width measured across rear body, foreshortened.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"forklift\",\"obs\":[],\"depth_name\":\"forklift\",\"range_m\":null,\"range_basis\":\"\"},{\"role\":\"target\",\"object\":\"forklift width\",\"obs\":[{\"frame\":24,\"point\":null,\"extent\":[[632,335],[721,320]],\"box\":[456,192,722,437]},{\"frame\":26,\"point\":null,\"extent\":[[622,331],[712,316]],\"box\":[447,188,714,431]},{\"frame\":48,\"point\":null,\"extent\":[[470,265],[556,252]],\"box\":[338,140,558,350]}],\"depth_name\":\"forklift\",\"range_m\":null,\"range_basis\":\"\"}],\"direct_answer\":1.8,\"confidence\":0.2,\"derivation\":\"rear width ~90px@16.8m (0.01335 m/px) x~1.41 foreshortening -> ~1.7-1.8 m\"},{\"qid\":1492,\"spec\":{\"target\":{\"kind\":\"acceleration\",\"objects\":[\"forklift\"],\"dimension\":\"\",\"time\":1.0,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s^2\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"forklift\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":2.47,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"forklift\",\"obs\":[],\"depth_name\":\"forklift\",\"range_m\":null,\"range_basis\":\"\"},{\"role\":\"target\",\"object\":\"forklift motion\",\"obs\":[],\"depth_name\":\"forklift\",\"range_m\":null,\"range_basis\":\"\"}],\"direct_answer\":2.0,\"confidence\":0.2,\"derivation\":\"speed ~1.70 m/s at 0.75s, ~2.78 m/s at 1.25s -> ~2.1; 1-2s avg (4.1-2.35) -> 1.75; ~2.0 m/s^2\"}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 1488,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "forklift"
+      ],
+      "dimension": "",
+      "time": 1.0,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "forklift"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": 2.47,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Forklift is accelerating, so speed is time-dependent. Motion is partly along the line of sight."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "forklift",
+      "obs": [
+       {
+        "frame": 22,
+        "point": null,
+        "extent": [
+         [
+          640,
+          256
+         ],
+         [
+          640,
+          441
+         ]
+        ],
+        "box": [
+         463,
+         195,
+         735,
+         443
+        ]
+       },
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          629,
+          250
+         ],
+         [
+          631,
+          436
+         ]
+        ],
+        "box": [
+         456,
+         192,
+         722,
+         437
+        ]
+       },
+       {
+        "frame": 26,
+        "point": null,
+        "extent": [
+         [
+          619,
+          247
+         ],
+         [
+          622,
+          431
+         ]
+        ],
+        "box": [
+         447,
+         188,
+         714,
+         431
+        ]
+       },
+       {
+        "frame": 48,
+        "point": null,
+        "extent": [
+         [
+          472,
+          190
+         ],
+         [
+          478,
+          350
+         ]
+        ],
+        "box": [
+         338,
+         140,
+         558,
+         350
+        ]
+       }
+      ],
+      "depth_name": "forklift",
+      "range_m": null,
+      "range_basis": ""
+     },
+     {
+      "role": "target",
+      "object": "forklift motion",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         646.5,
+         342.5
+        ],
+        "extent": null,
+        "box": [
+         502,
+         213,
+         791,
+         472
+        ]
+       },
+       {
+        "frame": 5,
+        "point": [
+         644,
+         341
+        ],
+        "extent": null,
+        "box": [
+         500,
+         212,
+         788,
+         470
+        ]
+       },
+       {
+        "frame": 9,
+        "point": [
+         638,
+         338.5
+        ],
+        "extent": null,
+        "box": [
+         495,
+         210,
+         781,
+         467
+        ]
+       },
+       {
+        "frame": 12,
+        "point": [
+         632,
+         335
+        ],
+        "extent": null,
+        "box": [
+         490,
+         207,
+         774,
+         463
+        ]
+       },
+       {
+        "frame": 15,
+        "point": [
+         624,
+         332
+        ],
+        "extent": null,
+        "box": [
+         483,
+         205,
+         765,
+         459
+        ]
+       },
+       {
+        "frame": 18,
+        "point": [
+         615,
+         327
+        ],
+        "extent": null,
+        "box": [
+         477,
+         201,
+         753,
+         453
+        ]
+       },
+       {
+        "frame": 20,
+        "point": [
+         608,
+         324
+        ],
+        "extent": null,
+        "box": [
+         470,
+         199,
+         746,
+         449
+        ]
+       },
+       {
+        "frame": 21,
+        "point": [
+         603.5,
+         321
+        ],
+        "extent": null,
+        "box": [
+         466,
+         197,
+         741,
+         445
+        ]
+       },
+       {
+        "frame": 22,
+        "point": [
+         599,
+         319
+        ],
+        "extent": null,
+        "box": [
+         463,
+         195,
+         735,
+         443
+        ]
+       },
+       {
+        "frame": 23,
+        "point": [
+         594,
+         316.5
+        ],
+        "extent": null,
+        "box": [
+         460,
+         193,
+         728,
+         440
+        ]
+       },
+       {
+        "frame": 24,
+        "point": [
+         589,
+         314.5
+        ],
+        "extent": null,
+        "box": [
+         456,
+         192,
+         722,
+         437
+        ]
+       },
+       {
+        "frame": 25,
+        "point": [
+         585,
+         311.5
+        ],
+        "extent": null,
+        "box": [
+         452,
+         190,
+         718,
+         433
+        ]
+       },
+       {
+        "frame": 26,
+        "point": [
+         580.5,
+         309.5
+        ],
+        "extent": null,
+        "box": [
+         447,
+         188,
+         714,
+         431
+        ]
+       },
+       {
+        "frame": 27,
+        "point": [
+         576,
+         307
+        ],
+        "extent": null,
+        "box": [
+         444,
+         186,
+         708,
+         428
+        ]
+       },
+       {
+        "frame": 28,
+        "point": [
+         571.5,
+         305
+        ],
+        "extent": null,
+        "box": [
+         440,
+         185,
+         703,
+         425
+        ]
+       },
+       {
+        "frame": 31,
+        "point": [
+         556,
+         297
+        ],
+        "extent": null,
+        "box": [
+         427,
+         179,
+         685,
+         415
+        ]
+       },
+       {
+        "frame": 33,
+        "point": [
+         544.5,
+         292
+        ],
+        "extent": null,
+        "box": [
+         418,
+         175,
+         671,
+         409
+        ]
+       },
+       {
+        "frame": 36,
+        "point": [
+         527,
+         283.5
+        ],
+        "extent": null,
+        "box": [
+         403,
+         169,
+         651,
+         398
+        ]
+       },
+       {
+        "frame": 38,
+        "point": [
+         515,
+         277
+        ],
+        "extent": null,
+        "box": [
+         393,
+         164,
+         637,
+         390
+        ]
+       },
+       {
+        "frame": 41,
+        "point": [
+         496,
+         268
+        ],
+        "extent": null,
+        "box": [
+         378,
+         157,
+         614,
+         379
+        ]
+       },
+       {
+        "frame": 43,
+        "point": [
+         482,
+         261.5
+        ],
+        "extent": null,
+        "box": [
+         366,
+         152,
+         598,
+         371
+        ]
+       },
+       {
+        "frame": 45,
+        "point": [
+         469,
+         255.5
+        ],
+        "extent": null,
+        "box": [
+         355,
+         148,
+         583,
+         363
+        ]
+       },
+       {
+        "frame": 46,
+        "point": [
+         462.5,
+         252.5
+        ],
+        "extent": null,
+        "box": [
+         350,
+         145,
+         575,
+         360
+        ]
+       },
+       {
+        "frame": 47,
+        "point": [
+         455.5,
+         249
+        ],
+        "extent": null,
+        "box": [
+         344,
+         143,
+         567,
+         355
+        ]
+       },
+       {
+        "frame": 48,
+        "point": [
+         448,
+         245
+        ],
+        "extent": null,
+        "box": [
+         338,
+         140,
+         558,
+         350
+        ]
+       },
+       {
+        "frame": 49,
+        "point": [
+         441,
+         241.5
+        ],
+        "extent": null,
+        "box": [
+         332,
+         137,
+         550,
+         346
+        ]
+       },
+       {
+        "frame": 50,
+        "point": [
+         434,
+         238.5
+        ],
+        "extent": null,
+        "box": [
+         326,
+         135,
+         542,
+         342
+        ]
+       },
+       {
+        "frame": 51,
+        "point": [
+         427,
+         235
+        ],
+        "extent": null,
+        "box": [
+         320,
+         132,
+         534,
+         338
+        ]
+       },
+       {
+        "frame": 52,
+        "point": [
+         420,
+         232
+        ],
+        "extent": null,
+        "box": [
+         314,
+         130,
+         526,
+         334
+        ]
+       },
+       {
+        "frame": 53,
+        "point": [
+         412,
+         228
+        ],
+        "extent": null,
+        "box": [
+         307,
+         127,
+         517,
+         329
+        ]
+       },
+       {
+        "frame": 56,
+        "point": [
+         391,
+         217.5
+        ],
+        "extent": null,
+        "box": [
+         290,
+         119,
+         492,
+         316
+        ]
+       },
+       {
+        "frame": 57,
+        "point": [
+         383,
+         213.5
+        ],
+        "extent": null,
+        "box": [
+         283,
+         116,
+         483,
+         311
+        ]
+       },
+       {
+        "frame": 59,
+        "point": [
+         368,
+         207
+        ],
+        "extent": null,
+        "box": [
+         270,
+         111,
+         466,
+         303
+        ]
+       },
+       {
+        "frame": 62,
+        "point": [
+         345.5,
+         196.5
+        ],
+        "extent": null,
+        "box": [
+         250,
+         103,
+         441,
+         290
+        ]
+       },
+       {
+        "frame": 64,
+        "point": [
+         331,
+         189
+        ],
+        "extent": null,
+        "box": [
+         238,
+         97,
+         424,
+         281
+        ]
+       },
+       {
+        "frame": 66,
+        "point": [
+         316,
+         182
+        ],
+        "extent": null,
+        "box": [
+         225,
+         92,
+         407,
+         272
+        ]
+       },
+       {
+        "frame": 69,
+        "point": [
+         293,
+         171
+        ],
+        "extent": null,
+        "box": [
+         206,
+         83,
+         380,
+         259
+        ]
+       },
+       {
+        "frame": 71,
+        "point": [
+         280,
+         163.5
+        ],
+        "extent": null,
+        "box": [
+         197,
+         78,
+         363,
+         249
+        ]
+       }
+      ],
+      "depth_name": "forklift",
+      "range_m": null,
+      "range_basis": ""
+     }
+    ],
+    "direct_answer": 2.35,
+    "confidence": 0.3,
+    "derivation": "height 185px@16.8m -> f~1258px, 0.01335 m/px; image speed ~125 px/s ->1.67 m/s lateral; radial/lateral ~1.02 from depth change -> ~2.35 m/s"
+   },
+   {
+    "qid": 1489,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "forklift"
+      ],
+      "dimension": "",
+      "time": 2.0,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "forklift"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": 2.47,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "forklift",
+      "obs": [],
+      "depth_name": "forklift",
+      "range_m": null,
+      "range_basis": ""
+     },
+     {
+      "role": "target",
+      "object": "forklift motion",
+      "obs": [],
+      "depth_name": "forklift",
+      "range_m": null,
+      "range_basis": ""
+     }
+    ],
+    "direct_answer": 4.1,
+    "confidence": 0.3,
+    "derivation": "scale 19.1/1258=0.01518 m/px; image speed ~191 px/s -> 2.89 m/s lateral; x1.43 for radial component -> ~4.1 m/s"
+   },
+   {
+    "qid": 1490,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "forklift"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "forklift"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": 2.47,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Length axis is strongly foreshortened (receding ~45 deg); no fronto-parallel view."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "forklift",
+      "obs": [],
+      "depth_name": "forklift",
+      "range_m": null,
+      "range_basis": ""
+     },
+     {
+      "role": "target",
+      "object": "forklift length",
+      "obs": [
+       {
+        "frame": 22,
+        "point": null,
+        "extent": [
+         [
+          464,
+          322
+         ],
+         [
+          734,
+          392
+         ]
+        ],
+        "box": [
+         463,
+         195,
+         735,
+         443
+        ]
+       },
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          457,
+          318
+         ],
+         [
+          721,
+          386
+         ]
+        ],
+        "box": [
+         456,
+         192,
+         722,
+         437
+        ]
+       },
+       {
+        "frame": 26,
+        "point": null,
+        "extent": [
+         [
+          448,
+          316
+         ],
+         [
+          713,
+          381
+         ]
+        ],
+        "box": [
+         447,
+         188,
+         714,
+         431
+        ]
+       },
+       {
+        "frame": 48,
+        "point": null,
+        "extent": [
+         [
+          339,
+          259
+         ],
+         [
+          557,
+          315
+         ]
+        ],
+        "box": [
+         338,
+         140,
+         558,
+         350
+        ]
+       }
+      ],
+      "depth_name": "forklift",
+      "range_m": null,
+      "range_basis": ""
+     }
+    ],
+    "direct_answer": 5.0,
+    "confidence": 0.2,
+    "derivation": "image length ~274px@16.8m; 0.01335 m/px; foreshortening x~1.4 from motion direction -> ~5.0 m"
+   },
+   {
+    "qid": 1491,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "forklift"
+      ],
+      "dimension": "width",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "forklift"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": 2.47,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Far-side wheels hidden; width measured across rear body, foreshortened."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "forklift",
+      "obs": [],
+      "depth_name": "forklift",
+      "range_m": null,
+      "range_basis": ""
+     },
+     {
+      "role": "target",
+      "object": "forklift width",
+      "obs": [
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          632,
+          335
+         ],
+         [
+          721,
+          320
+         ]
+        ],
+        "box": [
+         456,
+         192,
+         722,
+         437
+        ]
+       },
+       {
+        "frame": 26,
+        "point": null,
+        "extent": [
+         [
+          622,
+          331
+         ],
+         [
+          712,
+          316
+         ]
+        ],
+        "box": [
+         447,
+         188,
+         714,
+         431
+        ]
+       },
+       {
+        "frame": 48,
+        "point": null,
+        "extent": [
+         [
+          470,
+          265
+         ],
+         [
+          556,
+          252
+         ]
+        ],
+        "box": [
+         338,
+         140,
+         558,
+         350
+        ]
+       }
+      ],
+      "depth_name": "forklift",
+      "range_m": null,
+      "range_basis": ""
+     }
+    ],
+    "direct_answer": 1.8,
+    "confidence": 0.2,
+    "derivation": "rear width ~90px@16.8m (0.01335 m/px) x~1.41 foreshortening -> ~1.7-1.8 m"
+   },
+   {
+    "qid": 1492,
+    "spec": {
+     "target": {
+      "kind": "acceleration",
+      "objects": [
+       "forklift"
+      ],
+      "dimension": "",
+      "time": 1.0,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s^2"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "forklift"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": 2.47,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "forklift",
+      "obs": [],
+      "depth_name": "forklift",
+      "range_m": null,
+      "range_basis": ""
+     },
+     {
+      "role": "target",
+      "object": "forklift motion",
+      "obs": [],
+      "depth_name": "forklift",
+      "range_m": null,
+      "range_basis": ""
+     }
+    ],
+    "direct_answer": 2.0,
+    "confidence": 0.2,
+    "derivation": "speed ~1.70 m/s at 0.75s, ~2.78 m/s at 1.25s -> ~2.1; 1-2s avg (4.1-2.35) -> 1.75; ~2.0 m/s^2"
+   }
+  ]
+ }
+}

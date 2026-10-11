@@ -1,0 +1,447 @@
+{
+ "video_id": "simulation_0027",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfuoH9aZKbCcjvbReUDJg",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 44,
+  "prompt_version": "v2",
+  "max_side": 854
+ },
+ "ts": "2026-10-11T04:19:08+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_01DwEFUj93MPQ4h7Zuo2HPcD",
+ "custom_id": "simulation_0027",
+ "usage": {
+  "input_tokens": 43266,
+  "output_tokens": 1589,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 5593,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.102981,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0027",
+  "fps": 24.0,
+  "fps_from_container": false,
+  "video_type": "S3MS",
+  "n_frames_total": 75,
+  "scale": 0.8895833333333333,
+  "image_size": [
+   960,
+   960
+  ],
+  "frames": [
+   0,
+   2,
+   5,
+   7,
+   10,
+   12,
+   14,
+   15,
+   19,
+   20,
+   21,
+   22,
+   23,
+   24,
+   25,
+   26,
+   27,
+   29,
+   30,
+   33,
+   35,
+   36,
+   38,
+   39,
+   41,
+   44,
+   45,
+   46,
+   47,
+   48,
+   49,
+   50,
+   51,
+   52,
+   54,
+   55,
+   59,
+   60,
+   62,
+   64,
+   67,
+   69,
+   72,
+   74
+  ],
+  "questions": [
+   {
+    "qid": 1116,
+    "target_unit": "m/s",
+    "prior": "height of the person = 1.75m",
+    "depth_info": "t=1s, distance_human_camera = 100.5638m\nt=2s, distance_human_camera = 100.5996m"
+   }
+  ],
+  "prompt_version": "v2"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":1116,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"person\"],\"dimension\":\"\",\"time\":null,\"window\":[1.0,2.0],\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"person\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":1.75,\"unit\":\"\"},\"depth\":[],\"notes\":\"Elevated oblique view, so the person's height is somewhat foreshortened. The depth is nearly constant, so a single scale is used.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"person\",\"obs\":[{\"frame\":0,\"point\":[361,328],\"extent\":[[361,303],[362,351]],\"box\":[354,303,369,351]},{\"frame\":24,\"point\":[371.5,342],\"extent\":[[371,318],[373,366]],\"box\":[364,318,379,366]},{\"frame\":36,\"point\":[376,346],\"extent\":[[375,323],[377,369]],\"box\":[368,323,383,369]},{\"frame\":48,\"point\":[381.5,354],\"extent\":[[381,331],[382,377]],\"box\":[374,331,389,377]}],\"depth_name\":\"human\",\"range_m\":null,\"range_basis\":\"\"},{\"role\":\"target\",\"object\":\"person\",\"obs\":[{\"frame\":21,\"point\":[370,339],\"extent\":null,\"box\":[362,316,378,362]},{\"frame\":22,\"point\":[370.5,340],\"extent\":null,\"box\":[363,317,378,363]},{\"frame\":23,\"point\":[371,341],\"extent\":null,\"box\":[363,317,379,365]},{\"frame\":24,\"point\":[371.5,342],\"extent\":null,\"box\":[364,318,379,366]},{\"frame\":25,\"point\":[372,343],\"extent\":null,\"box\":[364,319,380,367]},{\"frame\":26,\"point\":[372.5,344],\"extent\":null,\"box\":[365,320,380,368]},{\"frame\":30,\"point\":[374,345],\"extent\":null,\"box\":[366,321,382,369]},{\"frame\":36,\"point\":[376,346],\"extent\":null,\"box\":[368,323,383,369]},{\"frame\":41,\"point\":[378,350],\"extent\":null,\"box\":[370,327,386,374]},{\"frame\":44,\"point\":[380,352],\"extent\":null,\"box\":[372,329,388,376]},{\"frame\":47,\"point\":[381,353],\"extent\":null,\"box\":[373,330,389,377]},{\"frame\":48,\"point\":[381.5,354],\"extent\":null,\"box\":[374,331,389,377]},{\"frame\":49,\"point\":[382,354],\"extent\":null,\"box\":[374,331,390,378]},{\"frame\":50,\"point\":[382,354.5],\"extent\":null,\"box\":[374,331,390,378]}],\"depth_name\":\"human\",\"range_m\":null,\"range_basis\":\"\"}],\"direct_answer\":0.57,\"confidence\":0.4,\"derivation\":\"height 48 px = 1.75 m -> 0.0365 m/px; moved from (371.5,342) to (381.5,354) = 15.6 px in 1 s -> 0.57 m/s\"}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 1116,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "person"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": [
+       1.0,
+       2.0
+      ],
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "person"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 1.75,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Elevated oblique view, so the person's height is somewhat foreshortened. The depth is nearly constant, so a single scale is used."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "person",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         361,
+         328
+        ],
+        "extent": [
+         [
+          361,
+          303
+         ],
+         [
+          362,
+          351
+         ]
+        ],
+        "box": [
+         354,
+         303,
+         369,
+         351
+        ]
+       },
+       {
+        "frame": 24,
+        "point": [
+         371.5,
+         342
+        ],
+        "extent": [
+         [
+          371,
+          318
+         ],
+         [
+          373,
+          366
+         ]
+        ],
+        "box": [
+         364,
+         318,
+         379,
+         366
+        ]
+       },
+       {
+        "frame": 36,
+        "point": [
+         376,
+         346
+        ],
+        "extent": [
+         [
+          375,
+          323
+         ],
+         [
+          377,
+          369
+         ]
+        ],
+        "box": [
+         368,
+         323,
+         383,
+         369
+        ]
+       },
+       {
+        "frame": 48,
+        "point": [
+         381.5,
+         354
+        ],
+        "extent": [
+         [
+          381,
+          331
+         ],
+         [
+          382,
+          377
+         ]
+        ],
+        "box": [
+         374,
+         331,
+         389,
+         377
+        ]
+       }
+      ],
+      "depth_name": "human",
+      "range_m": null,
+      "range_basis": ""
+     },
+     {
+      "role": "target",
+      "object": "person",
+      "obs": [
+       {
+        "frame": 21,
+        "point": [
+         370,
+         339
+        ],
+        "extent": null,
+        "box": [
+         362,
+         316,
+         378,
+         362
+        ]
+       },
+       {
+        "frame": 22,
+        "point": [
+         370.5,
+         340
+        ],
+        "extent": null,
+        "box": [
+         363,
+         317,
+         378,
+         363
+        ]
+       },
+       {
+        "frame": 23,
+        "point": [
+         371,
+         341
+        ],
+        "extent": null,
+        "box": [
+         363,
+         317,
+         379,
+         365
+        ]
+       },
+       {
+        "frame": 24,
+        "point": [
+         371.5,
+         342
+        ],
+        "extent": null,
+        "box": [
+         364,
+         318,
+         379,
+         366
+        ]
+       },
+       {
+        "frame": 25,
+        "point": [
+         372,
+         343
+        ],
+        "extent": null,
+        "box": [
+         364,
+         319,
+         380,
+         367
+        ]
+       },
+       {
+        "frame": 26,
+        "point": [
+         372.5,
+         344
+        ],
+        "extent": null,
+        "box": [
+         365,
+         320,
+         380,
+         368
+        ]
+       },
+       {
+        "frame": 30,
+        "point": [
+         374,
+         345
+        ],
+        "extent": null,
+        "box": [
+         366,
+         321,
+         382,
+         369
+        ]
+       },
+       {
+        "frame": 36,
+        "point": [
+         376,
+         346
+        ],
+        "extent": null,
+        "box": [
+         368,
+         323,
+         383,
+         369
+        ]
+       },
+       {
+        "frame": 41,
+        "point": [
+         378,
+         350
+        ],
+        "extent": null,
+        "box": [
+         370,
+         327,
+         386,
+         374
+        ]
+       },
+       {
+        "frame": 44,
+        "point": [
+         380,
+         352
+        ],
+        "extent": null,
+        "box": [
+         372,
+         329,
+         388,
+         376
+        ]
+       },
+       {
+        "frame": 47,
+        "point": [
+         381,
+         353
+        ],
+        "extent": null,
+        "box": [
+         373,
+         330,
+         389,
+         377
+        ]
+       },
+       {
+        "frame": 48,
+        "point": [
+         381.5,
+         354
+        ],
+        "extent": null,
+        "box": [
+         374,
+         331,
+         389,
+         377
+        ]
+       },
+       {
+        "frame": 49,
+        "point": [
+         382,
+         354
+        ],
+        "extent": null,
+        "box": [
+         374,
+         331,
+         390,
+         378
+        ]
+       },
+       {
+        "frame": 50,
+        "point": [
+         382,
+         354.5
+        ],
+        "extent": null,
+        "box": [
+         374,
+         331,
+         390,
+         378
+        ]
+       }
+      ],
+      "depth_name": "human",
+      "range_m": null,
+      "range_basis": ""
+     }
+    ],
+    "direct_answer": 0.57,
+    "confidence": 0.4,
+    "derivation": "height 48 px = 1.75 m -> 0.0365 m/px; moved from (371.5,342) to (381.5,354) = 15.6 px in 1 s -> 0.57 m/s"
+   }
+  ]
+ }
+}

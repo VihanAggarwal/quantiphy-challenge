@@ -1,0 +1,580 @@
+{
+ "video_id": "simulation_0044",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfuoKBsXNkd98ZJ78QyQP",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 44,
+  "prompt_version": "v2",
+  "max_side": 854
+ },
+ "ts": "2026-10-11T04:21:11+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_01WcjD8TKm5zJhFoMXh6dbVa",
+ "custom_id": "simulation_0044",
+ "usage": {
+  "input_tokens": 43493,
+  "output_tokens": 3532,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 5593,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.122865,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0044",
+  "fps": 24.0,
+  "fps_from_container": false,
+  "video_type": "S3MC",
+  "n_frames_total": 72,
+  "scale": 0.7907407407407407,
+  "image_size": [
+   1080,
+   1080
+  ],
+  "frames": [
+   0,
+   2,
+   5,
+   7,
+   8,
+   9,
+   12,
+   14,
+   15,
+   18,
+   19,
+   20,
+   21,
+   22,
+   23,
+   24,
+   25,
+   26,
+   27,
+   28,
+   31,
+   33,
+   36,
+   38,
+   41,
+   43,
+   45,
+   46,
+   47,
+   48,
+   49,
+   50,
+   51,
+   52,
+   53,
+   56,
+   57,
+   59,
+   62,
+   63,
+   64,
+   66,
+   69,
+   71
+  ],
+  "questions": [
+   {
+    "qid": 1171,
+    "target_unit": "m",
+    "prior": "length of the eagle = 0.8m",
+    "depth_info": "t=1s, distance_eagle_camera = 175.3081m\nt=2s, distance_eagle_camera = 172.9881m"
+   },
+   {
+    "qid": 1172,
+    "target_unit": "m/s",
+    "prior": "length of the eagle = 0.8m",
+    "depth_info": "t=1s, distance_eagle_camera = 175.3081m\nt=2s, distance_eagle_camera = 172.9881m"
+   },
+   {
+    "qid": 1173,
+    "target_unit": "m",
+    "prior": "length of the eagle = 0.8m",
+    "depth_info": "t=1s, distance_eagle_camera = 175.3081m\nt=2s, distance_eagle_camera = 172.9881m"
+   }
+  ],
+  "prompt_version": "v2"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":1171,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"rock\"],\"dimension\":\"width\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"eagle\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.8,\"unit\":\"\"},\"depth\":[],\"notes\":\"Rock distance not given; the ground lies somewhat beyond the eagle, but the eagle's scale is assumed. Width is taken as the rock's horizontal image extent. The eagle is the small dark bird; the larger dark shape is its shadow.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"eagle\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[86,434],[98,433]],\"box\":[85,425,99,442]},{\"frame\":24,\"point\":null,\"extent\":[[267,484],[279,484]],\"box\":[266,476,280,493]},{\"frame\":48,\"point\":null,\"extent\":[[461,537],[473,537]],\"box\":[460,528,474,546]}],\"depth_name\":\"eagle\",\"range_m\":null,\"range_basis\":\"\"},{\"role\":\"target\",\"object\":\"rock\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[308,150],[699,60]],\"box\":[308,10,700,357]},{\"frame\":24,\"point\":null,\"extent\":[[308,150],[699,60]],\"box\":[308,10,700,357]},{\"frame\":48,\"point\":null,\"extent\":[[308,150],[699,60]],\"box\":[308,10,700,357]}],\"depth_name\":\"\",\"range_m\":176,\"range_basis\":\"Rock on the ground below the eagle; assumed similar to the eagle's 175 m distance.\"}],\"direct_answer\":26,\"confidence\":0.3,\"derivation\":\"eagle length ~12 px = 0.8 m -> 0.0667 m/px at 175 m; rock width 392 px -> 26 m\"},{\"qid\":1172,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"eagle\"],\"dimension\":\"\",\"time\":1.0,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"eagle\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.8,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"eagle\",\"obs\":[],\"depth_name\":\"eagle\",\"range_m\":null,\"range_basis\":\"\"},{\"role\":\"target\",\"object\":\"eagle\",\"obs\":[{\"frame\":20,\"point\":[241,474],\"extent\":null,\"box\":[235,466,248,482]},{\"frame\":21,\"point\":[249,476],\"extent\":null,\"box\":[243,468,256,484]},{\"frame\":22,\"point\":[257,479],\"extent\":null,\"box\":[251,471,264,487]},{\"frame\":23,\"point\":[265,481],\"extent\":null,\"box\":[259,473,272,489]},{\"frame\":24,\"point\":[273,484],\"extent\":null,\"box\":[266,476,280,493]},{\"frame\":25,\"point\":[281,486],\"extent\":null,\"box\":[275,478,288,494]},{\"frame\":26,\"point\":[290,488],\"extent\":null,\"box\":[283,480,297,496]},{\"frame\":27,\"point\":[298,490],\"extent\":null,\"box\":[291,482,305,498]},{\"frame\":28,\"point\":[307,492],\"extent\":null,\"box\":[299,483,315,502]}],\"depth_name\":\"eagle\",\"range_m\":null,\"range_basis\":\"\"}],\"direct_answer\":13.4,\"confidence\":0.4,\"derivation\":\"~8.3 px/frame = 200 px/s; 0.0667 m/px -> 13.3 m/s lateral; depth rate ~2.3 m/s -> ~13.4 m/s\"},{\"qid\":1173,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"eagle\"],\"dimension\":\"wingspan\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"eagle\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.8,\"unit\":\"\"},\"depth\":[],\"notes\":\"Wing flapping changes apparent span; frames with wings spread used.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"eagle\",\"obs\":[],\"depth_name\":\"eagle\",\"range_m\":null,\"range_basis\":\"\"},{\"role\":\"target\",\"object\":\"eagle\",\"obs\":[{\"frame\":24,\"point\":null,\"extent\":[[273,476],[273,493]],\"box\":[266,476,280,493]},{\"frame\":31,\"point\":null,\"extent\":[[331,493],[331,519]],\"box\":[323,492,341,519]},{\"frame\":48,\"point\":null,\"extent\":[[467,528],[467,546]],\"box\":[460,528,474,546]}],\"depth_name\":\"eagle\",\"range_m\":null,\"range_basis\":\"\"}],\"direct_answer\":1.3,\"confidence\":0.3,\"derivation\":\"length 12 px = 0.8 m; wingspan ~17-26 px, ~19 px avg -> ~1.3 m\"}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 1171,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "rock"
+      ],
+      "dimension": "width",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "eagle"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.8,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Rock distance not given; the ground lies somewhat beyond the eagle, but the eagle's scale is assumed. Width is taken as the rock's horizontal image extent. The eagle is the small dark bird; the larger dark shape is its shadow."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "eagle",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          86,
+          434
+         ],
+         [
+          98,
+          433
+         ]
+        ],
+        "box": [
+         85,
+         425,
+         99,
+         442
+        ]
+       },
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          267,
+          484
+         ],
+         [
+          279,
+          484
+         ]
+        ],
+        "box": [
+         266,
+         476,
+         280,
+         493
+        ]
+       },
+       {
+        "frame": 48,
+        "point": null,
+        "extent": [
+         [
+          461,
+          537
+         ],
+         [
+          473,
+          537
+         ]
+        ],
+        "box": [
+         460,
+         528,
+         474,
+         546
+        ]
+       }
+      ],
+      "depth_name": "eagle",
+      "range_m": null,
+      "range_basis": ""
+     },
+     {
+      "role": "target",
+      "object": "rock",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          308,
+          150
+         ],
+         [
+          699,
+          60
+         ]
+        ],
+        "box": [
+         308,
+         10,
+         700,
+         357
+        ]
+       },
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          308,
+          150
+         ],
+         [
+          699,
+          60
+         ]
+        ],
+        "box": [
+         308,
+         10,
+         700,
+         357
+        ]
+       },
+       {
+        "frame": 48,
+        "point": null,
+        "extent": [
+         [
+          308,
+          150
+         ],
+         [
+          699,
+          60
+         ]
+        ],
+        "box": [
+         308,
+         10,
+         700,
+         357
+        ]
+       }
+      ],
+      "depth_name": "",
+      "range_m": 176,
+      "range_basis": "Rock on the ground below the eagle; assumed similar to the eagle's 175 m distance."
+     }
+    ],
+    "direct_answer": 26,
+    "confidence": 0.3,
+    "derivation": "eagle length ~12 px = 0.8 m -> 0.0667 m/px at 175 m; rock width 392 px -> 26 m"
+   },
+   {
+    "qid": 1172,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "eagle"
+      ],
+      "dimension": "",
+      "time": 1.0,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "eagle"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.8,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "eagle",
+      "obs": [],
+      "depth_name": "eagle",
+      "range_m": null,
+      "range_basis": ""
+     },
+     {
+      "role": "target",
+      "object": "eagle",
+      "obs": [
+       {
+        "frame": 20,
+        "point": [
+         241,
+         474
+        ],
+        "extent": null,
+        "box": [
+         235,
+         466,
+         248,
+         482
+        ]
+       },
+       {
+        "frame": 21,
+        "point": [
+         249,
+         476
+        ],
+        "extent": null,
+        "box": [
+         243,
+         468,
+         256,
+         484
+        ]
+       },
+       {
+        "frame": 22,
+        "point": [
+         257,
+         479
+        ],
+        "extent": null,
+        "box": [
+         251,
+         471,
+         264,
+         487
+        ]
+       },
+       {
+        "frame": 23,
+        "point": [
+         265,
+         481
+        ],
+        "extent": null,
+        "box": [
+         259,
+         473,
+         272,
+         489
+        ]
+       },
+       {
+        "frame": 24,
+        "point": [
+         273,
+         484
+        ],
+        "extent": null,
+        "box": [
+         266,
+         476,
+         280,
+         493
+        ]
+       },
+       {
+        "frame": 25,
+        "point": [
+         281,
+         486
+        ],
+        "extent": null,
+        "box": [
+         275,
+         478,
+         288,
+         494
+        ]
+       },
+       {
+        "frame": 26,
+        "point": [
+         290,
+         488
+        ],
+        "extent": null,
+        "box": [
+         283,
+         480,
+         297,
+         496
+        ]
+       },
+       {
+        "frame": 27,
+        "point": [
+         298,
+         490
+        ],
+        "extent": null,
+        "box": [
+         291,
+         482,
+         305,
+         498
+        ]
+       },
+       {
+        "frame": 28,
+        "point": [
+         307,
+         492
+        ],
+        "extent": null,
+        "box": [
+         299,
+         483,
+         315,
+         502
+        ]
+       }
+      ],
+      "depth_name": "eagle",
+      "range_m": null,
+      "range_basis": ""
+     }
+    ],
+    "direct_answer": 13.4,
+    "confidence": 0.4,
+    "derivation": "~8.3 px/frame = 200 px/s; 0.0667 m/px -> 13.3 m/s lateral; depth rate ~2.3 m/s -> ~13.4 m/s"
+   },
+   {
+    "qid": 1173,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "eagle"
+      ],
+      "dimension": "wingspan",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "eagle"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.8,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Wing flapping changes apparent span; frames with wings spread used."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "eagle",
+      "obs": [],
+      "depth_name": "eagle",
+      "range_m": null,
+      "range_basis": ""
+     },
+     {
+      "role": "target",
+      "object": "eagle",
+      "obs": [
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          273,
+          476
+         ],
+         [
+          273,
+          493
+         ]
+        ],
+        "box": [
+         266,
+         476,
+         280,
+         493
+        ]
+       },
+       {
+        "frame": 31,
+        "point": null,
+        "extent": [
+         [
+          331,
+          493
+         ],
+         [
+          331,
+          519
+         ]
+        ],
+        "box": [
+         323,
+         492,
+         341,
+         519
+        ]
+       },
+       {
+        "frame": 48,
+        "point": null,
+        "extent": [
+         [
+          467,
+          528
+         ],
+         [
+          467,
+          546
+         ]
+        ],
+        "box": [
+         460,
+         528,
+         474,
+         546
+        ]
+       }
+      ],
+      "depth_name": "eagle",
+      "range_m": null,
+      "range_basis": ""
+     }
+    ],
+    "direct_answer": 1.3,
+    "confidence": 0.3,
+    "derivation": "length 12 px = 0.8 m; wingspan ~17-26 px, ~19 px avg -> ~1.3 m"
+   }
+  ]
+ }
+}

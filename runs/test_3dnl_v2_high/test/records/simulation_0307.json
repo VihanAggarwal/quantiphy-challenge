@@ -1,0 +1,509 @@
+{
+ "video_id": "simulation_0307",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfuoMYejiaw6cGEW9QCpJ",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 44,
+  "prompt_version": "v2",
+  "max_side": 854
+ },
+ "ts": "2026-10-11T04:18:06+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_01J8QTVToieV2fdZ5XWS1iT3",
+ "custom_id": "simulation_0307",
+ "usage": {
+  "input_tokens": 25765,
+  "output_tokens": 3347,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 5593,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.085559,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0307",
+  "fps": 24.0,
+  "fps_from_container": false,
+  "video_type": "V3SC",
+  "n_frames_total": 72,
+  "scale": 0.33359375,
+  "image_size": [
+   2560,
+   1439
+  ],
+  "frames": [
+   1,
+   3,
+   6,
+   8,
+   9,
+   10,
+   11,
+   12,
+   13,
+   14,
+   15,
+   17,
+   20,
+   21,
+   22,
+   23,
+   24,
+   25,
+   26,
+   27,
+   29,
+   30,
+   34,
+   35,
+   38,
+   40,
+   43,
+   45,
+   46,
+   47,
+   48,
+   49,
+   50,
+   51,
+   52,
+   55,
+   57,
+   58,
+   61,
+   62,
+   64,
+   66,
+   69,
+   71
+  ],
+  "questions": [
+   {
+    "qid": 1481,
+    "target_unit": "m",
+    "prior": "speed of the plane = 22.16 m/s",
+    "depth_info": "t = 1.0s, distance_plane_camera = 102.6664 m\nt = 2.0s, distance_plane_camera = 121.8263 m"
+   },
+   {
+    "qid": 1482,
+    "target_unit": "m",
+    "prior": "speed of the plane = 22.16 m/s",
+    "depth_info": "t = 1.0s, distance_plane_camera = 102.6664 m\nt = 2.0s, distance_plane_camera = 121.8263 m"
+   },
+   {
+    "qid": 1483,
+    "target_unit": "m",
+    "prior": "speed of the plane = 22.16 m/s",
+    "depth_info": "t = 1.0s, distance_plane_camera = 102.6664 m\nt = 2.0s, distance_plane_camera = 121.8263 m"
+   }
+  ],
+  "prompt_version": "v2",
+  "frozen_first_frame": true
+ },
+ "raw_text": "{\"questions\":[{\"qid\":1481,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"plane\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"plane\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":22.16,\"unit\":\"\"},\"depth\":[],\"notes\":\"The plane flies away from the camera with its tail toward it, so the nose-to-tail length is strongly foreshortened in every frame; the estimate is uncertain.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"plane\",\"obs\":[{\"frame\":1,\"point\":[556.5,283.5],\"extent\":null,\"box\":[447,237,666,330]},{\"frame\":6,\"point\":[523,265.5],\"extent\":null,\"box\":[417,222,629,309]},{\"frame\":12,\"point\":[488,245.5],\"extent\":null,\"box\":[386,205,590,286]},{\"frame\":24,\"point\":[425,211],\"extent\":null,\"box\":[330,177,520,245]},{\"frame\":35,\"point\":[377,182.5],\"extent\":null,\"box\":[287,151,467,214]},{\"frame\":48,\"point\":[326,156],\"extent\":null,\"box\":[242,128,410,184]},{\"frame\":61,\"point\":[286,132.5],\"extent\":null,\"box\":[208,108,364,157]},{\"frame\":71,\"point\":[257.5,116.5],\"extent\":null,\"box\":[183,94,332,139]}],\"depth_name\":\"plane\",\"range_m\":null,\"range_basis\":\"\"},{\"role\":\"target\",\"object\":\"plane\",\"obs\":[{\"frame\":24,\"point\":null,\"extent\":[[420,184],[437,238]],\"box\":[330,177,520,245]},{\"frame\":48,\"point\":null,\"extent\":[[322,133],[335,180]],\"box\":[242,128,410,184]},{\"frame\":12,\"point\":null,\"extent\":[[480,212],[503,276]],\"box\":[386,205,590,286]}],\"depth_name\":\"plane\",\"range_m\":null,\"range_basis\":\"\"}],\"direct_answer\":8.0,\"confidence\":0.2,\"derivation\":\"Radial speed 19.16 m/s -> tangential 11.13 m/s; 113 px/s at ~112 m -> f~1137 px; 0.090 m/px at t=1s; foreshortened ~55 px corrected for viewing angle -> ~8 m\"},{\"qid\":1482,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"plane\"],\"dimension\":\"width\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"plane\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":22.16,\"unit\":\"\"},\"depth\":[],\"notes\":\"Width is taken as the wingspan (wingtip to wingtip).\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"plane\",\"obs\":[],\"depth_name\":\"plane\",\"range_m\":null,\"range_basis\":\"\"},{\"role\":\"target\",\"object\":\"plane\",\"obs\":[{\"frame\":12,\"point\":null,\"extent\":[[390,248],[587,210]],\"box\":[386,205,590,286]},{\"frame\":24,\"point\":null,\"extent\":[[332,215],[518,180]],\"box\":[330,177,520,245]},{\"frame\":48,\"point\":null,\"extent\":[[244,160],[408,130]],\"box\":[242,128,410,184]}],\"depth_name\":\"plane\",\"range_m\":null,\"range_basis\":\"\"}],\"direct_answer\":17.1,\"confidence\":0.35,\"derivation\":\"f~1137 px from tangential speed 11.13 m/s; wingspan 189 px at 102.67 m -> 0.0903 m/px -> 17.1 m\"},{\"qid\":1483,\"spec\":{\"target\":{\"kind\":\"displacement\",\"objects\":[\"plane\"],\"dimension\":\"\",\"time\":null,\"window\":[0.5,1.0],\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"plane\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":22.16,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"plane\",\"obs\":[],\"depth_name\":\"plane\",\"range_m\":null,\"range_basis\":\"\"},{\"role\":\"target\",\"object\":\"plane\",\"obs\":[],\"depth_name\":\"plane\",\"range_m\":null,\"range_basis\":\"\"}],\"direct_answer\":11.08,\"confidence\":0.6,\"derivation\":\"Near-straight path at constant speed: 22.16 m/s x 0.5 s = 11.08 m\"}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 1481,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "plane"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "plane"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 22.16,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "The plane flies away from the camera with its tail toward it, so the nose-to-tail length is strongly foreshortened in every frame; the estimate is uncertain."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "plane",
+      "obs": [
+       {
+        "frame": 1,
+        "point": [
+         556.5,
+         283.5
+        ],
+        "extent": null,
+        "box": [
+         447,
+         237,
+         666,
+         330
+        ]
+       },
+       {
+        "frame": 6,
+        "point": [
+         523,
+         265.5
+        ],
+        "extent": null,
+        "box": [
+         417,
+         222,
+         629,
+         309
+        ]
+       },
+       {
+        "frame": 12,
+        "point": [
+         488,
+         245.5
+        ],
+        "extent": null,
+        "box": [
+         386,
+         205,
+         590,
+         286
+        ]
+       },
+       {
+        "frame": 24,
+        "point": [
+         425,
+         211
+        ],
+        "extent": null,
+        "box": [
+         330,
+         177,
+         520,
+         245
+        ]
+       },
+       {
+        "frame": 35,
+        "point": [
+         377,
+         182.5
+        ],
+        "extent": null,
+        "box": [
+         287,
+         151,
+         467,
+         214
+        ]
+       },
+       {
+        "frame": 48,
+        "point": [
+         326,
+         156
+        ],
+        "extent": null,
+        "box": [
+         242,
+         128,
+         410,
+         184
+        ]
+       },
+       {
+        "frame": 61,
+        "point": [
+         286,
+         132.5
+        ],
+        "extent": null,
+        "box": [
+         208,
+         108,
+         364,
+         157
+        ]
+       },
+       {
+        "frame": 71,
+        "point": [
+         257.5,
+         116.5
+        ],
+        "extent": null,
+        "box": [
+         183,
+         94,
+         332,
+         139
+        ]
+       }
+      ],
+      "depth_name": "plane",
+      "range_m": null,
+      "range_basis": ""
+     },
+     {
+      "role": "target",
+      "object": "plane",
+      "obs": [
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          420,
+          184
+         ],
+         [
+          437,
+          238
+         ]
+        ],
+        "box": [
+         330,
+         177,
+         520,
+         245
+        ]
+       },
+       {
+        "frame": 48,
+        "point": null,
+        "extent": [
+         [
+          322,
+          133
+         ],
+         [
+          335,
+          180
+         ]
+        ],
+        "box": [
+         242,
+         128,
+         410,
+         184
+        ]
+       },
+       {
+        "frame": 12,
+        "point": null,
+        "extent": [
+         [
+          480,
+          212
+         ],
+         [
+          503,
+          276
+         ]
+        ],
+        "box": [
+         386,
+         205,
+         590,
+         286
+        ]
+       }
+      ],
+      "depth_name": "plane",
+      "range_m": null,
+      "range_basis": ""
+     }
+    ],
+    "direct_answer": 8.0,
+    "confidence": 0.2,
+    "derivation": "Radial speed 19.16 m/s -> tangential 11.13 m/s; 113 px/s at ~112 m -> f~1137 px; 0.090 m/px at t=1s; foreshortened ~55 px corrected for viewing angle -> ~8 m"
+   },
+   {
+    "qid": 1482,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "plane"
+      ],
+      "dimension": "width",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "plane"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 22.16,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Width is taken as the wingspan (wingtip to wingtip)."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "plane",
+      "obs": [],
+      "depth_name": "plane",
+      "range_m": null,
+      "range_basis": ""
+     },
+     {
+      "role": "target",
+      "object": "plane",
+      "obs": [
+       {
+        "frame": 12,
+        "point": null,
+        "extent": [
+         [
+          390,
+          248
+         ],
+         [
+          587,
+          210
+         ]
+        ],
+        "box": [
+         386,
+         205,
+         590,
+         286
+        ]
+       },
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          332,
+          215
+         ],
+         [
+          518,
+          180
+         ]
+        ],
+        "box": [
+         330,
+         177,
+         520,
+         245
+        ]
+       },
+       {
+        "frame": 48,
+        "point": null,
+        "extent": [
+         [
+          244,
+          160
+         ],
+         [
+          408,
+          130
+         ]
+        ],
+        "box": [
+         242,
+         128,
+         410,
+         184
+        ]
+       }
+      ],
+      "depth_name": "plane",
+      "range_m": null,
+      "range_basis": ""
+     }
+    ],
+    "direct_answer": 17.1,
+    "confidence": 0.35,
+    "derivation": "f~1137 px from tangential speed 11.13 m/s; wingspan 189 px at 102.67 m -> 0.0903 m/px -> 17.1 m"
+   },
+   {
+    "qid": 1483,
+    "spec": {
+     "target": {
+      "kind": "displacement",
+      "objects": [
+       "plane"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": [
+       0.5,
+       1.0
+      ],
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "plane"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 22.16,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "plane",
+      "obs": [],
+      "depth_name": "plane",
+      "range_m": null,
+      "range_basis": ""
+     },
+     {
+      "role": "target",
+      "object": "plane",
+      "obs": [],
+      "depth_name": "plane",
+      "range_m": null,
+      "range_basis": ""
+     }
+    ],
+    "direct_answer": 11.08,
+    "confidence": 0.6,
+    "derivation": "Near-straight path at constant speed: 22.16 m/s x 0.5 s = 11.08 m"
+   }
+  ]
+ }
+}

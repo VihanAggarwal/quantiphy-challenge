@@ -1,0 +1,869 @@
+{
+ "video_id": "simulation_0049",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfuoKArG8CfEgXfZFhmrM",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 44,
+  "prompt_version": "v2",
+  "max_side": 854
+ },
+ "ts": "2026-10-11T04:21:11+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_01WcjD8TKm5zJhFoMXh6dbVa",
+ "custom_id": "simulation_0049",
+ "usage": {
+  "input_tokens": 26186,
+  "output_tokens": 11436,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 5593,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.167291,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0049",
+  "fps": 33.0,
+  "fps_from_container": false,
+  "video_type": "V3MC",
+  "n_frames_total": 99,
+  "scale": 0.44479166666666664,
+  "image_size": [
+   1920,
+   1075
+  ],
+  "frames": [
+   0,
+   2,
+   7,
+   9,
+   13,
+   14,
+   18,
+   20,
+   21,
+   25,
+   26,
+   30,
+   31,
+   32,
+   33,
+   34,
+   35,
+   36,
+   39,
+   41,
+   46,
+   48,
+   52,
+   55,
+   59,
+   62,
+   63,
+   64,
+   65,
+   66,
+   67,
+   68,
+   69,
+   72,
+   73,
+   77,
+   78,
+   80,
+   84,
+   85,
+   89,
+   91,
+   96,
+   98
+  ],
+  "questions": [
+   {
+    "qid": 1197,
+    "target_unit": "m/s",
+    "prior": "speed of the bike = 4.87m/s",
+    "depth_info": "t=1s, distance_bike_camera = 14.1134 m\nt=2s, distance_bike_camera = 18.9543 m\nt=1s, distance_human_camera = 19.0411 m\nt=2s, distance_human_camera = 20.2710 m"
+   },
+   {
+    "qid": 1198,
+    "target_unit": "m",
+    "prior": "speed of the bike = 4.87m/s",
+    "depth_info": "t=1s, distance_bike_camera = 14.1134 m\nt=2s, distance_bike_camera = 18.9543 m\nt=1s, distance_human_camera = 19.0411 m\nt=2s, distance_human_camera = 20.2710 m"
+   },
+   {
+    "qid": 1199,
+    "target_unit": "m",
+    "prior": "speed of the bike = 4.87m/s",
+    "depth_info": "t=1s, distance_bike_camera = 14.1134 m\nt=2s, distance_bike_camera = 18.9543 m\nt=1s, distance_human_camera = 19.0411 m\nt=2s, distance_human_camera = 20.2710 m"
+   },
+   {
+    "qid": 1200,
+    "target_unit": "m",
+    "prior": "speed of the bike = 4.87m/s",
+    "depth_info": "t=1s, distance_bike_camera = 14.1134 m\nt=2s, distance_bike_camera = 18.9543 m\nt=1s, distance_human_camera = 19.0411 m\nt=2s, distance_human_camera = 20.2710 m"
+   },
+   {
+    "qid": 1201,
+    "target_unit": "m",
+    "prior": "speed of the bike = 4.87m/s",
+    "depth_info": "t=1s, distance_bike_camera = 14.1134 m\nt=2s, distance_bike_camera = 18.9543 m\nt=1s, distance_human_camera = 19.0411 m\nt=2s, distance_human_camera = 20.2710 m"
+   }
+  ],
+  "prompt_version": "v2"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":1197,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"walking person\"],\"dimension\":\"\",\"time\":null,\"window\":[1.0,2.0],\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"bike\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":4.87,\"unit\":\"\"},\"depth\":[],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"bike\",\"obs\":[{\"frame\":25,\"point\":[398,288],\"extent\":null,\"box\":[386,231,410,346]},{\"frame\":30,\"point\":[400,286],\"extent\":null,\"box\":[388,231,412,341]},{\"frame\":33,\"point\":[401,283.5],\"extent\":null,\"box\":[390,231,412,336]},{\"frame\":36,\"point\":[402,283],\"extent\":null,\"box\":[391,232,413,334]},{\"frame\":41,\"point\":[403,281],\"extent\":null,\"box\":[392,232,414,330]},{\"frame\":52,\"point\":[404,277],\"extent\":null,\"box\":[394,233,414,321]},{\"frame\":62,\"point\":[406,273],\"extent\":null,\"box\":[396,233,416,313]},{\"frame\":66,\"point\":[407,272],\"extent\":null,\"box\":[397,233,417,311]},{\"frame\":69,\"point\":[407,271],\"extent\":null,\"box\":[398,233,417,310]}],\"depth_name\":\"bike\",\"range_m\":null,\"range_basis\":\"\"},{\"role\":\"target\",\"object\":\"walking person\",\"obs\":[{\"frame\":30,\"point\":[516,278],\"extent\":null,\"box\":[497,214,535,343]},{\"frame\":33,\"point\":[516,277.5],\"extent\":null,\"box\":[497,214,535,341]},{\"frame\":36,\"point\":[514,277],\"extent\":null,\"box\":[495,215,533,340]},{\"frame\":41,\"point\":[513,276],\"extent\":null,\"box\":[494,215,532,338]},{\"frame\":52,\"point\":[511,275],\"extent\":null,\"box\":[493,216,530,336]},{\"frame\":62,\"point\":[509,275],\"extent\":null,\"box\":[491,217,527,335]},{\"frame\":66,\"point\":[509,275],\"extent\":null,\"box\":[491,217,527,333]},{\"frame\":69,\"point\":[508,274],\"extent\":null,\"box\":[490,217,526,332]}],\"depth_name\":\"human\",\"range_m\":null,\"range_basis\":\"\"}],\"direct_answer\":1.24,\"confidence\":0.6,\"derivation\":\"depth 19.04->20.27 m (1.23 m) plus tiny lateral shift (~7 px) -> ~1.24 m/s\"},{\"qid\":1198,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"walking person\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"bike\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":4.87,\"unit\":\"\"},\"depth\":[],\"notes\":\"focal length poorly constrained by the speed prior\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"bike\",\"obs\":[],\"depth_name\":\"bike\",\"range_m\":null,\"range_basis\":\"\"},{\"role\":\"target\",\"object\":\"walking person\",\"obs\":[{\"frame\":33,\"point\":null,\"extent\":[[516,214],[516,341]],\"box\":[497,214,535,341]},{\"frame\":35,\"point\":null,\"extent\":[[515,214],[515,340]],\"box\":[496,214,534,340]},{\"frame\":64,\"point\":null,\"extent\":[[509,217],[509,333]],\"box\":[491,217,527,333]},{\"frame\":66,\"point\":null,\"extent\":[[509,217],[509,333]],\"box\":[491,217,527,333]}],\"depth_name\":\"human\",\"range_m\":null,\"range_basis\":\"\"}],\"direct_answer\":2.0,\"confidence\":0.25,\"derivation\":\"f~1186 px assumed; 127 px at 19.04 m -> 2.04 m; 116 px at 20.27 m -> 1.98 m\"},{\"qid\":1199,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"telephone booth\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"bike\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":4.87,\"unit\":\"\"},\"depth\":[],\"notes\":\"booth depth not given; estimated from ground plane\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"bike\",\"obs\":[],\"depth_name\":\"bike\",\"range_m\":null,\"range_basis\":\"\"},{\"role\":\"target\",\"object\":\"telephone booth\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[470,180],[470,293]],\"box\":[447,180,494,294]},{\"frame\":33,\"point\":null,\"extent\":[[470,180],[470,293]],\"box\":[447,180,494,294]},{\"frame\":66,\"point\":null,\"extent\":[[470,180],[470,293]],\"box\":[447,180,494,294]}],\"depth_name\":\"\",\"range_m\":32.0,\"range_basis\":\"ground-plane: base at y=293 vs walker's feet at y=341 (19 m), horizon y~238.\"},{\"role\":\"target2\",\"object\":\"walking person\",\"obs\":[],\"depth_name\":\"human\",\"range_m\":null,\"range_basis\":\"\"}],\"direct_answer\":2.8,\"confidence\":0.2,\"derivation\":\"booth 113 px; ground-plane depth ~32 m; f~1186 -> ~3.0 m; tempered to 2.8\"},{\"qid\":1200,\"spec\":{\"target\":{\"kind\":\"distance\",\"objects\":[\"left pillar of near door\",\"right pillar of far door\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"bike\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":4.87,\"unit\":\"\"},\"depth\":[],\"notes\":\"doors interpreted as near arched door and far shop door on right facade\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"bike\",\"obs\":[],\"depth_name\":\"bike\",\"range_m\":null,\"range_basis\":\"\"},{\"role\":\"target\",\"object\":\"left pillar of near door\",\"obs\":[{\"frame\":33,\"point\":[680,200],\"extent\":null,\"box\":null}],\"depth_name\":\"\",\"range_m\":10.6,\"range_basis\":\"facade lateral offset from walker's depth; Z \u221d 1/(x-cx).\"},{\"role\":\"target2\",\"object\":\"right pillar of far door\",\"obs\":[{\"frame\":33,\"point\":[585,230],\"extent\":null,\"box\":null}],\"depth_name\":\"\",\"range_m\":17.2,\"range_basis\":\"same facade plane, Z \u221d 1/(x-cx).\"}],\"direct_answer\":6.6,\"confidence\":0.15,\"derivation\":\"facade X from walker: Z=2608/(x-433): 10.6 m and 17.2 m -> ~6.6 m\"},{\"qid\":1201,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"bicycle wheel\"],\"dimension\":\"diameter\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"bike\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":4.87,\"unit\":\"\"},\"depth\":[],\"notes\":\"wheel seen edge-on from behind; vertical extent used\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"bike\",\"obs\":[],\"depth_name\":\"bike\",\"range_m\":null,\"range_basis\":\"\"},{\"role\":\"target\",\"object\":\"bicycle wheel\",\"obs\":[{\"frame\":33,\"point\":null,\"extent\":[[401,298],[401,336]],\"box\":[398,298,404,336]},{\"frame\":34,\"point\":null,\"extent\":[[401,297],[401,335]],\"box\":[398,297,404,335]},{\"frame\":66,\"point\":null,\"extent\":[[407,283],[407,311]],\"box\":[405,283,409,311]}],\"depth_name\":\"bike\",\"range_m\":null,\"range_basis\":\"\"}],\"direct_answer\":0.48,\"confidence\":0.2,\"derivation\":\"wheel ~38 px at 14.11 m, ~28 px at 18.95 m; f~1186 -> ~0.45 m\"}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 1197,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "walking person"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": [
+       1.0,
+       2.0
+      ],
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "bike"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 4.87,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "bike",
+      "obs": [
+       {
+        "frame": 25,
+        "point": [
+         398,
+         288
+        ],
+        "extent": null,
+        "box": [
+         386,
+         231,
+         410,
+         346
+        ]
+       },
+       {
+        "frame": 30,
+        "point": [
+         400,
+         286
+        ],
+        "extent": null,
+        "box": [
+         388,
+         231,
+         412,
+         341
+        ]
+       },
+       {
+        "frame": 33,
+        "point": [
+         401,
+         283.5
+        ],
+        "extent": null,
+        "box": [
+         390,
+         231,
+         412,
+         336
+        ]
+       },
+       {
+        "frame": 36,
+        "point": [
+         402,
+         283
+        ],
+        "extent": null,
+        "box": [
+         391,
+         232,
+         413,
+         334
+        ]
+       },
+       {
+        "frame": 41,
+        "point": [
+         403,
+         281
+        ],
+        "extent": null,
+        "box": [
+         392,
+         232,
+         414,
+         330
+        ]
+       },
+       {
+        "frame": 52,
+        "point": [
+         404,
+         277
+        ],
+        "extent": null,
+        "box": [
+         394,
+         233,
+         414,
+         321
+        ]
+       },
+       {
+        "frame": 62,
+        "point": [
+         406,
+         273
+        ],
+        "extent": null,
+        "box": [
+         396,
+         233,
+         416,
+         313
+        ]
+       },
+       {
+        "frame": 66,
+        "point": [
+         407,
+         272
+        ],
+        "extent": null,
+        "box": [
+         397,
+         233,
+         417,
+         311
+        ]
+       },
+       {
+        "frame": 69,
+        "point": [
+         407,
+         271
+        ],
+        "extent": null,
+        "box": [
+         398,
+         233,
+         417,
+         310
+        ]
+       }
+      ],
+      "depth_name": "bike",
+      "range_m": null,
+      "range_basis": ""
+     },
+     {
+      "role": "target",
+      "object": "walking person",
+      "obs": [
+       {
+        "frame": 30,
+        "point": [
+         516,
+         278
+        ],
+        "extent": null,
+        "box": [
+         497,
+         214,
+         535,
+         343
+        ]
+       },
+       {
+        "frame": 33,
+        "point": [
+         516,
+         277.5
+        ],
+        "extent": null,
+        "box": [
+         497,
+         214,
+         535,
+         341
+        ]
+       },
+       {
+        "frame": 36,
+        "point": [
+         514,
+         277
+        ],
+        "extent": null,
+        "box": [
+         495,
+         215,
+         533,
+         340
+        ]
+       },
+       {
+        "frame": 41,
+        "point": [
+         513,
+         276
+        ],
+        "extent": null,
+        "box": [
+         494,
+         215,
+         532,
+         338
+        ]
+       },
+       {
+        "frame": 52,
+        "point": [
+         511,
+         275
+        ],
+        "extent": null,
+        "box": [
+         493,
+         216,
+         530,
+         336
+        ]
+       },
+       {
+        "frame": 62,
+        "point": [
+         509,
+         275
+        ],
+        "extent": null,
+        "box": [
+         491,
+         217,
+         527,
+         335
+        ]
+       },
+       {
+        "frame": 66,
+        "point": [
+         509,
+         275
+        ],
+        "extent": null,
+        "box": [
+         491,
+         217,
+         527,
+         333
+        ]
+       },
+       {
+        "frame": 69,
+        "point": [
+         508,
+         274
+        ],
+        "extent": null,
+        "box": [
+         490,
+         217,
+         526,
+         332
+        ]
+       }
+      ],
+      "depth_name": "human",
+      "range_m": null,
+      "range_basis": ""
+     }
+    ],
+    "direct_answer": 1.24,
+    "confidence": 0.6,
+    "derivation": "depth 19.04->20.27 m (1.23 m) plus tiny lateral shift (~7 px) -> ~1.24 m/s"
+   },
+   {
+    "qid": 1198,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "walking person"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "bike"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 4.87,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "focal length poorly constrained by the speed prior"
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "bike",
+      "obs": [],
+      "depth_name": "bike",
+      "range_m": null,
+      "range_basis": ""
+     },
+     {
+      "role": "target",
+      "object": "walking person",
+      "obs": [
+       {
+        "frame": 33,
+        "point": null,
+        "extent": [
+         [
+          516,
+          214
+         ],
+         [
+          516,
+          341
+         ]
+        ],
+        "box": [
+         497,
+         214,
+         535,
+         341
+        ]
+       },
+       {
+        "frame": 35,
+        "point": null,
+        "extent": [
+         [
+          515,
+          214
+         ],
+         [
+          515,
+          340
+         ]
+        ],
+        "box": [
+         496,
+         214,
+         534,
+         340
+        ]
+       },
+       {
+        "frame": 64,
+        "point": null,
+        "extent": [
+         [
+          509,
+          217
+         ],
+         [
+          509,
+          333
+         ]
+        ],
+        "box": [
+         491,
+         217,
+         527,
+         333
+        ]
+       },
+       {
+        "frame": 66,
+        "point": null,
+        "extent": [
+         [
+          509,
+          217
+         ],
+         [
+          509,
+          333
+         ]
+        ],
+        "box": [
+         491,
+         217,
+         527,
+         333
+        ]
+       }
+      ],
+      "depth_name": "human",
+      "range_m": null,
+      "range_basis": ""
+     }
+    ],
+    "direct_answer": 2.0,
+    "confidence": 0.25,
+    "derivation": "f~1186 px assumed; 127 px at 19.04 m -> 2.04 m; 116 px at 20.27 m -> 1.98 m"
+   },
+   {
+    "qid": 1199,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "telephone booth"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "bike"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 4.87,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "booth depth not given; estimated from ground plane"
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "bike",
+      "obs": [],
+      "depth_name": "bike",
+      "range_m": null,
+      "range_basis": ""
+     },
+     {
+      "role": "target",
+      "object": "telephone booth",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          470,
+          180
+         ],
+         [
+          470,
+          293
+         ]
+        ],
+        "box": [
+         447,
+         180,
+         494,
+         294
+        ]
+       },
+       {
+        "frame": 33,
+        "point": null,
+        "extent": [
+         [
+          470,
+          180
+         ],
+         [
+          470,
+          293
+         ]
+        ],
+        "box": [
+         447,
+         180,
+         494,
+         294
+        ]
+       },
+       {
+        "frame": 66,
+        "point": null,
+        "extent": [
+         [
+          470,
+          180
+         ],
+         [
+          470,
+          293
+         ]
+        ],
+        "box": [
+         447,
+         180,
+         494,
+         294
+        ]
+       }
+      ],
+      "depth_name": "",
+      "range_m": 32.0,
+      "range_basis": "ground-plane: base at y=293 vs walker's feet at y=341 (19 m), horizon y~238."
+     },
+     {
+      "role": "target2",
+      "object": "walking person",
+      "obs": [],
+      "depth_name": "human",
+      "range_m": null,
+      "range_basis": ""
+     }
+    ],
+    "direct_answer": 2.8,
+    "confidence": 0.2,
+    "derivation": "booth 113 px; ground-plane depth ~32 m; f~1186 -> ~3.0 m; tempered to 2.8"
+   },
+   {
+    "qid": 1200,
+    "spec": {
+     "target": {
+      "kind": "distance",
+      "objects": [
+       "left pillar of near door",
+       "right pillar of far door"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "bike"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 4.87,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "doors interpreted as near arched door and far shop door on right facade"
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "bike",
+      "obs": [],
+      "depth_name": "bike",
+      "range_m": null,
+      "range_basis": ""
+     },
+     {
+      "role": "target",
+      "object": "left pillar of near door",
+      "obs": [
+       {
+        "frame": 33,
+        "point": [
+         680,
+         200
+        ],
+        "extent": null,
+        "box": null
+       }
+      ],
+      "depth_name": "",
+      "range_m": 10.6,
+      "range_basis": "facade lateral offset from walker's depth; Z \u221d 1/(x-cx)."
+     },
+     {
+      "role": "target2",
+      "object": "right pillar of far door",
+      "obs": [
+       {
+        "frame": 33,
+        "point": [
+         585,
+         230
+        ],
+        "extent": null,
+        "box": null
+       }
+      ],
+      "depth_name": "",
+      "range_m": 17.2,
+      "range_basis": "same facade plane, Z \u221d 1/(x-cx)."
+     }
+    ],
+    "direct_answer": 6.6,
+    "confidence": 0.15,
+    "derivation": "facade X from walker: Z=2608/(x-433): 10.6 m and 17.2 m -> ~6.6 m"
+   },
+   {
+    "qid": 1201,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "bicycle wheel"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "bike"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 4.87,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "wheel seen edge-on from behind; vertical extent used"
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "bike",
+      "obs": [],
+      "depth_name": "bike",
+      "range_m": null,
+      "range_basis": ""
+     },
+     {
+      "role": "target",
+      "object": "bicycle wheel",
+      "obs": [
+       {
+        "frame": 33,
+        "point": null,
+        "extent": [
+         [
+          401,
+          298
+         ],
+         [
+          401,
+          336
+         ]
+        ],
+        "box": [
+         398,
+         298,
+         404,
+         336
+        ]
+       },
+       {
+        "frame": 34,
+        "point": null,
+        "extent": [
+         [
+          401,
+          297
+         ],
+         [
+          401,
+          335
+         ]
+        ],
+        "box": [
+         398,
+         297,
+         404,
+         335
+        ]
+       },
+       {
+        "frame": 66,
+        "point": null,
+        "extent": [
+         [
+          407,
+          283
+         ],
+         [
+          407,
+          311
+         ]
+        ],
+        "box": [
+         405,
+         283,
+         409,
+         311
+        ]
+       }
+      ],
+      "depth_name": "bike",
+      "range_m": null,
+      "range_basis": ""
+     }
+    ],
+    "direct_answer": 0.48,
+    "confidence": 0.2,
+    "derivation": "wheel ~38 px at 14.11 m, ~28 px at 18.95 m; f~1186 -> ~0.45 m"
+   }
+  ]
+ }
+}

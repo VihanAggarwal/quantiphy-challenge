@@ -1,0 +1,580 @@
+{
+ "video_id": "simulation_0016",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfuoMoum5uDwVbFHwcZsy",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 44,
+  "prompt_version": "v2",
+  "max_side": 854
+ },
+ "ts": "2026-10-11T04:18:06+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_01J8QTVToieV2fdZ5XWS1iT3",
+ "custom_id": "simulation_0016",
+ "usage": {
+  "input_tokens": 25949,
+  "output_tokens": 2518,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 5593,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.077637,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0016",
+  "fps": 33.0,
+  "fps_from_container": false,
+  "video_type": "V3MC",
+  "n_frames_total": 97,
+  "scale": 0.44479166666666664,
+  "image_size": [
+   1920,
+   1079
+  ],
+  "frames": [
+   0,
+   2,
+   6,
+   7,
+   11,
+   13,
+   18,
+   19,
+   20,
+   25,
+   26,
+   29,
+   30,
+   31,
+   32,
+   33,
+   34,
+   35,
+   36,
+   38,
+   42,
+   45,
+   49,
+   51,
+   56,
+   58,
+   63,
+   64,
+   65,
+   66,
+   67,
+   68,
+   69,
+   70,
+   71,
+   76,
+   77,
+   78,
+   83,
+   85,
+   89,
+   90,
+   94,
+   96
+  ],
+  "questions": [
+   {
+    "qid": 1498,
+    "target_unit": "m",
+    "prior": "speed of the person = 1.3m/s",
+    "depth_info": "t=1s, distance_human_camera = 9.24m\nt=2s, distance_human_camera = 9.14m\ndistance_pedestal_square_base_of_the_central_sculpture_camera = 9.967m\ndistance_left_bench_seat_camera = 10.63m\ndistance_right_bench_seat_camera = 10.59m"
+   },
+   {
+    "qid": 1499,
+    "target_unit": "m",
+    "prior": "speed of the person = 1.3m/s",
+    "depth_info": "t=1s, distance_human_camera = 9.24m\nt=2s, distance_human_camera = 9.14m\ndistance_pedestal_square_base_of_the_central_sculpture_camera = 9.967m\ndistance_left_bench_seat_camera = 10.63m\ndistance_right_bench_seat_camera = 10.59m"
+   },
+   {
+    "qid": 1500,
+    "target_unit": "m",
+    "prior": "speed of the person = 1.3m/s",
+    "depth_info": "t=1s, distance_human_camera = 9.24m\nt=2s, distance_human_camera = 9.14m\ndistance_pedestal_square_base_of_the_central_sculpture_camera = 9.967m\ndistance_left_bench_seat_camera = 10.63m\ndistance_right_bench_seat_camera = 10.59m"
+   }
+  ],
+  "prompt_version": "v2"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":1498,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"pedestal of central sculpture\"],\"dimension\":\"width\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"person\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":1.3,\"unit\":\"\"},\"depth\":[],\"notes\":\"Top-down view; person walks downward in image at ~60 px/s.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"person\",\"obs\":[{\"frame\":18,\"point\":[360,36.5],\"extent\":null,\"box\":[345,5,375,68]},{\"frame\":33,\"point\":[361,61],\"extent\":null,\"box\":[344,32,378,90]},{\"frame\":36,\"point\":[361,67],\"extent\":null,\"box\":[344,37,378,97]},{\"frame\":49,\"point\":[361,86],\"extent\":null,\"box\":[345,63,377,110]},{\"frame\":56,\"point\":[360,106],\"extent\":null,\"box\":[344,79,376,134]},{\"frame\":66,\"point\":[360.5,122.5],\"extent\":null,\"box\":[343,100,378,145]},{\"frame\":76,\"point\":[360,140],\"extent\":null,\"box\":[345,120,375,163]},{\"frame\":85,\"point\":[361,160],\"extent\":null,\"box\":[345,141,377,182]},{\"frame\":96,\"point\":[360.5,178],\"extent\":null,\"box\":[343,163,378,193]}],\"depth_name\":\"human\",\"range_m\":null,\"range_basis\":\"\"},{\"role\":\"target\",\"object\":\"pedestal\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[394,232],[461,232]],\"box\":[393,191,462,274]},{\"frame\":33,\"point\":null,\"extent\":[[394,232],[461,232]],\"box\":[393,191,462,274]},{\"frame\":66,\"point\":null,\"extent\":[[394,232],[461,232]],\"box\":[393,191,462,274]}],\"depth_name\":\"pedestal_square_base_of_the_central_sculpture\",\"range_m\":null,\"range_basis\":\"\"}],\"direct_answer\":1.57,\"confidence\":0.45,\"derivation\":\"person ~60.5 px/s at 9.2 m -> 1.3/60.5=0.0215 m/px -> f~428 px; pedestal 67 px at 9.967 m -> 1.56 m\"},{\"qid\":1499,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"bench seat\"],\"dimension\":\"width\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"person\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":1.3,\"unit\":\"\"},\"depth\":[],\"notes\":\"Used left bench seat.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"person\",\"obs\":[],\"depth_name\":\"human\",\"range_m\":null,\"range_basis\":\"\"},{\"role\":\"target\",\"object\":\"left bench seat\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[237,242],[271,242]],\"box\":[236,190,272,295]},{\"frame\":33,\"point\":null,\"extent\":[[237,242],[271,242]],\"box\":[236,190,272,295]},{\"frame\":66,\"point\":null,\"extent\":[[237,242],[271,242]],\"box\":[236,190,272,295]}],\"depth_name\":\"left_bench_seat\",\"range_m\":null,\"range_basis\":\"\"}],\"direct_answer\":0.84,\"confidence\":0.4,\"derivation\":\"f~428 px; bench width 34 px at 10.63 m -> 0.84 m\"},{\"qid\":1500,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"bench seat\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"person\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":1.3,\"unit\":\"\"},\"depth\":[],\"notes\":\"Used left bench seat.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"person\",\"obs\":[],\"depth_name\":\"human\",\"range_m\":null,\"range_basis\":\"\"},{\"role\":\"target\",\"object\":\"left bench seat\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[254,190],[254,295]],\"box\":[236,190,272,295]},{\"frame\":33,\"point\":null,\"extent\":[[254,190],[254,295]],\"box\":[236,190,272,295]},{\"frame\":66,\"point\":null,\"extent\":[[254,190],[254,295]],\"box\":[236,190,272,295]}],\"depth_name\":\"left_bench_seat\",\"range_m\":null,\"range_basis\":\"\"}],\"direct_answer\":2.61,\"confidence\":0.4,\"derivation\":\"f~428 px; bench length 105 px at 10.63 m -> 2.61 m\"}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 1498,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "pedestal of central sculpture"
+      ],
+      "dimension": "width",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "person"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 1.3,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Top-down view; person walks downward in image at ~60 px/s."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "person",
+      "obs": [
+       {
+        "frame": 18,
+        "point": [
+         360,
+         36.5
+        ],
+        "extent": null,
+        "box": [
+         345,
+         5,
+         375,
+         68
+        ]
+       },
+       {
+        "frame": 33,
+        "point": [
+         361,
+         61
+        ],
+        "extent": null,
+        "box": [
+         344,
+         32,
+         378,
+         90
+        ]
+       },
+       {
+        "frame": 36,
+        "point": [
+         361,
+         67
+        ],
+        "extent": null,
+        "box": [
+         344,
+         37,
+         378,
+         97
+        ]
+       },
+       {
+        "frame": 49,
+        "point": [
+         361,
+         86
+        ],
+        "extent": null,
+        "box": [
+         345,
+         63,
+         377,
+         110
+        ]
+       },
+       {
+        "frame": 56,
+        "point": [
+         360,
+         106
+        ],
+        "extent": null,
+        "box": [
+         344,
+         79,
+         376,
+         134
+        ]
+       },
+       {
+        "frame": 66,
+        "point": [
+         360.5,
+         122.5
+        ],
+        "extent": null,
+        "box": [
+         343,
+         100,
+         378,
+         145
+        ]
+       },
+       {
+        "frame": 76,
+        "point": [
+         360,
+         140
+        ],
+        "extent": null,
+        "box": [
+         345,
+         120,
+         375,
+         163
+        ]
+       },
+       {
+        "frame": 85,
+        "point": [
+         361,
+         160
+        ],
+        "extent": null,
+        "box": [
+         345,
+         141,
+         377,
+         182
+        ]
+       },
+       {
+        "frame": 96,
+        "point": [
+         360.5,
+         178
+        ],
+        "extent": null,
+        "box": [
+         343,
+         163,
+         378,
+         193
+        ]
+       }
+      ],
+      "depth_name": "human",
+      "range_m": null,
+      "range_basis": ""
+     },
+     {
+      "role": "target",
+      "object": "pedestal",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          394,
+          232
+         ],
+         [
+          461,
+          232
+         ]
+        ],
+        "box": [
+         393,
+         191,
+         462,
+         274
+        ]
+       },
+       {
+        "frame": 33,
+        "point": null,
+        "extent": [
+         [
+          394,
+          232
+         ],
+         [
+          461,
+          232
+         ]
+        ],
+        "box": [
+         393,
+         191,
+         462,
+         274
+        ]
+       },
+       {
+        "frame": 66,
+        "point": null,
+        "extent": [
+         [
+          394,
+          232
+         ],
+         [
+          461,
+          232
+         ]
+        ],
+        "box": [
+         393,
+         191,
+         462,
+         274
+        ]
+       }
+      ],
+      "depth_name": "pedestal_square_base_of_the_central_sculpture",
+      "range_m": null,
+      "range_basis": ""
+     }
+    ],
+    "direct_answer": 1.57,
+    "confidence": 0.45,
+    "derivation": "person ~60.5 px/s at 9.2 m -> 1.3/60.5=0.0215 m/px -> f~428 px; pedestal 67 px at 9.967 m -> 1.56 m"
+   },
+   {
+    "qid": 1499,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "bench seat"
+      ],
+      "dimension": "width",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "person"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 1.3,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Used left bench seat."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "person",
+      "obs": [],
+      "depth_name": "human",
+      "range_m": null,
+      "range_basis": ""
+     },
+     {
+      "role": "target",
+      "object": "left bench seat",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          237,
+          242
+         ],
+         [
+          271,
+          242
+         ]
+        ],
+        "box": [
+         236,
+         190,
+         272,
+         295
+        ]
+       },
+       {
+        "frame": 33,
+        "point": null,
+        "extent": [
+         [
+          237,
+          242
+         ],
+         [
+          271,
+          242
+         ]
+        ],
+        "box": [
+         236,
+         190,
+         272,
+         295
+        ]
+       },
+       {
+        "frame": 66,
+        "point": null,
+        "extent": [
+         [
+          237,
+          242
+         ],
+         [
+          271,
+          242
+         ]
+        ],
+        "box": [
+         236,
+         190,
+         272,
+         295
+        ]
+       }
+      ],
+      "depth_name": "left_bench_seat",
+      "range_m": null,
+      "range_basis": ""
+     }
+    ],
+    "direct_answer": 0.84,
+    "confidence": 0.4,
+    "derivation": "f~428 px; bench width 34 px at 10.63 m -> 0.84 m"
+   },
+   {
+    "qid": 1500,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "bench seat"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "person"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 1.3,
+      "unit": ""
+     },
+     "depth": [],
+     "notes": "Used left bench seat."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "person",
+      "obs": [],
+      "depth_name": "human",
+      "range_m": null,
+      "range_basis": ""
+     },
+     {
+      "role": "target",
+      "object": "left bench seat",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          254,
+          190
+         ],
+         [
+          254,
+          295
+         ]
+        ],
+        "box": [
+         236,
+         190,
+         272,
+         295
+        ]
+       },
+       {
+        "frame": 33,
+        "point": null,
+        "extent": [
+         [
+          254,
+          190
+         ],
+         [
+          254,
+          295
+         ]
+        ],
+        "box": [
+         236,
+         190,
+         272,
+         295
+        ]
+       },
+       {
+        "frame": 66,
+        "point": null,
+        "extent": [
+         [
+          254,
+          190
+         ],
+         [
+          254,
+          295
+         ]
+        ],
+        "box": [
+         236,
+         190,
+         272,
+         295
+        ]
+       }
+      ],
+      "depth_name": "left_bench_seat",
+      "range_m": null,
+      "range_basis": ""
+     }
+    ],
+    "direct_answer": 2.61,
+    "confidence": 0.4,
+    "derivation": "f~428 px; bench length 105 px at 10.63 m -> 2.61 m"
+   }
+  ]
+ }
+}
