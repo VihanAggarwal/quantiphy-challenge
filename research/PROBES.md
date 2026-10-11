@@ -110,3 +110,23 @@ Categories are measured independently, so one upload can diagnose some and test 
 
 Every category moved as predicted or better (expected +.009/+.02/+.03/+.03); D3's scene-family rules
 (stated facts, K scale correction, series pooling, lab pooling) gave the most. Probe 5 is the new base.
+
+## Diagnostic results (2026-10-10, on v3)
+
+`trackA_diagA2_...` scored .405/.423/.697/.722 and `trackA_diag_B_motion.csv` .362/.574/.334/.552. Decoded
+(subset mean item score = (v3 - probe) * N / n; "lost" = category points the subset gives away):
+
+| Category | subset means | points lost |
+|---|---|---|
+| S2 | simulation .820, internet+seg .787; motion .771, static .845 | motion .131, static .066 |
+| D2 | simulation static .802, rest .817; motion .860, static .791 | motion .038, static .152 |
+| S3 | motion .690, static .745 | motion .171, static .114 |
+| D3 | motion .673, static .763 (before probe 5's +.043) | motion .091, static .171 |
+
+- The losses are spread across subsets: no single subset collapses, so the remaining gap needs
+  broadly better measurements, not one fix. Motion is the weaker kind in S2, S3 and D3.
+- 3D non-lab motion -> geometry is clearly worse (S3 -.090, D3 -.134 per changed answer): the probe-2
+  per-kind 2x2 split predicted +.066, so the "a kind's effect is shared by S3 and D3" assumption
+  failed here. Keep direct answers on all 3D non-lab questions. The same assumption underlies the lab
+  kind split (inside probe 5's S3 gain) and probe 6's D3 lab-motion test, so treat those as unproven
+  until probe 6 measures them.
