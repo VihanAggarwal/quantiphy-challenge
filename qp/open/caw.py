@@ -303,7 +303,8 @@ class CAW:
         sampling = SamplingParams(**SAMPLING_CONFIG, seed=SEED, detokenize=True, logit_bias=self._logit_bias() or None)
         inputs = [{"prompt_token_ids": ids, "multi_modal_data": {"video": [video]}, "mm_processor_kwargs": pkw}
                   for _, ids, video, pkw in items]
-        return [o.outputs[0].text if o.outputs else None for o in self._engine().generate(inputs, sampling)]
+        outs = self._engine().generate(inputs, sampling, use_tqdm=False)   # tqdm off: see qwen_vl.VLLMBackend
+        return [o.outputs[0].text if o.outputs else None for o in outs]
 
     def _generate_hf(self, items: list) -> list[str]:
         import torch

@@ -856,3 +856,37 @@ def test_run_geometry_rejects_blowups_and_bad_direct_path(tmp_path, monkeypatch)
     assert mod.run_geometry(df, tmp_path, max_disagree=0).parsed_value.tolist() == [0.9, 50.0, 8.0, 50.0]
     with pytest.raises(SystemExit, match="not found"):
         mod.run_geometry(df, tmp_path, direct_from=str(tmp_path / "typo.csv"))
+
+
+def test_vllm_generate_runs_without_tqdm(monkeypatch):
+    """vLLM's generate() divides by the progress bar's elapsed time, which is 0 when tqdm is disabled
+    (the notebook sets TQDM_DISABLE=1): every call must pass use_tqdm=False (Colab run 2026-10-11)."""
+    import sys
+    import types
+
+    fake = types.ModuleType("vllm")
+    fake.SamplingParams = lambda **kw: kw
+    monkeypatch.setitem(sys.modules, "vllm", fake)
+    seen = []
+
+    class _Out:
+        outputs = [types.SimpleNamespace(text="ok")]
+
+    class _LLM:
+        def generate(self, inputs, params, use_tqdm=True):
+            seen.append(use_tqdm)
+            if use_tqdm:
+                raise ZeroDivisionError("division by zero")
+            return [_Out() for _ in inputs]
+
+    b = Q.VLLMBackend.__new__(Q.VLLMBackend)
+    b.processor = types.SimpleNamespace(apply_chat_template=lambda m, **kw: "prompt")
+    b.llm = _LLM()
+    assert b.generate([Q.Request(messages=[{"role": "user", "content": "hi"}], max_tokens=4)]) == ["ok"]
+
+    from qp.open import caw
+    c = caw.CAW.__new__(caw.CAW)
+    c._engine = lambda: _LLM()
+    c._logit_bias = lambda: None
+    assert c._generate_vllm([(None, [1, 2], None, {})]) == ["ok"]
+    assert seen == [False, False]

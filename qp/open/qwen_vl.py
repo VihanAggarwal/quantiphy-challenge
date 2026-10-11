@@ -134,7 +134,9 @@ class VLLMBackend:
             inputs.append(inp)
             params.append(SamplingParams(temperature=r.temperature, max_tokens=r.max_tokens, seed=r.seed,
                                          **(_structured(r.json_schema) if r.json_schema else {})))
-        outs = self.llm.generate(inputs, params)
+        # use_tqdm=False: vLLM divides by the progress bar's elapsed time, which is 0 when tqdm is
+        # disabled (TQDM_DISABLE=1 in the notebook) -> ZeroDivisionError on every generate()
+        outs = self.llm.generate(inputs, params, use_tqdm=False)
         return [o.outputs[0].text if o.outputs else None for o in outs]
 
 
