@@ -160,5 +160,6 @@ as Claude, direct answers, high reasoning. Validation (val_hires, 146 of 159 ans
 Astra .747 vs Claude direct .757 on the same questions (2D .804 vs .803, 3D lab .605 vs .655, 3D non-lab .785
 vs .774). Its answers track Claude's closely (median |log ratio| 0.045), so the geometric mean adds nothing
 (.759), and as a 4th vote in the 3D non-lab median it scores .80-.82 vs .80-.83 for three Claude runs.
-Not run on the test set. Gemini (`scripts/run_gemini_direct.py`, native video or frames) is blocked until the
+Recorded OpenAI spend $9.82 (23 requests); one retry of simulation_0060 was cut off after 15 min without a
+recorded response, so up to ~$2.50 more may show on the OpenAI bill. Not retried, not run on the test set. Gemini (`scripts/run_gemini_direct.py`, native video or frames) is blocked until the
 key's Google project has credits.
