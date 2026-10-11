@@ -1,0 +1,70 @@
+{
+ "video_id": "captured_0061",
+ "model": "gpt-6-astra",
+ "effort": "high",
+ "status": "completed",
+ "n_frames": 23,
+ "secs": 233.9,
+ "usd": 0.7537,
+ "usage": {
+  "input_tokens": 13130,
+  "output_tokens": 12448
+ },
+ "answers": [
+  {
+   "qid": 3047,
+   "value": 141,
+   "unit": "cm",
+   "how": "The yoga ball moves approximately 200 px/s near 0.6 s, giving 0.01255 m/px from the prior. Its approximately 112 px diameter converts to 141 cm."
+  },
+  {
+   "qid": 3048,
+   "value": 57,
+   "unit": "cm",
+   "how": "The soccer ball is approximately 50 px across near 0.6 s. Applying the yoga-ball scale and depth correction 1.937/2.133 gives 57 cm."
+  },
+  {
+   "qid": 3049,
+   "value": 3.2,
+   "unit": "m",
+   "how": "The soccer ball is off-screen at 2.0 s. Extrapolating its perspective-corrected trajectory and comparing its estimated center with the basketball gives approximately 3.2 m."
+  },
+  {
+   "qid": 3050,
+   "value": 1.6,
+   "unit": "m",
+   "how": "Used the balls' centers at 2.0 s and estimated their depths from apparent-diameter changes; the reconstructed center-to-center separation is approximately 1.6 m."
+  },
+  {
+   "qid": 3051,
+   "value": 0.6,
+   "unit": "m",
+   "how": "Extrapolated the soccer ball's observed bouncing trajectory beyond its last visible frame, estimating approximately 0.6 m of lower-edge clearance above the floor at 2.0 s."
+  },
+  {
+   "qid": 3052,
+   "value": 4.2,
+   "unit": "m/s",
+   "how": "The soccer ball moves approximately 365 px/s near 0.6 s. Multiplying by the prior-derived scale and depth ratio 1.937/2.133 gives approximately 4.2 m/s."
+  },
+  {
+   "qid": 3053,
+   "value": 5.5,
+   "unit": "m/s",
+   "how": "The soccer ball's local image speed near 0.9 s is approximately 590 px/s. Applying the prior-derived scale and depth ratio 1.585/2.133 gives 5.5 m/s."
+  },
+  {
+   "qid": 3054,
+   "value": 11.6,
+   "unit": "m/s",
+   "how": "The basketball moves approximately 815 px/s near 1.1 s. Applying the prior-derived scale and depth ratio 2.420/2.133 gives 11.6 m/s."
+  },
+  {
+   "qid": 3055,
+   "value": 1.14,
+   "unit": "m/s",
+   "how": "Near 1.6 s, the basketball's local image speed is approximately 102 px/s. Applying the prior-derived scale and depth ratio 1.9015/2.133 gives 1.14 m/s."
+  }
+ ],
+ "raw_text": "{\"answers\":[{\"qid\":3047,\"value\":141,\"unit\":\"cm\",\"how\":\"The yoga ball moves approximately 200 px/s near 0.6 s, giving 0.01255 m/px from the prior. Its approximately 112 px diameter converts to 141 cm.\"},{\"qid\":3048,\"value\":57,\"unit\":\"cm\",\"how\":\"The soccer ball is approximately 50 px across near 0.6 s. Applying the yoga-ball scale and depth correction 1.937/2.133 gives 57 cm.\"},{\"qid\":3049,\"value\":3.2,\"unit\":\"m\",\"how\":\"The soccer ball is off-screen at 2.0 s. Extrapolating its perspective-corrected trajectory and comparing its estimated center with the basketball gives approximately 3.2 m.\"},{\"qid\":3050,\"value\":1.6,\"unit\":\"m\",\"how\":\"Used the balls' centers at 2.0 s and estimated their depths from apparent-diameter changes; the reconstructed center-to-center separation is approximately 1.6 m.\"},{\"qid\":3051,\"value\":0.6,\"unit\":\"m\",\"how\":\"Extrapolated the soccer ball's observed bouncing trajectory beyond its last visible frame, estimating approximately 0.6 m of lower-edge clearance above the floor at 2.0 s.\"},{\"qid\":3052,\"value\":4.2,\"unit\":\"m/s\",\"how\":\"The soccer ball moves approximately 365 px/s near 0.6 s. Multiplying by the prior-derived scale and depth ratio 1.937/2.133 gives approximately 4.2 m/s.\"},{\"qid\":3053,\"value\":5.5,\"unit\":\"m/s\",\"how\":\"The soccer ball's local image speed near 0.9 s is approximately 590 px/s. Applying the prior-derived scale and depth ratio 1.585/2.133 gives 5.5 m/s.\"},{\"qid\":3054,\"value\":11.6,\"unit\":\"m/s\",\"how\":\"The basketball moves approximately 815 px/s near 1.1 s. Applying the prior-derived scale and depth ratio 2.420/2.133 gives 11.6 m/s.\"},{\"qid\":3055,\"value\":1.14,\"unit\":\"m/s\",\"how\":\"Near 1.6 s, the basketball's local image speed is approximately 102 px/s. Applying the prior-derived scale and depth ratio 1.9015/2.133 gives 1.14 m/s.\"}]}"
+}

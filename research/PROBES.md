@@ -139,3 +139,16 @@ answers differ by ~5% per question; their median moves 28% of answers by > 5%. O
 beat the single run by +0.020 per 3D non-lab question (14 of 15 combinations >= 0). Built by
 `research/ensemble_3dnl.py`: probe 5 rescaled by ensemble/base (stated-fact rows kept exact, twins re-synced);
 S3 117 and D3 200 answers change. Expected about S3 +0.005..+0.008, D3 +0.005..+0.01.
+
+## Probe 7b (`trackA_probe7b_p5_ens_famext.csv`, on probe 5)
+
+Probe 7a (3-run ensemble on 3D non-lab) plus three verified scene-family extensions
+(`research/family_ext_scripts_2026-10-11.tar.gz`); on rows both touch, the family value wins (a stated fact,
+or a pool over several clips):
+- D2 (289): pooling the same object and question across camera views of a scene family (votes are camera
+  views, clustered by edge-map correlation; log-mean of votes within 0.15 of the median; guards for wording
+  and spread), plus 20 stated-fact transfers. Held-out-camera evidence +0.012..+0.024 per pooled row: D2 ~+0.004.
+- S3 (46): per-kind pooling (sizes and speeds pooled separately; mixing kinds is what hurt K on S3): ~+0.006.
+- D3 (60): scene links the first scene graph missed (shared object vocabularies checked by eye, near-identical
+  frames) + stated facts + pooling, 9 doubtful rows removed by the verifier: ~+0.008..+0.011.
+Expected overall vs probe 5 (.793): about +0.01 including the ensemble.
