@@ -455,7 +455,7 @@ def test_track_b_notebook_stages_end_to_end(tmp_path, monkeypatch, capsys):
 
     src = _notebook()
     commands = re.findall(r'stage\("(\w+)", (?:split|"test"), (f"python scripts/[^"\n]+")\)', src)
-    assert [c[0] for c in commands] == ["specs", "cv", "annotate", "direct", "caw", "geometry", "geometry",
+    assert [c[0] for c in commands] == ["specs", "annotate", "direct", "caw", "geometry", "cv", "geometry",
                                         "postprocess", "submission"]
     methods = ast.literal_eval(re.search(r"^METHODS = (\{.*?\})$", src, re.M | re.S).group(1))
 

@@ -53,8 +53,8 @@ the GPU. Run `SPLIT = "val"` first (24 videos, minutes per stage), then `"test"`
 
 md("## 1. Configuration")
 code('''
-RUN_NAME = "colab_v1"        # outputs/<RUN_NAME>/<split>/... on Drive and on the colab-outputs branch
-SPLIT = "val"                # "val" (159 questions, scored), "test" (3,289, builds a submission) or "val+test"
+RUN_NAME = "trackb_v1"       # outputs/<RUN_NAME>/<split>/... on Drive and on the colab-outputs branch
+SPLIT = "val+test"           # "val" (159 questions, scored), "test" (3,289, builds a submission) or "val+test"
 MODEL = "auto"               # Qwen3-VL id, or "auto" = by GPU memory (next cell)
 BACKEND = "vllm"             # "vllm" (fast; installed below) or "hf" (transformers, slower)
 CAW_MODEL = ""               # "" = run_open_vlm.py default (MirroS-Lab/Code-as-World-VL-9B, pinned revision)
@@ -76,6 +76,43 @@ REPO_BRANCH = "main"
 DRIVE_ROOT = "/content/drive/MyDrive/quantiphy"
 CACHE_MODELS_ON_DRIVE = False   # True: Hugging Face model cache on Drive (survives sessions, uses Drive space)
 GIT_NAME, GIT_EMAIL = "colab-runner", "colab-runner@users.noreply.github.com"
+AUTO_TERMINATE = True        # unattended run: release the GPU runtime when the run ends or a cell errors
+MAX_HOURS = 20               # ... and in any case after this many hours (caps compute units)
+''')
+
+md("""
+## 1b. Unattended run: auto-terminate
+With `AUTO_TERMINATE`, the runtime is released (`google.colab.runtime.unassign()`, which stops the
+compute-unit meter) when the last cell finishes, when any cell raises an error (Run all would stop there and
+leave the GPU idling), and after `MAX_HOURS` at the latest. Outputs persist on Drive, so Run all resumes
+where it stopped. Script failures inside a stage do not raise: they are listed in the summary instead.
+""")
+code('''
+import threading, time as _time
+
+
+def terminate_runtime(reason):
+    print(f"releasing the runtime: {reason}", flush=True)
+    try:
+        from google.colab import runtime
+        runtime.unassign()
+    except Exception as e:  # not on Colab (or already released)
+        print("could not release the runtime:", e)
+
+
+def _on_error(result):
+    if AUTO_TERMINATE and result.error_in_exec is not None:
+        terminate_runtime(f"a cell raised {type(result.error_in_exec).__name__}: {result.error_in_exec}")
+
+
+if AUTO_TERMINATE:
+    try:
+        get_ipython().events.register("post_run_cell", _on_error)
+    except NameError:  # plain Python (tests)
+        pass
+    threading.Thread(target=lambda: (_time.sleep(MAX_HOURS * 3600), terminate_runtime(f"{MAX_HOURS} h limit")),
+                     daemon=True).start()
+    print(f"auto-terminate on: at the end, on any cell error, or after {MAX_HOURS} h")
 ''')
 
 md("""
@@ -357,6 +394,62 @@ def stage(name, split, cmd):
     if rc:
         FAILED.append(msg)
     return rc
+
+
+def push_outputs(tag="final"):
+    """Copy the small outputs of this run to the colab-outputs branch and push (section 16 explains).
+    Never raises: a failed push must not stop (or, with AUTO_TERMINATE, end) an unattended run."""
+    try:
+        _push_outputs(tag)
+    except Exception as e:
+        print(f"push ({tag}) failed: {e}; outputs stay on Drive")
+        FAILED.append(f"[push/{tag}] {e}")
+
+
+def _push_outputs(tag):
+    if not PUSH_OUTPUTS:
+        print("PUSH_OUTPUTS is off")
+        return
+    import shutil
+
+    PUSH_DIR, MAX_BYTES = "/content/outputs_push", 20 * 2**20
+    RECORD_DIRS = {"specs", "annotate", "direct", "caw"}
+    shutil.rmtree(PUSH_DIR, ignore_errors=True)
+    if sh(f"git clone -q --depth 1 --branch colab-outputs {REPO_URL} {PUSH_DIR}", check=False):
+        os.makedirs(PUSH_DIR, exist_ok=True)  # first push: new orphan branch
+        sh(f"git -C {PUSH_DIR} init -q && git -C {PUSH_DIR} checkout -q --orphan colab-outputs "
+           f"&& git -C {PUSH_DIR} remote add origin {REPO_URL}")
+    src = f"{DRIVE_ROOT}/outputs/{RUN_NAME}"
+    n = skipped = 0
+    for root, dirs, files in os.walk(src):
+        rel = os.path.relpath(root, src)
+        parts = [] if rel == "." else rel.split(os.sep)   # <split>/<method>/<record dir>: only the third
+        dirs[:] = [d for d in dirs if d not in ("cv_cache", "cache")   # level holds records (test/caw/ is kept)
+                   and (len(parts) < 2 or parts[0] in PUSH_RECORDS_FOR or d not in RECORD_DIRS)]
+        for f in files:
+            p = os.path.join(root, f)
+            if not f.endswith((".csv", ".json", ".jsonl", ".txt")):
+                continue
+            if os.path.getsize(p) > MAX_BYTES:
+                skipped += 1
+                continue
+            dst = os.path.join(PUSH_DIR, "outputs", RUN_NAME, rel, f)
+            os.makedirs(os.path.dirname(dst), exist_ok=True)
+            shutil.copy2(p, dst)
+            n += 1
+    if os.path.exists(LOG) and os.path.getsize(LOG) <= MAX_BYTES:
+        os.makedirs(os.path.join(PUSH_DIR, "outputs", RUN_NAME), exist_ok=True)
+        shutil.copy2(LOG, os.path.join(PUSH_DIR, "outputs", RUN_NAME, "colab.log"))
+    print(f"{n} files staged ({skipped} skipped as > 20 MB)")
+    g = f"git -C {PUSH_DIR}"
+    sh(f'{g} config user.name "{GIT_NAME}" && {g} config user.email "{GIT_EMAIL}" && {g} add -A')
+    if sh(f"{g} diff --cached --quiet", check=False):
+        sh(f'{g} commit -q -m "outputs: {RUN_NAME} {tag} ({SPLIT}, {GPU_NAME}) {time.strftime("%Y-%m-%d %H:%M")}"')
+        if sh(f"{g} push -q origin colab-outputs", check=False):
+            sh(f"{g} pull -q --rebase origin colab-outputs && {g} push -q origin colab-outputs")
+        print(f"pushed to branch colab-outputs: outputs/{RUN_NAME}/")
+    else:
+        print("nothing new to push")
 ''')
 
 md("""
@@ -368,18 +461,6 @@ code('''
 for split in SPLITS:
     q = out_dir(split, "qwen")
     stage("specs", split, f"python scripts/run_open_vlm.py --split {split} --task specs --name {RUN_NAME} --out {q} --model {MODEL} --backend {BACKEND}{LIM}")
-''')
-
-md("""
-## 9. CV tracks (Grounding DINO / OWLv2 + SAM 2)
-Detects each spec object on keyframes, propagates SAM 2 masks through the video and writes per-question
-RoleTracks to `cv/annotate/` (the format the geometry step reads) plus a detection / mask-feature cache
-in `cv/cv_cache/`. `--solve` also writes a geometry-only `cv/cv_geometry.csv`.
-""")
-code('''
-for split in SPLITS:
-    q, c = out_dir(split, "qwen"), out_dir(split, "cv")
-    stage("cv", split, f"python scripts/run_cv.py --split {split} --specs {q}/specs --out {c}/annotate --detector {DETECTOR} --sam-model {SAM_MODEL} --solve{LIM}")
 ''')
 
 md("""
@@ -412,17 +493,45 @@ for split in SPLITS:
 ''')
 
 md("""
-## 13. Geometry
-`qp.geometry.solve` on the specs with (a) the Qwen grounding tracks and (b) the CV tracks; where geometry
-fails, the Code-as-World answer (else the Qwen direct answer) fills in. Writes `qwen/geometry.csv` and
-`cv/geometry.csv`. CPU only.
+## 12b. Geometry from the Qwen tracks
+`qp.geometry.solve` on the specs with the Qwen grounding tracks; where geometry fails, the Code-as-World
+answer (else the Qwen direct answer) fills in. Writes `qwen/geometry.csv`. CPU only. The outputs so far are
+pushed right after (section 12c), before the slow SAM 2 tracking.
+""")
+code('''
+for split in SPLITS:
+    q, a = out_dir(split, "qwen"), out_dir(split, "caw")
+    fb = next((f for f in (f"{a}/caw.csv", f"{q}/direct.csv") if os.path.exists(f)), None)
+    DF = f" --direct-from {fb}" if fb else ""  # no fallback file yet: the step finds one itself or uses none
+    stage("geometry", split, f"python scripts/run_open_vlm.py --split {split} --task geometry --name {RUN_NAME} --out {q}{DF}{LIM}")
+''')
+
+md("## 12c. Interim push (Qwen + Code-as-World results, before the CV tracks)")
+code('''
+push_outputs("interim")
+''')
+
+md("""
+## 12d. CV tracks (Grounding DINO / OWLv2 + SAM 2)
+Detects each spec object on keyframes, propagates SAM 2 masks through the video and writes per-question
+RoleTracks to `cv/annotate/` (the format the geometry step reads) plus a detection / mask-feature cache
+in `cv/cv_cache/`. `--solve` also writes a geometry-only `cv/cv_geometry.csv`.
+""")
+code('''
+for split in SPLITS:
+    q, c = out_dir(split, "qwen"), out_dir(split, "cv")
+    stage("cv", split, f"python scripts/run_cv.py --split {split} --specs {q}/specs --out {c}/annotate --detector {DETECTOR} --sam-model {SAM_MODEL} --solve{LIM}")
+''')
+
+md("""
+## 13. Geometry from the CV tracks
+The same solver on the SAM 2 tracks (`cv/geometry.csv`), with the same direct-answer fallback.
 """)
 code('''
 for split in SPLITS:
     q, a, c = out_dir(split, "qwen"), out_dir(split, "caw"), out_dir(split, "cv")
     fb = next((f for f in (f"{a}/caw.csv", f"{q}/direct.csv") if os.path.exists(f)), None)
-    DF = f" --direct-from {fb}" if fb else ""  # no fallback file yet: the step finds one itself or uses none
-    stage("geometry", split, f"python scripts/run_open_vlm.py --split {split} --task geometry --name {RUN_NAME} --out {q}{DF}{LIM}")
+    DF = f" --direct-from {fb}" if fb else ""
     stage("geometry", split, f"python scripts/run_open_vlm.py --split {split} --task geometry --name {RUN_NAME} --out {c} --specs-from {q}/specs{DF}{LIM}")
 ''')
 
@@ -512,47 +621,7 @@ Copies the small outputs of this run (CSV / JSON / TXT under `outputs/<RUN_NAME>
 `outputs/<RUN_NAME>/` of the `colab-outputs` branch, commits and pushes.
 """)
 code('''
-if PUSH_OUTPUTS:
-    import shutil
-
-    PUSH_DIR, MAX_BYTES = "/content/outputs_push", 20 * 2**20
-    RECORD_DIRS = {"specs", "annotate", "direct", "caw"}
-    shutil.rmtree(PUSH_DIR, ignore_errors=True)
-    if sh(f"git clone -q --depth 1 --branch colab-outputs {REPO_URL} {PUSH_DIR}", check=False):
-        os.makedirs(PUSH_DIR, exist_ok=True)  # first push: new orphan branch
-        sh(f"git -C {PUSH_DIR} init -q && git -C {PUSH_DIR} checkout -q --orphan colab-outputs "
-           f"&& git -C {PUSH_DIR} remote add origin {REPO_URL}")
-    src = f"{DRIVE_ROOT}/outputs/{RUN_NAME}"
-    n = skipped = 0
-    for root, dirs, files in os.walk(src):
-        rel = os.path.relpath(root, src)
-        parts = [] if rel == "." else rel.split(os.sep)   # <split>/<method>/<record dir>: only the third
-        dirs[:] = [d for d in dirs if d not in ("cv_cache", "cache")   # level holds records (test/caw/ is kept)
-                   and (len(parts) < 2 or parts[0] in PUSH_RECORDS_FOR or d not in RECORD_DIRS)]
-        for f in files:
-            p = os.path.join(root, f)
-            if not f.endswith((".csv", ".json", ".jsonl", ".txt")):
-                continue
-            if os.path.getsize(p) > MAX_BYTES:
-                skipped += 1
-                continue
-            dst = os.path.join(PUSH_DIR, "outputs", RUN_NAME, rel, f)
-            os.makedirs(os.path.dirname(dst), exist_ok=True)
-            shutil.copy2(p, dst)
-            n += 1
-    if os.path.exists(LOG) and os.path.getsize(LOG) <= MAX_BYTES:
-        os.makedirs(os.path.join(PUSH_DIR, "outputs", RUN_NAME), exist_ok=True)
-        shutil.copy2(LOG, os.path.join(PUSH_DIR, "outputs", RUN_NAME, "colab.log"))
-    print(f"{n} files staged ({skipped} skipped as > 20 MB)")
-    g = f"git -C {PUSH_DIR}"
-    sh(f'{g} config user.name "{GIT_NAME}" && {g} config user.email "{GIT_EMAIL}" && {g} add -A')
-    if sh(f"{g} diff --cached --quiet", check=False):
-        sh(f'{g} commit -q -m "outputs: {RUN_NAME} ({SPLIT}, {GPU_NAME}) {time.strftime("%Y-%m-%d %H:%M")}"')
-        if sh(f"{g} push -q origin colab-outputs", check=False):
-            sh(f"{g} pull -q --rebase origin colab-outputs && {g} push -q origin colab-outputs")
-        print(f"pushed to branch colab-outputs: outputs/{RUN_NAME}/")
-    else:
-        print("nothing new to push")
+push_outputs("final")
 ''')
 
 md("## 17. Summary")
@@ -560,6 +629,18 @@ code('''
 print("failed stages:", *FAILED, sep="\\n  ") if FAILED else print("all stages ok")
 print(f"outputs on Drive: {DRIVE_ROOT}/outputs/{RUN_NAME}")
 print(f"on GitHub: branch colab-outputs, folder outputs/{RUN_NAME}/" if PUSH_OUTPUTS else "outputs not pushed")
+''')
+
+md("""
+## 18. Release the runtime
+Last cell: with `AUTO_TERMINATE` the GPU runtime is released here, so an overnight Run all stops using
+compute units as soon as everything is saved and pushed.
+""")
+code('''
+if AUTO_TERMINATE:
+    terminate_runtime("run finished")
+else:
+    print("AUTO_TERMINATE is off: the runtime stays up")
 ''')
 
 
