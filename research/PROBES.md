@@ -187,3 +187,31 @@ questions and system prompt as the Astra pilot, high thinking, high media resolu
 - Frames (the Claude frame plan): 3 videos before it was stopped, .567 on the first 15 questions.
 Total Gemini spend $7.38 recorded (+ up to ~$0.40 for one frames request cut off when the run was stopped).
 Gemini as a direct answerer is not used; the remaining credit is kept for a possible pointing/localisation pilot.
+
+## Lever investigation (2026-10-11): measurement is not the bottleneck
+
+Five CPU-only investigations, each re-checked by an adversarial verifier (workflow wf_1354cc37-d73; code and reports in
+`research/levers_2026-10-11/levers_scripts_reports.tar.gz`). Prompted by the GPT-6 Astra consultation
+(`research/consult/`), which ranked dynamic-prior calibration, twin masks and lab 3D fits first.
+- **Oracles (validation).** A perfect per-video scale is worth only ~+.017 beyond chance (ICC .20: most error is
+  per question, and per-video offsets are shared by every model, .84-.95 across Claude runs). Best-of geometry/direct
+  per question: ceiling +.031, every leave-one-video-out router loses .017-.047. No model combination gains
+  measurably (Claude runs, Astra, Gemini); restricted to rules buildable on test, nested LOVO scores -.014.
+- **Invariants.** Coordinates/rescaling, dataset fps (not container fps: 83 test videos differ, which also traps
+  native-video models), and depth = range r (beats optical-axis Z .652 vs .569 on 3D sim geometry) are all right.
+  Lab capture clock (25->24 fps drops at frames 12/36/60) is real physics but worth ~+.001 D3.
+- **Dynamic priors (2D).** The pipeline's prior pixel motion is within a median 0.44% of exact segmented-twin masks
+  (32 clips) and 1.2% of a dense rigid KLT tracker; prior semantics (path length, vector vs tangential acceleration)
+  match. One exception: simulation_0191 free fall (Claude tracked the far bottom edge; 14% low).
+- **Twins.** Segmented clips are SAM-style cut-outs (1 px halo, missing thin parts, shadows), so mask extents are
+  not better than Claude's; mask motion agrees with Claude to ~1%. 19 twin families repeat their first frame; the
+  only t=0 questions affected are the shark rows (0101-0103), where the sibling clip's boat length gives v0 = 2.00.
+- **Lab 3D fits.** Generic reconstruction predicts stated lab motion priors at MRA .60 (fitted renders) and ties on
+  validation (every policy .644 on 18 lab motion questions); independent camera views disagree ~2x. Only families
+  0020 (free fall 9.85 m/s^2) and 0047 (answers below the depth anchors' radial bound) are defensible.
+
+### Probe 8 (`submissions/trackA_probe8_p7b_d2fixes_d3labphys.csv`, on probe 7b)
+Built by `research/levers_2026-10-11/build_probe8.py`: D2 = 7b + 0191 free-fall rescale (10 rows, x0.86) + shark
+initial speed (6 rows, ~2.04 m/s); D3 = 7b + lab capture clock (175 rows, median x1.003) + lab 3D fits for 0020/0047
+(15 rows, median x1.31). S2, S3 = 7b. Expected about D2 +.004, D3 +.001..+.005 (each fix below leaderboard resolution
+alone); read as probe 8 minus probe 7b.
