@@ -152,3 +152,13 @@ or a pool over several clips):
 - D3 (60): scene links the first scene graph missed (shared object vocabularies checked by eye, near-identical
   frames) + stated facts + pooling, 9 doubtful rows removed by the verifier: ~+0.008..+0.011.
 Expected overall vs probe 5 (.793): about +0.01 including the ensemble.
+
+## GPT-6 Astra pilot (2026-10-11): not adopted
+
+`scripts/run_openai_direct.py`: GPT-6 Astra (images only, $10/$50 per MTok) given the same frames and questions
+as Claude, direct answers, high reasoning. Validation (val_hires, 146 of 159 answered at the time, ~$10):
+Astra .747 vs Claude direct .757 on the same questions (2D .804 vs .803, 3D lab .605 vs .655, 3D non-lab .785
+vs .774). Its answers track Claude's closely (median |log ratio| 0.045), so the geometric mean adds nothing
+(.759), and as a 4th vote in the 3D non-lab median it scores .80-.82 vs .80-.83 for three Claude runs.
+Not run on the test set. Gemini (`scripts/run_gemini_direct.py`, native video or frames) is blocked until the
+key's Google project has credits.
