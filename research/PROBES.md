@@ -232,3 +232,8 @@ moving conveyor belt itself (stabilising would be wrong); internet_0068 moves 8%
   (cannot judge). Probe 9 (`submissions/trackA_probe9_p8_kinematic.csv`, on probe 8) applies it only to rows still
   equal to the raw pipeline answer (126 family/fact rows protected): 169 rows (S2 88, D2 48, S3 18, D3 15), median
   change 0.8%, 18 rows > 10%. Expected within +-.003 per category; read as probe 9 minus probe 8.
+
+## Diagnostic C (`submissions/trackA_diagC_on7b.csv`, on probe 7b) — where the remaining S2/S3/D3 gap sits
+Zeroes (x1e-9) S2 acceleration targets (79/579), S3 lab motion (176/578), D3 lab motion (110/969), D2 internet
+(217/1163). Decode with probe 7b's scores: subset mean = (7b - diagC) * N_cat / n_subset. Purpose: the target is
+.84 in S2/S3/D3 (estimates now ~.813/.755/.80); S3 is 58% lab and its lab-motion share has never been measured.
