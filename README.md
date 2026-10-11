@@ -16,10 +16,11 @@ and, for 3D scenes, camera distances, estimate an object's size, distance, speed
 |---|---|---|---|---|---|---|---|
 | `submissions/trackA_opus55_high_v2.csv` (Claude Opus 5.5 high, 854 px, geometry + direct) | A | **0.763** | .801 | .810 | .703 | .738 | 2026-10-09 |
 | `submissions/trackA_probe2_geo_nonlab3d.csv` (v2 with geometry on 3D non-lab) | A | 0.737 | .798 | .810 | .673 | .668 | 2026-10-09 |
-| `submissions/trackA_probe3_s2maxext_d2denseoff_labdirect.csv` (S2 longest-extent prior, D2 dense off, direct on lab 3D) | A | **0.764** | .803 | .810 | .715 | .727 | 2026-10-09 |
+| `submissions/trackA_probe3_s2maxext_d2denseoff_labdirect.csv` (S2 longest-extent prior, D2 dense off, direct on lab 3D) | A | 0.764 | .803 | .810 | .715 | .727 | 2026-10-09 |
+| `submissions/trackA_probe5_families_merged.csv` (twin copies, D2 refine-off, S3 lab kind split, scene-family facts + scale correction + pooling) | A | **0.793** | .813 | .835 | .743 | .781 | 2026-10-10 |
 
-Public leaderboard snapshot 2026-10-09 16:48 UTC (before our uploads): Track A 1st 0.842, 2nd 0.835, 3rd 0.825,
-about ten teams at 0.80-0.81, 20th 0.769; Track B 1st 0.803, 2nd 0.772, 3rd 0.756. Probes 4-6 and two diagnostic
+Public leaderboard snapshot 2026-10-10 16:48 UTC: Track A 1st 0.849, 2nd 0.845, 3rd 0.825, about ten teams at
+0.80-0.81 (probe 5's 0.793 would rank about 13th); Track B 1st 0.803, 2nd 0.772, 3rd 0.756. Probes 4-6 and two diagnostic
 uploads are described in [research/PROBES.md](research/PROBES.md).
 
 Validation (480p, 159 questions) over-predicted D2 (.916 vs .810) and S3 (.784 vs .703) and

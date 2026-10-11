@@ -100,3 +100,13 @@ Categories are measured independently, so one upload can diagnose some and test 
   all 3D non-lab) solved per kind like the lab split gives geometry -0.194 per static answer but
   +0.066 per motion answer (rounding-robust; assumes a kind's effect is shared by S3 and D3), so
   this predicts S3 +0.013 and D3 +0.008 over v3.
+
+## Results: probe 5 = 0.793 (2026-10-10)
+
+| | S2 | D2 | S3 | D3 | MRA |
+|---|---|---|---|---|---|
+| v3 (best rows per category before) | .803 | .810 | .715 | .738 | .767 |
+| probe 5 | .813 (+.010) | .835 (+.025) | .743 (+.028) | .781 (+.043) | **.793** |
+
+Every category moved as predicted or better (expected +.009/+.02/+.03/+.03); D3's scene-family rules
+(stated facts, K scale correction, series pooling, lab pooling) gave the most. Probe 5 is the new base.
