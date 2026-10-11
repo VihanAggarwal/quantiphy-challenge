@@ -221,3 +221,14 @@ alone); read as probe 8 minus probe 7b.
 boxes, RANSAC), chained between the prior track's frames; stabilised vs raw prior pixel path. Over 36 motion-prior
 tracks in 33 internet clips (test + validation), 34 change by < 5% (median 0.3%). internet_0028's "background" is the
 moving conveyor belt itself (stabilising would be wrong); internet_0068 moves 8%. No change made.
+
+## Layers on top of the model (2026-10-12)
+- **MRA-optimal downward shading** (the metric punishes overestimates more: 2x over scores 0, 2x under scores .5):
+  on validation every multiplier below 1 loses (c = .97: -.007; .95: -.016). Errors are mostly small or gross misses,
+  and shading only pays for moderate spread (synthetic log-sd .3: +.009). Not used.
+- **Kinematic consistency** (`research/kinematic/`): per (video, object), timed speed answers are pulled halfway
+  (in log) toward a constant-acceleration fit, and timed acceleration answers toward its slope, when the group has
+  >= 3 answers at >= 2 times and the fit's median residual is < 25%. Reaches 613 test questions; validation reaches 4
+  (cannot judge). Probe 9 (`submissions/trackA_probe9_p8_kinematic.csv`, on probe 8) applies it only to rows still
+  equal to the raw pipeline answer (126 family/fact rows protected): 169 rows (S2 88, D2 48, S3 18, D3 15), median
+  change 0.8%, 18 rows > 10%. Expected within +-.003 per category; read as probe 9 minus probe 8.
