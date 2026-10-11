@@ -130,3 +130,12 @@ Every category moved as predicted or better (expected +.009/+.02/+.03/+.03); D3'
   failed here. Keep direct answers on all 3D non-lab questions. The same assumption underlies the lab
   kind split (inside probe 5's S3 gain) and probe 6's D3 lab-motion test, so treat those as unproven
   until probe 6 measures them.
+
+## Probe 7a (`trackA_probe7a_p5_ensemble3dnl.csv`, on probe 5)
+
+Two extra paid Claude runs on the 123 3D non-lab test videos ($13.21 + $18.31; ledger $134.20 of $200):
+test_3dnl_v1_high_b (second v1 sample) and test_3dnl_v2_high (v2 prompt, 854 px). The three runs' direct
+answers differ by ~5% per question; their median moves 28% of answers by > 5%. On validation a 3-run median
+beat the single run by +0.020 per 3D non-lab question (14 of 15 combinations >= 0). Built by
+`research/ensemble_3dnl.py`: probe 5 rescaled by ensemble/base (stated-fact rows kept exact, twins re-synced);
+S3 117 and D3 200 answers change. Expected about S3 +0.005..+0.008, D3 +0.005..+0.01.
