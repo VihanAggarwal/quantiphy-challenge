@@ -1,0 +1,53 @@
+{
+ "video_id": "simulation_0089",
+ "model": "gemini-3.1-pro-preview",
+ "input": "frames",
+ "thinking": "high",
+ "media_resolution": "high",
+ "answers": [
+  {
+   "qid": 139,
+   "value": 1.52,
+   "unit": "m",
+   "how": "Measured the length of the small bird in the video as 55 pixels. Given the prior length of 0.94 m, the scale is 0.94 / 55 = 0.01709 m/pixel. The big bird's length was measured as 89 pixels. Converting this gives 89 * 0.01709 = 1.52 m."
+  },
+  {
+   "qid": 140,
+   "value": 4.7,
+   "unit": "m",
+   "how": "Measured the maximum width (wingspan) of the big bird as 275 pixels. Using the scale of 0.01709 m/pixel from the small bird's length, the big bird's width is 275 * 0.01709 = 4.70 m."
+  },
+  {
+   "qid": 141,
+   "value": 2.67,
+   "unit": "m",
+   "how": "Measured the maximum width (wingspan) of the small bird as 156 pixels. Applying the calculated scale of 0.01709 m/pixel gives 156 * 0.01709 = 2.67 m."
+  },
+  {
+   "qid": 142,
+   "value": 9.84,
+   "unit": "m/s",
+   "how": "Tracked the small bird's position across 4 frames (from t=0.000s to t=0.167s) and found it moved 96 pixels to the right, yielding a speed of 576 pixels/second. Using the scale 0.01709 m/pixel, its average speed is 576 * 0.01709 = 9.84 m/s."
+  },
+  {
+   "qid": 143,
+   "value": 24.2,
+   "unit": "m/s",
+   "how": "Tracked the big bird's position across 4 frames and found it moved 236 pixels to the left, yielding a speed of 1416 pixels/second. Converting with the scale 0.01709 m/pixel gives an average speed of 1416 * 0.01709 = 24.20 m/s."
+  },
+  {
+   "qid": 144,
+   "value": 21.31,
+   "unit": "m",
+   "how": "Calculated the positions of both birds at t=0.5 s (frame 12). The initial center-to-center horizontal distance was 251 pixels. With the big bird moving left at 59 px/frame and the small bird moving right at 24 px/frame, they separate by 83 px/frame. After 12 frames, their center-to-center distance is 251 + (12 * 83) = 1247 pixels. Using the scale 0.01709 m/pixel gives 1247 * 0.01709 = 21.31 m."
+  }
+ ],
+ "raw_text": "{\n  \"answers\": [\n    {\n      \"qid\": 139,\n      \"value\": 1.52,\n      \"unit\": \"m\",\n      \"how\": \"Measured the length of the small bird in the video as 55 pixels. Given the prior length of 0.94 m, the scale is 0.94 / 55 = 0.01709 m/pixel. The big bird's length was measured as 89 pixels. Converting this gives 89 * 0.01709 = 1.52 m.\"\n    },\n    {\n      \"qid\": 140,\n      \"value\": 4.70,\n      \"unit\": \"m\",\n      \"how\": \"Measured the maximum width (wingspan) of the big bird as 275 pixels. Using the scale of 0.01709 m/pixel from the small bird's length, the big bird's width is 275 * 0.01709 = 4.70 m.\"\n    },\n    {\n      \"qid\": 141,\n      \"value\": 2.67,\n      \"unit\": \"m\",\n      \"how\": \"Measured the maximum width (wingspan) of the small bird as 156 pixels. Applying the calculated scale of 0.01709 m/pixel gives 156 * 0.01709 = 2.67 m.\"\n    },\n    {\n      \"qid\": 142,\n      \"value\": 9.84,\n      \"unit\": \"m/s\",\n      \"how\": \"Tracked the small bird's position across 4 frames (from t=0.000s to t=0.167s) and found it moved 96 pixels to the right, yielding a speed of 576 pixels/second. Using the scale 0.01709 m/pixel, its average speed is 576 * 0.01709 = 9.84 m/s.\"\n    },\n    {\n      \"qid\": 143,\n      \"value\": 24.20,\n      \"unit\": \"m/s\",\n      \"how\": \"Tracked the big bird's position across 4 frames and found it moved 236 pixels to the left, yielding a speed of 1416 pixels/second. Converting with the scale 0.01709 m/pixel gives an average speed of 1416 * 0.01709 = 24.20 m/s.\"\n    },\n    {\n      \"qid\": 144,\n      \"value\": 21.31,\n      \"unit\": \"m\",\n      \"how\": \"Calculated the positions of both birds at t=0.5 s (frame 12). The initial center-to-center horizontal distance was 251 pixels. With the big bird moving left at 59 px/frame and the small bird moving right at 24 px/frame, they separate by 83 px/frame. After 12 frames, their center-to-center distance is 251 + (12 * 83) = 1247 pixels. Using the scale 0.01709 m/pixel gives 1247 * 0.01709 = 21.31 m.\"\n    }\n  ]\n}",
+ "usage": {
+  "prompt": 18370,
+  "output": 808,
+  "thoughts": 14324
+ },
+ "usd": 0.218324,
+ "secs": 113.5
+}
