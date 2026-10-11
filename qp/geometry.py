@@ -45,6 +45,18 @@ the free flight only. A motion prior must stand well out of its track's noise (e
 "prior_motion_below_noise": a static or wrongly tracked prior would give a huge scale). Times
 outside a track are clamped to it (flag "time_outside_track"; +-inf means last / first frame).
 
+Label emulation (opt-in, solve(label_emulation=True); default off): the simulation (Blender) labels are
+script readouts at frame i = round(t * fps) (t = 0 at the first frame): speed s_i = |p_i - p_{i-1}| * fps (a
+one-frame BACKWARD difference of the object origin, full 3D norm) and acceleration (s_i - s_{i-1}) * fps (a
+backward difference of the speed MAGNITUDE, i.e. tangential; scored as its absolute value). With emulation a
+speed or acceleration AT A TIME (target or prior) is that difference operator evaluated on the fitted local
+polynomial (the same fit as without emulation) instead of |v(t)| / |a(t)|: about |v(t - 1/(2 fps))| for
+speeds and d|v|/dt at t - 1/fps for accelerations (much below |a| on curved paths, e.g. projectiles).
+Frames before the first labelled one (i < 1 for speed, i < 2 for acceleration) and a tangential
+acceleration below EMU_TANG_MIN x |a| (ill-determined; flag label_emu_tangential_small) keep the
+instantaneous value. Average speeds, windows, untimed accelerations, sizes and distances are unchanged.
+Only for simulation clips and their segmented twins (lab and internet labels use other conventions).
+
 solve() never raises: unsolvable inputs give Answer(value=None, flags=[reason]).
 """
 
@@ -79,6 +91,9 @@ EXTRAP_FRAC = 0.25              # a displacement window may overhang its track b
                                 # (the object left / entered the view): those ends are extrapolated linearly
 SNR_MIN = 5.0                   # a prior's motion must exceed SNR_MIN x its noise (see _motion)
 _FLOOR_SCALE = contextvars.ContextVar("qp_geometry_floor_scale", default=1.0)  # see solve(seen_scale=)
+LABEL_EMULATION = False         # solve(label_emulation=None) default: Blender label emulation (module docstring)
+EMU_TANG_MIN = 0.2              # emulated (tangential) acceleration below this share of |a|: keep |a|
+_EMU_FPS = contextvars.ContextVar("qp_geometry_emu_fps", default=None)  # fps while label emulation is on
 PX_NOISE_FLOOR = 1.0            # px, least noise assumed on a prior track (annotators are good to ~1 px:
                                 # a prior moving <= 10 px is noise-dominated and must not set the scale)
 GRAVITY_BORROW_MIN = 6          # obs needed to try the target's own track as the falling object
@@ -220,8 +235,9 @@ def _polyfit(x: np.ndarray, Y: np.ndarray, deg: int, iters: int = 3, k: float = 
 
 def _local(t: np.ndarray, P: np.ndarray, t0: float, half: float, max_deg: int = 3):
     """Robust fit to the obs near t0 -> (position, velocity, acceleration, degree, sigma, span,
-    lever) at t0: sigma = residual noise per coordinate (0 with no spare dof), span = fitted time
-    range, lever = standard errors of (position, velocity, acceleration) per unit sigma.
+    lever, coefficients) at t0: sigma = residual noise per coordinate (0 with no spare dof), span = fitted
+    time range, lever = standard errors of (position, velocity, acceleration) per unit sigma,
+    coefficients = the polynomial in (t - t0), highest power first, one column per coordinate.
 
     Degree 2 unless enough obs (2 per coefficient) and an F-test say the higher terms pay
     off: a parabola is biased on curved paths (orbits, turns, varying acceleration), a
@@ -252,7 +268,18 @@ def _local(t: np.ndarray, P: np.ndarray, t0: float, half: float, max_deg: int = 
     lever = np.r_[lever, np.full(3, np.inf)][:3]
     zero = np.zeros(P.shape[1])
     return (c[-1], (c[-2] if deg >= 1 else zero), (2 * c[-3] if deg >= 2 else zero), deg, sigma,
-            float(np.ptp(xk)), lever)
+            float(np.ptp(xk)), lever, c)
+
+
+def _emu_speeds(fit, t0: float, fps: float, cols: list[int], n: int) -> list[float] | None:
+    """Blender-label speeds |p_k - p_{k-1}| * fps on the fitted polynomial of `fit` (centred at t0) for the
+    frames k = i - n + 1 .. i, i = round(t0 * fps); None when a needed frame precedes the first (k < 1)."""
+    i = int(round(t0 * fps))
+    if i - n < 0:
+        return None
+    ts = (np.arange(i - n, i + 1) / fps) - t0
+    pts = np.column_stack([np.polyval(fit[7][:, j], ts) for j in cols])
+    return list(np.linalg.norm(np.diff(pts, axis=0), axis=1) * fps)
 
 
 def _track_noise(t: np.ndarray, P: np.ndarray) -> float:
@@ -405,6 +432,12 @@ def _motion(q: Quantity, t: np.ndarray, P: np.ndarray, flags: set[str], tol: flo
             v = norm(fit[1])
             check(v * fit[5], fit[4])
             check(v, fit[4], fit[6][1])
+            emu_fps = _EMU_FPS.get()
+            if emu_fps:
+                s = _emu_speeds(fit, at(time), emu_fps, cols, 1)
+                if s is not None:
+                    flags.add("label_emulated")
+                    return s[0]
             return v
         return path(at.lo, at.hi) / (at.hi - at.lo)
     if q.kind == "acceleration":
@@ -426,6 +459,15 @@ def _motion(q: Quantity, t: np.ndarray, P: np.ndarray, flags: set[str], tol: flo
         a = norm(fit[2])
         check(a * fit[5] ** 2 / 8, fit[4])
         check(a, fit[4], fit[6][2])
+        emu_fps = _EMU_FPS.get()
+        if emu_fps and time is not None:
+            s = _emu_speeds(fit, at(time), emu_fps, cols, 2)
+            if s is not None:
+                a_t = abs(s[1] - s[0]) * emu_fps
+                if a_t >= EMU_TANG_MIN * a:
+                    flags.add("label_emulated")
+                    return a_t
+                flags.add("label_emu_tangential_small")
         return a
     if q.kind in ("displacement", "path_length"):
         if q.kind == "displacement" and win:
@@ -1010,13 +1052,17 @@ def _solve(spec: QuestionSpec, tracks, image_size, fps, flags: set[str], debug: 
 
 
 def solve(spec: QuestionSpec, tracks: list[RoleTrack], image_size: tuple[int, int],
-          fps: float, camera_fov_deg: float | None = None, seen_scale: float | None = None) -> Answer:
+          fps: float, camera_fov_deg: float | None = None, seen_scale: float | None = None,
+          label_emulation: bool | None = None) -> Answer:
     """Answer `spec` from pixel tracks. image_size is (width, height) of the ORIGINAL frames;
     the value is in spec.target.unit (SI when the unit is empty/unknown), None if unsolvable.
     camera_fov_deg: the camera's horizontal field of view when known (3D only): f is then the MAP
     estimate around it given the prior (flag f_camera_prior) instead of fitted to the prior alone.
     seen_scale: pixels of the image the annotator saw per original pixel (< 1 when frames were
-    downscaled); the prior-motion noise floor is PX_NOISE_FLOOR pixels of THAT image."""
+    downscaled); the prior-motion noise floor is PX_NOISE_FLOOR pixels of THAT image.
+    label_emulation: speeds / accelerations at a time (targets and priors) follow the simulation (Blender)
+    label convention (module docstring); None = LABEL_EMULATION (off). Needs a valid fps; meant only for
+    simulation clips and their segmented twins."""
     flags: set[str] = set()
     debug: dict = {}
     srcs = sorted({str((t.get("source") if isinstance(t, dict) else getattr(t, "source", "")) or "")
@@ -1027,9 +1073,13 @@ def solve(spec: QuestionSpec, tracks: list[RoleTrack], image_size: tuple[int, in
     try:
         scale = _num(seen_scale)
         token = _FLOOR_SCALE.set(1.0 / scale if scale and 0 < scale < 1 else 1.0)
+        emu = LABEL_EMULATION if label_emulation is None else bool(label_emulation)
+        fps_num = _num(fps)
+        emu_token = _EMU_FPS.set(fps_num if emu and fps_num and fps_num > 0 else None)
         try:
             value_si, ans.method = _solve(spec, tracks, image_size, fps, flags, debug, camera_fov_deg)
         finally:
+            _EMU_FPS.reset(emu_token)
             _FLOOR_SCALE.reset(token)
         value = _to_unit(value_si, spec.target, flags)
         if not (math.isfinite(value) and value > 0 and value_si > 1e-9):  # 1e-9 SI: numerically zero
