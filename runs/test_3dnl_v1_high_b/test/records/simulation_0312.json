@@ -1,0 +1,657 @@
+{
+ "video_id": "simulation_0312",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfumaGaUzvhx5z1sNTmHo",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 854
+ },
+ "ts": "2026-10-11T03:55:51+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_015FHBnQ6JVG1TnPAQECyVos",
+ "custom_id": "simulation_0312",
+ "usage": {
+  "input_tokens": 20936,
+  "output_tokens": 2784,
+  "cache_creation_input_tokens": 4317,
+  "cache_read_input_tokens": 0,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.080505,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0312",
+  "fps": 24.0,
+  "fps_from_container": false,
+  "video_type": "S3SX",
+  "n_frames_total": 72,
+  "scale": 0.7907407407407407,
+  "image_size": [
+   1080,
+   1080
+  ],
+  "frames": [
+   0,
+   5,
+   9,
+   14,
+   19,
+   22,
+   24,
+   26,
+   28,
+   33,
+   38,
+   43,
+   46,
+   47,
+   48,
+   50,
+   52,
+   57,
+   62,
+   66,
+   71
+  ],
+  "questions": [
+   {
+    "qid": 1631,
+    "target_unit": "m/s",
+    "prior": "height of the star = 0.2m",
+    "depth_info": "t=1.0s, distance_star_camera = 6.552m\nt=2.0s, distance_star_camera = 8.345m"
+   },
+   {
+    "qid": 1632,
+    "target_unit": "m",
+    "prior": "height of the star = 0.2m",
+    "depth_info": "t=1.0s, distance_star_camera = 6.552m\nt=2.0s, distance_star_camera = 8.345m"
+   },
+   {
+    "qid": 1633,
+    "target_unit": "m",
+    "prior": "height of the star = 0.2m",
+    "depth_info": "t=1.0s, distance_star_camera = 6.552m\nt=2.0s, distance_star_camera = 8.345m"
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":1631,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"star\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"star\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.2,\"unit\":\"\"},\"depth\":[{\"object\":\"star\",\"distance_m\":6.552,\"time\":1.0},{\"object\":\"star\",\"distance_m\":8.345,\"time\":2.0}],\"notes\":\"3D motion; depth changes, average speed over whole clip\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"star\",\"obs\":[{\"frame\":24,\"point\":null,\"extent\":[[646,514],[646,550]],\"box\":[634,514,659,550]},{\"frame\":48,\"point\":null,\"extent\":[[742,413],[742,442]],\"box\":[731,413,753,442]}]},{\"role\":\"target\",\"object\":\"star\",\"obs\":[{\"frame\":0,\"point\":[338,648],\"extent\":null,\"box\":[327,625,349,669]},{\"frame\":5,\"point\":[421,625],\"extent\":null,\"box\":[410,603,433,646]},{\"frame\":9,\"point\":[481,605],\"extent\":null,\"box\":[469,585,494,627]},{\"frame\":14,\"point\":[546,581],\"extent\":null,\"box\":[534,561,559,602]},{\"frame\":19,\"point\":[601,556],\"extent\":null,\"box\":[589,537,614,576]},{\"frame\":22,\"point\":[629,542],\"extent\":null,\"box\":[617,523,642,561]},{\"frame\":24,\"point\":[646,532],\"extent\":null,\"box\":[634,514,659,550]},{\"frame\":26,\"point\":[661,522],\"extent\":null,\"box\":[649,505,674,540]},{\"frame\":28,\"point\":[675,513],\"extent\":null,\"box\":[663,495,688,531]},{\"frame\":33,\"point\":[703,490],\"extent\":null,\"box\":[691,473,716,507]},{\"frame\":38,\"point\":[723,467],\"extent\":null,\"box\":[711,451,736,484]},{\"frame\":43,\"point\":[736,447],\"extent\":null,\"box\":[724,431,748,463]},{\"frame\":46,\"point\":[740,435],\"extent\":null,\"box\":[729,420,751,450]},{\"frame\":47,\"point\":[741,431],\"extent\":null,\"box\":[730,416,752,446]},{\"frame\":48,\"point\":[742,428],\"extent\":null,\"box\":[731,413,753,442]},{\"frame\":50,\"point\":[743,420],\"extent\":null,\"box\":[732,406,754,435]},{\"frame\":52,\"point\":[743,412],\"extent\":null,\"box\":[732,398,754,427]},{\"frame\":57,\"point\":[739,395],\"extent\":null,\"box\":[729,382,750,409]},{\"frame\":62,\"point\":[731,379],\"extent\":null,\"box\":[721,366,742,393]},{\"frame\":66,\"point\":[723,368],\"extent\":null,\"box\":[713,354,733,381]},{\"frame\":71,\"point\":[708,354],\"extent\":null,\"box\":[699,341,718,367]}]}],\"direct_answer\":2.15,\"confidence\":0.4},{\"qid\":1632,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"star\"],\"dimension\":\"width\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"star\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.2,\"unit\":\"\"},\"depth\":[{\"object\":\"star\",\"distance_m\":6.552,\"time\":1.0},{\"object\":\"star\",\"distance_m\":8.345,\"time\":2.0}],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"star\",\"obs\":[]},{\"role\":\"target\",\"object\":\"star\",\"obs\":[{\"frame\":24,\"point\":null,\"extent\":[[634,532],[659,532]],\"box\":[634,514,659,550]},{\"frame\":48,\"point\":null,\"extent\":[[731,428],[753,428]],\"box\":[731,413,753,442]}]}],\"direct_answer\":0.145,\"confidence\":0.4},{\"qid\":1633,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"star\"],\"dimension\":\"thickness\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"star\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":0.2,\"unit\":\"\"},\"depth\":[{\"object\":\"star\",\"distance_m\":6.552,\"time\":1.0},{\"object\":\"star\",\"distance_m\":8.345,\"time\":2.0}],\"notes\":\"thickness visible when star edge-on at start\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"star\",\"obs\":[]},{\"role\":\"target\",\"object\":\"star\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[333,648],[343,648]],\"box\":[327,625,349,669]}]}],\"direct_answer\":0.05,\"confidence\":0.25}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 1631,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "star"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "star"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.2,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "star",
+       "distance_m": 6.552,
+       "time": 1.0
+      },
+      {
+       "object": "star",
+       "distance_m": 8.345,
+       "time": 2.0
+      }
+     ],
+     "notes": "3D motion; depth changes, average speed over whole clip"
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "star",
+      "obs": [
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          646,
+          514
+         ],
+         [
+          646,
+          550
+         ]
+        ],
+        "box": [
+         634,
+         514,
+         659,
+         550
+        ]
+       },
+       {
+        "frame": 48,
+        "point": null,
+        "extent": [
+         [
+          742,
+          413
+         ],
+         [
+          742,
+          442
+         ]
+        ],
+        "box": [
+         731,
+         413,
+         753,
+         442
+        ]
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "star",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         338,
+         648
+        ],
+        "extent": null,
+        "box": [
+         327,
+         625,
+         349,
+         669
+        ]
+       },
+       {
+        "frame": 5,
+        "point": [
+         421,
+         625
+        ],
+        "extent": null,
+        "box": [
+         410,
+         603,
+         433,
+         646
+        ]
+       },
+       {
+        "frame": 9,
+        "point": [
+         481,
+         605
+        ],
+        "extent": null,
+        "box": [
+         469,
+         585,
+         494,
+         627
+        ]
+       },
+       {
+        "frame": 14,
+        "point": [
+         546,
+         581
+        ],
+        "extent": null,
+        "box": [
+         534,
+         561,
+         559,
+         602
+        ]
+       },
+       {
+        "frame": 19,
+        "point": [
+         601,
+         556
+        ],
+        "extent": null,
+        "box": [
+         589,
+         537,
+         614,
+         576
+        ]
+       },
+       {
+        "frame": 22,
+        "point": [
+         629,
+         542
+        ],
+        "extent": null,
+        "box": [
+         617,
+         523,
+         642,
+         561
+        ]
+       },
+       {
+        "frame": 24,
+        "point": [
+         646,
+         532
+        ],
+        "extent": null,
+        "box": [
+         634,
+         514,
+         659,
+         550
+        ]
+       },
+       {
+        "frame": 26,
+        "point": [
+         661,
+         522
+        ],
+        "extent": null,
+        "box": [
+         649,
+         505,
+         674,
+         540
+        ]
+       },
+       {
+        "frame": 28,
+        "point": [
+         675,
+         513
+        ],
+        "extent": null,
+        "box": [
+         663,
+         495,
+         688,
+         531
+        ]
+       },
+       {
+        "frame": 33,
+        "point": [
+         703,
+         490
+        ],
+        "extent": null,
+        "box": [
+         691,
+         473,
+         716,
+         507
+        ]
+       },
+       {
+        "frame": 38,
+        "point": [
+         723,
+         467
+        ],
+        "extent": null,
+        "box": [
+         711,
+         451,
+         736,
+         484
+        ]
+       },
+       {
+        "frame": 43,
+        "point": [
+         736,
+         447
+        ],
+        "extent": null,
+        "box": [
+         724,
+         431,
+         748,
+         463
+        ]
+       },
+       {
+        "frame": 46,
+        "point": [
+         740,
+         435
+        ],
+        "extent": null,
+        "box": [
+         729,
+         420,
+         751,
+         450
+        ]
+       },
+       {
+        "frame": 47,
+        "point": [
+         741,
+         431
+        ],
+        "extent": null,
+        "box": [
+         730,
+         416,
+         752,
+         446
+        ]
+       },
+       {
+        "frame": 48,
+        "point": [
+         742,
+         428
+        ],
+        "extent": null,
+        "box": [
+         731,
+         413,
+         753,
+         442
+        ]
+       },
+       {
+        "frame": 50,
+        "point": [
+         743,
+         420
+        ],
+        "extent": null,
+        "box": [
+         732,
+         406,
+         754,
+         435
+        ]
+       },
+       {
+        "frame": 52,
+        "point": [
+         743,
+         412
+        ],
+        "extent": null,
+        "box": [
+         732,
+         398,
+         754,
+         427
+        ]
+       },
+       {
+        "frame": 57,
+        "point": [
+         739,
+         395
+        ],
+        "extent": null,
+        "box": [
+         729,
+         382,
+         750,
+         409
+        ]
+       },
+       {
+        "frame": 62,
+        "point": [
+         731,
+         379
+        ],
+        "extent": null,
+        "box": [
+         721,
+         366,
+         742,
+         393
+        ]
+       },
+       {
+        "frame": 66,
+        "point": [
+         723,
+         368
+        ],
+        "extent": null,
+        "box": [
+         713,
+         354,
+         733,
+         381
+        ]
+       },
+       {
+        "frame": 71,
+        "point": [
+         708,
+         354
+        ],
+        "extent": null,
+        "box": [
+         699,
+         341,
+         718,
+         367
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 2.15,
+    "confidence": 0.4
+   },
+   {
+    "qid": 1632,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "star"
+      ],
+      "dimension": "width",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "star"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.2,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "star",
+       "distance_m": 6.552,
+       "time": 1.0
+      },
+      {
+       "object": "star",
+       "distance_m": 8.345,
+       "time": 2.0
+      }
+     ],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "star",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "star",
+      "obs": [
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          634,
+          532
+         ],
+         [
+          659,
+          532
+         ]
+        ],
+        "box": [
+         634,
+         514,
+         659,
+         550
+        ]
+       },
+       {
+        "frame": 48,
+        "point": null,
+        "extent": [
+         [
+          731,
+          428
+         ],
+         [
+          753,
+          428
+         ]
+        ],
+        "box": [
+         731,
+         413,
+         753,
+         442
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 0.145,
+    "confidence": 0.4
+   },
+   {
+    "qid": 1633,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "star"
+      ],
+      "dimension": "thickness",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "star"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.2,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "star",
+       "distance_m": 6.552,
+       "time": 1.0
+      },
+      {
+       "object": "star",
+       "distance_m": 8.345,
+       "time": 2.0
+      }
+     ],
+     "notes": "thickness visible when star edge-on at start"
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "star",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "star",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          333,
+          648
+         ],
+         [
+          343,
+          648
+         ]
+        ],
+        "box": [
+         327,
+         625,
+         349,
+         669
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 0.05,
+    "confidence": 0.25
+   }
+  ]
+ }
+}

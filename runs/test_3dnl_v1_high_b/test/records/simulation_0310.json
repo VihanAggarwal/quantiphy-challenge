@@ -1,0 +1,687 @@
+{
+ "video_id": "simulation_0310",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfumaJ7ktJZA2gGxTFWhL",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 854
+ },
+ "ts": "2026-10-11T03:54:50+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_01RJnmR6EqoU9sA5y1E8BmMq",
+ "custom_id": "simulation_0310",
+ "usage": {
+  "input_tokens": 12781,
+  "output_tokens": 4602,
+  "cache_creation_input_tokens": 4317,
+  "cache_read_input_tokens": 0,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.082375,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0310",
+  "fps": 24.0,
+  "fps_from_container": false,
+  "video_type": "S3SC",
+  "n_frames_total": 72,
+  "scale": 0.33359375,
+  "image_size": [
+   2560,
+   1439
+  ],
+  "frames": [
+   0,
+   5,
+   9,
+   14,
+   19,
+   22,
+   24,
+   26,
+   28,
+   33,
+   38,
+   43,
+   46,
+   47,
+   48,
+   50,
+   52,
+   57,
+   62,
+   66,
+   71
+  ],
+  "questions": [
+   {
+    "qid": 1488,
+    "target_unit": "m/s",
+    "prior": "height of the forklift = 2.47m",
+    "depth_info": "t = 1.0s, distance_forklift_camera = 16.7953 m\nt = 2.0s, distance_forklift_camera = 19.0980 m"
+   },
+   {
+    "qid": 1489,
+    "target_unit": "m/s",
+    "prior": "height of the forklift = 2.47m",
+    "depth_info": "t = 1.0s, distance_forklift_camera = 16.7953 m\nt = 2.0s, distance_forklift_camera = 19.0980 m"
+   },
+   {
+    "qid": 1490,
+    "target_unit": "m",
+    "prior": "height of the forklift = 2.47m",
+    "depth_info": "t = 1.0s, distance_forklift_camera = 16.7953 m\nt = 2.0s, distance_forklift_camera = 19.0980 m"
+   },
+   {
+    "qid": 1491,
+    "target_unit": "m",
+    "prior": "height of the forklift = 2.47m",
+    "depth_info": "t = 1.0s, distance_forklift_camera = 16.7953 m\nt = 2.0s, distance_forklift_camera = 19.0980 m"
+   },
+   {
+    "qid": 1492,
+    "target_unit": "m/s^2",
+    "prior": "height of the forklift = 2.47m",
+    "depth_info": "t = 1.0s, distance_forklift_camera = 16.7953 m\nt = 2.0s, distance_forklift_camera = 19.0980 m"
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":1488,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"forklift\"],\"dimension\":\"\",\"time\":1.0,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"forklift\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":2.47,\"unit\":\"\"},\"depth\":[{\"object\":\"forklift\",\"distance_m\":16.7953,\"time\":1.0},{\"object\":\"forklift\",\"distance_m\":19.098,\"time\":2.0}],\"notes\":\"Forklift accelerates; motion has a strong depth component.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"forklift\",\"obs\":[{\"frame\":24,\"point\":null,\"extent\":[[559,193],[530,378]],\"box\":[456,193,724,437]},{\"frame\":48,\"point\":null,\"extent\":[[420,141],[392,305]],\"box\":[337,141,558,350]}]},{\"role\":\"target\",\"object\":\"forklift rear wheel\",\"obs\":[{\"frame\":0,\"point\":[707,445],\"extent\":null,\"box\":null},{\"frame\":9,\"point\":[688,440],\"extent\":null,\"box\":null},{\"frame\":14,\"point\":[676,432],\"extent\":null,\"box\":null},{\"frame\":19,\"point\":[664,425],\"extent\":null,\"box\":null},{\"frame\":22,\"point\":[648,416],\"extent\":null,\"box\":null},{\"frame\":24,\"point\":[643,412],\"extent\":null,\"box\":null},{\"frame\":26,\"point\":[631,407],\"extent\":null,\"box\":null},{\"frame\":28,\"point\":[620,400],\"extent\":null,\"box\":null},{\"frame\":33,\"point\":[588,385],\"extent\":null,\"box\":null},{\"frame\":38,\"point\":[553,367],\"extent\":null,\"box\":null},{\"frame\":43,\"point\":[517,348],\"extent\":null,\"box\":null},{\"frame\":46,\"point\":[495,336],\"extent\":null,\"box\":null},{\"frame\":47,\"point\":[488,332],\"extent\":null,\"box\":null},{\"frame\":48,\"point\":[481,328],\"extent\":null,\"box\":null},{\"frame\":50,\"point\":[464,320],\"extent\":null,\"box\":null},{\"frame\":52,\"point\":[447,312],\"extent\":null,\"box\":null},{\"frame\":57,\"point\":[405,290],\"extent\":null,\"box\":null},{\"frame\":62,\"point\":[366,268],\"extent\":null,\"box\":null},{\"frame\":66,\"point\":[333,252],\"extent\":null,\"box\":null},{\"frame\":71,\"point\":[291,229],\"extent\":null,\"box\":null}]}],\"direct_answer\":2.2,\"confidence\":0.3},{\"qid\":1489,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"forklift\"],\"dimension\":\"\",\"time\":2.0,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"forklift\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":2.47,\"unit\":\"\"},\"depth\":[{\"object\":\"forklift\",\"distance_m\":16.7953,\"time\":1.0},{\"object\":\"forklift\",\"distance_m\":19.098,\"time\":2.0}],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"forklift\",\"obs\":[]},{\"role\":\"target\",\"object\":\"forklift rear wheel\",\"obs\":[]}],\"direct_answer\":3.5,\"confidence\":0.3},{\"qid\":1490,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"forklift\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"forklift\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":2.47,\"unit\":\"\"},\"depth\":[{\"object\":\"forklift\",\"distance_m\":16.7953,\"time\":1.0},{\"object\":\"forklift\",\"distance_m\":19.098,\"time\":2.0}],\"notes\":\"Length from fork tips to rear bumper.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"forklift\",\"obs\":[]},{\"role\":\"target\",\"object\":\"forklift\",\"obs\":[{\"frame\":24,\"point\":null,\"extent\":[[458,318],[715,398]],\"box\":[456,193,724,437]},{\"frame\":48,\"point\":null,\"extent\":[[339,259],[555,325]],\"box\":[337,141,558,350]}]}],\"direct_answer\":3.4,\"confidence\":0.3},{\"qid\":1491,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"forklift\"],\"dimension\":\"width\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"forklift\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":2.47,\"unit\":\"\"},\"depth\":[{\"object\":\"forklift\",\"distance_m\":16.7953,\"time\":1.0},{\"object\":\"forklift\",\"distance_m\":19.098,\"time\":2.0}],\"notes\":\"Width from left wheel to right wheel.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"forklift\",\"obs\":[]},{\"role\":\"target\",\"object\":\"forklift\",\"obs\":[{\"frame\":24,\"point\":null,\"extent\":[[628,352],[722,342]],\"box\":[456,193,724,437]},{\"frame\":48,\"point\":null,\"extent\":[[472,282],[554,274]],\"box\":[337,141,558,350]}]}],\"direct_answer\":1.25,\"confidence\":0.3},{\"qid\":1492,\"spec\":{\"target\":{\"kind\":\"acceleration\",\"objects\":[\"forklift\"],\"dimension\":\"\",\"time\":1.0,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s^2\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"forklift\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":2.47,\"unit\":\"\"},\"depth\":[{\"object\":\"forklift\",\"distance_m\":16.7953,\"time\":1.0},{\"object\":\"forklift\",\"distance_m\":19.098,\"time\":2.0}],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"forklift\",\"obs\":[]},{\"role\":\"target\",\"object\":\"forklift rear wheel\",\"obs\":[]}],\"direct_answer\":2.3,\"confidence\":0.2}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 1488,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "forklift"
+      ],
+      "dimension": "",
+      "time": 1.0,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "forklift"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 2.47,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "forklift",
+       "distance_m": 16.7953,
+       "time": 1.0
+      },
+      {
+       "object": "forklift",
+       "distance_m": 19.098,
+       "time": 2.0
+      }
+     ],
+     "notes": "Forklift accelerates; motion has a strong depth component."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "forklift",
+      "obs": [
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          559,
+          193
+         ],
+         [
+          530,
+          378
+         ]
+        ],
+        "box": [
+         456,
+         193,
+         724,
+         437
+        ]
+       },
+       {
+        "frame": 48,
+        "point": null,
+        "extent": [
+         [
+          420,
+          141
+         ],
+         [
+          392,
+          305
+         ]
+        ],
+        "box": [
+         337,
+         141,
+         558,
+         350
+        ]
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "forklift rear wheel",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         707,
+         445
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 9,
+        "point": [
+         688,
+         440
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 14,
+        "point": [
+         676,
+         432
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 19,
+        "point": [
+         664,
+         425
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 22,
+        "point": [
+         648,
+         416
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 24,
+        "point": [
+         643,
+         412
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 26,
+        "point": [
+         631,
+         407
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 28,
+        "point": [
+         620,
+         400
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 33,
+        "point": [
+         588,
+         385
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 38,
+        "point": [
+         553,
+         367
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 43,
+        "point": [
+         517,
+         348
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 46,
+        "point": [
+         495,
+         336
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 47,
+        "point": [
+         488,
+         332
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 48,
+        "point": [
+         481,
+         328
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 50,
+        "point": [
+         464,
+         320
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 52,
+        "point": [
+         447,
+         312
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 57,
+        "point": [
+         405,
+         290
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 62,
+        "point": [
+         366,
+         268
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 66,
+        "point": [
+         333,
+         252
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 71,
+        "point": [
+         291,
+         229
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     }
+    ],
+    "direct_answer": 2.2,
+    "confidence": 0.3
+   },
+   {
+    "qid": 1489,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "forklift"
+      ],
+      "dimension": "",
+      "time": 2.0,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "forklift"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 2.47,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "forklift",
+       "distance_m": 16.7953,
+       "time": 1.0
+      },
+      {
+       "object": "forklift",
+       "distance_m": 19.098,
+       "time": 2.0
+      }
+     ],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "forklift",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "forklift rear wheel",
+      "obs": []
+     }
+    ],
+    "direct_answer": 3.5,
+    "confidence": 0.3
+   },
+   {
+    "qid": 1490,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "forklift"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "forklift"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 2.47,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "forklift",
+       "distance_m": 16.7953,
+       "time": 1.0
+      },
+      {
+       "object": "forklift",
+       "distance_m": 19.098,
+       "time": 2.0
+      }
+     ],
+     "notes": "Length from fork tips to rear bumper."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "forklift",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "forklift",
+      "obs": [
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          458,
+          318
+         ],
+         [
+          715,
+          398
+         ]
+        ],
+        "box": [
+         456,
+         193,
+         724,
+         437
+        ]
+       },
+       {
+        "frame": 48,
+        "point": null,
+        "extent": [
+         [
+          339,
+          259
+         ],
+         [
+          555,
+          325
+         ]
+        ],
+        "box": [
+         337,
+         141,
+         558,
+         350
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 3.4,
+    "confidence": 0.3
+   },
+   {
+    "qid": 1491,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "forklift"
+      ],
+      "dimension": "width",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "forklift"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 2.47,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "forklift",
+       "distance_m": 16.7953,
+       "time": 1.0
+      },
+      {
+       "object": "forklift",
+       "distance_m": 19.098,
+       "time": 2.0
+      }
+     ],
+     "notes": "Width from left wheel to right wheel."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "forklift",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "forklift",
+      "obs": [
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          628,
+          352
+         ],
+         [
+          722,
+          342
+         ]
+        ],
+        "box": [
+         456,
+         193,
+         724,
+         437
+        ]
+       },
+       {
+        "frame": 48,
+        "point": null,
+        "extent": [
+         [
+          472,
+          282
+         ],
+         [
+          554,
+          274
+         ]
+        ],
+        "box": [
+         337,
+         141,
+         558,
+         350
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 1.25,
+    "confidence": 0.3
+   },
+   {
+    "qid": 1492,
+    "spec": {
+     "target": {
+      "kind": "acceleration",
+      "objects": [
+       "forklift"
+      ],
+      "dimension": "",
+      "time": 1.0,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s^2"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "forklift"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 2.47,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "forklift",
+       "distance_m": 16.7953,
+       "time": 1.0
+      },
+      {
+       "object": "forklift",
+       "distance_m": 19.098,
+       "time": 2.0
+      }
+     ],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "forklift",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "forklift rear wheel",
+      "obs": []
+     }
+    ],
+    "direct_answer": 2.3,
+    "confidence": 0.2
+   }
+  ]
+ }
+}

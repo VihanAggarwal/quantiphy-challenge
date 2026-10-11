@@ -1,0 +1,734 @@
+{
+ "video_id": "simulation_0029",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfumaLjWtNGLD8X359K4h",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 854
+ },
+ "ts": "2026-10-11T03:56:52+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_01A3MuBJNLqEDhsfgGGbq6WT",
+ "custom_id": "simulation_0029",
+ "usage": {
+  "input_tokens": 22204,
+  "output_tokens": 4804,
+  "cache_creation_input_tokens": 4317,
+  "cache_read_input_tokens": 0,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.10324,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0029",
+  "fps": 24.0,
+  "fps_from_container": false,
+  "video_type": "V3MC",
+  "n_frames_total": 75,
+  "scale": 0.8895833333333333,
+  "image_size": [
+   960,
+   960
+  ],
+  "frames": [
+   0,
+   5,
+   10,
+   15,
+   20,
+   22,
+   24,
+   25,
+   26,
+   30,
+   35,
+   39,
+   44,
+   46,
+   48,
+   49,
+   50,
+   54,
+   59,
+   64,
+   69,
+   74
+  ],
+  "questions": [
+   {
+    "qid": 1119,
+    "target_unit": "m",
+    "prior": "speed of the eagle = 12m/s",
+    "depth_info": "t=1s, distance_boat_camera = 133.9572 m\nt=2s, distance_boat_camera = 131.2557 m\nt=1s, distance_eagle_camera = 139.7035m\nt=2s, distance_eagle_camera = 147.1583m"
+   },
+   {
+    "qid": 1120,
+    "target_unit": "m",
+    "prior": "speed of the eagle = 12m/s",
+    "depth_info": "t=1s, distance_boat_camera = 133.9572 m\nt=2s, distance_boat_camera = 131.2557 m\nt=1s, distance_eagle_camera = 139.7035m\nt=2s, distance_eagle_camera = 147.1583m"
+   },
+   {
+    "qid": 1121,
+    "target_unit": "m",
+    "prior": "speed of the eagle = 12m/s",
+    "depth_info": "t=1s, distance_boat_camera = 133.9572 m\nt=2s, distance_boat_camera = 131.2557 m\nt=1s, distance_eagle_camera = 139.7035m\nt=2s, distance_eagle_camera = 147.1583m"
+   },
+   {
+    "qid": 1122,
+    "target_unit": "m/s",
+    "prior": "speed of the eagle = 12m/s",
+    "depth_info": "t=1s, distance_boat_camera = 133.9572 m\nt=2s, distance_boat_camera = 131.2557 m\nt=1s, distance_eagle_camera = 139.7035m\nt=2s, distance_eagle_camera = 147.1583m"
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":1119,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"eagle\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"eagle\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":12,\"unit\":\"\"},\"depth\":[{\"object\":\"boat\",\"distance_m\":133.9572,\"time\":1},{\"object\":\"boat\",\"distance_m\":131.2557,\"time\":2},{\"object\":\"eagle\",\"distance_m\":139.7035,\"time\":1},{\"object\":\"eagle\",\"distance_m\":147.1583,\"time\":2}],\"notes\":\"Eagle moves away from camera (radial ~7.5 m/s), focal length inferred ~2270 px.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"eagle\",\"obs\":[{\"frame\":15,\"point\":[147,472],\"extent\":null,\"box\":null},{\"frame\":20,\"point\":[182,465],\"extent\":null,\"box\":null},{\"frame\":22,\"point\":[196,463],\"extent\":null,\"box\":null},{\"frame\":24,\"point\":[210,463],\"extent\":null,\"box\":null},{\"frame\":25,\"point\":[217,463],\"extent\":null,\"box\":null},{\"frame\":26,\"point\":[224,463],\"extent\":null,\"box\":null},{\"frame\":30,\"point\":[253,468],\"extent\":null,\"box\":null},{\"frame\":35,\"point\":[285,476],\"extent\":null,\"box\":null},{\"frame\":39,\"point\":[309,476],\"extent\":null,\"box\":null},{\"frame\":44,\"point\":[340,471],\"extent\":null,\"box\":null},{\"frame\":46,\"point\":[353,468],\"extent\":null,\"box\":null},{\"frame\":48,\"point\":[366,466],\"extent\":null,\"box\":null},{\"frame\":49,\"point\":[372,466],\"extent\":null,\"box\":null},{\"frame\":50,\"point\":[378,468],\"extent\":null,\"box\":null}]},{\"role\":\"target\",\"object\":\"eagle\",\"obs\":[{\"frame\":20,\"point\":null,\"extent\":[[175.5,469],[189.5,461]],\"box\":[175.5,460,189.5,471]},{\"frame\":24,\"point\":null,\"extent\":[[204,470],[217,457]],\"box\":[204,457,217,471]},{\"frame\":26,\"point\":null,\"extent\":[[218,470],[231,457]],\"box\":[218,457,231,471]},{\"frame\":30,\"point\":null,\"extent\":[[242,470],[263.5,465]],\"box\":[242,464,263.5,473]}]}],\"direct_answer\":0.85,\"confidence\":0.3},{\"qid\":1120,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"boat\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"eagle\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":12,\"unit\":\"\"},\"depth\":[{\"object\":\"boat\",\"distance_m\":133.9572,\"time\":1},{\"object\":\"boat\",\"distance_m\":131.2557,\"time\":2},{\"object\":\"eagle\",\"distance_m\":139.7035,\"time\":1},{\"object\":\"eagle\",\"distance_m\":147.1583,\"time\":2}],\"notes\":\"Height measured mast top to keel.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"eagle\",\"obs\":[]},{\"role\":\"target\",\"object\":\"boat\",\"obs\":[{\"frame\":24,\"point\":null,\"extent\":[[423,436.5],[425,604.5]],\"box\":[359,436.5,503,604.5]},{\"frame\":48,\"point\":null,\"extent\":[[367,434],[368,605]],\"box\":[300,434,451,605]}]}],\"direct_answer\":9.9,\"confidence\":0.4},{\"qid\":1121,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"boat\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"eagle\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":12,\"unit\":\"\"},\"depth\":[{\"object\":\"boat\",\"distance_m\":133.9572,\"time\":1},{\"object\":\"boat\",\"distance_m\":131.2557,\"time\":2},{\"object\":\"eagle\",\"distance_m\":139.7035,\"time\":1},{\"object\":\"eagle\",\"distance_m\":147.1583,\"time\":2}],\"notes\":\"Boat seen at oblique angle; length bow to stern.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"eagle\",\"obs\":[]},{\"role\":\"target\",\"object\":\"boat\",\"obs\":[{\"frame\":24,\"point\":null,\"extent\":[[359,547],[503,586]],\"box\":[359,515,503,604.5]},{\"frame\":48,\"point\":null,\"extent\":[[300,546],[451,588]],\"box\":[300,514,451,605]}]}],\"direct_answer\":8.8,\"confidence\":0.3},{\"qid\":1122,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"boat\"],\"dimension\":\"\",\"time\":1.0,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"eagle\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":12,\"unit\":\"\"},\"depth\":[{\"object\":\"boat\",\"distance_m\":133.9572,\"time\":1},{\"object\":\"boat\",\"distance_m\":131.2557,\"time\":2},{\"object\":\"eagle\",\"distance_m\":139.7035,\"time\":1},{\"object\":\"eagle\",\"distance_m\":147.1583,\"time\":2}],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"eagle\",\"obs\":[]},{\"role\":\"target\",\"object\":\"boat\",\"obs\":[{\"frame\":15,\"point\":[451,560],\"extent\":null,\"box\":null},{\"frame\":20,\"point\":[440,560],\"extent\":null,\"box\":null},{\"frame\":22,\"point\":[435,560],\"extent\":null,\"box\":null},{\"frame\":24,\"point\":[431,560],\"extent\":null,\"box\":null},{\"frame\":25,\"point\":[429,560],\"extent\":null,\"box\":null},{\"frame\":26,\"point\":[427,560],\"extent\":null,\"box\":null},{\"frame\":30,\"point\":[418,560],\"extent\":null,\"box\":null},{\"frame\":35,\"point\":[406,560],\"extent\":null,\"box\":null},{\"frame\":48,\"point\":[375,560],\"extent\":null,\"box\":null}]}],\"direct_answer\":4.2,\"confidence\":0.35}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 1119,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "eagle"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "eagle"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 12,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "boat",
+       "distance_m": 133.9572,
+       "time": 1
+      },
+      {
+       "object": "boat",
+       "distance_m": 131.2557,
+       "time": 2
+      },
+      {
+       "object": "eagle",
+       "distance_m": 139.7035,
+       "time": 1
+      },
+      {
+       "object": "eagle",
+       "distance_m": 147.1583,
+       "time": 2
+      }
+     ],
+     "notes": "Eagle moves away from camera (radial ~7.5 m/s), focal length inferred ~2270 px."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "eagle",
+      "obs": [
+       {
+        "frame": 15,
+        "point": [
+         147,
+         472
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 20,
+        "point": [
+         182,
+         465
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 22,
+        "point": [
+         196,
+         463
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 24,
+        "point": [
+         210,
+         463
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 25,
+        "point": [
+         217,
+         463
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 26,
+        "point": [
+         224,
+         463
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 30,
+        "point": [
+         253,
+         468
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 35,
+        "point": [
+         285,
+         476
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 39,
+        "point": [
+         309,
+         476
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 44,
+        "point": [
+         340,
+         471
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 46,
+        "point": [
+         353,
+         468
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 48,
+        "point": [
+         366,
+         466
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 49,
+        "point": [
+         372,
+         466
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 50,
+        "point": [
+         378,
+         468
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "eagle",
+      "obs": [
+       {
+        "frame": 20,
+        "point": null,
+        "extent": [
+         [
+          175.5,
+          469
+         ],
+         [
+          189.5,
+          461
+         ]
+        ],
+        "box": [
+         175.5,
+         460,
+         189.5,
+         471
+        ]
+       },
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          204,
+          470
+         ],
+         [
+          217,
+          457
+         ]
+        ],
+        "box": [
+         204,
+         457,
+         217,
+         471
+        ]
+       },
+       {
+        "frame": 26,
+        "point": null,
+        "extent": [
+         [
+          218,
+          470
+         ],
+         [
+          231,
+          457
+         ]
+        ],
+        "box": [
+         218,
+         457,
+         231,
+         471
+        ]
+       },
+       {
+        "frame": 30,
+        "point": null,
+        "extent": [
+         [
+          242,
+          470
+         ],
+         [
+          263.5,
+          465
+         ]
+        ],
+        "box": [
+         242,
+         464,
+         263.5,
+         473
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 0.85,
+    "confidence": 0.3
+   },
+   {
+    "qid": 1120,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "boat"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "eagle"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 12,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "boat",
+       "distance_m": 133.9572,
+       "time": 1
+      },
+      {
+       "object": "boat",
+       "distance_m": 131.2557,
+       "time": 2
+      },
+      {
+       "object": "eagle",
+       "distance_m": 139.7035,
+       "time": 1
+      },
+      {
+       "object": "eagle",
+       "distance_m": 147.1583,
+       "time": 2
+      }
+     ],
+     "notes": "Height measured mast top to keel."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "eagle",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "boat",
+      "obs": [
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          423,
+          436.5
+         ],
+         [
+          425,
+          604.5
+         ]
+        ],
+        "box": [
+         359,
+         436.5,
+         503,
+         604.5
+        ]
+       },
+       {
+        "frame": 48,
+        "point": null,
+        "extent": [
+         [
+          367,
+          434
+         ],
+         [
+          368,
+          605
+         ]
+        ],
+        "box": [
+         300,
+         434,
+         451,
+         605
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 9.9,
+    "confidence": 0.4
+   },
+   {
+    "qid": 1121,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "boat"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "eagle"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 12,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "boat",
+       "distance_m": 133.9572,
+       "time": 1
+      },
+      {
+       "object": "boat",
+       "distance_m": 131.2557,
+       "time": 2
+      },
+      {
+       "object": "eagle",
+       "distance_m": 139.7035,
+       "time": 1
+      },
+      {
+       "object": "eagle",
+       "distance_m": 147.1583,
+       "time": 2
+      }
+     ],
+     "notes": "Boat seen at oblique angle; length bow to stern."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "eagle",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "boat",
+      "obs": [
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          359,
+          547
+         ],
+         [
+          503,
+          586
+         ]
+        ],
+        "box": [
+         359,
+         515,
+         503,
+         604.5
+        ]
+       },
+       {
+        "frame": 48,
+        "point": null,
+        "extent": [
+         [
+          300,
+          546
+         ],
+         [
+          451,
+          588
+         ]
+        ],
+        "box": [
+         300,
+         514,
+         451,
+         605
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 8.8,
+    "confidence": 0.3
+   },
+   {
+    "qid": 1122,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "boat"
+      ],
+      "dimension": "",
+      "time": 1.0,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "eagle"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 12,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "boat",
+       "distance_m": 133.9572,
+       "time": 1
+      },
+      {
+       "object": "boat",
+       "distance_m": 131.2557,
+       "time": 2
+      },
+      {
+       "object": "eagle",
+       "distance_m": 139.7035,
+       "time": 1
+      },
+      {
+       "object": "eagle",
+       "distance_m": 147.1583,
+       "time": 2
+      }
+     ],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "eagle",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "boat",
+      "obs": [
+       {
+        "frame": 15,
+        "point": [
+         451,
+         560
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 20,
+        "point": [
+         440,
+         560
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 22,
+        "point": [
+         435,
+         560
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 24,
+        "point": [
+         431,
+         560
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 25,
+        "point": [
+         429,
+         560
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 26,
+        "point": [
+         427,
+         560
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 30,
+        "point": [
+         418,
+         560
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 35,
+        "point": [
+         406,
+         560
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 48,
+        "point": [
+         375,
+         560
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     }
+    ],
+    "direct_answer": 4.2,
+    "confidence": 0.35
+   }
+  ]
+ }
+}

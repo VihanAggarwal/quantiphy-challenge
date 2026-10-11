@@ -1,0 +1,373 @@
+{
+ "video_id": "simulation_0308",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfumaGY16TJsQ4Tqti4TS",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 854
+ },
+ "ts": "2026-10-11T03:54:50+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_01RJnmR6EqoU9sA5y1E8BmMq",
+ "custom_id": "simulation_0308",
+ "usage": {
+  "input_tokens": 13560,
+  "output_tokens": 1880,
+  "cache_creation_input_tokens": 4317,
+  "cache_read_input_tokens": 0,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.056712,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0308",
+  "fps": 24.0,
+  "fps_from_container": false,
+  "video_type": "V3SC",
+  "n_frames_total": 72,
+  "scale": 0.33359375,
+  "image_size": [
+   2560,
+   1439
+  ],
+  "frames": [
+   0,
+   5,
+   9,
+   10,
+   12,
+   14,
+   19,
+   22,
+   24,
+   26,
+   28,
+   33,
+   38,
+   43,
+   46,
+   47,
+   48,
+   50,
+   52,
+   57,
+   62,
+   66,
+   71
+  ],
+  "questions": [
+   {
+    "qid": 1484,
+    "target_unit": "m",
+    "prior": "speed of the whale = 1.67m/s",
+    "depth_info": "t = 1.0s, distance_whale_camera = 33.7307 m\nt = 2.0s, distance_whale_camera = 35.1624 m"
+   },
+   {
+    "qid": 1485,
+    "target_unit": "m",
+    "prior": "speed of the whale = 1.67m/s",
+    "depth_info": "t = 1.0s, distance_whale_camera = 33.7307 m\nt = 2.0s, distance_whale_camera = 35.1624 m"
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":1484,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"whale\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"whale\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":1.67,\"unit\":\"\"},\"depth\":[{\"object\":\"whale\",\"distance_m\":33.7307,\"time\":1.0},{\"object\":\"whale\",\"distance_m\":35.1624,\"time\":2.0}],\"notes\":\"Whale moves mostly in depth; scale inferred from lateral component of the speed.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"whale\",\"obs\":[{\"frame\":0,\"point\":[390,133],\"extent\":null,\"box\":null},{\"frame\":12,\"point\":[382,128],\"extent\":null,\"box\":null},{\"frame\":24,\"point\":[372,123],\"extent\":null,\"box\":null},{\"frame\":38,\"point\":[360,117],\"extent\":null,\"box\":null},{\"frame\":48,\"point\":[352,110],\"extent\":null,\"box\":null},{\"frame\":57,\"point\":[348,108],\"extent\":null,\"box\":null},{\"frame\":71,\"point\":[330,103],\"extent\":null,\"box\":null}]},{\"role\":\"target\",\"object\":\"whale\",\"obs\":[{\"frame\":46,\"point\":null,\"extent\":[[304,127],[585,345]],\"box\":[260,110,710,410]},{\"frame\":48,\"point\":null,\"extent\":[[303,125],[585,335]],\"box\":[260,108,710,388]},{\"frame\":50,\"point\":null,\"extent\":[[301,122],[588,322]],\"box\":[260,107,710,365]}]}],\"direct_answer\":13.0,\"confidence\":0.3},{\"qid\":1485,\"spec\":{\"target\":{\"kind\":\"displacement\",\"objects\":[\"whale\"],\"dimension\":\"\",\"time\":null,\"window\":[0.5,1.0],\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"whale\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":1.67,\"unit\":\"\"},\"depth\":[{\"object\":\"whale\",\"distance_m\":33.7307,\"time\":1.0},{\"object\":\"whale\",\"distance_m\":35.1624,\"time\":2.0}],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"whale\",\"obs\":[]},{\"role\":\"target\",\"object\":\"whale\",\"obs\":[{\"frame\":12,\"point\":[382,128],\"extent\":null,\"box\":null},{\"frame\":14,\"point\":[380,127],\"extent\":null,\"box\":null},{\"frame\":19,\"point\":[376,125],\"extent\":null,\"box\":null},{\"frame\":22,\"point\":[374,124],\"extent\":null,\"box\":null},{\"frame\":24,\"point\":[372,123],\"extent\":null,\"box\":null}]}],\"direct_answer\":0.835,\"confidence\":0.6}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 1484,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "whale"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "whale"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 1.67,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "whale",
+       "distance_m": 33.7307,
+       "time": 1.0
+      },
+      {
+       "object": "whale",
+       "distance_m": 35.1624,
+       "time": 2.0
+      }
+     ],
+     "notes": "Whale moves mostly in depth; scale inferred from lateral component of the speed."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "whale",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         390,
+         133
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 12,
+        "point": [
+         382,
+         128
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 24,
+        "point": [
+         372,
+         123
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 38,
+        "point": [
+         360,
+         117
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 48,
+        "point": [
+         352,
+         110
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 57,
+        "point": [
+         348,
+         108
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 71,
+        "point": [
+         330,
+         103
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "whale",
+      "obs": [
+       {
+        "frame": 46,
+        "point": null,
+        "extent": [
+         [
+          304,
+          127
+         ],
+         [
+          585,
+          345
+         ]
+        ],
+        "box": [
+         260,
+         110,
+         710,
+         410
+        ]
+       },
+       {
+        "frame": 48,
+        "point": null,
+        "extent": [
+         [
+          303,
+          125
+         ],
+         [
+          585,
+          335
+         ]
+        ],
+        "box": [
+         260,
+         108,
+         710,
+         388
+        ]
+       },
+       {
+        "frame": 50,
+        "point": null,
+        "extent": [
+         [
+          301,
+          122
+         ],
+         [
+          588,
+          322
+         ]
+        ],
+        "box": [
+         260,
+         107,
+         710,
+         365
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 13.0,
+    "confidence": 0.3
+   },
+   {
+    "qid": 1485,
+    "spec": {
+     "target": {
+      "kind": "displacement",
+      "objects": [
+       "whale"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": [
+       0.5,
+       1.0
+      ],
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "whale"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 1.67,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "whale",
+       "distance_m": 33.7307,
+       "time": 1.0
+      },
+      {
+       "object": "whale",
+       "distance_m": 35.1624,
+       "time": 2.0
+      }
+     ],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "whale",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "whale",
+      "obs": [
+       {
+        "frame": 12,
+        "point": [
+         382,
+         128
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 14,
+        "point": [
+         380,
+         127
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 19,
+        "point": [
+         376,
+         125
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 22,
+        "point": [
+         374,
+         124
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 24,
+        "point": [
+         372,
+         123
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     }
+    ],
+    "direct_answer": 0.835,
+    "confidence": 0.6
+   }
+  ]
+ }
+}

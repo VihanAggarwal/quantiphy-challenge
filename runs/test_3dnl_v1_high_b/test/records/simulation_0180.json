@@ -1,0 +1,909 @@
+{
+ "video_id": "simulation_0180",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfumaHxaLmTsHXKSoaWB9",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 854
+ },
+ "ts": "2026-10-11T03:59:54+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_01HRa3g2AHH4omPCyhRmpPDF",
+ "custom_id": "simulation_0180",
+ "usage": {
+  "input_tokens": 14572,
+  "output_tokens": 4436,
+  "cache_creation_input_tokens": 4317,
+  "cache_read_input_tokens": 0,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.084296,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0180",
+  "fps": 24.0,
+  "fps_from_container": false,
+  "video_type": "A3MC",
+  "n_frames_total": 60,
+  "scale": 0.44479166666666664,
+  "image_size": [
+   1920,
+   1079
+  ],
+  "frames": [
+   0,
+   2,
+   4,
+   8,
+   10,
+   12,
+   14,
+   16,
+   20,
+   22,
+   24,
+   26,
+   28,
+   31,
+   35,
+   39,
+   43,
+   46,
+   47,
+   48,
+   50,
+   51,
+   55,
+   59
+  ],
+  "questions": [
+   {
+    "qid": 1418,
+    "target_unit": "m",
+    "prior": "acceleration of the trolley = 1.507m/s",
+    "depth_info": "t=0s, distance_trolley_camera = 12.589m   \nt=0.5s, distance_trolley_camera = 12.513m"
+   },
+   {
+    "qid": 1419,
+    "target_unit": "m",
+    "prior": "acceleration of the trolley = 1.507m/s",
+    "depth_info": "t=0s, distance_trolley_camera = 12.589m   \nt=0.5s, distance_trolley_camera = 12.513m"
+   },
+   {
+    "qid": 1420,
+    "target_unit": "m",
+    "prior": "acceleration of the trolley = 1.507m/s",
+    "depth_info": "t=0s, distance_trolley_camera = 12.589m   \nt=0.5s, distance_trolley_camera = 12.513m"
+   },
+   {
+    "qid": 1421,
+    "target_unit": "m",
+    "prior": "acceleration of the trolley = 1.507m/s",
+    "depth_info": "t=0s, distance_trolley_camera = 12.589m   \nt=0.5s, distance_trolley_camera = 12.513m"
+   },
+   {
+    "qid": 1422,
+    "target_unit": "m/s",
+    "prior": "acceleration of the trolley = 1.507m/s",
+    "depth_info": "t=0s, distance_trolley_camera = 12.589m   \nt=0.5s, distance_trolley_camera = 12.513m"
+   },
+   {
+    "qid": 1423,
+    "target_unit": "m/s",
+    "prior": "acceleration of the trolley = 1.507m/s",
+    "depth_info": "t=0s, distance_trolley_camera = 12.589m   \nt=0.5s, distance_trolley_camera = 12.513m"
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":1418,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"trolley\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"trolley\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":1.507,\"unit\":\"\"},\"depth\":[{\"object\":\"trolley\",\"distance_m\":12.589,\"time\":0},{\"object\":\"trolley\",\"distance_m\":12.513,\"time\":0.5}],\"notes\":\"Prior unit written as m/s; interpreted as m/s^2 acceleration.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"trolley\",\"obs\":[{\"frame\":0,\"point\":[210,413],\"extent\":null,\"box\":null},{\"frame\":2,\"point\":[211,412],\"extent\":null,\"box\":null},{\"frame\":4,\"point\":[213,412],\"extent\":null,\"box\":null},{\"frame\":8,\"point\":[218,412],\"extent\":null,\"box\":null},{\"frame\":10,\"point\":[223,413],\"extent\":null,\"box\":null},{\"frame\":12,\"point\":[230,410],\"extent\":null,\"box\":null},{\"frame\":14,\"point\":[236,411],\"extent\":null,\"box\":null},{\"frame\":16,\"point\":[243,412],\"extent\":null,\"box\":null},{\"frame\":20,\"point\":[260,412],\"extent\":null,\"box\":null},{\"frame\":22,\"point\":[270,413],\"extent\":null,\"box\":null},{\"frame\":24,\"point\":[281,414],\"extent\":null,\"box\":null},{\"frame\":26,\"point\":[293,416],\"extent\":null,\"box\":null},{\"frame\":28,\"point\":[306,416],\"extent\":null,\"box\":null},{\"frame\":31,\"point\":[325,419],\"extent\":null,\"box\":null},{\"frame\":35,\"point\":[357,423],\"extent\":null,\"box\":null},{\"frame\":39,\"point\":[397,427],\"extent\":null,\"box\":null},{\"frame\":43,\"point\":[436,430],\"extent\":null,\"box\":null},{\"frame\":46,\"point\":[471,432],\"extent\":null,\"box\":null},{\"frame\":47,\"point\":[483,433],\"extent\":null,\"box\":null},{\"frame\":48,\"point\":[494,434],\"extent\":null,\"box\":null},{\"frame\":50,\"point\":[520,436],\"extent\":null,\"box\":null},{\"frame\":51,\"point\":[535,437],\"extent\":null,\"box\":null},{\"frame\":55,\"point\":[595,439],\"extent\":null,\"box\":null},{\"frame\":59,\"point\":[660,445],\"extent\":null,\"box\":null}]},{\"role\":\"target\",\"object\":\"trolley\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[118,305],[214,318]],\"box\":[118,302,218,423]},{\"frame\":2,\"point\":null,\"extent\":[[119,305],[215,318]],\"box\":[118,302,219,423]},{\"frame\":12,\"point\":null,\"extent\":[[130,306],[232,320]],\"box\":[130,300,236,424]}]}],\"direct_answer\":1.0,\"confidence\":0.4},{\"qid\":1419,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"trolley\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"trolley\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":1.507,\"unit\":\"\"},\"depth\":[{\"object\":\"trolley\",\"distance_m\":12.589,\"time\":0},{\"object\":\"trolley\",\"distance_m\":12.513,\"time\":0.5}],\"notes\":\"Prior unit written as m/s; interpreted as m/s^2.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"trolley\",\"obs\":[]},{\"role\":\"target\",\"object\":\"trolley\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[168,313],[168,423]],\"box\":[118,302,218,423]},{\"frame\":2,\"point\":null,\"extent\":[[169,313],[169,423]],\"box\":[118,302,219,423]},{\"frame\":12,\"point\":null,\"extent\":[[180,315],[180,424]],\"box\":[130,300,236,424]}]}],\"direct_answer\":1.15,\"confidence\":0.3},{\"qid\":1420,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"entrance gate\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"trolley\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":1.507,\"unit\":\"\"},\"depth\":[{\"object\":\"trolley\",\"distance_m\":12.589,\"time\":0},{\"object\":\"trolley\",\"distance_m\":12.513,\"time\":0.5}],\"notes\":\"Gate depth unknown; assumed similar to trolley.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"trolley\",\"obs\":[]},{\"role\":\"target\",\"object\":\"entrance gate\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[38,35],[38,355]],\"box\":[0,35,120,370]},{\"frame\":24,\"point\":null,\"extent\":[[38,35],[38,355]],\"box\":[0,35,120,370]},{\"frame\":59,\"point\":null,\"extent\":[[38,35],[38,355]],\"box\":[0,35,120,370]}]}],\"direct_answer\":3.4,\"confidence\":0.25},{\"qid\":1421,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"orange tile\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"trolley\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":1.507,\"unit\":\"\"},\"depth\":[{\"object\":\"trolley\",\"distance_m\":12.589,\"time\":0},{\"object\":\"trolley\",\"distance_m\":12.513,\"time\":0.5}],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"trolley\",\"obs\":[]},{\"role\":\"target\",\"object\":\"orange tile\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[476,434],[526,434]],\"box\":[476,428,526,440]},{\"frame\":24,\"point\":null,\"extent\":[[476,434],[526,434]],\"box\":[476,428,526,440]},{\"frame\":59,\"point\":null,\"extent\":[[476,434],[526,434]],\"box\":[476,428,526,440]}]}],\"direct_answer\":0.53,\"confidence\":0.3},{\"qid\":1422,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"trolley\"],\"dimension\":\"\",\"time\":1.0,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"trolley\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":1.507,\"unit\":\"\"},\"depth\":[{\"object\":\"trolley\",\"distance_m\":12.589,\"time\":0},{\"object\":\"trolley\",\"distance_m\":12.513,\"time\":0.5}],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"trolley\",\"obs\":[]},{\"role\":\"target\",\"object\":\"trolley\",\"obs\":[]}],\"direct_answer\":1.5,\"confidence\":0.6},{\"qid\":1423,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"trolley\"],\"dimension\":\"\",\"time\":2.0,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"trolley\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":1.507,\"unit\":\"\"},\"depth\":[{\"object\":\"trolley\",\"distance_m\":12.589,\"time\":0},{\"object\":\"trolley\",\"distance_m\":12.513,\"time\":0.5}],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"trolley\",\"obs\":[]},{\"role\":\"target\",\"object\":\"trolley\",\"obs\":[]}],\"direct_answer\":3.02,\"confidence\":0.6}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 1418,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "trolley"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "trolley"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 1.507,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "trolley",
+       "distance_m": 12.589,
+       "time": 0
+      },
+      {
+       "object": "trolley",
+       "distance_m": 12.513,
+       "time": 0.5
+      }
+     ],
+     "notes": "Prior unit written as m/s; interpreted as m/s^2 acceleration."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "trolley",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         210,
+         413
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 2,
+        "point": [
+         211,
+         412
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 4,
+        "point": [
+         213,
+         412
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 8,
+        "point": [
+         218,
+         412
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 10,
+        "point": [
+         223,
+         413
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 12,
+        "point": [
+         230,
+         410
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 14,
+        "point": [
+         236,
+         411
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 16,
+        "point": [
+         243,
+         412
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 20,
+        "point": [
+         260,
+         412
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 22,
+        "point": [
+         270,
+         413
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 24,
+        "point": [
+         281,
+         414
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 26,
+        "point": [
+         293,
+         416
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 28,
+        "point": [
+         306,
+         416
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 31,
+        "point": [
+         325,
+         419
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 35,
+        "point": [
+         357,
+         423
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 39,
+        "point": [
+         397,
+         427
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 43,
+        "point": [
+         436,
+         430
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 46,
+        "point": [
+         471,
+         432
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 47,
+        "point": [
+         483,
+         433
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 48,
+        "point": [
+         494,
+         434
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 50,
+        "point": [
+         520,
+         436
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 51,
+        "point": [
+         535,
+         437
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 55,
+        "point": [
+         595,
+         439
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 59,
+        "point": [
+         660,
+         445
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "trolley",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          118,
+          305
+         ],
+         [
+          214,
+          318
+         ]
+        ],
+        "box": [
+         118,
+         302,
+         218,
+         423
+        ]
+       },
+       {
+        "frame": 2,
+        "point": null,
+        "extent": [
+         [
+          119,
+          305
+         ],
+         [
+          215,
+          318
+         ]
+        ],
+        "box": [
+         118,
+         302,
+         219,
+         423
+        ]
+       },
+       {
+        "frame": 12,
+        "point": null,
+        "extent": [
+         [
+          130,
+          306
+         ],
+         [
+          232,
+          320
+         ]
+        ],
+        "box": [
+         130,
+         300,
+         236,
+         424
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 1.0,
+    "confidence": 0.4
+   },
+   {
+    "qid": 1419,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "trolley"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "trolley"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 1.507,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "trolley",
+       "distance_m": 12.589,
+       "time": 0
+      },
+      {
+       "object": "trolley",
+       "distance_m": 12.513,
+       "time": 0.5
+      }
+     ],
+     "notes": "Prior unit written as m/s; interpreted as m/s^2."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "trolley",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "trolley",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          168,
+          313
+         ],
+         [
+          168,
+          423
+         ]
+        ],
+        "box": [
+         118,
+         302,
+         218,
+         423
+        ]
+       },
+       {
+        "frame": 2,
+        "point": null,
+        "extent": [
+         [
+          169,
+          313
+         ],
+         [
+          169,
+          423
+         ]
+        ],
+        "box": [
+         118,
+         302,
+         219,
+         423
+        ]
+       },
+       {
+        "frame": 12,
+        "point": null,
+        "extent": [
+         [
+          180,
+          315
+         ],
+         [
+          180,
+          424
+         ]
+        ],
+        "box": [
+         130,
+         300,
+         236,
+         424
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 1.15,
+    "confidence": 0.3
+   },
+   {
+    "qid": 1420,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "entrance gate"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "trolley"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 1.507,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "trolley",
+       "distance_m": 12.589,
+       "time": 0
+      },
+      {
+       "object": "trolley",
+       "distance_m": 12.513,
+       "time": 0.5
+      }
+     ],
+     "notes": "Gate depth unknown; assumed similar to trolley."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "trolley",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "entrance gate",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          38,
+          35
+         ],
+         [
+          38,
+          355
+         ]
+        ],
+        "box": [
+         0,
+         35,
+         120,
+         370
+        ]
+       },
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          38,
+          35
+         ],
+         [
+          38,
+          355
+         ]
+        ],
+        "box": [
+         0,
+         35,
+         120,
+         370
+        ]
+       },
+       {
+        "frame": 59,
+        "point": null,
+        "extent": [
+         [
+          38,
+          35
+         ],
+         [
+          38,
+          355
+         ]
+        ],
+        "box": [
+         0,
+         35,
+         120,
+         370
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 3.4,
+    "confidence": 0.25
+   },
+   {
+    "qid": 1421,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "orange tile"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "trolley"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 1.507,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "trolley",
+       "distance_m": 12.589,
+       "time": 0
+      },
+      {
+       "object": "trolley",
+       "distance_m": 12.513,
+       "time": 0.5
+      }
+     ],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "trolley",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "orange tile",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          476,
+          434
+         ],
+         [
+          526,
+          434
+         ]
+        ],
+        "box": [
+         476,
+         428,
+         526,
+         440
+        ]
+       },
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          476,
+          434
+         ],
+         [
+          526,
+          434
+         ]
+        ],
+        "box": [
+         476,
+         428,
+         526,
+         440
+        ]
+       },
+       {
+        "frame": 59,
+        "point": null,
+        "extent": [
+         [
+          476,
+          434
+         ],
+         [
+          526,
+          434
+         ]
+        ],
+        "box": [
+         476,
+         428,
+         526,
+         440
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 0.53,
+    "confidence": 0.3
+   },
+   {
+    "qid": 1422,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "trolley"
+      ],
+      "dimension": "",
+      "time": 1.0,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "trolley"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 1.507,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "trolley",
+       "distance_m": 12.589,
+       "time": 0
+      },
+      {
+       "object": "trolley",
+       "distance_m": 12.513,
+       "time": 0.5
+      }
+     ],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "trolley",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "trolley",
+      "obs": []
+     }
+    ],
+    "direct_answer": 1.5,
+    "confidence": 0.6
+   },
+   {
+    "qid": 1423,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "trolley"
+      ],
+      "dimension": "",
+      "time": 2.0,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "trolley"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 1.507,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "trolley",
+       "distance_m": 12.589,
+       "time": 0
+      },
+      {
+       "object": "trolley",
+       "distance_m": 12.513,
+       "time": 0.5
+      }
+     ],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "trolley",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "trolley",
+      "obs": []
+     }
+    ],
+    "direct_answer": 3.02,
+    "confidence": 0.6
+   }
+  ]
+ }
+}

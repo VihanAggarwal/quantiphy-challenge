@@ -1,0 +1,1184 @@
+{
+ "video_id": "simulation_0150",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfumaGYFWFzQQ8WNHWCyM",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 854
+ },
+ "ts": "2026-10-11T03:54:50+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_01RJnmR6EqoU9sA5y1E8BmMq",
+ "custom_id": "simulation_0150",
+ "usage": {
+  "input_tokens": 12778,
+  "output_tokens": 6539,
+  "cache_creation_input_tokens": 4317,
+  "cache_read_input_tokens": 0,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.101738,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0150",
+  "fps": 24.0,
+  "fps_from_container": false,
+  "video_type": "S3MC",
+  "n_frames_total": 42,
+  "scale": 0.44479166666666664,
+  "image_size": [
+   1920,
+   1079
+  ],
+  "frames": [
+   0,
+   3,
+   5,
+   8,
+   10,
+   11,
+   12,
+   14,
+   16,
+   19,
+   22,
+   24,
+   25,
+   26,
+   27,
+   30,
+   33,
+   36,
+   38,
+   41
+  ],
+  "questions": [
+   {
+    "qid": 1526,
+    "target_unit": "m",
+    "prior": "diameter of the tire = 0.764m",
+    "depth_info": "t=0.5s, distance_yellowCarLeftFrontTire_camera = 11.38m,\ndistance_camera_B1sign = 23.44m"
+   },
+   {
+    "qid": 1527,
+    "target_unit": "m",
+    "prior": "diameter of the tire = 0.764m",
+    "depth_info": "t=0.5s, distance_yellowCarLeftFrontTire_camera = 11.38m,\ndistance_camera_B1sign = 23.44m"
+   },
+   {
+    "qid": 1528,
+    "target_unit": "m",
+    "prior": "diameter of the tire = 0.764m",
+    "depth_info": "t=0.5s, distance_yellowCarLeftFrontTire_camera = 11.38m,\ndistance_camera_B1sign = 23.44m"
+   },
+   {
+    "qid": 1529,
+    "target_unit": "m/s",
+    "prior": "diameter of the tire = 0.764m",
+    "depth_info": "t=0.5s, distance_yellowCarLeftFrontTire_camera = 11.38m,\ndistance_camera_B1sign = 23.44m"
+   },
+   {
+    "qid": 1530,
+    "target_unit": "m/s^2",
+    "prior": "diameter of the tire = 0.764m",
+    "depth_info": "t=0.5s, distance_yellowCarLeftFrontTire_camera = 11.38m,\ndistance_camera_B1sign = 23.44m"
+   },
+   {
+    "qid": 1531,
+    "target_unit": "m/s",
+    "prior": "diameter of the tire = 0.764m",
+    "depth_info": "t=0.5s, distance_yellowCarLeftFrontTire_camera = 11.38m,\ndistance_camera_B1sign = 23.44m"
+   },
+   {
+    "qid": 1532,
+    "target_unit": "m/s^2",
+    "prior": "diameter of the tire = 0.764m",
+    "depth_info": "t=0.5s, distance_yellowCarLeftFrontTire_camera = 11.38m,\ndistance_camera_B1sign = 23.44m"
+   },
+   {
+    "qid": 1533,
+    "target_unit": "m",
+    "prior": "diameter of the tire = 0.764m",
+    "depth_info": "t=0.5s, distance_yellowCarLeftFrontTire_camera = 11.38m,\ndistance_camera_B1sign = 23.44m"
+   },
+   {
+    "qid": 1534,
+    "target_unit": "m",
+    "prior": "diameter of the tire = 0.764m",
+    "depth_info": "t=0.5s, distance_yellowCarLeftFrontTire_camera = 11.38m,\ndistance_camera_B1sign = 23.44m"
+   },
+   {
+    "qid": 1535,
+    "target_unit": "m",
+    "prior": "diameter of the tire = 0.764m",
+    "depth_info": "t=0.5s, distance_yellowCarLeftFrontTire_camera = 11.38m,\ndistance_camera_B1sign = 23.44m"
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":1526,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"car\"],\"dimension\":\"width\",\"time\":null,\"window\":null,\"axis\":\"horizontal\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"tire\"],\"dimension\":\"diameter\",\"time\":0.5,\"window\":null,\"axis\":\"any\",\"value_si\":0.764,\"unit\":\"\"},\"depth\":[{\"object\":\"yellow car left front tire\",\"distance_m\":11.38,\"time\":0.5},{\"object\":\"B1 sign\",\"distance_m\":23.44,\"time\":0.5}],\"notes\":\"Car 'width' taken as its side-on extent (front bumper to rear) seen in the frames. The car is assumed to stay at the tire depth.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"tire\",\"obs\":[{\"frame\":12,\"point\":null,\"extent\":[[737,312],[737,391]],\"box\":[697,312,778,391]},{\"frame\":22,\"point\":null,\"extent\":[[367,312],[367,392]],\"box\":[326,312,408,392]},{\"frame\":24,\"point\":null,\"extent\":[[281,312],[281,392]],\"box\":[240,312,322,392]}]},{\"role\":\"target\",\"object\":\"car\",\"obs\":[{\"frame\":22,\"point\":null,\"extent\":[[275,340],[791,340]],\"box\":[275,235,791,392]},{\"frame\":24,\"point\":null,\"extent\":[[193,340],[708,340]],\"box\":[193,235,708,392]},{\"frame\":25,\"point\":null,\"extent\":[[152,340],[666,340]],\"box\":[152,235,666,392]},{\"frame\":26,\"point\":null,\"extent\":[[110,340],[623,340]],\"box\":[110,235,623,392]}]}],\"direct_answer\":4.92,\"confidence\":0.6},{\"qid\":1527,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"collision warning markings on pillar\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"tire\"],\"dimension\":\"diameter\",\"time\":0.5,\"window\":null,\"axis\":\"any\",\"value_si\":0.764,\"unit\":\"\"},\"depth\":[{\"object\":\"yellow car left front tire\",\"distance_m\":11.38,\"time\":0.5},{\"object\":\"B1 sign\",\"distance_m\":23.44,\"time\":0.5}],\"notes\":\"Pillar depth is not given; it was estimated from floor geometry at about 16.7 m.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"tire\",\"obs\":[]},{\"role\":\"target\",\"object\":\"collision warning markings\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[174,290],[174,342]],\"box\":[170,290,178,342]},{\"frame\":41,\"point\":null,\"extent\":[[174,290],[174,342]],\"box\":[170,290,178,342]},{\"frame\":0,\"point\":null,\"extent\":[[682,290],[682,342]],\"box\":[678,290,686,342]}]}],\"direct_answer\":0.74,\"confidence\":0.3},{\"qid\":1528,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"pillar with collision warning markings\"],\"dimension\":\"width\",\"time\":null,\"window\":null,\"axis\":\"horizontal\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"tire\"],\"dimension\":\"diameter\",\"time\":0.5,\"window\":null,\"axis\":\"any\",\"value_si\":0.764,\"unit\":\"\"},\"depth\":[{\"object\":\"yellow car left front tire\",\"distance_m\":11.38,\"time\":0.5},{\"object\":\"B1 sign\",\"distance_m\":23.44,\"time\":0.5}],\"notes\":\"Pillar depth is estimated at about 16.7 m.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"tire\",\"obs\":[]},{\"role\":\"target\",\"object\":\"pillar\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[680,320],[755,320]],\"box\":[667,140,755,342]},{\"frame\":41,\"point\":null,\"extent\":[[680,320],[755,320]],\"box\":[667,140,755,342]}]}],\"direct_answer\":1.1,\"confidence\":0.3},{\"qid\":1529,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"car\"],\"dimension\":\"\",\"time\":0.5,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"tire\"],\"dimension\":\"diameter\",\"time\":0.5,\"window\":null,\"axis\":\"any\",\"value_si\":0.764,\"unit\":\"\"},\"depth\":[{\"object\":\"yellow car left front tire\",\"distance_m\":11.38,\"time\":0.5},{\"object\":\"B1 sign\",\"distance_m\":23.44,\"time\":0.5}],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"tire\",\"obs\":[]},{\"role\":\"target\",\"object\":\"car front tire\",\"obs\":[{\"frame\":10,\"point\":[788,352],\"extent\":null,\"box\":null},{\"frame\":11,\"point\":[765,351],\"extent\":null,\"box\":null},{\"frame\":12,\"point\":[737,351],\"extent\":null,\"box\":null},{\"frame\":14,\"point\":[672,351],\"extent\":null,\"box\":null},{\"frame\":16,\"point\":[604,351],\"extent\":null,\"box\":null},{\"frame\":19,\"point\":[490,351],\"extent\":null,\"box\":null},{\"frame\":22,\"point\":[367,351],\"extent\":null,\"box\":null},{\"frame\":24,\"point\":[281,351],\"extent\":null,\"box\":null},{\"frame\":25,\"point\":[236,351],\"extent\":null,\"box\":null},{\"frame\":26,\"point\":[191,351],\"extent\":null,\"box\":null},{\"frame\":27,\"point\":[146,351],\"extent\":null,\"box\":null}]}],\"direct_answer\":7.0,\"confidence\":0.45},{\"qid\":1530,\"spec\":{\"target\":{\"kind\":\"acceleration\",\"objects\":[\"car\"],\"dimension\":\"\",\"time\":0.5,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s^2\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"tire\"],\"dimension\":\"diameter\",\"time\":0.5,\"window\":null,\"axis\":\"any\",\"value_si\":0.764,\"unit\":\"\"},\"depth\":[{\"object\":\"yellow car left front tire\",\"distance_m\":11.38,\"time\":0.5},{\"object\":\"B1 sign\",\"distance_m\":23.44,\"time\":0.5}],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"tire\",\"obs\":[]},{\"role\":\"target\",\"object\":\"car front tire\",\"obs\":[]}],\"direct_answer\":6.0,\"confidence\":0.25},{\"qid\":1531,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"car\"],\"dimension\":\"\",\"time\":1.0,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"tire\"],\"dimension\":\"diameter\",\"time\":0.5,\"window\":null,\"axis\":\"any\",\"value_si\":0.764,\"unit\":\"\"},\"depth\":[{\"object\":\"yellow car left front tire\",\"distance_m\":11.38,\"time\":0.5},{\"object\":\"B1 sign\",\"distance_m\":23.44,\"time\":0.5}],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"tire\",\"obs\":[]},{\"role\":\"target\",\"object\":\"car front tire\",\"obs\":[]}],\"direct_answer\":10.2,\"confidence\":0.45},{\"qid\":1532,\"spec\":{\"target\":{\"kind\":\"acceleration\",\"objects\":[\"car\"],\"dimension\":\"\",\"time\":1.0,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s^2\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"tire\"],\"dimension\":\"diameter\",\"time\":0.5,\"window\":null,\"axis\":\"any\",\"value_si\":0.764,\"unit\":\"\"},\"depth\":[{\"object\":\"yellow car left front tire\",\"distance_m\":11.38,\"time\":0.5},{\"object\":\"B1 sign\",\"distance_m\":23.44,\"time\":0.5}],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"tire\",\"obs\":[]},{\"role\":\"target\",\"object\":\"car front tire\",\"obs\":[]}],\"direct_answer\":5.0,\"confidence\":0.2},{\"qid\":1533,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"B1 lettering\"],\"dimension\":\"width\",\"time\":null,\"window\":null,\"axis\":\"horizontal\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"tire\"],\"dimension\":\"diameter\",\"time\":0.5,\"window\":null,\"axis\":\"any\",\"value_si\":0.764,\"unit\":\"\"},\"depth\":[{\"object\":\"yellow car left front tire\",\"distance_m\":11.38,\"time\":0.5},{\"object\":\"B1 sign\",\"distance_m\":23.44,\"time\":0.5}],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"tire\",\"obs\":[]},{\"role\":\"target\",\"object\":\"B1 lettering\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[392,228],[473,228]],\"box\":[392,191,473,265]},{\"frame\":12,\"point\":null,\"extent\":[[392,228],[473,228]],\"box\":[392,191,473,265]},{\"frame\":41,\"point\":null,\"extent\":[[392,228],[473,228]],\"box\":[392,191,473,265]}]}],\"direct_answer\":1.61,\"confidence\":0.55},{\"qid\":1534,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"B1 lettering\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"tire\"],\"dimension\":\"diameter\",\"time\":0.5,\"window\":null,\"axis\":\"any\",\"value_si\":0.764,\"unit\":\"\"},\"depth\":[{\"object\":\"yellow car left front tire\",\"distance_m\":11.38,\"time\":0.5},{\"object\":\"B1 sign\",\"distance_m\":23.44,\"time\":0.5}],\"notes\":\"\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"tire\",\"obs\":[]},{\"role\":\"target\",\"object\":\"B1 lettering\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[432,191],[432,265]],\"box\":[392,191,473,265]},{\"frame\":12,\"point\":null,\"extent\":[[432,191],[432,265]],\"box\":[392,191,473,265]},{\"frame\":41,\"point\":null,\"extent\":[[432,191],[432,265]],\"box\":[392,191,473,265]}]}],\"direct_answer\":1.47,\"confidence\":0.55},{\"qid\":1535,\"spec\":{\"target\":{\"kind\":\"distance\",\"objects\":[\"pillar\",\"next pillar\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"tire\"],\"dimension\":\"diameter\",\"time\":0.5,\"window\":null,\"axis\":\"any\",\"value_si\":0.764,\"unit\":\"\"},\"depth\":[{\"object\":\"yellow car left front tire\",\"distance_m\":11.38,\"time\":0.5},{\"object\":\"B1 sign\",\"distance_m\":23.44,\"time\":0.5}],\"notes\":\"The pillar spacing runs along depth. It was estimated from floor-contact rows: about 10.1, 16.7 and 23.5 m.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"tire\",\"obs\":[]},{\"role\":\"target\",\"object\":\"near left pillar\",\"obs\":[{\"frame\":0,\"point\":[180,342],\"extent\":null,\"box\":null}]},{\"role\":\"target2\",\"object\":\"far left pillar\",\"obs\":[{\"frame\":0,\"point\":[248,312],\"extent\":null,\"box\":null}]}],\"direct_answer\":6.7,\"confidence\":0.2}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 1526,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "car"
+      ],
+      "dimension": "width",
+      "time": null,
+      "window": null,
+      "axis": "horizontal",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "tire"
+      ],
+      "dimension": "diameter",
+      "time": 0.5,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.764,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "yellow car left front tire",
+       "distance_m": 11.38,
+       "time": 0.5
+      },
+      {
+       "object": "B1 sign",
+       "distance_m": 23.44,
+       "time": 0.5
+      }
+     ],
+     "notes": "Car 'width' taken as its side-on extent (front bumper to rear) seen in the frames. The car is assumed to stay at the tire depth."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "tire",
+      "obs": [
+       {
+        "frame": 12,
+        "point": null,
+        "extent": [
+         [
+          737,
+          312
+         ],
+         [
+          737,
+          391
+         ]
+        ],
+        "box": [
+         697,
+         312,
+         778,
+         391
+        ]
+       },
+       {
+        "frame": 22,
+        "point": null,
+        "extent": [
+         [
+          367,
+          312
+         ],
+         [
+          367,
+          392
+         ]
+        ],
+        "box": [
+         326,
+         312,
+         408,
+         392
+        ]
+       },
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          281,
+          312
+         ],
+         [
+          281,
+          392
+         ]
+        ],
+        "box": [
+         240,
+         312,
+         322,
+         392
+        ]
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "car",
+      "obs": [
+       {
+        "frame": 22,
+        "point": null,
+        "extent": [
+         [
+          275,
+          340
+         ],
+         [
+          791,
+          340
+         ]
+        ],
+        "box": [
+         275,
+         235,
+         791,
+         392
+        ]
+       },
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          193,
+          340
+         ],
+         [
+          708,
+          340
+         ]
+        ],
+        "box": [
+         193,
+         235,
+         708,
+         392
+        ]
+       },
+       {
+        "frame": 25,
+        "point": null,
+        "extent": [
+         [
+          152,
+          340
+         ],
+         [
+          666,
+          340
+         ]
+        ],
+        "box": [
+         152,
+         235,
+         666,
+         392
+        ]
+       },
+       {
+        "frame": 26,
+        "point": null,
+        "extent": [
+         [
+          110,
+          340
+         ],
+         [
+          623,
+          340
+         ]
+        ],
+        "box": [
+         110,
+         235,
+         623,
+         392
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 4.92,
+    "confidence": 0.6
+   },
+   {
+    "qid": 1527,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "collision warning markings on pillar"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "tire"
+      ],
+      "dimension": "diameter",
+      "time": 0.5,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.764,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "yellow car left front tire",
+       "distance_m": 11.38,
+       "time": 0.5
+      },
+      {
+       "object": "B1 sign",
+       "distance_m": 23.44,
+       "time": 0.5
+      }
+     ],
+     "notes": "Pillar depth is not given; it was estimated from floor geometry at about 16.7 m."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "tire",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "collision warning markings",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          174,
+          290
+         ],
+         [
+          174,
+          342
+         ]
+        ],
+        "box": [
+         170,
+         290,
+         178,
+         342
+        ]
+       },
+       {
+        "frame": 41,
+        "point": null,
+        "extent": [
+         [
+          174,
+          290
+         ],
+         [
+          174,
+          342
+         ]
+        ],
+        "box": [
+         170,
+         290,
+         178,
+         342
+        ]
+       },
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          682,
+          290
+         ],
+         [
+          682,
+          342
+         ]
+        ],
+        "box": [
+         678,
+         290,
+         686,
+         342
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 0.74,
+    "confidence": 0.3
+   },
+   {
+    "qid": 1528,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "pillar with collision warning markings"
+      ],
+      "dimension": "width",
+      "time": null,
+      "window": null,
+      "axis": "horizontal",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "tire"
+      ],
+      "dimension": "diameter",
+      "time": 0.5,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.764,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "yellow car left front tire",
+       "distance_m": 11.38,
+       "time": 0.5
+      },
+      {
+       "object": "B1 sign",
+       "distance_m": 23.44,
+       "time": 0.5
+      }
+     ],
+     "notes": "Pillar depth is estimated at about 16.7 m."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "tire",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "pillar",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          680,
+          320
+         ],
+         [
+          755,
+          320
+         ]
+        ],
+        "box": [
+         667,
+         140,
+         755,
+         342
+        ]
+       },
+       {
+        "frame": 41,
+        "point": null,
+        "extent": [
+         [
+          680,
+          320
+         ],
+         [
+          755,
+          320
+         ]
+        ],
+        "box": [
+         667,
+         140,
+         755,
+         342
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 1.1,
+    "confidence": 0.3
+   },
+   {
+    "qid": 1529,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "car"
+      ],
+      "dimension": "",
+      "time": 0.5,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "tire"
+      ],
+      "dimension": "diameter",
+      "time": 0.5,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.764,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "yellow car left front tire",
+       "distance_m": 11.38,
+       "time": 0.5
+      },
+      {
+       "object": "B1 sign",
+       "distance_m": 23.44,
+       "time": 0.5
+      }
+     ],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "tire",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "car front tire",
+      "obs": [
+       {
+        "frame": 10,
+        "point": [
+         788,
+         352
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 11,
+        "point": [
+         765,
+         351
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 12,
+        "point": [
+         737,
+         351
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 14,
+        "point": [
+         672,
+         351
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 16,
+        "point": [
+         604,
+         351
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 19,
+        "point": [
+         490,
+         351
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 22,
+        "point": [
+         367,
+         351
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 24,
+        "point": [
+         281,
+         351
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 25,
+        "point": [
+         236,
+         351
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 26,
+        "point": [
+         191,
+         351
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 27,
+        "point": [
+         146,
+         351
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     }
+    ],
+    "direct_answer": 7.0,
+    "confidence": 0.45
+   },
+   {
+    "qid": 1530,
+    "spec": {
+     "target": {
+      "kind": "acceleration",
+      "objects": [
+       "car"
+      ],
+      "dimension": "",
+      "time": 0.5,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s^2"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "tire"
+      ],
+      "dimension": "diameter",
+      "time": 0.5,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.764,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "yellow car left front tire",
+       "distance_m": 11.38,
+       "time": 0.5
+      },
+      {
+       "object": "B1 sign",
+       "distance_m": 23.44,
+       "time": 0.5
+      }
+     ],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "tire",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "car front tire",
+      "obs": []
+     }
+    ],
+    "direct_answer": 6.0,
+    "confidence": 0.25
+   },
+   {
+    "qid": 1531,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "car"
+      ],
+      "dimension": "",
+      "time": 1.0,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "tire"
+      ],
+      "dimension": "diameter",
+      "time": 0.5,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.764,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "yellow car left front tire",
+       "distance_m": 11.38,
+       "time": 0.5
+      },
+      {
+       "object": "B1 sign",
+       "distance_m": 23.44,
+       "time": 0.5
+      }
+     ],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "tire",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "car front tire",
+      "obs": []
+     }
+    ],
+    "direct_answer": 10.2,
+    "confidence": 0.45
+   },
+   {
+    "qid": 1532,
+    "spec": {
+     "target": {
+      "kind": "acceleration",
+      "objects": [
+       "car"
+      ],
+      "dimension": "",
+      "time": 1.0,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s^2"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "tire"
+      ],
+      "dimension": "diameter",
+      "time": 0.5,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.764,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "yellow car left front tire",
+       "distance_m": 11.38,
+       "time": 0.5
+      },
+      {
+       "object": "B1 sign",
+       "distance_m": 23.44,
+       "time": 0.5
+      }
+     ],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "tire",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "car front tire",
+      "obs": []
+     }
+    ],
+    "direct_answer": 5.0,
+    "confidence": 0.2
+   },
+   {
+    "qid": 1533,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "B1 lettering"
+      ],
+      "dimension": "width",
+      "time": null,
+      "window": null,
+      "axis": "horizontal",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "tire"
+      ],
+      "dimension": "diameter",
+      "time": 0.5,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.764,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "yellow car left front tire",
+       "distance_m": 11.38,
+       "time": 0.5
+      },
+      {
+       "object": "B1 sign",
+       "distance_m": 23.44,
+       "time": 0.5
+      }
+     ],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "tire",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "B1 lettering",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          392,
+          228
+         ],
+         [
+          473,
+          228
+         ]
+        ],
+        "box": [
+         392,
+         191,
+         473,
+         265
+        ]
+       },
+       {
+        "frame": 12,
+        "point": null,
+        "extent": [
+         [
+          392,
+          228
+         ],
+         [
+          473,
+          228
+         ]
+        ],
+        "box": [
+         392,
+         191,
+         473,
+         265
+        ]
+       },
+       {
+        "frame": 41,
+        "point": null,
+        "extent": [
+         [
+          392,
+          228
+         ],
+         [
+          473,
+          228
+         ]
+        ],
+        "box": [
+         392,
+         191,
+         473,
+         265
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 1.61,
+    "confidence": 0.55
+   },
+   {
+    "qid": 1534,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "B1 lettering"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "tire"
+      ],
+      "dimension": "diameter",
+      "time": 0.5,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.764,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "yellow car left front tire",
+       "distance_m": 11.38,
+       "time": 0.5
+      },
+      {
+       "object": "B1 sign",
+       "distance_m": 23.44,
+       "time": 0.5
+      }
+     ],
+     "notes": ""
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "tire",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "B1 lettering",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          432,
+          191
+         ],
+         [
+          432,
+          265
+         ]
+        ],
+        "box": [
+         392,
+         191,
+         473,
+         265
+        ]
+       },
+       {
+        "frame": 12,
+        "point": null,
+        "extent": [
+         [
+          432,
+          191
+         ],
+         [
+          432,
+          265
+         ]
+        ],
+        "box": [
+         392,
+         191,
+         473,
+         265
+        ]
+       },
+       {
+        "frame": 41,
+        "point": null,
+        "extent": [
+         [
+          432,
+          191
+         ],
+         [
+          432,
+          265
+         ]
+        ],
+        "box": [
+         392,
+         191,
+         473,
+         265
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 1.47,
+    "confidence": 0.55
+   },
+   {
+    "qid": 1535,
+    "spec": {
+     "target": {
+      "kind": "distance",
+      "objects": [
+       "pillar",
+       "next pillar"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "tire"
+      ],
+      "dimension": "diameter",
+      "time": 0.5,
+      "window": null,
+      "axis": "any",
+      "value_si": 0.764,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "yellow car left front tire",
+       "distance_m": 11.38,
+       "time": 0.5
+      },
+      {
+       "object": "B1 sign",
+       "distance_m": 23.44,
+       "time": 0.5
+      }
+     ],
+     "notes": "The pillar spacing runs along depth. It was estimated from floor-contact rows: about 10.1, 16.7 and 23.5 m."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "tire",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "near left pillar",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         180,
+         342
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     },
+     {
+      "role": "target2",
+      "object": "far left pillar",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         248,
+         312
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     }
+    ],
+    "direct_answer": 6.7,
+    "confidence": 0.2
+   }
+  ]
+ }
+}

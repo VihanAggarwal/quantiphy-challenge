@@ -1,0 +1,583 @@
+{
+ "video_id": "simulation_0176",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfumaGTna56aD8osKHCdi",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 854
+ },
+ "ts": "2026-10-11T03:59:54+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_01HRa3g2AHH4omPCyhRmpPDF",
+ "custom_id": "simulation_0176",
+ "usage": {
+  "input_tokens": 12013,
+  "output_tokens": 2943,
+  "cache_creation_input_tokens": 4317,
+  "cache_read_input_tokens": 0,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.064249,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0176",
+  "fps": 24.0,
+  "fps_from_container": false,
+  "video_type": "V3MC",
+  "n_frames_total": 40,
+  "scale": 0.44479166666666664,
+  "image_size": [
+   1920,
+   1079
+  ],
+  "frames": [
+   0,
+   3,
+   5,
+   8,
+   10,
+   12,
+   13,
+   14,
+   16,
+   18,
+   21,
+   22,
+   23,
+   24,
+   26,
+   29,
+   31,
+   34,
+   36,
+   39
+  ],
+  "questions": [
+   {
+    "qid": 1415,
+    "target_unit": "m",
+    "prior": "speed of the airplane = 153.582m/s",
+    "depth_info": "t = 0.5s, distance_aircraft_nose_camera = 284.98m   \nt =1s, distance_aircraft_nose_camera = 305.627m   \ndistance_big_rock_camera = 296.350m"
+   },
+   {
+    "qid": 1416,
+    "target_unit": "m",
+    "prior": "speed of the airplane = 153.582m/s",
+    "depth_info": "t = 0.5s, distance_aircraft_nose_camera = 284.98m   \nt =1s, distance_aircraft_nose_camera = 305.627m   \ndistance_big_rock_camera = 296.350m"
+   },
+   {
+    "qid": 1417,
+    "target_unit": "m",
+    "prior": "speed of the airplane = 153.582m/s",
+    "depth_info": "t = 0.5s, distance_aircraft_nose_camera = 284.98m   \nt =1s, distance_aircraft_nose_camera = 305.627m   \ndistance_big_rock_camera = 296.350m"
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":1415,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"airplane\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"airplane\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":153.582,\"unit\":\"\"},\"depth\":[{\"object\":\"aircraft nose\",\"distance_m\":284.98,\"time\":0.5},{\"object\":\"aircraft nose\",\"distance_m\":305.627,\"time\":1.0},{\"object\":\"big rock\",\"distance_m\":296.35,\"time\":null}],\"notes\":\"Airplane recedes from camera; speed includes depth component.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"airplane\",\"obs\":[{\"frame\":3,\"point\":[729,60],\"extent\":null,\"box\":null},{\"frame\":5,\"point\":[673,60],\"extent\":null,\"box\":null},{\"frame\":10,\"point\":[531,63],\"extent\":null,\"box\":null},{\"frame\":12,\"point\":[477,63],\"extent\":null,\"box\":null},{\"frame\":13,\"point\":[452,64],\"extent\":null,\"box\":null},{\"frame\":14,\"point\":[426,66],\"extent\":null,\"box\":null},{\"frame\":16,\"point\":[374,68],\"extent\":null,\"box\":null},{\"frame\":18,\"point\":[323,70],\"extent\":null,\"box\":null},{\"frame\":21,\"point\":[247,73],\"extent\":null,\"box\":null},{\"frame\":22,\"point\":[222,74],\"extent\":null,\"box\":null},{\"frame\":23,\"point\":[196,75],\"extent\":null,\"box\":null},{\"frame\":24,\"point\":[172,72],\"extent\":null,\"box\":null},{\"frame\":26,\"point\":[122,74],\"extent\":null,\"box\":null},{\"frame\":29,\"point\":[49,77],\"extent\":null,\"box\":null}]},{\"role\":\"target\",\"object\":\"airplane\",\"obs\":[{\"frame\":12,\"point\":null,\"extent\":[[477,64],[678,48]],\"box\":[476,36,683,80]},{\"frame\":16,\"point\":null,\"extent\":[[374,68],[562,50]],\"box\":[373,38,569,83]},{\"frame\":24,\"point\":null,\"extent\":[[172,72],[355,52]],\"box\":[171,45,360,88]}]}],\"direct_answer\":47,\"confidence\":0.4},{\"qid\":1416,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"stone cliff\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"airplane\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":153.582,\"unit\":\"\"},\"depth\":[{\"object\":\"aircraft nose\",\"distance_m\":284.98,\"time\":0.5},{\"object\":\"aircraft nose\",\"distance_m\":305.627,\"time\":1.0},{\"object\":\"big rock\",\"distance_m\":296.35,\"time\":null}],\"notes\":\"Height measured from beach base to top of vegetation.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"airplane\",\"obs\":[]},{\"role\":\"target\",\"object\":\"stone cliff\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[360,235],[360,452]],\"box\":[228,234,478,453]},{\"frame\":12,\"point\":null,\"extent\":[[360,235],[360,452]],\"box\":[228,234,478,453]},{\"frame\":24,\"point\":null,\"extent\":[[360,235],[360,452]],\"box\":[228,234,478,453]}]}],\"direct_answer\":53,\"confidence\":0.35},{\"qid\":1417,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"rear landing gear wheel\"],\"dimension\":\"diameter\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"airplane\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":153.582,\"unit\":\"\"},\"depth\":[{\"object\":\"aircraft nose\",\"distance_m\":284.98,\"time\":0.5},{\"object\":\"aircraft nose\",\"distance_m\":305.627,\"time\":1.0},{\"object\":\"big rock\",\"distance_m\":296.35,\"time\":null}],\"notes\":\"Wheel is only a few pixels; high uncertainty.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"airplane\",\"obs\":[]},{\"role\":\"target\",\"object\":\"rear landing gear wheel\",\"obs\":[{\"frame\":12,\"point\":null,\"extent\":[[587,72.5],[587,77.5]],\"box\":[584.5,72.5,589.5,77.5]},{\"frame\":14,\"point\":null,\"extent\":[[532,74],[532,79.5]],\"box\":[529.5,74,535,79.5]},{\"frame\":16,\"point\":null,\"extent\":[[477,74],[477,80]],\"box\":[474,74,480,80]}]}],\"direct_answer\":1.2,\"confidence\":0.2}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 1415,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "airplane"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "airplane"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 153.582,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "aircraft nose",
+       "distance_m": 284.98,
+       "time": 0.5
+      },
+      {
+       "object": "aircraft nose",
+       "distance_m": 305.627,
+       "time": 1.0
+      },
+      {
+       "object": "big rock",
+       "distance_m": 296.35,
+       "time": null
+      }
+     ],
+     "notes": "Airplane recedes from camera; speed includes depth component."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "airplane",
+      "obs": [
+       {
+        "frame": 3,
+        "point": [
+         729,
+         60
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 5,
+        "point": [
+         673,
+         60
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 10,
+        "point": [
+         531,
+         63
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 12,
+        "point": [
+         477,
+         63
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 13,
+        "point": [
+         452,
+         64
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 14,
+        "point": [
+         426,
+         66
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 16,
+        "point": [
+         374,
+         68
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 18,
+        "point": [
+         323,
+         70
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 21,
+        "point": [
+         247,
+         73
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 22,
+        "point": [
+         222,
+         74
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 23,
+        "point": [
+         196,
+         75
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 24,
+        "point": [
+         172,
+         72
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 26,
+        "point": [
+         122,
+         74
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 29,
+        "point": [
+         49,
+         77
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "airplane",
+      "obs": [
+       {
+        "frame": 12,
+        "point": null,
+        "extent": [
+         [
+          477,
+          64
+         ],
+         [
+          678,
+          48
+         ]
+        ],
+        "box": [
+         476,
+         36,
+         683,
+         80
+        ]
+       },
+       {
+        "frame": 16,
+        "point": null,
+        "extent": [
+         [
+          374,
+          68
+         ],
+         [
+          562,
+          50
+         ]
+        ],
+        "box": [
+         373,
+         38,
+         569,
+         83
+        ]
+       },
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          172,
+          72
+         ],
+         [
+          355,
+          52
+         ]
+        ],
+        "box": [
+         171,
+         45,
+         360,
+         88
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 47,
+    "confidence": 0.4
+   },
+   {
+    "qid": 1416,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "stone cliff"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "airplane"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 153.582,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "aircraft nose",
+       "distance_m": 284.98,
+       "time": 0.5
+      },
+      {
+       "object": "aircraft nose",
+       "distance_m": 305.627,
+       "time": 1.0
+      },
+      {
+       "object": "big rock",
+       "distance_m": 296.35,
+       "time": null
+      }
+     ],
+     "notes": "Height measured from beach base to top of vegetation."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "airplane",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "stone cliff",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          360,
+          235
+         ],
+         [
+          360,
+          452
+         ]
+        ],
+        "box": [
+         228,
+         234,
+         478,
+         453
+        ]
+       },
+       {
+        "frame": 12,
+        "point": null,
+        "extent": [
+         [
+          360,
+          235
+         ],
+         [
+          360,
+          452
+         ]
+        ],
+        "box": [
+         228,
+         234,
+         478,
+         453
+        ]
+       },
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          360,
+          235
+         ],
+         [
+          360,
+          452
+         ]
+        ],
+        "box": [
+         228,
+         234,
+         478,
+         453
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 53,
+    "confidence": 0.35
+   },
+   {
+    "qid": 1417,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "rear landing gear wheel"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "airplane"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 153.582,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "aircraft nose",
+       "distance_m": 284.98,
+       "time": 0.5
+      },
+      {
+       "object": "aircraft nose",
+       "distance_m": 305.627,
+       "time": 1.0
+      },
+      {
+       "object": "big rock",
+       "distance_m": 296.35,
+       "time": null
+      }
+     ],
+     "notes": "Wheel is only a few pixels; high uncertainty."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "airplane",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "rear landing gear wheel",
+      "obs": [
+       {
+        "frame": 12,
+        "point": null,
+        "extent": [
+         [
+          587,
+          72.5
+         ],
+         [
+          587,
+          77.5
+         ]
+        ],
+        "box": [
+         584.5,
+         72.5,
+         589.5,
+         77.5
+        ]
+       },
+       {
+        "frame": 14,
+        "point": null,
+        "extent": [
+         [
+          532,
+          74
+         ],
+         [
+          532,
+          79.5
+         ]
+        ],
+        "box": [
+         529.5,
+         74,
+         535,
+         79.5
+        ]
+       },
+       {
+        "frame": 16,
+        "point": null,
+        "extent": [
+         [
+          477,
+          74
+         ],
+         [
+          477,
+          80
+         ]
+        ],
+        "box": [
+         474,
+         74,
+         480,
+         80
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 1.2,
+    "confidence": 0.2
+   }
+  ]
+ }
+}

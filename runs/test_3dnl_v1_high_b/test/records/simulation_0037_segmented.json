@@ -1,0 +1,712 @@
+{
+ "video_id": "simulation_0037_segmented",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfumaHW3TbeQBsxDYUarE",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 854
+ },
+ "ts": "2026-10-11T03:55:51+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_015FHBnQ6JVG1TnPAQECyVos",
+ "custom_id": "simulation_0037_segmented",
+ "usage": {
+  "input_tokens": 20936,
+  "output_tokens": 2439,
+  "cache_creation_input_tokens": 4317,
+  "cache_read_input_tokens": 0,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.077054,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0037_segmented",
+  "fps": 24.0,
+  "fps_from_container": false,
+  "video_type": "V3MX",
+  "n_frames_total": 72,
+  "scale": 0.7907407407407407,
+  "image_size": [
+   1080,
+   1080
+  ],
+  "frames": [
+   0,
+   5,
+   9,
+   14,
+   19,
+   22,
+   24,
+   26,
+   28,
+   33,
+   38,
+   43,
+   46,
+   47,
+   48,
+   50,
+   52,
+   57,
+   62,
+   66,
+   71
+  ],
+  "questions": [
+   {
+    "qid": 1730,
+    "target_unit": "m",
+    "prior": "speed of the person = 1.3m/s",
+    "depth_info": "t=1s, distance_human_camera = 122.8569 m\nt=2s, distance_human_camera = 122.8588 m"
+   },
+   {
+    "qid": 1731,
+    "target_unit": "m",
+    "prior": "speed of the person = 1.3m/s",
+    "depth_info": "t=1s, distance_human_camera = 122.8569 m\nt=2s, distance_human_camera = 122.8588 m"
+   },
+   {
+    "qid": 1732,
+    "target_unit": "m",
+    "prior": "speed of the person = 1.3m/s",
+    "depth_info": "t=1s, distance_human_camera = 122.8569 m\nt=2s, distance_human_camera = 122.8588 m"
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":1730,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"person\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"person\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":1.3,\"unit\":\"\"},\"depth\":[{\"object\":\"person\",\"distance_m\":122.8569,\"time\":1.0},{\"object\":\"person\",\"distance_m\":122.8588,\"time\":2.0}],\"notes\":\"Person walks right roughly parallel to image plane; depth nearly constant.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"person\",\"obs\":[{\"frame\":0,\"point\":[631,567],\"extent\":null,\"box\":null},{\"frame\":5,\"point\":[637,567],\"extent\":null,\"box\":null},{\"frame\":9,\"point\":[640,567],\"extent\":null,\"box\":null},{\"frame\":14,\"point\":[647,567],\"extent\":null,\"box\":null},{\"frame\":19,\"point\":[656,567],\"extent\":null,\"box\":null},{\"frame\":22,\"point\":[660,567],\"extent\":null,\"box\":null},{\"frame\":24,\"point\":[663,567],\"extent\":null,\"box\":null},{\"frame\":26,\"point\":[663,567],\"extent\":null,\"box\":null},{\"frame\":28,\"point\":[665,567],\"extent\":null,\"box\":null},{\"frame\":33,\"point\":[675,567],\"extent\":null,\"box\":null},{\"frame\":38,\"point\":[683,567],\"extent\":null,\"box\":null},{\"frame\":43,\"point\":[686,567],\"extent\":null,\"box\":null},{\"frame\":46,\"point\":[689,567],\"extent\":null,\"box\":null},{\"frame\":47,\"point\":[690,567],\"extent\":null,\"box\":null},{\"frame\":48,\"point\":[692,567],\"extent\":null,\"box\":null},{\"frame\":50,\"point\":[697,567],\"extent\":null,\"box\":null},{\"frame\":52,\"point\":[700,567],\"extent\":null,\"box\":null},{\"frame\":57,\"point\":[709,567],\"extent\":null,\"box\":null},{\"frame\":62,\"point\":[712,567],\"extent\":null,\"box\":null},{\"frame\":66,\"point\":[717,567],\"extent\":null,\"box\":null},{\"frame\":71,\"point\":[728,567],\"extent\":null,\"box\":null}]},{\"role\":\"target\",\"object\":\"person\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[632,543],[632,591]],\"box\":[626,543,638,591]},{\"frame\":19,\"point\":null,\"extent\":[[656,543],[656,591]],\"box\":[650,543,663,591]},{\"frame\":33,\"point\":null,\"extent\":[[675,544],[675,591]],\"box\":[669,544,681,591]},{\"frame\":50,\"point\":null,\"extent\":[[697,546],[697,592]],\"box\":[690,546,703,592]},{\"frame\":71,\"point\":null,\"extent\":[[728,546],[728,595]],\"box\":[721,546,737,595]}]}],\"direct_answer\":2.0,\"confidence\":0.4},{\"qid\":1731,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"rock\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"person\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":1.3,\"unit\":\"\"},\"depth\":[{\"object\":\"person\",\"distance_m\":122.8569,\"time\":1.0},{\"object\":\"person\",\"distance_m\":122.8588,\"time\":2.0}],\"notes\":\"Rock depth not given; assumed at similar depth as person.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"person\",\"obs\":[]},{\"role\":\"target\",\"object\":\"rock\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[12,535],[566,575]],\"box\":[12,471,566,580]},{\"frame\":24,\"point\":null,\"extent\":[[12,535],[566,575]],\"box\":[12,471,566,580]},{\"frame\":48,\"point\":null,\"extent\":[[12,535],[566,575]],\"box\":[12,471,566,580]},{\"frame\":71,\"point\":null,\"extent\":[[12,535],[566,575]],\"box\":[12,471,566,580]}]}],\"direct_answer\":23.2,\"confidence\":0.3},{\"qid\":1732,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"rock\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"person\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":1.3,\"unit\":\"\"},\"depth\":[{\"object\":\"person\",\"distance_m\":122.8569,\"time\":1.0},{\"object\":\"person\",\"distance_m\":122.8588,\"time\":2.0}],\"notes\":\"Rock depth not given; assumed at similar depth as person.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"person\",\"obs\":[]},{\"role\":\"target\",\"object\":\"rock\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[110,471],[110,563]],\"box\":[12,471,566,580]},{\"frame\":24,\"point\":null,\"extent\":[[110,471],[110,563]],\"box\":[12,471,566,580]},{\"frame\":48,\"point\":null,\"extent\":[[110,471],[110,563]],\"box\":[12,471,566,580]},{\"frame\":71,\"point\":null,\"extent\":[[110,471],[110,563]],\"box\":[12,471,566,580]}]}],\"direct_answer\":3.9,\"confidence\":0.25}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 1730,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "person"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "person"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 1.3,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "person",
+       "distance_m": 122.8569,
+       "time": 1.0
+      },
+      {
+       "object": "person",
+       "distance_m": 122.8588,
+       "time": 2.0
+      }
+     ],
+     "notes": "Person walks right roughly parallel to image plane; depth nearly constant."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "person",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         631,
+         567
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 5,
+        "point": [
+         637,
+         567
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 9,
+        "point": [
+         640,
+         567
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 14,
+        "point": [
+         647,
+         567
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 19,
+        "point": [
+         656,
+         567
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 22,
+        "point": [
+         660,
+         567
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 24,
+        "point": [
+         663,
+         567
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 26,
+        "point": [
+         663,
+         567
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 28,
+        "point": [
+         665,
+         567
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 33,
+        "point": [
+         675,
+         567
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 38,
+        "point": [
+         683,
+         567
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 43,
+        "point": [
+         686,
+         567
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 46,
+        "point": [
+         689,
+         567
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 47,
+        "point": [
+         690,
+         567
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 48,
+        "point": [
+         692,
+         567
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 50,
+        "point": [
+         697,
+         567
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 52,
+        "point": [
+         700,
+         567
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 57,
+        "point": [
+         709,
+         567
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 62,
+        "point": [
+         712,
+         567
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 66,
+        "point": [
+         717,
+         567
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 71,
+        "point": [
+         728,
+         567
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "person",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          632,
+          543
+         ],
+         [
+          632,
+          591
+         ]
+        ],
+        "box": [
+         626,
+         543,
+         638,
+         591
+        ]
+       },
+       {
+        "frame": 19,
+        "point": null,
+        "extent": [
+         [
+          656,
+          543
+         ],
+         [
+          656,
+          591
+         ]
+        ],
+        "box": [
+         650,
+         543,
+         663,
+         591
+        ]
+       },
+       {
+        "frame": 33,
+        "point": null,
+        "extent": [
+         [
+          675,
+          544
+         ],
+         [
+          675,
+          591
+         ]
+        ],
+        "box": [
+         669,
+         544,
+         681,
+         591
+        ]
+       },
+       {
+        "frame": 50,
+        "point": null,
+        "extent": [
+         [
+          697,
+          546
+         ],
+         [
+          697,
+          592
+         ]
+        ],
+        "box": [
+         690,
+         546,
+         703,
+         592
+        ]
+       },
+       {
+        "frame": 71,
+        "point": null,
+        "extent": [
+         [
+          728,
+          546
+         ],
+         [
+          728,
+          595
+         ]
+        ],
+        "box": [
+         721,
+         546,
+         737,
+         595
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 2.0,
+    "confidence": 0.4
+   },
+   {
+    "qid": 1731,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "rock"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "person"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 1.3,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "person",
+       "distance_m": 122.8569,
+       "time": 1.0
+      },
+      {
+       "object": "person",
+       "distance_m": 122.8588,
+       "time": 2.0
+      }
+     ],
+     "notes": "Rock depth not given; assumed at similar depth as person."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "person",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "rock",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          12,
+          535
+         ],
+         [
+          566,
+          575
+         ]
+        ],
+        "box": [
+         12,
+         471,
+         566,
+         580
+        ]
+       },
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          12,
+          535
+         ],
+         [
+          566,
+          575
+         ]
+        ],
+        "box": [
+         12,
+         471,
+         566,
+         580
+        ]
+       },
+       {
+        "frame": 48,
+        "point": null,
+        "extent": [
+         [
+          12,
+          535
+         ],
+         [
+          566,
+          575
+         ]
+        ],
+        "box": [
+         12,
+         471,
+         566,
+         580
+        ]
+       },
+       {
+        "frame": 71,
+        "point": null,
+        "extent": [
+         [
+          12,
+          535
+         ],
+         [
+          566,
+          575
+         ]
+        ],
+        "box": [
+         12,
+         471,
+         566,
+         580
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 23.2,
+    "confidence": 0.3
+   },
+   {
+    "qid": 1732,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "rock"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "person"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 1.3,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "person",
+       "distance_m": 122.8569,
+       "time": 1.0
+      },
+      {
+       "object": "person",
+       "distance_m": 122.8588,
+       "time": 2.0
+      }
+     ],
+     "notes": "Rock depth not given; assumed at similar depth as person."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "person",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "rock",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          110,
+          471
+         ],
+         [
+          110,
+          563
+         ]
+        ],
+        "box": [
+         12,
+         471,
+         566,
+         580
+        ]
+       },
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          110,
+          471
+         ],
+         [
+          110,
+          563
+         ]
+        ],
+        "box": [
+         12,
+         471,
+         566,
+         580
+        ]
+       },
+       {
+        "frame": 48,
+        "point": null,
+        "extent": [
+         [
+          110,
+          471
+         ],
+         [
+          110,
+          563
+         ]
+        ],
+        "box": [
+         12,
+         471,
+         566,
+         580
+        ]
+       },
+       {
+        "frame": 71,
+        "point": null,
+        "extent": [
+         [
+          110,
+          471
+         ],
+         [
+          110,
+          563
+         ]
+        ],
+        "box": [
+         12,
+         471,
+         566,
+         580
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 3.9,
+    "confidence": 0.25
+   }
+  ]
+ }
+}

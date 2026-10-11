@@ -1,0 +1,471 @@
+{
+ "video_id": "simulation_0302",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfumaHtMtRs9Z26vD6ERs",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 854
+ },
+ "ts": "2026-10-11T03:54:50+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_01RJnmR6EqoU9sA5y1E8BmMq",
+ "custom_id": "simulation_0302",
+ "usage": {
+  "input_tokens": 13569,
+  "output_tokens": 2264,
+  "cache_creation_input_tokens": 4317,
+  "cache_read_input_tokens": 0,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.06057,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0302",
+  "fps": 24.0,
+  "fps_from_container": false,
+  "video_type": "V3SX",
+  "n_frames_total": 72,
+  "scale": 0.33359375,
+  "image_size": [
+   2560,
+   1439
+  ],
+  "frames": [
+   0,
+   5,
+   9,
+   10,
+   12,
+   14,
+   19,
+   22,
+   24,
+   26,
+   28,
+   33,
+   38,
+   43,
+   46,
+   47,
+   48,
+   50,
+   52,
+   57,
+   62,
+   66,
+   71
+  ],
+  "questions": [
+   {
+    "qid": 1469,
+    "target_unit": "m",
+    "prior": "speed of the dragon = 1.29m/s",
+    "depth_info": "t = 1.0s, distance_dragon_camera = 5.1661 m\nt = 2.0s, distance_dragon_camera = 6.2783 m"
+   },
+   {
+    "qid": 1470,
+    "target_unit": "m",
+    "prior": "speed of the dragon = 1.29m/s",
+    "depth_info": "t = 1.0s, distance_dragon_camera = 5.1661 m\nt = 2.0s, distance_dragon_camera = 6.2783 m"
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":1469,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"dragon\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"dragon\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":1.29,\"unit\":\"\"},\"depth\":[{\"object\":\"dragon\",\"distance_m\":5.1661,\"time\":1.0},{\"object\":\"dragon\",\"distance_m\":6.2783,\"time\":2.0}],\"notes\":\"Body length measured head to tail tip; body is foreshortened in many frames. Scale derived from the speed prior together with the depth change.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"dragon\",\"obs\":[{\"frame\":0,\"point\":[625,300],\"extent\":null,\"box\":null},{\"frame\":5,\"point\":[590,292],\"extent\":null,\"box\":null},{\"frame\":9,\"point\":[556,281],\"extent\":null,\"box\":null},{\"frame\":10,\"point\":[549,279],\"extent\":null,\"box\":null},{\"frame\":12,\"point\":[531,269],\"extent\":null,\"box\":null},{\"frame\":14,\"point\":[514,258],\"extent\":null,\"box\":null},{\"frame\":19,\"point\":[487,221],\"extent\":null,\"box\":null},{\"frame\":22,\"point\":[468,211],\"extent\":null,\"box\":null},{\"frame\":24,\"point\":[463,202],\"extent\":null,\"box\":null},{\"frame\":26,\"point\":[455,198],\"extent\":null,\"box\":null},{\"frame\":28,\"point\":[445,193],\"extent\":null,\"box\":null},{\"frame\":33,\"point\":[423,190],\"extent\":null,\"box\":null},{\"frame\":38,\"point\":[398,180],\"extent\":null,\"box\":null},{\"frame\":43,\"point\":[377,155],\"extent\":null,\"box\":null},{\"frame\":46,\"point\":[363,143],\"extent\":null,\"box\":null},{\"frame\":47,\"point\":[359,139],\"extent\":null,\"box\":null},{\"frame\":48,\"point\":[355,136],\"extent\":null,\"box\":null},{\"frame\":50,\"point\":[347,131],\"extent\":null,\"box\":null},{\"frame\":52,\"point\":[340,127],\"extent\":null,\"box\":null},{\"frame\":57,\"point\":[323,118],\"extent\":null,\"box\":null},{\"frame\":62,\"point\":[310,107],\"extent\":null,\"box\":null},{\"frame\":66,\"point\":[298,99],\"extent\":null,\"box\":null},{\"frame\":71,\"point\":[285,91],\"extent\":null,\"box\":null}]},{\"role\":\"target\",\"object\":\"dragon body\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[625,300],[758,404]],\"box\":[600,290,760,406]},{\"frame\":24,\"point\":null,\"extent\":[[462,200],[507,290]],\"box\":[447,193,512,292]},{\"frame\":48,\"point\":null,\"extent\":[[355,135],[418,206]],\"box\":[345,128,420,208]}]}],\"direct_answer\":0.6,\"confidence\":0.3},{\"qid\":1470,\"spec\":{\"target\":{\"kind\":\"displacement\",\"objects\":[\"dragon\"],\"dimension\":\"\",\"time\":null,\"window\":[0.5,1.0],\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"dragon\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":1.29,\"unit\":\"\"},\"depth\":[{\"object\":\"dragon\",\"distance_m\":5.1661,\"time\":1.0},{\"object\":\"dragon\",\"distance_m\":6.2783,\"time\":2.0}],\"notes\":\"Displacement includes depth component.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"dragon\",\"obs\":[]},{\"role\":\"target\",\"object\":\"dragon\",\"obs\":[]}],\"direct_answer\":0.66,\"confidence\":0.5}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 1469,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "dragon"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "dragon"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 1.29,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "dragon",
+       "distance_m": 5.1661,
+       "time": 1.0
+      },
+      {
+       "object": "dragon",
+       "distance_m": 6.2783,
+       "time": 2.0
+      }
+     ],
+     "notes": "Body length measured head to tail tip; body is foreshortened in many frames. Scale derived from the speed prior together with the depth change."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "dragon",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         625,
+         300
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 5,
+        "point": [
+         590,
+         292
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 9,
+        "point": [
+         556,
+         281
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 10,
+        "point": [
+         549,
+         279
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 12,
+        "point": [
+         531,
+         269
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 14,
+        "point": [
+         514,
+         258
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 19,
+        "point": [
+         487,
+         221
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 22,
+        "point": [
+         468,
+         211
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 24,
+        "point": [
+         463,
+         202
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 26,
+        "point": [
+         455,
+         198
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 28,
+        "point": [
+         445,
+         193
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 33,
+        "point": [
+         423,
+         190
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 38,
+        "point": [
+         398,
+         180
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 43,
+        "point": [
+         377,
+         155
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 46,
+        "point": [
+         363,
+         143
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 47,
+        "point": [
+         359,
+         139
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 48,
+        "point": [
+         355,
+         136
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 50,
+        "point": [
+         347,
+         131
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 52,
+        "point": [
+         340,
+         127
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 57,
+        "point": [
+         323,
+         118
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 62,
+        "point": [
+         310,
+         107
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 66,
+        "point": [
+         298,
+         99
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 71,
+        "point": [
+         285,
+         91
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "dragon body",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          625,
+          300
+         ],
+         [
+          758,
+          404
+         ]
+        ],
+        "box": [
+         600,
+         290,
+         760,
+         406
+        ]
+       },
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          462,
+          200
+         ],
+         [
+          507,
+          290
+         ]
+        ],
+        "box": [
+         447,
+         193,
+         512,
+         292
+        ]
+       },
+       {
+        "frame": 48,
+        "point": null,
+        "extent": [
+         [
+          355,
+          135
+         ],
+         [
+          418,
+          206
+         ]
+        ],
+        "box": [
+         345,
+         128,
+         420,
+         208
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 0.6,
+    "confidence": 0.3
+   },
+   {
+    "qid": 1470,
+    "spec": {
+     "target": {
+      "kind": "displacement",
+      "objects": [
+       "dragon"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": [
+       0.5,
+       1.0
+      ],
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "dragon"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 1.29,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "dragon",
+       "distance_m": 5.1661,
+       "time": 1.0
+      },
+      {
+       "object": "dragon",
+       "distance_m": 6.2783,
+       "time": 2.0
+      }
+     ],
+     "notes": "Displacement includes depth component."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "dragon",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "dragon",
+      "obs": []
+     }
+    ],
+    "direct_answer": 0.66,
+    "confidence": 0.5
+   }
+  ]
+ }
+}

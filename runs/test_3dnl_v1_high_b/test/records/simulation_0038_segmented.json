@@ -1,0 +1,658 @@
+{
+ "video_id": "simulation_0038_segmented",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfumaH3mGHAuFLfHtFwh1",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 854
+ },
+ "ts": "2026-10-11T03:55:51+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_015FHBnQ6JVG1TnPAQECyVos",
+ "custom_id": "simulation_0038_segmented",
+ "usage": {
+  "input_tokens": 21909,
+  "output_tokens": 2644,
+  "cache_creation_input_tokens": 4317,
+  "cache_read_input_tokens": 0,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.08105,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0038_segmented",
+  "fps": 24.0,
+  "fps_from_container": false,
+  "video_type": "V3MX",
+  "n_frames_total": 75,
+  "scale": 0.5559895833333334,
+  "image_size": [
+   1536,
+   1536
+  ],
+  "frames": [
+   0,
+   5,
+   10,
+   15,
+   20,
+   22,
+   24,
+   25,
+   26,
+   30,
+   35,
+   39,
+   44,
+   46,
+   48,
+   49,
+   50,
+   54,
+   59,
+   64,
+   69,
+   74
+  ],
+  "questions": [
+   {
+    "qid": 1733,
+    "target_unit": "m",
+    "prior": "speed of the person = 1.3m/s",
+    "depth_info": "t=1s, distance_human_camera = 179.0908m\nt=2s, distance_human_camera = 179.1845m"
+   },
+   {
+    "qid": 1734,
+    "target_unit": "m",
+    "prior": "speed of the person = 1.3m/s",
+    "depth_info": "t=1s, distance_human_camera = 179.0908m\nt=2s, distance_human_camera = 179.1845m"
+   },
+   {
+    "qid": 1735,
+    "target_unit": "m",
+    "prior": "speed of the person = 1.3m/s",
+    "depth_info": "t=1s, distance_human_camera = 179.0908m\nt=2s, distance_human_camera = 179.1845m"
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":1733,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"rock\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"person\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":1.3,\"unit\":\"\"},\"depth\":[{\"object\":\"person\",\"distance_m\":179.0908,\"time\":1.0},{\"object\":\"person\",\"distance_m\":179.1845,\"time\":2.0}],\"notes\":\"Rock depth not given; assumed similar to the person's. Length taken as the longest horizontal extent.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"person\",\"obs\":[{\"frame\":0,\"point\":[272.5,442],\"extent\":null,\"box\":[268,425,318,452]},{\"frame\":10,\"point\":[273,450],\"extent\":null,\"box\":[268,432,318,462]},{\"frame\":20,\"point\":[273,458],\"extent\":null,\"box\":[269,439,319,468]},{\"frame\":24,\"point\":[274,462],\"extent\":null,\"box\":[270,443,319,473]},{\"frame\":30,\"point\":[273.5,465],\"extent\":null,\"box\":[269,447,319,476]},{\"frame\":39,\"point\":[274,470],\"extent\":null,\"box\":[270,453,319,483]},{\"frame\":48,\"point\":[275,478],\"extent\":null,\"box\":[271,461,319,489]},{\"frame\":50,\"point\":[275,479],\"extent\":null,\"box\":[271,462,319,489]},{\"frame\":59,\"point\":[276,487],\"extent\":null,\"box\":[272,468,320,499]},{\"frame\":69,\"point\":[276,492],\"extent\":null,\"box\":[272,475,320,502]},{\"frame\":74,\"point\":[277,497],\"extent\":null,\"box\":[272,479,321,509]}]},{\"role\":\"target\",\"object\":\"rock\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[310,150],[698,40]],\"box\":[310,10,698,357]},{\"frame\":24,\"point\":null,\"extent\":[[310,150],[698,40]],\"box\":[310,10,698,357]},{\"frame\":48,\"point\":null,\"extent\":[[310,150],[698,40]],\"box\":[310,10,698,357]},{\"frame\":74,\"point\":null,\"extent\":[[310,150],[698,40]],\"box\":[310,10,698,357]}]}],\"direct_answer\":28.3,\"confidence\":0.25},{\"qid\":1734,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"rock\"],\"dimension\":\"width\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"person\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":1.3,\"unit\":\"\"},\"depth\":[{\"object\":\"person\",\"distance_m\":179.0908,\"time\":1.0},{\"object\":\"person\",\"distance_m\":179.1845,\"time\":2.0}],\"notes\":\"Rock depth not given; width taken as vertical extent.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"person\",\"obs\":[]},{\"role\":\"target\",\"object\":\"rock\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[520,10],[450,357]],\"box\":[310,10,698,357]},{\"frame\":24,\"point\":null,\"extent\":[[520,10],[450,357]],\"box\":[310,10,698,357]},{\"frame\":48,\"point\":null,\"extent\":[[520,10],[450,357]],\"box\":[310,10,698,357]},{\"frame\":74,\"point\":null,\"extent\":[[520,10],[450,357]],\"box\":[310,10,698,357]}]}],\"direct_answer\":25.3,\"confidence\":0.25},{\"qid\":1735,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"person\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"person\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":1.3,\"unit\":\"\"},\"depth\":[{\"object\":\"person\",\"distance_m\":179.0908,\"time\":1.0},{\"object\":\"person\",\"distance_m\":179.1845,\"time\":2.0}],\"notes\":\"Person appears lying diagonally; height measured along body.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"person\",\"obs\":[]},{\"role\":\"target\",\"object\":\"person\",\"obs\":[{\"frame\":24,\"point\":null,\"extent\":[[272,466],[318,445]],\"box\":[270,443,319,473]},{\"frame\":48,\"point\":null,\"extent\":[[273,483],[318,462]],\"box\":[271,461,319,489]},{\"frame\":0,\"point\":null,\"extent\":[[270,447],[317,426]],\"box\":[268,425,318,452]},{\"frame\":74,\"point\":null,\"extent\":[[275,503],[320,481]],\"box\":[272,479,321,509]}]}],\"direct_answer\":3.6,\"confidence\":0.25}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 1733,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "rock"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "person"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 1.3,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "person",
+       "distance_m": 179.0908,
+       "time": 1.0
+      },
+      {
+       "object": "person",
+       "distance_m": 179.1845,
+       "time": 2.0
+      }
+     ],
+     "notes": "Rock depth not given; assumed similar to the person's. Length taken as the longest horizontal extent."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "person",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         272.5,
+         442
+        ],
+        "extent": null,
+        "box": [
+         268,
+         425,
+         318,
+         452
+        ]
+       },
+       {
+        "frame": 10,
+        "point": [
+         273,
+         450
+        ],
+        "extent": null,
+        "box": [
+         268,
+         432,
+         318,
+         462
+        ]
+       },
+       {
+        "frame": 20,
+        "point": [
+         273,
+         458
+        ],
+        "extent": null,
+        "box": [
+         269,
+         439,
+         319,
+         468
+        ]
+       },
+       {
+        "frame": 24,
+        "point": [
+         274,
+         462
+        ],
+        "extent": null,
+        "box": [
+         270,
+         443,
+         319,
+         473
+        ]
+       },
+       {
+        "frame": 30,
+        "point": [
+         273.5,
+         465
+        ],
+        "extent": null,
+        "box": [
+         269,
+         447,
+         319,
+         476
+        ]
+       },
+       {
+        "frame": 39,
+        "point": [
+         274,
+         470
+        ],
+        "extent": null,
+        "box": [
+         270,
+         453,
+         319,
+         483
+        ]
+       },
+       {
+        "frame": 48,
+        "point": [
+         275,
+         478
+        ],
+        "extent": null,
+        "box": [
+         271,
+         461,
+         319,
+         489
+        ]
+       },
+       {
+        "frame": 50,
+        "point": [
+         275,
+         479
+        ],
+        "extent": null,
+        "box": [
+         271,
+         462,
+         319,
+         489
+        ]
+       },
+       {
+        "frame": 59,
+        "point": [
+         276,
+         487
+        ],
+        "extent": null,
+        "box": [
+         272,
+         468,
+         320,
+         499
+        ]
+       },
+       {
+        "frame": 69,
+        "point": [
+         276,
+         492
+        ],
+        "extent": null,
+        "box": [
+         272,
+         475,
+         320,
+         502
+        ]
+       },
+       {
+        "frame": 74,
+        "point": [
+         277,
+         497
+        ],
+        "extent": null,
+        "box": [
+         272,
+         479,
+         321,
+         509
+        ]
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "rock",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          310,
+          150
+         ],
+         [
+          698,
+          40
+         ]
+        ],
+        "box": [
+         310,
+         10,
+         698,
+         357
+        ]
+       },
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          310,
+          150
+         ],
+         [
+          698,
+          40
+         ]
+        ],
+        "box": [
+         310,
+         10,
+         698,
+         357
+        ]
+       },
+       {
+        "frame": 48,
+        "point": null,
+        "extent": [
+         [
+          310,
+          150
+         ],
+         [
+          698,
+          40
+         ]
+        ],
+        "box": [
+         310,
+         10,
+         698,
+         357
+        ]
+       },
+       {
+        "frame": 74,
+        "point": null,
+        "extent": [
+         [
+          310,
+          150
+         ],
+         [
+          698,
+          40
+         ]
+        ],
+        "box": [
+         310,
+         10,
+         698,
+         357
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 28.3,
+    "confidence": 0.25
+   },
+   {
+    "qid": 1734,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "rock"
+      ],
+      "dimension": "width",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "person"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 1.3,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "person",
+       "distance_m": 179.0908,
+       "time": 1.0
+      },
+      {
+       "object": "person",
+       "distance_m": 179.1845,
+       "time": 2.0
+      }
+     ],
+     "notes": "Rock depth not given; width taken as vertical extent."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "person",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "rock",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          520,
+          10
+         ],
+         [
+          450,
+          357
+         ]
+        ],
+        "box": [
+         310,
+         10,
+         698,
+         357
+        ]
+       },
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          520,
+          10
+         ],
+         [
+          450,
+          357
+         ]
+        ],
+        "box": [
+         310,
+         10,
+         698,
+         357
+        ]
+       },
+       {
+        "frame": 48,
+        "point": null,
+        "extent": [
+         [
+          520,
+          10
+         ],
+         [
+          450,
+          357
+         ]
+        ],
+        "box": [
+         310,
+         10,
+         698,
+         357
+        ]
+       },
+       {
+        "frame": 74,
+        "point": null,
+        "extent": [
+         [
+          520,
+          10
+         ],
+         [
+          450,
+          357
+         ]
+        ],
+        "box": [
+         310,
+         10,
+         698,
+         357
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 25.3,
+    "confidence": 0.25
+   },
+   {
+    "qid": 1735,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "person"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "person"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 1.3,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "person",
+       "distance_m": 179.0908,
+       "time": 1.0
+      },
+      {
+       "object": "person",
+       "distance_m": 179.1845,
+       "time": 2.0
+      }
+     ],
+     "notes": "Person appears lying diagonally; height measured along body."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "person",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "person",
+      "obs": [
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          272,
+          466
+         ],
+         [
+          318,
+          445
+         ]
+        ],
+        "box": [
+         270,
+         443,
+         319,
+         473
+        ]
+       },
+       {
+        "frame": 48,
+        "point": null,
+        "extent": [
+         [
+          273,
+          483
+         ],
+         [
+          318,
+          462
+         ]
+        ],
+        "box": [
+         271,
+         461,
+         319,
+         489
+        ]
+       },
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          270,
+          447
+         ],
+         [
+          317,
+          426
+         ]
+        ],
+        "box": [
+         268,
+         425,
+         318,
+         452
+        ]
+       },
+       {
+        "frame": 74,
+        "point": null,
+        "extent": [
+         [
+          275,
+          503
+         ],
+         [
+          320,
+          481
+         ]
+        ],
+        "box": [
+         272,
+         479,
+         321,
+         509
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 3.6,
+    "confidence": 0.25
+   }
+  ]
+ }
+}

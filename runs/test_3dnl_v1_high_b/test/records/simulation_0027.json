@@ -1,0 +1,403 @@
+{
+ "video_id": "simulation_0027",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfumaKtuu2NxYUqByytdn",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 854
+ },
+ "ts": "2026-10-11T03:56:52+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_01A3MuBJNLqEDhsfgGGbq6WT",
+ "custom_id": "simulation_0027",
+ "usage": {
+  "input_tokens": 21728,
+  "output_tokens": 1371,
+  "cache_creation_input_tokens": 4317,
+  "cache_read_input_tokens": 0,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.067959,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0027",
+  "fps": 24.0,
+  "fps_from_container": false,
+  "video_type": "S3MS",
+  "n_frames_total": 75,
+  "scale": 0.8895833333333333,
+  "image_size": [
+   960,
+   960
+  ],
+  "frames": [
+   0,
+   5,
+   10,
+   15,
+   20,
+   22,
+   24,
+   25,
+   26,
+   30,
+   35,
+   39,
+   44,
+   46,
+   48,
+   49,
+   50,
+   54,
+   59,
+   64,
+   69,
+   74
+  ],
+  "questions": [
+   {
+    "qid": 1116,
+    "target_unit": "m/s",
+    "prior": "height of the person = 1.75m",
+    "depth_info": "t=1s, distance_human_camera = 100.5638m\nt=2s, distance_human_camera = 100.5996m"
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":1116,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"person\"],\"dimension\":\"\",\"time\":null,\"window\":[1.0,2.0],\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"person\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":1.75,\"unit\":\"\"},\"depth\":[{\"object\":\"person\",\"distance_m\":100.5638,\"time\":1.0},{\"object\":\"person\",\"distance_m\":100.5996,\"time\":2.0}],\"notes\":\"Aerial oblique view; the person's depth is nearly constant, so one scale applies over the window.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"person\",\"obs\":[{\"frame\":24,\"point\":null,\"extent\":[[372,320],[374,366]],\"box\":[366,319,380,366]},{\"frame\":25,\"point\":null,\"extent\":[[372.5,320.5],[374.5,367]],\"box\":[366.5,320,381,367]},{\"frame\":48,\"point\":null,\"extent\":[[381,333],[383,377]],\"box\":[375,332,389,377]},{\"frame\":49,\"point\":null,\"extent\":[[381.5,333.5],[383.5,377.5]],\"box\":[375.5,333,389.5,377.5]}]},{\"role\":\"target\",\"object\":\"person\",\"obs\":[{\"frame\":20,\"point\":[370,339],\"extent\":null,\"box\":[363,316,378,362]},{\"frame\":22,\"point\":[371,341],\"extent\":null,\"box\":[364,318,379,364]},{\"frame\":24,\"point\":[372.5,342],\"extent\":null,\"box\":[366,319,380,366]},{\"frame\":25,\"point\":[373,343],\"extent\":null,\"box\":[366.5,320,381,367]},{\"frame\":26,\"point\":[373.5,343.5],\"extent\":null,\"box\":[367,320,381,367]},{\"frame\":30,\"point\":[374.5,345],\"extent\":null,\"box\":[368,322,382,369]},{\"frame\":35,\"point\":[376,347],\"extent\":null,\"box\":[369,324,383,370]},{\"frame\":39,\"point\":[377.5,350],\"extent\":null,\"box\":[371,327,385,373]},{\"frame\":44,\"point\":[380,353],\"extent\":null,\"box\":[373,330,387,376]},{\"frame\":46,\"point\":[381,354],\"extent\":null,\"box\":[374,331,388,377]},{\"frame\":48,\"point\":[382,355],\"extent\":null,\"box\":[375,332,389,377]},{\"frame\":49,\"point\":[382.5,355.5],\"extent\":null,\"box\":[375.5,333,389.5,377.5]},{\"frame\":50,\"point\":[382.5,356],\"extent\":null,\"box\":[376,333,390,378]}]}],\"direct_answer\":0.59,\"confidence\":0.5}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 1116,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "person"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": [
+       1.0,
+       2.0
+      ],
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "person"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 1.75,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "person",
+       "distance_m": 100.5638,
+       "time": 1.0
+      },
+      {
+       "object": "person",
+       "distance_m": 100.5996,
+       "time": 2.0
+      }
+     ],
+     "notes": "Aerial oblique view; the person's depth is nearly constant, so one scale applies over the window."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "person",
+      "obs": [
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          372,
+          320
+         ],
+         [
+          374,
+          366
+         ]
+        ],
+        "box": [
+         366,
+         319,
+         380,
+         366
+        ]
+       },
+       {
+        "frame": 25,
+        "point": null,
+        "extent": [
+         [
+          372.5,
+          320.5
+         ],
+         [
+          374.5,
+          367
+         ]
+        ],
+        "box": [
+         366.5,
+         320,
+         381,
+         367
+        ]
+       },
+       {
+        "frame": 48,
+        "point": null,
+        "extent": [
+         [
+          381,
+          333
+         ],
+         [
+          383,
+          377
+         ]
+        ],
+        "box": [
+         375,
+         332,
+         389,
+         377
+        ]
+       },
+       {
+        "frame": 49,
+        "point": null,
+        "extent": [
+         [
+          381.5,
+          333.5
+         ],
+         [
+          383.5,
+          377.5
+         ]
+        ],
+        "box": [
+         375.5,
+         333,
+         389.5,
+         377.5
+        ]
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "person",
+      "obs": [
+       {
+        "frame": 20,
+        "point": [
+         370,
+         339
+        ],
+        "extent": null,
+        "box": [
+         363,
+         316,
+         378,
+         362
+        ]
+       },
+       {
+        "frame": 22,
+        "point": [
+         371,
+         341
+        ],
+        "extent": null,
+        "box": [
+         364,
+         318,
+         379,
+         364
+        ]
+       },
+       {
+        "frame": 24,
+        "point": [
+         372.5,
+         342
+        ],
+        "extent": null,
+        "box": [
+         366,
+         319,
+         380,
+         366
+        ]
+       },
+       {
+        "frame": 25,
+        "point": [
+         373,
+         343
+        ],
+        "extent": null,
+        "box": [
+         366.5,
+         320,
+         381,
+         367
+        ]
+       },
+       {
+        "frame": 26,
+        "point": [
+         373.5,
+         343.5
+        ],
+        "extent": null,
+        "box": [
+         367,
+         320,
+         381,
+         367
+        ]
+       },
+       {
+        "frame": 30,
+        "point": [
+         374.5,
+         345
+        ],
+        "extent": null,
+        "box": [
+         368,
+         322,
+         382,
+         369
+        ]
+       },
+       {
+        "frame": 35,
+        "point": [
+         376,
+         347
+        ],
+        "extent": null,
+        "box": [
+         369,
+         324,
+         383,
+         370
+        ]
+       },
+       {
+        "frame": 39,
+        "point": [
+         377.5,
+         350
+        ],
+        "extent": null,
+        "box": [
+         371,
+         327,
+         385,
+         373
+        ]
+       },
+       {
+        "frame": 44,
+        "point": [
+         380,
+         353
+        ],
+        "extent": null,
+        "box": [
+         373,
+         330,
+         387,
+         376
+        ]
+       },
+       {
+        "frame": 46,
+        "point": [
+         381,
+         354
+        ],
+        "extent": null,
+        "box": [
+         374,
+         331,
+         388,
+         377
+        ]
+       },
+       {
+        "frame": 48,
+        "point": [
+         382,
+         355
+        ],
+        "extent": null,
+        "box": [
+         375,
+         332,
+         389,
+         377
+        ]
+       },
+       {
+        "frame": 49,
+        "point": [
+         382.5,
+         355.5
+        ],
+        "extent": null,
+        "box": [
+         375.5,
+         333,
+         389.5,
+         377.5
+        ]
+       },
+       {
+        "frame": 50,
+        "point": [
+         382.5,
+         356
+        ],
+        "extent": null,
+        "box": [
+         376,
+         333,
+         390,
+         378
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 0.59,
+    "confidence": 0.5
+   }
+  ]
+ }
+}

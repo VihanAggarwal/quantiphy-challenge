@@ -1,0 +1,660 @@
+{
+ "video_id": "simulation_0016",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfumaPAcHqZqHtZXiHDtT",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 854
+ },
+ "ts": "2026-10-11T03:54:50+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_01RJnmR6EqoU9sA5y1E8BmMq",
+ "custom_id": "simulation_0016",
+ "usage": {
+  "input_tokens": 13277,
+  "output_tokens": 2663,
+  "cache_creation_input_tokens": 4317,
+  "cache_read_input_tokens": 0,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.063977,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0016",
+  "fps": 33.0,
+  "fps_from_container": false,
+  "video_type": "V3MC",
+  "n_frames_total": 97,
+  "scale": 0.44479166666666664,
+  "image_size": [
+   1920,
+   1079
+  ],
+  "frames": [
+   0,
+   6,
+   13,
+   19,
+   26,
+   30,
+   32,
+   33,
+   36,
+   38,
+   45,
+   51,
+   58,
+   63,
+   64,
+   66,
+   69,
+   70,
+   77,
+   83,
+   90,
+   96
+  ],
+  "questions": [
+   {
+    "qid": 1498,
+    "target_unit": "m",
+    "prior": "speed of the person = 1.3m/s",
+    "depth_info": "t=1s, distance_human_camera = 9.24m\nt=2s, distance_human_camera = 9.14m\ndistance_pedestal_square_base_of_the_central_sculpture_camera = 9.967m\ndistance_left_bench_seat_camera = 10.63m\ndistance_right_bench_seat_camera = 10.59m"
+   },
+   {
+    "qid": 1499,
+    "target_unit": "m",
+    "prior": "speed of the person = 1.3m/s",
+    "depth_info": "t=1s, distance_human_camera = 9.24m\nt=2s, distance_human_camera = 9.14m\ndistance_pedestal_square_base_of_the_central_sculpture_camera = 9.967m\ndistance_left_bench_seat_camera = 10.63m\ndistance_right_bench_seat_camera = 10.59m"
+   },
+   {
+    "qid": 1500,
+    "target_unit": "m",
+    "prior": "speed of the person = 1.3m/s",
+    "depth_info": "t=1s, distance_human_camera = 9.24m\nt=2s, distance_human_camera = 9.14m\ndistance_pedestal_square_base_of_the_central_sculpture_camera = 9.967m\ndistance_left_bench_seat_camera = 10.63m\ndistance_right_bench_seat_camera = 10.59m"
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":1498,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"pedestal of central sculpture\"],\"dimension\":\"width\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"person\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":1.3,\"unit\":\"\"},\"depth\":[{\"object\":\"person\",\"distance_m\":9.24,\"time\":1.0},{\"object\":\"person\",\"distance_m\":9.14,\"time\":2.0},{\"object\":\"pedestal of central sculpture\",\"distance_m\":9.967,\"time\":null},{\"object\":\"left bench seat\",\"distance_m\":10.63,\"time\":null},{\"object\":\"right bench seat\",\"distance_m\":10.59,\"time\":null}],\"notes\":\"Top-down view; person speed estimated from motion between t=1s and t=2s.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"person\",\"obs\":[{\"frame\":13,\"point\":[362,12],\"extent\":null,\"box\":null},{\"frame\":19,\"point\":[360,20],\"extent\":null,\"box\":null},{\"frame\":26,\"point\":[361,35],\"extent\":null,\"box\":null},{\"frame\":30,\"point\":[359,42],\"extent\":null,\"box\":null},{\"frame\":33,\"point\":[360,50],\"extent\":null,\"box\":null},{\"frame\":36,\"point\":[360,55],\"extent\":null,\"box\":null},{\"frame\":38,\"point\":[361,60],\"extent\":null,\"box\":null},{\"frame\":45,\"point\":[360,72],\"extent\":null,\"box\":null},{\"frame\":51,\"point\":[359,82],\"extent\":null,\"box\":null},{\"frame\":58,\"point\":[358,98],\"extent\":null,\"box\":null},{\"frame\":63,\"point\":[358,107],\"extent\":null,\"box\":null},{\"frame\":64,\"point\":[358,110],\"extent\":null,\"box\":null},{\"frame\":66,\"point\":[360,114],\"extent\":null,\"box\":null},{\"frame\":69,\"point\":[361,124],\"extent\":null,\"box\":null},{\"frame\":70,\"point\":[361,126],\"extent\":null,\"box\":null},{\"frame\":77,\"point\":[360,136],\"extent\":null,\"box\":null},{\"frame\":83,\"point\":[360,148],\"extent\":null,\"box\":null},{\"frame\":90,\"point\":[360,160],\"extent\":null,\"box\":null},{\"frame\":96,\"point\":[360,176],\"extent\":null,\"box\":null}]},{\"role\":\"target\",\"object\":\"pedestal of central sculpture\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[393,240],[462,240]],\"box\":[393,205,462,274]},{\"frame\":33,\"point\":null,\"extent\":[[393,240],[462,240]],\"box\":[393,205,462,274]},{\"frame\":66,\"point\":null,\"extent\":[[393,240],[462,240]],\"box\":[393,205,462,274]}]}],\"direct_answer\":1.55,\"confidence\":0.5},{\"qid\":1499,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"bench seat\"],\"dimension\":\"width\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"person\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":1.3,\"unit\":\"\"},\"depth\":[{\"object\":\"person\",\"distance_m\":9.24,\"time\":1.0},{\"object\":\"person\",\"distance_m\":9.14,\"time\":2.0},{\"object\":\"pedestal of central sculpture\",\"distance_m\":9.967,\"time\":null},{\"object\":\"left bench seat\",\"distance_m\":10.63,\"time\":null},{\"object\":\"right bench seat\",\"distance_m\":10.59,\"time\":null}],\"notes\":\"Measured on left bench.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"person\",\"obs\":[]},{\"role\":\"target\",\"object\":\"left bench seat\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[236,242],[270,242]],\"box\":[236,190,270,295]},{\"frame\":33,\"point\":null,\"extent\":[[236,242],[270,242]],\"box\":[236,190,270,295]},{\"frame\":66,\"point\":null,\"extent\":[[236,242],[270,242]],\"box\":[236,190,270,295]}]}],\"direct_answer\":0.81,\"confidence\":0.45},{\"qid\":1500,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"bench seat\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"person\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":1.3,\"unit\":\"\"},\"depth\":[{\"object\":\"person\",\"distance_m\":9.24,\"time\":1.0},{\"object\":\"person\",\"distance_m\":9.14,\"time\":2.0},{\"object\":\"pedestal of central sculpture\",\"distance_m\":9.967,\"time\":null},{\"object\":\"left bench seat\",\"distance_m\":10.63,\"time\":null},{\"object\":\"right bench seat\",\"distance_m\":10.59,\"time\":null}],\"notes\":\"Measured on left bench.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"person\",\"obs\":[]},{\"role\":\"target\",\"object\":\"left bench seat\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[253,190],[253,295]],\"box\":[236,190,270,295]},{\"frame\":33,\"point\":null,\"extent\":[[253,190],[253,295]],\"box\":[236,190,270,295]},{\"frame\":66,\"point\":null,\"extent\":[[253,190],[253,295]],\"box\":[236,190,270,295]}]}],\"direct_answer\":2.5,\"confidence\":0.45}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 1498,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "pedestal of central sculpture"
+      ],
+      "dimension": "width",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "person"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 1.3,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "person",
+       "distance_m": 9.24,
+       "time": 1.0
+      },
+      {
+       "object": "person",
+       "distance_m": 9.14,
+       "time": 2.0
+      },
+      {
+       "object": "pedestal of central sculpture",
+       "distance_m": 9.967,
+       "time": null
+      },
+      {
+       "object": "left bench seat",
+       "distance_m": 10.63,
+       "time": null
+      },
+      {
+       "object": "right bench seat",
+       "distance_m": 10.59,
+       "time": null
+      }
+     ],
+     "notes": "Top-down view; person speed estimated from motion between t=1s and t=2s."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "person",
+      "obs": [
+       {
+        "frame": 13,
+        "point": [
+         362,
+         12
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 19,
+        "point": [
+         360,
+         20
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 26,
+        "point": [
+         361,
+         35
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 30,
+        "point": [
+         359,
+         42
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 33,
+        "point": [
+         360,
+         50
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 36,
+        "point": [
+         360,
+         55
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 38,
+        "point": [
+         361,
+         60
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 45,
+        "point": [
+         360,
+         72
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 51,
+        "point": [
+         359,
+         82
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 58,
+        "point": [
+         358,
+         98
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 63,
+        "point": [
+         358,
+         107
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 64,
+        "point": [
+         358,
+         110
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 66,
+        "point": [
+         360,
+         114
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 69,
+        "point": [
+         361,
+         124
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 70,
+        "point": [
+         361,
+         126
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 77,
+        "point": [
+         360,
+         136
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 83,
+        "point": [
+         360,
+         148
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 90,
+        "point": [
+         360,
+         160
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 96,
+        "point": [
+         360,
+         176
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "pedestal of central sculpture",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          393,
+          240
+         ],
+         [
+          462,
+          240
+         ]
+        ],
+        "box": [
+         393,
+         205,
+         462,
+         274
+        ]
+       },
+       {
+        "frame": 33,
+        "point": null,
+        "extent": [
+         [
+          393,
+          240
+         ],
+         [
+          462,
+          240
+         ]
+        ],
+        "box": [
+         393,
+         205,
+         462,
+         274
+        ]
+       },
+       {
+        "frame": 66,
+        "point": null,
+        "extent": [
+         [
+          393,
+          240
+         ],
+         [
+          462,
+          240
+         ]
+        ],
+        "box": [
+         393,
+         205,
+         462,
+         274
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 1.55,
+    "confidence": 0.5
+   },
+   {
+    "qid": 1499,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "bench seat"
+      ],
+      "dimension": "width",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "person"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 1.3,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "person",
+       "distance_m": 9.24,
+       "time": 1.0
+      },
+      {
+       "object": "person",
+       "distance_m": 9.14,
+       "time": 2.0
+      },
+      {
+       "object": "pedestal of central sculpture",
+       "distance_m": 9.967,
+       "time": null
+      },
+      {
+       "object": "left bench seat",
+       "distance_m": 10.63,
+       "time": null
+      },
+      {
+       "object": "right bench seat",
+       "distance_m": 10.59,
+       "time": null
+      }
+     ],
+     "notes": "Measured on left bench."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "person",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "left bench seat",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          236,
+          242
+         ],
+         [
+          270,
+          242
+         ]
+        ],
+        "box": [
+         236,
+         190,
+         270,
+         295
+        ]
+       },
+       {
+        "frame": 33,
+        "point": null,
+        "extent": [
+         [
+          236,
+          242
+         ],
+         [
+          270,
+          242
+         ]
+        ],
+        "box": [
+         236,
+         190,
+         270,
+         295
+        ]
+       },
+       {
+        "frame": 66,
+        "point": null,
+        "extent": [
+         [
+          236,
+          242
+         ],
+         [
+          270,
+          242
+         ]
+        ],
+        "box": [
+         236,
+         190,
+         270,
+         295
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 0.81,
+    "confidence": 0.45
+   },
+   {
+    "qid": 1500,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "bench seat"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "person"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 1.3,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "person",
+       "distance_m": 9.24,
+       "time": 1.0
+      },
+      {
+       "object": "person",
+       "distance_m": 9.14,
+       "time": 2.0
+      },
+      {
+       "object": "pedestal of central sculpture",
+       "distance_m": 9.967,
+       "time": null
+      },
+      {
+       "object": "left bench seat",
+       "distance_m": 10.63,
+       "time": null
+      },
+      {
+       "object": "right bench seat",
+       "distance_m": 10.59,
+       "time": null
+      }
+     ],
+     "notes": "Measured on left bench."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "person",
+      "obs": []
+     },
+     {
+      "role": "target",
+      "object": "left bench seat",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          253,
+          190
+         ],
+         [
+          253,
+          295
+         ]
+        ],
+        "box": [
+         236,
+         190,
+         270,
+         295
+        ]
+       },
+       {
+        "frame": 33,
+        "point": null,
+        "extent": [
+         [
+          253,
+          190
+         ],
+         [
+          253,
+          295
+         ]
+        ],
+        "box": [
+         236,
+         190,
+         270,
+         295
+        ]
+       },
+       {
+        "frame": 66,
+        "point": null,
+        "extent": [
+         [
+          253,
+          190
+         ],
+         [
+          253,
+          295
+         ]
+        ],
+        "box": [
+         236,
+         190,
+         270,
+         295
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 2.5,
+    "confidence": 0.45
+   }
+  ]
+ }
+}
