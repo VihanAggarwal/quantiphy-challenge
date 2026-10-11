@@ -10,6 +10,7 @@ Guards fixed a priori: accelerations untouched; near-static objects (A < MIN_SPE
 under 3 cm, or a track that rests at the asked time / does not reach it) untouched, because the emulator's behaviour there (labels of a resting object = pure click noise) has no
 support in the priors; total path lengths use only the frames where the object moves."""
 import json
+import os
 from statistics import NormalDist
 import numpy as np
 from common import treal, track_real, local_fit, lateral_fraction, obj_class, motion_kind, HERE
@@ -21,7 +22,7 @@ MIN_SPEED = 0.10          # m/s
 MIN_LEN = 0.03            # m
 MAX_OUTSIDE = 0.25        # s, an asked time further than this outside the target track is not modelled
 _fit = json.load(open(HERE / "out" / "fit_noise.json"))
-PARAMS = dict(sigma_px=SIGMA_PX, sigma_zb=float(_fit["2.0"]["sigma_zb"]), sigma_zL=float(_fit["2.0"]["sigma_zL"]))
+PARAMS = dict(sigma_px=SIGMA_PX, sigma_zb=float(os.environ.get("LABNOISE_SZB", _fit["2.0"]["sigma_zb"])), sigma_zL=float(_fit["2.0"]["sigma_zL"]))
 
 
 def unit_scale(unit):

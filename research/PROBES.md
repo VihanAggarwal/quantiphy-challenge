@@ -247,3 +247,16 @@ Built by `scripts/compose_submission.py` from candidates in `research/{blenderem
 Read each category against probe 8. Validation: Blender emulation S2 +.003..+.019 over 7 runs (one clip);
 lab noise emulator .741 vs .659 on 17 lab motion questions (out of sample); x1.3 .735 (in sample); size envelope
 slightly negative. Probe 10 (all lab motion x1.25 on 7b) is the cruder version of the S3/D3 test.
+
+## Lab-speed ladder (2026-10-12): tune the label-noise correction on the leaderboard
+`research/labnoise/build_ladder.py`. S3 = label-noise emulator at ball depth noise sz (fit on test priors: 2 cm,
+95% range 0.5-6 cm); D3 = uniform factor on lab speed / path targets (101 rows; accelerations, stated facts kept).
+S2, D2 = probe 8 except probe 11 (Blender emulation).
+| Probe | S3 | D3 |
+|---|---|---|
+| 8 | none | none |
+| 15 `trackA_probe15_p8_s3sz1_d3x125.csv` | sz 1 cm (111 rows, median x1.11) | x1.25 |
+| 11 `trackA_probe11_p8_emu_labnoise.csv` | sz 2 cm (148, x1.17) | sz 2 cm emulator (34 rows) |
+| 13 `trackA_probe13_p8_s3sz3_d3x140.csv` | sz 3 cm (157, x1.28) | x1.40 |
+| 14 `trackA_probe14_p8_s3sz4_d3x115.csv` | sz 4 cm (167, x1.38) | x1.15 |
+Pick each category's best rung, then refine between rungs (and by object class) with later uploads.
