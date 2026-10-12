@@ -311,3 +311,9 @@ are measurement failures in specific families, and renders of one event share on
 | `trackA_cand_labdist_emu_on_p8.csv` | 32 (R1 13, R4 12, R2 5, R3 2) | +.004..+.006 if the clicked-point model holds |
 Not changed: 0041 ball-to-person (no person depth), 0018 at 3.0 s (past the clip end; s/x copy only), S3 rows
 (displacement: direct ~ geometry where both ends have depths; paths belong to the labnoise ladder).
+
+## Result: probe 8 = 0.800 (2026-10-11 23:05, new scoring, 3149 scored rows)
+| | S2 | D2 | S3 | D3 | MRA |
+|---|---|---|---|---|---|
+| probe 8 | .815 | .844 | .747 | .796 | **.800** |
+Estimate was .813/.843/.755/.798. New base for reading probes 11-15 (all built on probe 8).
