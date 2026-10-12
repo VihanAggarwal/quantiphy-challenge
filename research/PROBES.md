@@ -278,3 +278,12 @@ label conventions (3D origin speed, backward differences, tangential acceleratio
   `_guard` variant (S3 15, D3 9) keeps the 2x guard. Validation premise check: the gates reach 4 validation
   questions and transfer the label within 0.8% in all 4. Upside if the stated labels hold: S3 +.009 (guard +.003),
   D3 +.001.
+
+## Scoring change (organizers, 2026-10-11): validation-overlap questions excluded
+140 test questions that overlap the public validation set (exact + reviewed equivalents) no longer count; all
+earlier submissions were rescored (probe 5: .793 -> .7921). Keep all 3289 rows. We never used validation labels in
+test answers, so nothing else changes. Decoding diagnostics now uses SCORED counts (exact overlaps found: 128 of 140,
+so these are approximate to +-12 rows): N = S2 553, D2 1137, S3 538, D3 933. Diagnostic C subsets (scored n):
+S2 acceleration 72, S3 lab motion 165, D3 lab motion 105, D2 internet 201.
+subset mean = (score_7b - score_diagC) * N_scored / n_scored. Validation clips are test clips too, so judge future
+changes on validation mainly through the non-overlapping rows and the leaderboard.
