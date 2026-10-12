@@ -597,3 +597,15 @@ mismatches are direct-answer errors, not a prior scale.
   category (E: S2 sim 362, D2 sim static 719, S3 non-lab 221, D3 lab static 334 scored; F: the rest). Subset mean =
   (p21 - diag) * N_scored / n_scored; E and F must add up to p21 (consistency check). Purpose: find the subset where
   a +0.02 overall jump could come from (needs ~+.08 in one category).
+
+## Local tests toward top 5 (2026-10-12; leaderboard 21:00 UTC: 5th szerlok .8195, we are 13th at .8083)
+- More Claude runs on 3D non-lab (validation, 52 q): 1-run .783, 3-run median .799, 5-run .800, 7-run .804 -> 3->5 runs
+  worth ~+.001 per question; not worth the money.
+- Validation D3 lab static (15 q, .67): sizes score .7-1.0; the losses are label problems (desk 857.9 cm, ball-to-person
+  0.198 m, ball-to-floor 1.69 m at rest) -> mostly irreducible.
+- D3 lab motion and the label-noise model: of 150 D3 lab motion rows, 107 are modelled but the factor is ~1.00 (objects
+  fall/move fast, click noise is small relative to the motion); 43 have no model (0018, 0010, 0016...). So D3 has no
+  S3-like lever (consistent with D3 x1.40 netting 0).
+- In 2D, Claude's direct answers ~= its geometry (switch probes 22/23 change few rows).
+Path to top 5 (+.012): p21 (~.810) + physb2 (~+.0015) + S3 lab-noise tuning (probes 14/19/20, ~+.002) + whatever the
+diagnostic E/F map exposes.
