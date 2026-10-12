@@ -317,3 +317,14 @@ Not changed: 0041 ball-to-person (no person depth), 0018 at 3.0 s (past the clip
 |---|---|---|---|---|---|
 | probe 8 | .815 | .844 | .747 | .796 | **.800** |
 Estimate was .813/.843/.755/.798. New base for reading probes 11-15 (all built on probe 8).
+
+## Results: probes 11 and 13 (2026-10-11 23:06-23:08, on probe 8 = .815/.844/.747/.796)
+| | S2 | D2 | S3 | D3 | MRA |
+|---|---|---|---|---|---|
+| 11 (S2/D2 Blender emulation, S3/D3 lab-noise sz 2 cm) | .813 (-.002) | .844 (0) | .762 (+.015) | .797 (+.001) | .804 |
+| 13 (S3 lab-noise sz 3 cm, D3 lab motion x1.40) | .815 | .844 | .761 (+.014) | .796 (0) | .804 |
+- Lab label-noise emulation is real: S3 +.015 (148 rows changed). Optimum near sz 2-3 cm; probes 14 (4 cm) / 15 (1 cm) bracket it.
+- D3 lab motion: uniform x1.40 nets 0, emulator +.001 -> D3 lab speeds are not uniformly inflated.
+- Blender label emulation: S2 -.002, D2 0 -> dropped (paper's backward-difference / tangential convention not confirmed).
+New best per category: S2/D2 probe 8, S3/D3 probe 11 -> `submissions/trackA_best_p16_p8_labnoiseS3D3.csv`
+(expected .815/.844/.762/.797 = .8045). New base for further candidates.
