@@ -4,6 +4,8 @@
     python scripts/run_cv.py --split val --specs runs/qwen8b/val/specs --name cv --solve      # + geometry only
     python scripts/run_open_vlm.py --split val --task geometry --name cv \\
         --specs-from runs/qwen8b/val/specs --direct-from runs/qwen8b/val/direct.csv       # geometry + fallback
+    python scripts/run_cv.py --split val --specs runs/qwen8b/val/specs --name cvq \\
+        --qwen-boxes runs/qwen8b/val/annotate --solve                                    # Qwen-box prompts
     python scripts/run_cv.py --csv "external/QuantiPhy/model_run_example/GT_CIB_Ready/CIB_Ready - test4.csv" \\
         --video-dir external/QuantiPhy/model_run_example/data/all_480p --specs rules --name cv_smoke
 
@@ -18,6 +20,11 @@ features go to --cache (default <out>/../cv_cache). A video whose record covers 
 an unchanged spec is skipped (resumable); --force rebuilds records from the cache, --fresh also redoes
 detection and SAM 2 (an undetected phrase stays cached as such until --fresh). --solve also writes
 <out>/../cv_geometry.csv (id, parsed_value, method, flags) from qp.geometry.solve alone.
+--qwen-boxes: a run_open_vlm annotate folder (Qwen3-VL grounding records, same specs): SAM 2 is prompted
+with Qwen's boxes for each question's roles instead of the detector's pick (qp.open.cv_track, prompt
+"qwen"; --qwen-frames conditioning frames per object, a detection with IoU >= --qwen-refine-iou
+tightens a box); objects or videos without a Qwen box fall back to the detector. A record is rebuilt
+when its video's Qwen record changes.
 A failing video is reported and skipped; the exit code is non-zero when every video to run failed or
 more than --max-failed of them did (a model that fails to load stops the run at once).
 """
@@ -100,6 +107,15 @@ def get_specs(args, df: pd.DataFrame) -> tuple[dict[int, QuestionSpec], set[int]
     return specs, ruled
 
 
+def qwen_record(qdir: Path | None, video_id: str) -> tuple[dict | None, str | None]:
+    """(the video's Qwen annotate record, signature of its tracks) or (None, None)."""
+    rec = read_json(qdir / f"{safe_id(video_id)}.json") if qdir else None
+    if not rec or not rec.get("tracks"):
+        return None, None
+    blob = json.dumps({"meta": rec.get("meta", {}), "tracks": rec["tracks"]}, sort_keys=True, default=str)
+    return rec, hashlib.md5(blob.encode()).hexdigest()[:12]
+
+
 def solve_all(df: pd.DataFrame, specs: dict, out: Path) -> pd.DataFrame:
     from qp.geometry import solve
     recs = {v: read_json(out / f"{safe_id(v)}.json") for v in dict.fromkeys(df.video_id)}
@@ -138,6 +154,11 @@ def parse_args(argv=None):
     ap.add_argument("--max-frames", type=int, default=cv.MAX_FRAMES, help="frames tracked per video (strided)")
     ap.add_argument("--keyframes", type=int, default=cv.N_KEYFRAMES, help="uniform detection keyframes")
     ap.add_argument("--point", choices=["centroid", "bottom", "top"], default="centroid")
+    ap.add_argument("--qwen-boxes", help="Qwen annotate folder (run_open_vlm --task annotate): its boxes prompt SAM 2")
+    ap.add_argument("--qwen-frames", type=int, default=cv.QWEN_FRAMES,
+                    help="--qwen-boxes: SAM 2 conditioning frames per object (best Qwen box per time bin)")
+    ap.add_argument("--qwen-refine-iou", type=float, default=cv.QWEN_REFINE_IOU,
+                    help="--qwen-boxes: a detection overlapping the Qwen box by this IoU replaces it (0 = off)")
     ap.add_argument("--device", help="cuda / cpu (default: cuda if available)")
     ap.add_argument("--limit-videos", type=int, default=0, help="only the first N videos")
     ap.add_argument("--videos", default="", help="comma-separated video ids")
@@ -169,29 +190,39 @@ def main(argv=None, tracker=None) -> pd.DataFrame | None:
     specs, ruled = get_specs(args, df)
     print(f"{len(vids)} videos ({len(df)} questions): {len(specs)} specs ({len(ruled)} rule-based)")
 
+    qdir = Path(args.qwen_boxes) if args.qwen_boxes else None
+    if qdir and not any(qdir.glob("*.json")):
+        raise SystemExit(f"--qwen-boxes {qdir}: no Qwen annotate records (run the annotate stage first)")
     tracker = tracker or cv.CVTracker(args.detector, args.segmenter, args.det_model, args.sam_model, args.device,
-                                      args.max_frames, args.keyframes, args.point, args.det_threshold)
+                                      args.max_frames, args.keyframes, args.point, args.det_threshold,
+                                      prompt="qwen" if qdir else "detector", qwen_frames=args.qwen_frames,
+                                      refine_iou=args.qwen_refine_iou)
     groups = {v: g.reset_index(drop=True) for v, g in df.groupby("video_id", sort=False)}
     sig = {str(q): hashlib.md5(json.dumps(s.to_dict(), sort_keys=True, default=str).encode()).hexdigest()[:12]
            for q, s in specs.items()}   # a record is stale when its question's spec changed
-    todo = []
+    todo, qsig = [], {}
     for v in vids:
         rec = read_json(out / f"{safe_id(v)}.json")
         qids = [str(int(q)) for q in groups[v].qid if int(q) in specs]
-        fresh = rec and rec.get("model") == tracker.source and rec.get("meta", {}).get("point_mode") == args.point
+        qsig[v] = qwen_record(qdir, v)[1]
+        fresh = (rec and rec.get("model") == tracker.source and rec.get("meta", {}).get("point_mode") == args.point
+                 and rec.get("qwen_sig") == qsig[v])
         if args.force or args.fresh or not fresh or any(rec.get("spec_sig", {}).get(q) != sig[q] for q in qids):
             todo.append(v)
     missing = sorted(set(df.video_id[(df.video_path == "") & df.video_id.isin(todo)]))
     if missing:
         raise SystemExit(f"{len(missing)} videos not found locally (e.g. {missing[0]}); run scripts/download_data.py")
-    print(f"{len(vids) - len(todo)} cached, {len(todo)} to run -> {out}")
+    print(f"{len(vids) - len(todo)} cached, {len(todo)} to run -> {out}"
+          + (f"; Qwen boxes from {qdir} for {sum(s is not None for s in qsig.values())} of {len(vids)} videos"
+             if qdir else ""))
 
     t_start, failed = time.time(), {}
     for i, v in enumerate(todo, 1):
         t0 = time.time()
         cache_path = cache_dir / f"{safe_id(v)}.json"
         try:
-            rec, cache = tracker.track_video(groups[v], specs, None if args.fresh else read_json(cache_path))
+            kw = {"qwen": qwen_record(qdir, v)[0]} if qdir else {}
+            rec, cache = tracker.track_video(groups[v], specs, None if args.fresh else read_json(cache_path), **kw)
         except cv.ModelLoadError as e:  # every remaining video would fail the same way
             print(f"  [{i}/{len(todo)}] {v}: {e}; stopping")
             failed.update(dict.fromkeys(todo[i - 1:], str(e)))
@@ -203,7 +234,8 @@ def main(argv=None, tracker=None) -> pd.DataFrame | None:
         for q in groups[v].qid:
             if int(q) in ruled:
                 rec["flags"].setdefault(str(int(q)), []).append("rule_spec")
-        rec["spec_sig"] = {q: sig[q] for q in rec["tracks"]}
+        rec["spec_sig"] = {q: sig[q] for q in rec["tracks"] if q in sig}
+        rec["qwen_sig"] = qsig[v]
         save_json(cache_path, cache)
         save_json(out / f"{safe_id(v)}.json", rec)
         n_obj = len(rec["objects"])
@@ -215,6 +247,9 @@ def main(argv=None, tracker=None) -> pd.DataFrame | None:
     flags = Counter(f.split(":", 1)[-1] for r in recs for fl in r.get("flags", {}).values() for f in fl)
     n_q = sum(bool(t) for r in recs for t in r.get("tracks", {}).values())
     print(f"questions with tracks: {n_q} of {len(df)}; flags: {dict(flags)}")
+    if qdir:
+        src = Counter(o.get("prompt", "detector") for r in recs for o in r.get("objects", {}).values())
+        print(f"SAM 2 prompts by source: {dict(src)}")
     res = None
     if args.solve:
         res = solve_all(df, specs, out)

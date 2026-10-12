@@ -24,6 +24,18 @@ Per video:
    forward and backward. A model that fails to load raises ModelLoadError for every later video.
 5. Measurements per mask (pure numpy/cv2, see `mask_features` / `extent_from_features`).
 
+Qwen-box prompts (prompt="qwen", `track_video(..., qwen=<run_open_vlm annotate record>)`): steps 2-3
+are replaced by the boxes Qwen3-VL grounded for the same question and role, the way Track A lets the
+annotator's boxes pick the instance and anchor the tracker (qp.dense_track). The record's boxes are in
+original video pixels (qp.open.qwen_vl maps its 0-1000 grid with the record's meta image_size; they are
+rescaled when the frames decoded here differ) at t = frame / meta fps. Per object the keyframe is the
+Qwen frame whose box is most consistent with the rest of its track (`choose_prompt_frames`: size near
+the track's median, no isolated jump, not on the border, Qwen's own single-candidate score); with
+`qwen_frames` > 1 the best frame of each time bin is added as a further SAM 2 conditioning frame. A
+detection overlapping a chosen Qwen box by IoU >= `refine_iou` replaces it (a tighter box of the same
+instance; 0 = off). Objects without a Qwen box fall back to the detector (steps 2-3); roles Qwen
+grounded that have no CV object (the object it identified under a gravity prior) are tracked too.
+
 Measurement conventions. Pixel (row i, col j) is the square [j, j+1) x [i, i+1): box =
 [xmin, ymin, xmax + 1, ymax + 1] and lengths run edge to edge (a 10-pixel-wide mask is 10 px wide).
 Components smaller than 10% of the largest are dropped first.
@@ -78,6 +90,9 @@ REL_KEEP = 0.5            # a candidate must reach this share of the frame's bes
 NMS_IOU = 0.6
 AREA_JUMP = 2.5           # drop frames whose area differs by more than this factor from the running median
 CACHE_VERSION = 1
+QWEN_FRAMES = 1           # Qwen-box prompt mode: SAM 2 conditioning frames per object
+QWEN_REFINE_IOU = 0.5     # a detection overlapping the Qwen box this much replaces it as the prompt (0 = off)
+QWEN_AGREE_IOU = 0.3      # a SAM 2 mask box "agrees" with a (loose) Qwen box above this IoU
 
 # --------------------------------------------------------------------------- mask measurement
 
@@ -527,6 +542,113 @@ def spec_times(specs) -> list[float]:
     return ts
 
 
+# --------------------------------------------------------------------------- Qwen boxes as prompts
+
+def qwen_prompts(qrec: dict | None) -> dict[tuple[int, str], dict]:
+    """{(qid, role): {"object", "boxes": {frame: [x1, y1, x2, y2]}, "scores": {frame: score}, "size": (W, H)}}
+    from a run_open_vlm annotate record: boxes in the record's original-pixel frame (meta image_size),
+    frame = round(t * meta fps). Point-only and degenerate (< 2 px) boxes are skipped."""
+    meta = (qrec or {}).get("meta") or {}
+    try:
+        fps = float(meta.get("fps") or 0.0)
+        size = tuple(int(v) for v in meta.get("image_size") or ())
+    except (TypeError, ValueError):
+        return {}
+    if not (math.isfinite(fps) and fps > 0) or len(size) != 2:
+        return {}
+    out: dict[tuple[int, str], dict] = {}
+    for qid, tracks in ((qrec or {}).get("tracks") or {}).items():
+        for t in tracks or []:
+            boxes, scores = {}, {}
+            for o in t.get("obs") or []:
+                b, tt = o.get("box"), o.get("t")
+                if not (isinstance(b, (list, tuple)) and len(b) == 4 and isinstance(tt, (int, float))
+                        and math.isfinite(tt)):
+                    continue
+                x0, y0, x1, y1 = (float(v) for v in b)
+                if x1 - x0 < 2 or y1 - y0 < 2:
+                    continue
+                f = int(round(tt * fps))
+                boxes[f] = [x0, y0, x1, y1]
+                scores[f] = float(o.get("score") or 1.0)
+            if boxes and t.get("role"):
+                out[(int(qid), str(t["role"]))] = {"object": str(t.get("object") or ""), "boxes": boxes,
+                                                    "scores": scores, "size": size}
+    return out
+
+
+def attach_qwen(objects: dict, roles: dict, specs: dict[int, QuestionSpec],
+                prompts: dict[tuple[int, str], dict]) -> dict[str, dict]:
+    """Qwen prompts per CV object key ({key: prompt}, the one with the most boxes when several
+    questions share the object). Roles Qwen grounded that the CV plan has no object for (generic
+    names, e.g. the object Qwen identified under a gravity prior) are added to `objects` / `roles`
+    in place as key "qwen:<name>"."""
+    by_qid: dict[int, dict[str, dict]] = {}
+    for (q, role), p in prompts.items():
+        by_qid.setdefault(q, {})[role] = p
+    out: dict[str, dict] = {}
+
+    def put(key, p):
+        if key not in out or len(p["boxes"]) > len(out[key]["boxes"]):
+            out[key] = p
+
+    for qid, spec in specs.items():
+        got = by_qid.get(int(qid), {})
+        if not got:
+            continue
+        rs = roles.setdefault(int(qid), [])
+        for role, key, _ in rs:
+            if role in got:
+                put(key, got[role])
+        have = {r for r, _, _ in rs}
+        for role, p in got.items():
+            q = spec.prior if role.startswith("prior") else spec.target
+            if role in have or not groundable(p["object"]) or q.kind == "camera_distance":
+                continue
+            key = "qwen:" + object_key(p["object"])[0]
+            objects.setdefault(key, {"phrase": p["object"], "rank": None})
+            rs.append((role, key, q))
+            put(key, p)
+    return out
+
+
+def choose_prompt_frames(boxes: dict[int, list], scores: dict[int, float], image_size,
+                         n: int = 1) -> list[int]:
+    """Frames whose Qwen box prompts SAM 2, best first. Weight = Qwen's score (1 / candidates) x
+    exp(-|log area - median log area|) x 0.7 on the image border x 0.5 when the box covers half the
+    image x 0.3 for an isolated jump (centre off the midpoint of its neighbours by more than the box
+    diagonal + half their gap); ties go to the middle of the clip. n > 1 adds the best frame of each
+    of n time bins whose weight is at least half the best."""
+    fs = sorted(boxes)
+    if not fs:
+        return []
+    W, H = image_size
+    area = {f: max((b[2] - b[0]) * (b[3] - b[1]), 1.0) for f, b in boxes.items()}
+    cen = {f: np.array([(b[0] + b[2]) / 2, (b[1] + b[3]) / 2]) for f, b in boxes.items()}
+    med = float(np.median([math.log(area[f]) for f in fs]))
+    w = {}
+    for i, f in enumerate(fs):
+        b = boxes[f]
+        s = float(scores.get(f) or 1.0) * math.exp(-abs(math.log(area[f]) - med))
+        if touches_border(b, (W, H)):
+            s *= 0.7
+        if area[f] > 0.5 * W * H:
+            s *= 0.5
+        if 0 < i < len(fs) - 1:
+            a, c = cen[fs[i - 1]], cen[fs[i + 1]]
+            tol = math.hypot(b[2] - b[0], b[3] - b[1]) + 0.5 * float(np.linalg.norm(a - c))
+            if float(np.linalg.norm(cen[f] - (a + c) / 2)) > tol:
+                s *= 0.3
+        w[f] = s * (1.0 - 0.05 * abs(i - (len(fs) - 1) / 2) / max(len(fs), 1))
+    best = max(fs, key=lambda f: w[f])
+    out = [best]
+    for part in np.array_split(np.asarray(fs), max(1, min(n, len(fs)))) if n > 1 else []:
+        f = int(max(part, key=lambda f: w[int(f)]))
+        if f not in out and w[f] >= 0.5 * w[best]:
+            out.append(f)
+    return [best] + sorted(out[1:], key=lambda f: -w[f])
+
+
 def load_specs(path, depth_texts: dict[int, str] | None = None) -> dict[int, QuestionSpec]:
     """QuestionSpecs from a folder or file: run_open_vlm spec records ({"questions": {qid: {"spec"}}}),
     run_claude records ({"parsed": {"questions": [{"qid", "spec"}]}}), a list / dict of spec dicts,
@@ -581,16 +703,18 @@ def _collect_specs(obj, out: dict, qid=None, depth_texts: dict | None = None) ->
 
 # --------------------------------------------------------------------------- video
 
-def read_video(path: str, max_frames: int = MAX_FRAMES) -> tuple[list[int], list[np.ndarray], int]:
-    """(original frame indices, RGB frames, stride): every stride-th frame, stride = ceil(n / max_frames)."""
+def read_video(path: str, max_frames: int = MAX_FRAMES, extra=()) -> tuple[list[int], list[np.ndarray], int]:
+    """(original frame indices, RGB frames, stride): every stride-th frame, stride = ceil(n / max_frames),
+    plus the frames in `extra` (prompt frames off the stride)."""
     cap = cv2.VideoCapture(str(path))
     if not cap.isOpened():
         raise FileNotFoundError(path)
     n = int(cap.get(cv2.CAP_PROP_FRAME_COUNT) or 0)
     stride = max(1, math.ceil(n / max_frames)) if max_frames and n > 0 else 1
+    extra = {int(f) for f in extra}
     idx, frames, i = [], [], 0
     while cap.grab():
-        if i % stride == 0:
+        if i % stride == 0 or i in extra:
             ok, img = cap.retrieve()
             if ok:
                 idx.append(i)
@@ -710,11 +834,25 @@ def _mask_conf(logits) -> tuple[np.ndarray, float]:
     return m.cpu().numpy(), conf
 
 
+def prompts_by_frame(prompts: dict) -> dict[int, list[tuple[int, list[float]]]]:
+    """{obj_id: (frame_pos, box)} or {obj_id: [(frame_pos, box), ...]} -> {obj_id: [(frame_pos, box), ...]}
+    sorted by frame (one prompt per frame, the first given)."""
+    out = {}
+    for oid, v in prompts.items():
+        items = list(v) if isinstance(v, list) else [v]
+        seen: dict[int, list[float]] = {}
+        for k, box in items:
+            seen.setdefault(int(k), box)
+        out[oid] = sorted(seen.items())
+    return out
+
+
 class Segmenter:
     """SAM 2 video propagation. backend "official" (facebookresearch/sam2 package), "hf"
     (transformers Sam2VideoModel) or "auto" (official, else - not installed or failing to load - hf).
-    propagate(frames, {obj_id: (frame_pos, box)}) yields (frame_pos, obj_id, bool mask, confidence)
-    for every frame and object: forward from the object's prompt frame, backward before it."""
+    propagate(frames, {obj_id: (frame_pos, box) | [(frame_pos, box), ...]}) yields (frame_pos, obj_id,
+    bool mask, confidence) for every frame and object: forward from the object's first prompt frame,
+    backward before it; further prompt frames of an object are extra conditioning frames."""
 
     def __init__(self, backend: str = "auto", model_id: str = SAM_MODEL, device: str | None = None):
         import torch
@@ -751,10 +889,10 @@ class Segmenter:
             return torch.autocast("cuda", dtype=torch.bfloat16)
         return contextlib.nullcontext()
 
-    def propagate(self, frames: list[np.ndarray], prompts: dict[int, tuple[int, list[float]]]):
+    def propagate(self, frames: list[np.ndarray], prompts: dict):
         if not prompts:
             return
-        yield from (self._official if self.backend == "official" else self._hf)(frames, prompts)
+        yield from (self._official if self.backend == "official" else self._hf)(frames, prompts_by_frame(prompts))
 
     def _official(self, frames, prompts):
         import shutil
@@ -766,18 +904,20 @@ class Segmenter:
                 cv2.imwrite(f"{tmp}/{i:05d}.jpg", cv2.cvtColor(im, cv2.COLOR_RGB2BGR), [cv2.IMWRITE_JPEG_QUALITY, 95])
             with torch.inference_mode(), self._autocast():
                 state = pred.init_state(video_path=tmp, offload_video_to_cpu=True)
-                for oid, (k, box) in prompts.items():
-                    pred.add_new_points_or_box(state, frame_idx=int(k), obj_id=int(oid),
-                                               box=np.asarray(box, np.float32))
-                ks = [int(k) for k, _ in prompts.values()]
+                for oid, items in prompts.items():
+                    for k, box in items:
+                        pred.add_new_points_or_box(state, frame_idx=int(k), obj_id=int(oid),
+                                                   box=np.asarray(box, np.float32))
+                first = {oid: items[0][0] for oid, items in prompts.items()}
+                ks = list(first.values())
                 for f, ids, logits in pred.propagate_in_video(state, start_frame_idx=min(ks)):
                     for i, oid in enumerate(ids):
-                        if f >= prompts[oid][0]:
+                        if f >= first[oid]:
                             yield (f, oid, *_mask_conf(logits[i, 0]))
                 if max(ks) > 0:
                     for f, ids, logits in pred.propagate_in_video(state, start_frame_idx=max(ks), reverse=True):
                         for i, oid in enumerate(ids):
-                            if f < prompts[oid][0]:
+                            if f < first[oid]:
                                 yield (f, oid, *_mask_conf(logits[i, 0]))
                 pred.reset_state(state)
         finally:
@@ -791,11 +931,13 @@ class Segmenter:
         with torch.inference_mode(), self._autocast():
             session = self.processor.init_video_session(video=np.stack(frames), inference_device=self.device,
                                                         video_storage_device="cpu", dtype=self.dtype)
-            for oid, (k, box) in prompts.items():  # one object at a time: prompts sit on different frames
+            for oid, items in prompts.items():  # one object at a time: prompts sit on different frames
                 session.reset_tracking_data()
-                self.processor.add_inputs_to_inference_session(
-                    inference_session=session, frame_idx=int(k), obj_ids=int(oid),
-                    input_boxes=[[[float(v) for v in box]]])
+                for kk, box in items:
+                    self.processor.add_inputs_to_inference_session(
+                        inference_session=session, frame_idx=int(kk), obj_ids=int(oid),
+                        input_boxes=[[[float(v) for v in box]]])
+                k = items[0][0]
                 for reverse in (False, True):
                     if reverse and k == 0:
                         continue
@@ -823,17 +965,23 @@ class ModelLoadError(RuntimeError):
 class CVTracker:
     """Detector + SAM 2 over the videos of a split. `detector` / `segmenter` may be names (models load
     on first use; a load failure is remembered and raised as ModelLoadError) or objects with the same
-    detect() / propagate() interface (tests)."""
+    detect() / propagate() interface (tests). prompt="qwen": SAM 2 is prompted with the boxes of a Qwen
+    annotate record passed to track_video (qwen=...), the detector only refines them (refine_iou) and
+    stands in for objects Qwen has no box for; `qwen_frames` conditioning frames per object."""
 
     def __init__(self, detector="gdino", segmenter="auto", det_model: str | None = None,
                  sam_model: str = SAM_MODEL, device: str | None = None, max_frames: int = MAX_FRAMES,
-                 n_keyframes: int = N_KEYFRAMES, point_mode: str = "centroid", det_threshold: float | None = None):
+                 n_keyframes: int = N_KEYFRAMES, point_mode: str = "centroid", det_threshold: float | None = None,
+                 prompt: str = "detector", qwen_frames: int = QWEN_FRAMES, refine_iou: float = QWEN_REFINE_IOU):
+        if prompt not in ("detector", "qwen"):
+            raise ValueError(f"unknown prompt source {prompt!r} (expected 'detector' or 'qwen')")
         self._det_cfg = (detector, det_model, det_threshold)
         self._seg_cfg = (segmenter, sam_model)
         self._det = None if isinstance(detector, str) else detector
         self._seg = None if isinstance(segmenter, str) else segmenter
         self._load_errors: dict[str, str] = {}
         self.device, self.max_frames, self.n_keyframes, self.point_mode = device, max_frames, n_keyframes, point_mode
+        self.prompt, self.qwen_frames, self.refine_iou = prompt, max(1, int(qwen_frames)), float(refine_iou)
 
     def _model(self, attr: str, build):
         if getattr(self, attr) is None:
@@ -869,48 +1017,70 @@ class CVTracker:
 
     @property
     def source(self) -> str:
-        return f"{self.det_name}+sam2"
+        return f"qwen+{self.det_name}+sam2" if self.prompt == "qwen" else f"{self.det_name}+sam2"
 
     def _cache_ok(self, cache: dict | None) -> bool:
         m = (cache or {}).get("meta", {})
         return (m.get("version") == CACHE_VERSION and m.get("detector") == self.det_name
-                and m.get("max_frames") == self.max_frames)
+                and m.get("max_frames") == self.max_frames and m.get("prompt", "detector") == self.prompt)
 
-    def track_video(self, rows, specs: dict[int, QuestionSpec], cache: dict | None = None) -> tuple[dict, dict]:
+    def _qwen_sig(self, p: dict) -> str:
+        """Signature of an object's Qwen prompt (boxes + settings): a changed one re-tracks the object."""
+        import hashlib
+        key = {"boxes": sorted((int(f), [round(v, 2) for v in b]) for f, b in p["boxes"].items()),
+               "n": self.qwen_frames, "iou": self.refine_iou, "size": list(p["size"])}
+        return hashlib.md5(json.dumps(key).encode()).hexdigest()[:12]
+
+    def track_video(self, rows, specs: dict[int, QuestionSpec], cache: dict | None = None,
+                    qwen: dict | None = None) -> tuple[dict, dict]:
         """Record {"video_id", "model", "meta", "objects", "tracks": {qid: [RoleTrack dicts]}, "flags"}
-        for the questions in `rows` (one video, qp.data columns) that have a spec, and the updated cache."""
+        for the questions in `rows` (one video, qp.data columns) that have a spec, and the updated cache.
+        qwen: the video's run_open_vlm annotate record (prompt="qwen" only; None = detector prompts)."""
         first = rows.iloc[0]
         vid, path = str(first.video_id), str(first.video_path)
         fps = video_fps(first.fps, path)[0]   # dataset fps; the container's if missing (as Track A)
         qspecs = {int(q): specs[int(q)] for q in rows.qid if int(q) in specs}
         objects, roles = plan_objects(qspecs)
+        qp = attach_qwen(objects, roles, qspecs, qwen_prompts(qwen)) if self.prompt == "qwen" and qwen else {}
+        sig = {k: self._qwen_sig(p) for k, p in qp.items()}
         if not self._cache_ok(cache):
-            cache = {"meta": {"version": CACHE_VERSION, "detector": self.det_name, "max_frames": self.max_frames},
-                     "dets": {}, "objects": {}}
-        need = [k for k in objects if k not in cache["objects"]]
+            cache = {"meta": {"version": CACHE_VERSION, "detector": self.det_name, "max_frames": self.max_frames,
+                              "prompt": self.prompt}, "dets": {}, "objects": {}}
+        need = [k for k in objects if k not in cache["objects"] or cache["objects"][k].get("qwen_sig") != sig.get(k)]
         if need or "image_size" not in cache["meta"]:
-            self._run(path, fps, objects, need, list(qspecs.values()), cache)
+            self._run(path, fps, objects, need, list(qspecs.values()), cache, {k: qp[k] for k in need if k in qp}, sig)
         rec = self._record(vid, fps, objects, roles, cache)
+        rec["meta"]["prompt"] = self.prompt
         return rec, cache
 
-    def _run(self, path: str, fps: float, objects: dict, need: list[str], specs: list, cache: dict) -> None:
-        if need:
-            _ = self.det, self.seg   # load (or fail) before decoding the video
-        frame_idx, frames, stride = read_video(path, self.max_frames)
+    def _run(self, path: str, fps: float, objects: dict, need: list[str], specs: list, cache: dict,
+             qp: dict | None = None, sig: dict | None = None) -> None:
+        qp, sig = qp or {}, sig or {}
+        if need:   # load (or fail) before decoding the video
+            _ = self.seg
+            if any(k not in qp for k in need) or self.refine_iou > 0:
+                _ = self.det
+        chosen = {k: choose_prompt_frames(p["boxes"], p["scores"], p["size"], self.qwen_frames) for k, p in qp.items()}
+        frame_idx, frames, stride = read_video(path, self.max_frames, {f for fs in chosen.values() for f in fs})
         H, W = frames[0].shape[:2]
         size = (W, H)
         cache["meta"].update(image_size=[W, H], stride=stride, n_frames=len(frames), segmenter=self.seg_name)
         if not need:
             return
-        kpos = keyframe_positions(len(frames), frame_idx, fps, spec_times(specs), self.n_keyframes)
-        images = {frame_idx[p]: frames[p] for p in kpos}
+        pos = {f: i for i, f in enumerate(frame_idx)}
+        qp = {k: p for k, p in qp.items() if any(f in pos for f in chosen[k])}   # else: the detector's pick
+        dneed = [k for k in need if k not in qp]          # detector-prompted objects
         hints = {k: parse_phrase(objects[k]["phrase"]) for k in objects}
-        dets = {}
-        for q in dict.fromkeys(hints[k].query for k in need):
-            if q not in cache["dets"]:
-                found = self.det.detect([images[f] for f in sorted(images)], q)
-                cache["dets"][q] = {str(f): c for f, c in zip(sorted(images), found)}
-            dets[q] = {int(f): c for f, c in cache["dets"][q].items()}
+        images, dets = {}, {}
+        if dneed:
+            kpos = keyframe_positions(len(frames), frame_idx, fps, spec_times(specs), self.n_keyframes)
+            images = {frame_idx[p]: frames[p] for p in kpos}
+            for q in dict.fromkeys(hints[k].query for k in dneed):
+                if q not in cache["dets"]:
+                    found = self.det.detect([images[f] for f in sorted(images)], q)
+                    cache["dets"][q] = {str(f): c for f, c in zip(sorted(images), found)}
+                dets[q] = {int(f): c for f, c in cache["dets"][q].items()}
+
         def taken_for(key: str) -> dict[int, list]:
             """{keyframe: [boxes]} of the objects told apart from `key` that already have a keyframe
             (this run or a cached one). Only keyframe boxes, not their masks on other frames, so an
@@ -922,12 +1092,44 @@ class CVTracker:
                     out.setdefault(int(o["keyframe"]), []).append(o["box"])
             return out
 
-        prompts, ids = {}, {}
+        def scaled(box, src) -> list[float]:   # Qwen record pixels -> pixels of the decoded frames
+            sx, sy = W / src[0], H / src[1]
+            return [round(float(np.clip(box[0] * sx, 0, W)), 1), round(float(np.clip(box[1] * sy, 0, H)), 1),
+                    round(float(np.clip(box[2] * sx, 0, W)), 1), round(float(np.clip(box[3] * sy, 0, H)), 1)]
+
+        prompts, ids, qboxes = {}, {}, {}
         for n, key in enumerate(need, 1):
-            h, d = hints[key], dets[hints[key].query]
-            pick = pick_keyframe(d, h, size, images, taken_for(key), objects[key]["rank"])
+            h = hints[key]
             entry = {"phrase": objects[key]["phrase"], "query": h.query, "rank": objects[key]["rank"],
                      "frames": {}, "flags": []}
+            if key in qp:
+                p, fs = qp[key], [f for f in chosen[key] if f in pos]
+                qboxes[key] = {f: scaled(b, p["size"]) for f, b in p["boxes"].items()}
+                boxes = {f: qboxes[key][f] for f in fs}
+                refined = 0
+                if self.refine_iou > 0 and fs:
+                    qd = cache.setdefault("qdets", {}).setdefault(h.query, {})
+                    todo = [f for f in fs if str(f) not in qd]
+                    if todo:
+                        found = self.det.detect([frames[pos[f]] for f in todo], h.query)
+                        qd.update({str(f): c for f, c in zip(todo, found)})
+                    for f in fs:
+                        cands = qd.get(str(f)) or []
+                        best = max(cands, key=lambda c: iou(c["box"], boxes[f]), default=None)
+                        if best is not None and iou(best["box"], boxes[f]) >= self.refine_iou:
+                            boxes[f], refined = [float(v) for v in best["box"]], refined + 1
+                entry.update(prompt="qwen", qwen_sig=sig.get(key), qwen_object=p["object"], refined=refined)
+                f0 = fs[0]
+                entry.update(keyframe=f0, keyframe_t=round(f0 / fps, 4), box=boxes[f0],
+                             det_score=round(float(p["scores"].get(f0, 1.0)), 4), prompt_frames=sorted(fs))
+                cache["objects"][key] = entry
+                prompts[n] = (pos[f0], boxes[f0]) if len(fs) == 1 else [(pos[f], boxes[f]) for f in sorted(fs)]
+                ids[n] = key
+                continue
+            d = dets[h.query]
+            pick = pick_keyframe(d, h, size, images, taken_for(key), objects[key]["rank"])
+            if self.prompt == "qwen":
+                entry.update(prompt="detector", qwen_sig=sig.get(key))
             if pick is None:
                 entry["flags"].append("not_detected")
                 cache["objects"][key] = entry
@@ -939,26 +1141,31 @@ class CVTracker:
             cache["objects"][key] = entry
             prompts[n] = (frame_idx.index(f), c["box"])
             ids[n] = key
-        for p, oid, mask, conf in (self.seg.propagate(frames, prompts) if prompts else ()):
+        for p_, oid, mask, conf in (self.seg.propagate(frames, prompts) if prompts else ()):
             feat = mask_features(mask)
             if feat is not None:
                 feat["conf"] = round(conf, 3)
-                cache["objects"][ids[oid]]["frames"][str(frame_idx[p])] = feat
+                cache["objects"][ids[oid]]["frames"][str(frame_idx[p_])] = feat
         if prompts:
             cache["meta"]["segmenter"] = self.seg_name
-        for key in ids.values():  # agreement of the SAM 2 track with the detector on keyframes
-            o, h, taken = cache["objects"][key], hints[key], taken_for(key)
-            hits = []
-            for f, cands in dets[h.query].items():
-                feat = o["frames"].get(str(f))
-                i, _, _ = choose_instance(cands, h, size, images.get(f), taken.get(f, ()), o["rank"])
-                if feat and i is not None:
-                    hits.append(iou(feat["box"], cands[i]["box"]) > 0.5)
+        for key in ids.values():  # agreement of the SAM 2 track with the prompt source
+            o, h = cache["objects"][key], hints[key]
+            if key in qboxes:     # with Qwen's (loose) boxes on every frame it grounded
+                hits = [iou(o["frames"][str(f)]["box"], b) > QWEN_AGREE_IOU
+                        for f, b in qboxes[key].items() if str(f) in o["frames"]]
+                low = "low_qwen_agreement"
+            else:                 # with the detector on its keyframes
+                taken, hits, low = taken_for(key), [], "low_detector_agreement"
+                for f, cands in dets[h.query].items():
+                    feat = o["frames"].get(str(f))
+                    i, _, _ = choose_instance(cands, h, size, images.get(f), taken.get(f, ()), o["rank"])
+                    if feat and i is not None:
+                        hits.append(iou(feat["box"], cands[i]["box"]) > 0.5)
             o["agree"] = round(float(np.mean(hits)), 3) if hits else None
             if not o["frames"]:
                 o["flags"].append("empty_track")
             elif len(hits) >= 3 and np.mean(hits) < 0.5:
-                o["flags"].append("low_detector_agreement")
+                o["flags"].append(low)
 
     def _record(self, vid: str, fps: float, objects: dict, roles: dict, cache: dict) -> dict:
         tracks, flags = {}, {}

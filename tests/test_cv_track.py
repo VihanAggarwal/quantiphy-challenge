@@ -500,6 +500,244 @@ def test_ruler_calibre_prior_gives_no_track(video):
     assert ans.value is None
 
 
+# ---------------------------------------------------------------- Qwen boxes as SAM 2 prompts
+
+def _ball_boxes(video, colour, every=4, pad=0.0):
+    """{frame: box} of a rendered ball (the Qwen grounding stand-in), padded by `pad` of its size."""
+    idx, frames, _ = cv.read_video(str(video), 360)
+    out = {}
+    for f, img in zip(idx, frames):
+        feat = cv.mask_features(_colour_mask(img, COLOR_RGB[colour]))
+        if f % every == 0 and feat:
+            x0, y0, x1, y1 = feat["box"]
+            dx, dy = pad * (x1 - x0), pad * (y1 - y0)
+            out[f] = [x0 - dx, y0 - dy, x1 + dx, y1 + dy]
+    return out
+
+
+def qwen_record(video, roles: dict, scale=1.0, every=4, pad=0.0):
+    """A run_open_vlm annotate record: {qid: [(role, object name, colour)]}; boxes in a frame `scale`
+    times the rendered one (meta image_size), t = frame / fps."""
+    tracks = {}
+    for qid, rs in roles.items():
+        tracks[str(qid)] = [{"role": role, "object": name, "source": "qwen3vl",
+                             "obs": [{"t": f / FPS, "box": [v * scale for v in b], "score": 1.0, "point": None,
+                                      "extent": None} for f, b in _ball_boxes(video, colour, every, pad).items()]}
+                            for role, name, colour in rs]
+    return {"video_id": video.stem, "meta": {"fps": FPS, "image_size": [round(CAM.width * scale),
+                                                                         round(CAM.height * scale)]},
+            "tracks": tracks}
+
+
+class BlueOnlyDetector(FakeDetector):
+    """Misses the red ball: every query gets the blue ball (detector prompts track the wrong instance)."""
+
+    def detect(self, images, query):
+        self.calls += 1
+        return [[c for c in cands if c["box"][0] > CAM.width / 2] for cands in FakeDetector.detect(self, images, query)]
+
+
+class ListSegmenter(FakeSegmenter):
+    """FakeSegmenter that accepts multi-frame prompts and records them."""
+
+    def __init__(self):
+        super().__init__()
+        self.prompts = []
+
+    def propagate(self, frames, prompts):
+        self.prompts.append(cv.prompts_by_frame(prompts))
+        yield from super().propagate(frames, {o: items[0] for o, items in self.prompts[-1].items()})
+
+
+def test_qwen_prompts_scale_and_frames(video):
+    rec = qwen_record(video, {1: [("target", "red ball", "red")]}, scale=0.5)
+    got = cv.qwen_prompts(rec)
+    p = got[(1, "target")]
+    assert p["size"] == (round(CAM.width / 2), round(CAM.height / 2)) and p["object"] == "red ball"
+    assert sorted(p["boxes"]) == list(range(0, 48, 4))                 # t * fps -> frame
+    full = _ball_boxes(video, "red")
+    assert p["boxes"][8] == pytest.approx([v / 2 for v in full[8]])
+    bad = {"meta": {"fps": 0, "image_size": [10, 10]}, "tracks": rec["tracks"]}
+    assert cv.qwen_prompts(bad) == {} and cv.qwen_prompts(None) == {}
+    point_only = {"meta": rec["meta"], "tracks": {"1": [{"role": "target", "object": "x",
+                                                        "obs": [{"t": 0.0, "point": [3, 4], "box": None}]}]}}
+    assert cv.qwen_prompts(point_only) == {}
+
+
+def test_choose_prompt_frames_skips_jumps_border_and_outsized_boxes():
+    boxes = {f: [100 + 10 * f, 200, 140 + 10 * f, 240] for f in range(0, 40, 4)}
+    boxes[20] = [600, 50, 640, 90]                     # isolated jump: another instance
+    boxes[16] = [0, 200, 60, 260]                      # on the border and larger
+    boxes[24] = [200, 150, 500, 400]                   # a box around half the scene
+    scores = dict.fromkeys(boxes, 1.0)
+    best = cv.choose_prompt_frames(boxes, scores, (W, H))
+    assert len(best) == 1 and best[0] not in (16, 20, 24)
+    assert abs(best[0] - 18) <= 10                     # ties go to the middle of the clip
+    three = cv.choose_prompt_frames(boxes, scores, (W, H), n=3)
+    assert three[0] == best[0] and len(three) == 2 and not set(three) & {16, 20, 24}   # middle bin: all bad
+    clean = {f: [100 + 10 * f, 200, 140 + 10 * f, 240] for f in range(0, 40, 4)}
+    three = cv.choose_prompt_frames(clean, dict.fromkeys(clean, 1.0), (W, H), n=3)
+    assert len(three) == 3 and sorted(np.digitize(three, [14, 26])) == [0, 1, 2]       # one per time bin
+    assert cv.choose_prompt_frames({}, {}, (W, H)) == []
+    scores[best[0]] = 0.5                              # two Qwen candidates on that frame
+    assert cv.choose_prompt_frames(boxes, scores, (W, H))[0] != best[0]
+
+
+def test_track_video_with_qwen_boxes_picks_qwen_instance(video):
+    """The detector only finds the blue ball; Qwen's boxes keep 'red ball' on the red one."""
+    rows = rows_for(video, [1, 2])
+    specs = {q: SPECS[q] for q in (1, 2)}
+    det_rec, _ = cv.CVTracker(BlueOnlyDetector(), FakeSegmenter()).track_video(rows, specs)
+    assert det_rec["objects"]["red ball"]["box"][0] > CAM.width / 2      # detector prompt: wrong ball
+    qrec = qwen_record(video, {1: [("prior", "blue ball", "blue"), ("target", "red ball", "red")],
+                               2: [("prior", "blue ball", "blue"), ("target", "red ball", "red")]}, scale=0.5)
+    det, seg = BlueOnlyDetector(), FakeSegmenter()
+    trk = cv.CVTracker(det, seg, prompt="qwen")
+    rec, cache = trk.track_video(rows, specs, qwen=qrec)
+    assert rec["model"] == trk.source == "qwen+fake+sam2" and rec["meta"]["prompt"] == "qwen"
+    red, blue = rec["objects"]["red ball"], rec["objects"]["blue ball"]
+    assert red["prompt"] == blue["prompt"] == "qwen" and red["box"][0] < CAM.width / 2
+    assert red["refined"] == 0 and blue["refined"] == 1                  # only the blue ball is detected
+    assert red["agree"] == 1.0 and len(red["prompt_frames"]) == 1
+    tr = {q: [RoleTrack.from_dict(t) for t in ts] for q, ts in rec["tracks"].items()}
+    assert solve(SPECS[1], tr["1"], (CAM.width, CAM.height), FPS).value == pytest.approx(1.2, rel=0.015)
+    assert solve(SPECS[2], tr["2"], (CAM.width, CAM.height), FPS).value == pytest.approx(SIZE * 100, rel=0.015)
+    json.dumps(cache)
+    # same Qwen record: everything cached; a changed one re-tracks only the changed object
+    det2, seg2 = BlueOnlyDetector(), FakeSegmenter()
+    again, cache2 = cv.CVTracker(det2, seg2, prompt="qwen").track_video(rows, specs, cache, qwen=qrec)
+    assert det2.calls == seg2.calls == 0 and again["tracks"] == rec["tracks"]
+    moved = qwen_record(video, {1: [("prior", "blue ball", "blue"), ("target", "red ball", "red")]}, scale=0.5,
+                        every=3)
+    seg3 = ListSegmenter()
+    cv.CVTracker(BlueOnlyDetector(), seg3, prompt="qwen").track_video(rows, specs, cache2, qwen=moved)
+    assert seg3.calls == 1 and len(seg3.prompts[0]) == 2                # both objects' boxes changed
+    # a detector-prompt cache is not reused by the Qwen mode (and vice versa)
+    det4 = BlueOnlyDetector()
+    cv.CVTracker(det4, FakeSegmenter()).track_video(rows, specs, cache)
+    assert det4.calls > 0
+
+
+def test_qwen_mode_refines_falls_back_and_adds_gravity_object(video):
+    specs = {1: SPECS[1],
+             4: QuestionSpec(4, Q("speed", ["blue ball"], time=1.0, unit="m/s"),
+                             Q("acceleration", ["gravity"], value_si=9.8))}
+    rows = rows_for(video, [1, 4])
+    # Qwen: a loose red box (+10%) for qid 1's target, nothing for its prior; the object it
+    # identified under qid 4's gravity prior ("falling red ball") has no CV object
+    qrec = qwen_record(video, {1: [("target", "red ball", "red")], 4: [("prior", "falling red ball", "red")]},
+                       pad=0.1)
+    seg = ListSegmenter()
+    rec, _ = cv.CVTracker(FakeDetector(), seg, prompt="qwen", qwen_frames=3).track_video(rows, specs, qwen=qrec)
+    red, blue = rec["objects"]["red ball"], rec["objects"]["blue ball"]
+    tight = _ball_boxes(video, "red")[red["keyframe"]]
+    assert red["prompt"] == "qwen" and red["refined"] == 3 and red["box"] == pytest.approx(tight)
+    assert blue["prompt"] == "detector" and blue["box"][0] > CAM.width / 2      # no Qwen box: detector
+    assert len(red["prompt_frames"]) == 3
+    frames_by_obj = {len(items) for items in seg.prompts[0].values()}
+    assert frames_by_obj == {1, 3}                                       # detector: 1, Qwen: 3 frames
+    assert "qwen:falling red ball" in rec["objects"]
+    assert sorted(t["role"] for t in rec["tracks"]["4"]) == ["prior", "target"]
+    # no refinement: the loose Qwen box itself is the prompt
+    rec2, _ = cv.CVTracker(FakeDetector(), FakeSegmenter(), prompt="qwen", refine_iou=0).track_video(
+        rows, specs, qwen=qrec)
+    assert rec2["objects"]["red ball"]["refined"] == 0
+    assert rec2["objects"]["red ball"]["box"] == pytest.approx(_ball_boxes(video, "red", pad=0.1)[
+        rec2["objects"]["red ball"]["keyframe"]])
+    with pytest.raises(ValueError, match="prompt source"):
+        cv.CVTracker(FakeDetector(), FakeSegmenter(), prompt="claude")
+
+
+def test_official_segmenter_multi_frame_prompts(monkeypatch):
+    """Every prompt frame becomes a conditioning frame; output runs forward from an object's first
+    prompt frame and backward before it, once per frame."""
+    added, calls = [], []
+
+    class Pred:
+        def init_state(self, video_path, offload_video_to_cpu):
+            self.n = len(list(Path(video_path).glob("*.jpg")))
+            return {}
+
+        def add_new_points_or_box(self, state, frame_idx, obj_id, box):
+            added.append((obj_id, frame_idx))
+
+        def propagate_in_video(self, state, start_frame_idx, reverse=False):
+            calls.append((start_frame_idx, reverse))
+            rng = range(start_frame_idx, -1, -1) if reverse else range(start_frame_idx, self.n)
+            for f in rng:
+                yield f, [1, 2], np.ones((2, 1, 4, 4))
+
+        def reset_state(self, state):
+            pass
+
+    seg = cv.Segmenter.__new__(cv.Segmenter)
+    seg.backend, seg.device, seg.predictor = "official", "cpu", Pred()
+    torch = types.SimpleNamespace(inference_mode=contextlib_null,
+                                  cuda=types.SimpleNamespace(is_available=lambda: False))
+    seg._torch, seg.dtype = torch, None
+    seg._autocast = contextlib_null
+    monkeypatch.setattr(cv, "_mask_conf", lambda logits: (np.ones((4, 4), bool), 0.9))
+    frames = [np.zeros((4, 4, 3), np.uint8)] * 10
+    out = list(seg.propagate(frames, {1: [(6, [0, 0, 2, 2]), (2, [0, 0, 2, 2]), (8, [1, 1, 3, 3])],
+                                      2: (4, [0, 0, 2, 2])}))
+    assert sorted(added) == [(1, 2), (1, 6), (1, 8), (2, 4)]
+    assert calls == [(2, False), (4, True)]
+    for oid in (1, 2):
+        got = sorted(f for f, o, *_ in out if o == oid)
+        assert got == list(range(10)), oid                               # each frame exactly once
+
+
+class contextlib_null:   # noqa: N801 - stands in for torch.inference_mode() / autocast
+    def __init__(self, *a, **kw):
+        pass
+
+    def __enter__(self):
+        return self
+
+    def __exit__(self, *a):
+        return False
+
+
+def test_run_cv_cli_with_qwen_boxes(video, tmp_path):
+    csv = tmp_path / "q.csv"
+    pd.DataFrame({"Unnamed: 0": [1, 2], "video_id": video.stem, "video_source": "simulation",
+                  "video_type": "S2MC", "fps": FPS, "inference_type": ["SD", "SS"],
+                  "question": ["What is the speed of the red ball at 1s in m/s?",
+                               "What is the diameter of the red ball in cm?"],
+                  "ground_truth_prior": f"diameter of the blue ball = {SIZE:.4f}m", "depth_info": "",
+                  "ground_truth_posterior": [1.2, SIZE * 100]}).to_csv(csv, index=False)
+    specs = tmp_path / "specs.json"
+    specs.write_text(json.dumps([SPECS[1].to_dict(), SPECS[2].to_dict()]))
+    run_cv = _run_cv_module()
+    qdir = tmp_path / "qwen" / "annotate"
+    out = tmp_path / "cvq" / "annotate"
+    argv = ["--csv", str(csv), "--video-dir", str(video.parent), "--specs", str(specs), "--out", str(out),
+            "--solve", "--qwen-boxes", str(qdir)]
+    with pytest.raises(SystemExit, match="no Qwen annotate records"):
+        run_cv.main(argv, tracker=cv.CVTracker(BlueOnlyDetector(), FakeSegmenter(), prompt="qwen"))
+    qdir.mkdir(parents=True)
+    (qdir / "other_video.json").write_text("{}")
+    # no record for this video: every object falls back to the detector (here: the wrong ball)
+    res = run_cv.main(argv, tracker=cv.CVTracker(BlueOnlyDetector(), FakeSegmenter(), prompt="qwen"))
+    rec = json.loads((out / f"{video.stem}.json").read_text())
+    assert rec["qwen_sig"] is None and {o["prompt"] for o in rec["objects"].values()} == {"detector"}
+    qrec = qwen_record(video, {q: [("prior", "blue ball", "blue"), ("target", "red ball", "red")] for q in (1, 2)})
+    (qdir / f"{video.stem}.json").write_text(json.dumps(qrec))
+    det = BlueOnlyDetector()
+    res = run_cv.main(argv, tracker=cv.CVTracker(det, FakeSegmenter(), prompt="qwen"))   # new Qwen record: redone
+    rec = json.loads((out / f"{video.stem}.json").read_text())
+    assert rec["qwen_sig"] and rec["objects"]["red ball"]["prompt"] == "qwen" and det.calls > 0
+    got = res.set_index("id").parsed_value
+    assert got[1] == pytest.approx(1.2, rel=0.015) and got[2] == pytest.approx(SIZE * 100, rel=0.015)
+    assert (tmp_path / "cvq" / "cv_geometry.csv").exists() and (tmp_path / "cvq" / "cv_cache").is_dir()
+    det2, seg2 = BlueOnlyDetector(), FakeSegmenter()
+    run_cv.main(argv, tracker=cv.CVTracker(det2, seg2, prompt="qwen"))
+    assert det2.calls == seg2.calls == 0                                 # finished video skipped
+    # the default tracker is built in Qwen mode from the flags
+    args = run_cv.parse_args(argv + ["--qwen-frames", "3", "--qwen-refine-iou", "0"])
+    assert (args.qwen_frames, args.qwen_refine_iou) == (3, 0.0)
+
+
 class FakeTensor:
     """Stands in for a torch tensor: truth-testing it raises unless it holds exactly one value."""
 
@@ -755,14 +993,16 @@ def test_notebook_sh_collapses_progress_bars(tmp_path, capsys):
     assert 'os.environ["TQDM_DISABLE"] = "1"' in _cell("drive.mount")
 
 
-@pytest.mark.parametrize("smi,model,caw", [
-    ("NVIDIA L4, 23034", "Qwen/Qwen3-VL-4B-Instruct", False),
-    ("Tesla T4, 15360", "Qwen/Qwen3-VL-4B-Instruct", False),
-    ("NVIDIA A100-SXM4-40GB, 40960", "Qwen/Qwen3-VL-8B-Instruct", True),
-    ("NVIDIA A100-SXM4-80GB, 81920", "Qwen/Qwen3-VL-32B-Instruct-FP8", True),
+@pytest.mark.parametrize("smi,model,caw,extra", [
+    ("NVIDIA L4, 23034", "Qwen/Qwen3-VL-4B-Instruct", False, False),
+    ("Tesla T4, 15360", "Qwen/Qwen3-VL-4B-Instruct", False, False),
+    ("NVIDIA A100-SXM4-40GB, 40960", "Qwen/Qwen3-VL-8B-Instruct", True, False),
+    ("NVIDIA A100-SXM4-80GB, 81920", "Qwen/Qwen3-VL-32B-Instruct-FP8", True, True),
+    ("NVIDIA RTX PRO 6000 Blackwell Server Edition, 97887", "Qwen/Qwen3-VL-32B-Instruct-FP8", True, True),
 ])
-def test_notebook_gpu_tiers(monkeypatch, smi, model, caw):
-    """An L4 (22.5 GiB) gets the 4B model and no Code-as-World-9B (neither 8B nor 9B fit vLLM there)."""
+def test_notebook_gpu_tiers(monkeypatch, smi, model, caw, extra):
+    """An L4 (22.5 GiB) gets the 4B model and no Code-as-World-9B (neither 8B nor 9B fit vLLM there); the
+    27-31B extra direct models need >= 70 GB."""
     def fake_run(cmd, **kw):
         return types.SimpleNamespace(stdout=smi if "--query-gpu" in " ".join(cmd) else "", stderr="")
 
@@ -770,7 +1010,35 @@ def test_notebook_gpu_tiers(monkeypatch, smi, model, caw):
     ns: dict = {}
     exec(_cell("RUN_NAME = "), ns)
     exec(_cell("VRAM_GB ="), ns)
-    assert ns["MODEL"] == model and ns["STAGES"]["caw"] is caw
+    assert ns["MODEL"] == model and ns["STAGES"]["caw"] is caw and ns["STAGES"]["direct_extra"] is extra
+
+
+def test_notebook_push_never_raises_and_stages_are_unattended_safe(capsys):
+    """push_outputs (interim and final) must not raise even when git fails, every GPU stage goes
+    through stage() (which never raises), interim pushes follow the slow stages, and the runtime
+    release is the last cell."""
+    src = _cell("def push_outputs(")
+    ns = {"FAILED": [], "PUSH_OUTPUTS": True, "os": __import__("os"), "time": __import__("time")}
+    exec(re.search(r"^def stage\(.*", src, flags=re.M | re.S).group(0), ns)
+
+    def broken_sh(cmd, check=True, cwd=None):
+        raise RuntimeError("fatal: could not read Username")
+
+    ns["sh"] = broken_sh
+    ns["push_outputs"]("interim")
+    assert ns["FAILED"] and "push/interim" in ns["FAILED"][0]
+    ns["STAGES"] = {"cvq": False}
+    assert ns["stage"]("cvq", "val", "false") == 0 and "skipped" in capsys.readouterr().out
+    text = "\n".join(_cells()[1])
+    for tag in ('push_outputs("interim")', 'push_outputs("interim-cvq")', 'push_outputs(f"interim-{name}")',
+                'push_outputs("final")'):
+        assert tag in text, tag
+    assert text.index('push_outputs("interim-cvq")') < text.index('push_outputs(f"interim-{name}")')
+    direct = [ln for ln in text.splitlines() if re.search(r"(?<![\w.])sh\(.*python scripts/", ln)]
+    assert all("check=False" in ln for ln in direct), direct     # repo scripts never run through a raising sh()
+    assert len(re.findall(r'stage\("\w+", (?:split|"test"), f"python scripts/', text)) >= 12
+    assert "terminate_runtime(\"run finished\")" in _cells()[1][-1]
+    assert 'os.environ["TQDM_DISABLE"] = "1"' in text
 
 
 def test_notebook_data_branch_has_no_lfs_rules():

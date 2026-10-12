@@ -455,39 +455,51 @@ def test_track_b_notebook_stages_end_to_end(tmp_path, monkeypatch, capsys):
 
     src = _notebook()
     commands = re.findall(r'stage\("(\w+)", (?:split|"test"), (f"python scripts/[^"\n]+")\)', src)
-    assert [c[0] for c in commands] == ["specs", "annotate", "direct", "caw", "geometry", "cv", "geometry",
-                                        "postprocess", "submission"]
+    assert [c[0] for c in commands] == ["specs", "annotate", "direct", "caw", "geometry", "cv", "geometry", "cvq",
+                                        "geometry", "direct_extra", "postprocess", "submission", "combine"]
     methods = ast.literal_eval(re.search(r"^METHODS = (\{.*?\})$", src, re.M | re.S).group(1))
+    extra = ast.literal_eval(re.search(r"^EXTRA_DIRECT = (\{.*?\})$", src, re.M | re.S).group(1))
+    assert set(extra) == {"qwen35", "gemma4"} and {f"{n}_direct" for n in extra} <= set(methods)
 
     split, run = "val", "nb"
     base = tmp_path / "outputs" / run / split
-    q, a, c = (str(base / n) for n in ("qwen", "caw", "cv"))
-    ns = dict(split=split, RUN_NAME=run, q=q, a=a, c=c, MODEL="fake-qwen", BACKEND="hf", CAW_BACKEND="hf",
-              DETECTOR="gdino", SAM_MODEL="fake-sam", LIM="", EXT=" --extents", CAWM="")
+    q, a, c, cq = (str(base / n) for n in ("qwen", "caw", "cv", "cvq"))
+    ns = dict(split=split, RUN_NAME=run, q=q, a=a, c=c, cq=cq, MODEL="fake-qwen", BACKEND="hf", CAW_BACKEND="hf",
+              DETECTOR="gdino", SAM_MODEL="fake-sam", LIM="", EXT=" --extents", CAWM="", CVQ_FRAMES=1,
+              CVQ_REFINE_IOU=0.5, out_dir=lambda sp, n: str(tmp_path / "outputs" / run / sp / n))
     qwen = Q.QwenVL(backend=_Backend())
     mods = {"run_open_vlm": _script("run_open_vlm"), "run_cv": _script("run_cv")}
+    runs = []
     for name, fstring in commands:
-        if name in ("postprocess", "submission"):       # test-split stages, run below on these files
+        if name in ("postprocess", "submission", "combine"):   # test-split stages, run below on these files
             continue
+        if name == "direct_extra":                             # one command per EXTRA_DIRECT model
+            runs += [(name, fstring, {"name": n, "model": m}) for n, m in extra.items()]
+        else:
+            runs.append((name, fstring, {}))
+    for name, fstring, loop_vars in runs:
         fb = next((f for f in (f"{a}/caw.csv", f"{q}/direct.csv") if Path(f).exists()), None)  # stage 13 rule
         ns["fb"], ns["DF"] = fb, (f" --direct-from {fb}" if fb else "")
-        argv = shlex.split(eval(fstring, {}, ns))                                              # noqa: S307
+        argv = shlex.split(eval(fstring, {}, {**ns, **loop_vars}))                               # noqa: S307
         script = Path(argv[1]).stem
         i = argv.index("--split")
         argv = argv[2:i] + ["--csv", str(csv), "--video-dir", str(videos)] + argv[i + 2:]
         if script == "run_cv":
-            mods[script].main(argv, tracker=cv.CVTracker(_Detector(), _Segmenter(), max_frames=360))
+            prompt = "qwen" if "--qwen-boxes" in argv else "detector"
+            mods[script].main(argv, tracker=cv.CVTracker(_Detector(), _Segmenter(), max_frames=360, prompt=prompt))
         else:
-            mods[script].main(argv, runner=qwen)                     # caw stage: same fake answers
+            mods[script].main(argv, runner=qwen)                     # caw / extra direct stages: same fake answers
 
     files = {m: base / p for m, p in methods.items()}
     assert all(p.exists() for p in files.values()), {m: str(p) for m, p in files.items() if not p.exists()}
     truth = {qid: ans for qid, _, _, ans, _ in NB_QUESTIONS}
-    for m in ("qwen_geometry", "cv_geometry", "cv_geometry_only"):
+    for m in ("qwen_geometry", "cv_geometry", "cv_geometry_only", "cvq_geometry", "cvq_geometry_only"):
         got = pd.read_csv(files[m]).set_index("id").parsed_value
         for qid, ans in truth.items():
             assert got[qid] == pytest.approx(ans, rel=0.03), (m, qid)
-    for m in ("qwen_direct", "caw_direct"):
+    cvq_rec = json.loads((Path(cq) / "annotate" / "synth_nb.json").read_text())
+    assert cvq_rec["model"] == "qwen+fake+sam2" and {o["prompt"] for o in cvq_rec["objects"].values()} == {"qwen"}
+    for m in ("qwen_direct", "caw_direct", "qwen35_direct", "gemma4_direct"):
         got = pd.read_csv(files[m]).set_index("id").parsed_value
         assert all(got[qid] == pytest.approx(ans * 1.2, rel=1e-3) for qid, ans in truth.items())
     geo = pd.read_csv(files["qwen_geometry"])

@@ -27,6 +27,17 @@ vLLM quantization="bitsandbytes". The "-FP8" ids follow the official naming (REA
 the Qwen3-VL models" in the collection; example Qwen3-VL-235B-A22B-Instruct-FP8); huggingface.co was
 not reachable when this was written, so confirm with huggingface_hub.model_info(...) on Colab. The repo
 lists no official AWQ release for Qwen3-VL.
+
+Other open-weight VLMs for direct answers (task "direct" only; same prompt, frames and parsing):
+  Qwen/Qwen3.5-27B        Apache-2.0, natively multimodal, bf16 ~56 GB; vLLM 0.19.1 registers
+                          Qwen3_5ForConditionalGeneration with the Qwen3-VL multimodal processor, so
+                          the video path is the one above. Thinks by default: requests render the
+                          chat template with enable_thinking=False (CHAT_TEMPLATE_KWARGS).
+  google/gemma-4-31B-it   Apache-2.0, bf16 ~63 GB; vLLM 0.19.1 Gemma4ForConditionalGeneration decodes a
+                          video into timestamped images (<= 32 frames, 70 soft tokens each) and resizes
+                          them itself, so it gets no Qwen pixel-budget kwargs (video_kwargs_for).
+Checked on 2026-10-12: both ids on the Hub (ungated) and both architectures in the vLLM 0.19.1
+model registry; neither was run here (no GPU).
 """
 
 from __future__ import annotations
@@ -55,7 +66,10 @@ MODELS = {
     "32b-fp8": "Qwen/Qwen3-VL-32B-Instruct-FP8",
     "30b-a3b": "Qwen/Qwen3-VL-30B-A3B-Instruct",
     "30b-a3b-fp8": "Qwen/Qwen3-VL-30B-A3B-Instruct-FP8",
+    "qwen3.5-27b": "Qwen/Qwen3.5-27B",
+    "gemma4-31b": "google/gemma-4-31B-it",
 }
+CHAT_TEMPLATE_KWARGS = {"enable_thinking": False}   # Qwen3.5 thinks unless told not to; others ignore it
 DEFAULT_MODEL = MODEL_8B
 SOURCE = "qwen3vl"
 FACTOR = 32                    # Qwen3-VL: patch 16 x spatial merge 2
@@ -101,6 +115,31 @@ def video_kwargs(frames: np.ndarray) -> dict:
     return {"do_sample_frames": False, "size": {"longest_edge": px, "shortest_edge": min(4096, px)}}
 
 
+def qwen_family(model: str) -> bool:
+    """Qwen3-VL / Qwen3.5 (and fine-tunes named after them): the Qwen3-VL video processor."""
+    return bool(re.search(r"qwen|code-as-world", str(model), re.IGNORECASE))
+
+
+def video_kwargs_for(model: str, frames: np.ndarray, backend: str = "vllm") -> dict:
+    """Video processor kwargs per model family: the Qwen pixel budget (video_kwargs) for Qwen models;
+    for others no resizing hints (their processors size frames themselves). vLLM's Gemma 4 path turns
+    the frames into images itself and gets nothing; transformers' video processors are told not to
+    re-sample the frames."""
+    if qwen_family(model):
+        return video_kwargs(frames)
+    return {} if backend == "vllm" else {"do_sample_frames": False}
+
+
+def chat_prompt(processor, messages: list[dict]) -> str:
+    """The chat template with a generation prompt and thinking off (CHAT_TEMPLATE_KWARGS)."""
+    return processor.apply_chat_template(messages, tokenize=False, add_generation_prompt=True,
+                                         **CHAT_TEMPLATE_KWARGS)
+
+
+class BackendLoadError(RuntimeError):
+    """The model could not be loaded; every further request would fail the same way."""
+
+
 class VLLMBackend:
     """vLLM offline engine; one generate() call per request list (continuous batching, prefix
     caching: put shared media before the varying text)."""
@@ -111,6 +150,7 @@ class VLLMBackend:
         os.environ.setdefault("VLLM_WORKER_MULTIPROC_METHOD", "spawn")
         from transformers import AutoProcessor
         from vllm import LLM
+        self.model = model
         self.processor = AutoProcessor.from_pretrained(model, revision=revision)
         self.llm = LLM(model=model, revision=revision, max_model_len=max_model_len,
                        gpu_memory_utilization=gpu_memory_utilization, quantization=quantization,
@@ -120,15 +160,16 @@ class VLLMBackend:
     def generate(self, reqs: list[Request]) -> list[str | None]:
         from vllm import SamplingParams
         inputs, params = [], []
+        model = getattr(self, "model", DEFAULT_MODEL)
         for r in reqs:
-            inp: dict[str, Any] = {"prompt": self.processor.apply_chat_template(
-                r.messages, tokenize=False, add_generation_prompt=True)}
+            inp: dict[str, Any] = {"prompt": chat_prompt(self.processor, r.messages)}
             mm: dict[str, Any] = {}
             if r.images:
                 mm["image"] = list(r.images)
             if r.video is not None:
                 mm["video"] = [r.video]
-                inp["mm_processor_kwargs"] = video_kwargs(r.video[0])
+                if vk := video_kwargs_for(model, r.video[0], "vllm"):
+                    inp["mm_processor_kwargs"] = vk
             if mm:
                 inp["multi_modal_data"] = mm
             inputs.append(inp)
@@ -154,20 +195,21 @@ class HFBackend:
             kw["quantization_config"] = BitsAndBytesConfig(
                 load_in_4bit=True, bnb_4bit_quant_type="nf4", bnb_4bit_use_double_quant=True,
                 bnb_4bit_compute_dtype=torch.bfloat16)
-        self.torch = torch
+        self.torch, self.model_id = torch, model
         self.processor = AutoProcessor.from_pretrained(model, revision=revision)
         self.model = AutoModelForImageTextToText.from_pretrained(model, **kw).eval()
 
     def _one(self, r: Request) -> str:
         torch = self.torch
-        prompt = self.processor.apply_chat_template(r.messages, tokenize=False, add_generation_prompt=True)
+        prompt = chat_prompt(self.processor, r.messages)
         kw: dict[str, Any] = {}
         if r.images:
             kw["images"] = list(r.images)
         if r.video is not None:
             from transformers.video_utils import VideoMetadata
             frames, meta = r.video
-            kw.update(videos=[frames], video_metadata=[VideoMetadata(**meta)], **video_kwargs(frames))
+            kw.update(videos=[frames], video_metadata=[VideoMetadata(**meta)],
+                      **video_kwargs_for(getattr(self, "model_id", DEFAULT_MODEL), frames, "hf"))
         inputs = self.processor(text=[prompt], return_tensors="pt", **kw).to(self.model.device)
         gen: dict[str, Any] = {"max_new_tokens": r.max_tokens, "do_sample": r.temperature > 0}
         if r.temperature > 0:
@@ -1001,12 +1043,26 @@ class QwenVL:
         self.model, self.coord_mode, self.source = MODELS.get(model, model), coord_mode, source
         self._be = None if isinstance(backend, str) else backend
         self._backend_name, self._backend_kw = backend, backend_kw
+        self._load_error: str | None = None
 
     @property
     def backend(self):
+        """The backend, built on first use. A build failure (unsupported architecture, OOM while loading)
+        is remembered and raised as BackendLoadError on every later use, so a run stops at once instead
+        of reloading the weights for every chunk."""
         if self._be is None:
-            self._be = make_backend(self._backend_name, self.model, **self._backend_kw)
+            if self._load_error:
+                raise BackendLoadError(f"{self.model} failed to load earlier: {self._load_error}")
+            try:
+                self._be = make_backend(self._backend_name, self.model, **self._backend_kw)
+            except Exception as e:  # noqa: BLE001 - remembered: every later request would fail the same way
+                self._load_error = f"{type(e).__name__}: {str(e)[:500]}"
+                raise BackendLoadError(f"{self.model} failed to load: {self._load_error}") from e
         return self._be
+
+    def load(self):
+        """Build the backend now (raises BackendLoadError); run_open_vlm calls it before the first chunk."""
+        return self.backend
 
     def generate(self, reqs: list[Request]) -> list[str | None]:
         """Backend replies; None marks a failed request (never cached as an answer)."""

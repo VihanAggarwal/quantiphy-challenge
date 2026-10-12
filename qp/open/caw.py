@@ -306,15 +306,29 @@ class CAW:
         outs = self._engine().generate(inputs, sampling, use_tqdm=False)   # tqdm off: see qwen_vl.VLLMBackend
         return [o.outputs[0].text if o.outputs else None for o in outs]
 
-    def _generate_hf(self, items: list) -> list[str]:
-        import torch
-        from transformers import AutoModelForImageTextToText, LogitsProcessor, LogitsProcessorList
-        from transformers.video_utils import VideoMetadata
-        tok, proc = self._tools()
+    def _hf_model(self):
         if self._hf is None:
+            import torch
+            from transformers import AutoModelForImageTextToText
             self._hf = AutoModelForImageTextToText.from_pretrained(
                 self.model, revision=self.revision, dtype=torch.bfloat16, attn_implementation="sdpa",
                 device_map="auto", trust_remote_code=True).eval()
+        return self._hf
+
+    def load(self):
+        """Tokenizer, processor and engine (or transformers model) now: run_open_vlm calls this before
+        the first chunk so a model that cannot load stops the run instead of failing every video."""
+        if self._fake is not None:
+            return self._fake
+        self._tools()
+        return self._engine() if self.backend_name == "vllm" else self._hf_model()
+
+    def _generate_hf(self, items: list) -> list[str]:
+        import torch
+        from transformers import LogitsProcessor, LogitsProcessorList
+        from transformers.video_utils import VideoMetadata
+        tok, proc = self._tools()
+        self._hf_model()
         bias = self._logit_bias()
 
         class Bias(LogitsProcessor):

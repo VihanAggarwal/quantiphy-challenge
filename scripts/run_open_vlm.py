@@ -6,6 +6,8 @@ Code-as-World-VL-9B direct answers, and the geometry step (CPU).
     python scripts/run_open_vlm.py --split val --task annotate --name qwen8b --geometry   # specs made if missing
     python scripts/run_open_vlm.py --split val --task direct   --name qwen8b
     python scripts/run_open_vlm.py --split val --task caw      --name caw9b
+    python scripts/run_open_vlm.py --split val --task direct   --name qwen35 --model Qwen/Qwen3.5-27B
+    python scripts/run_open_vlm.py --split val --task direct   --name gemma4 --model google/gemma-4-31B-it
     python scripts/run_open_vlm.py --split val --task geometry --name qwen8b --direct-from runs/caw9b/val/caw.csv
     python scripts/run_open_vlm.py --csv "external/QuantiPhy/model_run_example/GT_CIB_Ready/CIB_Ready - test4.csv" \\
         --video-dir external/QuantiPhy/model_run_example/data/all_480p --task direct --name smoke
@@ -17,6 +19,11 @@ geometry.csv (id, parsed_value, geo_value, direct_value, method, flags; geometry
 direct answer from --direct-from or this run's direct.csv / caw.csv; a geometry value beyond loose
 physical bounds, or more than --max-disagree times off the direct answer, is replaced by the direct one).
 Failed generations (backend errors such as CUDA OOM) are never cached, so the next run retries them.
+The model is loaded before the first chunk; if it cannot be loaded (architecture not supported by the
+installed vLLM, out of memory, missing weights) the run stops at once with a non-zero exit code and
+the records cached so far are kept (the notebook then lists the stage as failed and moves on).
+--task direct works with any vLLM / transformers image-text-to-text model (--model): Qwen3-VL, Qwen3.5,
+Gemma 4 (see qp.open.qwen_vl for the video kwargs per family and the thinking switch).
 """
 
 from __future__ import annotations
@@ -265,7 +272,8 @@ def parse_args(argv=None):
     ap.add_argument("--task", choices=TASKS, required=True)
     ap.add_argument("--name", required=True, help="run name: output folder runs/<name>/<split>")
     ap.add_argument("--out", help="output folder instead of runs/<name>/<split> (e.g. on Google Drive)")
-    ap.add_argument("--model", help="HF model id (default Qwen/Qwen3-VL-8B-Instruct; caw: Code-as-World-VL-9B)")
+    ap.add_argument("--model", help="HF model id or qp.open.qwen_vl.MODELS alias (default Qwen/Qwen3-VL-8B-Instruct; "
+                                    "caw: Code-as-World-VL-9B; direct: any image-text-to-text VLM)")
     ap.add_argument("--revision", help="HF revision (caw default: the pinned one)")
     ap.add_argument("--backend", choices=["vllm", "hf"], default="vllm")
     ap.add_argument("--gpu-mem", type=float, default=0.0,
@@ -330,6 +338,13 @@ def main(argv=None, runner=None) -> pd.DataFrame | None:
           f"{len(todo)} to run; task={args.task} backend={args.backend} out={out_dir}")
     if todo:
         runner = runner or make_runner(args)
+        load = getattr(runner, "load", None)
+        if callable(load):
+            try:
+                load()
+            except Exception as e:  # noqa: BLE001 - nothing can run; earlier records stay cached
+                raise SystemExit(f"{args.model or 'default model'} failed to load ({type(e).__name__}: "
+                                 f"{str(e)[:600]}); {len(todo)} videos left for a later run") from e
     for i in range(0, len(todo), max(1, args.chunk_videos)):
         chunk = todo[i:i + max(1, args.chunk_videos)]
         try:

@@ -30,8 +30,9 @@ md("""
 
 Runs every GPU stage on Colab and pushes the small outputs back to GitHub:
 
-question specs (Qwen3-VL) -> CV tracks (Grounding DINO + SAM 2) -> Qwen3-VL grounding tracks ->
-Qwen3-VL and Code-as-World-VL direct answers -> geometry -> validation scores -> test submission.
+question specs (Qwen3-VL) -> Qwen3-VL grounding tracks -> Qwen3-VL and Code-as-World-VL direct answers ->
+geometry -> CV tracks (Grounding DINO + SAM 2) -> CV tracks prompted with Qwen's boxes -> more open VLM
+direct answers (Qwen3.5, Gemma 4) -> validation scores -> test submission + median-of-methods submission.
 
 **Before Runtime > Run all**
 1. Runtime > Change runtime type: **GPU** (A100 / H100 best; an L4 runs the 4B model and skips Code-as-World),
@@ -62,9 +63,16 @@ CAW_BACKEND = "vllm"         # the Code-as-World authors run vLLM; "hf" is the f
 QWEN_EXTENTS = True          # Qwen grounding also returns endpoints of asked size dimensions
 DETECTOR = "gdino"           # CV detector: "gdino" (Grounding DINO base) or "owlv2"
 SAM_MODEL = "auto"           # "auto" = by GPU memory, or e.g. "facebook/sam2.1-hiera-large"
+CVQ_FRAMES = 1               # cvq stage: SAM 2 conditioning frames per object from Qwen's boxes
+CVQ_REFINE_IOU = 0.5         # cvq stage: a detection overlapping Qwen's box this much tightens it (0 = off)
+EXTRA_DIRECT = {             # more open-weight direct answerers for the median: output folder -> HF model id
+    "qwen35": "Qwen/Qwen3.5-27B",          # Apache-2.0, bf16 ~56 GB, thinking switched off
+    "gemma4": "google/gemma-4-31B-it",     # Apache-2.0, bf16 ~63 GB, a second model family
+}
+EXTRA_DIRECT_MIN_GB = 70     # GPUs with less memory skip EXTRA_DIRECT
 LIMIT_VIDEOS = 0             # 0 = all videos; e.g. 2 for a smoke run
-STAGES = {"specs": True, "cv": True, "annotate": True, "direct": True, "caw": True,
-          "geometry": True, "score": True, "submission": True}
+STAGES = {"specs": True, "cv": True, "annotate": True, "direct": True, "caw": True, "geometry": True,
+          "cvq": True, "direct_extra": True, "score": True, "submission": True, "combine": True}
 SUBMISSION_FROM = "auto"     # "auto" = best method on val, or a METHODS key (see the scoring cell)
 POSTPROCESS = True           # model-free rules on the test answers before submitting (scripts/postprocess.py)
 SYNC_DATA_TO_GITHUB = False  # push the validation set to the repo's "data" branch (for the offline sandbox)
@@ -120,7 +128,8 @@ md("""
 Shows the GPU and picks the Qwen3-VL size and the SAM 2 checkpoint from its memory when `MODEL` /
 `SAM_MODEL` are `"auto"`: >= 70 GB -> Qwen3-VL-32B (FP8 with vLLM), >= 40 GB -> 8B, else 4B (on an L4,
 22.5 GiB, the 8B weights leave too little room for vLLM's 16k-token cache). Code-as-World-VL-9B needs
->= 30 GB, so its stage is switched off on smaller GPUs (the geometry fallback then uses Qwen's answers).
+>= 30 GB, so its stage is switched off on smaller GPUs (the geometry fallback then uses Qwen's answers);
+the `EXTRA_DIRECT` models (27-31B in bf16) need `EXTRA_DIRECT_MIN_GB`.
 """)
 code('''
 import subprocess
@@ -144,8 +153,12 @@ if SAM_MODEL == "auto":
 if VRAM_GB < 30 and STAGES.get("caw"):
     STAGES["caw"] = False
     print(f"Code-as-World-VL-9B skipped: needs >= 30 GB, this GPU has {VRAM_GB:.0f} GB")
+if VRAM_GB < EXTRA_DIRECT_MIN_GB and STAGES.get("direct_extra") and EXTRA_DIRECT:
+    STAGES["direct_extra"] = False
+    print(f"extra direct models {list(EXTRA_DIRECT.values())} skipped: need >= {EXTRA_DIRECT_MIN_GB} GB")
 print(f"GPU {GPU_NAME} ({VRAM_GB:.0f} GB) -> Qwen {MODEL} ({BACKEND}), SAM 2 {SAM_MODEL}, detector {DETECTOR}, "
-      f"Code-as-World {'on' if STAGES.get('caw') else 'off'}")
+      f"Code-as-World {'on' if STAGES.get('caw') else 'off'}, "
+      f"extra direct {list(EXTRA_DIRECT) if STAGES.get('direct_extra') else 'off'}")
 ''')
 
 md("""
@@ -268,7 +281,8 @@ md("""
 `huggingface_hub.snapshot_download` into Drive (`data/QuantiPhy-validation`, and `data/QuantiPhy` when the
 test split is used), the official submission template (re-downloaded each session; the old copy is kept
 if the site is unreachable), then an rsync to the repo's local `data/` for fast reads. Also checks that
-the chosen Qwen model id exists on the Hub (falls back to the 8B model).
+the chosen Qwen model id exists on the Hub (falls back to the 8B model) and drops `EXTRA_DIRECT` models that
+do not.
 """)
 code('''
 DATA_DRIVE = f"{DRIVE_ROOT}/data"
@@ -305,6 +319,11 @@ CHECK_MODEL = "import sys\\nfrom huggingface_hub import model_info\\nmodel_info(
 if pyrun(CHECK_MODEL, MODEL)[0]:
     print(f"{MODEL} not found on the Hub; using {FALLBACK_MODEL}")
     MODEL = FALLBACK_MODEL
+if STAGES.get("direct_extra"):
+    for _name, _model in list(EXTRA_DIRECT.items()):
+        if pyrun(CHECK_MODEL, _model)[0]:
+            print(f"{_model} not found on the Hub: its direct stage is skipped")
+            EXTRA_DIRECT.pop(_name)
 ''')
 
 md("""
@@ -372,8 +391,11 @@ else:
 md("""
 ## 7. Stage helpers
 Output folders per split: `outputs/<RUN_NAME>/<split>/qwen` (specs, grounding tracks, direct answers),
-`.../caw` (Code-as-World answers) and `.../cv` (CV track records + cache). A failing stage is reported
-and the next stages still run (they fall back where they can); the summary cell lists failures.
+`.../caw` (Code-as-World answers), `.../cv` (CV track records + cache), `.../cvq` (CV tracks prompted with
+Qwen's boxes) and one folder per `EXTRA_DIRECT` model. A failing stage is reported and the next stages
+still run (they fall back where they can); the summary cell lists failures. Every stage reuses what is
+already on Drive (finished videos are skipped; a model is not even loaded when nothing is left to do), so
+a re-run only computes new stages or missing videos.
 """)
 code('''
 LIM = f" --limit-videos {LIMIT_VIDEOS}" if LIMIT_VIDEOS else ""
@@ -536,6 +558,43 @@ for split in SPLITS:
 ''')
 
 md("""
+## 13b. CV tracks prompted with Qwen's boxes (`cvq`)
+SAM 2 again, but each object's prompt is the box Qwen3-VL grounded for the same question and role (the
+`qwen/annotate/` records of section 10; their boxes are in original video pixels) instead of the Grounding
+DINO pick, which often lands on the wrong instance: the keyframe is Qwen's most consistent box
+(`CVQ_FRAMES` > 1 adds conditioning frames), a detection overlapping it by `CVQ_REFINE_IOU` tightens it,
+and objects Qwen has no box for fall back to the detector. Writes `cvq/annotate/`, `cvq/cv_geometry.csv`
+and, with the same direct-answer fallback as section 13, `cvq/geometry.csv`.
+""")
+code('''
+for split in SPLITS:
+    q, a, cq = out_dir(split, "qwen"), out_dir(split, "caw"), out_dir(split, "cvq")
+    stage("cvq", split, f"python scripts/run_cv.py --split {split} --specs {q}/specs --qwen-boxes {q}/annotate --qwen-frames {CVQ_FRAMES} --qwen-refine-iou {CVQ_REFINE_IOU} --out {cq}/annotate --detector {DETECTOR} --sam-model {SAM_MODEL} --solve{LIM}")
+    fb = next((f for f in (f"{a}/caw.csv", f"{q}/direct.csv") if os.path.exists(f)), None)
+    DF = f" --direct-from {fb}" if fb else ""
+    if os.path.exists(f"{cq}/annotate"):
+        stage("geometry", split, f"python scripts/run_open_vlm.py --split {split} --task geometry --name {RUN_NAME} --out {cq} --specs-from {q}/specs{DF}{LIM}")
+push_outputs("interim-cvq")
+''')
+
+md("""
+## 13c. More open-weight direct answerers (`EXTRA_DIRECT`)
+Each model answers every question with the same prompt and frames as the Qwen3-VL direct stage (32 uniform
+frames, the starter-kit zero-shot prompt) and writes `<name>/direct.csv`; their answers join the median
+(section 15b). Defaults: Qwen3.5-27B (natively multimodal successor of Qwen3-VL; thinking is switched off)
+and Gemma-4-31B-it (a different model family, which is what helps a median). A model that fails to load
+(e.g. an architecture the installed vLLM lacks, or out of memory) stops only its own stage, which the
+summary lists; outputs are pushed after each model.
+""")
+code('''
+for name, model in EXTRA_DIRECT.items():
+    print(f"--- {name}: {model}")
+    for split in SPLITS:
+        stage("direct_extra", split, f"python scripts/run_open_vlm.py --split {split} --task direct --name {RUN_NAME}_{name} --out {out_dir(split, name)} --model {model} --backend {BACKEND}{LIM}")
+    push_outputs(f"interim-{name}")
+''')
+
+md("""
 ## 14. Scores on validation
 MRA of every method that produced a CSV (`scripts/score.py`), saved to `outputs/<RUN_NAME>/val/scores.csv`;
 the best one is used for the test submission when `SUBMISSION_FROM = "auto"`. 159 questions: differences
@@ -543,7 +602,10 @@ under ~0.03 are noise.
 """)
 code('''
 METHODS = {"qwen_direct": "qwen/direct.csv", "caw_direct": "caw/caw.csv", "qwen_geometry": "qwen/geometry.csv",
-           "cv_geometry": "cv/geometry.csv", "cv_geometry_only": "cv/cv_geometry.csv"}
+           "cv_geometry": "cv/geometry.csv", "cv_geometry_only": "cv/cv_geometry.csv",
+           "cvq_geometry": "cvq/geometry.csv", "cvq_geometry_only": "cvq/cv_geometry.csv",
+           "qwen35_direct": "qwen35/direct.csv", "gemma4_direct": "gemma4/direct.csv"}
+METHODS.update({f"{n}_direct": f"{n}/direct.csv" for n in EXTRA_DIRECT})
 SCORE = r"""
 import sys
 import pandas as pd
@@ -585,7 +647,7 @@ Upload it on the portal (3 scored uploads per day).
 code('''
 if "test" in SPLITS and STAGES.get("submission", True):
     TEST = f"outputs/{RUN_NAME}/test"
-    order = ["qwen_geometry", "cv_geometry", "caw_direct", "qwen_direct"]
+    order = ["cvq_geometry", "qwen_geometry", "cv_geometry", "caw_direct", "qwen_direct"]
     if SUBMISSION_FROM == "auto" and os.path.exists(f"{VAL}/scores.csv"):
         _, out = pyrun("import sys, pandas as pd\\nprint('BEST', ' '.join(pd.read_csv(sys.argv[1]).method))",
                        f"{VAL}/scores.csv")
@@ -612,6 +674,22 @@ if "test" in SPLITS and STAGES.get("submission", True):
             print("submission file on Drive:", f"{DRIVE_ROOT}/{sub}")
 else:
     print("skipped (needs the test split)")
+''')
+
+md("""
+## 15b. Median-of-methods submission (`scripts/trackb_build.py --combine median`)
+Per test question, the log-space median of the open-model answers present on both splits (Qwen direct,
+Code-as-World, Qwen geometry, CV geometry, Qwen-prompted CV geometry and the `EXTRA_DIRECT` models; the
+median of the first four scored 0.589 on validation against 0.545 for the best single method). It prints
+each method's validation MRA, the median's, and the median with each member left out, then post-processes
+(with `POSTPROCESS`) and writes `outputs/<RUN_NAME>/submissions/<RUN_NAME>_median.csv`. Needs both splits.
+""")
+code('''
+if all(os.path.isdir(f"outputs/{RUN_NAME}/{s}") for s in ("val", "test")) and STAGES.get("combine", True):
+    NOPP = "" if POSTPROCESS else " --no-postprocess"
+    stage("combine", "test", f"python scripts/trackb_build.py outputs/{RUN_NAME} outputs/{RUN_NAME}/submissions/{RUN_NAME}_median.csv --combine median{NOPP}")
+else:
+    print("skipped (needs val and test outputs)")
 ''')
 
 md("""

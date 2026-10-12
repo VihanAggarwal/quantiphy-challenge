@@ -890,3 +890,85 @@ def test_vllm_generate_runs_without_tqdm(monkeypatch):
     c._logit_bias = lambda: None
     assert c._generate_vllm([(None, [1, 2], None, {})]) == ["ok"]
     assert seen == [False, False]
+
+
+# --------------------------------------------------------------------------- other open VLMs (direct answers)
+
+def test_chat_prompt_turns_thinking_off_and_video_kwargs_per_family():
+    """Qwen3.5 thinks unless the template gets enable_thinking=False (its template then closes an empty
+    <think> block); Gemma 4's vLLM path sizes video frames itself, so it gets no Qwen pixel budget."""
+    seen = {}
+    proc = SimpleNamespace(apply_chat_template=lambda m, **kw: seen.update(kw) or "prompt")
+    assert Q.chat_prompt(proc, [{"role": "user", "content": "hi"}]) == "prompt"
+    assert seen == {"tokenize": False, "add_generation_prompt": True, "enable_thinking": False}
+    frames = np.zeros((4, 64, 96, 3), np.uint8)
+    for m in ("Qwen/Qwen3-VL-32B-Instruct-FP8", "Qwen/Qwen3.5-27B", "MirroS-Lab/Code-as-World-VL-9B"):
+        assert Q.video_kwargs_for(m, frames) == Q.video_kwargs(frames), m
+    assert Q.video_kwargs_for("google/gemma-4-31B-it", frames) == {}
+    assert Q.video_kwargs_for("google/gemma-4-31B-it", frames, "hf") == {"do_sample_frames": False}
+    assert Q.QwenVL("gemma4-31b", backend=FakeBackend(str)).model == "google/gemma-4-31B-it"
+    assert Q.QwenVL("qwen3.5-27b", backend=FakeBackend(str)).model == "Qwen/Qwen3.5-27B"
+
+
+def test_vllm_inputs_per_model_family(monkeypatch):
+    import types
+    fake = types.ModuleType("vllm")
+    fake.SamplingParams = lambda **kw: kw
+    monkeypatch.setitem(sys.modules, "vllm", fake)
+    got = []
+
+    class _LLM:
+        def generate(self, inputs, params, use_tqdm=True):
+            got.extend(inputs)
+            return [SimpleNamespace(outputs=[SimpleNamespace(text="1 m")]) for _ in inputs]
+
+    frames = np.zeros((4, 64, 96, 3), np.uint8)
+    req = Q.Request(messages=[{"role": "user", "content": [{"type": "video"}, {"type": "text", "text": "q"}]}],
+                    video=(frames, {"fps": 24.0, "frames_indices": [0, 1, 2, 3]}))
+    for model, has_kwargs in (("Qwen/Qwen3.5-27B", True), ("google/gemma-4-31B-it", False)):
+        b = Q.VLLMBackend.__new__(Q.VLLMBackend)
+        b.model, b.llm = model, _LLM()
+        b.processor = SimpleNamespace(apply_chat_template=lambda m, **kw: f"thinking={kw.get('enable_thinking')}")
+        assert b.generate([req]) == ["1 m"]
+        assert got[-1]["prompt"] == "thinking=False" and got[-1]["multi_modal_data"]["video"][0][0] is frames
+        assert ("mm_processor_kwargs" in got[-1]) is has_kwargs, model
+
+
+def test_backend_load_failure_is_remembered_and_stops_the_cli(tmp_path, monkeypatch):
+    built = []
+
+    def broken(name, model, **kw):
+        built.append(model)
+        raise ValueError("Model architectures ['Gemma4ForConditionalGeneration'] are not supported")
+
+    monkeypatch.setattr(Q, "make_backend", broken)
+    vl = Q.QwenVL("google/gemma-4-31B-it", backend="vllm")
+    for _ in range(2):
+        with pytest.raises(Q.BackendLoadError, match="not supported"):
+            vl.load()
+    assert built == ["google/gemma-4-31B-it"]                    # not rebuilt for every chunk
+    # the CLI stops at once (non-zero exit), before any video, and keeps earlier records
+    videos = tmp_path / "videos"
+    videos.mkdir()
+    (videos / "v1.mp4").write_bytes(b"")
+    csv = tmp_path / "q.csv"
+    pd.DataFrame({"Unnamed: 0": [1], "video_id": "v1", "video_source": "simulation", "video_type": "S2MC", "fps": 24,
+                  "inference_type": "SD", "question": "What is the speed of the ball in m/s?",
+                  "ground_truth_prior": "diameter of the ball = 5cm", "depth_info": "",
+                  "ground_truth_posterior": 1.0}).to_csv(csv, index=False)
+    mod = _load_script()
+    out = tmp_path / "gemma4"
+    with pytest.raises(SystemExit, match="failed to load"):
+        mod.main(["--csv", str(csv), "--video-dir", str(videos), "--task", "direct", "--name", "g", "--out", str(out),
+                  "--model", "gemma4-31b"], runner=Q.QwenVL("gemma4-31b", backend="vllm"))
+    assert not (out / "direct.csv").exists()
+
+
+def test_caw_load_builds_engine_up_front(monkeypatch):
+    c = C.CAW(backend="vllm")
+    calls = []
+    monkeypatch.setattr(c, "_tools", lambda: calls.append("tools"))
+    monkeypatch.setattr(c, "_engine", lambda: calls.append("engine") or "engine")
+    assert c.load() == "engine" and calls == ["tools", "engine"]
+    fake = FakeBackend(str)
+    assert C.CAW(backend=fake).load() is fake
