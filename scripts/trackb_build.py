@@ -98,6 +98,8 @@ def main() -> None:
     ap.add_argument("out")
     ap.add_argument("--min-cell", type=int, default=8)
     ap.add_argument("--no-postprocess", action="store_true")
+    ap.add_argument("--combine", choices=["route", "median"], default="route",
+                    help="median: log-median of qwen_direct, caw, qwen_geo, cv_geo per question (no label-based choice)")
     a = ap.parse_args()
     run = Path(a.run)
     val = kinds(load_validation().set_index("qid"))
@@ -123,10 +125,19 @@ def main() -> None:
     s = item(lovo, val.answer)
     print(f"routing (leave-one-video-out) val MRA {macro(s):.3f}  " + " ".join(f"{c} {s[val.category == c].mean():.3f}" for c in CATS))
 
-    table = route(val, pv, a.min_cell, default)
-    ans = apply(test, pt, table)
-    print("test answered:", f"{ans.notna().mean():.1%}", "| chosen first methods:",
-          pd.Series([table[(r.category, r.tk, r.pk)][0] for _, r in test.iterrows()]).value_counts().to_dict())
+    if a.combine == "median":
+        ms = [m for m in ("qwen_direct", "caw", "qwen_geo", "cv_geo") if m in present]
+        def med(p, idx):
+            L = np.log(np.vstack([p[m].reindex(idx).to_numpy() for m in ms]))
+            return pd.Series(np.exp(np.nanmedian(L, 0)), index=idx)
+        s = item(med(pv, val.index), val.answer)
+        print(f"median of {ms}: val MRA {macro(s):.3f}  " + " ".join(f"{c} {s[val.category == c].mean():.3f}" for c in CATS))
+        ans = med(pt, test.index)
+    else:
+        table = route(val, pv, a.min_cell, default)
+        ans = apply(test, pt, table)
+        print("test answered:", f"{ans.notna().mean():.1%}", "| chosen first methods:",
+              pd.Series([table[(r.category, r.tk, r.pk)][0] for _, r in test.iterrows()]).value_counts().to_dict())
     with tempfile.TemporaryDirectory() as td:
         raw = Path(td) / "raw.csv"
         pd.DataFrame({"id": ans.index, "parsed_value": ans.values}).to_csv(raw, index=False)
