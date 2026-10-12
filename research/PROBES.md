@@ -425,3 +425,41 @@ Pilot before any spend (free part done here; the gate costs ~$1-2): pre-register
 ~40 rows in ~15 videos; the facts are exact labels by the same procedure, and fact rows stay protected in the
 submission, so the pilot changes nothing it scores); price it first with `scripts/run_claude.py --dry-run
 --local-estimate` (no API call). If the gate fails, keep the money (validation and test facts both predict it will).
+
+## Internet label emulation (2026-10-12): candidates on probe 8 (`research/internet/`)
+Test inputs only for evidence; validation labels only in `eval_val.py`. Internet = S2 203 / D2 217 rows (S2 ~191 / D2
+~200 scored). Findings:
+- **No shared scale convention left to emulate.** Validation internet rows already score .91 (29 rows, every run
+  .86-.92). S2 size-prior answers are physically plausible clip by clip (pickleball court 13.41 = regulation, MacBook
+  35.5 x 24.7, dollar bill 154.6); lane-width clips read cars ~5.7 m long, as does the validation label (5.81), so the
+  ruler convention is matched. Gravity clips with container fps = dataset fps read physical sizes (rim 3.04 m,
+  basketball 24.7 cm, ping-pong ball 4.2 cm).
+- **Time base.** Segmented twins re-encoded from 24/25 fps carry regular duplicate frames (0001s/0002s/0003s/0026s/
+  0027s; 0025, 0039, 0012 too) and internet_0029 drops every 6th frame (60 -> 50 fps: steps 24, 25, 58, 33, ... px):
+  its gravity scale differs by up to (60/50)^2 between a smooth fit and consecutive-frame differences, so the label
+  cannot be pinned; left alone.
+- **Forward differences (FWD).** Timed speeds as |p(i+1) - p(i)| * fps on the fitted track (App. D.3), incl. the
+  scale of clips whose prior is a timed speed. Validation: 3 changed rows, mean |log err| .040 -> .026 (0019 ball
+  3.54 -> 3.68 vs label 3.70), item scores unchanged (all 1.0).
+- **Window accelerations (WINACC).** "Acceleration from 0s-2s to 2s-4.5s" etc.: (v2 - v1)/(midpoint gap) from the
+  window speeds the sibling questions ask, instead of a parabola's curvature (0039 swimmer 0.079 -> 0.012; Claude's
+  direct 0.02).
+- **Families.** Segmented twins not copied by probe 8 because the wording differs ("speed" / "average speed",
+  "9.8m/s"): log-mean of twin and original (0001s, 0002s, 0019s). The toy acorn of 0061 / 0067 / 0068 is one object:
+  0067 states its height 8 cm -> the two other "height of the acorn" rows.
+- **Open question, one upload decides (PHYSB).** Clips whose in-clip scale contradicts their own scene family: desk
+  0043 (prior 33.38 cm/s) reads the same bottles / kettle 2.35x smaller than 0044 (gravity) and 0045 (107.3 cm/s, which
+  agree); the scooter rider (same person and scooter in 0049-0056) reads 1.14 / 2.45 / 2.83 m in 0051 / 0053 / 0054 vs
+  1.58-1.64 m elsewhere, while his pixel speed is ~1.8 body heights/s in every clip (stated speeds 2.07-4.9 m/s do not
+  follow it). Rescaled, the scooter reads 1.09 m in 0053 and 0054 and 1.07 m in 0052. If the labels are physical
+  (the annotators' stated speed carries an error their labels do not), D2 gains ~+.012; if labels follow the stated
+  prior (D2-static's reading; validation 0005/0013 cannot tell the two apart because their priors are plausible), D2
+  loses ~.012. 29 D2 rows; use as a probe, not in a best-of file unless it wins.
+| Candidate | rows | expected (estimate) |
+|---|---|---|
+| `trackA_cand_internet_fwd_on_p8.csv` | S2 19, D2 36 (median x1.011, cap 15%) | S2 +.000..+.001, D2 +.000..+.001 |
+| `trackA_cand_internet_winacc_on_p8.csv` | S2 5 (0032 x1.20-1.24, 0037 x1.12, 0039 x0.15) | S2 -.001..+.004 |
+| `trackA_cand_internet_fam_on_p8.csv` | S2 2, D2 9 scored (+ unscored val-overlap originals) | +.000..+.001 |
+| `trackA_cand_internet_main_on_p8.csv` | fwd + winacc + fam: S2 28, D2 50 | S2 +.000..+.005, D2 +.000..+.002 |
+| `trackA_cand_internet_physb_on_p8.csv` | D2 29 (0043 x2.35; 0051 x1.42, 0053 x0.66, 0054 x0.57) | D2 +-.012 (hypothesis test) |
+Internet alone cannot carry the run to .85: even perfect internet rows (from ~.85-.90 to 1.0) add ~+.015 overall.
