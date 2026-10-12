@@ -37,10 +37,19 @@ def main() -> None:
     if spent() + worst > args.cap_usd:
         raise SystemExit("refused: would exceed the cap")
 
+    import time
+
     import openai
-    r = openai.OpenAI().responses.create(model=args.model, reasoning={"effort": args.effort},
-                                         max_output_tokens=args.max_output,
-                                         input=[{"role": "user", "content": prompt}])
+    client = openai.OpenAI()
+    # background mode + polling: a long high-effort request otherwise holds one connection open for many
+    # minutes, and the proxy drops it ("Server disconnected without sending a response")
+    r = client.responses.create(model=args.model, reasoning={"effort": args.effort},
+                                max_output_tokens=args.max_output, background=True,
+                                input=[{"role": "user", "content": prompt}])
+    print(f"queued {r.id}", flush=True)
+    while r.status in ("queued", "in_progress"):
+        time.sleep(15)
+        r = client.responses.retrieve(r.id)
     usd = price(args.model, r.usage)
     with LEDGER.open("a") as fh:
         fh.write(json.dumps({"ts": datetime.now(timezone.utc).isoformat(), "run": "consult",

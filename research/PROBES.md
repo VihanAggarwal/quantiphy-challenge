@@ -609,3 +609,20 @@ mismatches are direct-answer errors, not a prior scale.
 - In 2D, Claude's direct answers ~= its geometry (switch probes 22/23 change few rows).
 Path to top 5 (+.012): p21 (~.810) + physb2 (~+.0015) + S3 lab-noise tuning (probes 14/19/20, ~+.002) + whatever the
 diagnostic E/F map exposes.
+
+## 2026-10-12: outside ideas on the 3D gap (Gemini, Claude research session), quick checks
+
+Sources: `research/consult/brief_2026-10-12_3d.md` (brief), `gemini_2026-10-12_3d.txt`, `claude_research_2026-10-12_3d.md`.
+- Lab near-surface depth (size = px * (Z_click + r) / f): REFUTED on the 41 stated lab ball sizes. With the current
+  range convention the balls already read 1.056x stated (non-balls 1.085x); near-surface makes it 1.091x. (The
+  0.94x in the brief was an older measurement.)
+- Cross-clip asset table (a size stated as a prior anywhere on test answers the same noun elsewhere): 236 test
+  hits, but on validation only 4 of 10 hits are right (generic nouns "boat", "ball", "cup", "soccer ball" are
+  different props/assets); the right ones are already family facts. Not adopted.
+- Spread-driven MRA shading (median x exp(-k s^2), s = log-sd of the 3 Claude runs) on 3D non-lab: validation
+  (52 q, 120 run triples) k=0.5/1/2 -> -.005/-.010/-.021; test stated facts (110) -> -.001/-.004/-.009. Rejected.
+- Sent to the simfov agent (focal from MoGe-2 / DepthPro on 3D sim clips): sim depth = range to the Blender
+  object origin, Blender sensor-fit AUTO f_px = F/36 * max(W, H) with standard lenses, size labels = world box
+  dimensions, sim acceleration = d|v|/dt from backward-differenced speeds.
+- Open: per-event lab label-noise calibration from the stated prior (D3 lab), forward-difference timing
+  (+1/50 s), whether lab labels were smoothed (printed lab accelerations look too clean for raw 2nd differences).
