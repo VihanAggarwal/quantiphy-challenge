@@ -359,3 +359,32 @@ under either calibration the 42 rows stay within ~4.5%). Validation premise (ove
 0021x table 60 x 75 (cand 1.0/1.0 vs p8 1.0/0.9), 0013 pen 14.5 (cand 1.0 vs 0.7); the val table and pen labels
 had been seen during the study, so these are not independent checks. All three candidates change only lab size
 rows, disjoint from p16's lab-noise rows, so they compose with `trackA_best_p16_p8_labnoiseS3D3.csv` directly.
+
+## D2 static targets under motion priors (2026-10-12): no systematic convention found; one small fix
+`research/d2static/` (test inputs only; validation labels only in `val_bias.py`). Five hypotheses, each checked on
+test-side evidence:
+- **Stated facts (leave-one-fact-out, raw pipeline answers).** D2 sizes vs a family-stated size: under speed priors
+  median 1.025 (n=5, 0.994-1.028), under acceleration priors 0.996 (n=11, 0.952-1.014); D2 speeds under accel priors
+  0.948 (n=2), accels under speed priors 1.026 (n=2). Same object/question answered under a size prior (S2) in another
+  camera vs under a motion prior (D2): median log ratio 0.000 (accel, 71 pairs) / +0.009 (speed, 32 pairs), but only
+  13 D2 clips have such partners. No scale bias beyond ~2%; the only deviations (0068/0069 and 0085/0086 cars
+  accelerating from rest, ~-4.6%) are two scenes, too few to generalise.
+- **H1 untimed speed priors** (111 D2 clips, 481 static rows): the prior object's pixel speed is constant (thirds
+  within ~10%) in all but one family; 0189 box (lifted, speed x0.5 -> x1.5 over the clip, 10 rows) is the only
+  accelerating one, and its sizes already agree with the size-prior sibling 0190 within ~4%. Not a lever.
+- **H2 untimed accel priors** (72 clips): profiles are uniform acceleration (from rest r_start ~0 / r_end ~2, or
+  linear deceleration); fit = label convention. No change.
+- **H3 time base**: container vs dataset fps differs for 83 videos; in D2 only 0257/0258 (30 vs 24; their sizes match
+  0259/0260, whose container is 30, so dataset fps is right) and 0284-0287 (25 vs 24; no anchor). No free-fall
+  anchors exist in size-prior 2D sims. Not testable further; no change.
+- **H5 internet**: scene series with inconsistent stated priors (desk 0043/0044/0045: same bottles 12.6 / 29.4 /
+  34.6 cm; scooter rider 1.14-2.83 m). Validation internet clips follow the in-clip prior (ratios ~1.0), so answers stay
+  in-clip. **Found a real bug**: internet_0060-0063 are portrait phone videos stored sideways (gravity along image
+  x; `rot_detect.py`, |a_x|/|a_y| 28-280), so the forced-vertical gravity prior fails ("prior_motion_below_noise") and
+  all 24 rows fell back to Claude's direct guess. `rotated_gravity.py` re-solves them with tracks rotated 90 deg.
+  Claude's direct answers had already done the same arithmetic, so values move only 0-7% (median |change| 3%).
+| Candidate | rows | expected |
+|---|---|---|
+| `trackA_cand_d2static_rotgrav_on_p8.csv` | D2 24 (internet 0060-0063) | D2 +0.000..+0.001 (geometry vs direct on validation D2: .897 vs .878) |
+Conclusion: D2 static loss is per-question extent / definition error, not a shared convention; getting D2 to ~.87
+would need better extents (zoom pilot, size envelope) rather than scale corrections.
