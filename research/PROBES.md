@@ -588,3 +588,12 @@ mismatches are direct-answer errors, not a prior scale.
 | Candidate | rows | expected (estimate, label scatter 8%) |
 |---|---|---|
 | `trackA_cand_physb2_on_p21.csv` | D2 30 (0055 8, 0069 8, 0045 6, 0047 6, acorn 2) | D2 +.007 if physical, -.005 if in-clip; ~+.005 D2 (+.001 overall) at the PHYSB hit rate |
+
+## Next uploads on p21 (2026-10-12): method switches and a complete loss map
+- probe22 `trackA_probe22_p21_switch_direct.csv`: S2 internet, D2 sim static, S3 lab static, D3 lab static -> Claude direct
+  (only pure-pipeline geometry rows; in 2D direct ~= geometry: 5-7 of 132-228 rows move >10%, so small effects).
+- probe23 `trackA_probe23_p21_switch_gm.csv`: S2 sim motion -> gm(geo,direct), D2 internet -> direct, S3/D3 lab static -> gm.
+- diagE/diagF (`trackA_diagE_on_p21.csv`, `trackA_diagF_on_p21.csv`): complementary zeroings that partition every
+  category (E: S2 sim 362, D2 sim static 719, S3 non-lab 221, D3 lab static 334 scored; F: the rest). Subset mean =
+  (p21 - diag) * N_scored / n_scored; E and F must add up to p21 (consistency check). Purpose: find the subset where
+  a +0.02 overall jump could come from (needs ~+.08 in one category).
