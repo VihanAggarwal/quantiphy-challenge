@@ -65,13 +65,14 @@ def main(argv=None):
     ap.add_argument("--size", default="mean", choices=["mean", "cv", "qwen"])
     ap.add_argument("--no-prior-pick", action="store_true")
     ap.add_argument("--tag", default="")
+    ap.add_argument("--cv-src", default="cvq", help="SAM 2 source: cvq (prompted by Qwen's boxes) or cv")
     a = ap.parse_args(argv)
     df = questions(a.split)
     _, _, meta = annotations(a.split, "qwen", df)
     dtag = "qwen_dense" if a.split == "val" else "qwen_dense_labfov"
     dense = pickle.load(open(CACHE / f"anns_{a.split}_{dtag}.pkl", "rb"))
     picks = {} if a.no_prior_pick else pickle.load(open(CACHE / f"prior_tracks_{a.split}.pkl", "rb"))
-    cvrec = tracks(a.split, "cv")
+    cvrec = tracks(a.split, a.cv_src)
     rows, used = [], []
     for r in df.itertuples():
         q = int(r.qid)
@@ -117,7 +118,7 @@ def main(argv=None):
                    flags=";".join(ans.flags), method=ans.method or "", prior_px=ans.debug.get("prior_px", np.nan),
                    target_px=ans.debug.get("target_px", np.nan))
         rows.append(row)
-    tag = a.tag or f"hybrid_{a.size}{'_labfov' if a.lab_fov else ''}"
+    tag = a.tag or f"hybrid_{a.cv_src}_{a.size}{'_nopick' if a.no_prior_pick else ''}{'_labfov' if a.lab_fov else ''}"
     pd.DataFrame(rows).to_csv(OUT / a.split / f"{tag}.csv", index=False)
     print(tag, pd.Series(used).value_counts().to_dict())
 

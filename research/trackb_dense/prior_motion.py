@@ -15,6 +15,7 @@ measurements (px, px/s, px/s^2) are then combined by a rule fixed before scoring
            same coverage / residual checks
   seg      white-background clips (X_segmented, or X's segmented twin: pixel-aligned re-render) -> the
            foreground mask followed from the anchor (dyn.seg_track); same gates
+  cvq      SAM 2 prompted with Qwen's boxes (Colab run cvq), gated like cv
   cv       the SAM 2 (Grounding DINO) prior track of the same question when its boxes agree with Qwen's clean
            boxes (median IoU >= 0.5 over common times)
   dense    qp.dense_track on Qwen's boxes (Track A post-step; from the qwen_dense annotations)
@@ -46,7 +47,7 @@ HALVES_MAX = 0.04
 COVER_MIN = 0.9
 IOU_MIN = 0.5
 AGREE = 0.08              # |log| within which two candidates agree
-PRIORITY = ("seg", "klt", "mask", "cv", "dense", "clean", "sparse")
+PRIORITY = ("seg", "klt", "mask", "cvq", "cv", "dense", "clean", "sparse")
 
 
 # --------------------------------------------------------------------------- Qwen box cleaning
@@ -213,7 +214,7 @@ def cv_agreement(qobs, cvtr: RoleTrack | None, fps: float) -> float:
 
 
 def candidates(split, video_path, fps, prior_tr: RoleTrack, cv_tr: RoleTrack | None, dense_tr: RoleTrack | None,
-               do_track: bool = True):
+               do_track: bool = True, cvq_tr: RoleTrack | None = None):
     """name -> (RoleTrack, info) of the prior's candidate tracks (gated), for one question."""
     out, info = {"sparse": (prior_tr, {})}, {}
     t, C, S = _centres(prior_tr.obs)
@@ -230,6 +231,10 @@ def candidates(split, video_path, fps, prior_tr: RoleTrack, cv_tr: RoleTrack | N
     info["cv_iou"] = agree
     if cv_tr is not None and agree >= IOU_MIN:
         out["cv"] = (cv_tr, {"iou": agree})
+    agq = cv_agreement(clean_obs, cvq_tr, fps)
+    info["cvq_iou"] = agq
+    if cvq_tr is not None and agq >= IOU_MIN:
+        out["cvq"] = (cvq_tr, {"iou": agq})
     if dense_tr is not None and any(o.point is not None for o in dense_tr.obs) and dense_tr.source == "dense":
         out["dense"] = (dense_tr, {})
     if not do_track:

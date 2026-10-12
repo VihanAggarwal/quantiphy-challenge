@@ -32,7 +32,7 @@ def job(item):
     vid, rows = item
     out = []
     for r in rows:
-        q, spec, sparse, dense, cvtr, path, fps, size = r
+        q, spec, sparse, dense, cvtr, path, fps, size, cvqtr = r
         prior = next((t for t in sparse if t.role == "prior"), None)
         dprior = next((t for t in dense if t.role == "prior"), None)
         rec = dict(id=q, video_id=vid)
@@ -41,7 +41,7 @@ def job(item):
             out.append(rec)
             continue
         try:
-            cands, info = PM.candidates(ARGS["split"], path, fps, prior, cvtr, dprior)
+            cands, info = PM.candidates(ARGS["split"], path, fps, prior, cvtr, dprior, cvq_tr=cvqtr)
         except Exception as e:  # noqa: BLE001
             rec["skip"] = f"error:{type(e).__name__}:{e}"
             out.append(rec)
@@ -78,6 +78,7 @@ def main(argv=None):
     dtag = a.dense_tag or ("qwen_dense" if a.split == "val" else "qwen_dense_labfov")
     dense = pickle.load(open(CACHE / f"anns_{a.split}_{dtag}.pkl", "rb"))
     cvrec = tracks(a.split, "cv")
+    cvqrec = tracks(a.split, "cvq")
     by = {}
     for r in df.itertuples():
         q = int(r.qid)
@@ -92,8 +93,12 @@ def main(argv=None):
         rec = cvrec.get(r.video_id)
         if rec and str(q) in rec.get("tracks", {}):
             cv = next((RoleTrack.from_dict(t) for t in rec["tracks"][str(q)] if t["role"] == "prior"), None)
+        cvq = None
+        rec = cvqrec.get(r.video_id)
+        if rec and str(q) in rec.get("tracks", {}):
+            cvq = next((RoleTrack.from_dict(t) for t in rec["tracks"][str(q)] if t["role"] == "prior"), None)
         by.setdefault(r.video_id, []).append((q, dense[q].spec, sparse[q].tracks, dense[q].tracks, cv, paths[q],
-                                              meta[q][0], meta[q][1]))
+                                              meta[q][0], meta[q][1], cvq))
     items = sorted(by.items())
     print(len(items), "videos", sum(len(v) for _, v in items), "questions", flush=True)
     rows = []

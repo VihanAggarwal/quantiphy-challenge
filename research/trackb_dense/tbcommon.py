@@ -20,7 +20,7 @@ from qp.data import load_split, load_validation  # noqa: E402
 from qp.mra import THRESHOLDS  # noqa: E402
 from qp.spec import KIND_DIM, QuestionSpec, RoleTrack  # noqa: E402
 
-RUN = Path("/tmp/claude-0/tb2/x/trackb_v1")
+RUN = Path("/tmp/claude-0/tb3/x/trackb_v1")
 HERE = Path(__file__).resolve().parent
 OUT = HERE / "out"
 CACHE = Path("/tmp/claude-0/trackb_dense_cache")          # heavy CPU caches (dense tracks, KLT)
@@ -69,7 +69,8 @@ def read_csv(path: Path, index) -> pd.Series:
 
 
 BASE = {"qwen_direct": "qwen/direct.csv", "caw": "caw/caw.csv", "qwen_geo": "qwen/geometry.csv",
-        "cv_geo": "cv/geometry.csv"}
+        "cv_geo": "cv/geometry.csv", "cvq_geo": "cvq/geometry.csv", "qwen35": "qwen35/direct.csv",
+        "gemma4": "gemma4/direct.csv"}
 
 
 def base_preds(split: str, index) -> dict[str, pd.Series]:
