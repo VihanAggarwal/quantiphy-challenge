@@ -537,3 +537,9 @@ Row-level merges (`research/merge/merge_rows.py`, refuses conflicting edits). Ca
 | 18 `trackA_probe18_p16_physb_sizeenv_sim3d.csv` | size envelope (49) | internet PHYSB hypothesis (29; expect loss) | sim3d motion families, guard (15) | sim3d motion families (9) |
 Plus probe 14 (S3 lab-noise sz 4 cm vs probe 8; D3 lab motion x1.15). Expected: 17 ~ +.002..+.004 overall;
 18 mostly a hypothesis/bracket test. Re-asks: not worth the money (~+.005 for $35).
+
+## Probes 19 and 20: decompose the S3 lab-noise gain (+.015) and push D3 emulator strength (on p16)
+`research/labnoise/build_decomp.py`. 19: S3 = p16 minus the 18 small-ball path-length rows (x1.54); D3 = emulator 3 cm.
+20: S3 = p16 minus the 36 mid-ball speed rows (x1.29); D3 = emulator 4 cm. S2/D2 = p16. Model-expected S3 split:
+path 3.0, mid-ball speed 1.9, small-ball speed 2.3 item points (of ~8.4 / 538 scored = ~+.016). Upload after 17/18/14
+if the S3 lever needs refining; whichever part loses gets reverted, the winning parts get a stronger setting.
