@@ -551,3 +551,6 @@ Gross misses (>2x off) 40-60% on D2 sizes and D3 distances. Model-free family ru
 (preset "trackb": facts, motionfam, freefall, labfacts, pool): validation .604 (`trackB_v2_median4_famrules.csv`);
 stated facts +.013 (7/7 exact), pool unconfirmed by LOVO but +.06 per row on test-side held-out facts.
 Next run (notebook d463467): Qwen-box-prompted SAM 2 (cvq) + Qwen3.5-27B + Gemma-4-31B direct answers in the median.
+Track B v3 (`trackB_v3_catmedian_famrules.csv`): per-category median members (S2 caw+cv_geo+qwen_direct; D2 all 4;
+S3 cv_geo+qwen_geo+qwen_direct; D3 caw+qwen_geo+qwen_direct; chosen by validation, LOVO .6035 vs .5887 for all 4)
++ preset "trackb" family rules (919 rows changed). Expected ~.61-.63.
