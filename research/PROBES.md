@@ -510,3 +510,20 @@ or is built. Budget confirmed from the ledger: usage $137.40, all 46 holds relea
 - Arithmetic bound: about 61% of scored rows can still move, so +.01 overall needs >= +.016 per moved row. The best
   full-run median on validation gives +.003 per row, and $62 buys about 1.5 test-wide v1-high runs. Re-asks can't
   reach +.01. Corrected total for the ~$35 plan: about +.004 to +.007 (estimate).
+
+## Review of the internet study (2026-10-12, `research/verify_internet/`)
+Re-ran `eval_val.py` (FWD on validation: 3 rows, |log err| .040 -> .026, item scores unchanged = measured gain 0) and
+the builder's numbers (PHYSB desk ratios 2.02-2.53, rider heights) - all reproduce. All 5 CSVs are clean (3289 rows,
+template order, finite > 0, only internet rows of the claimed categories differ; no stated-fact row changed).
+Problems: (1) TWIN premise is testable on the 7 twins whose original is a validation question (evaluation only):
+item sum 6.4 -> 6.4, mean |log err| .0723 -> .0742 -> no benefit, dropped. (2) WINACC 0039 (x0.15) rests on window
+speeds that differ by 1.9% (0.7556 / 0.7416), below the ~4% internet speed precision: the value is noise; dropped by
+a gate |dv| >= 5% of v (keeps 0032 x3, 0037). (3) FWD changes internet_0029 (+4-5%) although the study itself
+found its 60->50 fps frame dropping makes the annotators' one-frame difference ambiguous; undone. (4) PHYSB is not
+symmetric: App. D.3 defines GT = gamma(prior) x pixel quantity, so labels are in-clip unless the annotators' pixel
+speed of the prior differs from ours by 2.35x (0043's ball moves at constant ~19.5 px/frame over frames 24-56);
+D2 -.015 if in-clip, +.015 if physical (= -/+ .004 overall). Precedent: Blender difference-convention emulation looked
+good on validation and lost S2 -.002 on the leaderboard.
+| Candidate | rows | expected (estimate) |
+|---|---|---|
+| `trackA_cand_internet_verified_on_p8.csv` | S2 23, D2 36 (FWD minus 0029; WINACC 0032/0037; acorn 8 cm) | S2 +.000..+.002, D2 +.000..+.001 (unmeasured) |
