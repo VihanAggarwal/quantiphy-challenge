@@ -311,6 +311,16 @@ are measurement failures in specific families, and renders of one event share on
 | `trackA_cand_labdist_emu_on_p8.csv` | 32 (R1 13, R4 12, R2 5, R3 2) | +.004..+.006 if the clicked-point model holds |
 Not changed: 0041 ball-to-person (no person depth), 0018 at 3.0 s (past the clip end; s/x copy only), S3 rows
 (displacement: direct ~ geometry where both ends have depths; paths belong to the labnoise ladder).
+Review (`research/verify_labdist/verify.py`): both CSVs are clean (3289 rows, template order, finite > 0, only
+the claimed D3 rows differ, no stated-fact or validation-overlap rows). R1's premise does not hold as stated: over
+all 6 validation lab families, direct answers score original .671, x render .671, s render .612 (n 35/34/34), so
+copying the original's value into an x render gains about 0 in expectation; the +.070 comes from 4 clips (by clip:
++.04/+.22/+.09/-.03). The 0018s copies are still backed by geometry on the original's tracks, and 0018's two-people
+distance with the stated near/far depths is 226 cm (range), against 230 after the copy. The 0009 emulation passes an
+independent timing check (8 frames contact to apex = 0.544 m rise; emulated 0.530). R2 on 2891 (0054bx soccer
+displacement 0.384 -> 0.444) contradicts R3: 0054bs's 0.444 is already a copy of 0054b (its own geometry is 0.392),
+and 0054b lacks the looming. `trackA_cand_labdist_verified_on_p8.csv` = emu without 2891 (D3 31 rows). Expected
+D3 +.002..+.004 (about 2-4 item points over 933 scored D3 rows), overall about +.001. Estimated, not measured.
 
 ## Result: probe 8 = 0.800 (2026-10-11 23:05, new scoring, 3149 scored rows)
 | | S2 | D2 | S3 | D3 | MRA |

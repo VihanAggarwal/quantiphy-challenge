@@ -1,0 +1,24 @@
+trackA_cand_labdist_fam_on_p8.csv: ok=True rows differ=27 {'D3': 27}
+trackA_cand_labdist_emu_on_p8.csv: ok=True rows differ=32 {'D3': 32}
+validation direct-answer score by render type (6 families):
+typ                 o      s      x
+fam                                
+captured_0013   0.586  0.500  0.643
+captured_0021   0.900  0.920  0.860
+captured_0027   0.650  0.433  0.333
+captured_0034a  0.656  0.567  0.711
+captured_0041   0.467  0.533  0.500
+captured_0061   0.714  0.671  0.729
+      mean  count
+typ              
+o    0.671     35
+s    0.612     34
+x    0.671     34
+R1 premise by clip: [0.04, 0.217, 0.089, -0.033]; clustered 90% CI [+0.003, +0.153]
+0018 two people: stated depths range 226 cm, Z 240 cm, both 2.8 m 219 cm (p8 230 / 249 / 229; R1 sets 0018s 249 -> 230)
+0009 rebound timing: rise 0.544 m (emulated apex-to-floor 0.646 - radius 0.116 = 0.530)
+revert 2891: 0.444095 -> 0.384185 (R2 contradicts R3: 0054b soccer depth is the 2.0 s entry; 0054bs/bx looming geometry 0.39)
+wrote /home/user/quantiphy-challenge/submissions/trackA_cand_labdist_verified_on_p8.csv: 3289 rows, 763 KB, ready to upload
+trackA_cand_labdist_verified_on_p8.csv: ok=True rows differ=31 {'D3': 31}
+trackA_cand_labdist_emu_on_p8.csv: ok=True rows differ=32 {'D3': 32}
+verified = emu minus [2891]
