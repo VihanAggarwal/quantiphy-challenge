@@ -1,0 +1,38 @@
+raw                                                     val MRA 0.5887
+v1 (facts,render,twin)                                  val MRA 0.5938
+facts+                                                  val MRA 0.6012
+facts+ pool[clip,dev=None,tau=0.15]                     val MRA 0.5900
+facts+ pool[clip,dev=None,tau=0.15] +labpool            val MRA 0.5909
+facts+ pool[clip,dev=None,tau=0.0]                      val MRA 0.5883
+facts+ pool[clip,dev=None,tau=0.0] +labpool             val MRA 0.5887
+facts+ pool[clip,dev=1.6,tau=0.15]                      val MRA 0.6027
+facts+ pool[clip,dev=1.6,tau=0.15] +labpool             val MRA 0.6035
+facts+ pool[clip,dev=1.6,tau=0.0]                       val MRA 0.5989
+facts+ pool[clip,dev=1.6,tau=0.0] +labpool              val MRA 0.5992
+facts+ pool[clip,dev=2.0,tau=0.15]                      val MRA 0.6005
+facts+ pool[clip,dev=2.0,tau=0.15] +labpool             val MRA 0.6014
+facts+ pool[clip,dev=2.0,tau=0.0]                       val MRA 0.5989
+facts+ pool[clip,dev=2.0,tau=0.0] +labpool              val MRA 0.5992
+facts+ pool[base,dev=None,tau=0.15]                     val MRA 0.5939
+facts+ pool[base,dev=None,tau=0.15] +labpool            val MRA 0.5915
+facts+ pool[base,dev=None,tau=0.0]                      val MRA 0.5923
+facts+ pool[base,dev=None,tau=0.0] +labpool             val MRA 0.5899
+facts+ pool[base,dev=1.6,tau=0.15]                      val MRA 0.6039
+facts+ pool[base,dev=1.6,tau=0.15] +labpool             val MRA 0.6015
+facts+ pool[base,dev=1.6,tau=0.0]                       val MRA 0.6028
+facts+ pool[base,dev=1.6,tau=0.0] +labpool              val MRA 0.6005
+facts+ pool[base,dev=2.0,tau=0.15]                      val MRA 0.5991
+facts+ pool[base,dev=2.0,tau=0.15] +labpool             val MRA 0.5967
+facts+ pool[base,dev=2.0,tau=0.0]                       val MRA 0.5975
+facts+ pool[base,dev=2.0,tau=0.0] +labpool              val MRA 0.5951
+facts+ kscale pool[base,1.6]                            val MRA 0.5965
+facts+ pool[base,1.6] render                            val MRA 0.6033
+facts+ pool[base,1.6] render twin                       val MRA 0.5957
+
+LOVO choice over 30 configurations: val MRA 0.5923 (raw 0.5887, v1 0.5938, in-sample best 0.6039)
+picks: {
+ "facts+ pool[base,dev=1.6,tau=0.15]": 18,
+ "facts+ pool[clip,dev=1.6,tau=0.15] +labpool": 4,
+ "facts+": 1,
+ "facts+ pool[clip,dev=1.6,tau=0.15]": 1
+}

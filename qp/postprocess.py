@@ -3,7 +3,7 @@
     from qp.postprocess import apply_rules
     new, log = apply_rules(pred, test_df)          # pred: Series of answers indexed by qid
 
-Three rules, ported from the Track A probes (research/PROBES.md, probes 4 and 5). They read only test
+Three default rules, ported from the Track A probes (research/PROBES.md, probes 4 and 5). They read only test
 INPUTS: video ids' structure, frames, and the question / prior / depth_info text of every test question.
 They never read answers (an `answer` column in `test_df` is dropped on entry) and work on any model's
 predictions (Track A Claude runs, Track B open-weight runs).
@@ -38,12 +38,24 @@ facts   Stated-fact transfer (scene-graph "T" and sibling-prior "SIB" of the pro
         skipped when that tier states different values (conflicting facts) or, for a speed, when the
         value is more than `speed_guard` x off the current prediction (the footage contradicts the
         statement: the reviewers' guard for the footage-B person speed of 1.3 m/s).
-        Not ported (Claude-specific or speculative): per-clip scale correction, pooling, lab kind split,
-        single-clip data fixes.
+        Per-clip scale correction and pooling are the extended rules below; not ported (Claude-specific or
+        speculative): lab kind split, single-clip data fixes, label-noise emulation on Claude's tracks.
 
-Order: facts, then render, then twin, so an s/x render or a segmented twin copies its source's FINAL
-answer; a row that received its own stated fact keeps it. Frame-based links are cached under
-runs/_postprocess_cache/ (keyed by file size and mtime), so a re-run is fast.
+Extended rules (Track B, off by default; see the section "extended rules" and research/trackb_rules/):
+motionfam  sim3d motion facts: speeds / accelerations a sibling camera of the same Blender scene states (size-family
+           links), gated by constant speed, 2% agreement and radial consistency with every depth track.
+freefall   a 3D-simulation acceleration at time t whose frames show a vertical fall from rest -> 9.8 m/s^2.
+labfacts   lab prop sizes stated in another lab event (basketball 23.2 cm, tennis ball 6.7 cm, ...).
+kscale     per-clip scale correction from the clip's stated-fact misses (K; D3 by default).
+pool       per-object pooling across the scene family (P; D2 cross-camera pooling, render / twin pooling with
+           scope='base'): trimmed log-mean of one vote per clip or base clip, with spread / own-vote guards.
+labpool    lab prop sizes pooled across events (LAB).
+PRESETS["trackb"] is the set used for the Track B open-weight answers.
+
+Order: facts, motionfam, freefall, labfacts (stated values; protected from the later rules), kscale, pool,
+labpool, render, twin, so an s/x render or a segmented twin copies its source's FINAL answer; a row that
+received its own stated fact keeps it. Frame-based links are cached under runs/_postprocess_cache/ (keyed by
+file size and mtime), so a re-run is fast.
 """
 
 from __future__ import annotations
@@ -64,7 +76,9 @@ from qp.parse import _UNITS, canonical_unit
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_CACHE = ROOT / "runs" / "_postprocess_cache"
-RULES = ("twin", "render", "facts")
+DEFAULT_RULES = ("twin", "render", "facts")
+EXTENDED_RULES = ("motionfam", "freefall", "labfacts", "kscale", "pool", "labpool")
+RULES = DEFAULT_RULES + EXTENDED_RULES
 LOG_COLUMNS = ["qid", "rule", "old", "new", "source_qid", "source_clip", "reason", "applied"]
 
 MOTION_KINDS = ("speed", "acceleration", "displacement", "path_length")
@@ -347,9 +361,14 @@ class FrameCache:
         self.dir = Path(cache_dir) if cache_dir else None
         self._thumbs: dict[str, dict] = {}
         self._twins: dict[str, dict] = {}
+        self._falls: dict[str, dict] = {}
         self._dirty = False
         if not self.dir:
             return
+        try:
+            self._falls.update(json.loads((self.dir / f"falls_v{CACHE_VERSION}.json").read_text()))
+        except (OSError, ValueError):
+            pass
         try:
             self._twins.update(json.loads((self.dir / f"twins_v{CACHE_VERSION}.json").read_text()))
         except (OSError, ValueError):
@@ -401,10 +420,25 @@ class FrameCache:
             self._dirty = True
         return c
 
+    def free_fall(self, video_id: str, path: str, t: float, fps: float) -> bool:
+        key = self._key(path)
+        if key is None:
+            return False
+        name = f"{video_id}|{t:g}|{fps:g}"
+        c = self._falls.get(name)
+        if c is None or c.get("key") != key:
+            c = {"key": key, "fall": free_fall(path, t, fps)}
+            self._falls[name] = c
+            self._dirty = True
+        return bool(c["fall"])
+
     def save(self) -> None:
         if not (self.dir and self._dirty):
             return
         self.dir.mkdir(parents=True, exist_ok=True)
+        p = self.dir / f"falls_v{CACHE_VERSION}.json"
+        p.with_suffix(".tmp").write_text(json.dumps(self._falls, indent=0))
+        p.with_suffix(".tmp").replace(p)
         p = self.dir / f"twins_v{CACHE_VERSION}.json"
         p.with_suffix(".tmp").write_text(json.dumps(self._twins, indent=0))
         p.with_suffix(".tmp").replace(p)
@@ -779,24 +813,488 @@ def _facts_rule(cur, df, frames, log, speed_guard=SPEED_GUARD) -> set[int]:
     return applied
 
 
+# ----------------------------------------------------------------------------- extended rules (Track B)
+#
+# Scene-family rules ported from the Track A probes 5-8 and the 2026-10-12 studies (research/PROBES.md), rebuilt
+# on test inputs only (question / prior / depth_info text, frames) and the answers being post-processed. Every
+# rule is switchable; none is in DEFAULT_RULES. Claude-specific parts of the Track A versions (Claude's tracks,
+# clicks, hand-checked identity tables, eye-verified scene groups, label-noise emulation on Claude's 3D tracks)
+# are not ported.
+
+DIM_OF_KIND = {"size": "L", "distance": "L", "displacement": "L", "path_length": "L", "camera_distance": "L",
+               "speed": "V", "acceleration": "A"}
+POOL_KINDS = ("size", "speed", "acceleration", "displacement", "path_length", "distance")
+POOL_TAU, POOL_CAP2, POOL_SMAX = 0.15, 0.3, 0.5
+LAB_NAME = 0.8           # lab props: object names this close are one prop (Track A lab pooling)
+LAB_SPREAD2, LAB_DEV = 2.0, 1.6
+MF_AGREE, MF_RADIAL = 0.02, 1.05
+K_KINDS = ("size", "speed")
+G_EARTH = 9.8
+
+# Track B (open-weight answers, research/trackb_rules): stated values of the family (facts, motionfam,
+# freefall, labfacts) without the 2x "footage contradicts" guard (open-model misses, not the footage, explain a 2x
+# disagreement), plus cross-clip pooling with base-clip votes and a 1.6x own-vote guard. Twin / render copies,
+# K and lab pooling are left out (validation and stated-fact checks neutral or negative for these answers).
+PRESETS = {
+    "default": dict(rules=DEFAULT_RULES, speed_guard=SPEED_GUARD, options={}),
+    "trackb": dict(rules=("facts", "motionfam", "freefall", "labfacts", "pool"), speed_guard=0.0,
+                   options={"motionfam": {"guard": 0.0}, "pool": {"unit": "base", "max_dev": 1.6}}),
+}
+
+
+@dataclass(frozen=True)
+class Spec:
+    kind: str
+    objs: tuple
+    dim: str
+    time: float | None
+    window: tuple | None
+    axis: str
+    to_si: float | None          # factor from the question's unit to SI (None: unit does not fit the kind)
+
+
+def _spec(row) -> Spec:
+    from qp.open.qwen_vl import parse_question_text
+
+    t = parse_question_text(row.question)
+    kind = t["kind"]
+    objs = tuple(o for o in (_clean_object(x) for x in t["objects"]) if o)
+    to_si = None
+    if kind in DIM_OF_KIND:
+        u = canonical_unit(str(row.target_unit or "")) if row.target_unit else None
+        if u is None:
+            to_si = 1.0
+        elif u in _UNITS and _UNITS[u][1] == DIM_OF_KIND[kind]:
+            to_si = float(_UNITS[u][0])
+    dim = _DIM_SYN.get(t["dimension"], t["dimension"]) if kind == "size" else ""
+    return Spec(kind, objs, dim, t["time"], tuple(t["window"]) if t["window"] else None, t["axis"], to_si)
+
+
+class _Ctx:
+    """Family structure of a question table, computed once and shared by the rules."""
+
+    def __init__(self, df: pd.DataFrame, frames: FrameCache | None):
+        self.df = df
+        self.facts = _parse_facts(df)
+        self.links = scene_links(df, self.facts, frames)
+        self.fam_size = scene_families(df, self.links, SIZE_LINKS)
+        self.fam_motion = scene_families(df, self.links, MOTION_LINKS)
+        self.scen = scene_families(df, self.links, ("render", "scenario"))
+        self.accel = _accel_objects(df, self.facts)
+        self.depth = {v: _depth_entries(di) for v, di in zip(df.video_id, df.depth_info)}
+        self.row = {int(r.qid): r for r in df.itertuples()}
+        self.spec = {q: _spec(r) for q, r in self.row.items()}
+
+
+def _objs_match(a: tuple, b: tuple, min_name: float = MIN_NAME) -> bool:
+    if len(a) != len(b) or not a:
+        return False
+    if len(a) == 1:
+        return _same_object(a[0], b[0]) >= min_name
+    if len(a) == 2:
+        return ((_same_object(a[0], b[0]) >= min_name and _same_object(a[1], b[1]) >= min_name) or
+                (_same_object(a[0], b[1]) >= min_name and _same_object(a[1], b[0]) >= min_name))
+    return False
+
+
+def _same_motion(ctx: _Ctx, va: str, vb: str, sa: Spec, sb: Spec) -> bool:
+    """Same moving event: one base clip (twin / lab renders), one scenario (identical render or identical motion
+    prior in one family), or identical timed depth entries of the object."""
+    if base_id(va) == base_id(vb) or ctx.scen[va] == ctx.scen[vb]:
+        return True
+    return all(_depth_identical(ctx.depth[va], ctx.depth[vb], oa, ob) for oa, ob in zip(sa.objs, sb.objs))
+
+
+def equivalent_questions(ctx: _Ctx, qids=None) -> dict[int, list[int]]:
+    """qid -> other qids asking the same quantity of the same object(s) in the scene family (pool rule):
+    same kind / dimension / time / window / axis, names matching (head noun, name_score >= MIN_NAME; both
+    objects for a distance); sizes within one base clip or across simulation clips of one family; motion and
+    distances only within one moving event (_same_motion)."""
+    keyed = defaultdict(list)
+    for q, s in ctx.spec.items():
+        if s.kind not in POOL_KINDS or s.to_si is None or not s.objs:
+            continue
+        r = ctx.row[q]
+        fam = ctx.fam_size[r.video_id] if s.kind == "size" else ctx.fam_motion[r.video_id]
+        keyed[(fam, s.kind, s.dim, s.time, s.window, s.axis, len(s.objs))].append(q)
+    want = None if qids is None else set(qids)
+    out: dict[int, list[int]] = {}
+    for qs in keyed.values():
+        if len(qs) < 2:
+            continue
+        for a, b in itertools.combinations(qs, 2):
+            if want is not None and a not in want and b not in want:
+                continue
+            ra, rb = ctx.row[a], ctx.row[b]
+            sa, sb = ctx.spec[a], ctx.spec[b]
+            if not _objs_match(sa.objs, sb.objs):
+                continue
+            if sa.kind == "size":
+                if not (base_id(ra.video_id) == base_id(rb.video_id) or
+                        (is_simulation(ra.video_id) and is_simulation(rb.video_id))):
+                    continue
+            elif not _same_motion(ctx, ra.video_id, rb.video_id, sa, sb):
+                continue
+            out.setdefault(a, []).append(b)
+            out.setdefault(b, []).append(a)
+    return out
+
+
+def pooled_value(logs, tau: float = POOL_TAU, cap2: float = POOL_CAP2, smax: float = POOL_SMAX):
+    """Pool of log votes (one per clip) or None (no change): 2 votes -> their mean when within cap2; >= 3 votes
+    -> mean of the votes within tau of the median (the median when tau <= 0); <= 3 votes spread over more than
+    smax -> None (identity or definition in doubt)."""
+    v = np.asarray([x for x in logs if np.isfinite(x)], float)
+    if len(v) < 2:
+        return None
+    if len(v) <= 3 and smax and np.ptp(v) > smax:
+        return None
+    if len(v) == 2:
+        return float(v.mean()) if abs(v[0] - v[1]) <= cap2 else None
+    m = float(np.median(v))
+    if tau <= 0:
+        return m
+    keep = v[np.abs(v - m) <= tau]
+    return float(keep.mean()) if len(keep) else m
+
+
+def _pool_rule(cur, ctx: _Ctx, protected, log, cats=None, kinds=POOL_KINDS, unit="clip", tau=POOL_TAU,
+               cap2=POOL_CAP2, smax=POOL_SMAX, max_mad=None, max_dev=None, sources=None, scope="family") -> None:
+    """P: answers about one object / quantity / time in a scene family are pooled (one vote per clip, or per
+    base clip with unit='base'); groups holding a stated-fact row are left to the facts. Optional guards:
+    max_mad (skip when the votes' median absolute log deviation exceeds it: no consensus), max_dev (skip a row
+    whose own vote is more than max_dev x off the pool: likely another object or definition), sources (only
+    rows of these video sources change), scope='base' (pool only within one base clip: a segmented twin and
+    its original, the s/x renders of one lab event)."""
+    snap = cur.copy()
+    eq = equivalent_questions(ctx, [q for q in cur.index if q in ctx.row])
+    for q in sorted(eq):
+        if q not in cur.index or q in protected:
+            continue
+        r, s = ctx.row[q], ctx.spec[q]
+        if s.kind not in kinds or (cats is not None and r.category not in cats):
+            continue
+        if sources is not None and r.video_source not in sources:
+            continue
+        members = [q] + [p for p in eq[q] if p in snap.index and
+                         (scope != "base" or base_id(ctx.row[p].video_id) == base_id(r.video_id))]
+        if any(p in protected for p in members):
+            continue
+        votes = defaultdict(list)
+        for p in members:
+            if _finite_pos(snap[p]):
+                v = ctx.row[p].video_id
+                votes[v if unit == "clip" else base_id(v)].append(math.log(float(snap[p]) * ctx.spec[p].to_si))
+        if not _finite_pos(snap[q]) or len(votes) < 2:
+            continue
+        vl = [float(np.mean(x)) for x in votes.values()]
+        if max_mad is not None and float(np.median(np.abs(np.array(vl) - np.median(vl)))) > max_mad:
+            continue
+        pv = pooled_value(vl, tau, cap2, smax)
+        if pv is None:
+            continue
+        own_key = r.video_id if unit == "clip" else base_id(r.video_id)
+        if max_dev and abs(float(np.mean(votes[own_key])) - pv) > math.log(max_dev):
+            continue
+        new = math.exp(pv) / s.to_si
+        old = float(cur[q])
+        if math.isclose(new, old, rel_tol=1e-12):
+            continue
+        cur[q] = new
+        src = sorted({ctx.row[p].video_id for p in members} - {r.video_id})
+        log.append(dict(qid=q, rule="pool", old=old, new=new, source_qid=math.nan, source_clip=",".join(src),
+                        applied=True, reason=f"pooled {len(votes)} clip votes ({s.kind} of {' / '.join(s.objs)})"))
+
+
+def _lab_key_groups(ctx: _Ctx):
+    """Lab size questions about one prop across events: [(qids, dimension)] with >= 2 events."""
+    lab = [q for q, s in ctx.spec.items() if s.kind == "size" and s.to_si is not None and len(s.objs) == 1
+           and str(ctx.row[q].video_id).startswith("captured_")]
+    uf = _UF()
+    for q in lab:
+        uf.find(q)
+    for a, b in itertools.combinations(lab, 2):
+        sa, sb = ctx.spec[a], ctx.spec[b]
+        if sa.dim == sb.dim and _same_object(sa.objs[0], sb.objs[0]) >= LAB_NAME:
+            uf.union(a, b)
+    groups = defaultdict(list)
+    for q in lab:
+        groups[uf.find(q)].append(q)
+    return [g for g in groups.values() if len({base_id(ctx.row[q].video_id) for q in g}) >= 2]
+
+
+def _lab_facts(ctx: _Ctx) -> list[Fact]:
+    return [f for f in ctx.facts if f.kind == "size" and str(f.video_id).startswith("captured_")]
+
+
+def _labfacts_rule(cur, ctx: _Ctx, protected, log, cats=None) -> set[int]:
+    """LAB facts: a lab size question about a prop whose size another lab event STATES (same dimension, name
+    score >= LAB_NAME with the same head noun; the props are reused across events: basketball, tennis ball, ...)
+    takes the stated value; conflicting statements -> skipped."""
+    applied = set()
+    facts = _lab_facts(ctx)
+    for q, s in ctx.spec.items():
+        r = ctx.row[q]
+        if q not in cur.index or q in protected or s.kind != "size" or s.to_si is None or len(s.objs) != 1:
+            continue
+        if not str(r.video_id).startswith("captured_") or (cats is not None and r.category not in cats):
+            continue
+        own = {norm_ws(x) for x in str(r.prior).split("\n")}
+        hit = [f for f in facts if f.dimension == s.dim and _same_object(s.objs[0], f.obj) >= LAB_NAME
+               and not (f.video_id == r.video_id and norm_ws(f.line) in own)]
+        if not hit:
+            continue
+        vals = sorted({round(f.si, 9) for f in hit})
+        src = ",".join(sorted({f.video_id for f in hit}))
+        old = float(cur[q])
+        if len(vals) != 1:
+            log.append(dict(qid=q, rule="labfacts", old=old, new=math.nan, source_qid=math.nan, source_clip=src,
+                            applied=False, reason="skipped: lab events state conflicting values"))
+            continue
+        new = vals[0] / s.to_si
+        cur[q] = new
+        applied.add(q)
+        log.append(dict(qid=q, rule="labfacts", old=old, new=new, source_qid=math.nan, source_clip=src, applied=True,
+                        reason=f"lab prop size stated by {src}: '{hit[0].line}'"))
+    return applied
+
+
+def _labpool_rule(cur, ctx: _Ctx, protected, log, cats=None, spread2=LAB_SPREAD2, max_dev=LAB_DEV) -> None:
+    """LAB pooling: sizes of one lab prop asked in several events. Event value = log-median of its renders'
+    answers (SI); a row takes the log-median of the other events' values and its own event's. Skipped: groups
+    with a stated-fact row, 2-event groups whose values differ > spread2 x, rows whose event is > max_dev x off
+    the other events' median when >= 2 others (likely a different object of the same name)."""
+    snap = cur.copy()
+    for g in _lab_key_groups(ctx):
+        g = [q for q in g if q in snap.index and _finite_pos(snap[q])]
+        if any(q in protected for q in g):
+            continue
+        ev = defaultdict(list)
+        for q in g:
+            ev[base_id(ctx.row[q].video_id)].append(math.log(float(snap[q]) * ctx.spec[q].to_si))
+        if len(ev) < 2:
+            continue
+        evv = {b: float(np.median(x)) for b, x in ev.items()}
+        if len(evv) == 2 and spread2 and np.ptp(list(evv.values())) > math.log(spread2):
+            continue
+        for q in g:
+            r = ctx.row[q]
+            if cats is not None and r.category not in cats:
+                continue
+            b = base_id(r.video_id)
+            others = [v for k, v in evv.items() if k != b]
+            if max_dev and len(others) >= 2 and abs(evv[b] - float(np.median(others))) > math.log(max_dev):
+                continue
+            new = math.exp(float(np.median(others + [evv[b]]))) / ctx.spec[q].to_si
+            old = float(cur[q])
+            if math.isclose(new, old, rel_tol=1e-12):
+                continue
+            cur[q] = new
+            log.append(dict(qid=q, rule="labpool", old=old, new=new, source_qid=math.nan,
+                            source_clip=",".join(sorted(k for k in evv if k != b)), applied=True,
+                            reason=f"lab prop pooled over {len(evv)} events ({ctx.spec[q].dim} of {ctx.spec[q].objs[0]})"))
+
+
+_MOTION_ADJ = re.compile(r"\b(?:moving|walking|running|flying)\s+", re.I)
+
+
+def _mf_name(s: str) -> str:
+    return _MOTION_ADJ.sub("", re.sub(r"\bbicycle\b", "bike", str(s), flags=re.I)).strip()
+
+
+def _mf_match(a: str, b: str) -> bool:
+    a, b = _mf_name(a), _mf_name(b)
+    return bool(_head(a)) and _same_object(a, b) >= MIN_NAME
+
+
+def _radial_speed(depth: dict, obj: str):
+    best = None
+    for k, e in depth.items():
+        te = [x for x in e if x[0] is not None]
+        if len(te) >= 2 and (_mf_match(k, obj) or name_score(k, obj) >= 0.6):
+            best = te
+    if best is None:
+        return math.nan, None
+    (t0, r0), (t1, r1) = best[0], best[-1]
+    return (abs(r1 - r0) / (t1 - t0) if t1 > t0 else math.nan), tuple(best)
+
+
+def _motionfam_rule(cur, ctx: _Ctx, protected, log, cats=("S3", "D3"), guard=SPEED_GUARD) -> set[int]:
+    """MF (research/sim3d): a speed / acceleration question about object O in a simulation clip takes the value
+    another simulation clip of the same scene family (size links: one Blender scene) STATES for O, when the
+    statements agree within 2% (log-mean), the timing fits (untimed, or stated at the asked time without a
+    window), a speed's O has no acceleration stated or asked in either clip, and every family clip with a timed
+    depth track of O moves radially no faster than 1.05 x the stated speed (one constant-speed event). A value
+    > guard x off the current answer is skipped unless the asking clip has the stating clip's depth track."""
+    applied = set()
+    by_fam = defaultdict(list)
+    for f in ctx.facts:
+        if f.kind in ("speed", "acceleration") and is_simulation(f.video_id):
+            by_fam[ctx.fam_size[f.video_id]].append(f)
+    clips_of = defaultdict(set)
+    for v in ctx.df.video_id:
+        clips_of[ctx.fam_size[v]].add(v)
+    for q, s in ctx.spec.items():
+        r = ctx.row[q]
+        if q not in cur.index or q in protected or s.kind not in ("speed", "acceleration") or len(s.objs) != 1:
+            continue
+        if not is_simulation(r.video_id) or s.to_si is None or (cats is not None and r.category not in cats):
+            continue
+        obj = s.objs[0]
+        own = {norm_ws(x) for x in str(r.prior).split("\n")}
+        cands = []
+        for f in by_fam[ctx.fam_size[r.video_id]]:
+            if f.kind != s.kind or not _mf_match(obj, f.obj):
+                continue
+            if f.video_id == r.video_id and norm_ws(f.line) in own:
+                continue
+            if f.timed and (s.window is not None or s.time is None or f.time is None or abs(s.time - f.time) > 1e-6):
+                continue
+            if s.kind == "speed" and any(_mf_match(obj, o) for v in (r.video_id, f.video_id)
+                                         for o in ctx.accel.get(v, [])):
+                continue
+            cands.append(f)
+        if not cands:
+            continue
+        vals = np.array([f.si for f in cands])
+        if vals.max() / vals.min() > 1 + MF_AGREE:
+            continue
+        v_si = float(np.exp(np.log(vals).mean()))
+        ok, same_track = True, False
+        _, own_track = _radial_speed(ctx.depth[r.video_id], obj)
+        for c in sorted(clips_of[ctx.fam_size[r.video_id]]):
+            vr, tr = _radial_speed(ctx.depth[c], obj)
+            if s.kind == "speed" and math.isfinite(vr) and vr > MF_RADIAL * v_si:
+                ok = False
+            if own_track is not None and tr == own_track and c != r.video_id and \
+                    any(base_id(f.video_id) == base_id(c) for f in cands):
+                same_track = True
+        if not ok:
+            continue
+        new = v_si / s.to_si
+        old = float(cur[q])
+        src = ",".join(sorted({f.video_id for f in cands}))
+        if guard and _finite_pos(old) and max(new / old, old / new) > guard and not same_track:
+            log.append(dict(qid=q, rule="motionfam", old=old, new=new, source_qid=math.nan, source_clip=src,
+                            applied=False, reason=f"skipped: stated value >{guard:g}x off the clip's own answer"))
+            continue
+        cur[q] = new
+        applied.add(q)
+        log.append(dict(qid=q, rule="motionfam", old=old, new=new, source_qid=math.nan, source_clip=src, applied=True,
+                        reason=f"scene family states '{'; '.join(sorted({f.line for f in cands}))}'"))
+    return applied
+
+
+def free_fall(path: str, t: float, fps: float, max_frames: int = 40) -> bool:
+    """Do the frames show a vertical fall from rest through frame round(t * fps)? (moving region's lower edge
+    with positive, growing steps, no horizontal drift; research/sim3d FF)."""
+    import cv2
+
+    k = int(round(t * fps))
+    if k < 3:
+        return False
+    cap = cv2.VideoCapture(str(path))
+    fr = []
+    while len(fr) < min(max_frames, k + 3):
+        ok, f = cap.read()
+        if not ok:
+            break
+        fr.append(cv2.cvtColor(f, cv2.COLOR_BGR2GRAY).astype(np.int16))
+    cap.release()
+    if k + 2 >= len(fr):
+        return False
+    ymax, xmed = [], []
+    for i in range(1, k + 2):
+        ys, xs = np.nonzero(np.abs(fr[i] - fr[i - 1]) > 25)
+        if len(ys) < 50:
+            return False
+        ymax.append(ys.max())
+        xmed.append(np.median(xs))
+    d1 = np.diff(ymax)
+    d2 = np.diff(d1)
+    w = fr[0].shape[1]
+    return bool((d1 > 0).all() and np.median(d2) > 0.5 and (d2 > -2).all() and np.ptp(xmed[1:]) < 0.03 * w)
+
+
+def _freefall_rule(cur, ctx: _Ctx, protected, log, frames: FrameCache | None, cats=("S3", "D3")) -> set[int]:
+    """FF: an acceleration asked at time t in a 3D simulation clip whose frames show a vertical fall from rest
+    through that frame takes 9.8 m/s^2 (Blender labels; the test priors state free-fall phases as 9.8)."""
+    applied = set()
+    if frames is None:
+        return applied
+    for q, s in ctx.spec.items():
+        r = ctx.row[q]
+        if q not in cur.index or q in protected or s.kind != "acceleration" or s.time is None or s.to_si is None:
+            continue
+        if not is_simulation(r.video_id) or (cats is not None and r.category not in cats) or not r.video_path:
+            continue
+        fps = float(getattr(r, "fps", math.nan) or math.nan)
+        if not math.isfinite(fps) or not math.isfinite(s.time):
+            continue
+        if not frames.free_fall(r.video_id, r.video_path, s.time, fps):
+            continue
+        old = float(cur[q])
+        new = G_EARTH / s.to_si
+        cur[q] = new
+        applied.add(q)
+        log.append(dict(qid=q, rule="freefall", old=old, new=new, source_qid=math.nan, source_clip=r.video_id,
+                        applied=True, reason=f"frames show a vertical fall from rest through t={s.time:g}s"))
+    return applied
+
+
+def _kscale_rule(cur, ctx: _Ctx, protected, fact_log: list[dict], log, cats=("D3",), kinds=K_KINDS) -> None:
+    """K: a clip whose answers missed the values its family states (fact rows: log(stated / answer before the
+    fact)) has the other size / speed answers rescaled by median({0} U those log ratios) (Track A: D3 only;
+    the error is a per-clip scale shared across quantities)."""
+    lk = defaultdict(list)
+    for e in fact_log:
+        q = int(e["qid"])
+        if e.get("applied") and q in ctx.spec and ctx.spec[q].kind in kinds and _finite_pos(e["old"]) and _finite_pos(e["new"]):
+            lk[ctx.row[q].video_id].append(math.log(float(e["new"]) / float(e["old"])))
+    for v, ls in sorted(lk.items()):
+        k = float(np.median([0.0] + ls))
+        if abs(k) < 1e-9:
+            continue
+        for q in ctx.df.qid[ctx.df.video_id == v]:
+            q = int(q)
+            r, s = ctx.row[q], ctx.spec[q]
+            if q not in cur.index or q in protected or s.kind not in kinds or not _finite_pos(cur[q]):
+                continue
+            if cats is not None and r.category not in cats:
+                continue
+            old = float(cur[q])
+            cur[q] = old * math.exp(k)
+            log.append(dict(qid=q, rule="kscale", old=old, new=float(cur[q]), source_qid=math.nan, source_clip=v,
+                            applied=True, reason=f"clip scale x{math.exp(k):.3f} from {len(ls)} stated fact(s)"))
+
+
 # ----------------------------------------------------------------------------- entry point
 
-def apply_rules(pred: pd.Series, test_df: pd.DataFrame, rules=RULES, video_root=None, cache_dir=DEFAULT_CACHE,
+def apply_rules(pred: pd.Series, test_df: pd.DataFrame, rules=DEFAULT_RULES, video_root=None, cache_dir=DEFAULT_CACHE,
                 render_mask: pd.Series | None = None, speed_guard: float = SPEED_GUARD,
-                use_frames: bool = True) -> tuple[pd.Series, pd.DataFrame]:
+                use_frames: bool = True, options: dict | None = None) -> tuple[pd.Series, pd.DataFrame]:
     """Apply the rules to `pred` (answers indexed by qid) -> (new answers, log).
 
     test_df: question table (qp.data.load_split columns: qid, video_id, video_path, question, prior,
         depth_info, category, target_unit ...); answers in it are ignored.
-    rules: any of "twin", "render", "facts" (always applied in the order facts, render, twin).
+    rules: any of RULES, always applied in the order facts, motionfam, freefall, labfacts (stated values;
+        these rows are protected from the later rules), kscale, pool, labpool, render, twin. The default is
+        the original three (DEFAULT_RULES).
     video_root: folder of the .mp4 files (default: test_df.video_path).
     render_mask: optional bool Series by qid; the render rule only replaces rows where it is True.
-    use_frames: False skips every frame-based check (twins are then never copied; no frame links).
+    use_frames: False skips every frame-based check (twins are then never copied; no frame links, no free fall).
+    options: per-rule settings, e.g. {"pool": {"cats": ("D2", "D3"), "tau": 0.15, "unit": "clip"},
+        "kscale": {"cats": ("D3",)}, "labpool": {...}, "labfacts": {...}, "motionfam": {"guard": 2.0},
+        "freefall": {"cats": ("S3", "D3")}} (keyword arguments of the _<rule>_rule functions).
     log: one row per decision (qid, rule, old, new, source_qid, source_clip, reason, applied); rows with
         applied=False record guarded skips."""
     unknown = set(rules) - set(RULES)
     if unknown:
         raise ValueError(f"unknown rules {sorted(unknown)} (expected some of {RULES})")
+    opt = {k: dict(v) for k, v in (options or {}).items()}
+    bad = set(opt) - set(RULES)
+    if bad:
+        raise ValueError(f"options for unknown rules {sorted(bad)}")
     cur = pd.Series(pred, dtype=float).copy()
     cur.index = cur.index.astype(int)
     df = _questions(test_df, video_root)
@@ -806,6 +1304,20 @@ def apply_rules(pred: pd.Series, test_df: pd.DataFrame, rules=RULES, video_root=
     try:
         if "facts" in rules:
             protected = _facts_rule(cur, df, frames, log, speed_guard)
+        ctx = _Ctx(df, frames) if set(rules) & set(EXTENDED_RULES) else None
+        if "motionfam" in rules:
+            protected |= _motionfam_rule(cur, ctx, protected, log, **opt.get("motionfam", {}))
+        if "freefall" in rules:
+            protected |= _freefall_rule(cur, ctx, protected, log, frames, **opt.get("freefall", {}))
+        if "labfacts" in rules:
+            protected |= _labfacts_rule(cur, ctx, protected, log, **opt.get("labfacts", {}))
+        if "kscale" in rules:
+            fact_log = [e for e in log if e["rule"] in ("facts", "motionfam")]
+            _kscale_rule(cur, ctx, protected, fact_log, log, **opt.get("kscale", {}))
+        if "pool" in rules:
+            _pool_rule(cur, ctx, protected, log, **opt.get("pool", {}))
+        if "labpool" in rules:
+            _labpool_rule(cur, ctx, protected, log, **opt.get("labpool", {}))
         if "render" in rules:
             eligible = None
             if render_mask is not None:

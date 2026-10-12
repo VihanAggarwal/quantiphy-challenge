@@ -399,6 +399,202 @@ def test_summary_counts():
     assert s.loc["twin", "applied"] == 2 and s.loc["twin", "changed"] == 1 and s.loc["facts", "skipped"] == 1
 
 
+# ----------------------------------------------------------------------------- extended rules
+
+PRIOR_SCENE = "length of the car = 4.53m"     # identical >= 3-digit statement: one scene family
+
+
+def test_rule_lists_and_options_validation():
+    assert P.DEFAULT_RULES == ("twin", "render", "facts")
+    assert set(P.EXTENDED_RULES) <= set(P.RULES) and set(P.PRESETS["trackb"]["rules"]) <= set(P.RULES)
+    df = _df([(1, "simulation_0001", "What is the width of the box in meters?", PRIOR_SCENE, "")])
+    with pytest.raises(ValueError):
+        P.apply_rules(_pred(df), df, rules=("pool",), options={"pooling": {}}, use_frames=False)
+
+
+def test_pooled_value():
+    lg = np.log
+    assert P.pooled_value([lg(2.0)]) is None
+    assert P.pooled_value([lg(2.0), lg(2.2)]) == pytest.approx(np.mean(lg([2.0, 2.2])))
+    assert P.pooled_value([lg(2.0), lg(3.0)]) is None                       # 2 votes too far apart
+    assert P.pooled_value(lg([2.0, 2.1, 9.0])) is None                       # few votes, wide spread
+    v = lg([2.0, 2.1, 2.2, 9.0])
+    assert P.pooled_value(v) == pytest.approx(np.mean(lg([2.0, 2.1, 2.2])))  # outlier trimmed
+    assert P.pooled_value(v, tau=0) == pytest.approx(np.median(v))
+
+
+def test_pool_rule_family_votes_units_guards_and_facts():
+    q = "What is the width of the box in meters?"
+    df = _df([(1, "simulation_0001", q, PRIOR_SCENE, "", "S2"),
+              (2, "simulation_0002", q, PRIOR_SCENE, "", "D2"),
+              (3, "simulation_0003", q.replace("meters", "cm"), PRIOR_SCENE, "", "D2"),
+              (4, "simulation_0003_segmented", q, PRIOR_SCENE, "", "D2"),
+              (5, "simulation_0004", q, "length of the bus = 9.87m", "", "D2"),        # another scene
+              (6, "simulation_0001", "What is the height of the box in meters?", PRIOR_SCENE, "", "S2"),
+              (7, "simulation_0002", "What is the width of the red box in meters?", PRIOR_SCENE, "", "D2"),
+              ])
+    pred = pd.Series([2.0, 2.2, 240.0, 6.0, 5.0, 1.0, 1.5], index=range(1, 8))
+    new, log = P.apply_rules(pred, df, rules=("pool",), use_frames=False, options={"pool": {"unit": "clip"}})
+    votes = np.log([2.0, 2.2, 2.4, 6.0])
+    keep = votes[np.abs(votes - np.median(votes)) <= P.POOL_TAU]
+    pooled = float(np.exp(keep.mean()))
+    assert new[1] == pytest.approx(pooled) and new[2] == pytest.approx(pooled)
+    assert new[3] == pytest.approx(pooled * 100)                             # the row's own unit
+    assert new[5] == 5.0 and new[6] == 1.0                                   # other scene / other dimension
+    assert new[7] == 1.5                                                     # 'red box' is not 'box' (name score .5)
+    # base units: the segmented twin and its original are one vote
+    pred_b = pred.copy()
+    pred_b[4] = 3.0
+    new_b, _ = P.apply_rules(pred_b, df, rules=("pool",), use_frames=False, options={"pool": {"unit": "base"}})
+    pb = float(np.exp(P.pooled_value(np.log([2.0, 2.2, np.sqrt(2.4 * 3.0)]))))
+    assert new_b[1] == pytest.approx(pb) and new_b[4] == pytest.approx(pb) and new_b[3] == pytest.approx(100 * pb)
+    new_b, _ = P.apply_rules(pred, df, rules=("pool",), use_frames=False, options={"pool": {"unit": "base"}})
+    assert new_b[1] == 2.0                                   # 3 votes spread > POOL_SMAX: left alone
+    # own-vote guard: the twin's 6.0 is > 1.6x off the pool and stays
+    new_g, _ = P.apply_rules(pred, df, rules=("pool",), use_frames=False,
+                             options={"pool": {"unit": "clip", "max_dev": 1.6}})
+    assert new_g[4] == 6.0 and new_g[1] == pytest.approx(pooled)
+    # category restriction and stated facts: a group with a stated value is left to the facts
+    new_c, _ = P.apply_rules(pred, df, rules=("pool",), use_frames=False, options={"pool": {"cats": ("S2",)}})
+    assert new_c[2] == 2.2 and new_c[1] != 2.0
+    df2 = pd.concat([df, _df([(8, "simulation_0005", "What is the speed of the dog in m/s?",
+                               "width of the box = 2.75m\n" + PRIOR_SCENE, "", "D2")])], ignore_index=True)
+    pred2 = pd.concat([pred, pd.Series({8: 1.0})])
+    new_f, log_f = P.apply_rules(pred2, df2, rules=("facts", "pool"), use_frames=False)
+    assert new_f[1] == pytest.approx(2.75) and new_f[3] == pytest.approx(275.0)
+    assert not (log_f.rule == "pool").any()
+
+
+def test_pool_motion_needs_same_event_and_time():
+    track = "t=0s, distance_car_camera = 10.111m\nt=1s, distance_car_camera = 12.222m"
+    sp = "What is the speed of the car at 1.0s in m/s?"
+    df = _df([(1, "simulation_0031", sp, PRIOR_SCENE, track, "D3"),
+              (2, "simulation_0032", sp, PRIOR_SCENE, track, "D3"),                     # identical depth track
+              (3, "simulation_0033", sp, PRIOR_SCENE, "t=0s, distance_car_camera = 3.3m", "D3"),
+              (4, "simulation_0034", sp.replace("1.0s", "2.0s"), PRIOR_SCENE, track, "D3"),
+              (5, "captured_0007", "What is the distance between the ball and the cup at 1.0s in cm?", "p = 1cm",
+               "distance_ball_camera = 1.401m", "D3"),
+              (6, "captured_0007s", "What is the distance between the cup and the ball at 1.0s in cm?", "p = 1cm",
+               "distance_ball_camera = 1.401m", "D3"),
+              ])
+    pred = pd.Series([5.0, 5.4, 9.0, 1.0, 30.0, 33.0], index=range(1, 7))
+    new, _ = P.apply_rules(pred, df, rules=("pool",), use_frames=False, options={"pool": {"unit": "clip"}})
+    assert new[1] == pytest.approx(np.sqrt(5.0 * 5.4)) and new[2] == new[1]
+    assert new[3] == 9.0 and new[4] == 1.0                     # other motion track / other time
+    assert new[5] == pytest.approx(np.sqrt(30.0 * 33.0)) == new[6]   # lab renders of one event, objects swapped
+    new_s, _ = P.apply_rules(pred, df, rules=("pool",), use_frames=False,
+                             options={"pool": {"unit": "clip", "scope": "base"}})
+    assert new_s[1] == 5.0 and new_s[5] == new[5]              # scope base: only within one base clip
+    new_b, _ = P.apply_rules(pred, df, rules=("pool",), use_frames=False, options={"pool": {"unit": "base"}})
+    assert new_b[5] == 30.0                                    # one base clip = one vote: nothing to pool
+
+
+def test_labfacts_and_labpool():
+    d = "distance_ball_camera = 1.401m"
+    dia = "What is the diameter of the basketball in cm?"
+    df = _df([(1, "captured_0035a", "What is the height of the table in cm?", "diameter of the basketball = 23.2cm", d, "D3"),
+              (2, "captured_0008", dia, "p = 1cm", d, "D3"),
+              (3, "captured_0008s", dia.replace("cm?", "m?"), "p = 1cm", d, "D3"),
+              (4, "captured_0009", "What is the diameter of the ball in cm?", "p = 1cm", d, "D3"),   # generic name
+              (5, "captured_0010", "What is the height of the cup in cm?", "p = 1cm", d, "S3"),
+              (6, "captured_0011", "What is the height of the cup in cm?", "p = 1cm", d, "S3"),
+              (7, "captured_0011x", "What is the height of the cup in cm?", "p = 1cm", d, "S3"),
+              (8, "captured_0012", "What is the height of the cup in cm?", "p = 1cm", d, "D3"),
+              (9, "captured_0013", "What is the height of the cup in cm?", "p = 1cm", d, "D3"),
+              ])
+    pred = pd.Series([70.0, 25.0, 0.26, 20.0, 10.0, 12.0, 13.0, 11.0, 40.0], index=range(1, 10))
+    new, log = P.apply_rules(pred, df, rules=("labfacts",), use_frames=False)
+    assert new[2] == pytest.approx(23.2) and new[3] == pytest.approx(0.232)
+    assert new[4] == 20.0 and new[1] == 70.0                  # 'ball' is not named as the basketball
+    new, log = P.apply_rules(pred, df, rules=("labfacts", "labpool"), use_frames=False)
+    ev = {"0010": 10.0, "0011": float(np.sqrt(12.0 * 13.0)), "0012": 11.0, "0013": 40.0}
+    def pool_for(own):
+        others = [v for k, v in ev.items() if k != own]
+        return float(np.exp(np.median(np.log(others + [ev[own]]))))
+    assert new[5] == pytest.approx(pool_for("0010")) and new[6] == pytest.approx(pool_for("0011")) == new[7]
+    assert new[9] == 40.0                                      # > 1.6x off the other events: another cup
+    assert not (log[log.rule == "labpool"].qid.isin([2, 3])).any()    # stated basketball rows are protected
+    new_c, _ = P.apply_rules(pred, df, rules=("labpool",), use_frames=False, options={"labpool": {"cats": ("D3",)}})
+    assert new_c[5] == 10.0 and new_c[8] != 11.0
+
+
+def test_motionfam_size_family_gates_and_guard():
+    other = "distance_tree_camera = 30.555m\ndistance_road_camera = 8.444m"
+    df = _df([(1, "simulation_0041", "What is the height of the tree in meters?", "speed of the eagle = 11.84m/s",
+               other, "S3"),
+              (2, "simulation_0042", "What is the speed of the eagle at 1.0s in m/s?", "height of the tree = 6m",
+               "", "S3"),
+              (3, "simulation_0043", "What is the average speed of the flying eagle in m/s?", "height of the tree = 6m",
+               "t=0s, distance_eagle_camera = 10m\nt=1s, distance_eagle_camera = 30m", "S3"),
+              (4, "simulation_0044", "What is the speed of the eagle at 1.0s in m/s?", "height of the tree = 6m",
+               "", "S2"),
+              ])
+    # one scene family through frames-free links: 0041/0042/0043 share a series (identical prior text is not
+    # possible here), so link them by depth numbers of the tree / road
+    df.loc[df.qid.isin([2, 4]), "depth_info"] = other
+    df.loc[df.qid == 3, "depth_info"] = other + "\nt=0s, distance_eagle_camera = 10m\nt=1s, distance_eagle_camera = 30m"
+    pred = pd.Series([5.0, 10.0, 11.0, 10.0], index=range(1, 5))
+    new, log = P.apply_rules(pred, df, rules=("motionfam",), use_frames=False)
+    # 0043's eagle moves 20 m/s radially (> 1.05 x 11.84): not one constant-speed event -> no transfer anywhere
+    assert new[2] == 10.0 and new[3] == 11.0
+    df.loc[df.qid == 3, "depth_info"] = other + "\nt=0s, distance_eagle_camera = 10m\nt=1s, distance_eagle_camera = 15m"
+    new, log = P.apply_rules(pred, df, rules=("motionfam",), use_frames=False)
+    assert new[2] == pytest.approx(11.84) and new[3] == pytest.approx(11.84)     # 'flying eagle' ~ 'eagle'
+    assert new[4] == 10.0                                                         # 2D rows not by default
+    pred[2] = 2.0
+    new, log = P.apply_rules(pred, df, rules=("motionfam",), use_frames=False)
+    assert new[2] == 2.0 and "off the clip's own answer" in log.set_index("qid").reason[2]
+    new, _ = P.apply_rules(pred, df, rules=("motionfam",), use_frames=False, options={"motionfam": {"guard": 0}})
+    assert new[2] == pytest.approx(11.84)
+
+
+def test_kscale_rescales_other_answers_of_fact_clips():
+    depth = "distance_boat_camera = 12.345m\ndistance_pier_camera = 20.123m"
+    df = _df([(1, "simulation_0001", "What is the height of the man in meters?", "length of the boat = 10m", depth, "D3"),
+              (2, "simulation_0002", "What is the length of the boat in meters?", "height of the person = 1.75m",
+               depth, "D3"),
+              (3, "simulation_0002", "What is the width of the pier in meters?", "height of the person = 1.75m",
+               depth, "D3"),
+              (4, "simulation_0002", "What is the acceleration of the boat at 1s in m/s^2?",
+               "height of the person = 1.75m", depth, "D3"),
+              (5, "simulation_0002", "What is the height of the pier in meters?", "height of the person = 1.75m",
+               depth, "S3"),
+              ])
+    pred = pd.Series([1.75, 5.0, 2.0, 1.0, 3.0], index=range(1, 6))
+    new, log = P.apply_rules(pred, df, rules=("facts", "kscale"), use_frames=False)
+    k = np.exp(np.median([0.0, np.log(10.0 / 5.0)]))
+    assert new[2] == pytest.approx(10.0)                       # the stated fact itself
+    assert new[3] == pytest.approx(2.0 * k)                    # D3 size in a clip that missed its fact by 2x
+    assert new[4] == 1.0 and new[5] == 3.0                     # accelerations / S3 untouched by default
+    new_s, _ = P.apply_rules(pred, df, rules=("facts", "kscale"), use_frames=False,
+                             options={"kscale": {"cats": ("S3", "D3")}})
+    assert new_s[5] == pytest.approx(3.0 * k)
+    new_n, _ = P.apply_rules(pred, df, rules=("kscale",), use_frames=False)
+    assert new_n.equals(pred)                                  # no facts, no scale
+
+
+def test_free_fall_detection_and_rule(tmp_path):
+    def fall(i, g=True):                               # box released at frame 0, 2 px/frame^2 (or constant speed)
+        img = np.full((240, 96, 3), 230, np.uint8)
+        y = int(5 + (2 * (i + 1) ** 2 if g else 8 * i))
+        img[y:y + 16, 40:56] = (20, 20, 200)
+        return img
+    _video(tmp_path / "simulation_0182.mp4", [fall(i) for i in range(14)], fps=10)
+    _video(tmp_path / "simulation_0183.mp4", [fall(i, g=False) for i in range(14)], fps=10)
+    assert P.free_fall(str(tmp_path / "simulation_0182.mp4"), 0.6, 10)
+    assert not P.free_fall(str(tmp_path / "simulation_0183.mp4"), 0.6, 10)       # constant speed: no fall
+    df = _df([(1, "simulation_0182", "What is the acceleration of the box at 0.6s in m/s^2?", "p = 1m", "", "D3"),
+              (2, "simulation_0183", "What is the acceleration of the box at 0.6s in m/s^2?", "p = 1m", "", "D3"),
+              (3, "simulation_0182", "What is the acceleration of the box at 0.6s in m/s^2?", "p = 1m", "", "D2")])
+    df["fps"] = 10.0
+    pred = pd.Series([2.0, 2.0, 2.0], index=[1, 2, 3])
+    new, log = P.apply_rules(pred, df, rules=("freefall",), video_root=tmp_path, cache_dir=tmp_path / "c")
+    assert new[1] == pytest.approx(9.8) and new[2] == 2.0 and new[3] == 2.0
+    assert (tmp_path / "c" / f"falls_v{P.CACHE_VERSION}.json").exists()
+    new2, _ = P.apply_rules(pred, df, rules=("freefall",), use_frames=False)
+    assert new2.equals(pred)
+
+
 # ----------------------------------------------------------------------------- CLI
 
 def _script():
@@ -437,6 +633,20 @@ def test_cli_writes_id_parsed_value_and_log(tmp_path):
     pd.DataFrame({"id": [1, 2, 3], "parsed_value": [100.0, 150.0, 2.0]}).to_csv(pred, index=False)
     with pytest.raises(SystemExit):
         m.main([str(pred), str(out), "--csv", str(qcsv), "--no-frames", "--render-direct-only"])
+    # extended rules: the trackb preset (no render copy) and per-rule flags
+    assert m.main([str(pred), str(out), "--csv", str(qcsv), "--no-frames", "--preset", "trackb"]) == 0
+    assert pd.read_csv(out).parsed_value.tolist() == [100.0, 150.0, 2.0]
+    assert m.main([str(pred), str(out), "--csv", str(qcsv), "--no-frames", "--rules", "pool",
+                   "--pool-unit", "clip", "--pool-max-dev", "0", "--options", '{"pool": {"cap2": 1.0}}']) == 0
+    assert pd.read_csv(out).parsed_value.tolist() == pytest.approx([np.sqrt(100 * 150)] * 2 + [2.0])
+    a = m.parse_args([str(pred), str(out), "--preset", "trackb", "--pool-tau", "0", "--cats", "kscale=D3",
+                      "pool=D2,D3", "--options", '{"labpool": {"max_dev": 2.0}}'])
+    rules, guard, opts = m.settings(a)
+    assert rules == P.PRESETS["trackb"]["rules"] and guard == 0
+    assert opts["pool"] == {"unit": "base", "max_dev": 1.6, "tau": 0.0, "cats": ("D2", "D3")}
+    assert opts["kscale"] == {"cats": ("D3",)} and opts["labpool"] == {"max_dev": 2.0}
+    with pytest.raises(SystemExit):
+        m.settings(m.parse_args([str(pred), str(out), "--cats", "nope=D3"]))
 
 
 # ----------------------------------------------------------------------------- real test set
@@ -512,3 +722,20 @@ def test_real_agreement_with_probe5_when_available():
         assert len(x) > 30 and x.same.all(), (rule, cat)
     f = L[(L.rule == "facts") & L.cat.isin(["S2", "S3", "D3"])]
     assert f.same.mean() > 0.9
+
+
+@real
+def test_real_trackb_preset():
+    from qp.data import load_split
+    t = load_split("test")
+    pred = pd.Series(1.0 + t.qid.to_numpy() / 1e4, index=t.qid.astype(int))
+    pre = P.PRESETS["trackb"]
+    new, log = P.apply_rules(pred, t, rules=pre["rules"], speed_guard=pre["speed_guard"], options=pre["options"])
+    for q in (2162, 2167, 2787, 2826):                 # basketball diameter stated in captured_0035a/b (cm)
+        assert new[q] == pytest.approx(23.2), q
+    for q in (1424, 1429, 1434):                       # boxes falling from rest at 0.2 s
+        assert new[q] == pytest.approx(9.8), q
+    assert new[1115] == pytest.approx(1.3)             # beach-scene person speed stated by a sibling camera
+    applied = log[log.applied]
+    assert set(applied.rule) <= set(pre["rules"]) and {"facts", "pool", "labfacts", "freefall"} <= set(applied.rule)
+    assert not applied.qid.duplicated().any() or (applied.groupby("qid").rule.nunique() == 1).all()
