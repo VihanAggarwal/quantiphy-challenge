@@ -26,12 +26,9 @@ from tbcommon import CATS, OUT, base_preds, item, log_median, questions  # noqa:
 
 V3 = {"S2": ["caw", "cv_geo", "qwen_direct"], "D2": ["caw", "cv_geo", "qwen_direct", "qwen_geo"],
       "S3": ["cv_geo", "qwen_geo", "qwen_direct"], "D3": ["caw", "qwen_geo", "qwen_direct"]}
-NEW = {"val": {"qwen_dense": "qwen_dense_labfov", "qwen_dyn": "qwen_dyn", "hybrid": "hybrid_mean_labfov",
-               "hybrid_nopick": "hybrid_nopick_labfov", "cv_labfov": "cv_labfov",
-               "qwen_labfov": "qwen_sparse_labfov"},
-       "test": {"qwen_dense": "qwen_dense_labfov", "qwen_dyn": "qwen_dyn", "hybrid": "hybrid_mean_labfov",
-                "hybrid_nopick": "hybrid_nopick_labfov", "cv_labfov": "cv_labfov",
-                "qwen_labfov": "qwen_sparse_labfov"}}
+_NEW = {"qwen_dense": "qwen_dense_labfov", "qwen_dyn": "qwen_dyn", "cvq_fov": "cvq_labfov", "cv_fov": "cv_labfov",
+        "qwen_fov": "qwen_sparse_labfov", "hybrid": "hybrid_cvq_cv_nopick_labfov"}
+NEW = {"val": _NEW, "test": _NEW}
 
 
 def all_methods(split: str, df: pd.DataFrame, names=None) -> dict[str, pd.Series]:
