@@ -564,3 +564,27 @@ S3 cv_geo+qwen_geo+qwen_direct; D3 caw+qwen_geo+qwen_direct; chosen by validatio
 - Limit is 5 successful submissions per UTC day across both tracks (resets 00:00 UTC).
 Best per category -> `trackA_best_p21.csv` = p16 + sizeenv(S2) + physb(D2) + labsize(S3,D3) + labdist(D3) + sim3d guard(S3,D3);
 expected ~.817/.853/.766/.803 = .810.
+
+## PHYSB2 (2026-10-12, `research/physb2/`): extend the physical-scale finding; candidate on p21
+Probe 18 showed PHYSB's 29 D2 rows gain ~10.2 item points (+.009 D2). `calib_physb.py`: 0043 must be physical
+(in-clip would cost -7.4), 0053/0054 almost surely, 0051 ambiguous. So self-filmed internet clips (desk / campus /
+gym / mug series, 0043-0070) are labelled on the physical scale when their stated motion prior is off; downloaded
+clips (validation 0001/0004/0005/0013/0019/0027) stay in-clip. Gate fixed before building (docstring of
+`build_candidate.py`): same object/person on frames (`frames.py`), one exact family fact or two independent lines,
+|ln k| >= max(0.10, 2 sigma), only in-clip geometry rows, never PHYSB / stated-fact / validation-overlap rows.
+| Clip | k (sigma_log) | Evidence |
+|---|---|---|
+| 0055 (walking person, "scooter 1.95 m/s") | 0.701 (.045) | she is the scooter rider (frames): family height 1.624 m vs 2.317 read; rescaled walk 1.37 m/s (stated 1.95 is a jog); DO NOT ENTER 1.21 m -> 0.85 (MUTCD 0.76/0.91) |
+| 0069 (cup, accel 0.32 m/s^2 over 0.3 s) | 0.705 (.027) | exact family fact: same mug / string-pull setup as 0046, which states cup height 10.5 cm (0069 reads 14.89); cup 254 vs 246 px in both |
+| 0045 (cylinder 107.3 cm/s) | 0.848 (.031) | g-anchored 0044 on the same bottles/plate: 0.848/0.858/0.844; 0045 is 11% zoomed in yet reads 6% more cm/px; 0044 ping-pong ball 4.23 cm, 500 ml tea bottle 22.2 cm (0045: 25.8). Kettle-plate distance not a line (layout changed) |
+| 0047 (ball 2.94 m/s, overhead gym) | 0.872 (.045) | same-gym gravity clips read the basketball 22.7/24.7/25.3 -> 24.2 cm vs 27.8; regulation 23.0-24.8 cm |
+| 0061 / 0068 acorn height | fact row only | 0067 states 8 cm (8.6 / 7.82 read; k 0.93 / 1.02 below the gate, scale left) |
+Screened out: 0005_segmented (downloaded; twin scale 0.87x the original but no physical anchor), 0028 / 0073
+conveyors and 0070 speedboat (no anchor or a single weak line), 0065/0066 (top-down "g", already direct with a 24 cm
+ball), gravity clips (anchors), S2 internet (size priors are the physical anchor). Simulation: only 2D clips with
+fact/in-clip mismatch > 15% are simulation_0041(+seg) (top-down person "1.75 m" foreshortened; boat 10 m reads
+13.3-14.6), already absorbed by family facts/pooling and the person-speed fact disagrees -> no rows. 3D sim/lab
+mismatches are direct-answer errors, not a prior scale.
+| Candidate | rows | expected (estimate, label scatter 8%) |
+|---|---|---|
+| `trackA_cand_physb2_on_p21.csv` | D2 30 (0055 8, 0069 8, 0045 6, 0047 6, acorn 2) | D2 +.007 if physical, -.005 if in-clip; ~+.005 D2 (+.001 overall) at the PHYSB hit rate |
