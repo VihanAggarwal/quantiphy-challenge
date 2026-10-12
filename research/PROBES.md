@@ -388,3 +388,40 @@ test-side evidence:
 | `trackA_cand_d2static_rotgrav_on_p8.csv` | D2 24 (internet 0060-0063) | D2 +0.000..+0.001 (geometry vs direct on validation D2: .897 vs .878) |
 Conclusion: D2 static loss is per-question extent / definition error, not a shared convention; getting D2 to ~.87
 would need better extents (zoom pilot, size envelope) rather than scale corrections.
+
+## Targeted paid re-ask (2026-10-12): not worth +0.01; no candidate (`research/reask/`)
+Plan only, no API calls. Re-asks are simulated with cached runs: on validation (EVALUATION ONLY) the other cached
+samples of each question stand in for a fresh answer (`val_eval.py`, `val_boot.py`, 90% CIs from a video bootstrap);
+on test, stated-fact rows (85, exact labels from the families; 73 on 3D non-lab) check flags and medians label-free
+(`test_flags.py`). Budget left: Claude ~$62.6 (ledger $137.40 of $200), OpenAI ~$34.
+- **Flags find bad rows, but a re-ask does not fix them.** Validation base .784 (n=159, 12% of rows score < .5).
+  conf <= 0.2: base .611 (32% wrong), 3-run spread > 0.3: .552, geo/direct disagreement > 0.4: .644. Test facts agree
+  (conf <= 0.2: .375 vs .729 for all fact rows). But a fresh sample on the flagged rows scores within about +-.02 of the
+  base: one re-ask on conf <= 0.3 +.007 [-.039, +.062], median of 3 +.013 [-.021, +.057]; the oracle best-of-3 would
+  be +.08, so the misses are shared by all samples (as the ICC .84-.95 per-video offsets said).
+- **The verify pass (qp/claude_verify, zoomed crops + verification prompt) is negative on every flagged subset**:
+  -.061 per row overall [-.119, -.010], -.16 on conf <= 0.2.
+- **More ensemble members.** 2D: median of 3 +.000 [-.024, +.019] (2D direct medians negative). Lab: med3 of direct
+  answers -.013 vs base; med5 +.013 [-.011, +.046] (and the test has only ONE lab run, so a 3- or 5-member lab median
+  needs 2-4 new runs). 3D non-lab: med3 +.015 [-.027, +.080] (test facts: med3 .715 vs base .716 vs single extra runs
+  .700/.699, i.e. a median is ~+.01 better than a random run, not than our base); a 4th member (v2) +.000, a 5th (xhigh)
+  +.010 [-.007, +.027], +.041 [+.017, +.054] on high-spread rows (n=17, carried by the xhigh member only).
+- Beyond-clip-end (34 scored rows, 31 in captured_0018 D3), track-coverage gaps (22) and magnitude flags (66, 0/4 wrong
+  on validation) are not re-askable or not predictive.
+Ranked spend plan (rows = scored, non-overlap, non-fact rows that still follow the raw answer; costs from the ledger's
+per-video prices of the same videos; gains are estimates = per-row validation gain x rows / N_cat / 4):
+| Rank | Spend | Rows (by category) | Cost | Expected overall MRA |
+|---|---|---|---|---|
+| 1 | Zoomed extent re-measure (zoom pilot tool) on S2/D2 sizes | S2/D2 sizes | $6-12 | +.003 (pilot model; weak) |
+| 2 | 2D conf <= 0.3: one fresh v1-high answer, geometric mean with base (val +.020/row, n=20) | S2 72, D2 115 (85 videos) | ~$7 | +.001 |
+| 3 | 3D non-lab spread > 0.15: 4th/5th member (xhigh) on 54 videos (val +.041/row, n=17, fragile) | S3 62, D3 67 | ~$15 | +.001..+.002 |
+| 4 | Lab direct rows: 2-4 new runs for a median | S3 21, D3 57 (26 videos) | ~$7-13 | +.0003 |
+| - | Full 2D ensemble / verify pass | | $22/run / ~$40 | 0 / negative |
+Everything together: about +.005 for ~$35, every CI includes 0, so a re-ask cannot reach +0.01 (0.85 needs +.045).
+Free re-routing rules on the existing 3D non-lab runs (highest-confidence run, confidence-weighted mean) tie the median
+on validation (.810 vs .810) and lose on test facts (.701 vs .715): no candidate built.
+Pilot before any spend (free part done here; the gate costs ~$1-2): pre-register "spend only if the re-ask gains
+>= +.03 per flagged row". Gate set = test stated-fact rows whose raw answer is flagged (conf <= 0.3 or spread > 0.15:
+~40 rows in ~15 videos; the facts are exact labels by the same procedure, and fact rows stay protected in the
+submission, so the pilot changes nothing it scores); price it first with `scripts/run_claude.py --dry-run
+--local-estimate` (no API call). If the gate fails, keep the money (validation and test facts both predict it will).
