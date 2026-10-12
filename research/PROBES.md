@@ -473,3 +473,20 @@ Test inputs only for evidence; validation labels only in `eval_val.py`. Internet
 | `trackA_cand_internet_main_on_p8.csv` | fwd + winacc + fam: S2 28, D2 50 | S2 +.000..+.005, D2 +.000..+.002 |
 | `trackA_cand_internet_physb_on_p8.csv` | D2 29 (0043 x2.35; 0051 x1.42, 0053 x0.66, 0054 x0.57) | D2 +-.012 (hypothesis test) |
 Internet alone cannot carry the run to .85: even perfect internet rows (from ~.85-.90 to 1.0) add ~+.015 overall.
+
+## Review of the D2 static study (2026-10-12, `research/verify_d2static/`)
+Re-ran `rotated_gravity.py` (bit-identical), `cross_prior.py` (103 pairs; median log ratio accel +0.000, speed +0.009)
+and the stated-fact ratios (D2 sizes: speed prior median 1.025 on 5 clips, accel prior 0.996 on 11 rows/9 clips) -
+all reproduce. No validation labels in the candidate path. `rotgrav` CSV is clean (3289 rows, template order, finite
+> 0, only 24 D2 rows of internet_0060-0063 differ). Sideways gravity confirmed from the falling tracks themselves
+(0063's detector ratio 3.5 came from a bogus extent track; its falling track accelerates along x only).
+Problems: (1) qid 3196 (0061 acorn height) collides with `internet_fam`/`internet_main`, which set it to the 8 cm
+stated in internet_0067; rotgrav would overwrite a stated-fact row when composed -> dropped. (2) The "+.02/row"
+gain basis is generic validation D2 (n=37), not these clips; 0061/0062 values move < 1.3% (no-ops), only 0060
+(-6%) and 0063 (-4%) move, both within the ~8% noise of a 5-6 point curvature fit, so the gain is ~0 +- .001.
+(3) Velocity rows used the central (ICI) derivative while the internet convention (App. D.3, adopted by
+`internet_fwd`) is a forward difference: on free fall that is +g/(2 fps) = +0.16 m/s (+4..+10%).
+| Candidate | rows | expected (estimate) |
+|---|---|---|
+| `trackA_cand_d2static_verified_on_p8.csv` | D2 23 (rotgrav minus 3196) | D2 +0.000 +- .001 |
+| `trackA_cand_d2static_verified_fwd_on_p8.csv` | D2 23, 6 velocity rows forward-differenced | D2 +0.000..+0.002 (only if FWD convention holds; use with internet_main) |
