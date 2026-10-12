@@ -527,3 +527,13 @@ good on validation and lost S2 -.002 on the leaderboard.
 | Candidate | rows | expected (estimate) |
 |---|---|---|
 | `trackA_cand_internet_verified_on_p8.csv` | S2 23, D2 36 (FWD minus 0029; WINACC 0032/0037; acorn 8 cm) | S2 +.000..+.002, D2 +.000..+.001 (unmeasured) |
+
+## Probes 17 and 18 (on p16 = best per category: S2/D2 probe 8, S3/D3 probe 11; expected .815/.844/.762/.797)
+Row-level merges (`research/merge/merge_rows.py`, refuses conflicting edits). Candidates from workflow wf_6d9871ad-48d
+(verified versions only):
+| Probe | S2 | D2 | S3 | D3 |
+|---|---|---|---|---|
+| 17 `trackA_probe17_p16_stack.csv` | internet_verified (23) | internet_verified + d2static_verified (59) | labsize_verified: table 74.5 cm (35) | labsize_verified (63) + labdist_verified (31) |
+| 18 `trackA_probe18_p16_physb_sizeenv_sim3d.csv` | size envelope (49) | internet PHYSB hypothesis (29; expect loss) | sim3d motion families, guard (15) | sim3d motion families (9) |
+Plus probe 14 (S3 lab-noise sz 4 cm vs probe 8; D3 lab motion x1.15). Expected: 17 ~ +.002..+.004 overall;
+18 mostly a hypothesis/bracket test. Re-asks: not worth the money (~+.005 for $35).
