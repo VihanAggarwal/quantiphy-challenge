@@ -15,7 +15,15 @@ EL  elevated camera, captured_0014 (camera 91 cm above the table top): the cup's
     sin(ray, table normal) = 0.891 -> median of renders / 0.891; flat objects measured on the rectified table plane
     (scale x0.970 so the table there matches the 6-view consensus): book long side 17.8 -> 17.3 cm (probe 8: 12.0-12.8,
     its long side recedes), pen 15.4 -> 14.9 cm for the pen of 0013/0014 (probe 8 pooled 12.1 from 0013's
-    foreshortened view; 0014's own fronto-parallel geometry was 14.8-15.5).
+    foreshortened view; 0014's own fronto-parallel geometry was 14.8-15.5). The light-blue notebook (same prop in
+    0014/0023/0024: cover colour, elastic, page block) has one thickness: median of its 9 renders (1.46 cm; 0024 read
+    1.00/1.05 from an elevated side view).
+SP  (variant _s3p, S3 only) scene 0037-0040 (one camera set-up, table props): its stated size priors read high
+    in all 12 renders (ping pong ball +5.5..+10.6%, credit card +7.4..+13.8%; Claude's card extent equals the
+    segmented card, and the depth anchors agree on the table plane within +-3%), and Claude's direct answers run
+    8-12% below geometry for these props (poker tower 9.2-10.1 vs 10.4: a tower of two leaning 8.9 cm playing
+    cards cannot exceed 8.9 cm). Camera geometry and the stated priors disagree by ~8.5%, so these S3 answers move
+    halfway (x0.958): if either calibration is right the error stays under ~4.5%.
 RP  render pooling: X, Xs, Xx are pixel-aligned renders of one event (backgrounds replaced), so a question asked
     in each has one label; rows that are not stated facts / family pools take the median of the renders' answers
     when they spread by more than 5%.
@@ -43,6 +51,8 @@ UNIT = {"cm": 1e-2, "mm": 1e-3, "m": 1.0}
 LAB_STATED_SI = {0.232, 0.04, 0.07, 0.067, 0.0856}   # sizes stated in lab test priors
 TABLE_LONG, TABLE_SHORT = 0.760, 0.603
 WB_LONG, WB_SHORT = 0.857, 0.640
+SCENE_3740 = {"captured_0037", "captured_0038", "captured_0039", "captured_0040"}
+SP_FACTOR = float(np.exp(-0.0852 / 2))   # sizeconv/out/lab_priors_test.csv, 12 renders of 0037-0040
 # captured_0014x plane scale vs the table consensus: the table measures 77.2 x 63.1 there (f 722) vs 76.0 x 60.3
 K0014 = float(np.sqrt(76.0 / 77.2 * 60.3 / 63.1))
 
@@ -120,9 +130,22 @@ def build(variant=""):
         elif r.event == "captured_0014" and r.obj == "book" and r.dim == "length":
             put(qid, 0.178 * K0014, "EL", "0014 book long side on the rectified table plane: 17.6 / 18.0 cm x0.970")
             done.add(qid)
+        elif r.event in ("captured_0014", "captured_0023", "captured_0024") and r.obj == "book" and r.dim == "height":
+            ev = s[s.event.isin(["captured_0014", "captured_0023", "captured_0024"]) & (s.obj == "book") & (s.dim == "height")].index
+            med = float(np.median(p8[ev] * s.usc[ev]))
+            put(qid, med, "EL", "light-blue notebook thickness pooled over 0014/0023/0024 (9 renders, median)")
+            done.add(qid)
         elif r.event in ("captured_0013", "captured_0014") and r.obj == "pen" and r.dim == "length":
             put(qid, 0.154 * K0014, "EL", "pen (0013/0014, one prop) on the 0014 table plane: 15.4 cm x0.970")
             done.add(qid)
+    # SP (variant _s3p) S3 scene 0037-0040: hedge halfway (in log) toward the stated priors' scale
+    if "s3p" in variant:
+        for qid, r in s.iterrows():
+            if r.category == "S3" and r.event in SCENE_3740 and not stated[qid] and qid not in done:
+                put(qid, p8[qid] * r.usc * SP_FACTOR, "SP",
+                    "0037-0040 stated priors (ping pong ball, credit card; 12 renders) read +5.5..+13.8% "
+                    "(median log +0.085) through the same geometry: x exp(-0.085/2)")
+                done.add(qid)
     # RP render pooling (not for props the base already pools across events)
     pooled_keys = {(s.loc[q, "obj"], s.loc[q, "dim"]) for q in s.index if pooled[q]}
     for (ev, qn), g in s.groupby(["event", "qn"]):
@@ -130,6 +153,8 @@ def build(variant=""):
             continue
         vals = new[g.index] * g.usc
         if any(q in done for q in g.index) or (g.obj.iloc[0], g.dim.iloc[0]) in pooled_keys:
+            continue
+        if "rebounce" in qn or "maximum height" in qn:  # bounce heights: motion, research/labdist's rows
             continue
         free = [q for q in g.index if not prot[q]]
         if not free:
@@ -153,7 +178,7 @@ def write(new, name):
 
 if __name__ == "__main__":
     pd.set_option("display.width", 250); pd.set_option("display.max_rows", 300); pd.set_option("display.max_colwidth", 60)
-    for variant in ("main", "wb"):
+    for variant in ("main", "wb", "s3p"):
         new, log = build(variant)
         log.to_csv(OUT / f"changes_{variant}.csv", index=False)
         print(f"== {variant}: {len(log)} rows changed")
