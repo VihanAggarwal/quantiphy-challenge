@@ -554,3 +554,13 @@ Next run (notebook d463467): Qwen-box-prompted SAM 2 (cvq) + Qwen3.5-27B + Gemma
 Track B v3 (`trackB_v3_catmedian_famrules.csv`): per-category median members (S2 caw+cv_geo+qwen_direct; D2 all 4;
 S3 cv_geo+qwen_geo+qwen_direct; D3 caw+qwen_geo+qwen_direct; chosen by validation, LOVO .6035 vs .5887 for all 4)
 + preset "trackb" family rules (919 rows changed). Expected ~.61-.63.
+
+## Results: probes 17 and 18 (2026-10-12 16:05, on p16 = .815/.844/.762/.797)
+| | S2 | D2 | S3 | D3 | MRA |
+|---|---|---|---|---|---|
+| 17 stack (internet_verified+d2static D2/S2, labsize S3/D3, labdist D3) | .815 (0) | .843 (-.001) | .763 (+.001) | .802 (+.005) | .806 |
+| 18 (size envelope S2, internet PHYSB D2, sim3d motion families S3/D3) | .817 (+.002) | .853 (+.009) | .765 (+.003) | .798 (+.001) | **.808** |
+- PHYSB won (+.009 D2): internet speed labels are physical, not prior-consistent -> extend family-anchored rescaling.
+- Limit is 5 successful submissions per UTC day across both tracks (resets 00:00 UTC).
+Best per category -> `trackA_best_p21.csv` = p16 + sizeenv(S2) + physb(D2) + labsize(S3,D3) + labdist(D3) + sim3d guard(S3,D3);
+expected ~.817/.853/.766/.803 = .810.
