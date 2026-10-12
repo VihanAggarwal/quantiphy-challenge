@@ -490,3 +490,23 @@ gain basis is generic validation D2 (n=37), not these clips; 0061/0062 values mo
 |---|---|---|
 | `trackA_cand_d2static_verified_on_p8.csv` | D2 23 (rotgrav minus 3196) | D2 +0.000 +- .001 |
 | `trackA_cand_d2static_verified_fwd_on_p8.csv` | D2 23, 6 velocity rows forward-differenced | D2 +0.000..+0.002 (only if FWD convention holds; use with internet_main) |
+
+## Review of the re-ask study (2026-10-12, `research/verify_reask/`): conclusion holds, three numbers weaker or wrong
+All re-ask tables reproduce exactly (val_eval / val_boot / test_flags rerun; outputs byte-identical). No candidate existed
+or is built. Budget confirmed from the ledger: usage $137.40, all 46 holds released.
+- **3D non-lab xhigh "+.041 on high-spread rows, n=17"** is 4 videos, 8 of the 17 rows from simulation_0009, so the
+  video-bootstrap CI over 4 clusters means little. The gain is specific to xhigh (5th member fable +.006, med -.024,
+  med2 -.006). xhigh also returned no direct answers on 3 of 24 validation videos (24/159 questions), which is a
+  wasted-spend risk on test. Treat rank 3 as 0 to +.002.
+- **The stand-in re-asks are not the test configuration** (v1b = 480p copies, v2 = different prompt). Subtracting each
+  source's all-row offset: lab conf<=.3 one re-ask +.018 [+.007,+.041] (n=22), 2D conf<=.3 v2 re-ask +.046 [+.006,+.156]
+  (n=20), 3D non-lab about 0. Each is still about +.001 overall.
+- **Free rules (not scripted in reask/):** most-confident run = base under first-run tie-break (val .794, test facts
+  .716). Confidence-weighted log mean: val .804 vs median .810, test facts .725 vs .715 (73 rows / 31 videos). So it does
+  not "lose on test facts"; the evidence is mixed, and the upside is <= +.001 overall. No candidate.
+- **The gate pilot is uninformative for most of the plan**: 37 flagged fact rows in 20 videos, all 3D non-lab (ranks 1, 2
+  and 4 are 2D or lab). A proxy (extra run minus base on those rows) gives a clustered SD of the mean gain of ~.022, so
+  the +.03 gate is ~1.4 SD.
+- Arithmetic bound: about 61% of scored rows can still move, so +.01 overall needs >= +.016 per moved row. The best
+  full-run median on validation gives +.003 per row, and $62 buys about 1.5 test-wide v1-high runs. Re-asks can't
+  reach +.01. Corrected total for the ~$35 plan: about +.004 to +.007 (estimate).
