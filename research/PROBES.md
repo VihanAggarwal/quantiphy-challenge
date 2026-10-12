@@ -328,3 +328,34 @@ Estimate was .813/.843/.755/.798. New base for reading probes 11-15 (all built o
 - Blender label emulation: S2 -.002, D2 0 -> dropped (paper's backward-difference / tangential convention not confirmed).
 New best per category: S2/D2 probe 8, S3/D3 probe 11 -> `submissions/trackA_best_p16_p8_labnoiseS3D3.csv`
 (expected .815/.844/.762/.797 = .8045). New base for further candidates.
+
+## Lab sizes (2026-10-12): candidates on probe 8 (`research/labsize/`)
+Test inputs only for evidence (frames, Claude records, prior/depth text); validation labels only in `evaluate_val.py`.
+Lab size rows: S3 119, D3 229 (348; 36 stated facts, ~144 family pools in probe 8). Findings:
+- **Stated size priors** (50 renders; balls + credit card) read +10% (family median) through the camera geometry
+  (f 711), with large scatter (-16%..+47%, e.g. 0031's tennis/white-ball depths look swapped, 0033 +41%). No global
+  factor: the basketball reads -2..+6%, and a focal length from **rectified table tops** (below; right angle in yawed
+  views 0022/0014/0029: f 709-715; cross-view agreement of the table's sides is flat over f 720-790) does not
+  support the 80-deg spec (f 763) clearly either. **Credit card**: Claude's extent equals the segmented card
+  (100 px) and the 0038 depth anchors agree on the table plane within +-3%, so the card's +6..+8% is geometric, not
+  annotation; it only matters for the 0037-0040 scene (variant `_s3p`).
+- **Metric rectification of the lab table** (corners refined on the uniform-background renders, plane scale from
+  depth_info anchors, 8 views): 75.9 x 59.7 cm (median of all 8 views, f 722; 76.6 x 60.4 without the two eye-level
+  views; 74-77 x 59.6-60.9 for f 711-763). Probe 8 had 68/70 x 57.6 (pooled direct answers; the receding side is
+  foreshortened).
+- **Elevated camera / flat objects**: captured_0014's camera is 91 cm above the table top: upright heights read at
+  sin = 0.89 (cup 12.3-13.5 vs 14.6 in 0013's level view) and flat objects' receding sides are foreshortened
+  (notebook long side 12.0-12.8 fronto-parallel vs 17.6/18.0 on the rectified plane; pen 15.4 on the plane vs probe 8's
+  12.1 pooled from 0013's end-on view).
+| Candidate | S3 | D3 | Rules |
+|---|---|---|---|
+| `trackA_cand_labsize_main_on_p8.csv` | 35 | 81 | TB table 76.0 x 60.3 (S3 35, D3 12); BI ball identity (D3 10: 0001 tennis 6.7, 0010 red pendulum ball 7.0 as in 0027, 0054 orange ball = basketball 23.2); EL 0014 elevation/plane (D3 20: cup /0.891, notebook length 17.3, pen 14.9 for 0013+0014, notebook thickness 1.46 pooled over 0014/0023/0024); RP render median where renders spread > 5% (D3 39) |
+| `trackA_cand_labsize_wb_on_p8.csv` | 35 | 83 | main + 0062 whiteboard self-rectified on the floor 85.7 x 64.0 (probe 8 83-98 x 46-48; floor-plane check of Claude's extents 80-86 x 70-73) |
+| `trackA_cand_labsize_s3p_on_p8.csv` | 77 | 81 | main + S3 scene 0037-0040 x0.958 (42 rows): halfway (log) between camera geometry and the scene's stated priors (+8.5% median over 12 renders) |
+Expected (estimates, not measured): main S3 +.003..+.006 (16 scored table-length rows 68 -> 76 move from 0.8-0.9
+to 1.0 if the table is ~75-76; width 57.6 -> 60.3 neutral), D3 +.005..+.009 (BI ~+1.5 pts, EL ~+3 pts, TB ~+0.3,
+RP ~+1..2 pts over 933). `_wb` D3 +.001..+.002 more if the board is ~85 x 60-65. `_s3p`: S3 -.004..+.007 (hedge:
+under either calibration the 42 rows stay within ~4.5%). Validation premise (overlap rows, unscored on test; n=4):
+0021x table 60 x 75 (cand 1.0/1.0 vs p8 1.0/0.9), 0013 pen 14.5 (cand 1.0 vs 0.7); the val table and pen labels
+had been seen during the study, so these are not independent checks. All three candidates change only lab size
+rows, disjoint from p16's lab-noise rows, so they compose with `trackA_best_p16_p8_labnoiseS3D3.csv` directly.
