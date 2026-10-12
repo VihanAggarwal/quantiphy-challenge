@@ -287,3 +287,27 @@ so these are approximate to +-12 rows): N = S2 553, D2 1137, S3 538, D3 933. Dia
 S2 acceleration 72, S3 lab motion 165, D3 lab motion 105, D2 internet 201.
 subset mean = (score_7b - score_diagC) * N_scored / n_scored. Validation clips are test clips too, so judge future
 changes on validation mainly through the non-overlapping rows and the leaderboard.
+
+## Lab distances (2026-10-12): candidates on probe 8, D3 only
+`research/labdist/` (test inputs and our own cached answers for evidence; validation labels only in `evaluate_val.py`).
+Lab distance-type rows: S3 61 (27 displacement, 13 distance, 21 path length), D3 127 (41 / 77 / 3 + 6 camera
+distance); 6 are validation overlaps. How they are answered now: distances mostly geometry (depth_info as range,
+f from LAB_FOV_DEG), several renders direct; the label procedure (clicked centres, ToF depth at the click,
+back-projection, Euclidean distance) is what the geometry already does whenever depth_info states both objects at the
+asked time, so the systematic convention terms are only Z vs range (x1.04 median on distance rows, up to x1.28) and
+f (80 deg spec: x0.955); neither can be settled label-free (cross-camera 0054a/b favours range weakly). The losses
+are measurement failures in specific families, and renders of one event share one label:
+- R1 render copy: s/x render rows answered by Claude's direct answer take the original render's value. Premise on
+  validation (raw direct answers, 20 s/x lab questions, all kinds): .610 -> .680 (+.070, 90% CI +.025..+.120).
+- R2 family log-median where a family's values spread > 15%; R3 0054b/bs orange-soccer at 1.0 s used the soccer
+  ball's 2.0 s depth (2.0 m) -> 0054bx's looming geometry (1.33 m).
+- R4 (emu only) ball-to-floor / ball-to-desk rows of 0008/0009: clicked-point emulation with the stated depths and the
+  Claude floor/desk click lying on the ball's own vertical (0009: fall direction vs apex->floor 3.6 deg; the 3D drop
+  then matches g = 9.8 at the 25 fps capture clock). 0009: initial 129.5 cm (was 117.7 / 70.75 / 70.75; 70.75 is the
+  depth difference = a lower bound), max rebound 64.6 cm (was 30.1 / 44.9 / 44.9); 0008: 81.0 / 36.6 cm.
+| Candidate | rows (D3) | expected D3 (estimate) |
+|---|---|---|
+| `trackA_cand_labdist_fam_on_p8.csv` | 27 (R1 17, R2 8, R3 2) | +.002..+.003 |
+| `trackA_cand_labdist_emu_on_p8.csv` | 32 (R1 13, R4 12, R2 5, R3 2) | +.004..+.006 if the clicked-point model holds |
+Not changed: 0041 ball-to-person (no person depth), 0018 at 3.0 s (past the clip end; s/x copy only), S3 rows
+(displacement: direct ~ geometry where both ends have depths; paths belong to the labnoise ladder).
