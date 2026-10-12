@@ -543,3 +543,11 @@ Plus probe 14 (S3 lab-noise sz 4 cm vs probe 8; D3 lab motion x1.15). Expected: 
 20: S3 = p16 minus the 36 mid-ball speed rows (x1.29); D3 = emulator 4 cm. S2/D2 = p16. Model-expected S3 split:
 path 3.0, mid-ball speed 1.9, small-ball speed 2.3 item points (of ~8.4 / 538 scored = ~+.016). Upload after 17/18/14
 if the S3 lever needs refining; whichever part loses gets reverted, the winning parts get a stronger setting.
+
+## Track B (2026-10-12)
+Colab run trackb_v1 (vLLM fix in): validation MRA caw .548, cv_geo .541, qwen_geo .526, cv_geo_only .446,
+qwen_direct .399; per-cell routing (LOVO) .556-.576; log-median of the 4 = .589 (`trackB_v1_median4_post.csv`).
+Gross misses (>2x off) 40-60% on D2 sizes and D3 distances. Model-free family rules ported to qp/postprocess.py
+(preset "trackb": facts, motionfam, freefall, labfacts, pool): validation .604 (`trackB_v2_median4_famrules.csv`);
+stated facts +.013 (7/7 exact), pool unconfirmed by LOVO but +.06 per row on test-side held-out facts.
+Next run (notebook d463467): Qwen-box-prompted SAM 2 (cvq) + Qwen3.5-27B + Gemma-4-31B direct answers in the median.
