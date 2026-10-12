@@ -11,6 +11,11 @@ BI  ball identity: a generic "ball" that the frames show is a prop whose size a 
       captured_0010/X/s ball = the red ball hung on a string (pendulum, as in 0027 whose prior states the red
         ball = 7 cm; also 0030),
       captured_0054a/b (+renders) "orange ball" = the basketball (black seams; 23.2 cm stated in 0035a/b priors).
+EL  elevated camera, captured_0014 (camera 91 cm above the table top): the cup's height is seen at
+    sin(ray, table normal) = 0.891 -> median of renders / 0.891; flat objects measured on the rectified table plane
+    (scale x0.970 so the table there matches the 6-view consensus): book long side 17.8 -> 17.3 cm (probe 8: 12.0-12.8,
+    its long side recedes), pen 15.4 -> 14.9 cm for the pen of 0013/0014 (probe 8 pooled 12.1 from 0013's
+    foreshortened view; 0014's own fronto-parallel geometry was 14.8-15.5).
 RP  render pooling: X, Xs, Xx are pixel-aligned renders of one event (backgrounds replaced), so a question asked
     in each has one label; rows that are not stated facts / family pools take the median of the renders' answers
     when they spread by more than 5%.
@@ -38,6 +43,8 @@ UNIT = {"cm": 1e-2, "mm": 1e-3, "m": 1.0}
 LAB_STATED_SI = {0.232, 0.04, 0.07, 0.067, 0.0856}   # sizes stated in lab test priors
 TABLE_LONG, TABLE_SHORT = 0.760, 0.603
 WB_LONG, WB_SHORT = 0.857, 0.640
+# captured_0014x plane scale vs the table consensus: the table measures 77.2 x 63.1 there (f 722) vs 76.0 x 60.3
+K0014 = float(np.sqrt(76.0 / 77.2 * 60.3 / 63.1))
 
 
 def lab_size_rows():
@@ -111,7 +118,10 @@ def build(variant=""):
             put(qid, med / 0.891, "EL", "0014 cup height / sin(ray, table normal)=0.891 (median of renders)")
             done.add(qid)
         elif r.event == "captured_0014" and r.obj == "book" and r.dim == "length":
-            put(qid, 0.178, "EL", "0014 book long side on the rectified table plane: 17.6 / 18.0 cm")
+            put(qid, 0.178 * K0014, "EL", "0014 book long side on the rectified table plane: 17.6 / 18.0 cm x0.970")
+            done.add(qid)
+        elif r.event in ("captured_0013", "captured_0014") and r.obj == "pen" and r.dim == "length":
+            put(qid, 0.154 * K0014, "EL", "pen (0013/0014, one prop) on the 0014 table plane: 15.4 cm x0.970")
             done.add(qid)
     # RP render pooling (not for props the base already pools across events)
     pooled_keys = {(s.loc[q, "obj"], s.loc[q, "dim"]) for q in s.index if pooled[q]}
