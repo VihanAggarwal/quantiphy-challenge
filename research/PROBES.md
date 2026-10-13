@@ -675,3 +675,8 @@ astronaut accelerations non-monotone; lab: desk 857.9 cm, basketball 9.32 m/s, b
 7 reasoning_wrt .8121; us .811 (~8th). Top two ~.02 above everyone else. Workflow wf_697c11d5-4f2 ("path-to-085") launched:
 web research on the top teams + post-QuantiPhy literature, six data-driven lever studies (S2 sim, internet, S3 sim multi-view,
 lab, D3 families, leaderboard strategy) with adversarial verification; output research/path85/PLAN.md.
+
+## combo2 (2026-10-13): `submissions/trackA_cand_combo2.csv` = path85 combo + free-fall backward difference (D2 21, D3 15;
+research/path85b_phys) + D2/D3 family/event levers E1 (droplets, superseded by ffbd), E2 (0191/0192 pooled drop), L1 (0019 person
+1.3) from research/path85b_fam; L2/L3 (0157 turtle x1.113, 0219 robot) left out (same-camera support only). Expected +.001..+.0015
+over the combo. Killed: pooled focal per camera group (7/27 held-out priors within 7%), lab ballistic 3D fits (free g 9.7-16.7).
