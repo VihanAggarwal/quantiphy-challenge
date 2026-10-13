@@ -27,7 +27,7 @@ from tbcommon import CATS, OUT, base_preds, item, log_median, questions  # noqa:
 V3 = {"S2": ["caw", "cv_geo", "qwen_direct"], "D2": ["caw", "cv_geo", "qwen_direct", "qwen_geo"],
       "S3": ["cv_geo", "qwen_geo", "qwen_direct"], "D3": ["caw", "qwen_geo", "qwen_direct"]}
 _NEW = {"qwen_dense": "qwen_dense_labfov", "qwen_dyn": "qwen_dyn", "cvq_fov": "cvq_labfov", "cv_fov": "cv_labfov",
-        "qwen_fov": "qwen_sparse_labfov", "hybrid": "hybrid_cvq_cv_nopick_labfov"}
+        "qwen_fov": "qwen_sparse_labfov", "hybrid": "hybrid_cvq_cv_nopick_labfov", "qwen_dyn2": "qwen_dyn2s"}
 NEW = {"val": _NEW, "test": _NEW}
 
 

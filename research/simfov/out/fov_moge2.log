@@ -258,3 +258,7 @@ simulation_0039 0.85 1536x1536 hfov 42.9 deg  (10.1s)
 CPU Autocast only supports dtypes of torch.bfloat16, torch.float16 currently.
   with torch.autocast(device_type=self.device.type, dtype=torch.float32):
 simulation_0040 0.15 1080x1080 hfov 56.7 deg  (8.6s)
+/home/user/moge-lib/moge/model/v2.py:234: UserWarning: In CPU autocast, but the target dtype is not supported. Disabling autocast.
+CPU Autocast only supports dtypes of torch.bfloat16, torch.float16 currently.
+  with torch.autocast(device_type=self.device.type, dtype=torch.float32):
+simulation_0040 0.85 1080x1080 hfov 56.4 deg  (14.3s)
