@@ -669,3 +669,9 @@ the DepthPro / UniDepth / temporal-median FOV suggestions (same failure class; s
 Validation loss decomposition (physb2, 131 matched rows): <10% errors cost little; losses come from 20-50% errors
 and gross misses (S2 sim >2x: .138 of S2 from 4 rows, incl. label oddities: big bird 0.72 < small bird 0.94,
 astronaut accelerations non-monotone; lab: desk 857.9 cm, basketball 9.32 m/s, ball-person 0.198 m).
+
+## Leaderboard 2026-10-12 23:36 local (Track A)
+1 Perch AI .8517, 2 Cogworks RSI .8498, 3 Blindfolded .8293, 4 iMak AI Lab .8231, 5 szerlok .8195, 6 Quantumonster .8191,
+7 reasoning_wrt .8121; us .811 (~8th). Top two ~.02 above everyone else. Workflow wf_697c11d5-4f2 ("path-to-085") launched:
+web research on the top teams + post-QuantiPhy literature, six data-driven lever studies (S2 sim, internet, S3 sim multi-view,
+lab, D3 families, leaderboard strategy) with adversarial verification; output research/path85/PLAN.md.
