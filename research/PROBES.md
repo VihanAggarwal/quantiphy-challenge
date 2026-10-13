@@ -626,3 +626,20 @@ Sources: `research/consult/brief_2026-10-12_3d.md` (brief), `gemini_2026-10-12_3
   dimensions, sim acceleration = d|v|/dt from backward-differenced speeds.
 - Open: per-event lab label-noise calibration from the stated prior (D3 lab), forward-difference timing
   (+1/50 s), whether lab labels were smoothed (printed lab accelerations look too clean for raw 2nd differences).
+
+## Results 2026-10-12 uploads (on p21)
+
+| file | S2 | D2 | S3 | D3 | MRA |
+|---|---|---|---|---|---|
+| trackA_best_p21 | .817 | .853 | .766 | .803 | .810 |
+| trackA_cand_physb2_on_p21 | .817 | .859 (+.006) | .766 | .803 | **.811** (new best) |
+| trackA_diagE_on_p21 | .275 | .315 | .461 | .517 | diag |
+| trackA_diagF_on_p21 | .542 | .538 | .305 | .286 | diag |
+| trackB_v3_catmedian_famrules (Track B) | .558 | .663 | .620 | .641 | .621 (val estimate .623) |
+
+Decoded subset means (scored n; points of the category lost):
+- S2: simulation+seg .828 (362; .113) | internet .796 (191; .070)
+- D2: simulation static .851 (719; .094) | rest .857 (418; .053)
+- S3: non-lab (sim+seg) **.742** (221; .106) | lab .782 (317; .128)
+- D3: lab static .799 (334; .072) | lab motion + non-lab .805 (599; .125)
+S3 non-lab is the weakest subset (the simfov study's target); S3 lab and D3 are close to their category means.
