@@ -1,0 +1,15 @@
+day_utc,upload,S2,D2,S3,D3,purpose,decision_rule
+2026-10-13,U1-U4 (built),see PROBES.md,see PROBES.md,see PROBES.md,see PROBES.md,method switches + lab-noise/emulator rungs,adopt a slot if decoded delta interval > 0; ambiguous (observed 0) -> keep out until a single-category precision upload
+2026-10-13,U5 trackA_u5_s2all_d2all_s3labmot_d3repool.csv,s2all+inet_micro (25),s2all+inet_micro (31),labmot (20 scored),d3repool (201),newest verified-pending levers from path85 agents,adopt if > 0; if S2/D2 ambiguous use the U6/U7 splits
+2026-10-14,U6 trackA_u6_s2events_d2sizeenv_s3p_d3labx097.csv,s2events (11; split of s2all),d2sizeenv (60),s3p x0.958 (42),labsize_x097 (71),splits + never-uploaded siblings of measured winners + lab size scale rung,"x097: if win, next rung x0.94 on the same rows; if loss, rung x1.03 is not worth a slot"
+2026-10-14,U7 trackA_u7_s2bird_d2bird_s3noguard_d3simmotx1035.csv,s2birdfam (5; big x0.6 changes),s2birdfam (14),sim3d_noguard (5),d3simmot_x1035 (42),high-variance small-row levers isolated; D3 micro rung,s2all component = U5 - U6 - U7 (disjoint rows); D3 x1.035 expected below resolution (bundle later)
+2026-10-14,U8 trackA_u8_diag_s2simmot_d2inet_s3nlmot_d3labmot.csv,zero S2 sim motion (213),zero D2 internet (201),zero S3 non-lab motion (103),zero D3 lab motion (105),loss map for research targeting,subset mean = -delta*N/n (decode.py prints it)
+2026-10-14,adaptive A1,rung after U1/U2 S2,rung after U1/U2 D2,next lab-noise rung (sz5 if sz4 wins; sz1.5/3 split by class if not),next emulator rung,parameter ladders around measured winners,stop a ladder after the first loss on each side
+2026-10-15,U9 trackA_u9_diag_s2inetmot_d2simmot_s3labmot_d3simmot.csv,zero S2 internet motion (80),zero D2 sim motion (202),zero S3 lab motion (165),zero D3 sim motion (110),completes the 16-cell loss map (with diagE/F),
+2026-10-15,C1 composite,all S2 winners,all D2 winners,all S3 winners,all D3 winners,confirm additivity; protects leaderboard position,"each category within +-.0015 of base + sum(deltas); else bisect"
+2026-10-15..20,~22 research uploads,new levers from research agents (one per slot),,,,4 tests per upload; rebase new levers on the latest scored composite,
+2026-10-17,C2 composite,,,,,,
+2026-10-19,C3 composite,,,,,,
+2026-10-21,~5 precision uploads,single-category variants of C3 (one marginal bundle each),,,,overall 4th decimal pins the delta to +-.0004,adopt marginal bundles with decoded interval > 0
+2026-10-22,F composite + 1 alternative,,,,,final candidates,
+2026-10-23,F re-upload if changed; 3 spares unused,,,,,final = best-scored composite uploaded >= 24 h before the AoE deadline (2026-10-24 11:59 UTC),

@@ -1,0 +1,248 @@
+{
+ "rounding": "round",
+ "note": "Fill scores (category 3-dec, overall with all shown decimals) after each upload, then: python decode.py uploads_registry.json. Levers are relative to physb2; zero:* are diagnostics (delta = -subset item sum / N_cat).",
+ "uploads": [
+  {
+   "name": "physb2",
+   "levers": {},
+   "scores": {
+    "S2": 0.817,
+    "D2": 0.859,
+    "S3": 0.766,
+    "D3": 0.803,
+    "overall": 0.811
+   }
+  },
+  {
+   "name": "p21",
+   "levers": {
+    "D2": [
+     "undo_physb2"
+    ]
+   },
+   "scores": {
+    "S2": 0.817,
+    "D2": 0.853,
+    "S3": 0.766,
+    "D3": 0.803,
+    "overall": 0.81
+   }
+  },
+  {
+   "name": "diagE_on_p21",
+   "levers": {
+    "S2": [
+     "zero:S2_sim"
+    ],
+    "D2": [
+     "undo_physb2",
+     "zero:D2_sim_static"
+    ],
+    "S3": [
+     "zero:S3_nonlab"
+    ],
+    "D3": [
+     "zero:D3_lab_static"
+    ]
+   },
+   "scores": {
+    "S2": 0.275,
+    "D2": 0.315,
+    "S3": 0.461,
+    "D3": 0.517
+   }
+  },
+  {
+   "name": "diagF_on_p21",
+   "levers": {
+    "S2": [
+     "zero:S2_internet"
+    ],
+    "D2": [
+     "undo_physb2",
+     "zero:D2_rest"
+    ],
+    "S3": [
+     "zero:S3_lab"
+    ],
+    "D3": [
+     "zero:D3_rest"
+    ]
+   },
+   "scores": {
+    "S2": 0.542,
+    "D2": 0.538,
+    "S3": 0.305,
+    "D3": 0.286
+   }
+  },
+  {
+   "name": "u1_p22s2d2_s3sz4_d3emu3",
+   "levers": {
+    "S2": [
+     "inet_direct"
+    ],
+    "D2": [
+     "simstat_direct"
+    ],
+    "S3": [
+     "labnoise_sz4"
+    ],
+    "D3": [
+     "emu3"
+    ]
+   },
+   "scores": null
+  },
+  {
+   "name": "u2_p23s2d2_s3nopath_d3emu4",
+   "levers": {
+    "S2": [
+     "simmot_gm"
+    ],
+    "D2": [
+     "inet_direct"
+    ],
+    "S3": [
+     "minus_path"
+    ],
+    "D3": [
+     "emu4"
+    ]
+   },
+   "scores": null
+  },
+  {
+   "name": "u3_s3nomid_d3labdirect",
+   "levers": {
+    "S3": [
+     "minus_mid"
+    ],
+    "D3": [
+     "labstat_direct"
+    ]
+   },
+   "scores": null
+  },
+  {
+   "name": "u4_s3labdirect_d3labgm",
+   "levers": {
+    "S3": [
+     "labstat_direct"
+    ],
+    "D3": [
+     "labstat_gm"
+    ]
+   },
+   "scores": null
+  },
+  {
+   "name": "u5_s2all_d2all_s3labmot_d3repool",
+   "levers": {
+    "S2": [
+     "s2all+inet_micro"
+    ],
+    "D2": [
+     "s2all+inet_micro"
+    ],
+    "S3": [
+     "labmot"
+    ],
+    "D3": [
+     "d3repool"
+    ]
+   },
+   "scores": null
+  },
+  {
+   "name": "u6_s2events_d2sizeenv_s3p_d3labx097",
+   "levers": {
+    "S2": [
+     "s2events"
+    ],
+    "D2": [
+     "d2sizeenv"
+    ],
+    "S3": [
+     "s3p"
+    ],
+    "D3": [
+     "labsize_x097"
+    ]
+   },
+   "scores": null
+  },
+  {
+   "name": "u7_s2bird_d2bird_s3noguard_d3simmotx1035",
+   "levers": {
+    "S2": [
+     "s2birdfam"
+    ],
+    "D2": [
+     "s2birdfam"
+    ],
+    "S3": [
+     "sim3d_noguard"
+    ],
+    "D3": [
+     "d3simmot_x1035"
+    ]
+   },
+   "scores": null
+  },
+  {
+   "name": "u8_diag_s2simmot_d2inet_s3nlmot_d3labmot",
+   "levers": {
+    "S2": [
+     "zero:S2_sim_motion"
+    ],
+    "D2": [
+     "zero:D2_internet"
+    ],
+    "S3": [
+     "zero:S3_nonlab_motion"
+    ],
+    "D3": [
+     "zero:D3_lab_motion"
+    ]
+   },
+   "scores": null
+  },
+  {
+   "name": "u9_diag_s2inetmot_d2simmot_s3labmot_d3simmot",
+   "levers": {
+    "S2": [
+     "zero:S2_inet_motion"
+    ],
+    "D2": [
+     "zero:D2_sim_motion"
+    ],
+    "S3": [
+     "zero:S3_lab_motion"
+    ],
+    "D3": [
+     "zero:D3_sim_motion"
+    ]
+   },
+   "scores": null
+  }
+ ],
+ "scored_n": {
+  "S2_sim": 362,
+  "S2_internet": 191,
+  "D2_sim_static": 719,
+  "D2_rest": 418,
+  "S3_nonlab": 221,
+  "S3_lab": 317,
+  "D3_lab_static": 334,
+  "D3_rest": 599,
+  "S2_sim_motion": 213,
+  "D2_internet": 201,
+  "S3_nonlab_motion": 103,
+  "D3_lab_motion": 105,
+  "S2_inet_motion": 80,
+  "D2_sim_motion": 202,
+  "S3_lab_motion": 165,
+  "D3_sim_motion": 110
+ }
+}

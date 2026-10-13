@@ -1,0 +1,111 @@
+{
+ "key": "d3rest",
+ "category": "D3",
+ "base": "submissions/trackA_probe5_families_merged.csv (probe 5)",
+ "no_api_spend": "no replay, no API; post-hoc on cached records, test videos (frames for eye checks) and probe-5 artifacts",
+ "untouched_by_probe5": {
+  "total": 505,
+  "of": 969,
+  "lab": {
+   "n": 313,
+   "kinds": {
+    "size": 118,
+    "speed": 82,
+    "distance": 64,
+    "displacement": 34,
+    "acceleration": 6,
+    "camera_distance": 6,
+    "path_length": 3
+   },
+   "routing": "mostly calibrated rig geometry (MAP f ~84 deg); direct only where target depth is assumed"
+  },
+  "simulation": 167,
+  "segmentation": 25,
+  "sim_seg_detail": "186 of 192 direct-routed; before the extension 39 rows sat in single-base families, the rest in families whose clip had no transferred fact (K = 0) and < 3 bases per equivalent question (no P)"
+ },
+ "findings": [
+  "Missed scene links (test inputs only, each checked by eye on contact sheets in sheets/ and frames/): shared object vocabulary (idf-weighted, >= 2 distinctive names) links 0007-0009 (pier/boat lake), 0010-0014 (farm house, cart, bird), 0015/0019 with the 0016/0017 atrium, 0045-0050 (photo-lab street), 0187-0191 (truck warehouse), 0193-0195 (Jupiter model), 0202-0209 (typewriter desk), 0210-0222 (cat room); segmented-frame NCC .966 links 0038_seg~0043_seg (beach rock); an eye-verified identical prior links 0030 to 0029 (same beach rock, sea and eagle). 148 vocabulary candidates were rejected by eye (colour-car/streetlight/door names across different scenes). Identical prior text alone is not enough (two such pairs are different scenes).",
+  "simulation_0030's depth_info is copied from simulation_0140 (neon-sign building; same bird distances 25.328/24.899 m and a neon-sign entry absent from the beach scene).",
+  "T on the new links: 17 D3 rows take stated values (boat 3.62/0.75 m, bird 1.19 m, person 1.87/1.75/1.8 m, bicycle wheel 0.65 m, eagle 0.8 m). Validation answers on the test copy of simulation_0009 equal the transferred values exactly (1044: 3.62, 1046: 0.75; measurement only).",
+  "K (clip scale) is camera-specific: a family-level K from other clips' facts gives no gain in LOFO (.767 -> .767). A single other-object fact gives only +.013 (.769 -> .782, 112 pairs) and K from the boat facts hurts 5 of 7 known 0009 rows (pier, cabin floor, steps are not under-scaled), so clip K was NOT extended to new single-fact clips. Same-object facts carry the scale strongly (pairs .414 -> .614; size->size boat pairs .55 -> .85): Claude's model of one object has the right shape but the wrong size -> KOBJ.",
+  "P on the extended families: LOFO on all 90 D3 facts KP .906 (raw .766); on the 19 new-link facts KP .742 vs raw .674; old facts unchanged (.951 -> .949). A spread guard hurts: high-spread groups gain the most from pooling (pool .83 vs own .53), so none is used; min_bases 2 ~ 3, kept 3 as in probe 5.",
+  "Implausible direct scale: simulation_0032_segmented (segmented basketball clip, no context) has direct person 15.7 m, ball 2.45 m, throw 25 m/s; geometry from its own depth_info measures 1.76 m, 0.278 m, 2.64 m/s, and rescaling the direct answers by a human height (1.8/15.7) independently gives 0.28 m and 2.9 m/s. No other D3 sim clip has this pattern.",
+  "Lab (313 untouched rows): no principled family lever left. Lab statics are calibrated rig geometry (props already pooled by probe 5; books differ between events, persons have no stated sizes, slopes/tables already pooled). Lab motion is the open question (GT 1.2-1.6x physical in 0034a/0054a/0061 but physical in slope/floor scenes); probe 6 tests lab motion -> direct, so nothing is stacked here. Slope physics (v = a(t - t0), v_end = sqrt(2aL)) agrees with direct, not geometry, in 0001/0002/0024, but that is the same lab-motion routing question. Only one new lab fact: the 0018 tennis ball (stated 6.7 cm in S3 priors; LABFACT only ran on props asked in >= 2 events)."
+ ],
+ "evaluation": {
+  "lofo_stated_facts": [
+   "OLD fam, old facts minb 3 n 71 {'m_raw': 0.79, 'm_K': 0.855, 'm_P': 0.897, 'm_KP': 0.951}",
+   "EXT fam, all facts minb 3 n 90 {'m_raw': 0.766, 'm_K': 0.817, 'm_P': 0.876, 'm_KP': 0.906}",
+   "EXT fam, NEW facts minb 3 n 19 {'m_raw': 0.674, 'm_K': 0.674, 'm_P': 0.7, 'm_KP': 0.742}",
+   "EXT fam, old facts minb 3 n 71 {'m_raw': 0.79, 'm_K': 0.855, 'm_P': 0.923, 'm_KP': 0.949}",
+   "S3 EXT fam, all facts minb 3 n 17 {'m_raw': 0.7, 'm_K': 0.665, 'm_P': 0.706, 'm_KP': 0.706}",
+   "OLD fam, old facts minb 2 n 71 {'m_raw': 0.79, 'm_K': 0.855, 'm_P': 0.908, 'm_KP': 0.951}"
+  ],
+  "known_rows": "37 D3 rows (validation answers on the same test clip/question, 12 suspects excluded): p5 .7865 -> A .8108 (1044, 1046 exact) -> C .8216 (1045 boat width 0.65 -> 1.13, GT 1.23)",
+  "consistency": "twin pairs: equality preserved (0017 pair now both 1.87); every changed P group carries one pooled value except the 0017 pair excluded from twinning in probe 5"
+ },
+ "variants": [
+  {
+   "name": "D3ext_C_TP_KOBJ_HUMAN",
+   "csv": "/tmp/claude-0/-home-user/879308ec-3ca1-5f52-960b-589240fd8127/scratchpad/ext/d3rest/D3ext_C_TP_KOBJ_HUMAN.csv",
+   "rows_changed": 69,
+   "by_rule": {
+    "P": 30,
+    "T": 17,
+    "P_RE": 12,
+    "HUMAN": 3,
+    "KOBJ": 2,
+    "TWIN<P": 2,
+    "LABFACT": 2,
+    "TWIN<KOBJ": 1
+   },
+   "expected_delta_vs_probe5_D3": "+0.010..+0.013 (MRA +0.0025..+0.003)",
+   "confidence": "medium"
+  },
+  {
+   "name": "D3ext_B_TP",
+   "csv": "/tmp/claude-0/-home-user/879308ec-3ca1-5f52-960b-589240fd8127/scratchpad/ext/d3rest/D3ext_B_TP.csv",
+   "rows_changed": 63,
+   "by_rule": {
+    "P": 30,
+    "T": 17,
+    "P_RE": 12,
+    "TWIN<P": 2,
+    "LABFACT": 2
+   },
+   "expected_delta_vs_probe5_D3": "+0.008..+0.010",
+   "confidence": "medium"
+  },
+  {
+   "name": "D3ext_A_T",
+   "csv": "/tmp/claude-0/-home-user/879308ec-3ca1-5f52-960b-589240fd8127/scratchpad/ext/d3rest/D3ext_A_T.csv",
+   "rows_changed": 19,
+   "by_rule": {
+    "T": 17,
+    "LABFACT": 2
+   },
+   "expected_delta_vs_probe5_D3": "+0.006 (+0.0066 if every stated value is right)",
+   "confidence": "high"
+  }
+ ],
+ "files": {
+  "build": "/tmp/claude-0/-home-user/879308ec-3ca1-5f52-960b-589240fd8127/scratchpad/ext/d3rest/build_d3ext.py",
+  "families": "/tmp/claude-0/-home-user/879308ec-3ca1-5f52-960b-589240fd8127/scratchpad/ext/d3rest/extfam.py",
+  "vocab_links": "/tmp/claude-0/-home-user/879308ec-3ca1-5f52-960b-589240fd8127/scratchpad/ext/d3rest/vocablinks.py",
+  "transfers": "/tmp/claude-0/-home-user/879308ec-3ca1-5f52-960b-589240fd8127/scratchpad/ext/d3rest/s03_transfers.py",
+  "rebuild": "/tmp/claude-0/-home-user/879308ec-3ca1-5f52-960b-589240fd8127/scratchpad/ext/d3rest/run_all.sh",
+  "decisions": "/tmp/claude-0/-home-user/879308ec-3ca1-5f52-960b-589240fd8127/scratchpad/ext/d3rest/decisions_ext.csv",
+  "eval": [
+   "/tmp/claude-0/-home-user/879308ec-3ca1-5f52-960b-589240fd8127/scratchpad/ext/d3rest/s04_lofo.py",
+   "/tmp/claude-0/-home-user/879308ec-3ca1-5f52-960b-589240fd8127/scratchpad/ext/d3rest/s06_kobj.py",
+   "/tmp/claude-0/-home-user/879308ec-3ca1-5f52-960b-589240fd8127/scratchpad/ext/d3rest/s07_single_fact_k.py",
+   "/tmp/claude-0/-home-user/879308ec-3ca1-5f52-960b-589240fd8127/scratchpad/ext/d3rest/s08_lofo_spread.py",
+   "/tmp/claude-0/-home-user/879308ec-3ca1-5f52-960b-589240fd8127/scratchpad/ext/d3rest/s09_famk.py"
+  ],
+  "eye_checks": [
+   "/tmp/claude-0/-home-user/879308ec-3ca1-5f52-960b-589240fd8127/scratchpad/ext/d3rest/sheets",
+   "/tmp/claude-0/-home-user/879308ec-3ca1-5f52-960b-589240fd8127/scratchpad/ext/d3rest/frames"
+  ]
+ },
+ "note_on_probe7a": "Built on probe 5. If stacked on probe 7a (3D non-lab ensemble rescale), keep T/LABFACT values exact and recompute P/KOBJ/HUMAN from the ensemble base."
+}

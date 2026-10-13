@@ -1,0 +1,732 @@
+{
+ "key": "s3_perkind",
+ "workdir": "/tmp/claude-0/-home-user/879308ec-3ca1-5f52-960b-589240fd8127/scratchpad/ext/s3_perkind",
+ "build_script": "/tmp/claude-0/-home-user/879308ec-3ca1-5f52-960b-589240fd8127/scratchpad/ext/s3_perkind/build_s3.py (imports s3pool.py, lofo_kind.py, common.py; reads big/scenegraph/work TS.pkl, eq3.pkl, transfers3.pkl and merge/S3,D3 decisions.csv)",
+ "eval_scripts": [
+  "/tmp/claude-0/-home-user/879308ec-3ca1-5f52-960b-589240fd8127/scratchpad/ext/s3_perkind/lofo_kind.py",
+  "/tmp/claude-0/-home-user/879308ec-3ca1-5f52-960b-589240fd8127/scratchpad/ext/s3_perkind/eval_pool.py",
+  "/tmp/claude-0/-home-user/879308ec-3ca1-5f52-960b-589240fd8127/scratchpad/ext/s3_perkind/eval_famknown.py",
+  "/tmp/claude-0/-home-user/879308ec-3ca1-5f52-960b-589240fd8127/scratchpad/ext/s3_perkind/eval2.py",
+  "/tmp/claude-0/-home-user/879308ec-3ca1-5f52-960b-589240fd8127/scratchpad/ext/s3_perkind/eval3.py",
+  "/tmp/claude-0/-home-user/879308ec-3ca1-5f52-960b-589240fd8127/scratchpad/ext/s3_perkind/expect.py",
+  "/tmp/claude-0/-home-user/879308ec-3ca1-5f52-960b-589240fd8127/scratchpad/ext/s3_perkind/twin_avg.py"
+ ],
+ "lofo_row_mean": {
+  "S3": {
+   "raw": 0.707,
+   "Kall": 0.664,
+   "Kkind": 0.707,
+   "Ksize": 0.707,
+   "Kspd": 0.707,
+   "P": 0.714,
+   "P_Kall": 0.743,
+   "P_Kkind": 0.757,
+   "P_Kd3all_s3kind": 0.764,
+   "P_Kd3all_s3none": 0.764
+  },
+  "D3": {
+   "raw": 0.79,
+   "Kall": 0.855,
+   "Kkind": 0.823,
+   "Ksize": 0.823,
+   "Kspd": 0.79,
+   "P": 0.897,
+   "P_Kall": 0.951,
+   "P_Kkind": 0.93,
+   "P_Kd3all_s3kind": 0.951,
+   "P_Kd3all_s3none": 0.951
+  }
+ },
+ "lofo_by_kind": {
+  "D3/acceleration": {
+   "raw": 1.0,
+   "Kall": 1.0,
+   "Kkind": 1.0,
+   "Ksize": 1.0,
+   "Kspd": 1.0,
+   "P": 1.0,
+   "P_Kall": 1.0,
+   "P_Kkind": 1.0,
+   "P_Kd3all_s3kind": 1.0,
+   "P_Kd3all_s3none": 1.0,
+   "n": 1
+  },
+  "D3/size": {
+   "raw": 0.787,
+   "Kall": 0.843,
+   "Kkind": 0.83,
+   "Ksize": 0.83,
+   "Kspd": 0.787,
+   "P": 0.919,
+   "P_Kall": 0.965,
+   "P_Kkind": 0.961,
+   "P_Kd3all_s3kind": 0.965,
+   "P_Kd3all_s3none": 0.965,
+   "n": 54
+  },
+  "D3/speed": {
+   "raw": 0.787,
+   "Kall": 0.887,
+   "Kkind": 0.787,
+   "Ksize": 0.787,
+   "Kspd": 0.787,
+   "P": 0.819,
+   "P_Kall": 0.9,
+   "P_Kkind": 0.819,
+   "P_Kd3all_s3kind": 0.9,
+   "P_Kd3all_s3none": 0.9,
+   "n": 16
+  },
+  "S3/acceleration": {
+   "raw": 0.5,
+   "Kall": 0.5,
+   "Kkind": 0.5,
+   "Ksize": 0.5,
+   "Kspd": 0.5,
+   "P": 0.5,
+   "P_Kall": 0.5,
+   "P_Kkind": 0.5,
+   "P_Kd3all_s3kind": 0.5,
+   "P_Kd3all_s3none": 0.5,
+   "n": 2
+  },
+  "S3/size": {
+   "raw": 0.8,
+   "Kall": 0.757,
+   "Kkind": 0.8,
+   "Ksize": 0.8,
+   "Kspd": 0.8,
+   "P": 0.814,
+   "P_Kall": 0.914,
+   "P_Kkind": 0.9,
+   "P_Kd3all_s3kind": 0.914,
+   "P_Kd3all_s3none": 0.914,
+   "n": 7
+  },
+  "S3/speed": {
+   "raw": 0.66,
+   "Kall": 0.6,
+   "Kkind": 0.66,
+   "Ksize": 0.66,
+   "Kspd": 0.66,
+   "P": 0.66,
+   "P_Kall": 0.6,
+   "P_Kkind": 0.66,
+   "P_Kd3all_s3kind": 0.66,
+   "P_Kd3all_s3none": 0.66,
+   "n": 5
+  }
+ },
+ "known_S3_40rows": {
+  "n": 40,
+  "p5": 0.805,
+  "S3_PK_DS": 0.8
+ },
+ "variants": {
+  "S3_PK_DS": {
+   "csv": "/tmp/claude-0/-home-user/879308ec-3ca1-5f52-960b-589240fd8127/scratchpad/ext/s3_perkind/S3_PK_DS.csv",
+   "changed": 46,
+   "median_ratio": 0.9914,
+   "by_rule": {
+    "P": 35,
+    "twin<P": 10,
+    "DS": 1
+   },
+   "known_n": 3,
+   "known_sum": -0.2,
+   "fam_n": 25,
+   "fam_sum": 3.6,
+   "no_proxy": 18,
+   "per_row": 0.121,
+   "delta_measured": 0.0059,
+   "delta_extrap": 0.0097
+  },
+  "S3_PKrepl115_DS": {
+   "csv": "/tmp/claude-0/-home-user/879308ec-3ca1-5f52-960b-589240fd8127/scratchpad/ext/s3_perkind/S3_PKrepl115_DS.csv",
+   "changed": 27,
+   "median_ratio": 0.8764,
+   "by_rule": {
+    "P": 22,
+    "twin<P": 4,
+    "DS": 1
+   },
+   "known_n": 1,
+   "known_sum": -0.2,
+   "fam_n": 16,
+   "fam_sum": 3.4,
+   "no_proxy": 10,
+   "per_row": 0.188,
+   "delta_measured": 0.0055,
+   "delta_extrap": 0.0088
+  },
+  "S3_PKrepl125_DS": {
+   "csv": "/tmp/claude-0/-home-user/879308ec-3ca1-5f52-960b-589240fd8127/scratchpad/ext/s3_perkind/S3_PKrepl125_DS.csv",
+   "changed": 14,
+   "median_ratio": 1.2724,
+   "by_rule": {
+    "P": 11,
+    "twin<P": 2,
+    "DS": 1
+   },
+   "known_n": 1,
+   "known_sum": -0.2,
+   "fam_n": 8,
+   "fam_sum": 2.3,
+   "no_proxy": 5,
+   "per_row": 0.233,
+   "delta_measured": 0.0036,
+   "delta_extrap": 0.0057
+  },
+  "S3_P0_DS": {
+   "csv": "/tmp/claude-0/-home-user/879308ec-3ca1-5f52-960b-589240fd8127/scratchpad/ext/s3_perkind/S3_P0_DS.csv",
+   "changed": 44,
+   "median_ratio": 0.9408,
+   "by_rule": {
+    "P": 34,
+    "twin<P": 9,
+    "DS": 1
+   },
+   "known_n": 2,
+   "known_sum": -0.3,
+   "fam_n": 24,
+   "fam_sum": 2.9,
+   "no_proxy": 18,
+   "per_row": 0.1,
+   "delta_measured": 0.0045,
+   "delta_extrap": 0.0076
+  },
+  "S3_PKsize_DS": {
+   "csv": "/tmp/claude-0/-home-user/879308ec-3ca1-5f52-960b-589240fd8127/scratchpad/ext/s3_perkind/S3_PKsize_DS.csv",
+   "changed": 43,
+   "median_ratio": 0.9927,
+   "by_rule": {
+    "P": 32,
+    "twin<P": 10,
+    "DS": 1
+   },
+   "known_n": 3,
+   "known_sum": -0.2,
+   "fam_n": 23,
+   "fam_sum": 2.9,
+   "no_proxy": 17,
+   "per_row": 0.104,
+   "delta_measured": 0.0047,
+   "delta_extrap": 0.0077
+  },
+  "S3_DS": {
+   "csv": "/tmp/claude-0/-home-user/879308ec-3ca1-5f52-960b-589240fd8127/scratchpad/ext/s3_perkind/S3_DS.csv",
+   "changed": 1,
+   "median_ratio": 1.3,
+   "by_rule": {
+    "DS": 1
+   },
+   "known_n": 0,
+   "known_sum": 0.0,
+   "fam_n": 0,
+   "fam_sum": 0.0,
+   "no_proxy": 1,
+   "per_row": 0.0,
+   "delta_measured": 0.0,
+   "delta_extrap": 0.0
+  },
+  "S3_D3share": {
+   "csv": "/tmp/claude-0/-home-user/879308ec-3ca1-5f52-960b-589240fd8127/scratchpad/ext/s3_perkind/S3_D3share.csv",
+   "changed": 50,
+   "median_ratio": 0.9726,
+   "by_rule": {
+    "D3share": 39,
+    "twin<D3share": 11
+   },
+   "known_n": 3,
+   "known_sum": -0.3,
+   "fam_n": 25,
+   "fam_sum": 2.9,
+   "no_proxy": 22,
+   "per_row": 0.093,
+   "delta_measured": 0.0045,
+   "delta_extrap": 0.008
+  }
+ },
+ "main_changed_rows": [
+  {
+   "qid": 1098,
+   "video": "simulation_0021",
+   "q": "What is the height of the streetlight in meters?",
+   "p5": 4.38,
+   "new": 4.4694,
+   "rule": "P",
+   "proxy": null,
+   "proxy_src": null
+  },
+  {
+   "qid": 1100,
+   "video": "simulation_0022",
+   "q": "What is the height of the boat in meters?",
+   "p5": 10.1,
+   "new": 10.0267,
+   "rule": "P",
+   "proxy": 9.42,
+   "proxy_src": "famknown"
+  },
+  {
+   "qid": 1113,
+   "video": "simulation_0026",
+   "q": "What is the height of the boat in meters?",
+   "p5": 9.7,
+   "new": 10.0267,
+   "rule": "P",
+   "proxy": 9.42,
+   "proxy_src": "famknown"
+  },
+  {
+   "qid": 1117,
+   "video": "simulation_0028",
+   "q": "What is the eagle\u2019s wingspan (the distance from the tip of one wing to the tip of the othe",
+   "p5": 1.8,
+   "new": 1.5905,
+   "rule": "P",
+   "proxy": 1.57,
+   "proxy_src": "famknown"
+  },
+  {
+   "qid": 1140,
+   "video": "simulation_0034",
+   "q": "What is the height of the boat in meters?",
+   "p5": 9.95,
+   "new": 10.0267,
+   "rule": "P",
+   "proxy": 9.42,
+   "proxy_src": "famknown"
+  },
+  {
+   "qid": 1141,
+   "video": "simulation_0034",
+   "q": "What is the width of the boat in meters?",
+   "p5": 3.35,
+   "new": 2.6667,
+   "rule": "P",
+   "proxy": 3.27,
+   "proxy_src": "famknown"
+  },
+  {
+   "qid": 1143,
+   "video": "simulation_0034",
+   "q": "What is the eagle\u2019s wingspan (the distance from the tip of one wing to the tip of the othe",
+   "p5": 1.6,
+   "new": 1.5905,
+   "rule": "P",
+   "proxy": 1.57,
+   "proxy_src": "famknown"
+  },
+  {
+   "qid": 1146,
+   "video": "simulation_0035",
+   "q": "What is the eagle\u2019s wingspan (the distance from the tip of one wing to the tip of the othe",
+   "p5": 1.25,
+   "new": 1.5905,
+   "rule": "P",
+   "proxy": 1.57,
+   "proxy_src": "famknown"
+  },
+  {
+   "qid": 1149,
+   "video": "simulation_0036",
+   "q": "What is the height of the boat in meters?",
+   "p5": 12.0,
+   "new": 10.0267,
+   "rule": "P",
+   "proxy": 9.42,
+   "proxy_src": "famknown"
+  },
+  {
+   "qid": 1160,
+   "video": "simulation_0040",
+   "q": "What is the eagle\u2019s wingspan (the distance from the tip of one wing to the tip of the othe",
+   "p5": 1.2,
+   "new": 1.5905,
+   "rule": "P",
+   "proxy": 1.57,
+   "proxy_src": "famknown"
+  },
+  {
+   "qid": 1162,
+   "video": "simulation_0040",
+   "q": "What is the average of the person at 1.0s in m/s?",
+   "p5": 1.0,
+   "new": 1.3,
+   "rule": "DS",
+   "proxy": null,
+   "proxy_src": null
+  },
+  {
+   "qid": 1168,
+   "video": "simulation_0043",
+   "q": "What is the width of the boat in meters?",
+   "p5": 2.4,
+   "new": 2.6667,
+   "rule": "P",
+   "proxy": 3.27,
+   "proxy_src": "famknown"
+  },
+  {
+   "qid": 1173,
+   "video": "simulation_0044",
+   "q": "What is the eagle\u2019s wingspan (the distance from the tip of one wing to the tip of the othe",
+   "p5": 1.03,
+   "new": 1.5905,
+   "rule": "P",
+   "proxy": 1.57,
+   "proxy_src": "famknown"
+  },
+  {
+   "qid": 1364,
+   "video": "simulation_0074",
+   "q": "What is the height of the walking pedestrian in meters?",
+   "p5": 2.3,
+   "new": 1.8819,
+   "rule": "P",
+   "proxy": 1.87,
+   "proxy_src": "famknown"
+  },
+  {
+   "qid": 1366,
+   "video": "simulation_0074",
+   "q": "What is the width of the turning yellow car in meters?",
+   "p5": 2.4,
+   "new": 1.9921,
+   "rule": "P",
+   "proxy": null,
+   "proxy_src": null
+  },
+  {
+   "qid": 1367,
+   "video": "simulation_0074",
+   "q": "What is the height of the turning yellow car in meters?",
+   "p5": 1.9,
+   "new": 1.5865,
+   "rule": "P",
+   "proxy": 1.65,
+   "proxy_src": "famknown"
+  },
+  {
+   "qid": 1368,
+   "video": "simulation_0074",
+   "q": "What is the width of the purple car in meters?",
+   "p5": 2.3,
+   "new": 1.9638,
+   "rule": "P",
+   "proxy": 1.86,
+   "proxy_src": "famknown"
+  },
+  {
+   "qid": 1369,
+   "video": "simulation_0074",
+   "q": "What is the height of the purple car in meters?",
+   "p5": 1.9,
+   "new": 1.5018,
+   "rule": "P",
+   "proxy": null,
+   "proxy_src": null
+  },
+  {
+   "qid": 1370,
+   "video": "simulation_0074",
+   "q": "What is the length of the purple car in meters?",
+   "p5": 5.8,
+   "new": 5.2883,
+   "rule": "P",
+   "proxy": null,
+   "proxy_src": null
+  },
+  {
+   "qid": 1372,
+   "video": "simulation_0074",
+   "q": "What is the side length of the square earthen platform in meters?",
+   "p5": 2.3,
+   "new": 2.0645,
+   "rule": "P",
+   "proxy": null,
+   "proxy_src": null
+  },
+  {
+   "qid": 1373,
+   "video": "simulation_0074",
+   "q": "What is the diameter of the bicycle wheel in meters?",
+   "p5": 0.55,
+   "new": 0.6585,
+   "rule": "P",
+   "proxy": 0.56,
+   "proxy_src": "famknown"
+  },
+  {
+   "qid": 1374,
+   "video": "simulation_0074",
+   "q": "What is the width of the white car in meters?",
+   "p5": 2.7,
+   "new": 2.175,
+   "rule": "P",
+   "proxy": null,
+   "proxy_src": null
+  },
+  {
+   "qid": 1376,
+   "video": "simulation_0074",
+   "q": "What is the height of the white car in meters?",
+   "p5": 2.6,
+   "new": 2.2786,
+   "rule": "P",
+   "proxy": null,
+   "proxy_src": null
+  },
+  {
+   "qid": 1382,
+   "video": "simulation_0143",
+   "q": "What is the side length of the floor tile in meters?",
+   "p5": 0.6,
+   "new": 0.6313,
+   "rule": "P",
+   "proxy": null,
+   "proxy_src": null
+  },
+  {
+   "qid": 1488,
+   "video": "simulation_0310",
+   "q": "What is the speed of the forklift at 1.0s, in m/s?",
+   "p5": 2.4,
+   "new": 2.0726,
+   "rule": "P",
+   "proxy": null,
+   "proxy_src": null
+  },
+  {
+   "qid": 1490,
+   "video": "simulation_0310",
+   "q": "What is the length(from the fork tips to the rear bumper) of the forklift in meters?",
+   "p5": 4.0,
+   "new": 3.8343,
+   "rule": "P",
+   "proxy": null,
+   "proxy_src": null
+  },
+  {
+   "qid": 1493,
+   "video": "simulation_0311",
+   "q": "What is the speed of the car at 1.0s, in m/s?",
+   "p5": 6.3,
+   "new": 5.1,
+   "rule": "P",
+   "proxy": 4.8,
+   "proxy_src": "famknown"
+  },
+  {
+   "qid": 1494,
+   "video": "simulation_0311",
+   "q": "What is the speed of the car at 2.0s, in m/s?",
+   "p5": 6.1,
+   "new": 9.8,
+   "rule": "P",
+   "proxy": 9.8,
+   "proxy_src": "famknown"
+  },
+  {
+   "qid": 1496,
+   "video": "simulation_0311",
+   "q": "What is the width (from the left wheel to the right wheel) of the car in meters?",
+   "p5": 2.0,
+   "new": 1.98,
+   "rule": "P",
+   "proxy": 2.23,
+   "proxy_src": "famknown"
+  },
+  {
+   "qid": 1667,
+   "video": "simulation_0021_segmented",
+   "q": "What is the height of the streetlight in meters?",
+   "p5": 4.38,
+   "new": 4.4694,
+   "rule": "twin<P",
+   "proxy": null,
+   "proxy_src": null
+  },
+  {
+   "qid": 1669,
+   "video": "simulation_0022_segmented",
+   "q": "What is the height of the boat in meters?",
+   "p5": 10.1,
+   "new": 10.0267,
+   "rule": "twin<P",
+   "proxy": 9.42,
+   "proxy_src": "famknown"
+  },
+  {
+   "qid": 1670,
+   "video": "simulation_0022_segmented",
+   "q": "What is the length of the rock in meters?",
+   "p5": 18.3,
+   "new": 18.5483,
+   "rule": "P",
+   "proxy": null,
+   "proxy_src": null
+  },
+  {
+   "qid": 1671,
+   "video": "simulation_0022_segmented",
+   "q": "What is the height of the rock in meters?",
+   "p5": 4.3,
+   "new": 7.8,
+   "rule": "P",
+   "proxy": null,
+   "proxy_src": null
+  },
+  {
+   "qid": 1687,
+   "video": "simulation_0026_segmented",
+   "q": "What is the height of the boat in meters?",
+   "p5": 9.7,
+   "new": 10.0267,
+   "rule": "twin<P",
+   "proxy": 9.42,
+   "proxy_src": "famknown"
+  },
+  {
+   "qid": 1690,
+   "video": "simulation_0027_segmented",
+   "q": "What is the length of the rock in meters?",
+   "p5": 18.8,
+   "new": 18.5483,
+   "rule": "P",
+   "proxy": null,
+   "proxy_src": null
+  },
+  {
+   "qid": 1691,
+   "video": "simulation_0027_segmented",
+   "q": "What is the height of the rock in meters?",
+   "p5": 8.45,
+   "new": 7.8,
+   "rule": "P",
+   "proxy": null,
+   "proxy_src": null
+  },
+  {
+   "qid": 1694,
+   "video": "simulation_0028_segmented",
+   "q": "What is the eagle\u2019s wingspan (the distance from the tip of one wing to the tip of the othe",
+   "p5": 1.8,
+   "new": 1.5905,
+   "rule": "twin<P",
+   "proxy": 1.57,
+   "proxy_src": "famknown"
+  },
+  {
+   "qid": 1696,
+   "video": "simulation_0028_segmented",
+   "q": "What is the length of the rock in meters?",
+   "p5": 20.7,
+   "new": 18.5483,
+   "rule": "P",
+   "proxy": null,
+   "proxy_src": null
+  },
+  {
+   "qid": 1697,
+   "video": "simulation_0028_segmented",
+   "q": "What is the height of the rock in meters?",
+   "p5": 9.4,
+   "new": 7.8,
+   "rule": "P",
+   "proxy": null,
+   "proxy_src": null
+  },
+  {
+   "qid": 1717,
+   "video": "simulation_0034_segmented",
+   "q": "What is the height of the boat in meters?",
+   "p5": 9.95,
+   "new": 10.0267,
+   "rule": "twin<P",
+   "proxy": 9.42,
+   "proxy_src": "known"
+  },
+  {
+   "qid": 1718,
+   "video": "simulation_0034_segmented",
+   "q": "What is the width of the boat in meters?",
+   "p5": 3.35,
+   "new": 2.6667,
+   "rule": "twin<P",
+   "proxy": 3.27,
+   "proxy_src": "known"
+  },
+  {
+   "qid": 1720,
+   "video": "simulation_0034_segmented",
+   "q": "What is the eagle\u2019s wingspan (the distance from the tip of one wing to the tip of the othe",
+   "p5": 1.6,
+   "new": 1.5905,
+   "rule": "twin<P",
+   "proxy": 1.57,
+   "proxy_src": "known"
+  },
+  {
+   "qid": 1723,
+   "video": "simulation_0035_segmented",
+   "q": "What is the eagle\u2019s wingspan (the distance from the tip of one wing to the tip of the othe",
+   "p5": 1.25,
+   "new": 1.5905,
+   "rule": "twin<P",
+   "proxy": 1.57,
+   "proxy_src": "famknown"
+  },
+  {
+   "qid": 1726,
+   "video": "simulation_0036_segmented",
+   "q": "What is the height of the boat in meters?",
+   "p5": 12.0,
+   "new": 10.0267,
+   "rule": "twin<P",
+   "proxy": 9.42,
+   "proxy_src": "famknown"
+  },
+  {
+   "qid": 1749,
+   "video": "simulation_0043_segmented",
+   "q": "What is the height of the boat in meters?",
+   "p5": 4.7,
+   "new": 10.0267,
+   "rule": "P",
+   "proxy": 9.42,
+   "proxy_src": "famknown"
+  },
+  {
+   "qid": 1750,
+   "video": "simulation_0043_segmented",
+   "q": "What is the width of the boat in meters?",
+   "p5": 2.4,
+   "new": 2.6667,
+   "rule": "twin<P",
+   "proxy": 3.27,
+   "proxy_src": "famknown"
+  }
+ ],
+ "findings": [
+  "Per-kind K cannot be applied directly in S3: every S3 sim clip has at most ONE stated size fact and ONE stated speed fact, and each sits on the very row that probe 5 already answers with that fact (T/SIB). Once a row's own fact is excluded, no unpooled S3 row has a same-kind fact in its clip, so a direct per-kind K changes 0 rows. (The 0026 person-speed fact that probe 5 rejected would only apply half of itself to its own row, so it is excluded.)",
+  "Cross-kind K is what hurt S3: LOFO on the 14 S3 fact rows gives raw .707, all-kind K .664 (sizes .800->.757, speeds .660->.600), per-kind K .707 (no same-kind fact remains). In D3 the opposite holds: all-kind K .855 beats per-kind K .823 (sizes .787->.843 vs .830; speeds .788->.888 vs .788), and inside pooling P_Kall .951 beats P_Kkind .930. So D3 should keep probe 5's all-kind K.",
+  "Pooling per kind (same object and dimension; speeds only with proven motion identity, at least 3 bases) does help S3. On S3 fact rows held out (LOFO), sizes go .800->.914 (7 rows; speeds have no pools of 3 or more). On proxies from the same family (the validation answer of an equivalent row on another test clip of that family, e.g. 0034_seg's boat height 9.42, width 3.27 and wingspan 1.57, 0060's pedestrian 1.87 and yellow-car height 1.65, 0300's car speeds 4.8/9.8), S3 sizes go .800->.909 (32 rows) and S3 speeds .833->.950 (6 rows). On S3's own known rows (validation answers on the test clips), sizes drop .758->.742 (12 rows): 0034_seg is a clip Claude already got right, and pooling there costs width -0.1 and nothing on wingspan or height.",
+  "S3 members of a pool should be corrected per kind (K_size from the clip's stated size facts for sizes, K_speed for speeds); D3 members keep probe 5's all-kind K. Against S3 members left raw (as in probe 5's D3 pools) this gives sizes .894->.909 on proxies and .733->.742 on known rows, and is equal on LOFO. Mainly it lifts the wingspan pool from 1.414 to 1.591 (0034_seg label 1.57), because 0035's eagle-length fact corrects its 1.25 wingspan.",
+  "Sharing D3 with S3: copying D3's probe-5 K+P value onto the S3 question about the same object and quantity is supported, but slightly worse than recomputing the pool with per-kind S3 members. Measured on the 28 proxied changed rows: +2.6 points for the D3 copy vs +3.4. This also suggests D3's own wingspan pool (1.445, 9 D3 rows) and boat-width pool (2.667, against a 0034_seg label of 3.27) would improve slightly if D3's pools took S3 members per kind (D3 family-proxy sizes .855->.861; about +0.0007 D3, D3's call).",
+  "Guard: one size group is clearly two populations. Rock width is 22-24 m seen top-down (0043/0044, where both horizontal sizes are visible: about 2.2 boat lengths) against 8-10 m from side views, where width is the hidden depth. Skipping a group when at least max(2, n/3) members lie more than 1.6x on one side of the median blocks only this group, and costs nothing on any evaluated row.",
+  "Twin averaging was checked and rejected. A segmented twin's own read is worse than its original's (S3 known .945 vs .700; geometric mean .864), so probe 5's twin copy is right, and pooled originals propagate to twins by that copy.",
+  "D3 fact sharing (DS) adds 1 row: 0040's malformed 'average of the person at 1.0s' 1.0 -> 1.3. Its person has the same timed depth entries as 0039's, whose D3 speed is the 1.3 m/s sibling fact, and 0034_seg's validation answer for the person speed is 1.3.",
+  "Size of the lever: S3 sim/seg rows in multi-clip families with at least 3 equivalent bases number about 45 of 244. The rest of S3 sim, and all 334 lab rows, have no family facts to use, so this lever is worth about +0.006 S3 (+0.0015 MRA), not the +0.06 needed."
+ ],
+ "expected_delta_vs_probe5": {
+  "S3_PK_DS": "+0.006 S3 (range +0.003..+0.009); MRA +0.0015",
+  "S3_PKrepl115_DS": "+0.0055 S3 (+0.003..+0.008)",
+  "S3_P0_DS": "+0.0045 S3",
+  "S3_PKsize_DS": "+0.0047 S3",
+  "S3_D3share": "+0.0045 S3",
+  "S3_DS": "+0.0005 S3 if right",
+  "S3_PKrepl125_DS": "+0.0036 S3"
+ }
+}

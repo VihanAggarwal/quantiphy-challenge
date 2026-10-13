@@ -1,0 +1,158 @@
+{
+ "key": "fam2d",
+ "target": "S2 and D2: pooling answers about the same object/quantity across scene-family clips, multi-reference scale",
+ "base": "submissions/trackA_probe5_families_merged.csv (only S2 or only D2 rows differ in each variant)",
+ "build": {
+  "script": "/tmp/claude-0/-home-user/879308ec-3ca1-5f52-960b-589240fd8127/scratchpad/ext/fam2d/build_all.sh",
+  "rule": "/tmp/claude-0/-home-user/879308ec-3ca1-5f52-960b-589240fd8127/scratchpad/ext/fam2d/build.py",
+  "evaluation": [
+   "/tmp/claude-0/-home-user/879308ec-3ca1-5f52-960b-589240fd8127/scratchpad/ext/fam2d/final_eval.py",
+   "/tmp/claude-0/-home-user/879308ec-3ca1-5f52-960b-589240fd8127/scratchpad/ext/fam2d/evalknown.py",
+   "/tmp/claude-0/-home-user/879308ec-3ca1-5f52-960b-589240fd8127/scratchpad/ext/fam2d/pool2.py",
+   "/tmp/claude-0/-home-user/879308ec-3ca1-5f52-960b-589240fd8127/scratchpad/ext/fam2d/rule.py",
+   "/tmp/claude-0/-home-user/879308ec-3ca1-5f52-960b-589240fd8127/scratchpad/ext/fam2d/calib.py",
+   "/tmp/claude-0/-home-user/879308ec-3ca1-5f52-960b-589240fd8127/scratchpad/ext/fam2d/kloo.py",
+   "/tmp/claude-0/-home-user/879308ec-3ca1-5f52-960b-589240fd8127/scratchpad/ext/fam2d/kclip.py",
+   "/tmp/claude-0/-home-user/879308ec-3ca1-5f52-960b-589240fd8127/scratchpad/ext/fam2d/camk.py"
+  ]
+ },
+ "findings": [
+  "2D answers inside families are already consistent with the stated facts: leave-one-fact-out over 16-17 D2 stated facts scores .994 raw and .988 pooled (one bike speed moves from 4.6% to 5.2% error, across the 5% threshold); S2 has 3 checkable facts (.733; the only miss, simulation_0041 boat length 13.0 vs 10, is already set by T in probe 5).",
+  "Multi-reference scale in 2D: only 4 clips have >=2 family facts; leave-one-out .90 -> .95, all from simulation_0041 (overhead view, k=0.76 from boat length and speed, already handled by T/SIB in probe 5). Per-clip scale across cameras does not exist in 2D: deviations of a clip's answers from the other cameras correlate only 0.30 within a clip and K leaves the mean |log deviation| at 0.068. Within one camera view the per-clip scale is clearer (corr 0.51) but the gain is tiny (pseudo .956 -> .960). Not built.",
+  "Scene-family 'bases' are often the same camera: 0214/0215/0217 (top view of the cat room), 0236/0238/0240 and 0237/0239/0241 (horse scene), 0068-0075 (8 clips of the intersection share one camera), 0098-0103, 0257-0260. Counting clips as votes is wrong (TV-stand width: two clips of one camera say 0.44 m, the third 1.57 m). Votes are therefore camera views: clips whose high-pass edge maps correlate >= 0.6 (lighting-robust; thumbnail NCC fails on 0214 vs 0217) or identical renders, segmented twins joined to their original.",
+  "Cross-camera spread is real: in groups of the same object+quantity across cameras, 41% of D2 rows differ by >5% from the other clips' median (median |log| 0.034). Holding out each 2D camera in turn as the reference, pooling the other cameras (trimmed mean of log votes within 0.15 of the median; 2 votes: geometric mean when within 0.25; <=3 votes spread >0.35 left alone) gains +0.018 per changed D2 row (size +0.016, speed +0.021, displacement +0.028); pseudo MRA .894 -> .906. A synthetic check with heavy-tailed errors fitted to the observed pairwise spreads gives pseudo gain ~= real gain when errors are independent across cameras. With clip (not camera) votes the size gain was only +0.001..+0.008.",
+  "3D family clips' probe-5 answers as extra votes: +0.0177 per changed 2D row on more rows; a lone 2D camera pooled with 3D votes gains +0.0125..+0.025 (pseudo). But the one known S2 row it touches gets worse (simulation_0163 bowling pin 0.315 -> 0.351, truth 0.320; S3 votes are Claude's direct answers), so S2 keeps 2D votes only.",
+  "Wide disagreements are definition / occlusion differences, not noise, and are skipped by the guard: deer = antelope in 0243-0247 (the segmented twins rename it) measured 2.2 m by some cameras and 3.5-3.7 m by others (horns/tail); floor mirror width top view 0.78-0.86 vs side 0.55; house width 7.6-13.2. Distances between objects are excluded: identical prior text can hide different start configurations (0085/0086/0087: same car acceleration and bike speed, car-bike distance 4.9 vs 15.3 m).",
+  "Known val-on-test rows give almost no signal for 2D families: S2 has 13 family rows (0163, 0171: different astronaut motions per clip, correctly not pooled), D2 has 4 (0098_seg, a single camera). Known S2/D2 MRA unchanged by the 2D-vote variants (.7731/.9227).",
+  "D2 stated-fact transfer (T, 20 rows, not in probe 5): 19 are already within 5% of the stated value; only qid 109 (bike speed 4.77 vs stated 5.07) moves a threshold (+0.1 item).",
+  "Conclusion: family pooling is a small lever in 2D (expected D2 about +0.004..+0.005, S2 ~0). The large D3 gain came from per-clip scale errors in Claude's direct 3D answers; 2D geometry answers do not carry such errors, and most 2D family groups are single camera views.",
+  "Not built, possible D2 lever outside families: speed questions of an object whose acceleration is the stated prior can violate v(t) = v0 + a t (simulation_0198 droplet speed at 0.2 s = 0.98 by geometry while a = 9.7 m/s^2 gives ~1.94; direct answers 1.89-1.96)."
+ ],
+ "evaluation": {
+  "2D votes": {
+   "facts": {
+    "n": 19,
+    "n_changed": 2,
+    "raw": 0.9526,
+    "pooled": 0.9474,
+    "by_cat": {
+     "D2": {
+      "n": 16,
+      "raw": 0.9938,
+      "pooled": 0.9875
+     },
+     "S2": {
+      "n": 3,
+      "raw": 0.7333,
+      "pooled": 0.7333
+     }
+    }
+   },
+   "pseudo": {
+    "pairs_weight": 519,
+    "gain_per_row_all": 0.0114,
+    "gain_per_changed_row": 0.0182,
+    "by_cat": {
+     "D2": 0.0193,
+     "S2": 0.0
+    },
+    "by_kind": {
+     "displacement": 0.0278,
+     "size": 0.0164,
+     "speed": 0.0207
+    },
+    "raw_pseudo_mra": 0.8942,
+    "pooled_pseudo_mra": 0.9056
+   }
+  },
+  "2D+3D votes": {
+   "facts": {
+    "n": 20,
+    "n_changed": 20,
+    "raw": 0.955,
+    "pooled": 0.99,
+    "by_cat": {
+     "D2": {
+      "n": 17,
+      "raw": 0.9941,
+      "pooled": 0.9882
+     },
+     "S2": {
+      "n": 3,
+      "raw": 0.7333,
+      "pooled": 1.0
+     }
+    }
+   },
+   "pseudo": {
+    "pairs_weight": 499,
+    "gain_per_row_all": 0.0136,
+    "gain_per_changed_row": 0.0177,
+    "by_cat": {
+     "D2": 0.0186,
+     "S2": 0.0
+    },
+    "by_kind": {
+     "displacement": 0.025,
+     "size": 0.0156,
+     "speed": 0.0221
+    },
+    "raw_pseudo_mra": 0.896,
+    "pooled_pseudo_mra": 0.9096
+   }
+  }
+ },
+ "variants": [
+  {
+   "name": "fam2d_D2_pool3dvotes_T",
+   "category": "D2",
+   "csv": "/tmp/claude-0/-home-user/879308ec-3ca1-5f52-960b-589240fd8127/scratchpad/ext/fam2d/fam2d_D2_pool3dvotes_T.csv",
+   "rule": "P2D cross-camera pooling with 2D + 3D votes (299 rows) + D2 stated-fact transfer T (20 rows)",
+   "rows_changed": 319,
+   "median_ratio_changed": 0.9988809766260335,
+   "median_abs_log_change": 0.027156185386847123,
+   "by_kind": {
+    "size": 233,
+    "speed": 72,
+    "displacement": 12,
+    "acceleration": 2
+   },
+   "evidence": "pseudo-truth (held-out camera) +0.0186 per changed D2 row; stated facts D2 .994 -> .988 (one threshold crossing, those rows get T in this variant); known D2 rows .9227 -> .9227",
+   "expected_delta_vs_probe5": "+0.005 on D2 (range 0 to +0.008): 299 x 0.018 / 1163 + T 0.0001",
+   "confidence": "medium-low"
+  },
+  {
+   "name": "fam2d_D2_pool2d_T",
+   "category": "D2",
+   "csv": "/tmp/claude-0/-home-user/879308ec-3ca1-5f52-960b-589240fd8127/scratchpad/ext/fam2d/fam2d_D2_pool2d_T.csv",
+   "rule": "P2D cross-camera pooling with 2D votes only (272 rows) + D2 T (20 rows)",
+   "rows_changed": 292,
+   "median_ratio_changed": 0.998763924842301,
+   "median_abs_log_change": 0.028619635422890248,
+   "by_kind": {
+    "size": 216,
+    "speed": 59,
+    "displacement": 15,
+    "acceleration": 2
+   },
+   "evidence": "pseudo-truth +0.0193 per changed D2 row; known D2 rows unchanged",
+   "expected_delta_vs_probe5": "+0.004 on D2 (range 0 to +0.007)",
+   "confidence": "medium-low"
+  },
+  {
+   "name": "fam2d_S2_pool2d",
+   "category": "S2",
+   "csv": "/tmp/claude-0/-home-user/879308ec-3ca1-5f52-960b-589240fd8127/scratchpad/ext/fam2d/fam2d_S2_pool2d.csv",
+   "rule": "P2D cross-camera pooling with 2D votes (12 rows: car widths/lengths in 0070-0083, toaster, tire, wall section, raccoon height)",
+   "rows_changed": 12,
+   "median_ratio_changed": 1.0044540381869997,
+   "median_abs_log_change": 0.026742327283905677,
+   "by_kind": {
+    "size": 12
+   },
+   "evidence": "pseudo-truth gain on S2 rows 0.000; stated facts and known S2 rows unchanged",
+   "expected_delta_vs_probe5": "0.000 on S2 (+-0.001); not worth a probe on its own",
+   "confidence": "low"
+  }
+ ]
+}

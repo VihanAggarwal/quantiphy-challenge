@@ -1,0 +1,34 @@
+{
+ "key": "pool2d",
+ "role": "adversarial verifier of investigator fam2d (2D scene-family pooling)",
+ "base": "/home/user/quantiphy-challenge/submissions/trackA_probe5_families_merged.csv",
+ "build": "/tmp/claude-0/-home-user/879308ec-3ca1-5f52-960b-589240fd8127/scratchpad/ext/pool2d/build_verified.sh",
+ "checks": {
+  "format": "all 3 fam2d CSVs: columns id,parsed_value; 3289 ids in probe-5 order; unique; finite positive; only the stated category differs (D2 319 / D2 292 / S2 12).",
+  "rebuild": "fam2d build_all.sh re-run from scratch into ext/pool2d/rebuild (edge maps, camera clusters, groups, all three builds): all three CSVs and final_eval.json are byte-identical to the investigator's.",
+  "legitimacy": "OK. Inputs: test questions/priors, cached Claude test records, earlier submissions, families.json, T_list.txt (values stated in test prior text), frames. No answer column in the build table; known.pkl (validation answers on test re-renders) is read only by evalknown.py. qid 1785 -> 10.0 comes from the sibling prior 'length of the boat = 10m', not from validation. No rules keyed on ids or answer values (only on the base-name/_segmented pattern already used by probe 5).",
+  "hand_check": "17 changed rows/groups checked with frames: phoenix speed 0.5s (963 2.08->1.02, 959 0.80->1.02; same 72-frame scenario, 0272 = 0269's top view on another background), phoenix length 957, horse family (810 brown horse, 814 white horse, 798/836 horse in front, 802/1973 house width), cat room dog (583 length incl. tail, 632 speed 1.5s), spacecraft speed at 1.0s, car 0085-0087 length, plane 0284-0287 length/displacement, whale 0278/0279, fish 0288-0291, green car 0053/0054 speed at 2.0s, S2 toaster/raccoon/wall/cars. One REFUTED group: road width 0165/0166/0167 (qids 387, 390, 400). 0167 asks about two different roads (395 'road that the bike crossed through' = 8.81, spec name 'cross road'; 400 'road that the bike and the car are on' = 6.15, spec name 'road'). The name match paired 0165/0166's crossing road (7.25/7.10) with 0167's other road and set all three to 6.64. 0168 (D3) gives 10.0 vs 6.7 for these two roads, which confirms they are different. Caveats that were not refuted: house width front view 8.4 vs top view 10.4 (possibly a different definition; 2 votes, 8 rows); 0053 (91 frames) and 0054 (100 frames) may be offset in time for 'speed at 2.0s' (2 rows, values within 10%).",
+  "evidence_independence": "2D-only votes are probe-5 D2/S2 answers, one Claude request per clip, so a held-out camera's answer never enters the other votes. My own per-row re-implementation of the held-out-camera evaluation gives +0.0235 per changed D2 row (investigator +0.019 on camera means). Family bootstrap 95% CI +0.011..+0.032, but only 8 families contribute and 0268 + 0249 carry most of the weight. 149 of the 272 pooled D2 rows are in 2-vote groups, which the held-out test cannot reach; emulating the 2-vote rule inside 3+-camera groups gives +0.020 per changed row. Synthetic check (heavy-tailed t, df 1.5, scale 0.03, fitted to the observed camera differences): with independent errors the real gain is +0.024 against a pseudo gain of +0.016, and with a shared family bias of sd 0.10 the real gain is still +0.012. The rule parameters were tuned on the same pseudo metric (small grid), so there is mild in-sample optimism. Real-truth evidence is tiny: of 16 D2 stated facts, pooling changes 1 (qid 116 slightly worse; that row takes T anyway), and known D2/S2 rows are unchanged.",
+  "3D_votes": "The 3D-vote evidence is not independent. Probe-5 D3 SIM_P answers are series pools that already include v3 2D answers (eq3 sets: 178 D3 questions have 2D members). 30 pooled groups (104 D2 rows) use such circular 3D votes, and 16 groups count one identical pooled 3D value as several 'cameras' (e.g. dragon 0282: 0.84 -> 0.62 from two identical D3 0.62 votes). 45 D2 rows change only because of 3D votes and have no held-out 2D evidence. The one known row that 3D votes touch (S2 0163 bowling pin 0.315 -> 0.351, truth 0.320) gets worse. The variant also carries the road error."
+ },
+ "accepted": [
+  {
+   "csv": "/tmp/claude-0/-home-user/879308ec-3ca1-5f52-960b-589240fd8127/scratchpad/ext/pool2d/verified/pool2d_D2_2dvotes_T_qtext_D2.csv",
+   "from": "fam2d_D2_pool2d_T.csv, corrected",
+   "fix": "question-wording guard (--qtext in rebuild/build_verified.py): a group is pooled only if all member questions have the same normalized wording, ignoring articles, 'body', 'average', unit phrase and '0.5 s'/'0.5s'. This drops only the road group: 387, 390 and 400 go back to their probe-5 values.",
+   "rows_changed": 289,
+   "breakdown": "269 cross-camera pooling (P) + 20 D2 stated-fact transfer (T); median ratio new/old 0.999; known D2 rows .9227 -> .9227",
+   "expected_delta_vs_probe5": "D2 +0.004 (range +0.002 to +0.006): 269 rows x +0.012..+0.024 / 1163, plus T about +0.0001. Overall MRA about +0.001. S2/S3/D3 unchanged."
+  },
+  {
+   "csv": "/tmp/claude-0/-home-user/879308ec-3ca1-5f52-960b-589240fd8127/scratchpad/ext/pool2d/verified/pool2d_S2_2dvotes.csv",
+   "from": "fam2d_S2_pool2d.csv, unchanged (identical bytes)",
+   "rows_changed": 12,
+   "expected_delta_vs_probe5": "S2 0.000 (+-0.001); passes every check but has no measurable evidence; only worth sending together with another S2 change"
+  }
+ ],
+ "rejected": [
+  {"csv": "/tmp/claude-0/-home-user/879308ec-3ca1-5f52-960b-589240fd8127/scratchpad/ext/fam2d/fam2d_D2_pool3dvotes_T.csv", "reason": "circular and duplicated 3D votes, 45 rows without independent evidence, the known row it touches gets worse, contains the road error"},
+  {"csv": "/tmp/claude-0/-home-user/879308ec-3ca1-5f52-960b-589240fd8127/scratchpad/ext/fam2d/fam2d_D2_pool2d_T.csv", "reason": "superseded by the corrected copy (road group 387/390/400 pools two different roads)"}
+ ]
+}
