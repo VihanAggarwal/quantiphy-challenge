@@ -657,3 +657,15 @@ of range), alone, as geometric mean with Claude's direct answer, and gated to we
 Model-FOV geometry is worse than solving f from the prior; the remaining error is extents / foreshortening and
 prior conditioning, not just f. Claude's direct answers (with family rules) stay on 3D simulation. This also covers
 the DepthPro / UniDepth / temporal-median FOV suggestions (same failure class; single-image FOV error is too large).
+
+## Uploads U1-U4 (built 2026-10-13 on physb2 = .817/.859/.766/.803), one change per category, read vs physb2
+`research/merge/merge_skip.py` (rows physb2 already changed are kept). Never-uploaded probes repacked:
+| file | S2 | D2 | S3 | D3 |
+|---|---|---|---|---|
+| `trackA_u1_p22s2d2_s3sz4_d3emu3.csv` | internet -> direct (p22) | sim static -> direct (p22) | lab-noise sz 4 cm (p14, 154 rows) | emulator 3 cm (p19, 36) |
+| `trackA_u2_p23s2d2_s3nopath_d3emu4.csv` | sim motion -> gm (p23) | internet -> direct (p23, 29 physb rows kept) | minus small-ball path rows (p19, 18) | emulator 4 cm (p20, 41) |
+| `trackA_u3_s3nomid_d3labdirect.csv` | = | = | minus mid-ball speed rows (p20, 36) | lab static -> direct (p22, 48) |
+| `trackA_u4_s3labdirect_d3labgm.csv` | = | = | lab static -> direct (p22, 29) | lab static -> gm (p23, 48) |
+Validation loss decomposition (physb2, 131 matched rows): <10% errors cost little; losses come from 20-50% errors
+and gross misses (S2 sim >2x: .138 of S2 from 4 rows, incl. label oddities: big bird 0.72 < small bird 0.94,
+astronaut accelerations non-monotone; lab: desk 857.9 cm, basketball 9.32 m/s, ball-person 0.198 m).
