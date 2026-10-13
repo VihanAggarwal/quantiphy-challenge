@@ -1,0 +1,363 @@
+‎Gemini - direct access to Google AI
+Sign in
+ Gemini 
+Sign in
+Strategic Blueprint for Advancing Kinematic Inference: Pushing Mean Relative Accuracy Beyond 0.85 in the QuantiPhy Challenge
+The QuantiPhy Challenge represents a defining inflection point in the evaluation of Vision-Language Models (VLMs), transitioning the paradigm from qualitative visual description to rigorous, numerically faithful physical reasoning . Operating across microscopic, macroscopic, and astronomical domains, the benchmark demands that models accurately infer unobservable kinematic properties—such as velocity and acceleration—based on a single provided physical prior and raw video input . The difficulty of this task is evidenced by the performance of state-of-the-art frontier models; as of late 2025, human annotators achieve a Mean Relative Accuracy (MRA) of 55.6, whereas leading proprietary models like ChatGPT-5.1 and Gemini-2.5 Pro manage only 48.4 and 46.4, respectively . Open-weight models trail further behind, with the 32B parameter Qwen3-VL achieving an MRA of 40.2 .
+Against this backdrop, the current competitive pipeline has achieved a highly commendable MRA of 0.811 across the four diagnostic categories (S2, D2, S3, D3), utilizing a sophisticated ensemble of Claude Opus reasoning, geometric solving, and model-free post-rules . However, ascending to the first-place leaderboard threshold of 0.8525 requires a precise, systematic extraction of an additional +0.0415 overall MRA .
+A rigorous analysis of the diagnostic telemetry reveals that the performance deficits are deeply structured. The most substantial vectors for improvement lie within the 3D Static (S3) non-lab settings (currently at 0.742), S3 lab settings (0.782), and S2 Internet datasets (0.796) . The current architecture relies heavily on direct numerical outputs from Claude Opus for complex 3D environments, leaving the system dangerously exposed to the well-documented spatial hallucinations inherent in autoregressive token generation . Furthermore, the routing architecture exhibits a hard performance ceiling, and the legacy geometric solvers have proven brittle when fed noisy focal length estimations .
+This exhaustive report details a comprehensive, theoretically grounded, and computationally viable suite of interventions designed strictly around the testing inputs. By migrating from legacy generative approaches to deterministic Program-of-Thought (PoT) execution, replacing unstable Field of View (FOV) estimators with state-of-the-art metric foundation models like Apple's Depth Pro, and reformulating the trajectory optimization paradigm to explicitly align with the mathematical realities of the MRA metric, the +0.04 deficit can be systematically neutralized.
+1. Critical Evaluation of the Baseline Architecture and Underlying Fallacies
+To engineer novel solutions, it is first necessary to deconstruct the empirical failures noted in the current pipeline telemetry. Understanding why certain high-effort interventions failed prevents the duplication of misaligned strategies and highlights the fundamental theoretical boundaries of the current system.
+1.1 The Mathematical Limitations of Autoregressive Generative Kinematics
+The current routing logic defaults to directing 3D non-lab questions (simulation and segmented subsets) to Claude Opus for a direct numeric answer, utilizing the median of three independent inference runs to stabilize variance . The pipeline documentation notes that attempting to saturate the runs up to seven yielded a negligible gain of +0.005 .
+This saturation behavior is highly indicative of epistemic uncertainty rather than aleatoric noise. Vision-Language Models, regardless of their parameter count or training corpus, are fundamentally autoregressive sequence predictors. When prompted to deduce depth orderings, relative distances, and explicit physical integrations over time directly within their latent space, they frequently produce confident but mathematically incorrect outputs . The ceiling for direct answering is inherently capped because the VLM is attempting to execute floating-point trigonometric projections and kinematic calculus without an external scratchpad. The variance observed across the three Claude runs is a symptom of the model's inability to maintain numerical precision across extended reasoning chains, not a lack of initial visual feature extraction. Attempts to bypass this by utilizing GPT-6 Astra or Gemini 3.1 Pro resulted in similar or worse performance (e.g., Gemini dropping to 0.565 on validation), confirming that direct numerical regression from video tokens is a structural dead end for exact kinematic inference .
+1.2 The Misdiagnosis of Geometric Solvers in 3D Environments
+The pipeline documentation records a catastrophic failure when attempting to force the geometric solver instead of direct VLM answers on the 3D simulation subset. This intervention resulted in severe penalties: -0.19 on size priors, -0.09 on S3 motion, and -0.13 on D3 motion . The authors attribute this collapse to an "unknown, varying camera FOV (8-103 deg) solved from a noisy prior" .
+This diagnostic conclusion correctly identifies the symptom but misinterprets the viability of the geometric approach. The geometric methodology is not inherently flawed; rather, it is highly sensitive to the initial conditions of the pinhole camera model. Metric depth (
+​ ) recovery relies on the fundamental projective relationship:
+= f p x
+S r e a l s p x
+Z_c = \frac{f_{px} \cdot S_{real}}{s_{px}}
+= s p x
+​ f p x
+S r e a l
+​ where  f p x f_{px} f p x
+ represents the focal length in pixels, 
+S r e a l
+S_{real}
+S r e a l
+ is the physical size of the object in world units, and  s p x s_{px} s p x
+ is the apparent pixel dimension on the image plane . If the estimated FOV—and consequently the derived focal length  f p x f_{px} f p x
+—is noisy, the entire metric scale of the reconstructed 3D scene collapses linearly.
+The pipeline currently proposes utilizing MoGe-2 for FOV estimation, acknowledging literature that suggests single-image FOV error ranges from 1.6 to 5 degrees, which translates to a 15-40% focal error at narrow fields of view . Because the QuantiPhy Mean Relative Accuracy metric heavily penalizes errors beyond a tight 5% threshold (where an error 
+<5\%
+ yields a score of 1.0, and 
+\ge 90\%
+ yields 0) , injecting a baseline 40% focal error makes the geometric routing mathematically inferior to even hallucinated LLM guesses. The geometry route can only supersede the direct VLM route if the FOV estimation is strictly decoupled from the depth estimation network and heavily regularized across time.
+1.3 The Camera Parallax Misconception in Internet Subsets
+Within the S2 Internet subset, previous attempts at camera-motion compensation were abandoned because "34 of 36 tracks change < 5%" . This observation suggests that the compensation algorithm likely relied on 2D homographies or affine matrix transformations to stabilize background pixels. However, the internet videos in the dataset represent "in-the-wild" recordings, which frequently feature translatory camera ego-motion .
+A pure 2D homography cannot correctly model or compensate for 3D translation without violating epipolar geometric constraints, as it assumes the scene is perfectly planar or the camera is undergoing pure rotation. The lack of change in the tracks indicates that the compensation algorithm failed to properly model the fundamental matrix of the scene, rendering the conclusion—that camera motion compensation is ineffective—theoretically unsound. Correcting this requires dense metric point clouds rather than planar pixel warping.
+2. Revolutionizing 3D Geometry via Zero-Shot Metric Foundation Models
+The existing reliance on generic depth estimators or early-generation foundation models for FOV and subsequent geometry solving is a primary contributor to the 0.742 bottleneck in the S3 non-lab subset . While the pipeline mentions MoGe-2, this model has documented vulnerabilities. Although MoGe-2 is a powerful generative framework that enforces metric scale and bypasses the focal-distance ambiguity via point map representation, it struggles with open-domain scale variations (e.g., distinguishing vast outdoor landscapes from tight indoor lab setups) and requires complex mismatch filtering when transitioning from synthetic to real-world datasets .
+To systematically eradicate the S3 deficit, the pipeline must pivot to a foundation model explicitly engineered for unconstrained absolute metric scale and independent, zero-shot focal length estimation.
+2.1 The Architectural Superiority of Apple Depth Pro
+Released in late 2024, Apple's Depth Pro represents a paradigm shift in monocular metric depth estimation, synthesizing high-resolution metric depth maps with unparalleled sharpness . Unlike Metric3D v2, which occasionally requires dataset-specific intrinsic distributions or prior camera knowledge to achieve optimal scale , Depth Pro produces 2.25-megapixel depth maps natively in 0.3 seconds .
+The architectural innovations of Depth Pro render it uniquely suited for the QuantiPhy benchmark constraints:
+Multi-Scale Vision Transformer:
+ To bypass the quadratic computational complexity of processing megapixels in a standard Vision Transformer, Depth Pro utilizes a multi-scale ViT architecture. The input image is resized to a fixed resolution of 
+1536
+1536
+1536 \times 1536
+1536
+1536 , then downsampled to 
+768 \times 768
+384 \times 384
+384 . These scales are split into overlapping patches of 
+384 \times 384
+ and processed through a shared patch encoder built on a DINOv2 ViT-L backbone . This allows the model to capture both global scene context (essential for accurate scale) and fine-grained, high-frequency details (essential for precise object bounding boundaries).
+Independent FOV Network:
+ Most critically for QuantiPhy, Depth Pro does not couple its focal length estimation to its depth prediction. It features a dedicated Field-of-View head . This small convolutional network ingests frozen features from the primary depth network alongside task-specific features from a separate ViT image encoder to predict the horizontal angular field-of-view in degrees . By separating these objectives during training, Depth Pro leverages massive image datasets that possess focal length metadata but lack depth supervision, allowing it to generalize zero-shot to entirely unseen camera intrinsics .
+Boundary Tracing Fidelity:
+ QuantiPhy relies heavily on pixel tracking for size and velocity priors . Standard depth models suffer from "flying pixels" and blurry occlusion boundaries, which corrupt the depth reading of a targeted object. Depth Pro utilizes a specialized training curriculum combining real and synthetic datasets with a loss function utilizing first- and second-order multi-scale derivatives to harden boundary predictions . It achieves a state-of-the-art boundary F1 score of 0.409 on the Sintel dataset, compared to 0.321 for prior leading models .
+Model Framework
+Absolute Metric Depth
+Independent FOV Estimation
+Boundary Sharpness
+Real-World Scale Generalization
+Depth Pro (Apple)
+Yes (Zero-shot, high res)
+Yes (Dedicated ViT branch)
+State-of-the-Art (Patch fusion)
+Exceptional
+MoGe-2
+Yes (Point map representation)
+No (Coupled scaling)
+High (Gradient smoothing)
+Moderate (Requires real-world filtering)
+Metric3D v2
+Yes (Zero-shot)
+No (Dependent on intrinsic priors)
+Moderate
+High
+2.2 Execution Strategy for Depth Pro Integration
+Given that a 96 GB Colab GPU is available for open models, Depth Pro (which requires ~2 GB for the initial weights) easily satisfies the hardware and budgetary constraints . The integration strategy must leverage the temporal nature of the video inputs to eliminate single-frame variance.
+Temporal Focal Length Aggregation:
+ The QuantiPhy dataset documentation explicitly states that for the 3D simulation datasets, the camera is fixed per clip . Therefore, the physical focal length cannot change. The pipeline will process all 16 uniformly sampled frames through the Depth Pro FOV head to extract the estimated focal length in pixels: f p x
+W i m a g e
+⋅ tan
+2 ) f_{px} = \frac{W_{image}}{2 \cdot \tan(\text{FOV} / 2)} f p x
+⋅ tan
+/2 )
+W ima g e
+​ where 
+W i m a g e
+W_{image}
+W ima g e
+ is the width of the frame . By computing the median  f p x f_{px} f p x
+ across all 16 frames, the pipeline effectively builds a temporal ensemble, collapsing the single-image focal variance (the 15-40% error noted in the legacy system) into a highly rigid and reliable camera intrinsic matrix .
+Canonical Depth to Metric Depth Conversion:
+ Depth Pro's primary decoder outputs a canonical inverse depth map 
+C , which is a scale-invariant representation . The actual metric depth 
+ is recovered post-hoc using the temporally smoothed focal length:
+= f p x
+W i m a g e
+D_m = \frac{f_{px}}{W_{image}} \cdot C
+W ima g e
+​ f p x
+This provides a dense, metrically accurate depth map for every pixel in the video .
+2.3 Exact Metric Anchoring via Textual  depth_info
+For the 3D lab and S3/D3 categories, the QuantiPhy test inputs frequently provide a  depth_info
+ text prompt, yielding Euclidean distances from the object to the camera at specific timestamps (e.g.,  t
+1 , t
+2 t_1, t_2 t
+​ , t
+​ ) .
+The current pipeline uses this single data point to "solve  f f f
+ so the prior reproduces its stated value" . This is an under-constrained mathematical approach. It forces the entire geometry of the scene to warp around a single point measurement, which amplifies noise if the object's center is misidentified or if the object possesses complex articulation.
+Instead, the foundation model's depth output should be utilized as a canonical structural template, and the exact textual prior should be used strictly as a scene-scale calibrator.
+Isolate the pixel bounding box of the target object at the exact timestamp  t t t
+ specified in the  depth_info
+ prompt.
+Compute the median canonical depth value 
+C o b j
+C_{obj}
+C o bj
+ within that segmented bounding box using the Depth Pro output.
+Calculate an exact, global scene correction factor: 
+K s c e n e
+D p r i o r
+C o b j
+K_{scene} = \frac{D_{prior}}{C_{obj}}
+K sce n e
+C o bj
+D p r i or
+​ , where 
+D p r i o r
+D_{prior}
+D p r i or
+ is the provided Euclidean range .
+Apply this scalar multiplier 
+K s c e n e
+K_{scene}
+K sce n e
+ uniformly across all frames and all pixels for that specific video.
+This hybridized approach merges the dense, high-frequency structural fidelity of a 952-million parameter foundation model
+ with the exact absolute scale required by the benchmark's physical priors, completely isolating the solver from the VLM's internal scale biases.
+2.4 Incorporating Metric3D v2 for Surface Normal Foreshortening
+While Depth Pro commands superiority in boundary sharpness and focal length estimation, Metric3D v2 maintains a dominant position in zero-shot surface normal prediction . In the S3 Static category, accurately measuring the size of an object requires knowing its orientation relative to the camera lens. If an elongated object (such as a vehicle in the Blender simulations) is positioned at an oblique angle to the image plane, its apparent 2D pixel size will severely underestimate its physical size due to perspective foreshortening.
+To correct this, the pipeline should execute the lightweight components of Metric3D v2 in parallel to generate a dense surface normal map 
+N x ,
+N y ,
+N z ]
+\mathbf{N} = [N_x, N_y, N_z]
+ for the scene . By calculating the dot product between the average surface normal of the Claude-generated object mask and the principal camera axis vector, the geometric solver can derive an exact angular correction factor. This mathematically rigorous foreshortening correction provides the final necessary component for a deterministic geometric solver that can confidently override Claude's hallucinated numerical outputs in the S3 domain.
+3. Eradicating Spatial Hallucination via Programmatic Kinematic Reasoning (Program-of-Thought)
+Even with perfect metric geometry recovered by foundation models, the pipeline still faces a critical bottleneck: synthesizing the geometric data into a final answer for velocity or acceleration. The reliance on Claude Opus to return a "direct numeric answer" based on 16 uniform frames is fundamentally flawed . While Claude possesses exceptional code-generation and symbolic logic capabilities, its ability to perform explicit mathematical integration over time using floating-point numbers is highly unreliable .
+To capture the elusive +.04 MRA, particularly in the D3 dynamic scenarios and the S2 Internet subsets, the pipeline must entirely strip the mathematical burden from the VLM and transition to a 
+Program-of-Thought (PoT)
+ architecture.
+3.1 The PoT Execution Pipeline
+Instead of prompting Claude Opus to guess the final velocity or acceleration, the prompt must constrain the VLM to act purely as a logical orchestrator that outputs a deterministic Python script. The prompt will inject all known test inputs directly into the context window as structured data arrays.
+Input Injection:
+The extracted bounding box pixel coordinates over time, formatted as a temporal matrix: 
+0 , x
+0 , y
+0 , w
+0 , h
+0 ) ,
+( t n , x n , y n , w n , h n )
+\mathbf{B} = \{(t_0, x_0, y_0, w_0, h_0), \dots, (t_n, x_n, y_n, w_n, h_n)\}
+{( t
+​ , x
+​ , y
+​ , w
+​ , h
+​ ) ,
+( t n
+​ , x n
+​ , y n
+​ , w n
+​ , h n
+​ )} .
+The estimated focal length  f p x f_{px} f p x
+ derived from Depth Pro .
+The specific textual physical priors provided by the QuantiPhy challenge (e.g., "The car is 4 meters long" or "Gravity acc = 9.8 m/s^2") .
+The dense metric depth arrays extracted from the target object's bounding box at each timestamp.
+The specific question constraints and required output units (e.g., meters per second squared) .
+Claude is then instructed to write a Python script that strictly applies the laws of classical mechanics and projective geometry to compute the final answer.
+Conceptual Script Logic Generated by the VLM:
+Python import
+ numpy  as
+ np from
+ scipy.interpolate  import
+ UnivariateSpline
+# Injected structured data from the pipeline f_px = 
+722.08
+# Derived from Depth Pro median bounding_boxes = [...] 
+# Temporal matrix [t, x, y, w, h] metric_depths = [...] 
+# [Z_0, Z_1, ..., Z_n] prior_size_m = 
+# 1. Project 2D image coordinates into 3D world coordinates world_x = (bounding_boxes[:, 
+1 ] - cx) * metric_depths / f_px world_y = (bounding_boxes[:, 
+2 ] - cy) * metric_depths / f_px world_positions = np.column_stack((world_x, world_y, metric_depths))
+# 2. Compute continuous derivatives using B-spline interpolation
+# A spline of degree k=3 ensures continuous acceleration (second derivative) spline_x = UnivariateSpline(time_array, world_x, k=
+3 , s=
+0.05 ) spline_y = UnivariateSpline(time_array, world_y, k=
+3 , s=
+0.05 ) spline_z = UnivariateSpline(time_array, metric_depths, k=
+3 , s=
+0.05 )
+# 3. Extract the requested kinematic property at target time t_query v_x = spline_x.derivative(n=
+1 )(t_query) v_y = spline_y.derivative(n=
+1 )(t_query) v_z = spline_z.derivative(n=
+1 )(t_query) speed = np.sqrt(v_x**
+ + v_y**
+ + v_z**
+2 ) print( f"OUTPUT_ANSWER: 
+{speed}
+3.2 The Zero-Cost Yield of Program-of-Thought
+By forcing the VLM to express its physical reasoning exclusively through the syntax of a programming language, the system entirely mitigates arithmetic drift and spatial hallucinations . The generated Python code is executed securely within the available Colab sandbox environment. If the generated script throws a syntax or execution error, the pipeline immediately falls back to the legacy geometric solver.
+Crucially, this architectural shift requires  zero additional API budget . It utilizes the same number of input tokens and generates roughly the same number of output tokens; it merely changes the nature of those tokens from unstructured text guesses to executable logic. The validation of this methodology can be rapidly achieved by running the PoT execution against the 159 exactly known test facts on the validation set . Given the recent literature on VLM numerical reasoning, transitioning to a PoT framework is highly likely to yield a +0.015 to +0.02 MRA improvement specifically in scenarios involving non-linear acceleration and complex 3D trajectories, where human intuition and VLM latent space both fundamentally break down.
+4. Advanced Trajectory Optimization and Robust Formulation
+For the dynamic motion categories (D2 and D3), which account for a massive portion of the scored questions (1,137 and 933 items respectively) , the pipeline currently extracts kinematic measurements using "robust local polynomial fits" where speed at a specific time is derived from the derivative of a 
+\pm 0.5
+ second quadratic fit .
+While computationally lightweight, utilizing a localized quadratic fit over a narrow 1.0-second temporal window introduces severe vulnerability. Pixel tracking data derived from bounding boxes is inherently subjected to high-frequency quantization noise (pixel jitter). A localized quadratic curve ignores the global kinematic context of the entire clip, meaning a slight bounding box tremor directly at the target timestamp will radically alter the calculated derivative.
+4.1 Global Optimization via Relative-Huber Constraints
+The fundamental flaw in standard polynomial fitting for this challenge lies in the objective function. Standard Ordinary Least Squares (OLS) or traditional Huber loss functions optimize for absolute pixel differences (e.g., minimizing the Mean Squared Error). However, the QuantiPhy benchmark does not evaluate based on absolute error. The Mean Relative Accuracy (MRA) is a step-function evaluation of  relative
+ error, formally defined as:
+− y i
+∣ y i
+\text{MRA}(D) = \frac{1}{\vert{}D\vert{} \cdot \vert{}C\vert{}} \sum_{i \in D} \sum_{\theta \in C} \mathbb{1} \left( \frac{\vert{}\hat{y}_i - y_i\vert{}}{\vert{}y_i\vert{}} < 1 - \theta \right)
+∣ y i
+− y i
+θ ) where 
+0.10 ,
+0.20 ,
+0.90 ,
+0.95
+\theta \in \{0.10, 0.20, \dots, 0.90, 0.95\}
+0.10 ,
+0.20 ,
+0.90 ,
+0.95
+Optimizing a trajectory to minimize absolute pixel distance mathematically misaligns with the challenge's evaluation metric. To explicitly optimize for MRA, the trajectory fitting must be formulated as a global optimization problem utilizing a 
+Relative-Error-Weighted Huber Loss .
+( t )
+( t ) ,
+( t ) ,
+( t ) ]
+\mathbf{X}(t) = [X(t), Y(t), Z(t)]^T
+( t )
+( t ) ,
+( t ) ,
+( t ) ]
+ define the 3D trajectory of the object in world coordinates. We model 
+( t )
+\mathbf{X}(t)
+( t )
+ globally using cubic B-splines, which guarantees continuous first (velocity) and second (acceleration) derivatives across the entire clip. The optimization objective over the spline control points 
+\mathbf{P}
+ is defined as: min
+( t i ) )
+( t i ) )
+0 t n
+( t )
+2 d t
+\min_{\mathbf{P}} \sum_{i=1}^{N} L_{\delta} \left( \frac{\vert{}\vert{}\hat{\mathbf{x}}_i - \Pi(\mathbf{X}(t_i))\vert{}\vert{}}{\vert{}\vert{}\Pi(\mathbf{X}(t_i))\vert{}\vert{} + \epsilon} \right) + \lambda \int_{t_0}^{t_n} \vert{}\vert{}\mathbf{X}'''(t)\vert{}\vert{}^2 dt
+P min
+( t i
+​ ))
+( t i
+​ ))
+​ t n
+( t )
+2 d t
+Where: x
+\hat{\mathbf{x}}_i x
+ represents the observed 2D pixel coordinate (the bounding box center) at frame index  i i i .
+\Pi(\cdot)
+ is the projection function that maps the 3D world trajectory back into the 2D image plane, utilizing the rigid focal length  f p x f_{px} f p x
+ recovered from Depth Pro .
+L_{\delta}(\cdot)
+ is the Huber loss function. Critically, it is applied here to the  relative
+ projection error, heavily penalizing relative deviations that threaten the MRA thresholds while softening the penalty for massive absolute outliers (such as when the object is temporarily occluded).
+The integral term acts as a kinematic smoothing prior, penalizing excessive jerk (the third derivative, 
+( t )
+\mathbf{X}'''(t)
+( t ) ) to enforce physically plausible, smooth kinematics over the entire duration of the video.
+By optimizing the global trajectory rather than relying on a brittle 1-second window, the mathematical derivative at any queried time  t t t
+ becomes highly resilient to temporary bounding box jitter or SAM-style segmentation failures . Furthermore, adjusting the Huber delta threshold 
+\delta
+ to strictly penalize relative deviations above 5% perfectly aligns the mathematical solver with the strictest MRA scoring threshold (
+0.95
+\theta = 0.95
+0.95 ) .
+4.2 Exploiting the Fundamental Kinematic Anchor:  g
+2 g = 9.8 \text{ m/s}^2 g
+The pipeline documentation notes that laboratory clips often state "Gravity acc = 9.8 m/s^2" as the sole physical prior . Currently, the system likely uses this prior merely as a scalar adjustment to fit a 2D scale. However, a free-falling or parabolically moving object provides a perfect, absolute physical structural reference that can be deeply exploited.
+Instead of computing a trajectory and then scaling it to match gravity, the pipeline must enforce a strict constraint during the B-spline optimization itself. For any video where gravity is the prior, the optimizer must lock the vertical acceleration parameter in world space: d
+2 d t
+( t ) y
+\frac{d^2}{dt^2} \mathbf{X}(t)_y = -9.8 \text{ m/s}^2 d t
+( t ) y
+By algebraically locking the vertical acceleration, the optimizer is left to solve only for the initial velocity vector and the overall scene scale. This drastically reduces the degrees of freedom in the D3 Lab solver, preventing the optimizer from wandering into physically impossible local minima. Applying this rigid constraint should theoretically push the MRA on these specific questions to near human-ceiling levels, recovering valuable points in the 334-row D3 static targets subset .
+5. Overcoming the Router Ceiling: Epistemic Uncertainty-Aware Meta-Routing
+The diagnostic summary presents a daunting statistical reality: "every leave-one-video-out router loses .017-.047" compared to the theoretical best-of oracle . This indicates that the current static routing rules—where, for instance, all 2D queries go to geometry and all 3D non-lab queries go to Claude's direct answer—are failing catastrophically due to out-of-distribution variations within those subsets . A hard-coded, categorical router ignores the vast, instance-level variance in visual quality, motion blur, and tracking stability.
+To break the +.031 ceiling of the "best-of" oracle, the pipeline must abandon categorical routing and implement a dynamic 
+Epistemic Uncertainty-Aware Meta-Router . Instead of routing based on dataset origin (lab versus simulation), the system must dynamically choose the execution pathway based on the  internal confidence metrics
+ of the algorithms extracted at runtime from the test inputs.
+5.1 Dynamic Routing Heuristics
+VLM Variance Threshold (Tracking Hallucination):
+ During the Program-of-Thought execution, if Claude is used to identify the object and generate initial bounding boxes across the 16 frames , the system must evaluate the stability of those predictions. If the coefficient of variation (CV = standard deviation / mean) of the bounding box dimensions exceeds 0.15, it indicates high epistemic hallucination or severe occlusion. In this state, the geometric solver will fail due to garbage-in, garbage-out. The router must default to the VLM's direct programmatic reasoning, heavily weighted by the physical priors.
+Geometric Tracking Inlier Ratio:
+ During the trajectory optimization phase (using the Relative-Huber formulation), the pipeline must calculate the RANSAC/Huber inlier ratio of the bounding box centers relative to the smoothed spline. If the inlier ratio drops below 0.60, it indicates that the object is undergoing severe articulation (e.g., a human running) or tracking failure, making rigid body geometric projection unreliable. The router must immediately abandon geometry and rely on Claude's semantic understanding of the motion.
+Foundation Model Intrinsic Consistency:
+ The fundamental assumption of the 3D simulation subset is that the camera remains static . If the standard deviation of the Depth Pro predicted focal length ( f p x f_{px} f p x
+​ ) across the 16 random frames exceeds 10%, this assumption is violated, indicating that the foundation model is confused by the scene geometry. The geometry route becomes mathematically untrustworthy, and the query must be routed to the VLM.
+Evaluation Metric
+Threshold Condition
+Routing Decision
+Rationale
+Depth Pro FOV Std. Dev.
+ across 16 frames
+Route to PoT / VLM
+Geometric scale assumption violated.
+Huber Inlier Ratio (Tracking)
+0.60
+Route to PoT / VLM
+Non-rigid articulation or occlusion detected.
+All Metrics Stable
+Within bounds
+Route to Geometry / Splines
+Inputs are clean; math will outperform semantics.
+This dynamic, non-parametric routing logic relies exclusively on input-time confidence metrics. By avoiding the generalization failures of machine learning classifiers trained on sparse validation data, the meta-router can dynamically chase the oracle ceiling on a strictly per-video basis.
+6. Domain-Specific Exploitations for S2 Internet and Segmented Subsets
+The final echelon of marginal gains can be systematically extracted by rigorously exploiting the specific structural biases inherent in the QuantiPhy data collection methodology .
+6.1 S2 Internet: The Smartphone Intrinsic Prior
+The S2 Internet subset (currently stagnating at 0.796 MRA across 191 rows) consists of curated "in-the-wild" videos, heavily populated by self-filmed clips capturing trackable object motion . The vast majority of such internet videos are recorded on modern smartphone sensors, which possess highly standardized equivalent focal lengths (typically 24mm, 26mm, or 28mm full-frame equivalents).
+If the Depth Pro FOV head yields an ambiguous or highly variable result for an S2 Internet clip (violating the stability threshold outlined in Section 5), the pipeline should not simply surrender to a VLM hallucination. Instead, it should explicitly snap the focal length to a 26mm full-frame equivalent (approximately 79 degrees diagonal FOV). By injecting this strong statistical demographic prior into the geometric solver for failed internet clips, the pipeline establishes a baseline metric geometry that is significantly more accurate on average than a random VLM guess. This acts as a cheap, highly effective regularization safety net for the S2 Internet subset.
+6.2 The Segmented Twin Alignment Correction
+The dataset documentation reveals that 430 questions belong to "segmented" videos, which are exact twins of the original clips (both simulated and real) with complex backgrounds removed via automatic object-level segmentation engines or SAM-style models . The current pipeline applies a rudimentary post-rule: "segmented twin = original's answer" .
+However, the pipeline documentation explicitly notes that SAM-style cut-outs suffer from severe edge artifacts, including "halo, missing thin parts" . This creates a critical logical flaw in the current architecture: the bounding boxes and visual tracking data derived from the segmented twins are  inherently noisier and less reliable
+ than those derived from the original videos.
+Instead of merely pooling the final mathematical answer after the fact, the pipeline must implement a pre-processing intervention. It should index the dataset to find the exact unsegmented twin for every segmented video. The geometric tracks (bounding box sizes, centers, and Depth Pro depth maps) must be derived  exclusively
+ from the original unsegmented video, completely ignoring the segmented video's visual frames for any kinematic measurement. The VLM prompt can still utilize the segmented video to easily identify the target object against a blank background, but all numerical integration and geometry solving must fall back to the pristine, uncorrupted source video. This eliminates the halo noise propagation entirely.
+7. Refutation of Pre-existing Pipeline Assumptions
+To satisfy the imperative of identifying flaws in the existing reasoning , the following pipeline hypotheses are mathematically refuted:
+Refutation of the High-Resolution Tracking Dismissal:
+ The team abandoned "Zoomed full-resolution re-measurement" because it yielded only a "+.003 overall" gain, concluding that precise pixels were not the issue . This is a false negative. The lack of gain proves that the error lies in the  scale translation multiplier , not the pixel measurement itself. Highly precise pixel measurements projected through a fundamentally incorrect focal length (derived from noisy priors) will still yield an incorrect metric size. High-resolution tracking is highly valuable, but only when paired with the exact metric geometry provided by Depth Pro.
+Refutation of Heuristic Lab Speed Factors:
+ The pipeline attempted to apply uniform scalar multipliers (e.g., x1.15, x1.40) to correct emulator factors on D3 Lab datasets, netting zero gain . Applying static scalar multipliers is mathematically invalid for objects undergoing acceleration or possessing non-linear velocity profiles, as kinematic errors propagate polynomially over time, not linearly. The Relative-Huber trajectory optimization (detailed in Section 4) solves this natively by aligning the entire curve, rendering heuristic hacks obsolete.
+8. Strategic Summary and Projected Yields
+Achieving the paramount score of 0.8525 on the QuantiPhy benchmark demands an uncompromising transition from heuristic VLM prompting to deterministic, physics-grounded code execution .
+By harnessing Apple's Depth Pro for uncoupled, zero-shot metric geometry (replacing the unstable MoGe-2), the pipeline resolves the focal-distance ambiguity plaguing the 3D simulation sets. Leveraging the Program-of-Thought paradigm mathematically sandboxes the VLM, forcing it to generate deterministic Python execution scripts rather than hallucinated direct answers. Finally, explicitly optimizing global B-spline trajectories against a Relative-Huber loss function directly aligns the kinematic tracking with the mathematical realities of the Mean Relative Accuracy metric.
+These integrated interventions require zero additional API expenditure, leverage strictly the provided test inputs, and adhere tightly to the foundational kinematics that the QuantiPhy challenge seeks to measure, providing a robust, highly confident pathway to clearing the +0.04 deficit.
+Report unsafe content
+ Opens in a new window 
+Google apps
+More options
+Download code
+Copy code
+Learn more
