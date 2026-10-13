@@ -1,0 +1,417 @@
+{
+ "video_id": "simulation_0060__q1348",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfzJynfFQF7VbwVNNUKQN",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 2576
+ },
+ "ts": "2026-10-13T13:30:38+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_016VpVnVHqzU2Nve6aMFDkm2",
+ "custom_id": "simulation_0060__q1348",
+ "usage": {
+  "input_tokens": 61555,
+  "output_tokens": 2270,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 4317,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.146242,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0060__q1348",
+  "fps": 24.0,
+  "fps_from_container": false,
+  "video_type": "A3MC",
+  "n_frames_total": 72,
+  "scale": 1.0,
+  "image_size": [
+   2160,
+   1080
+  ],
+  "frames": [
+   0,
+   5,
+   9,
+   12,
+   14,
+   16,
+   19,
+   24,
+   28,
+   33,
+   36,
+   38,
+   40,
+   43,
+   47,
+   52,
+   57,
+   62,
+   66,
+   71
+  ],
+  "questions": [
+   {
+    "qid": 1348,
+    "target_unit": "m",
+    "prior": "acceleration of the white car = 4 m/s^2",
+    "depth_info": "t=0.58s, distance_human_camera = 34.4785 m\nt=1.58s, distance_human_camera = 35.6486 m\nt=0.58s, distance_yellow_car_camera = 26.2275 m\nt=1.58s, distance_yellow_car_camera = 28.4240 m\nt=0.58s, distance_white_car_camera = 22.7254 m\nt=1.58s, distance_white_car_camera = 21.5370 m\nt=0.58s, distance_bike_camera = 23.5534 m\nt=1.58s, distance_bike_camera = 23.2262 m"
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":1348,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"bicycle wheel\"],\"dimension\":\"diameter\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"white car\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":4.0,\"unit\":\"\"},\"depth\":[{\"object\":\"human\",\"distance_m\":34.4785,\"time\":0.58},{\"object\":\"human\",\"distance_m\":35.6486,\"time\":1.58},{\"object\":\"yellow car\",\"distance_m\":26.2275,\"time\":0.58},{\"object\":\"yellow car\",\"distance_m\":28.424,\"time\":1.58},{\"object\":\"white car\",\"distance_m\":22.7254,\"time\":0.58},{\"object\":\"white car\",\"distance_m\":21.537,\"time\":1.58},{\"object\":\"bike\",\"distance_m\":23.5534,\"time\":0.58},{\"object\":\"bike\",\"distance_m\":23.2262,\"time\":1.58}],\"notes\":\"White car is the white van; reference point = its front wheel centre.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"white car\",\"obs\":[{\"frame\":0,\"point\":[1960,503],\"extent\":null,\"box\":null},{\"frame\":9,\"point\":[1928,505],\"extent\":null,\"box\":null},{\"frame\":12,\"point\":[1905,505],\"extent\":null,\"box\":null},{\"frame\":14,\"point\":[1878,505],\"extent\":null,\"box\":null},{\"frame\":16,\"point\":[1857,505],\"extent\":null,\"box\":null},{\"frame\":19,\"point\":[1818,500],\"extent\":null,\"box\":null},{\"frame\":24,\"point\":[1727,502],\"extent\":null,\"box\":null},{\"frame\":28,\"point\":[1648,502],\"extent\":null,\"box\":null},{\"frame\":33,\"point\":[1520,500],\"extent\":null,\"box\":null},{\"frame\":36,\"point\":[1440,500],\"extent\":null,\"box\":null},{\"frame\":38,\"point\":[1383,500],\"extent\":null,\"box\":null},{\"frame\":40,\"point\":[1326,500],\"extent\":null,\"box\":null},{\"frame\":43,\"point\":[1229,500],\"extent\":null,\"box\":null},{\"frame\":47,\"point\":[1094,498],\"extent\":null,\"box\":null},{\"frame\":52,\"point\":[903,492],\"extent\":null,\"box\":null},{\"frame\":57,\"point\":[703,488],\"extent\":null,\"box\":null},{\"frame\":62,\"point\":[484,485],\"extent\":null,\"box\":null},{\"frame\":66,\"point\":[295,483],\"extent\":null,\"box\":null},{\"frame\":71,\"point\":[57,480],\"extent\":null,\"box\":null}]},{\"role\":\"target\",\"object\":\"bicycle wheel\",\"obs\":[{\"frame\":14,\"point\":null,\"extent\":[[1467,432],[1530,432]],\"box\":[1467,401,1530,464]},{\"frame\":24,\"point\":null,\"extent\":[[1352,432],[1414,432]],\"box\":[1352,401,1414,463]},{\"frame\":33,\"point\":null,\"extent\":[[1166,431],[1227,431]],\"box\":[1166,400,1227,461]},{\"frame\":38,\"point\":null,\"extent\":[[967,429],[1028,429]],\"box\":[967,399,1028,459]}]}],\"direct_answer\":0.68,\"confidence\":0.45}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 1348,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "bicycle wheel"
+      ],
+      "dimension": "diameter",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "white car"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 4.0,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "human",
+       "distance_m": 34.4785,
+       "time": 0.58
+      },
+      {
+       "object": "human",
+       "distance_m": 35.6486,
+       "time": 1.58
+      },
+      {
+       "object": "yellow car",
+       "distance_m": 26.2275,
+       "time": 0.58
+      },
+      {
+       "object": "yellow car",
+       "distance_m": 28.424,
+       "time": 1.58
+      },
+      {
+       "object": "white car",
+       "distance_m": 22.7254,
+       "time": 0.58
+      },
+      {
+       "object": "white car",
+       "distance_m": 21.537,
+       "time": 1.58
+      },
+      {
+       "object": "bike",
+       "distance_m": 23.5534,
+       "time": 0.58
+      },
+      {
+       "object": "bike",
+       "distance_m": 23.2262,
+       "time": 1.58
+      }
+     ],
+     "notes": "White car is the white van; reference point = its front wheel centre."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "white car",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         1960,
+         503
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 9,
+        "point": [
+         1928,
+         505
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 12,
+        "point": [
+         1905,
+         505
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 14,
+        "point": [
+         1878,
+         505
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 16,
+        "point": [
+         1857,
+         505
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 19,
+        "point": [
+         1818,
+         500
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 24,
+        "point": [
+         1727,
+         502
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 28,
+        "point": [
+         1648,
+         502
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 33,
+        "point": [
+         1520,
+         500
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 36,
+        "point": [
+         1440,
+         500
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 38,
+        "point": [
+         1383,
+         500
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 40,
+        "point": [
+         1326,
+         500
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 43,
+        "point": [
+         1229,
+         500
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 47,
+        "point": [
+         1094,
+         498
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 52,
+        "point": [
+         903,
+         492
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 57,
+        "point": [
+         703,
+         488
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 62,
+        "point": [
+         484,
+         485
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 66,
+        "point": [
+         295,
+         483
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 71,
+        "point": [
+         57,
+         480
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "bicycle wheel",
+      "obs": [
+       {
+        "frame": 14,
+        "point": null,
+        "extent": [
+         [
+          1467,
+          432
+         ],
+         [
+          1530,
+          432
+         ]
+        ],
+        "box": [
+         1467,
+         401,
+         1530,
+         464
+        ]
+       },
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          1352,
+          432
+         ],
+         [
+          1414,
+          432
+         ]
+        ],
+        "box": [
+         1352,
+         401,
+         1414,
+         463
+        ]
+       },
+       {
+        "frame": 33,
+        "point": null,
+        "extent": [
+         [
+          1166,
+          431
+         ],
+         [
+          1227,
+          431
+         ]
+        ],
+        "box": [
+         1166,
+         400,
+         1227,
+         461
+        ]
+       },
+       {
+        "frame": 38,
+        "point": null,
+        "extent": [
+         [
+          967,
+          429
+         ],
+         [
+          1028,
+          429
+         ]
+        ],
+        "box": [
+         967,
+         399,
+         1028,
+         459
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 0.68,
+    "confidence": 0.45
+   }
+  ]
+ }
+}

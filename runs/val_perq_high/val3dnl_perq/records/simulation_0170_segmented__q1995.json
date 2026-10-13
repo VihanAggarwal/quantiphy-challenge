@@ -1,0 +1,331 @@
+{
+ "video_id": "simulation_0170_segmented__q1995",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfzJxUKQxE4GJE5CVpmuT",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 2576
+ },
+ "ts": "2026-10-13T13:30:38+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_016VpVnVHqzU2Nve6aMFDkm2",
+ "custom_id": "simulation_0170_segmented__q1995",
+ "usage": {
+  "input_tokens": 54365,
+  "output_tokens": 2458,
+  "cache_creation_input_tokens": 4317,
+  "cache_read_input_tokens": 0,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.144102,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0170_segmented__q1995",
+  "fps": 24.0,
+  "fps_from_container": false,
+  "video_type": "S3SX",
+  "n_frames_total": 80,
+  "scale": 1.0,
+  "image_size": [
+   1920,
+   1080
+  ],
+  "frames": [
+   0,
+   5,
+   11,
+   16,
+   21,
+   22,
+   24,
+   26,
+   32,
+   37,
+   42,
+   47,
+   53,
+   58,
+   63,
+   68,
+   70,
+   72,
+   74,
+   79
+  ],
+  "questions": [
+   {
+    "qid": 1995,
+    "target_unit": "m/s",
+    "prior": "height of the astronaut = 2.2 m",
+    "depth_info": "t=1s, distance_astronaut_camera = 23.137 m"
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":1995,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"astronaut\"],\"dimension\":\"\",\"time\":3.0,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"astronaut\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":2.2,\"unit\":\"\"},\"depth\":[{\"object\":\"astronaut\",\"distance_m\":23.137,\"time\":1.0}],\"notes\":\"Astronaut approaches the camera (image grows from ~260 px to ~470 px tall), so depth changes strongly; depth at 3s inferred from apparent height scaling.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"astronaut\",\"obs\":[{\"frame\":22,\"point\":null,\"extent\":[[1620.0,622.0],[1552.0,877.0]],\"box\":[1520.0,622.0,1652.0,877.0]},{\"frame\":24,\"point\":null,\"extent\":[[1606.0,610.0],[1540.0,870.0]],\"box\":[1506.0,610.0,1642.0,870.0]},{\"frame\":26,\"point\":null,\"extent\":[[1595.0,599.0],[1525.0,863.0]],\"box\":[1490.0,599.0,1630.0,863.0]}]},{\"role\":\"target\",\"object\":\"astronaut\",\"obs\":[{\"frame\":42,\"point\":[1467.0,483.0],\"extent\":null,\"box\":[1318.0,460.0,1505.0,782.0]},{\"frame\":47,\"point\":[1411.0,426.0],\"extent\":null,\"box\":[1245.0,402.0,1452.0,750.0]},{\"frame\":53,\"point\":[1340.0,350.0],\"extent\":null,\"box\":[1146.0,324.0,1385.0,704.0]},{\"frame\":58,\"point\":[1271.0,285.0],\"extent\":null,\"box\":[1057.0,257.0,1322.0,663.0]},{\"frame\":63,\"point\":[1206.0,220.0],\"extent\":null,\"box\":[968.0,192.0,1260.0,625.0]},{\"frame\":68,\"point\":[1145.0,158.0],\"extent\":null,\"box\":[887.0,133.0,1205.0,590.0]},{\"frame\":70,\"point\":[1123.0,140.0],\"extent\":null,\"box\":[860.0,114.0,1188.0,578.0]},{\"frame\":72,\"point\":[1110.0,128.0],\"extent\":null,\"box\":[835.0,97.0,1170.0,568.0]},{\"frame\":74,\"point\":[1093.0,112.0],\"extent\":null,\"box\":[816.0,85.0,1158.0,560.0]},{\"frame\":79,\"point\":[1075.0,110.0],\"extent\":null,\"box\":[792.0,85.0,1140.0,553.0]}]}],\"direct_answer\":2.4,\"confidence\":0.2}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 1995,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "astronaut"
+      ],
+      "dimension": "",
+      "time": 3.0,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "astronaut"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 2.2,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "astronaut",
+       "distance_m": 23.137,
+       "time": 1.0
+      }
+     ],
+     "notes": "Astronaut approaches the camera (image grows from ~260 px to ~470 px tall), so depth changes strongly; depth at 3s inferred from apparent height scaling."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "astronaut",
+      "obs": [
+       {
+        "frame": 22,
+        "point": null,
+        "extent": [
+         [
+          1620.0,
+          622.0
+         ],
+         [
+          1552.0,
+          877.0
+         ]
+        ],
+        "box": [
+         1520.0,
+         622.0,
+         1652.0,
+         877.0
+        ]
+       },
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          1606.0,
+          610.0
+         ],
+         [
+          1540.0,
+          870.0
+         ]
+        ],
+        "box": [
+         1506.0,
+         610.0,
+         1642.0,
+         870.0
+        ]
+       },
+       {
+        "frame": 26,
+        "point": null,
+        "extent": [
+         [
+          1595.0,
+          599.0
+         ],
+         [
+          1525.0,
+          863.0
+         ]
+        ],
+        "box": [
+         1490.0,
+         599.0,
+         1630.0,
+         863.0
+        ]
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "astronaut",
+      "obs": [
+       {
+        "frame": 42,
+        "point": [
+         1467.0,
+         483.0
+        ],
+        "extent": null,
+        "box": [
+         1318.0,
+         460.0,
+         1505.0,
+         782.0
+        ]
+       },
+       {
+        "frame": 47,
+        "point": [
+         1411.0,
+         426.0
+        ],
+        "extent": null,
+        "box": [
+         1245.0,
+         402.0,
+         1452.0,
+         750.0
+        ]
+       },
+       {
+        "frame": 53,
+        "point": [
+         1340.0,
+         350.0
+        ],
+        "extent": null,
+        "box": [
+         1146.0,
+         324.0,
+         1385.0,
+         704.0
+        ]
+       },
+       {
+        "frame": 58,
+        "point": [
+         1271.0,
+         285.0
+        ],
+        "extent": null,
+        "box": [
+         1057.0,
+         257.0,
+         1322.0,
+         663.0
+        ]
+       },
+       {
+        "frame": 63,
+        "point": [
+         1206.0,
+         220.0
+        ],
+        "extent": null,
+        "box": [
+         968.0,
+         192.0,
+         1260.0,
+         625.0
+        ]
+       },
+       {
+        "frame": 68,
+        "point": [
+         1145.0,
+         158.0
+        ],
+        "extent": null,
+        "box": [
+         887.0,
+         133.0,
+         1205.0,
+         590.0
+        ]
+       },
+       {
+        "frame": 70,
+        "point": [
+         1123.0,
+         140.0
+        ],
+        "extent": null,
+        "box": [
+         860.0,
+         114.0,
+         1188.0,
+         578.0
+        ]
+       },
+       {
+        "frame": 72,
+        "point": [
+         1110.0,
+         128.0
+        ],
+        "extent": null,
+        "box": [
+         835.0,
+         97.0,
+         1170.0,
+         568.0
+        ]
+       },
+       {
+        "frame": 74,
+        "point": [
+         1093.0,
+         112.0
+        ],
+        "extent": null,
+        "box": [
+         816.0,
+         85.0,
+         1158.0,
+         560.0
+        ]
+       },
+       {
+        "frame": 79,
+        "point": [
+         1075.0,
+         110.0
+        ],
+        "extent": null,
+        "box": [
+         792.0,
+         85.0,
+         1140.0,
+         553.0
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 2.4,
+    "confidence": 0.2
+   }
+  ]
+ }
+}

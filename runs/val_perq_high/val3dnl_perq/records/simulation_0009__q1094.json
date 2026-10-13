@@ -1,0 +1,476 @@
+{
+ "video_id": "simulation_0009__q1094",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfzJyMeqsQxPgaqgbkiip",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 2576
+ },
+ "ts": "2026-10-13T13:27:36+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_01NkjKYQ7EGhL7zFUdTojksE",
+ "custom_id": "simulation_0009__q1094",
+ "usage": {
+  "input_tokens": 27939,
+  "output_tokens": 3384,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 4317,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.09015,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0009__q1094",
+  "fps": 24.0,
+  "fps_from_container": false,
+  "video_type": "V3MC",
+  "n_frames_total": 66,
+  "scale": 1.0,
+  "image_size": [
+   1080,
+   1080
+  ],
+  "frames": [
+   0,
+   2,
+   4,
+   9,
+   13,
+   17,
+   22,
+   24,
+   26,
+   30,
+   35,
+   39,
+   43,
+   48,
+   52,
+   56,
+   61,
+   65
+  ],
+  "questions": [
+   {
+    "qid": 1094,
+    "target_unit": "m",
+    "prior": "speed of the boat = 1.5 m/s",
+    "depth_info": "t=0s, distance_boat_camera =11.827 m\nt=1s, distance_boat_camera = 13.154 m\ndistance_pier_camera = 18.920 m\ndistance_stairs_camera = 23.125 m"
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":1094,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"pier\"],\"dimension\":\"length\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"boat\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":1.5,\"unit\":\"\"},\"depth\":[{\"object\":\"boat\",\"distance_m\":11.827,\"time\":0},{\"object\":\"boat\",\"distance_m\":13.154,\"time\":1},{\"object\":\"pier\",\"distance_m\":18.92,\"time\":null},{\"object\":\"stairs\",\"distance_m\":23.125,\"time\":null}],\"notes\":\"Boat moves mostly away from camera; focal length inferred from boat 3D speed using depth change and image motion (f ~ 975 px).\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"boat\",\"obs\":[{\"frame\":0,\"point\":[300,799],\"extent\":null,\"box\":[218,738,382,860]},{\"frame\":2,\"point\":[295,798],\"extent\":null,\"box\":[214,738,376,858]},{\"frame\":4,\"point\":[290,797],\"extent\":null,\"box\":[210,737,370,857]},{\"frame\":9,\"point\":[278,791.5],\"extent\":null,\"box\":[200,733,356,850]},{\"frame\":13,\"point\":[269.5,786],\"extent\":null,\"box\":[194,730,345,842]},{\"frame\":17,\"point\":[260.5,782.5],\"extent\":null,\"box\":[187,727,334,838]},{\"frame\":22,\"point\":[250,777.5],\"extent\":null,\"box\":[179,723,321,832]},{\"frame\":24,\"point\":[246.5,776],\"extent\":null,\"box\":[176,722,317,830]},{\"frame\":26,\"point\":[242,775],\"extent\":null,\"box\":[172,722,312,828]},{\"frame\":30,\"point\":[233.5,770],\"extent\":null,\"box\":[165,718,302,822]},{\"frame\":35,\"point\":[224.5,767],\"extent\":null,\"box\":[158,716,291,818]},{\"frame\":39,\"point\":[217.5,763],\"extent\":null,\"box\":[152,714,283,812]},{\"frame\":43,\"point\":[210.5,760],\"extent\":null,\"box\":[146,712,275,808]},{\"frame\":48,\"point\":[202,755.5],\"extent\":null,\"box\":[139,708,265,803]},{\"frame\":52,\"point\":[195.5,753],\"extent\":null,\"box\":[134,708,257,798]},{\"frame\":56,\"point\":[189,750.5],\"extent\":null,\"box\":[128,706,250,795]},{\"frame\":61,\"point\":[181.5,746.5],\"extent\":null,\"box\":[122,703,241,790]},{\"frame\":65,\"point\":[175.5,743.5],\"extent\":null,\"box\":[117,702,234,785]}]},{\"role\":\"target\",\"object\":\"pier\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[296,710],[557,688]],\"box\":[294,677,560,750]},{\"frame\":24,\"point\":null,\"extent\":[[296,710],[557,688]],\"box\":[294,677,560,750]},{\"frame\":48,\"point\":null,\"extent\":[[296,710],[557,688]],\"box\":[294,677,560,750]},{\"frame\":65,\"point\":null,\"extent\":[[296,710],[557,688]],\"box\":[294,677,560,750]}]}],\"direct_answer\":5.1,\"confidence\":0.4}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 1094,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "pier"
+      ],
+      "dimension": "length",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "boat"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 1.5,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "boat",
+       "distance_m": 11.827,
+       "time": 0
+      },
+      {
+       "object": "boat",
+       "distance_m": 13.154,
+       "time": 1
+      },
+      {
+       "object": "pier",
+       "distance_m": 18.92,
+       "time": null
+      },
+      {
+       "object": "stairs",
+       "distance_m": 23.125,
+       "time": null
+      }
+     ],
+     "notes": "Boat moves mostly away from camera; focal length inferred from boat 3D speed using depth change and image motion (f ~ 975 px)."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "boat",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         300,
+         799
+        ],
+        "extent": null,
+        "box": [
+         218,
+         738,
+         382,
+         860
+        ]
+       },
+       {
+        "frame": 2,
+        "point": [
+         295,
+         798
+        ],
+        "extent": null,
+        "box": [
+         214,
+         738,
+         376,
+         858
+        ]
+       },
+       {
+        "frame": 4,
+        "point": [
+         290,
+         797
+        ],
+        "extent": null,
+        "box": [
+         210,
+         737,
+         370,
+         857
+        ]
+       },
+       {
+        "frame": 9,
+        "point": [
+         278,
+         791.5
+        ],
+        "extent": null,
+        "box": [
+         200,
+         733,
+         356,
+         850
+        ]
+       },
+       {
+        "frame": 13,
+        "point": [
+         269.5,
+         786
+        ],
+        "extent": null,
+        "box": [
+         194,
+         730,
+         345,
+         842
+        ]
+       },
+       {
+        "frame": 17,
+        "point": [
+         260.5,
+         782.5
+        ],
+        "extent": null,
+        "box": [
+         187,
+         727,
+         334,
+         838
+        ]
+       },
+       {
+        "frame": 22,
+        "point": [
+         250,
+         777.5
+        ],
+        "extent": null,
+        "box": [
+         179,
+         723,
+         321,
+         832
+        ]
+       },
+       {
+        "frame": 24,
+        "point": [
+         246.5,
+         776
+        ],
+        "extent": null,
+        "box": [
+         176,
+         722,
+         317,
+         830
+        ]
+       },
+       {
+        "frame": 26,
+        "point": [
+         242,
+         775
+        ],
+        "extent": null,
+        "box": [
+         172,
+         722,
+         312,
+         828
+        ]
+       },
+       {
+        "frame": 30,
+        "point": [
+         233.5,
+         770
+        ],
+        "extent": null,
+        "box": [
+         165,
+         718,
+         302,
+         822
+        ]
+       },
+       {
+        "frame": 35,
+        "point": [
+         224.5,
+         767
+        ],
+        "extent": null,
+        "box": [
+         158,
+         716,
+         291,
+         818
+        ]
+       },
+       {
+        "frame": 39,
+        "point": [
+         217.5,
+         763
+        ],
+        "extent": null,
+        "box": [
+         152,
+         714,
+         283,
+         812
+        ]
+       },
+       {
+        "frame": 43,
+        "point": [
+         210.5,
+         760
+        ],
+        "extent": null,
+        "box": [
+         146,
+         712,
+         275,
+         808
+        ]
+       },
+       {
+        "frame": 48,
+        "point": [
+         202,
+         755.5
+        ],
+        "extent": null,
+        "box": [
+         139,
+         708,
+         265,
+         803
+        ]
+       },
+       {
+        "frame": 52,
+        "point": [
+         195.5,
+         753
+        ],
+        "extent": null,
+        "box": [
+         134,
+         708,
+         257,
+         798
+        ]
+       },
+       {
+        "frame": 56,
+        "point": [
+         189,
+         750.5
+        ],
+        "extent": null,
+        "box": [
+         128,
+         706,
+         250,
+         795
+        ]
+       },
+       {
+        "frame": 61,
+        "point": [
+         181.5,
+         746.5
+        ],
+        "extent": null,
+        "box": [
+         122,
+         703,
+         241,
+         790
+        ]
+       },
+       {
+        "frame": 65,
+        "point": [
+         175.5,
+         743.5
+        ],
+        "extent": null,
+        "box": [
+         117,
+         702,
+         234,
+         785
+        ]
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "pier",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          296,
+          710
+         ],
+         [
+          557,
+          688
+         ]
+        ],
+        "box": [
+         294,
+         677,
+         560,
+         750
+        ]
+       },
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          296,
+          710
+         ],
+         [
+          557,
+          688
+         ]
+        ],
+        "box": [
+         294,
+         677,
+         560,
+         750
+        ]
+       },
+       {
+        "frame": 48,
+        "point": null,
+        "extent": [
+         [
+          296,
+          710
+         ],
+         [
+          557,
+          688
+         ]
+        ],
+        "box": [
+         294,
+         677,
+         560,
+         750
+        ]
+       },
+       {
+        "frame": 65,
+        "point": null,
+        "extent": [
+         [
+          296,
+          710
+         ],
+         [
+          557,
+          688
+         ]
+        ],
+        "box": [
+         294,
+         677,
+         560,
+         750
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 5.1,
+    "confidence": 0.4
+   }
+  ]
+ }
+}

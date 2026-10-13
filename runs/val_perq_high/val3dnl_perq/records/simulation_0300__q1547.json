@@ -1,0 +1,290 @@
+{
+ "video_id": "simulation_0300__q1547",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfzJxULQBh6FDAzC769vR",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 2576
+ },
+ "ts": "2026-10-13T13:30:38+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_016VpVnVHqzU2Nve6aMFDkm2",
+ "custom_id": "simulation_0300__q1547",
+ "usage": {
+  "input_tokens": 101047,
+  "output_tokens": 3267,
+  "cache_creation_input_tokens": 4317,
+  "cache_read_input_tokens": 0,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.245557,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0300__q1547",
+  "fps": 24.0,
+  "fps_from_container": false,
+  "video_type": "A3SX",
+  "n_frames_total": 72,
+  "scale": 1.0,
+  "image_size": [
+   2560,
+   1440
+  ],
+  "frames": [
+   0,
+   5,
+   9,
+   14,
+   19,
+   22,
+   24,
+   26,
+   28,
+   33,
+   38,
+   43,
+   46,
+   47,
+   48,
+   50,
+   52,
+   57,
+   62,
+   66,
+   71
+  ],
+  "questions": [
+   {
+    "qid": 1547,
+    "target_unit": "m/s",
+    "prior": "acceleration of the car = 5 m/s^2",
+    "depth_info": "t = 1.0s, distance_car_camera = 17.8278 m\nt = 2.0s, distance_car_camera = 23.1989 m"
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":1547,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"car\"],\"dimension\":\"\",\"time\":1.0,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"car\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":5.0,\"unit\":\"\"},\"depth\":[{\"object\":\"car\",\"distance_m\":17.8278,\"time\":1.0},{\"object\":\"car\",\"distance_m\":23.1989,\"time\":2.0}],\"notes\":\"Reference point: midpoint between the two rear taillights. Assumes straight-line motion with constant acceleration; the speed at 1 s is estimated from the 3D displacement between t=1 s and t=2 s.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"car\",\"obs\":[{\"frame\":22,\"point\":[2359,1218],\"extent\":null,\"box\":null},{\"frame\":24,\"point\":[2272,1183],\"extent\":null,\"box\":[1625,925,2425,1350]},{\"frame\":26,\"point\":[2196,1149],\"extent\":null,\"box\":null},{\"frame\":28,\"point\":[2134,1111],\"extent\":null,\"box\":null},{\"frame\":33,\"point\":[1943,1019],\"extent\":null,\"box\":null},{\"frame\":38,\"point\":[1743,921],\"extent\":null,\"box\":null},{\"frame\":43,\"point\":[1544,823],\"extent\":null,\"box\":null},{\"frame\":46,\"point\":[1428,768],\"extent\":null,\"box\":null},{\"frame\":47,\"point\":[1388,749],\"extent\":null,\"box\":null},{\"frame\":48,\"point\":[1349,731],\"extent\":null,\"box\":[955,578,1490,850]},{\"frame\":50,\"point\":[1278,693],\"extent\":null,\"box\":null},{\"frame\":52,\"point\":[1204,659],\"extent\":null,\"box\":null},{\"frame\":57,\"point\":[1028,572],\"extent\":null,\"box\":null},{\"frame\":62,\"point\":[864,494],\"extent\":null,\"box\":null},{\"frame\":66,\"point\":[742,435],\"extent\":null,\"box\":null},{\"frame\":71,\"point\":[601,367],\"extent\":null,\"box\":null}]},{\"role\":\"target\",\"object\":\"car\",\"obs\":[]}],\"direct_answer\":5.3,\"confidence\":0.55}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 1547,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "car"
+      ],
+      "dimension": "",
+      "time": 1.0,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "car"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 5.0,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "car",
+       "distance_m": 17.8278,
+       "time": 1.0
+      },
+      {
+       "object": "car",
+       "distance_m": 23.1989,
+       "time": 2.0
+      }
+     ],
+     "notes": "Reference point: midpoint between the two rear taillights. Assumes straight-line motion with constant acceleration; the speed at 1 s is estimated from the 3D displacement between t=1 s and t=2 s."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "car",
+      "obs": [
+       {
+        "frame": 22,
+        "point": [
+         2359,
+         1218
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 24,
+        "point": [
+         2272,
+         1183
+        ],
+        "extent": null,
+        "box": [
+         1625,
+         925,
+         2425,
+         1350
+        ]
+       },
+       {
+        "frame": 26,
+        "point": [
+         2196,
+         1149
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 28,
+        "point": [
+         2134,
+         1111
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 33,
+        "point": [
+         1943,
+         1019
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 38,
+        "point": [
+         1743,
+         921
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 43,
+        "point": [
+         1544,
+         823
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 46,
+        "point": [
+         1428,
+         768
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 47,
+        "point": [
+         1388,
+         749
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 48,
+        "point": [
+         1349,
+         731
+        ],
+        "extent": null,
+        "box": [
+         955,
+         578,
+         1490,
+         850
+        ]
+       },
+       {
+        "frame": 50,
+        "point": [
+         1278,
+         693
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 52,
+        "point": [
+         1204,
+         659
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 57,
+        "point": [
+         1028,
+         572
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 62,
+        "point": [
+         864,
+         494
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 66,
+        "point": [
+         742,
+         435
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 71,
+        "point": [
+         601,
+         367
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "car",
+      "obs": []
+     }
+    ],
+    "direct_answer": 5.3,
+    "confidence": 0.55
+   }
+  ]
+ }
+}

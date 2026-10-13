@@ -1,0 +1,270 @@
+{
+ "video_id": "simulation_0015__q1120",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfzJxUwcPmAVwkSrAVngo",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 2576
+ },
+ "ts": "2026-10-13T13:27:36+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_01NkjKYQ7EGhL7zFUdTojksE",
+ "custom_id": "simulation_0015__q1120",
+ "usage": {
+  "input_tokens": 29524,
+  "output_tokens": 922,
+  "cache_creation_input_tokens": 4317,
+  "cache_read_input_tokens": 0,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.079061,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0015__q1120",
+  "fps": 33.0,
+  "fps_from_container": false,
+  "video_type": "S3MC",
+  "n_frames_total": 100,
+  "scale": 1.0,
+  "image_size": [
+   1080,
+   1080
+  ],
+  "frames": [
+   0,
+   3,
+   7,
+   13,
+   20,
+   26,
+   30,
+   33,
+   36,
+   40,
+   46,
+   53,
+   59,
+   66,
+   73,
+   79,
+   86,
+   92,
+   99
+  ],
+  "questions": [
+   {
+    "qid": 1120,
+    "target_unit": "m",
+    "prior": "height of the person = 1.87 m",
+    "depth_info": "t=0s, distance_human_camera = 12.26 m\nt=1s, distance_human_camera = 10.97 m\ndistance_the_pedestal_of_the_central _sculpture_and_camera = 9.460 m\ndistance_the centeral_sculpture_camera = 9.460 m\ndistance_the_nearest_freestanding_art_display_panel = 11.874 m"
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":1120,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"central sculpture\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"person\"],\"dimension\":\"height\",\"time\":0,\"window\":null,\"axis\":\"vertical\",\"value_si\":1.87,\"unit\":\"\"},\"depth\":[{\"object\":\"person\",\"distance_m\":12.26,\"time\":0},{\"object\":\"person\",\"distance_m\":10.97,\"time\":1},{\"object\":\"pedestal of central sculpture\",\"distance_m\":9.46,\"time\":null},{\"object\":\"central sculpture\",\"distance_m\":9.46,\"time\":null},{\"object\":\"nearest freestanding art display panel\",\"distance_m\":11.874,\"time\":null}],\"notes\":\"Sculpture height measured from top of the pedestal to the sculpture tip.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"person\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[441.5,504.5],[436.5,641.5]],\"box\":[422,504,463,642]},{\"frame\":33,\"point\":null,\"extent\":[[432.5,502.5],[424.5,655.5]],\"box\":[409,502,453,656]}]},{\"role\":\"target\",\"object\":\"central sculpture\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[540.5,424.5],[540.5,582.5]],\"box\":[468,424,604,583]},{\"frame\":33,\"point\":null,\"extent\":[[540.5,424.5],[540.5,582.5]],\"box\":[468,424,604,583]},{\"frame\":66,\"point\":null,\"extent\":[[540.5,424.5],[540.5,582.5]],\"box\":[468,424,604,583]},{\"frame\":99,\"point\":null,\"extent\":[[540.5,424.5],[540.5,582.5]],\"box\":[468,424,604,583]}]}],\"direct_answer\":1.66,\"confidence\":0.6}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 1120,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "central sculpture"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "person"
+      ],
+      "dimension": "height",
+      "time": 0,
+      "window": null,
+      "axis": "vertical",
+      "value_si": 1.87,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "person",
+       "distance_m": 12.26,
+       "time": 0
+      },
+      {
+       "object": "person",
+       "distance_m": 10.97,
+       "time": 1
+      },
+      {
+       "object": "pedestal of central sculpture",
+       "distance_m": 9.46,
+       "time": null
+      },
+      {
+       "object": "central sculpture",
+       "distance_m": 9.46,
+       "time": null
+      },
+      {
+       "object": "nearest freestanding art display panel",
+       "distance_m": 11.874,
+       "time": null
+      }
+     ],
+     "notes": "Sculpture height measured from top of the pedestal to the sculpture tip."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "person",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          441.5,
+          504.5
+         ],
+         [
+          436.5,
+          641.5
+         ]
+        ],
+        "box": [
+         422,
+         504,
+         463,
+         642
+        ]
+       },
+       {
+        "frame": 33,
+        "point": null,
+        "extent": [
+         [
+          432.5,
+          502.5
+         ],
+         [
+          424.5,
+          655.5
+         ]
+        ],
+        "box": [
+         409,
+         502,
+         453,
+         656
+        ]
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "central sculpture",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          540.5,
+          424.5
+         ],
+         [
+          540.5,
+          582.5
+         ]
+        ],
+        "box": [
+         468,
+         424,
+         604,
+         583
+        ]
+       },
+       {
+        "frame": 33,
+        "point": null,
+        "extent": [
+         [
+          540.5,
+          424.5
+         ],
+         [
+          540.5,
+          582.5
+         ]
+        ],
+        "box": [
+         468,
+         424,
+         604,
+         583
+        ]
+       },
+       {
+        "frame": 66,
+        "point": null,
+        "extent": [
+         [
+          540.5,
+          424.5
+         ],
+         [
+          540.5,
+          582.5
+         ]
+        ],
+        "box": [
+         468,
+         424,
+         604,
+         583
+        ]
+       },
+       {
+        "frame": 99,
+        "point": null,
+        "extent": [
+         [
+          540.5,
+          424.5
+         ],
+         [
+          540.5,
+          582.5
+         ]
+        ],
+        "box": [
+         468,
+         424,
+         604,
+         583
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 1.66,
+    "confidence": 0.6
+   }
+  ]
+ }
+}

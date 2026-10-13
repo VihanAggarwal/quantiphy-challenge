@@ -1,0 +1,401 @@
+{
+ "video_id": "simulation_0015__q1130",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfzJxUKQcYjAKYyTJxTxK",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 2576
+ },
+ "ts": "2026-10-13T13:30:38+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_016VpVnVHqzU2Nve6aMFDkm2",
+ "custom_id": "simulation_0015__q1130",
+ "usage": {
+  "input_tokens": 29514,
+  "output_tokens": 1867,
+  "cache_creation_input_tokens": 4317,
+  "cache_read_input_tokens": 0,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.08849,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0015__q1130",
+  "fps": 33.0,
+  "fps_from_container": false,
+  "video_type": "S3MC",
+  "n_frames_total": 100,
+  "scale": 1.0,
+  "image_size": [
+   1080,
+   1080
+  ],
+  "frames": [
+   0,
+   3,
+   7,
+   13,
+   20,
+   26,
+   30,
+   33,
+   36,
+   40,
+   46,
+   53,
+   59,
+   66,
+   73,
+   79,
+   86,
+   92,
+   99
+  ],
+  "questions": [
+   {
+    "qid": 1130,
+    "target_unit": "m/s",
+    "prior": "height of the person = 1.87 m",
+    "depth_info": "t=0s, distance_human_camera = 12.26 m\nt=1s, distance_human_camera = 10.97 m\ndistance_the_pedestal_of_the_central _sculpture_and_camera = 9.460 m\ndistance_the centeral_sculpture_camera = 9.460 m\ndistance_the_nearest_freestanding_art_display_panel = 11.874 m"
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":1130,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"person\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"person\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":1.87,\"unit\":\"\"},\"depth\":[{\"object\":\"person\",\"distance_m\":12.26,\"time\":0},{\"object\":\"person\",\"distance_m\":10.97,\"time\":1},{\"object\":\"pedestal of central sculpture\",\"distance_m\":9.46,\"time\":null},{\"object\":\"central sculpture\",\"distance_m\":9.46,\"time\":null},{\"object\":\"nearest freestanding art display panel\",\"distance_m\":11.874,\"time\":null}],\"notes\":\"Question asks about a bird but there is no bird; the only moving object is the person walking toward the camera, so the target is taken as the person's average speed over the whole clip. Motion is mostly along depth.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"person\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[441,503],[438,641]],\"box\":[424,503,462,641]},{\"frame\":33,\"point\":null,\"extent\":[[431,502],[431,655]],\"box\":[411,502,453,655]},{\"frame\":66,\"point\":null,\"extent\":[[415,497],[414,671]],\"box\":[389,497,441,671]},{\"frame\":99,\"point\":null,\"extent\":[[397,488],[397,693]],\"box\":[366,488,424,693]}]},{\"role\":\"target\",\"object\":\"person\",\"obs\":[{\"frame\":0,\"point\":[441,572],\"extent\":null,\"box\":null},{\"frame\":3,\"point\":[441,572],\"extent\":null,\"box\":null},{\"frame\":7,\"point\":[440,572],\"extent\":null,\"box\":null},{\"frame\":13,\"point\":[437,575],\"extent\":null,\"box\":null},{\"frame\":20,\"point\":[433,575],\"extent\":null,\"box\":null},{\"frame\":26,\"point\":[431,577],\"extent\":null,\"box\":null},{\"frame\":30,\"point\":[432,578],\"extent\":null,\"box\":null},{\"frame\":33,\"point\":[431,579],\"extent\":null,\"box\":null},{\"frame\":36,\"point\":[429,580],\"extent\":null,\"box\":null},{\"frame\":40,\"point\":[425,580],\"extent\":null,\"box\":null},{\"frame\":46,\"point\":[424,582],\"extent\":null,\"box\":null},{\"frame\":53,\"point\":[420,584],\"extent\":null,\"box\":null},{\"frame\":59,\"point\":[415,585],\"extent\":null,\"box\":null},{\"frame\":66,\"point\":[414,587],\"extent\":null,\"box\":null},{\"frame\":73,\"point\":[410,590],\"extent\":null,\"box\":null},{\"frame\":79,\"point\":[408,592],\"extent\":null,\"box\":null},{\"frame\":86,\"point\":[402,594],\"extent\":null,\"box\":null},{\"frame\":92,\"point\":[400,594],\"extent\":null,\"box\":null},{\"frame\":99,\"point\":[394,596],\"extent\":null,\"box\":null}]}],\"direct_answer\":1.33,\"confidence\":0.45}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 1130,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "person"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "person"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 1.87,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "person",
+       "distance_m": 12.26,
+       "time": 0
+      },
+      {
+       "object": "person",
+       "distance_m": 10.97,
+       "time": 1
+      },
+      {
+       "object": "pedestal of central sculpture",
+       "distance_m": 9.46,
+       "time": null
+      },
+      {
+       "object": "central sculpture",
+       "distance_m": 9.46,
+       "time": null
+      },
+      {
+       "object": "nearest freestanding art display panel",
+       "distance_m": 11.874,
+       "time": null
+      }
+     ],
+     "notes": "Question asks about a bird but there is no bird; the only moving object is the person walking toward the camera, so the target is taken as the person's average speed over the whole clip. Motion is mostly along depth."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "person",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          441,
+          503
+         ],
+         [
+          438,
+          641
+         ]
+        ],
+        "box": [
+         424,
+         503,
+         462,
+         641
+        ]
+       },
+       {
+        "frame": 33,
+        "point": null,
+        "extent": [
+         [
+          431,
+          502
+         ],
+         [
+          431,
+          655
+         ]
+        ],
+        "box": [
+         411,
+         502,
+         453,
+         655
+        ]
+       },
+       {
+        "frame": 66,
+        "point": null,
+        "extent": [
+         [
+          415,
+          497
+         ],
+         [
+          414,
+          671
+         ]
+        ],
+        "box": [
+         389,
+         497,
+         441,
+         671
+        ]
+       },
+       {
+        "frame": 99,
+        "point": null,
+        "extent": [
+         [
+          397,
+          488
+         ],
+         [
+          397,
+          693
+         ]
+        ],
+        "box": [
+         366,
+         488,
+         424,
+         693
+        ]
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "person",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         441,
+         572
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 3,
+        "point": [
+         441,
+         572
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 7,
+        "point": [
+         440,
+         572
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 13,
+        "point": [
+         437,
+         575
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 20,
+        "point": [
+         433,
+         575
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 26,
+        "point": [
+         431,
+         577
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 30,
+        "point": [
+         432,
+         578
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 33,
+        "point": [
+         431,
+         579
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 36,
+        "point": [
+         429,
+         580
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 40,
+        "point": [
+         425,
+         580
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 46,
+        "point": [
+         424,
+         582
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 53,
+        "point": [
+         420,
+         584
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 59,
+        "point": [
+         415,
+         585
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 66,
+        "point": [
+         414,
+         587
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 73,
+        "point": [
+         410,
+         590
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 79,
+        "point": [
+         408,
+         592
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 86,
+        "point": [
+         402,
+         594
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 92,
+        "point": [
+         400,
+         594
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 99,
+        "point": [
+         394,
+         596
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     }
+    ],
+    "direct_answer": 1.33,
+    "confidence": 0.45
+   }
+  ]
+ }
+}

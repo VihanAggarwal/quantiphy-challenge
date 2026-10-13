@@ -1,0 +1,381 @@
+{
+ "video_id": "simulation_0170_segmented__q1994",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfzJxUKQoWzvumPScoQSo",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 2576
+ },
+ "ts": "2026-10-13T13:30:38+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_016VpVnVHqzU2Nve6aMFDkm2",
+ "custom_id": "simulation_0170_segmented__q1994",
+ "usage": {
+  "input_tokens": 57080,
+  "output_tokens": 3888,
+  "cache_creation_input_tokens": 4317,
+  "cache_read_input_tokens": 0,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.163832,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0170_segmented__q1994",
+  "fps": 24.0,
+  "fps_from_container": false,
+  "video_type": "S3SX",
+  "n_frames_total": 80,
+  "scale": 1.0,
+  "image_size": [
+   1920,
+   1080
+  ],
+  "frames": [
+   0,
+   5,
+   11,
+   16,
+   21,
+   22,
+   24,
+   26,
+   32,
+   37,
+   42,
+   46,
+   47,
+   48,
+   50,
+   53,
+   58,
+   63,
+   68,
+   74,
+   79
+  ],
+  "questions": [
+   {
+    "qid": 1994,
+    "target_unit": "m/s^2",
+    "prior": "height of the astronaut = 2.2 m",
+    "depth_info": "t=1s, distance_astronaut_camera = 23.137 m"
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":1994,\"spec\":{\"target\":{\"kind\":\"acceleration\",\"objects\":[\"astronaut\"],\"dimension\":\"\",\"time\":2.0,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s^2\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"astronaut\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":2.2,\"unit\":\"\"},\"depth\":[{\"object\":\"astronaut\",\"distance_m\":23.137,\"time\":1.0}],\"notes\":\"The astronaut approaches the camera, so the image scale changes during the clip. Depth is given only at t=1s. The estimate uses the pixel acceleration near t=2s and the scale derived from the astronaut's apparent height at t=2s.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"astronaut\",\"obs\":[{\"frame\":24,\"point\":null,\"extent\":[[1605,612],[1525,870]],\"box\":[1505,610,1642,872]},{\"frame\":22,\"point\":null,\"extent\":[[1620,622],[1535,876]],\"box\":[1518,620,1652,878]},{\"frame\":26,\"point\":null,\"extent\":[[1595,600],[1520,862]],\"box\":[1490,598,1630,864]}]},{\"role\":\"target\",\"object\":\"astronaut\",\"obs\":[{\"frame\":0,\"point\":[1673,703],\"extent\":null,\"box\":null},{\"frame\":5,\"point\":[1673,700],\"extent\":null,\"box\":null},{\"frame\":11,\"point\":[1660,686],\"extent\":null,\"box\":null},{\"frame\":16,\"point\":[1645,668],\"extent\":null,\"box\":null},{\"frame\":21,\"point\":[1624,646],\"extent\":null,\"box\":null},{\"frame\":22,\"point\":[1618,640],\"extent\":null,\"box\":null},{\"frame\":24,\"point\":[1605,630],\"extent\":null,\"box\":null},{\"frame\":26,\"point\":[1592,617],\"extent\":null,\"box\":null},{\"frame\":32,\"point\":[1550,573],\"extent\":null,\"box\":null},{\"frame\":37,\"point\":[1513,530],\"extent\":null,\"box\":null},{\"frame\":42,\"point\":[1465,480],\"extent\":null,\"box\":null},{\"frame\":46,\"point\":[1424,432],\"extent\":null,\"box\":null},{\"frame\":47,\"point\":[1411,421],\"extent\":null,\"box\":null},{\"frame\":48,\"point\":[1397,410],\"extent\":null,\"box\":null},{\"frame\":50,\"point\":[1373,385],\"extent\":null,\"box\":null},{\"frame\":53,\"point\":[1337,346],\"extent\":null,\"box\":null},{\"frame\":58,\"point\":[1270,277],\"extent\":null,\"box\":null},{\"frame\":63,\"point\":[1204,215],\"extent\":null,\"box\":null},{\"frame\":68,\"point\":[1146,160],\"extent\":null,\"box\":null},{\"frame\":74,\"point\":[1093,112],\"extent\":null,\"box\":null},{\"frame\":79,\"point\":[1075,108],\"extent\":null,\"box\":null}]}],\"direct_answer\":1.2,\"confidence\":0.2}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 1994,
+    "spec": {
+     "target": {
+      "kind": "acceleration",
+      "objects": [
+       "astronaut"
+      ],
+      "dimension": "",
+      "time": 2.0,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s^2"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "astronaut"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 2.2,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "astronaut",
+       "distance_m": 23.137,
+       "time": 1.0
+      }
+     ],
+     "notes": "The astronaut approaches the camera, so the image scale changes during the clip. Depth is given only at t=1s. The estimate uses the pixel acceleration near t=2s and the scale derived from the astronaut's apparent height at t=2s."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "astronaut",
+      "obs": [
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          1605,
+          612
+         ],
+         [
+          1525,
+          870
+         ]
+        ],
+        "box": [
+         1505,
+         610,
+         1642,
+         872
+        ]
+       },
+       {
+        "frame": 22,
+        "point": null,
+        "extent": [
+         [
+          1620,
+          622
+         ],
+         [
+          1535,
+          876
+         ]
+        ],
+        "box": [
+         1518,
+         620,
+         1652,
+         878
+        ]
+       },
+       {
+        "frame": 26,
+        "point": null,
+        "extent": [
+         [
+          1595,
+          600
+         ],
+         [
+          1520,
+          862
+         ]
+        ],
+        "box": [
+         1490,
+         598,
+         1630,
+         864
+        ]
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "astronaut",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         1673,
+         703
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 5,
+        "point": [
+         1673,
+         700
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 11,
+        "point": [
+         1660,
+         686
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 16,
+        "point": [
+         1645,
+         668
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 21,
+        "point": [
+         1624,
+         646
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 22,
+        "point": [
+         1618,
+         640
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 24,
+        "point": [
+         1605,
+         630
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 26,
+        "point": [
+         1592,
+         617
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 32,
+        "point": [
+         1550,
+         573
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 37,
+        "point": [
+         1513,
+         530
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 42,
+        "point": [
+         1465,
+         480
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 46,
+        "point": [
+         1424,
+         432
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 47,
+        "point": [
+         1411,
+         421
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 48,
+        "point": [
+         1397,
+         410
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 50,
+        "point": [
+         1373,
+         385
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 53,
+        "point": [
+         1337,
+         346
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 58,
+        "point": [
+         1270,
+         277
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 63,
+        "point": [
+         1204,
+         215
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 68,
+        "point": [
+         1146,
+         160
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 74,
+        "point": [
+         1093,
+         112
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 79,
+        "point": [
+         1075,
+         108
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     }
+    ],
+    "direct_answer": 1.2,
+    "confidence": 0.2
+   }
+  ]
+ }
+}

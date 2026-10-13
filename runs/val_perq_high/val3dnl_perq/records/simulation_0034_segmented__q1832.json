@@ -1,0 +1,277 @@
+{
+ "video_id": "simulation_0034_segmented__q1832",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfzJyg86QWraULQ2B1Anx",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 2576
+ },
+ "ts": "2026-10-13T13:30:38+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_016VpVnVHqzU2Nve6aMFDkm2",
+ "custom_id": "simulation_0034_segmented__q1832",
+ "usage": {
+  "input_tokens": 32628,
+  "output_tokens": 1573,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 4317,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.081418,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0034_segmented__q1832",
+  "fps": 24.0,
+  "fps_from_container": false,
+  "video_type": "S3MX",
+  "n_frames_total": 72,
+  "scale": 1.0,
+  "image_size": [
+   1080,
+   1080
+  ],
+  "frames": [
+   0,
+   5,
+   9,
+   14,
+   19,
+   22,
+   24,
+   26,
+   28,
+   33,
+   38,
+   43,
+   46,
+   47,
+   48,
+   50,
+   52,
+   57,
+   62,
+   66,
+   71
+  ],
+  "questions": [
+   {
+    "qid": 1832,
+    "target_unit": "m",
+    "prior": "height of the person = 1.75 m",
+    "depth_info": "t=1s, distance_boat_camera = 96.8995 m\nt=2s, distance_boat_camera = 92.8490 m\nt=1s, distance_human_camera = 92.1861 m\nt=2s, distance_human_camera = 92.1960 m\nt=1s, distance_eagle_camera = 91.6867 m\nt=2s, distance_eagle_camera = 103.4262 m"
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":1832,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"eagle\"],\"dimension\":\"wingspan\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"person\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":1.75,\"unit\":\"\"},\"depth\":[{\"object\":\"boat\",\"distance_m\":96.8995,\"time\":1.0},{\"object\":\"boat\",\"distance_m\":92.849,\"time\":2.0},{\"object\":\"person\",\"distance_m\":92.1861,\"time\":1.0},{\"object\":\"person\",\"distance_m\":92.196,\"time\":2.0},{\"object\":\"eagle\",\"distance_m\":91.6867,\"time\":1.0},{\"object\":\"eagle\",\"distance_m\":103.4262,\"time\":2.0}],\"notes\":\"Eagle wings are folded into a V at t=1s and t=2s, so the full span is measured on frames with flat wings. Eagle depth at those times is extrapolated linearly (about 11.7 m/s).\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"person\",\"obs\":[{\"frame\":24,\"point\":null,\"extent\":[[242.0,461.0],[242.0,528.0]],\"box\":[227.0,461.0,257.0,528.0]},{\"frame\":48,\"point\":null,\"extent\":[[290.0,463.0],[290.0,529.0]],\"box\":[276.0,463.0,299.0,529.0]}]},{\"role\":\"target\",\"object\":\"eagle\",\"obs\":[{\"frame\":5,\"point\":null,\"extent\":[[378.0,272.0],[449.0,271.0]],\"box\":[378.0,266.0,449.0,278.0]},{\"frame\":33,\"point\":null,\"extent\":[[456.0,297.0],[518.0,297.0]],\"box\":[456.0,281.0,518.0,298.0]},{\"frame\":52,\"point\":null,\"extent\":[[499.0,272.0],[554.0,282.0]],\"box\":[499.0,271.0,554.0,293.0]},{\"frame\":62,\"point\":null,\"extent\":[[516.0,294.0],[567.0,296.0]],\"box\":[516.0,288.0,567.0,298.0]}]}],\"direct_answer\":1.65,\"confidence\":0.45}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 1832,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "eagle"
+      ],
+      "dimension": "wingspan",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "person"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": 1.75,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "boat",
+       "distance_m": 96.8995,
+       "time": 1.0
+      },
+      {
+       "object": "boat",
+       "distance_m": 92.849,
+       "time": 2.0
+      },
+      {
+       "object": "person",
+       "distance_m": 92.1861,
+       "time": 1.0
+      },
+      {
+       "object": "person",
+       "distance_m": 92.196,
+       "time": 2.0
+      },
+      {
+       "object": "eagle",
+       "distance_m": 91.6867,
+       "time": 1.0
+      },
+      {
+       "object": "eagle",
+       "distance_m": 103.4262,
+       "time": 2.0
+      }
+     ],
+     "notes": "Eagle wings are folded into a V at t=1s and t=2s, so the full span is measured on frames with flat wings. Eagle depth at those times is extrapolated linearly (about 11.7 m/s)."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "person",
+      "obs": [
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          242.0,
+          461.0
+         ],
+         [
+          242.0,
+          528.0
+         ]
+        ],
+        "box": [
+         227.0,
+         461.0,
+         257.0,
+         528.0
+        ]
+       },
+       {
+        "frame": 48,
+        "point": null,
+        "extent": [
+         [
+          290.0,
+          463.0
+         ],
+         [
+          290.0,
+          529.0
+         ]
+        ],
+        "box": [
+         276.0,
+         463.0,
+         299.0,
+         529.0
+        ]
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "eagle",
+      "obs": [
+       {
+        "frame": 5,
+        "point": null,
+        "extent": [
+         [
+          378.0,
+          272.0
+         ],
+         [
+          449.0,
+          271.0
+         ]
+        ],
+        "box": [
+         378.0,
+         266.0,
+         449.0,
+         278.0
+        ]
+       },
+       {
+        "frame": 33,
+        "point": null,
+        "extent": [
+         [
+          456.0,
+          297.0
+         ],
+         [
+          518.0,
+          297.0
+         ]
+        ],
+        "box": [
+         456.0,
+         281.0,
+         518.0,
+         298.0
+        ]
+       },
+       {
+        "frame": 52,
+        "point": null,
+        "extent": [
+         [
+          499.0,
+          272.0
+         ],
+         [
+          554.0,
+          282.0
+         ]
+        ],
+        "box": [
+         499.0,
+         271.0,
+         554.0,
+         293.0
+        ]
+       },
+       {
+        "frame": 62,
+        "point": null,
+        "extent": [
+         [
+          516.0,
+          294.0
+         ],
+         [
+          567.0,
+          296.0
+         ]
+        ],
+        "box": [
+         516.0,
+         288.0,
+         567.0,
+         298.0
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 1.65,
+    "confidence": 0.45
+   }
+  ]
+ }
+}

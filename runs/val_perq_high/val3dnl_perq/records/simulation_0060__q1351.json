@@ -1,0 +1,542 @@
+{
+ "video_id": "simulation_0060__q1351",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfzKDkMERBzFf9AjUVcKA",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 2576
+ },
+ "ts": "2026-10-13T13:30:38+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_016VpVnVHqzU2Nve6aMFDkm2",
+ "custom_id": "simulation_0060__q1351",
+ "usage": {
+  "input_tokens": 61555,
+  "output_tokens": 3068,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 4317,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.154222,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0060__q1351",
+  "fps": 24.0,
+  "fps_from_container": false,
+  "video_type": "A3MC",
+  "n_frames_total": 72,
+  "scale": 1.0,
+  "image_size": [
+   2160,
+   1080
+  ],
+  "frames": [
+   0,
+   5,
+   9,
+   12,
+   14,
+   16,
+   19,
+   24,
+   28,
+   33,
+   36,
+   38,
+   40,
+   43,
+   47,
+   52,
+   57,
+   62,
+   66,
+   71
+  ],
+  "questions": [
+   {
+    "qid": 1351,
+    "target_unit": "m/s",
+    "prior": "acceleration of the white car = 4 m/s^2",
+    "depth_info": "t=0.58s, distance_human_camera = 34.4785 m\nt=1.58s, distance_human_camera = 35.6486 m\nt=0.58s, distance_yellow_car_camera = 26.2275 m\nt=1.58s, distance_yellow_car_camera = 28.4240 m\nt=0.58s, distance_white_car_camera = 22.7254 m\nt=1.58s, distance_white_car_camera = 21.5370 m\nt=0.58s, distance_bike_camera = 23.5534 m\nt=1.58s, distance_bike_camera = 23.2262 m"
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":1351,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"bicycle\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"white car\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":4.0,\"unit\":\"\"},\"depth\":[{\"object\":\"human\",\"distance_m\":34.4785,\"time\":0.58},{\"object\":\"human\",\"distance_m\":35.6486,\"time\":1.58},{\"object\":\"yellow car\",\"distance_m\":26.2275,\"time\":0.58},{\"object\":\"yellow car\",\"distance_m\":28.424,\"time\":1.58},{\"object\":\"white car\",\"distance_m\":22.7254,\"time\":0.58},{\"object\":\"white car\",\"distance_m\":21.537,\"time\":1.58},{\"object\":\"bicycle\",\"distance_m\":23.5534,\"time\":0.58},{\"object\":\"bicycle\",\"distance_m\":23.2262,\"time\":1.58}],\"notes\":\"White car is the white van; 'human' depth likely refers to the pedestrian on the sidewalk. Bicycle average speed taken over frames where it is visible (until occluded by the van).\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"white car\",\"obs\":[{\"frame\":0,\"point\":[1966,503],\"extent\":null,\"box\":null},{\"frame\":5,\"point\":[1946,503],\"extent\":null,\"box\":null},{\"frame\":9,\"point\":[1925,503],\"extent\":null,\"box\":null},{\"frame\":12,\"point\":[1905,503],\"extent\":null,\"box\":null},{\"frame\":14,\"point\":[1880,503],\"extent\":null,\"box\":null},{\"frame\":16,\"point\":[1855,503],\"extent\":null,\"box\":null},{\"frame\":19,\"point\":[1820,503],\"extent\":null,\"box\":null},{\"frame\":24,\"point\":[1730,503],\"extent\":null,\"box\":null},{\"frame\":28,\"point\":[1645,503],\"extent\":null,\"box\":null},{\"frame\":33,\"point\":[1520,503],\"extent\":null,\"box\":null},{\"frame\":36,\"point\":[1440,503],\"extent\":null,\"box\":null},{\"frame\":38,\"point\":[1385,503],\"extent\":null,\"box\":null},{\"frame\":40,\"point\":[1325,503],\"extent\":null,\"box\":null},{\"frame\":43,\"point\":[1230,503],\"extent\":null,\"box\":null},{\"frame\":47,\"point\":[1095,497],\"extent\":null,\"box\":null},{\"frame\":52,\"point\":[905,492],\"extent\":null,\"box\":null},{\"frame\":57,\"point\":[700,488],\"extent\":null,\"box\":null},{\"frame\":62,\"point\":[480,485],\"extent\":null,\"box\":null},{\"frame\":66,\"point\":[290,482],\"extent\":null,\"box\":null}]},{\"role\":\"target\",\"object\":\"bicycle\",\"obs\":[{\"frame\":5,\"point\":[1722,428],\"extent\":null,\"box\":null},{\"frame\":9,\"point\":[1652,432],\"extent\":null,\"box\":[1575,400,1735,465]},{\"frame\":12,\"point\":[1590,430],\"extent\":null,\"box\":[1510,398,1670,465]},{\"frame\":14,\"point\":[1547,430],\"extent\":null,\"box\":[1467,398,1628,465]},{\"frame\":16,\"point\":[1505,428],\"extent\":null,\"box\":[1425,395,1585,465]},{\"frame\":19,\"point\":[1440,428],\"extent\":null,\"box\":[1360,395,1522,465]},{\"frame\":24,\"point\":[1335,428],\"extent\":null,\"box\":[1256,395,1415,462]},{\"frame\":28,\"point\":[1253,428],\"extent\":null,\"box\":[1173,393,1333,462]},{\"frame\":33,\"point\":[1148,428],\"extent\":null,\"box\":[1069,393,1229,462]},{\"frame\":36,\"point\":[1086,428],\"extent\":null,\"box\":[1007,393,1166,462]},{\"frame\":38,\"point\":[1045,428],\"extent\":null,\"box\":[966,393,1125,462]},{\"frame\":40,\"point\":[1005,426],\"extent\":null,\"box\":[925,390,1083,460]},{\"frame\":43,\"point\":[942,425],\"extent\":null,\"box\":[862,390,1020,460]},{\"frame\":47,\"point\":[860,425],\"extent\":null,\"box\":[781,390,938,460]},{\"frame\":52,\"point\":[755,425],\"extent\":null,\"box\":[680,390,830,458]}]}],\"direct_answer\":5.0,\"confidence\":0.45}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 1351,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "bicycle"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "white car"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 4.0,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "human",
+       "distance_m": 34.4785,
+       "time": 0.58
+      },
+      {
+       "object": "human",
+       "distance_m": 35.6486,
+       "time": 1.58
+      },
+      {
+       "object": "yellow car",
+       "distance_m": 26.2275,
+       "time": 0.58
+      },
+      {
+       "object": "yellow car",
+       "distance_m": 28.424,
+       "time": 1.58
+      },
+      {
+       "object": "white car",
+       "distance_m": 22.7254,
+       "time": 0.58
+      },
+      {
+       "object": "white car",
+       "distance_m": 21.537,
+       "time": 1.58
+      },
+      {
+       "object": "bicycle",
+       "distance_m": 23.5534,
+       "time": 0.58
+      },
+      {
+       "object": "bicycle",
+       "distance_m": 23.2262,
+       "time": 1.58
+      }
+     ],
+     "notes": "White car is the white van; 'human' depth likely refers to the pedestrian on the sidewalk. Bicycle average speed taken over frames where it is visible (until occluded by the van)."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "white car",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         1966,
+         503
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 5,
+        "point": [
+         1946,
+         503
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 9,
+        "point": [
+         1925,
+         503
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 12,
+        "point": [
+         1905,
+         503
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 14,
+        "point": [
+         1880,
+         503
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 16,
+        "point": [
+         1855,
+         503
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 19,
+        "point": [
+         1820,
+         503
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 24,
+        "point": [
+         1730,
+         503
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 28,
+        "point": [
+         1645,
+         503
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 33,
+        "point": [
+         1520,
+         503
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 36,
+        "point": [
+         1440,
+         503
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 38,
+        "point": [
+         1385,
+         503
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 40,
+        "point": [
+         1325,
+         503
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 43,
+        "point": [
+         1230,
+         503
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 47,
+        "point": [
+         1095,
+         497
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 52,
+        "point": [
+         905,
+         492
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 57,
+        "point": [
+         700,
+         488
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 62,
+        "point": [
+         480,
+         485
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 66,
+        "point": [
+         290,
+         482
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "bicycle",
+      "obs": [
+       {
+        "frame": 5,
+        "point": [
+         1722,
+         428
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 9,
+        "point": [
+         1652,
+         432
+        ],
+        "extent": null,
+        "box": [
+         1575,
+         400,
+         1735,
+         465
+        ]
+       },
+       {
+        "frame": 12,
+        "point": [
+         1590,
+         430
+        ],
+        "extent": null,
+        "box": [
+         1510,
+         398,
+         1670,
+         465
+        ]
+       },
+       {
+        "frame": 14,
+        "point": [
+         1547,
+         430
+        ],
+        "extent": null,
+        "box": [
+         1467,
+         398,
+         1628,
+         465
+        ]
+       },
+       {
+        "frame": 16,
+        "point": [
+         1505,
+         428
+        ],
+        "extent": null,
+        "box": [
+         1425,
+         395,
+         1585,
+         465
+        ]
+       },
+       {
+        "frame": 19,
+        "point": [
+         1440,
+         428
+        ],
+        "extent": null,
+        "box": [
+         1360,
+         395,
+         1522,
+         465
+        ]
+       },
+       {
+        "frame": 24,
+        "point": [
+         1335,
+         428
+        ],
+        "extent": null,
+        "box": [
+         1256,
+         395,
+         1415,
+         462
+        ]
+       },
+       {
+        "frame": 28,
+        "point": [
+         1253,
+         428
+        ],
+        "extent": null,
+        "box": [
+         1173,
+         393,
+         1333,
+         462
+        ]
+       },
+       {
+        "frame": 33,
+        "point": [
+         1148,
+         428
+        ],
+        "extent": null,
+        "box": [
+         1069,
+         393,
+         1229,
+         462
+        ]
+       },
+       {
+        "frame": 36,
+        "point": [
+         1086,
+         428
+        ],
+        "extent": null,
+        "box": [
+         1007,
+         393,
+         1166,
+         462
+        ]
+       },
+       {
+        "frame": 38,
+        "point": [
+         1045,
+         428
+        ],
+        "extent": null,
+        "box": [
+         966,
+         393,
+         1125,
+         462
+        ]
+       },
+       {
+        "frame": 40,
+        "point": [
+         1005,
+         426
+        ],
+        "extent": null,
+        "box": [
+         925,
+         390,
+         1083,
+         460
+        ]
+       },
+       {
+        "frame": 43,
+        "point": [
+         942,
+         425
+        ],
+        "extent": null,
+        "box": [
+         862,
+         390,
+         1020,
+         460
+        ]
+       },
+       {
+        "frame": 47,
+        "point": [
+         860,
+         425
+        ],
+        "extent": null,
+        "box": [
+         781,
+         390,
+         938,
+         460
+        ]
+       },
+       {
+        "frame": 52,
+        "point": [
+         755,
+         425
+        ],
+        "extent": null,
+        "box": [
+         680,
+         390,
+         830,
+         458
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 5.0,
+    "confidence": 0.45
+   }
+  ]
+ }
+}

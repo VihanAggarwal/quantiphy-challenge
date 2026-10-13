@@ -1,0 +1,250 @@
+{
+ "video_id": "simulation_0015__q1122",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfzJyCj5EbxjtH3YHpXiN",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 2576
+ },
+ "ts": "2026-10-13T13:27:36+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_01NkjKYQ7EGhL7zFUdTojksE",
+ "custom_id": "simulation_0015__q1122",
+ "usage": {
+  "input_tokens": 29522,
+  "output_tokens": 1089,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 4317,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.070366,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0015__q1122",
+  "fps": 33.0,
+  "fps_from_container": false,
+  "video_type": "S3MC",
+  "n_frames_total": 100,
+  "scale": 1.0,
+  "image_size": [
+   1080,
+   1080
+  ],
+  "frames": [
+   0,
+   3,
+   7,
+   13,
+   20,
+   26,
+   30,
+   33,
+   36,
+   40,
+   46,
+   53,
+   59,
+   66,
+   73,
+   79,
+   86,
+   92,
+   99
+  ],
+  "questions": [
+   {
+    "qid": 1122,
+    "target_unit": "m",
+    "prior": "height of the person = 1.87 m",
+    "depth_info": "t=0s, distance_human_camera = 12.26 m\nt=1s, distance_human_camera = 10.97 m\ndistance_the_pedestal_of_the_central _sculpture_and_camera = 9.460 m\ndistance_the centeral_sculpture_camera = 9.460 m\ndistance_the_nearest_freestanding_art_display_panel = 11.874 m"
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":1122,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"pedestal of the central sculpture\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"size\",\"objects\":[\"person\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":1.87,\"unit\":\"\"},\"depth\":[{\"object\":\"person\",\"distance_m\":12.26,\"time\":0},{\"object\":\"person\",\"distance_m\":10.97,\"time\":1},{\"object\":\"pedestal of the central sculpture\",\"distance_m\":9.46,\"time\":null},{\"object\":\"central sculpture\",\"distance_m\":9.46,\"time\":null},{\"object\":\"nearest freestanding art display panel\",\"distance_m\":11.874,\"time\":null}],\"notes\":\"Pedestal taken as both stacked blocks (top front edge to floor).\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"person\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[441,503.5],[438,641]],\"box\":[421,503.5,463,641]},{\"frame\":33,\"point\":null,\"extent\":[[431,502],[428,655]],\"box\":[408,502,454,655]}]},{\"role\":\"target\",\"object\":\"pedestal of the central sculpture\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[540,588],[540,678]],\"box\":[465,581,615,678]},{\"frame\":33,\"point\":null,\"extent\":[[540,588],[540,678]],\"box\":[465,581,615,678]},{\"frame\":99,\"point\":null,\"extent\":[[540,588],[540,678]],\"box\":[465,581,615,678]}]}],\"direct_answer\":0.95,\"confidence\":0.5}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 1122,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "pedestal of the central sculpture"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "size",
+      "objects": [
+       "person"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": 1.87,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "person",
+       "distance_m": 12.26,
+       "time": 0
+      },
+      {
+       "object": "person",
+       "distance_m": 10.97,
+       "time": 1
+      },
+      {
+       "object": "pedestal of the central sculpture",
+       "distance_m": 9.46,
+       "time": null
+      },
+      {
+       "object": "central sculpture",
+       "distance_m": 9.46,
+       "time": null
+      },
+      {
+       "object": "nearest freestanding art display panel",
+       "distance_m": 11.874,
+       "time": null
+      }
+     ],
+     "notes": "Pedestal taken as both stacked blocks (top front edge to floor)."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "person",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          441,
+          503.5
+         ],
+         [
+          438,
+          641
+         ]
+        ],
+        "box": [
+         421,
+         503.5,
+         463,
+         641
+        ]
+       },
+       {
+        "frame": 33,
+        "point": null,
+        "extent": [
+         [
+          431,
+          502
+         ],
+         [
+          428,
+          655
+         ]
+        ],
+        "box": [
+         408,
+         502,
+         454,
+         655
+        ]
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "pedestal of the central sculpture",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          540,
+          588
+         ],
+         [
+          540,
+          678
+         ]
+        ],
+        "box": [
+         465,
+         581,
+         615,
+         678
+        ]
+       },
+       {
+        "frame": 33,
+        "point": null,
+        "extent": [
+         [
+          540,
+          588
+         ],
+         [
+          540,
+          678
+         ]
+        ],
+        "box": [
+         465,
+         581,
+         615,
+         678
+        ]
+       },
+       {
+        "frame": 99,
+        "point": null,
+        "extent": [
+         [
+          540,
+          588
+         ],
+         [
+          540,
+          678
+         ]
+        ],
+        "box": [
+         465,
+         581,
+         615,
+         678
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 0.95,
+    "confidence": 0.5
+   }
+  ]
+ }
+}

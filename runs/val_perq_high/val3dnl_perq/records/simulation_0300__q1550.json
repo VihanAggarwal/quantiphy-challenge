@@ -1,0 +1,389 @@
+{
+ "video_id": "simulation_0300__q1550",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfzJykFPgpTbvYwya1zm7",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 2576
+ },
+ "ts": "2026-10-13T13:30:38+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_016VpVnVHqzU2Nve6aMFDkm2",
+ "custom_id": "simulation_0300__q1550",
+ "usage": {
+  "input_tokens": 101052,
+  "output_tokens": 2985,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 4317,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.232386,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0300__q1550",
+  "fps": 24.0,
+  "fps_from_container": false,
+  "video_type": "A3SX",
+  "n_frames_total": 72,
+  "scale": 1.0,
+  "image_size": [
+   2560,
+   1440
+  ],
+  "frames": [
+   0,
+   5,
+   9,
+   14,
+   19,
+   22,
+   24,
+   26,
+   28,
+   33,
+   38,
+   43,
+   46,
+   47,
+   48,
+   50,
+   52,
+   57,
+   62,
+   66,
+   71
+  ],
+  "questions": [
+   {
+    "qid": 1550,
+    "target_unit": "m",
+    "prior": "acceleration of the car = 5 m/s^2",
+    "depth_info": "t = 1.0s, distance_car_camera = 17.8278 m\nt = 2.0s, distance_car_camera = 23.1989 m"
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":1550,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"car\"],\"dimension\":\"width\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"car\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":5.0,\"unit\":\"\"},\"depth\":[{\"object\":\"car\",\"distance_m\":17.8278,\"time\":1.0},{\"object\":\"car\",\"distance_m\":23.1989,\"time\":2.0}],\"notes\":\"Width taken as the rear track, left rear wheel to right rear wheel. The car seems to start near rest and drives away from the camera and to the left. The car is seen from a rear-quarter angle, so the width is somewhat foreshortened.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"car\",\"obs\":[{\"frame\":14,\"point\":[2600,1420],\"extent\":null,\"box\":null},{\"frame\":19,\"point\":[2490,1336],\"extent\":null,\"box\":null},{\"frame\":22,\"point\":[2355,1244],\"extent\":null,\"box\":null},{\"frame\":24,\"point\":[2269,1184],\"extent\":null,\"box\":[1625,925,2425,1335]},{\"frame\":26,\"point\":[2140,1140],\"extent\":null,\"box\":null},{\"frame\":28,\"point\":[2135,1100],\"extent\":null,\"box\":null},{\"frame\":33,\"point\":[1940,1012],\"extent\":null,\"box\":null},{\"frame\":38,\"point\":[1745,920],\"extent\":null,\"box\":null},{\"frame\":43,\"point\":[1545,822],\"extent\":null,\"box\":null},{\"frame\":46,\"point\":[1428,770],\"extent\":null,\"box\":null},{\"frame\":47,\"point\":[1390,750],\"extent\":null,\"box\":null},{\"frame\":48,\"point\":[1348,730],\"extent\":null,\"box\":[955,580,1490,822]},{\"frame\":50,\"point\":[1277,697],\"extent\":null,\"box\":null},{\"frame\":52,\"point\":[1200,658],\"extent\":null,\"box\":null},{\"frame\":57,\"point\":[1025,575],\"extent\":null,\"box\":null},{\"frame\":62,\"point\":[865,492],\"extent\":null,\"box\":null},{\"frame\":66,\"point\":[738,432],\"extent\":null,\"box\":null},{\"frame\":71,\"point\":[600,366],\"extent\":null,\"box\":null}]},{\"role\":\"target\",\"object\":\"car\",\"obs\":[{\"frame\":24,\"point\":null,\"extent\":[[2000,1250],[2385,1172]],\"box\":[1625,925,2425,1335]},{\"frame\":33,\"point\":null,\"extent\":[[1710,1085],[2050,1015]],\"box\":[1390,800,2088,1168]},{\"frame\":48,\"point\":null,\"extent\":[[1170,780],[1452,724]],\"box\":[955,580,1490,822]},{\"frame\":57,\"point\":null,\"extent\":[[875,615],[1125,565]],\"box\":[710,450,1160,672]}]}],\"direct_answer\":1.8,\"confidence\":0.35}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 1550,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "car"
+      ],
+      "dimension": "width",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "car"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 5.0,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "car",
+       "distance_m": 17.8278,
+       "time": 1.0
+      },
+      {
+       "object": "car",
+       "distance_m": 23.1989,
+       "time": 2.0
+      }
+     ],
+     "notes": "Width taken as the rear track, left rear wheel to right rear wheel. The car seems to start near rest and drives away from the camera and to the left. The car is seen from a rear-quarter angle, so the width is somewhat foreshortened."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "car",
+      "obs": [
+       {
+        "frame": 14,
+        "point": [
+         2600,
+         1420
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 19,
+        "point": [
+         2490,
+         1336
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 22,
+        "point": [
+         2355,
+         1244
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 24,
+        "point": [
+         2269,
+         1184
+        ],
+        "extent": null,
+        "box": [
+         1625,
+         925,
+         2425,
+         1335
+        ]
+       },
+       {
+        "frame": 26,
+        "point": [
+         2140,
+         1140
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 28,
+        "point": [
+         2135,
+         1100
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 33,
+        "point": [
+         1940,
+         1012
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 38,
+        "point": [
+         1745,
+         920
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 43,
+        "point": [
+         1545,
+         822
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 46,
+        "point": [
+         1428,
+         770
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 47,
+        "point": [
+         1390,
+         750
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 48,
+        "point": [
+         1348,
+         730
+        ],
+        "extent": null,
+        "box": [
+         955,
+         580,
+         1490,
+         822
+        ]
+       },
+       {
+        "frame": 50,
+        "point": [
+         1277,
+         697
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 52,
+        "point": [
+         1200,
+         658
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 57,
+        "point": [
+         1025,
+         575
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 62,
+        "point": [
+         865,
+         492
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 66,
+        "point": [
+         738,
+         432
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 71,
+        "point": [
+         600,
+         366
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "car",
+      "obs": [
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          2000,
+          1250
+         ],
+         [
+          2385,
+          1172
+         ]
+        ],
+        "box": [
+         1625,
+         925,
+         2425,
+         1335
+        ]
+       },
+       {
+        "frame": 33,
+        "point": null,
+        "extent": [
+         [
+          1710,
+          1085
+         ],
+         [
+          2050,
+          1015
+         ]
+        ],
+        "box": [
+         1390,
+         800,
+         2088,
+         1168
+        ]
+       },
+       {
+        "frame": 48,
+        "point": null,
+        "extent": [
+         [
+          1170,
+          780
+         ],
+         [
+          1452,
+          724
+         ]
+        ],
+        "box": [
+         955,
+         580,
+         1490,
+         822
+        ]
+       },
+       {
+        "frame": 57,
+        "point": null,
+        "extent": [
+         [
+          875,
+          615
+         ],
+         [
+          1125,
+          565
+         ]
+        ],
+        "box": [
+         710,
+         450,
+         1160,
+         672
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 1.8,
+    "confidence": 0.35
+   }
+  ]
+ }
+}

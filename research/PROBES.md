@@ -680,3 +680,10 @@ lab, D3 families, leaderboard strategy) with adversarial verification; output re
 research/path85b_phys) + D2/D3 family/event levers E1 (droplets, superseded by ffbd), E2 (0191/0192 pooled drop), L1 (0019 person
 1.3) from research/path85b_fam; L2/L3 (0157 turtle x1.113, 0219 robot) left out (same-camera support only). Expected +.001..+.0015
 over the combo. Killed: pooled focal per camera group (7/27 held-out priors within 7%), lab ballistic 3D fits (free g 9.7-16.7).
+
+## One question per request (Gemini's top idea), paid pilot 2026-10-13: REJECTED ($6.56)
+`research/perq/` (pre-registered kill test in evaluate.py). 52 validation questions on 3D non-lab clips, each sent alone
+(same model/effort/frames/resolution/prompt as val_hr_v1_high, batch). Direct-answer MRA: per-question .721 vs batched
+single runs .794/.798/.802 and 3-run median .810. Delta vs the matched batched run -.073, clip bootstrap 90% [-.154, -.024],
+worse or equal on 6/6 clips (simulation_0170 -.31). Seeing a clip's other questions HELPS Claude (shared scale/objects);
+isolating questions removes that context. Kill test FAIL; not scaled up. Budget now $143.96 of $200.

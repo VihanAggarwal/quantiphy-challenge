@@ -1,0 +1,305 @@
+{
+ "video_id": "simulation_0009__q1096",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfzJxULQDF7vuLDkxpzU2",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 2576
+ },
+ "ts": "2026-10-13T13:27:36+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_01NkjKYQ7EGhL7zFUdTojksE",
+ "custom_id": "simulation_0009__q1096",
+ "usage": {
+  "input_tokens": 27927,
+  "output_tokens": 1563,
+  "cache_creation_input_tokens": 4317,
+  "cache_read_input_tokens": 0,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.082277,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0009__q1096",
+  "fps": 24.0,
+  "fps_from_container": false,
+  "video_type": "V3MC",
+  "n_frames_total": 66,
+  "scale": 1.0,
+  "image_size": [
+   1080,
+   1080
+  ],
+  "frames": [
+   0,
+   2,
+   4,
+   9,
+   13,
+   17,
+   22,
+   24,
+   26,
+   30,
+   35,
+   39,
+   43,
+   48,
+   52,
+   56,
+   61,
+   65
+  ],
+  "questions": [
+   {
+    "qid": 1096,
+    "target_unit": "m",
+    "prior": "speed of the boat = 1.5 m/s",
+    "depth_info": "t=0s, distance_boat_camera =11.827 m\nt=1s, distance_boat_camera = 13.154 m\ndistance_pier_camera = 18.920 m\ndistance_stairs_camera = 23.125 m"
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":1096,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"wooden steps\"],\"dimension\":\"width\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"speed\",\"objects\":[\"boat\"],\"dimension\":\"\",\"time\":null,\"window\":[0,1],\"axis\":\"any\",\"value_si\":1.5,\"unit\":\"\"},\"depth\":[{\"object\":\"boat\",\"distance_m\":11.827,\"time\":0},{\"object\":\"boat\",\"distance_m\":13.154,\"time\":1},{\"object\":\"pier\",\"distance_m\":18.92,\"time\":null},{\"object\":\"stairs\",\"distance_m\":23.125,\"time\":null}],\"notes\":\"Boat moves partly along the camera axis; the focal length is estimated from the 3D boat motion between 0 s and 1 s using the depths. The step width is taken across the bottom tread. This is a rough estimate.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"boat\",\"obs\":[{\"frame\":0,\"point\":[300,800],\"extent\":null,\"box\":[218,738,382,860]},{\"frame\":4,\"point\":[290,796],\"extent\":null,\"box\":[210,736,370,855]},{\"frame\":9,\"point\":[278,792],\"extent\":null,\"box\":[200,733,356,850]},{\"frame\":13,\"point\":[269,787],\"extent\":null,\"box\":[194,730,345,840]},{\"frame\":17,\"point\":[260,782],\"extent\":null,\"box\":[187,727,334,838]},{\"frame\":22,\"point\":[250,778],\"extent\":null,\"box\":[179,723,321,832]},{\"frame\":24,\"point\":[246,776],\"extent\":null,\"box\":[176,722,317,830]}]},{\"role\":\"target\",\"object\":\"wooden steps\",\"obs\":[{\"frame\":0,\"point\":null,\"extent\":[[612,664],[686,656]],\"box\":[608,585,700,668]},{\"frame\":24,\"point\":null,\"extent\":[[612,664],[686,656]],\"box\":[608,585,700,668]},{\"frame\":48,\"point\":null,\"extent\":[[612,664],[686,656]],\"box\":[608,585,700,668]}]}],\"direct_answer\":1.15,\"confidence\":0.3}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 1096,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "wooden steps"
+      ],
+      "dimension": "width",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "speed",
+      "objects": [
+       "boat"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": [
+       0,
+       1
+      ],
+      "axis": "any",
+      "value_si": 1.5,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "boat",
+       "distance_m": 11.827,
+       "time": 0
+      },
+      {
+       "object": "boat",
+       "distance_m": 13.154,
+       "time": 1
+      },
+      {
+       "object": "pier",
+       "distance_m": 18.92,
+       "time": null
+      },
+      {
+       "object": "stairs",
+       "distance_m": 23.125,
+       "time": null
+      }
+     ],
+     "notes": "Boat moves partly along the camera axis; the focal length is estimated from the 3D boat motion between 0 s and 1 s using the depths. The step width is taken across the bottom tread. This is a rough estimate."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "boat",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         300,
+         800
+        ],
+        "extent": null,
+        "box": [
+         218,
+         738,
+         382,
+         860
+        ]
+       },
+       {
+        "frame": 4,
+        "point": [
+         290,
+         796
+        ],
+        "extent": null,
+        "box": [
+         210,
+         736,
+         370,
+         855
+        ]
+       },
+       {
+        "frame": 9,
+        "point": [
+         278,
+         792
+        ],
+        "extent": null,
+        "box": [
+         200,
+         733,
+         356,
+         850
+        ]
+       },
+       {
+        "frame": 13,
+        "point": [
+         269,
+         787
+        ],
+        "extent": null,
+        "box": [
+         194,
+         730,
+         345,
+         840
+        ]
+       },
+       {
+        "frame": 17,
+        "point": [
+         260,
+         782
+        ],
+        "extent": null,
+        "box": [
+         187,
+         727,
+         334,
+         838
+        ]
+       },
+       {
+        "frame": 22,
+        "point": [
+         250,
+         778
+        ],
+        "extent": null,
+        "box": [
+         179,
+         723,
+         321,
+         832
+        ]
+       },
+       {
+        "frame": 24,
+        "point": [
+         246,
+         776
+        ],
+        "extent": null,
+        "box": [
+         176,
+         722,
+         317,
+         830
+        ]
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "wooden steps",
+      "obs": [
+       {
+        "frame": 0,
+        "point": null,
+        "extent": [
+         [
+          612,
+          664
+         ],
+         [
+          686,
+          656
+         ]
+        ],
+        "box": [
+         608,
+         585,
+         700,
+         668
+        ]
+       },
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          612,
+          664
+         ],
+         [
+          686,
+          656
+         ]
+        ],
+        "box": [
+         608,
+         585,
+         700,
+         668
+        ]
+       },
+       {
+        "frame": 48,
+        "point": null,
+        "extent": [
+         [
+          612,
+          664
+         ],
+         [
+          686,
+          656
+         ]
+        ],
+        "box": [
+         608,
+         585,
+         700,
+         668
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 1.15,
+    "confidence": 0.3
+   }
+  ]
+ }
+}

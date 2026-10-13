@@ -1,0 +1,427 @@
+{
+ "video_id": "simulation_0060__q1349",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfzJxUJfWU3E5oKJHJbk5",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 2576
+ },
+ "ts": "2026-10-13T13:30:38+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_016VpVnVHqzU2Nve6aMFDkm2",
+ "custom_id": "simulation_0060__q1349",
+ "usage": {
+  "input_tokens": 61558,
+  "output_tokens": 2573,
+  "cache_creation_input_tokens": 4317,
+  "cache_read_input_tokens": 0,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.159638,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0060__q1349",
+  "fps": 24.0,
+  "fps_from_container": false,
+  "video_type": "A3MC",
+  "n_frames_total": 72,
+  "scale": 1.0,
+  "image_size": [
+   2160,
+   1080
+  ],
+  "frames": [
+   0,
+   5,
+   9,
+   12,
+   14,
+   16,
+   19,
+   24,
+   28,
+   33,
+   36,
+   38,
+   40,
+   43,
+   47,
+   52,
+   57,
+   62,
+   66,
+   71
+  ],
+  "questions": [
+   {
+    "qid": 1349,
+    "target_unit": "m/s",
+    "prior": "acceleration of the white car = 4 m/s^2",
+    "depth_info": "t=0.58s, distance_human_camera = 34.4785 m\nt=1.58s, distance_human_camera = 35.6486 m\nt=0.58s, distance_yellow_car_camera = 26.2275 m\nt=1.58s, distance_yellow_car_camera = 28.4240 m\nt=0.58s, distance_white_car_camera = 22.7254 m\nt=1.58s, distance_white_car_camera = 21.5370 m\nt=0.58s, distance_bike_camera = 23.5534 m\nt=1.58s, distance_bike_camera = 23.2262 m"
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":1349,\"spec\":{\"target\":{\"kind\":\"speed\",\"objects\":[\"walking pedestrian\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":null,\"unit\":\"m/s\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"white car\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":4.0,\"unit\":\"\"},\"depth\":[{\"object\":\"human\",\"distance_m\":34.4785,\"time\":0.58},{\"object\":\"human\",\"distance_m\":35.6486,\"time\":1.58},{\"object\":\"yellow car\",\"distance_m\":26.2275,\"time\":0.58},{\"object\":\"yellow car\",\"distance_m\":28.424,\"time\":1.58},{\"object\":\"white car\",\"distance_m\":22.7254,\"time\":0.58},{\"object\":\"white car\",\"distance_m\":21.537,\"time\":1.58},{\"object\":\"bike\",\"distance_m\":23.5534,\"time\":0.58},{\"object\":\"bike\",\"distance_m\":23.2262,\"time\":1.58}],\"notes\":\"Pedestrian walks mostly away from camera along the right sidewalk; speed dominated by depth change (~1.17 m/s from depth info). 'human' assumed to be the walking pedestrian.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"white car\",\"obs\":[{\"frame\":0,\"point\":[1960,505],\"extent\":null,\"box\":null},{\"frame\":5,\"point\":[1958,505],\"extent\":null,\"box\":null},{\"frame\":9,\"point\":[1930,505],\"extent\":null,\"box\":null},{\"frame\":12,\"point\":[1905,505],\"extent\":null,\"box\":null},{\"frame\":14,\"point\":[1877,505],\"extent\":null,\"box\":null},{\"frame\":16,\"point\":[1855,505],\"extent\":null,\"box\":null},{\"frame\":19,\"point\":[1815,505],\"extent\":null,\"box\":null},{\"frame\":24,\"point\":[1730,502],\"extent\":null,\"box\":null},{\"frame\":28,\"point\":[1648,500],\"extent\":null,\"box\":null},{\"frame\":33,\"point\":[1520,500],\"extent\":null,\"box\":null},{\"frame\":36,\"point\":[1440,498],\"extent\":null,\"box\":null},{\"frame\":38,\"point\":[1390,498],\"extent\":null,\"box\":null},{\"frame\":40,\"point\":[1325,500],\"extent\":null,\"box\":null},{\"frame\":43,\"point\":[1230,498],\"extent\":null,\"box\":null},{\"frame\":47,\"point\":[1095,495],\"extent\":null,\"box\":null},{\"frame\":52,\"point\":[905,490],\"extent\":null,\"box\":null},{\"frame\":57,\"point\":[705,488],\"extent\":null,\"box\":null},{\"frame\":62,\"point\":[482,485],\"extent\":null,\"box\":null},{\"frame\":66,\"point\":[292,482],\"extent\":null,\"box\":null}]},{\"role\":\"target\",\"object\":\"walking pedestrian\",\"obs\":[{\"frame\":0,\"point\":[1662,250],\"extent\":null,\"box\":null},{\"frame\":9,\"point\":[1660,245],\"extent\":null,\"box\":null},{\"frame\":14,\"point\":[1655,230],\"extent\":null,\"box\":null},{\"frame\":24,\"point\":[1650,225],\"extent\":null,\"box\":null},{\"frame\":33,\"point\":[1643,225],\"extent\":null,\"box\":null},{\"frame\":38,\"point\":[1640,225],\"extent\":null,\"box\":null},{\"frame\":47,\"point\":[1635,228],\"extent\":null,\"box\":null},{\"frame\":57,\"point\":[1628,225],\"extent\":null,\"box\":null},{\"frame\":66,\"point\":[1625,222],\"extent\":null,\"box\":null},{\"frame\":71,\"point\":[1620,222],\"extent\":null,\"box\":null}]}],\"direct_answer\":1.2,\"confidence\":0.5}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 1349,
+    "spec": {
+     "target": {
+      "kind": "speed",
+      "objects": [
+       "walking pedestrian"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": null,
+      "unit": "m/s"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "white car"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 4.0,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "human",
+       "distance_m": 34.4785,
+       "time": 0.58
+      },
+      {
+       "object": "human",
+       "distance_m": 35.6486,
+       "time": 1.58
+      },
+      {
+       "object": "yellow car",
+       "distance_m": 26.2275,
+       "time": 0.58
+      },
+      {
+       "object": "yellow car",
+       "distance_m": 28.424,
+       "time": 1.58
+      },
+      {
+       "object": "white car",
+       "distance_m": 22.7254,
+       "time": 0.58
+      },
+      {
+       "object": "white car",
+       "distance_m": 21.537,
+       "time": 1.58
+      },
+      {
+       "object": "bike",
+       "distance_m": 23.5534,
+       "time": 0.58
+      },
+      {
+       "object": "bike",
+       "distance_m": 23.2262,
+       "time": 1.58
+      }
+     ],
+     "notes": "Pedestrian walks mostly away from camera along the right sidewalk; speed dominated by depth change (~1.17 m/s from depth info). 'human' assumed to be the walking pedestrian."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "white car",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         1960,
+         505
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 5,
+        "point": [
+         1958,
+         505
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 9,
+        "point": [
+         1930,
+         505
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 12,
+        "point": [
+         1905,
+         505
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 14,
+        "point": [
+         1877,
+         505
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 16,
+        "point": [
+         1855,
+         505
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 19,
+        "point": [
+         1815,
+         505
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 24,
+        "point": [
+         1730,
+         502
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 28,
+        "point": [
+         1648,
+         500
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 33,
+        "point": [
+         1520,
+         500
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 36,
+        "point": [
+         1440,
+         498
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 38,
+        "point": [
+         1390,
+         498
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 40,
+        "point": [
+         1325,
+         500
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 43,
+        "point": [
+         1230,
+         498
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 47,
+        "point": [
+         1095,
+         495
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 52,
+        "point": [
+         905,
+         490
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 57,
+        "point": [
+         705,
+         488
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 62,
+        "point": [
+         482,
+         485
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 66,
+        "point": [
+         292,
+         482
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "walking pedestrian",
+      "obs": [
+       {
+        "frame": 0,
+        "point": [
+         1662,
+         250
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 9,
+        "point": [
+         1660,
+         245
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 14,
+        "point": [
+         1655,
+         230
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 24,
+        "point": [
+         1650,
+         225
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 33,
+        "point": [
+         1643,
+         225
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 38,
+        "point": [
+         1640,
+         225
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 47,
+        "point": [
+         1635,
+         228
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 57,
+        "point": [
+         1628,
+         225
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 66,
+        "point": [
+         1625,
+         222
+        ],
+        "extent": null,
+        "box": null
+       },
+       {
+        "frame": 71,
+        "point": [
+         1620,
+         222
+        ],
+        "extent": null,
+        "box": null
+       }
+      ]
+     }
+    ],
+    "direct_answer": 1.2,
+    "confidence": 0.5
+   }
+  ]
+ }
+}

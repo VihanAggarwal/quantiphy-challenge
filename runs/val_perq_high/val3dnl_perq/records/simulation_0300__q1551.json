@@ -1,0 +1,351 @@
+{
+ "video_id": "simulation_0300__q1551",
+ "status": "ok",
+ "stop_reason": "end_turn",
+ "stop_details": null,
+ "message_id": "msg_011CfzJxUM9ezHyrc6CvXJ6g",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "config": {
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "frames": 16,
+  "max_frames": 32,
+  "prompt_version": "v1",
+  "max_side": 2576
+ },
+ "ts": "2026-10-13T13:30:38+00:00",
+ "mode": "batch",
+ "batch_id": "msgbatch_016VpVnVHqzU2Nve6aMFDkm2",
+ "custom_id": "simulation_0300__q1551",
+ "usage": {
+  "input_tokens": 101038,
+  "output_tokens": 8053,
+  "cache_creation_input_tokens": 4317,
+  "cache_read_input_tokens": 0,
+  "cache_creation_1h_input_tokens": 0
+ },
+ "usd": 0.293399,
+ "missing_qids": [],
+ "meta": {
+  "video_id": "simulation_0300__q1551",
+  "fps": 24.0,
+  "fps_from_container": false,
+  "video_type": "A3SX",
+  "n_frames_total": 72,
+  "scale": 1.0,
+  "image_size": [
+   2560,
+   1440
+  ],
+  "frames": [
+   0,
+   5,
+   9,
+   14,
+   19,
+   22,
+   24,
+   26,
+   28,
+   33,
+   38,
+   43,
+   46,
+   47,
+   48,
+   50,
+   52,
+   57,
+   62,
+   66,
+   71
+  ],
+  "questions": [
+   {
+    "qid": 1551,
+    "target_unit": "m",
+    "prior": "acceleration of the car = 5 m/s^2",
+    "depth_info": "t = 1.0s, distance_car_camera = 17.8278 m\nt = 2.0s, distance_car_camera = 23.1989 m"
+   }
+  ],
+  "prompt_version": "v1"
+ },
+ "raw_text": "{\"questions\":[{\"qid\":1551,\"spec\":{\"target\":{\"kind\":\"size\",\"objects\":[\"car\"],\"dimension\":\"height\",\"time\":null,\"window\":null,\"axis\":\"vertical\",\"value_si\":null,\"unit\":\"m\"},\"prior\":{\"kind\":\"acceleration\",\"objects\":[\"car\"],\"dimension\":\"\",\"time\":null,\"window\":null,\"axis\":\"any\",\"value_si\":5.0,\"unit\":\"\"},\"depth\":[{\"object\":\"car\",\"distance_m\":17.8278,\"time\":1.0},{\"object\":\"car\",\"distance_m\":23.1989,\"time\":2.0}],\"notes\":\"Focal length inferred from the straight-line, constant-acceleration fit to image motion plus depths (about 3500-4500 px, consistent with a 50 mm Blender camera). The car is seen obliquely from above, so its height is hard to measure.\"},\"tracks\":[{\"role\":\"prior\",\"object\":\"car\",\"obs\":[{\"frame\":24,\"point\":[2190,1156],\"extent\":null,\"box\":[1625,925,2425,1310]},{\"frame\":28,\"point\":[2135,1110],\"extent\":null,\"box\":[1525,868,2280,1305]},{\"frame\":33,\"point\":[1945,1020],\"extent\":null,\"box\":[1388,800,2088,1170]},{\"frame\":38,\"point\":[1745,921],\"extent\":null,\"box\":[1245,728,1888,1060]},{\"frame\":43,\"point\":[1545,824],\"extent\":null,\"box\":[1100,652,1685,955]},{\"frame\":48,\"point\":[1350,730],\"extent\":null,\"box\":[955,578,1490,848]},{\"frame\":52,\"point\":[1203,659],\"extent\":null,\"box\":[840,520,1340,768]},{\"frame\":57,\"point\":[1027,572],\"extent\":null,\"box\":[708,450,1160,672]},{\"frame\":62,\"point\":[865,492],\"extent\":null,\"box\":[580,388,992,585]},{\"frame\":66,\"point\":[741,433],\"extent\":null,\"box\":[485,338,866,520]},{\"frame\":71,\"point\":[600,366],\"extent\":null,\"box\":[368,280,718,443]}]},{\"role\":\"target\",\"object\":\"car\",\"obs\":[{\"frame\":24,\"point\":null,\"extent\":[[1960,948],[1960,1168]],\"box\":[1625,925,2425,1310]},{\"frame\":48,\"point\":null,\"extent\":[[1230,590],[1230,759]],\"box\":[955,578,1490,848]},{\"frame\":38,\"point\":null,\"extent\":[[1580,742],[1580,935]],\"box\":[1245,728,1888,1060]}]}],\"direct_answer\":1.1,\"confidence\":0.3}]}",
+ "parsed": {
+  "questions": [
+   {
+    "qid": 1551,
+    "spec": {
+     "target": {
+      "kind": "size",
+      "objects": [
+       "car"
+      ],
+      "dimension": "height",
+      "time": null,
+      "window": null,
+      "axis": "vertical",
+      "value_si": null,
+      "unit": "m"
+     },
+     "prior": {
+      "kind": "acceleration",
+      "objects": [
+       "car"
+      ],
+      "dimension": "",
+      "time": null,
+      "window": null,
+      "axis": "any",
+      "value_si": 5.0,
+      "unit": ""
+     },
+     "depth": [
+      {
+       "object": "car",
+       "distance_m": 17.8278,
+       "time": 1.0
+      },
+      {
+       "object": "car",
+       "distance_m": 23.1989,
+       "time": 2.0
+      }
+     ],
+     "notes": "Focal length inferred from the straight-line, constant-acceleration fit to image motion plus depths (about 3500-4500 px, consistent with a 50 mm Blender camera). The car is seen obliquely from above, so its height is hard to measure."
+    },
+    "tracks": [
+     {
+      "role": "prior",
+      "object": "car",
+      "obs": [
+       {
+        "frame": 24,
+        "point": [
+         2190,
+         1156
+        ],
+        "extent": null,
+        "box": [
+         1625,
+         925,
+         2425,
+         1310
+        ]
+       },
+       {
+        "frame": 28,
+        "point": [
+         2135,
+         1110
+        ],
+        "extent": null,
+        "box": [
+         1525,
+         868,
+         2280,
+         1305
+        ]
+       },
+       {
+        "frame": 33,
+        "point": [
+         1945,
+         1020
+        ],
+        "extent": null,
+        "box": [
+         1388,
+         800,
+         2088,
+         1170
+        ]
+       },
+       {
+        "frame": 38,
+        "point": [
+         1745,
+         921
+        ],
+        "extent": null,
+        "box": [
+         1245,
+         728,
+         1888,
+         1060
+        ]
+       },
+       {
+        "frame": 43,
+        "point": [
+         1545,
+         824
+        ],
+        "extent": null,
+        "box": [
+         1100,
+         652,
+         1685,
+         955
+        ]
+       },
+       {
+        "frame": 48,
+        "point": [
+         1350,
+         730
+        ],
+        "extent": null,
+        "box": [
+         955,
+         578,
+         1490,
+         848
+        ]
+       },
+       {
+        "frame": 52,
+        "point": [
+         1203,
+         659
+        ],
+        "extent": null,
+        "box": [
+         840,
+         520,
+         1340,
+         768
+        ]
+       },
+       {
+        "frame": 57,
+        "point": [
+         1027,
+         572
+        ],
+        "extent": null,
+        "box": [
+         708,
+         450,
+         1160,
+         672
+        ]
+       },
+       {
+        "frame": 62,
+        "point": [
+         865,
+         492
+        ],
+        "extent": null,
+        "box": [
+         580,
+         388,
+         992,
+         585
+        ]
+       },
+       {
+        "frame": 66,
+        "point": [
+         741,
+         433
+        ],
+        "extent": null,
+        "box": [
+         485,
+         338,
+         866,
+         520
+        ]
+       },
+       {
+        "frame": 71,
+        "point": [
+         600,
+         366
+        ],
+        "extent": null,
+        "box": [
+         368,
+         280,
+         718,
+         443
+        ]
+       }
+      ]
+     },
+     {
+      "role": "target",
+      "object": "car",
+      "obs": [
+       {
+        "frame": 24,
+        "point": null,
+        "extent": [
+         [
+          1960,
+          948
+         ],
+         [
+          1960,
+          1168
+         ]
+        ],
+        "box": [
+         1625,
+         925,
+         2425,
+         1310
+        ]
+       },
+       {
+        "frame": 48,
+        "point": null,
+        "extent": [
+         [
+          1230,
+          590
+         ],
+         [
+          1230,
+          759
+         ]
+        ],
+        "box": [
+         955,
+         578,
+         1490,
+         848
+        ]
+       },
+       {
+        "frame": 38,
+        "point": null,
+        "extent": [
+         [
+          1580,
+          742
+         ],
+         [
+          1580,
+          935
+         ]
+        ],
+        "box": [
+         1245,
+         728,
+         1888,
+         1060
+        ]
+       }
+      ]
+     }
+    ],
+    "direct_answer": 1.1,
+    "confidence": 0.3
+   }
+  ]
+ }
+}
