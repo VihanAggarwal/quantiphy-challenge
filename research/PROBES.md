@@ -687,3 +687,13 @@ over the combo. Killed: pooled focal per camera group (7/27 held-out priors with
 single runs .794/.798/.802 and 3-run median .810. Delta vs the matched batched run -.073, clip bootstrap 90% [-.154, -.024],
 worse or equal on 6/6 clips (simulation_0170 -.31). Seeing a clip's other questions HELPS Claude (shared scale/objects);
 isolating questions removes that context. Kill test FAIL; not scaled up. Budget now $143.96 of $200.
+
+## More context (sibling camera views of the same scene), paid pilots 2026-10-13: REJECTED ($5.40)
+`research/ctxpilot/`. 52 validation questions, 3D non-lab; up to 3 sibling clips (8 frames + prior + distances).
+- Pilot 1, direct-answer-only prompt: single clip .689 vs family context .727 (+.0385; pre-registered rule PASS),
+  but this prompt is far below the pipeline prompt (.794); as a 4th vote with the 3 batched runs .810 -> .8135
+  (+.004, mixed by clip) ~ one more run; worth ~+.001 overall on test. Not scaled.
+- Pilot 2, full v1 pipeline prompt + sibling views: .731 vs matched run .794 (-.064), 4-run median .796 vs 3-run .810.
+  Kill test FAIL. simulation_0170 swings +-0.3 between prompts (one clip dominates both pilots).
+Conclusion: Claude's per-clip batched prompt is already the best of the variants tried (isolation -.073, extra
+views -.064 in the full prompt). Claude budget now ~$149.4 of $200.
