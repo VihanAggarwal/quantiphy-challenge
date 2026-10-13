@@ -1,0 +1,125 @@
+clips with a pooled FOV: 33
+                                       cam             base  fov_own  fov_pool  n_ref  spread
+vid                                                                                          
+simulation_0021            simulation_0021  simulation_0021    39.20     24.92    1.0    0.00
+simulation_0021_segmented  simulation_0021  simulation_0021    38.90     24.92    1.0    0.00
+simulation_0023            simulation_0023  simulation_0023      NaN     28.34    4.0    1.09
+simulation_0023_segmented  simulation_0023  simulation_0023      NaN     28.34    4.0    1.09
+simulation_0025            simulation_0023  simulation_0025    45.86     16.95    2.0    0.10
+simulation_0025_segmented  simulation_0023  simulation_0025    44.24     16.95    2.0    0.10
+simulation_0026            simulation_0023  simulation_0026    16.11     45.04    2.0    0.04
+simulation_0026_segmented  simulation_0023  simulation_0026    17.83     45.04    2.0    0.04
+simulation_0029            simulation_0029  simulation_0029      NaN     23.24    4.0    0.26
+simulation_0029_segmented  simulation_0029  simulation_0029      NaN     23.24    4.0    0.26
+simulation_0030            simulation_0030  simulation_0030      NaN     40.27    1.0    0.00
+simulation_0030_segmented  simulation_0030  simulation_0030    15.64     40.27    1.0    0.00
+simulation_0033            simulation_0021  simulation_0033    24.92     39.05    2.0    0.01
+simulation_0035            simulation_0029  simulation_0035    21.95     24.68    2.0    0.01
+simulation_0035_segmented  simulation_0029  simulation_0035    19.23     24.68    2.0    0.01
+simulation_0036            simulation_0029  simulation_0036    24.60     20.54    2.0    0.14
+simulation_0036_segmented  simulation_0029  simulation_0036    24.77     20.54    2.0    0.14
+simulation_0039            simulation_0039  simulation_0039    10.11      8.99    2.0    0.20
+simulation_0039_segmented  simulation_0039  simulation_0039    10.26      8.99    2.0    0.20
+simulation_0040            simulation_0039  simulation_0040     8.14     10.11    3.0    0.03
+simulation_0042            simulation_0039  simulation_0042     9.94     10.11    3.0    0.23
+simulation_0140            simulation_0030  simulation_0140    40.27     15.64    1.0    0.00
+simulation_0202            simulation_0202  simulation_0202    42.78     41.26    3.0    0.09
+simulation_0205            simulation_0202  simulation_0205    44.13     41.26    3.0    0.06
+simulation_0206            simulation_0202  simulation_0206    40.65     42.78    3.0    0.07
+simulation_0209            simulation_0202  simulation_0209    41.26     42.78    3.0    0.09
+simulation_0211            simulation_0211  simulation_0211    54.16     50.30    1.0    0.00
+simulation_0212            simulation_0211  simulation_0212    50.30     54.16    1.0    0.00
+simulation_0299            simulation_0300  simulation_0299    56.32     48.42    4.0    0.65
+simulation_0300            simulation_0300  simulation_0300    65.07     46.64    4.0    0.55
+simulation_0301            simulation_0300  simulation_0301    60.43     46.64    4.0    0.65
+simulation_0310            simulation_0300  simulation_0310    36.99     58.35    4.0    0.61
+simulation_0311            simulation_0300  simulation_0311    38.29     58.35    4.0    0.65
+
+KILL TEST (held-out prior at pooled FOV; kill if median |log err| >= 0.07):
+                          vid         pkind   pval    pred    err  fov_own  fov_pool  n_ref
+0             simulation_0021          size   1.87   1.191  0.451   39.198    24.920    1.0
+1   simulation_0021_segmented          size   1.87   1.200  0.444   38.901    24.920    1.0
+2             simulation_0025         speed   1.30   0.473  1.010   45.859    16.950    2.0
+3   simulation_0025_segmented         speed   1.30   0.486  0.985   44.236    16.950    2.0
+4             simulation_0026          size   1.75   5.110  1.072   16.110    45.042    2.0
+5   simulation_0026_segmented          size   1.75   4.554  0.956   17.833    45.042    2.0
+6   simulation_0030_segmented         speed  12.00  28.784  0.875   15.643    40.268    1.0
+7             simulation_0033  acceleration   2.86   5.031  0.565   24.920    39.049    2.0
+8             simulation_0035          size   1.75   1.969  0.118   21.946    24.681    2.0
+9   simulation_0035_segmented          size   1.75   2.247  0.250   19.228    24.681    2.0
+10            simulation_0036          size  10.00   8.319  0.184   24.596    20.544    2.0
+11  simulation_0036_segmented          size  10.00   8.259  0.191   24.767    20.544    2.0
+12            simulation_0039         speed   4.00   3.606  0.104   10.113     8.993    2.0
+13  simulation_0039_segmented         speed   4.00   3.515  0.129   10.256     8.993    2.0
+14            simulation_0040          size   0.80   0.995  0.218    8.136    10.113    3.0
+15            simulation_0042         speed  11.84  11.961  0.010    9.940    10.113    3.0
+16            simulation_0202  acceleration   9.80   9.336  0.049   42.784    41.256    3.0
+17            simulation_0205  acceleration   9.80   9.251  0.058   44.129    41.256    3.0
+18            simulation_0206  acceleration   9.80  10.120  0.032   40.646    42.784    3.0
+19            simulation_0209  acceleration   9.80  10.300  0.050   41.256    42.784    3.0
+20            simulation_0211         speed   0.94   0.873  0.074   54.155    50.304    1.0
+21            simulation_0212         speed   0.94   0.979  0.040   50.304    54.155    1.0
+22            simulation_0299  acceleration   2.00   1.684  0.172   56.320    48.419    4.0
+23            simulation_0300  acceleration   5.00   4.778  0.045   65.074    46.639    4.0
+24            simulation_0301  acceleration   2.00   1.065  0.630   60.428    46.639    4.0
+25            simulation_0310          size   2.47   4.074  0.500   36.988    58.352    4.0
+26            simulation_0311          size   1.15   1.752  0.421   38.288    58.352    4.0
+median |log err| = 0.191  (n=27, within 7%: 0.26)
+
+rows with pooled geometry: 186 of 756; gate15 rows: 34
+
+== VALIDATION, rows with a pooled FOV: 5 rows, 1 clips (geometry missing -> dmed) ==
+       n   p21  dmed   old  pool_or_d  gm_pool  gate15  gmgate15
+kg                                                              
+size   3  0.90   0.9  0.50      0.567    0.767     0.9       0.9
+speed  2  0.95   1.0  0.45      0.550    0.800     1.0       1.0
+     n   p21  dmed   old  pool_or_d  gm_pool  gate15  gmgate15
+cat                                                           
+D3   5  0.92  0.94  0.48       0.56     0.78    0.94      0.94
+        n   p21  dmed   old  pool_or_d  gm_pool  gate15  gmgate15
+fovbin                                                           
+>60     5  0.92  0.94  0.48       0.56     0.78    0.94      0.94
+          n   p21  dmed   old  pool_or_d  gm_pool  gate15  gmgate15
+wellcond                                                           
+True      5  0.92  0.94  0.48       0.56     0.78    0.94      0.94
+median |log(pred/gt)| (error budget):
+         p21   dmed    old  pool_or_d  gm_pool  gate15  gmgate15
+kg                                                              
+size   0.076  0.076  0.395      0.348    0.120   0.076     0.076
+speed  0.030  0.000  0.358      0.335    0.168   0.000     0.000
+ALL n=5  p21 0.920  dmed 0.940  old 0.480  pool_or_d 0.560  gm_pool 0.780  gate15 0.940  gmgate15 0.940
+   old              - dmed: -0.460  (clip bootstrap 90%: -0.460 .. -0.460)
+   pool_or_d        - dmed: -0.380  (clip bootstrap 90%: -0.380 .. -0.380)
+   gm_pool          - dmed: -0.160  (clip bootstrap 90%: -0.160 .. -0.160)
+   gate15           - dmed: +0.000  (clip bootstrap 90%: +0.000 .. +0.000)
+   gmgate15         - dmed: +0.000  (clip bootstrap 90%: +0.000 .. +0.000)
+
+== STATED FACTS, rows with a pooled FOV: 56 rows, 15 clips (geometry missing -> dmed) ==
+        n   dmed    old  pool_or_d  gm_pool  gate15  gmgate15
+kg                                                           
+accel   3  0.667  0.533      0.467    0.500   0.667     0.667
+size   30  0.697  0.583      0.633    0.720   0.747     0.717
+speed  23  0.709  0.726      0.800    0.752   0.848     0.757
+      n   dmed    old  pool_or_d  gm_pool  gate15  gmgate15
+cat                                                        
+D3   36  0.678  0.578      0.678    0.689   0.814     0.722
+S3   20  0.740  0.750      0.720    0.780   0.730     0.745
+         n   dmed    old  pool_or_d  gm_pool  gate15  gmgate15
+fovbin                                                        
+20-60   55  0.695  0.645      0.698    0.722    0.78     0.725
+>60      1  1.000  0.300      0.400    0.700    1.00     1.000
+           n  dmed    old  pool_or_d  gm_pool  gate15  gmgate15
+wellcond                                                       
+True      56   0.7  0.639      0.693    0.721   0.784      0.73
+median |log(pred/gt)| (error budget):
+        dmed    old  pool_or_d  gm_pool  gate15  gmgate15
+kg                                                       
+accel  0.041  0.277      0.541    0.291   0.041     0.041
+size   0.143  0.232      0.219    0.114   0.102     0.143
+speed  0.149  0.173      0.095    0.122   0.074     0.149
+ALL n=56  dmed 0.700  old 0.639  pool_or_d 0.693  gm_pool 0.721  gate15 0.784  gmgate15 0.730
+   old              - dmed: -0.061  (clip bootstrap 90%: -0.154 .. -0.003)
+   pool_or_d        - dmed: -0.007  (clip bootstrap 90%: -0.156 .. +0.171)
+   gm_pool          - dmed: +0.021  (clip bootstrap 90%: -0.027 .. +0.076)
+   gate15           - dmed: +0.084  (clip bootstrap 90%: -0.006 .. +0.229)
+   gmgate15         - dmed: +0.030  (clip bootstrap 90%: +0.001 .. +0.078)
