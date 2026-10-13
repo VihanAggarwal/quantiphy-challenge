@@ -1,0 +1,24 @@
+
+== VALIDATION: own-depth size rows with ratio estimate: n=7, clips=2
+{'dmed': 0.829, 'old': 0.814, 'gm': 0.829, 'gm13': 0.843, 'cur': 0.814}
+by cat {'S3': {'dmed': 0.829, 'old': 0.814, 'gm': 0.829, 'gm13': 0.843, 'cur': 0.814}}
+old - dmed [-0.014, -0.05, 0.033]
+gm - dmed [0.0, -0.025, 0.033]
+gm13 - dmed [0.014, 0.0, 0.033]
+median log err {'dmed': -0.01, 'old': -0.023} | median |log err| {'dmed': 0.062, 'old': 0.076}
+corr of log errors dmed vs old: 0.978
+  sens>=0.5: n=7 dmed 0.829 old 0.814 gm 0.829
+  sens>=0.8: n=7 dmed 0.829 old 0.814 gm 0.829
+
+== FACTS: own-depth size rows with ratio estimate: n=7, clips=4
+{'dmed': 0.843, 'old': 0.8, 'gm': 0.843, 'gm13': 0.843, 'cur': 1.0}
+by cat {'S3': {'dmed': 0.843, 'old': 0.8, 'gm': 0.843, 'gm13': 0.843, 'cur': 1.0}}
+old - dmed [-0.043, -0.133, 0.025]
+gm - dmed [0.0, -0.067, 0.05]
+gm13 - dmed [0.0, -0.033, 0.025]
+median log err {'dmed': 0.011, 'old': 0.094} | median |log err| {'dmed': 0.158, 'old': 0.168}
+corr of log errors dmed vs old: 0.515
+  sens>=0.5: n=7 dmed 0.843 old 0.800 gm 0.843
+  sens>=0.8: n=7 dmed 0.843 old 0.800 gm 0.843
+
+test rows with an own-depth ratio estimate: 83 {'S3': 83}
