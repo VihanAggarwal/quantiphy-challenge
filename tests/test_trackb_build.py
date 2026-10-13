@@ -69,3 +69,27 @@ def test_median_over_present_methods(tmp_path, monkeypatch, capsys):
     assert answers.id.tolist() == tq and np.allclose(answers.parsed_value, 1.025, rtol=0.03)   # the outlier is out
     with pytest.raises(SystemExit, match="unknown methods"):
         mod.main([str(run), str(tmp_path / "sub.csv"), "--combine", "median", "--median-of", "caw,nope"])
+
+
+def test_median_sets_per_category(tmp_path, monkeypatch):
+    mod = _mod()
+    vq, tq = list(range(1, 41)), list(range(101, 141))
+    truth = np.linspace(1.0, 5.0, len(vq))
+    monkeypatch.setattr(mod, "load_validation", lambda: _questions(vq, truth))
+    monkeypatch.setattr(mod, "load_split", lambda split: _questions(tq))
+    run = tmp_path / "run"
+    for name, factor in (("caw/caw.csv", 1.0), ("cvq/geometry.csv", 2.0), ("qwen35/direct.csv", 4.0)):
+        for split, qids, base in (("val", vq, truth), ("test", tq, np.ones(len(tq)))):
+            (run / split / Path(name).parent).mkdir(parents=True, exist_ok=True)
+            pd.DataFrame({"id": qids, "parsed_value": base * factor}).to_csv(run / split / name, index=False)
+    sent = []
+    monkeypatch.setattr(mod.subprocess, "run",
+                        lambda cmd, **kw: sent.append(pd.read_csv(cmd[2])) or type("R", (), {"returncode": 0}))
+    mod.main([str(run), str(tmp_path / "sub.csv"), "--combine", "median", "--no-postprocess",
+              "--median-sets", '{"S2": ["caw"], "D2": ["qwen35"]}'])
+    ans = sent[0].set_index("id").parsed_value
+    cat = _questions(tq).set_index("qid").category
+    assert np.allclose(ans[cat == "S2"], 1.0) and np.allclose(ans[cat == "D2"], 4.0)
+    assert np.allclose(ans[cat == "S3"], 2.0)          # the default median of all three
+    with pytest.raises(SystemExit, match="unknown methods"):
+        mod.main([str(run), str(tmp_path / "sub.csv"), "--combine", "median", "--median-sets", '{"S2": ["nope"]}'])

@@ -2,6 +2,8 @@
 
     python scripts/trackb_build.py outputs/trackb_v1 submissions/trackB_v1.csv [--min-cell 8]
     python scripts/trackb_build.py outputs/trackb_v1 submissions/trackB_med.csv --combine median [--median-of a,b,c]
+    python scripts/trackb_build.py outputs/trackb_v1 out.csv --combine median --median-sets '{"S2": ["caw", "cvq_geo"]}'
+
 
 Methods (any that exist; each is a CSV id,parsed_value for val and test):
   qwen_direct  <run>/{split}/qwen/direct.csv        Qwen3-VL direct answers
@@ -121,6 +123,9 @@ def main(argv=None) -> None:
     ap.add_argument("--combine", choices=["route", "median"], default="route",
                     help="median: per-question log-median of the MEDIAN methods present (no label-based choice)")
     ap.add_argument("--median-of", default="", help="comma-separated METHODS keys for the median (default: MEDIAN)")
+    ap.add_argument("--median-sets", default="",
+                    help='per-category members as JSON, e.g. \'{"S2": ["caw", "cvq_geo"], "D2": [...], ...}\' '
+                         "(--combine median; categories not listed use --median-of / MEDIAN)")
     a = ap.parse_args(argv)
     run = Path(a.run)
     val = kinds(load_validation().set_index("qid"))
@@ -155,12 +160,29 @@ def main(argv=None) -> None:
         ms = [m for m in want if m in present]
         if not ms:
             raise SystemExit(f"none of {want} present in {run}")
+        if a.median_sets:
+            import json
+            per = json.loads(a.median_sets)
+            bad = [m for v in per.values() for m in v if m not in METHODS]
+            if bad:
+                raise SystemExit(f"--median-sets: unknown methods {bad} (known: {list(METHODS)})")
+            mv, mt = log_median(pv, ms, val.index), log_median(pt, ms, test.index)
+            for c, mem in per.items():
+                mem = [m for m in mem if m in present]
+                if mem:
+                    mv[val.category == c] = log_median(pv, mem, val.index)[val.category == c]
+                    mt[test.category == c] = log_median(pt, mem, test.index)[test.category == c]
+            s = item(mv, val.answer)
+            print(f"per-category median {per}: val MRA {macro(s):.3f}  "
+                  + " ".join(f"{c} {s[val.category == c].mean():.3f}" for c in CATS))
+            ans = mt
         s = item(log_median(pv, ms, val.index), val.answer)
         print(f"median of {ms}: val MRA {macro(s):.3f}  " + " ".join(f"{c} {s[val.category == c].mean():.3f}" for c in CATS))
         for m in ms if len(ms) > 2 else []:
             rest = [x for x in ms if x != m]
             print(f"  without {m:12s} val MRA {macro(item(log_median(pv, rest, val.index), val.answer)):.3f}")
-        ans = log_median(pt, ms, test.index)
+        if not a.median_sets:
+            ans = log_median(pt, ms, test.index)
     else:
         table = route(val, pv, a.min_cell, default)
         ans = apply(test, pt, table)

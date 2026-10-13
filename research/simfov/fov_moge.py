@@ -45,6 +45,7 @@ def main():
     ap.add_argument("--fracs", default="0.5")
     ap.add_argument("--tokens", type=int, default=1800)
     ap.add_argument("--threads", type=int, default=4)
+    ap.add_argument("--max-side", type=int, default=640, help="downscale frames to this long side (0 = off)")
     a = ap.parse_args()
     torch.set_num_threads(a.threads)
     from moge.model.v2 import MoGeModel
@@ -67,6 +68,9 @@ def main():
                 src = VIDEOS / f"{v}_segmented.mp4"
             img = frame(src, fr)
             H, W = img.shape[:2]
+            if a.max_side and max(H, W) > a.max_side:   # FOV is scale-free; smaller input = much faster heads
+                k = a.max_side / max(H, W)
+                img = cv2.resize(img, (round(W * k), round(H * k)), interpolation=cv2.INTER_AREA)
             t0 = time.time()
             x = torch.tensor(img / 255.0, dtype=torch.float32).permute(2, 0, 1)
             o = model.infer(x, num_tokens=a.tokens, force_projection=False, apply_mask=False, use_fp16=False)
