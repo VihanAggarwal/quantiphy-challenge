@@ -79,14 +79,19 @@ def replay(run: str, df: pd.DataFrame, fov: dict[str, float]) -> pd.DataFrame:
     if pk and pk.exists():
         anns = pickle.loads(pk.read_bytes())
     else:
-        anns = rc.annotations(df, records, dense="motion", dense_cache=ROOT / "runs" / "_dense_cache" / "test",
-                              dense_workers=2)
+        if os.environ.get("SIMFOV_FAST"):   # Claude's own tracks: no optical-flow refinement, no dense tracking
+            anns = rc.annotations(df, records, refine_priors=False, dense="off")
+        else:
+            anns = rc.annotations(df, records, dense="motion", dense_cache=ROOT / "runs" / "_dense_cache" / "test",
+                                  dense_workers=2)
         if pk:
             pk.parent.mkdir(parents=True, exist_ok=True)
             pk.write_bytes(pickle.dumps(anns))
     recs = rc.prepare_records(df, records)
     rows = []
-    for r in df.itertuples():
+    for i, r in enumerate(df.itertuples()):
+        if i % 25 == 0:
+            print(f"{run}: {i}/{len(df)}", flush=True)
         a = anns.get(int(r.qid))
         if a is None:
             continue
