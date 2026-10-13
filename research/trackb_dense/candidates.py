@@ -40,6 +40,9 @@ SETS = {
     "v3 fov cv->cvq, 2D qwen->dense": sub(fov(sub(V3, "cv_geo", "cvq_geo")), "qwen_fov", "qwen_dense", ("S2", "D2")),
     "v3 fov cv->cvq +qwen35(3D)": fov(plus(sub(V3, "cv_geo", "cvq_geo"), "qwen35", cats=("S3", "D3"))),
     "v3 fov +cvq +qwen35(3D)": fov(plus(V3, "cvq_geo", "qwen35", cats=("S3", "D3"))),
+    "v3 fov +cvq +qwen35, D2 qwen->dyn2": sub(fov(plus(V3, "cvq_geo", "qwen35")), "qwen_fov", "qwen_dyn2", ("D2",)),
+    "v3 fov +cvq +qwen35, 2D qwen->dense": sub(fov(plus(V3, "cvq_geo", "qwen35")), "qwen_fov", "qwen_dense", ("S2", "D2")),
+    "v3 fov +cvq +qwen35 +gemma4": fov(plus(V3, "cvq_geo", "qwen35", "gemma4")),
     "v3 fov +cvq(all) +qwen35(3D) +gemma4(3D)": fov(plus(plus(V3, "cvq_geo"), "qwen35", "gemma4", cats=("S3", "D3"))),
 }
 
@@ -66,3 +69,21 @@ if __name__ == "__main__":
         print("TEST STATED FACTS"); print(T[[i.startswith("SET") or i == "n" for i in T.index]].round(3).to_string())
     except Exception as e:  # noqa: BLE001
         print("test facts skipped:", e)
+
+
+def lovo_choice(P, val):
+    """LOVO of choosing among SETS (one set for all categories, macro MRA on the other videos)."""
+    cats = val.category.to_numpy()
+    It = {}
+    for name, st in SETS.items():
+        x = np.full(len(val), np.nan)
+        for c in CATS:
+            m = cats == c
+            x[m] = item(log_median([P[k] for k in st[c]]), val.answer).to_numpy()[m]
+        It[name] = x
+    held = np.full(len(val), np.nan)
+    for v in val.video_id.unique():
+        h = (val.video_id == v).to_numpy()
+        best = max(It, key=lambda n: np.mean([It[n][~h & (cats == c)].mean() for c in CATS]))
+        held[h] = It[best][h]
+    return {c: held[cats == c].mean() for c in CATS}
