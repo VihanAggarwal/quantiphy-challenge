@@ -77,11 +77,11 @@ def kind_group(k: str) -> str:
 
 def report(t: pd.DataFrame, labels: pd.Series, cols: list[str], title: str, skip_p21: bool = False) -> pd.DataFrame:
     x = t.loc[t.index.intersection(labels.index)].copy()
-    x["gt"] = labels.reindex(x.index)
+    x["label"] = labels.reindex(x.index)
     x["kg"] = x.kind.map(kind_group)
     x["fovbin"] = pd.cut(x.fov_model, [0, 20, 60, 180], labels=["<20", "20-60", ">60"])
     use = [c for c in cols if not (skip_p21 and (c == "p21" or c.startswith("gmp_")))]
-    S = pd.DataFrame({c: item_scores(x[c].fillna(x.dmed), x.gt) for c in use}, index=x.index)
+    S = pd.DataFrame({c: item_scores(x[c].fillna(x.dmed), x.label) for c in use}, index=x.index)
     S["kg"], S["cat"], S["fovbin"], S["wellcond"] = x.kg, x.category, x.fovbin, x.wellcond
     S["video"] = x.video_id.str.replace("_segmented", "", regex=False)
     print(f"\n== {title}: {len(x)} rows, {S.video.nunique()} clips (geometry missing -> dmed) ==")
@@ -89,7 +89,7 @@ def report(t: pd.DataFrame, labels: pd.Series, cols: list[str], title: str, skip
         g = S.groupby(by, observed=True)[use].mean()
         g.insert(0, "n", S.groupby(by, observed=True).size())
         print(g.round(3).to_string())
-    E = pd.DataFrame({c: np.abs(np.log(x[c].fillna(x.dmed) / x.gt)) for c in use}, index=x.index)
+    E = pd.DataFrame({c: np.abs(np.log(x[c].fillna(x.dmed) / x.label)) for c in use}, index=x.index)
     E["kg"] = x.kg
     print("median |log(pred/gt)| (error budget):")
     print(E.groupby("kg")[use].median().round(3).to_string())

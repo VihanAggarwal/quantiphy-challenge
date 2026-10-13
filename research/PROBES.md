@@ -643,3 +643,17 @@ Decoded subset means (scored n; points of the category lost):
 - S3: non-lab (sim+seg) **.742** (221; .106) | lab .782 (317; .128)
 - D3: lab static .799 (334; .072) | lab motion + non-lab .805 (599; .125)
 S3 non-lab is the weakest subset (the simfov study's target); S3 lab and D3 are close to their category means.
+
+## Foundation-model camera FOV for 3D simulation clips (2026-10-13, `research/simfov/`): REJECTED
+MoGe-2 (CPU) FOV for all 94 sim clips (median of up to 3 frames; segmented copies reuse the original's), then
+qp.geometry with that FOV as the camera prior (sd of log f 0.01 / 0.05 / 0.15, Blender stock-lens snapping, Z instead
+of range), alone, as geometric mean with Claude's direct answer, and gated to well-conditioned priors. Replayed on the
+3 cached Claude runs (annotator tracks, no API). Results (item MRA, clip-bootstrap 90% CI of the change vs direct):
+- Validation (44 rows, 6 clips): direct .811, p21 .843, old geometry .657, model-FOV geometry .605-.636
+  (-.17..-.21), best blend gm_snap05 .734 (-.077 [-.119, -.026]).
+- Test stated facts (106 exact rows, 32 clips): direct .793, old geometry .700, model-FOV geometry .49-.55
+  (-.25..-.30), best blend gmgate_old .761 (-.032); every model-FOV variant loses.
+- By FOV bin (facts): <20 deg direct .650 vs model-FOV .25-.36; 20-60 .757 vs .45-.49; >60 .961 vs .72-.79.
+Model-FOV geometry is worse than solving f from the prior; the remaining error is extents / foreshortening and
+prior conditioning, not just f. Claude's direct answers (with family rules) stay on 3D simulation. This also covers
+the DepthPro / UniDepth / temporal-median FOV suggestions (same failure class; single-image FOV error is too large).
