@@ -709,3 +709,13 @@ views -.064 in the full prompt). Claude budget now ~$149.4 of $200.
 Winners merged onto combo2 (merge_skip, ref physb2): `submissions/trackA_combo3_on_combo2.csv` = combo2 + U2 S2 sim motion gm
 + U1 S2 internet direct + U3 S3 no-mid + U2 D3 emu 4 cm + U4 D3 lab static gm (359 rows: S2 239, D3 84, S3 36).
 Expected ~.834/.863/.770/.814 = ~.820 (if the gains add; some D3 rows overlap combo2 and were kept as combo2).
+
+## Gemini 4 Argon research report (2026-10-14)
+`research/consult/argon_research_2026-10-14.md` (Batch API, $0.70; two failed attempts logged as $1 placeholders) and our
+review `research/consult/argon_research_review_2026-10-14.md`.
+- Premise errors: lab f is already fixed by the lab FOV prior (Idea 5); there are only 150 acceleration questions,
+  not 350 (Idea 7).
+- Ideas 1 and 8 overlap scene-family pooling and kinematic smoothing. Its .848-.864 forecast counts them, so it is not
+  credible.
+- Worth testing: Idea 4 (world-bounding-box/yaw prompt for S3 simulation, ~$3 pilot), Idea 3 (Track B open pointing +
+  SAM-2 tracks into geometry), Idea 2 (synthetic Blender fine-tune, mainly Track B).
