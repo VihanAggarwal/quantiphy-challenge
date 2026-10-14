@@ -1,0 +1,17 @@
+day_utc,slot,track,content,decision_rule
+2026-10-15,1,A,"combo3 read (if not back) else C1 = combo3 + famcons (r86/dsc) + audit micro-fixes (sim_0020 x1.8/9.44; const-acc pooling) ; categories with no lever carry K1 zeroings (S2 sim accel 64, D2 sim motion speed 187, S3 lab speed 135, D3 lab-static distance 115)","adopt a category's lever if decoded delta >= +.001 (one rounding unit); zeroed categories decode bucket means = (base - diag)*N/n"
+2026-10-15,2,B,"Track B: v3 -> pseudo-label per-cell routing (intel) + v5 levers that passed RESULT.md gates + canonical-class clamp (56 rows); one upload","keep if overall > .621; components are read later only if needed"
+2026-10-15,3-4,A,"first in-flight lever that passed its pre-registered kill test (splinefit / gates / depthpro / aabb), applied to the E-half subsets in all 4 categories (S2 sim, D2 sim-static, S3 non-lab, D3 lab-static); other categories carry K2 zeroings","per-subset effect = (score - base)*N/n_changed; F-half the next day"
+2026-10-15,5,-,spare (do not invent uploads),
+2026-10-16,1-2,A,"F-halves of yesterday's levers (S2 internet, D2 rest, S3 lab, D3 rest)","adopt per subset with decoded delta >= +.001 x N_cat/n_rows per row"
+2026-10-16,3,A,"C1' composite of all subset winners so far (merge_skip)","each category within +-.0015 of base + sum of deltas, else bisect"
+2026-10-16,4-5,A/B,"next in-flight lever (E-half) or Track B open-pipeline port if the Colab run is done",
+2026-10-17..19,~12,A/B,"remaining levers E/F halves; C2 composite on 10-18; Track B open pipeline + its own subset reads (<=2 uploads)",
+2026-10-20,<=5,A,"last day for NEW mechanisms; C3 composite",
+2026-10-21,<=4,A,"precision reads: C3 + one marginal bundle each, SINGLE category per upload (overall 4th decimal pins the category delta to +-.0004)","adopt only if decoded interval > 0"
+2026-10-21,1,B,"Track B final candidate FB",
+2026-10-22,1-2,A,"F = final composite; F-minus-riskiest bundle (both observed)",
+2026-10-22,3,A,"re-upload F so it is the latest Track A submission",
+2026-10-22,4,B,"re-upload FB so it is the latest Track B submission",
+2026-10-23,0-2,A/B,"re-upload F/FB only if anything changed; no diagnostics or probes after F",
+2026-10-24 (00:00-11:59 UTC),0,-,"emergency only, and only if organizers confirm AoE applies to the server",

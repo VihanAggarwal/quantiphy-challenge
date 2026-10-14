@@ -1,0 +1,134 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/YDW4ffX3UIY8f9aBC/aXSyBhdQQ</id>
+  <title>arXiv Query: search_query=&amp;id_list=2608.09351,2608.01207,2511.17945,2509.18905&amp;start=0&amp;max_results=10</title>
+  <updated>2026-10-14T21:24:08Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=&amp;start=0&amp;max_results=10&amp;id_list=2608.09351,2608.01207,2511.17945,2509.18905" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>10</opensearch:itemsPerPage>
+  <opensearch:totalResults>4</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/2509.18905v2</id>
+    <title>How Far are VLMs from Visual Spatial Intelligence? A Benchmark-Driven Perspective</title>
+    <updated>2025-11-11T12:18:07Z</updated>
+    <link href="https://arxiv.org/abs/2509.18905v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2509.18905v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Visual Spatial Reasoning (VSR) is a core human cognitive ability and a critical requirement for advancing embodied intelligence and autonomous systems. Despite recent progress in Vision-Language Models (VLMs), achieving human-level VSR remains highly challenging due to the complexity of representing and reasoning over three-dimensional space. In this paper, we present a systematic investigation of VSR in VLMs, encompassing a review of existing methodologies across input modalities, model architectures, training strategies, and reasoning mechanisms. Furthermore, we categorize spatial intelligence into three levels of capability, ie, basic perception, spatial understanding, spatial planning, and curate SIBench, a spatial intelligence benchmark encompassing nearly 20 open-source datasets across 23 task settings. Experiments with state-of-the-art VLMs reveal a pronounced gap between perception and reasoning, as models show competence in basic perceptual tasks but consistently underperform in understanding and planning tasks, particularly in numerical estimation, multi-view reasoning, temporal dynamics, and spatial imagination. These findings underscore the substantial challenges that remain in achieving spatial intelligence, while providing both a systematic roadmap and a comprehensive benchmark to drive future research in the field. The related resources of this study are accessible at https://sibench.github.io/Awesome-Visual-Spatial-Reasoning/.</summary>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-09-23T12:00:14Z</published>
+    <arxiv:comment>a comprehensive visual spatial reasoning evaluation tool, 25 pages, 16 figures</arxiv:comment>
+    <arxiv:primary_category term="cs.AI"/>
+    <author>
+      <name>Songsong Yu</name>
+    </author>
+    <author>
+      <name>Yuxin Chen</name>
+    </author>
+    <author>
+      <name>Hao Ju</name>
+    </author>
+    <author>
+      <name>Lianjie Jia</name>
+    </author>
+    <author>
+      <name>Fuxi Zhang</name>
+    </author>
+    <author>
+      <name>Shaofei Huang</name>
+    </author>
+    <author>
+      <name>Yuhan Wu</name>
+    </author>
+    <author>
+      <name>Rundi Cui</name>
+    </author>
+    <author>
+      <name>Binghao Ran</name>
+    </author>
+    <author>
+      <name>Zaibin Zhang</name>
+    </author>
+    <author>
+      <name>Zhedong Zheng</name>
+    </author>
+    <author>
+      <name>Zhipeng Zhang</name>
+    </author>
+    <author>
+      <name>Yifan Wang</name>
+    </author>
+    <author>
+      <name>Lin Song</name>
+    </author>
+    <author>
+      <name>Lijun Wang</name>
+    </author>
+    <author>
+      <name>Yanwei Li</name>
+    </author>
+    <author>
+      <name>Ying Shan</name>
+    </author>
+    <author>
+      <name>Huchuan Lu</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2511.17945v1</id>
+    <title>Test-Time Temporal Sampling for Efficient MLLM Video Understanding</title>
+    <updated>2025-11-22T06:59:21Z</updated>
+    <link href="https://arxiv.org/abs/2511.17945v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2511.17945v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Processing long videos with multimodal large language models (MLLMs) poses a significant computational challenge, as the model's self-attention mechanism scales quadratically with the number of video tokens, resulting in high computational demand and slow inference speed. Current solutions, such as rule-based sub-sampling, learned frame selector, or memory-based summarization, often introduce their own trade-offs: they compromise accuracy, necessitate additional training, or decrease inference speed. In this paper, we propose Test-Time Temporal Sampling (T3S), a training-free, plug-and-play inference wrapper that enables MLLMs to process long videos both efficiently and effectively. T3S exploits spatiotemporal redundancy by generating multiple short and diverse subsequences of video tokens at inference time, packing them within a single forward pass, and aggregating their predictions. This multi-subsequence formulation broadens visual coverage while reducing the computational cost of self-attention from $O(L^2)$ to $O(\sum_{i=1}^m α_i^2L^2)$, where $\sum_{i=1}^m α_i^2 &lt; 1$. Extensive experiments on long video understanding benchmarks demonstrate that T3S improves accuracy by up to 3.1% and reduces first token delay by $2.04\times$, all with minimal integration effort. Our approach operates entirely at inference time, requires no model modifications or fine-tuning, and is compatible with a wide range of pretrained MLLMs. T3S turns video redundancy into a computational advantage, offering a scalable solution for long-video understanding. The code is available at https://github.com/kaibinwang3/T3S.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-11-22T06:59:21Z</published>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Kaibin Wang</name>
+    </author>
+    <author>
+      <name>Mingbao Lin</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2608.09351v1</id>
+    <title>Test-Time Augmentation for LLMs: When Input Diversity Beats Output Diversity at Matched Compute</title>
+    <updated>2026-08-10T09:31:48Z</updated>
+    <link href="https://arxiv.org/abs/2608.09351v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2608.09351v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Test-time scaling improves LLM accuracy but multiplies inference cost, making the accuracy gained per unit of compute the metric that matters in deployment. Self-consistency is one of the established approaches, which spends this budget entirely on the output side by sampling repeated reasoning paths. We study Test-Time Augmentation (TTA), which extends self-consistency by also perturbing the input, aggregating predictions across transformed versions of the input, and ask whether input-side diversity converts compute into accuracy more efficiently than output-side diversity. We perform a systematic, matched-compute comparison: we evaluate three simple input-side strategies (semantic rephrasing, lexical perturbations, and visual transformations) across six datasets covering general and multilingual knowledge, mathematical reasoning, multi-modal question answering, and sentiment classification, against chain-of-thought prompting and self-consistency. Semantic rephrasing delivers consistent and statistically significant accuracy gains while Pareto-dominating self-consistency on cost-effectiveness, delivering roughly 1.8X more accuracy per dollar and outperforming it on five of six tasks. We further analyze the number of augmentations, multi-modal strategies, and base model scaling, finding that TTA is most cost-effective for mid-tier models where a stronger model is unavailable or too expensive. Our findings indicate that for current mid-tier LLMs, varying the input converts inference compute into accuracy more efficiently than varying the reasoning path alone. The TTA implementation is available at https://github.com/aws-samples/sample-genai-reflection-for-bedrock.</summary>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="stat.ML" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-08-10T09:31:48Z</published>
+    <arxiv:comment>Published at the COLM 2026 Workshop on Efficient Reasoning</arxiv:comment>
+    <arxiv:primary_category term="cs.LG"/>
+    <author>
+      <name>Nikita Kozodoi</name>
+    </author>
+    <author>
+      <name>Zainab Afolabi</name>
+    </author>
+    <author>
+      <name>Jack Butler</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2608.01207v2</id>
+    <title>It's the Decoding Format, Not the Perturbation: Auditing Consistency-Based Selection for Vision-Language Test-Time Scaling</title>
+    <updated>2026-08-05T05:56:24Z</updated>
+    <link href="https://arxiv.org/abs/2608.01207v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2608.01207v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Test-time scaling lifts large language model reasoning by sampling many candidate solutions and selecting among them, yet the same recipe transfers poorly to vision-language models (VLMs): recent work shows that simple majority voting beats selection methods built on the model's own self-verification, apparently because at the selection layer an image-grounded answer and a confident guess from the language prior look the same. A natural fix is to make the selection signal one that cannot be computed without the image. We study Perturbation Grounded Selection (Pgs), a label-free, training-free rule that scores each candidate by whether the model re-derives it under label-preserving perturbations of the input (cropping, background masking, mild photometric or geometric jitter); Pgs recovers majority voting when the perturbation set is empty. The decisive question is not whether Pgs beats chain-of-thought only majority voting, but whether the perturbation term adds anything once decoding format and budget are controlled. We therefore introduce a format-matched control (MatchedCtrl): the same short, no-CoT draws spent on the original image. Across TextVQA, MATH-Vision, MMMU, and ViLP, with a Qwen headline (three-seed means) and LLaVA-OneVision coverage in matched-budget selector tables, Pgs appears to beat plain majority voting by up to +31.8 points on TextVQA (Qwen), but MatchedCtrl tracks or exceeds Pgs within noise on every benchmark, including the vision-required ViLP; no Qwen category shows a significant gain over this control. The stability gap is real and image-dependent (up to +0.48), yet does not predict per-instance wins. The result is negative and diagnostic: perturbation consistency is at best a partial diagnostic of visual dependence and, on its own, not a usable selection signal once format is controlled; gains reported against CoT-only majority voting overstate such methods.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-08-02T12:47:39Z</published>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Puzhuo Zheng</name>
+    </author>
+    <author>
+      <name>Hasan Kurban</name>
+    </author>
+  </entry>
+</feed>

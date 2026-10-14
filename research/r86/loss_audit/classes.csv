@@ -1,0 +1,72 @@
+qid,src,cls,note
+136,val,ODD,big bird 0.72 m labelled smaller than the stated small bird 0.94 m
+410,val,ACCN,astronaut (mocap walk) acceleration; labels non-monotone 1.80/1.19/0.71/2.63
+412,val,ACCN,astronaut acceleration
+414,val,ACCN,astronaut acceleration
+416,val,ACCN,astronaut acceleration
+409,val,EVENT,astronaut speed at 0.5 s right after start (per-frame operator matches; window fit smooths)
+1051,val,DEF,pier deck height above water 0.26 vs 0.5 (visual judgement of a near-water deck)
+2773,val,ODD,ball-to-person distance 0.198 m (ball in front of the person's feet?)
+2213,val,ODD,desk width 857.9 cm
+1075,val,DEF,pedestal height 0.6 vs 1.0 (depth-scaled pixels give ~1.0; part definition)
+2140,val,ACCN,billiard ball acceleration 11 cm/s2 (tiny decel; 2nd derivative of short track)
+2470,val,LABCONV,pendulum swinging along the line of sight; label accel ~g from ToF depth differences
+2468,val,LABCONV,pendulum speed at the bottom of the swing; motion mostly in depth
+1049,val,REL3D,minimum distance pier end to boat (relational 3D distance)
+1259,val,DEF,lane width 11.8 m = full road (no lane markings); Claude 6 m
+2907,val,ODD,basketball 9.32 m/s indoor (ToF depth jump in the label)
+1081,val,DEF,roof frame thickness
+2905,val,LABCONV,lab soccer ball speed under-read x0.64
+2068,val,MEAS,bicycle speed from a tiny walking-pedestrian scale (direct 3.5 was right)
+2578,val,LABCONV,tennis ball speed under-read x0.75
+2385,val,LABCONV,ping-pong speed over-read x1.28 at 1.4 s
+414b,val,ACCN,dup
+1050,val,MEAS3D,3D sim extent under-read x0.71 (steps width)
+1080,val,MEAS3D,3D sim extent under-read x0.80 (clear height)
+2904,val,REL3D,lab distance between two balls x0.75
+2579,val,LABCONV,tennis ball speed under-read x0.76
+2032,val,PERSP,2D length of a light above the head x1.25 (different depth from the walking prior)
+2574,val,LABCONV,tennis ball speed under-read x0.75
+2908,val,LABCONV,basketball speed over-read x1.20
+2906,val,LABCONV,soccer ball speed under-read x0.74
+2216,val,RULE,lab ball speed: raw 0.97 -> rule 1.24
+2028,val,WIN,average velocity of a pencil tip: which window counts as moving
+1079,val,MEAS3D,bench length under-read x0.68
+2772,val,LABCONV,lab displacement in 0.1 s x0.82 (depth-dominated)
+1872,val,MEAS3D,3D sim astronaut speed x0.82
+1048,val,MEAS3D,pier length x0.81
+1718,val,MEAS3D,boat width x0.82 (rotated boat: world box wider)
+1497,fact,EVENT,car accel 5 m/s2 while entering frame at 1.0 s; Claude ~0.4
+1743,fact,VSCALE,eagle avg speed x0.18 (eagle close to the camera)
+1115,fact,VSCALE,person speed x0.34
+1689,fact,VSCALE,person avg speed x0.35
+1104,fact,VSCALE,eagle length x0.62
+1148,fact,VSCALE,eagle body length x0.71
+1736,fact,VSCALE,person height x0.73 (0039_seg)
+1375,fact,ACCN,white car accel x0.75
+1114,fact,VSCALE,boat length x0.76
+1674,fact,VSCALE,boat length x0.76
+1162,fact,VSCALE,person speed x0.77
+1424,fact,ACCN,free-fall box accel x0.80
+1103,fact,VSCALE,boat length x0.80
+1688,fact,MEAS3D,boat length x0.82
+1695,fact,MEAS3D,eagle avg speed x1.21
+1728,fact,MEAS3D,boat avg speed x1.22
+14,fact,PERSP,top-down 2D: person speed x1.23 (foreshortened person prior)
+1708,fact,MEAS3D,eagle length x1.25
+1128,fact,MEAS3D,eagle length x1.25
+1745,fact,PERSP,top-down 2D boat x1.33 (foreshortened person prior)
+1747,fact,PERSP,top-down 2D boat speed x1.33
+2162,fact,MEAS,lab basketball diameter x1.34
+11,fact,PERSP,top-down 2D boat x1.46
+13,fact,PERSP,top-down 2D boat speed x1.48
+1157,fact,VSCALE,eagle length x1.50
+1123,fact,VSCALE,person height x1.66 (0031)
+1703,fact,VSCALE,person height x1.71
+1110,fact,VSCALE,eagle length x2.0 (0025: whole clip x2-3)
+1683,fact,VSCALE,eagle avg speed x2.25
+1109,fact,VSCALE,eagle speed x2.39
+1686,fact,VSCALE,person height x2.97
+1112,fact,VSCALE,person height x3.14
+1684,fact,VSCALE,eagle length x4.4
+1741,fact,VSCALE,eagle length x8.3 (eagle filling the top of the frame)

@@ -1,0 +1,143 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/44nhS2flnjuDOz11izcs7okZP/k</id>
+  <title>arXiv Query: search_query=abs:"absolute distance" AND abs:"vision-language"&amp;id_list=&amp;start=0&amp;max_results=40</title>
+  <updated>2026-10-14T21:17:15Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=abs:%22absolute+distance%22+AND+abs:%22vision-language%22&amp;start=0&amp;max_results=40&amp;id_list=" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>40</opensearch:itemsPerPage>
+  <opensearch:totalResults>5</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/2609.34148v1</id>
+    <title>Geometric Encoding for Spatial Reasoning in Vision-Language Models</title>
+    <updated>2026-09-28T02:29:01Z</updated>
+    <link href="https://arxiv.org/abs/2609.34148v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2609.34148v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Vision-Language Models (VLMs) are far more reliable at recognizing what appears in a video than at reasoning about its spatial and temporal properties, such as metric distances, object dimensions, and consistent object identities across frames. We present Geometric Code, a perception-to-geometry pipeline that computes explicit spatial structure from video and supplies it to VLMs as context to augment reasoning. A perception layer segments and classifies objects and recovers depth, camera pose, and intrinsics from monocular RGB video. A deterministic geometric engine then back-projects, merges, and cleans these outputs into a spatial code, including per-object positions, dimensions, counts, inter-object distances, appearance order, and room geometry. The code is serialized into VLMs' prompts, either alongside the video or replacing it entirely. Specifically, there is no component trained or fine-tuned in our approach. On VSI-Bench, augmenting 2B and 4B open models with the spatial code improves average accuracy by +4.1 points over the frames-only baseline, with the largest gains on numeric estimation tasks such as absolute distance (+24.1 points). The results suggest that explicitly computed geometry, delivered through the language channel, recovers spatial competence that small VLMs cannot extract from pixels alone.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-09-28T02:29:01Z</published>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Antonio Jun</name>
+    </author>
+    <author>
+      <name>Haoshui Yu</name>
+    </author>
+    <author>
+      <name>Zhengyi Lu</name>
+    </author>
+    <author>
+      <name>Huirong Fu</name>
+    </author>
+    <author>
+      <name>Yao Qiang</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2609.29073v1</id>
+    <title>Seeing Is Not Measuring: Tool-Augmented Metric Spatial Reasoning for Vision-Language Models</title>
+    <updated>2026-09-24T06:03:30Z</updated>
+    <link href="https://arxiv.org/abs/2609.29073v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2609.29073v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Vision-Language Models (VLMs) describe scenes well but reason poorly about metric 3D structure such as absolute distances, physical sizes, or egocentric directions. We present a modular, predictor agnostic, tool-augmented framework that equips a small VLM (Qwen3.5-4B) with geometric tools: 3D object detection, metric depth estimation, and deterministic solvers for distance, size and bearing. Each object is detected in the camera frame of its own best view, and the tools use that frame's pose to lift every detection into one shared world frame. Moving metric computation out of the model's weights and into explicit solvers yields large gains on three of four ReVSI-Bench tasks: with a strong monocular detector (WildDet3D), absolute distance rises from 0.46 to 0.74 Mean Relative Accuracy (MRA), relative distance from 39.1% to 67.4%, and relative direction from a below-chance 25.9% to 73.4%. Because any detector can be swapped in behind the tool interface, comparing real detectors against ground-truth boxes separates perception error from reasoning error: orchestration costs only 0.03 MRA. Object size is bounded by the detector: the tools are near-exact on groundtruth boxes (0.97) yet the best real detector barely beats the no-tool baseline (0.61 vs. 0.58), because size reads straight off a box extent monocular detectors get wrong. Without a predefined recipe, the model already sequences the tools correctly on its own, matching a scripted pipeline on three of four tasks.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-09-24T06:03:30Z</published>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Kai Glantz</name>
+    </author>
+    <author>
+      <name>Clemens Grange</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2509.06266v2</id>
+    <title>Spatial Reasoning with Vision-Language Models in Ego-Centric Multi-View Scenes</title>
+    <updated>2025-09-30T04:28:17Z</updated>
+    <link href="https://arxiv.org/abs/2509.06266v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2509.06266v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Understanding 3D spatial relationships remains a major limitation of current Vision-Language Models (VLMs). Prior work has addressed this issue by creating spatial question-answering (QA) datasets based on single images or indoor videos. However, real-world embodied AI agents such as robots and self-driving cars typically rely on ego-centric, multi-view observations. To this end, we introduce Ego3D-Bench, a new benchmark designed to evaluate the spatial reasoning abilities of VLMs using ego-centric, multi-view outdoor data. Ego3D-Bench comprises over 8,600 QA pairs, created with significant involvement from human annotators to ensure quality and diversity. We benchmark 16 SOTA VLMs, including GPT-4o, Gemini1.5-Pro, InternVL3, and Qwen2.5-VL. Our results reveal a notable performance gap between human level scores and VLM performance, highlighting that current VLMs still fall short of human level spatial understanding. To bridge this gap, we propose Ego3D-VLM, a post-training framework that enhances 3D spatial reasoning of VLMs. Ego3D-VLM generates cognitive map based on estimated global 3D coordinates, resulting in 12% average improvement on multi-choice QA and 56% average improvement on absolute distance estimation. Ego3D-VLM is modular and can be integrated with any existing VLM. Together, Ego3D-Bench and Ego3D-VLM offer valuable tools for advancing toward human level spatial understanding in real-world, multi-view environments.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-09-08T01:08:41Z</published>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Mohsen Gholami</name>
+    </author>
+    <author>
+      <name>Ahmad Rezaei</name>
+    </author>
+    <author>
+      <name>Zhou Weimin</name>
+    </author>
+    <author>
+      <name>Sitong Mao</name>
+    </author>
+    <author>
+      <name>Shunbo Zhou</name>
+    </author>
+    <author>
+      <name>Yong Zhang</name>
+    </author>
+    <author>
+      <name>Mohammad Akbari</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2507.07781v1</id>
+    <title>SURPRISE3D: A Dataset for Spatial Understanding and Reasoning in Complex 3D Scenes</title>
+    <updated>2025-07-10T14:01:24Z</updated>
+    <link href="https://arxiv.org/abs/2507.07781v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2507.07781v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>The integration of language and 3D perception is critical for embodied AI and robotic systems to perceive, understand, and interact with the physical world. Spatial reasoning, a key capability for understanding spatial relationships between objects, remains underexplored in current 3D vision-language research. Existing datasets often mix semantic cues (e.g., object name) with spatial context, leading models to rely on superficial shortcuts rather than genuinely interpreting spatial relationships. To address this gap, we introduce S\textsc{urprise}3D, a novel dataset designed to evaluate language-guided spatial reasoning segmentation in complex 3D scenes. S\textsc{urprise}3D consists of more than 200k vision language pairs across 900+ detailed indoor scenes from ScanNet++ v2, including more than 2.8k unique object classes. The dataset contains 89k+ human-annotated spatial queries deliberately crafted without object name, thereby mitigating shortcut biases in spatial understanding. These queries comprehensively cover various spatial reasoning skills, such as relative position, narrative perspective, parametric perspective, and absolute distance reasoning. Initial benchmarks demonstrate significant challenges for current state-of-the-art expert 3D visual grounding methods and 3D-LLMs, underscoring the necessity of our dataset and the accompanying 3D Spatial Reasoning Segmentation (3D-SRS) benchmark suite. S\textsc{urprise}3D and 3D-SRS aim to facilitate advancements in spatially aware AI, paving the way for effective embodied interaction and robotic planning. The code and datasets can be found in https://github.com/liziwennba/SUPRISE.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.RO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-07-10T14:01:24Z</published>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Jiaxin Huang</name>
+    </author>
+    <author>
+      <name>Ziwen Li</name>
+    </author>
+    <author>
+      <name>Hanlve Zhang</name>
+    </author>
+    <author>
+      <name>Runnan Chen</name>
+    </author>
+    <author>
+      <name>Xiao He</name>
+    </author>
+    <author>
+      <name>Yandong Guo</name>
+    </author>
+    <author>
+      <name>Wenping Wang</name>
+    </author>
+    <author>
+      <name>Tongliang Liu</name>
+    </author>
+    <author>
+      <name>Mingming Gong</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2505.12312v4</id>
+    <title>Visuospatial Cognitive Assistant</title>
+    <updated>2025-09-09T09:48:14Z</updated>
+    <link href="https://arxiv.org/abs/2505.12312v4" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2505.12312v4" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Video-based spatial cognition is vital for robotics and embodied AI but challenges current Vision-Language Models (VLMs). This paper makes two key contributions. First, we introduce ViCA (Visuospatial Cognitive Assistant)-322K, a diverse dataset of 322,003 QA pairs from real-world indoor videos (ARKitScenes, ScanNet, ScanNet++), offering supervision for 3D metadata-grounded queries and video-based complex reasoning. Second, we develop ViCA-7B, fine-tuned on ViCA-322K, which achieves new state-of-the-art on all eight VSI-Bench tasks, outperforming existing models, including larger ones (e.g., +26.1 on Absolute Distance). For interpretability, we present ViCA-Thinking-2.68K, a dataset with explicit reasoning chains, and fine-tune ViCA-7B to create ViCA-7B-Thinking, a model that articulates its spatial reasoning. Our work highlights the importance of targeted data and suggests paths for improved temporal-spatial modeling. We release all resources to foster research in robust visuospatial intelligence.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.RO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-05-18T08:55:02Z</published>
+    <arxiv:comment>31 pages, 10 figures, 6 tables</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Qi Feng</name>
+    </author>
+  </entry>
+</feed>

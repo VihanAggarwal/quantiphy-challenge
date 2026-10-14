@@ -1,0 +1,509 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/wZyJguHtVeE3oCbF6Whir165DLQ</id>
+  <title>arXiv Query: search_query=abs:"spatial reasoning" AND abs:"tool" AND abs:metric&amp;id_list=&amp;start=0&amp;max_results=40</title>
+  <updated>2026-10-14T21:17:29Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=abs:%22spatial+reasoning%22+AND+(abs:%22tool%22+AND+abs:metric)&amp;start=0&amp;max_results=40&amp;id_list=" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>40</opensearch:itemsPerPage>
+  <opensearch:totalResults>16</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/2609.35718v1</id>
+    <title>Hard Vision, Easy Vision: What GPT-6 Astra Reveals Across Computer Vision</title>
+    <updated>2026-09-28T17:46:57Z</updated>
+    <link href="https://arxiv.org/abs/2609.35718v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2609.35718v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Frontier general-purpose systems are rapidly expanding beyond visual understanding into capabilities traditionally handled by dedicated computer-vision models. As these capabilities expand, a central question for the computer-vision community is how far this reach extends, and what remains hard. We evaluate GPT-6 Astra alongside five frontier general-purpose AI systems across 34 capabilities and 55 benchmarks spanning nine areas of computer vision. We compare their performance with dedicated models and humans where suitable references are available. Astra demonstrates broad visual capability, with substantial gains over other frontier systems in visual and spatial reasoning and several forms of structured prediction. Across the state-of-the-art systems, a consistent pattern emerges. Capabilities involving semantic interpretation, reasoning, and object-centric prediction increasingly approach or reach available reference levels. In contrast, larger gaps remain when tasks require metric geometric accuracy, faithful reconstruction, temporally consistent dense prediction, or specialized fine-grained visual knowledge. Additional reasoning and specialist tools close selected gaps, but their benefits vary across capabilities. These results map a changing landscape of computer vision in which increasingly sophisticated visual tasks are accessible through a general-purpose interface, while precise and fidelity-sensitive perception remains an important frontier.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-09-28T17:46:57Z</published>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Hanoona Rasheed</name>
+    </author>
+    <author>
+      <name>Mohammed Irfan Kurpath</name>
+    </author>
+    <author>
+      <name>Bin Ren</name>
+    </author>
+    <author>
+      <name>Hisham Cholakkal</name>
+    </author>
+    <author>
+      <name>Fahad Shahbaz Khan</name>
+    </author>
+    <author>
+      <name>Salman Khan</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2609.27340v1</id>
+    <title>Spatial and Semantic Reasoning for LLM-Driven Robot Navigation via MCP</title>
+    <updated>2026-09-23T04:29:01Z</updated>
+    <link href="https://arxiv.org/abs/2609.27340v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2609.27340v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Large language models (LLMs) are increasingly used as natural-language interfaces for robotic systems, yet their integration with Robot Operating System (ROS)-based navigation remains limited by two gaps. First, navigation data such as occupancy grids are represented as raw geometric messages that are difficult for LLMs to use directly as spatial or semantic context. Second, adding LLM-driven capabilities often requires custom wrappers or robot-specific interfaces, limiting reuse across systems. To address these challenges, we propose a non-invasive framework that connects LLM reasoning with ROS-based navigation through a navigation-oriented representation layer, exposed through the Model Context Protocol (MCP) as standardized, reusable tools so that any MCP-compatible LLM can access them without robot-specific wrappers. The visual map modules transform occupancy grids into metric, pose-aware images for goal reasoning, while the semantic annotation modules record waypoint-level observations with robot poses. We evaluate the framework on three tasks: autonomous mapping, spatial reasoning-based navigation, and semantic reasoning-based navigation. The results show that the evaluated LLM backends use these representations to achieve over 97% map coverage and select spatial or semantic navigation targets from natural-language instructions in a simulated indoor environment. This demonstrates representation-mediated LLM navigation without modifying the existing ROS navigation stack.</summary>
+    <category term="cs.RO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-09-23T04:29:01Z</published>
+    <arxiv:primary_category term="cs.RO"/>
+    <author>
+      <name>Jungsoo Lee</name>
+    </author>
+    <author>
+      <name>Jaegyun Park</name>
+    </author>
+    <author>
+      <name>Wansoo Kim</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2609.19911v1</id>
+    <title>CitySTAR: Structured and Topology-Aware Reasoning for Open-Vocabulary Urban 3D Grounding</title>
+    <updated>2026-09-17T08:53:13Z</updated>
+    <link href="https://arxiv.org/abs/2609.19911v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2609.19911v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>3D grounding aims to localize target entities in complex scenes from natural language and plays a fundamental role in embodied perception and spatial reasoning. However, existing approaches mostly rely on feature similarity or direct matching, making it difficult to connect natural-language intent with the implicit semantic and geometric structures hidden in billion-scale urban point clouds. We reformulate city-scale 3D grounding as structured constraint reasoning, where description semantics are organized into computable cross-modal constraints over open-vocabulary 3D entities, attributes, and spatial relations. We present CitySTAR, a training-free framework for reasoning-driven urban 3D grounding. CitySTAR lifts raw billion-scale urban point clouds into a query-ready scene graph of open-vocabulary 3D instances, with CodeLLM-driven tools supplying multimodal evidence for node attributes and 3D spatial relations. It then models target-context topology with paired hypergraphs and performs bidirectional topology verification for structural disambiguation. Finally, a Reflective Cross-modal Grounding module integrates topology consistency and candidate-centered 2D visual evidence to make decisions over a metric-aware 3D context graph. To further support this setting, we introduce CitySTAR-3D, an enhanced benchmark that improves semantic coverage, instance completeness, bounding-box fidelity, and spatial-relation complexity in city-scale 3D grounding. Extensive experiments show that CitySTAR consistently improves open-world urban 3D grounding while maintaining strong interpretability and generalization.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-09-17T08:53:13Z</published>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Shuai Zhang</name>
+    </author>
+    <author>
+      <name>Hongye Hou</name>
+    </author>
+    <author>
+      <name>Qinghe Liu</name>
+    </author>
+    <author>
+      <name>Zhuoxiao Li</name>
+    </author>
+    <author>
+      <name>Dongli Wu</name>
+    </author>
+    <author>
+      <name>Jing Ou</name>
+    </author>
+    <author>
+      <name>Yuan Liu</name>
+    </author>
+    <author>
+      <name>Wufan Zhao</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2609.03892v1</id>
+    <title>GraFT: A Training-Free Framework for Spatial Reasoning in Multimodal Large Language Models via 3D Scene Graphs</title>
+    <updated>2026-09-03T14:11:56Z</updated>
+    <link href="https://arxiv.org/abs/2609.03892v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2609.03892v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>3D spatial reasoning underpins understanding and acting in the physical world, yet it remains unreliable in current multimodal large language models (MLLMs). These models falter at precise geometric measurement, at transforming between egocentric and allocentric viewpoints, and at grounding fine-grained appearance. The most common remedies fine-tune the model on large-scale curated spatial-reasoning datasets or attach dedicated encoders for 3D geometry, which typically couples the solution to costly supervision and a specific backbone. We instead introduce GraFT, a training-free framework that supplies the missing 3D structure through a compact, easily maintained 3D scene graph (3DSG). From this 3DSG, GraFT provides three spatial reasoning capabilities: (1) deterministic geometry through symbolic tools, (2) allocentric layout through a bird's-eye-view (BEV) rendering, and (3) visual-attribute grounding through task-relevant egocentric frames. On ScanQA, GraFT improves every metric over the same-backbone baseline, raising CIDEr by 27%. On VSI-Bench, GraFT improves frozen MLLMs by up to 65%, surpassing every proprietary and general-purpose open-source baseline, and several prominent fine-tuned spatial models.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.RO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-09-03T14:11:56Z</published>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Junqing Du</name>
+    </author>
+    <author>
+      <name>Fernando Ropero</name>
+    </author>
+    <author>
+      <name>Erkin Turkoz</name>
+    </author>
+    <author>
+      <name>Yanfeng Zhang</name>
+    </author>
+    <author>
+      <name>Lu Liu</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2606.02951v1</id>
+    <title>SCOPE: Real-Time Natural Language Camera Agent at the Edge</title>
+    <updated>2026-06-01T23:07:44Z</updated>
+    <link href="https://arxiv.org/abs/2606.02951v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2606.02951v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Deploying language-driven agents in robotics requires evaluations that reflect real-world task demands: natural-language instructions with reproducible outcomes. Such agents must connect language models to callable perception and control tools, and be assessed using deployment-critical metrics including latency, accuracy, and error modes. We present SCOPE (Simulation and Camera Operations for Perception and Evaluation), a modular agent for natural-language, open-vocabulary pan-tilt-zoom (PTZ) camera control and visual scene understanding, designed explicitly for edge deployment. SCOPE operates both in a Blender-based simulation environment and on a physical PTZ camera, executing all perception, planning, and control locally at the deployment site using edge-accessible compute.
+  We release a 536-task benchmark spanning QA, single- and multi-step commands, counting, spatial reasoning, descriptions, and optical character recognition in a Blender-based simulation environment that exposes realistic PTZ control affordances. Execution traces are combined with an LM-as-Judge to evaluate latency, accuracy, and error modes.
+  We evaluate 19 planner-perception model combinations pairing Qwen3 small language models (SLMs) with Moondream and Qwen vision-language models (VLMs). Stronger SLMs substantially reduce hallucinations and improve tool routing, leading to more reliable closed-loop behavior. Once a sufficiently capable SLM is used, perception becomes the dominant performance bottleneck. Mixture-of-Experts models on both the planning and perception side consistently match or exceed dense alternatives at latencies and memory footprints comparable to much smaller networks. Quantization provides additional efficiency gains with minimal accuracy degradation, identifying a practical, sim-to-real validated design point for real-time, edge-feasible language-driven PTZ control.</summary>
+    <category term="cs.RO" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.HC" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-06-01T23:07:44Z</published>
+    <arxiv:comment>9 pages, 4 figures, 6 tables. Accepted at HRI '26 (21st ACM/IEEE International Conference on Human-Robot Interaction), Edinburgh, Scotland, March 16--19, 2026. Code: https://github.com/HindsboNikolaj/SCOPE</arxiv:comment>
+    <arxiv:primary_category term="cs.RO"/>
+    <arxiv:journal_ref>Proceedings of the 21st ACM/IEEE International Conference on Human-Robot Interaction (HRI '26), ACM, 2026</arxiv:journal_ref>
+    <author>
+      <name>Nikolaj Hindsbo</name>
+    </author>
+    <author>
+      <name>Sina Ehsani</name>
+    </author>
+    <author>
+      <name>Pragyana Mishra</name>
+    </author>
+    <arxiv:doi>10.1145/3757279.3785641</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1145/3757279.3785641" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2604.12762v2</id>
+    <title>ARGOS: Who, Where, and When in Agentic Multi-Camera Person Search</title>
+    <updated>2026-09-04T12:59:42Z</updated>
+    <link href="https://arxiv.org/abs/2604.12762v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2604.12762v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Existing person search methods assume access to complete visual queries or exhaustive tracking, yet real-world witness accounts are vague, partial, and spread across cameras and time. We introduce ARGOS (Agentic Retrieval with Grounded Observational Search), a benchmark and agent framework that recasts multi-camera person search from one-shot retrieval on a complete query into interactive reasoning from partial clues. To our knowledge, ARGOS is the first interactive benchmark to couple witness dialogue with camera-network topology, requiring an agent to plan, question, and eliminate under information asymmetry.
+  An ARGOS agent receives a vague witness statement and must decide what to ask, when to invoke spatial or temporal tools, and how to interpret ambiguous natural-language responses, all within a limited turn budget. To ground reasoning in physical constraints, the agent accesses a Spatio-Temporal Topology Graph (STTG) encoding camera connectivity and empirically validated transition times.
+  The benchmark comprises 2{,}691 tasks across 14 real-world scenarios in three progressive tracks: semantic perception (\emph{Who}, 989 tasks), spatial reasoning (\emph{Where}, 550 tasks), and temporal reasoning (\emph{When}, 1{,}152 tasks). We propose Turn-Weighted Success (TWS) as the primary metric, jointly measuring correctness and turn efficiency.
+  Experiments with four LLM backbones show the benchmark is far from solved: the best agent achieves TWS of 0.383 (Track~2) and 0.590 (Track~3). Ablations confirm each component is essential: removing domain-specific tools drops Top-1 accuracy by up to 49.6 percentage points, and removing strategic reasoning halves TWS while barely affecting Top-1.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.MA" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-04-14T14:06:19Z</published>
+    <arxiv:comment>Accepted to ECCV 2026 &amp; CVPR 2026 Workshop on Multimodal Spatial Intelligence (MUSI)</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Myungchul Kim</name>
+    </author>
+    <author>
+      <name>Kwanyong Park</name>
+    </author>
+    <author>
+      <name>Junmo Kim</name>
+    </author>
+    <author>
+      <name>In So Kweon</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2603.15386v1</id>
+    <title>RieMind: Geometry-Grounded Spatial Agent for Scene Understanding</title>
+    <updated>2026-03-16T15:02:24Z</updated>
+    <link href="https://arxiv.org/abs/2603.15386v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2603.15386v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Visual Language Models (VLMs) have increasingly become the main paradigm for understanding indoor scenes, but they still struggle with metric and spatial reasoning. Current approaches rely on end-to-end video understanding or large-scale spatial question answering fine-tuning, inherently coupling perception and reasoning. In this paper, we investigate whether decoupling perception and reasoning leads to improved spatial reasoning. We propose an agentic framework for static 3D indoor scene reasoning that grounds an LLM in an explicit 3D scene graph (3DSG). Rather than ingesting videos directly, each scene is represented as a persistent 3DSG constructed by a dedicated perception module. To isolate reasoning performance, we instantiate the 3DSG from ground-truth annotations. The agent interacts with the scene exclusively through structured geometric tools that expose fundamental properties such as object dimensions, distances, poses, and spatial relationships. The results we obtain on the static split of VSI-Bench provide an upper bound under ideal perceptual conditions on the spatial reasoning performance, and we find that it is significantly higher than previous works, by up to 16\%, without task specific fine-tuning. Compared to base VLMs, our agentic variant achieves significantly better performance, with average improvements between 33\% to 50\%. These findings indicate that explicit geometric grounding substantially improves spatial reasoning performance, and suggest that structured representations offer a compelling alternative to purely end-to-end visual reasoning.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-03-16T15:02:24Z</published>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Fernando Ropero</name>
+    </author>
+    <author>
+      <name>Erkin Turkoz</name>
+    </author>
+    <author>
+      <name>Daniel Matos</name>
+    </author>
+    <author>
+      <name>Junqing Du</name>
+    </author>
+    <author>
+      <name>Antonio Ruiz</name>
+    </author>
+    <author>
+      <name>Yanfeng Zhang</name>
+    </author>
+    <author>
+      <name>Lu Liu</name>
+    </author>
+    <author>
+      <name>Mingwei Sun</name>
+    </author>
+    <author>
+      <name>Yongliang Wang</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2604.15332v1</id>
+    <title>Automating Crash Diagram Generation Using Vision-Language Models: A Case Study on Multi-Lane Roundabouts</title>
+    <updated>2026-03-09T16:15:28Z</updated>
+    <link href="https://arxiv.org/abs/2604.15332v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2604.15332v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Crash diagrams are essential tools in transportation safety analysis, yet their manual preparation remains time-consuming and prone to human variability. This study investigates the use of Vision-Language Models (VLMs) to automate crash diagram generation from police crash reports, focusing on multilane roundabouts as a challenging test case. A three-part structured prompt framework was developed to guide model reasoning through interpretation, extraction, and visual synthesis, while a 10-metric evaluation system was designed to assess diagram quality in terms of semantic accuracy, spatial fidelity, and visual clarity. Three popular models, including GPT-4o, Gemini-1.5-Flash, and Janus-4o, were tested on 79 crash reports. GPT-4o achieved the highest average performance (6.29 out of 10), followed by Gemini-1.5-Flash (5.28) and Janus-4o (3.64). The analysis revealed GPT-4o's superior spatial reasoning and alignment between extracted and visualized crash data. These results highlight both the promise and current limitations of VLMs in engineering visualization tasks. The study lays the groundwork for integrating generative AI into crash analysis workflows to improve efficiency, consistency, and interpretability.</summary>
+    <category term="cs.HC" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.SE" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-03-09T16:15:28Z</published>
+    <arxiv:comment>16 pages, 5 figures, 3 tables</arxiv:comment>
+    <arxiv:primary_category term="cs.HC"/>
+    <arxiv:journal_ref>Applied Computing and Intelligence, 2026, 6(1): 38-57</arxiv:journal_ref>
+    <author>
+      <name>Xiao Lu</name>
+    </author>
+    <author>
+      <name>Hao Zhen</name>
+    </author>
+    <author>
+      <name>Jidong J. Yang</name>
+    </author>
+    <arxiv:doi>10.3934/aci.2026003</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.3934/aci.2026003" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2603.04277v2</id>
+    <title>VehAnchor: Metadata-Free Metric Scale Recovery from Vehicle Cues in Aerial Imagery</title>
+    <updated>2026-07-10T22:04:51Z</updated>
+    <link href="https://arxiv.org/abs/2603.04277v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2603.04277v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Autonomous aerial robots operating in GPS-denied or communication-degraded environments frequently lose access to camera metadata and telemetry, leaving onboard perception systems unable to recover the absolute metric scale of the scene. As LLM/VLM-based planners are increasingly adopted as high-level agents for embodied systems, their ability to reason about physical dimensions becomes safety-critical -- yet our experiments show that five state-of-the-art VLMs suffer from \emph{spatial scale hallucinations}, with median area estimation errors exceeding 50\%. We propose VehAnchor, a lightweight, deterministic \emph{Geometric Perception Skill} designed as a callable tool that any LLM-based agent can invoke to recover Ground Sample Distance (GSD) from ubiquitous environmental anchors: small vehicles detected via oriented bounding boxes, whose modal pixel length is robustly estimated through kernel density estimation and converted to GSD using a pre-calibrated reference length. The tool returns both a GSD estimate and a composite confidence score, enabling the calling agent to autonomously decide whether to trust the measurement or fall back to alternative strategies. On the DOTA~v1.5 benchmark, VehAnchor achieves 6.87\% median GSD error on 306~images. Integrated with SAM-based segmentation for downstream area measurement, the pipeline yields 19.7\% median error on a 100-entry benchmark -- with 2.6$\times$ lower category dependence and 4$\times$ fewer catastrophic failures than the best VLM baseline -- demonstrating that equipping agents with deterministic geometric tools is essential for safe autonomous spatial reasoning.</summary>
+    <category term="cs.RO" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-03-04T16:59:08Z</published>
+    <arxiv:primary_category term="cs.RO"/>
+    <author>
+      <name>Yifei Chen</name>
+    </author>
+    <author>
+      <name>Chenqian Le</name>
+    </author>
+    <author>
+      <name>Jiayi Cheng</name>
+    </author>
+    <author>
+      <name>Xupeng Chen</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2601.11729v3</id>
+    <title>SpaRRTa: A Synthetic Benchmark for Evaluating Spatial Intelligence in Visual Foundation Models</title>
+    <updated>2026-09-17T14:28:30Z</updated>
+    <link href="https://arxiv.org/abs/2601.11729v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2601.11729v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Visual Foundation Models (VFMs), such as DINO and CLIP, excel in semantic understanding of images but exhibit limited spatial reasoning capabilities, which limits their applicability to embodied systems. As a result, recent work incorporates some 3D tasks (such as depth estimation) into VFM training. However, VFM performance remains inconsistent across other spatial tasks, raising the question of whether these models truly have spatial awareness or overfit to specific 3D objectives. To address this question, we introduce the Spatial Relation Recognition Task (SpaRRTa) benchmark, which evaluates the ability of VFMs to identify relative positions of objects in the image. Unlike traditional 3D objectives that focus on precise metric prediction (e.g., surface normal estimation), SpaRRTa probes a fundamental capability underpinning more advanced forms of human-like spatial understanding. SpaRRTa generates an arbitrary number of photorealistic images with diverse scenes and fully controllable object arrangements, along with freely accessible spatial annotations. Evaluating a range of state-of-the-art VFMs, we reveal significant disparities between their spatial reasoning abilities. Through our analysis, we provide insights into the mechanisms that support or hinder spatial awareness in modern VFMs. We hope that SpaRRTa will serve as a useful tool for guiding the development of future spatially aware visual models.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-01-16T19:21:02Z</published>
+    <arxiv:comment>Project page is available at https://sparrta.gmum.net/</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Turhan Can Kargin</name>
+    </author>
+    <author>
+      <name>Wojciech Jasiński</name>
+    </author>
+    <author>
+      <name>Adam Pardyl</name>
+    </author>
+    <author>
+      <name>Bartosz Zieliński</name>
+    </author>
+    <author>
+      <name>Marcin Przewięźlikowski</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2512.04069v2</id>
+    <title>SpaceTools: Tool-Augmented Spatial Reasoning via Double Interactive RL</title>
+    <updated>2026-06-01T16:57:23Z</updated>
+    <link href="https://arxiv.org/abs/2512.04069v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2512.04069v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Vision Language Models (VLMs) demonstrate strong qualitative visual understanding, but struggle with metrically precise spatial reasoning required for embodied applications. The agentic paradigm promises that VLMs can use a wide variety of tools that could augment these capabilities, such as depth estimators, segmentation models, and pose estimators. Yet it remains an open challenge how to realize this vision without solely relying on handcrafted prompting strategies or enforcing fixed, predefined tool pipelines that limit VLMs' ability to discover optimal tool-use patterns. Reinforcement Learning could overcome this gap, but has so far been limited to reasoning with a single visual tool due to the large search space in multi-tool reasoning. We introduce Double Interactive Reinforcement Learning (DIRL), a two-phase training framework where VLMs learn to coordinate multiple tools through interactive exploration and feedback. In the teaching phase, we combine demonstrations from a single tool specialist trained via interactive RL with traces from a frontier model using all tools. In the exploration phase, the model further refines multi-tool coordination through continued RL. Our model, SpaceTools, with tool-augmented spatial reasoning ability, achieves state-of-the-art performance on spatial understanding benchmarks (RoboSpatial-Home, BLINK, BOP-ASK) and demonstrates reliable real-world manipulation using a 7-DOF robot as a tool. DIRL provides substantial improvements over the vanilla SFT (+12% on RoboSpatial) and RL (+16% on RoboSpatial) baselines. Project page: https://spacetools.github.io/.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.RO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-12-03T18:50:04Z</published>
+    <arxiv:comment>CVPR 2026</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Siyi Chen</name>
+    </author>
+    <author>
+      <name>Mikaela Angelina Uy</name>
+    </author>
+    <author>
+      <name>Chan Hee Song</name>
+    </author>
+    <author>
+      <name>Faisal Ladhak</name>
+    </author>
+    <author>
+      <name>Adithyavairavan Murali</name>
+    </author>
+    <author>
+      <name>Qing Qu</name>
+    </author>
+    <author>
+      <name>Stan Birchfield</name>
+    </author>
+    <author>
+      <name>Valts Blukis</name>
+    </author>
+    <author>
+      <name>Jonathan Tremblay</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2512.01174v1</id>
+    <title>DrawingBench: Evaluating Spatial Reasoning and UI Interaction Capabilities of Large Language Models through Mouse-Based Drawing Tasks</title>
+    <updated>2025-12-01T01:18:21Z</updated>
+    <link href="https://arxiv.org/abs/2512.01174v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2512.01174v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>As agentic AI systems increasingly operate autonomously, establishing trust through verifiable evaluation becomes critical. Yet existing benchmarks lack the transparency and auditability needed to assess whether agents behave reliably. We present DrawingBench, a verification framework for evaluating the trustworthiness of agentic LLMs through spatial reasoning tasks that require generating sequences of low-level GUI actions. Unlike opaque evaluations, DrawingBench provides transparent, rule-based assessment: 8 objective criteria enable reproducible scoring, while action-level inspection allows stakeholders to audit agent behavior. Our framework comprises 250 diverse prompts across 20 categories and 4 difficulty levels, deterministic evaluation metrics, and an external oversight mechanism through multi-turn feedback that enables human control over agent refinement. Evaluating four state-of-the-art LLMs (Claude-4 Sonnet, GPT-4.1, GPT-4.1-mini, Gemini-2.5 Flash) across 1,000 tests, we establish both capabilities and limitations: models achieved 92.8% perfect performance with structured external feedback driving significant improvements (average +3.2%, up to +32.8% for complex scenes), but systematic error patterns emerged in tool state management and long-horizon planning. Notably, specification clarity proved more important than task complexity -- models achieved 100% perfect performance when given explicit, verifiable criteria. These findings demonstrate that transparent evaluation frameworks can establish trust in agentic systems, with external oversight proving more reliable than self-correction for guiding agent behavior. Our open-source framework provides a template for trustworthy agent assessment. Code and data: https://github.com/hyunjun1121/DrawingBench</summary>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-12-01T01:18:21Z</published>
+    <arxiv:comment>AAAI 2026 TrustAgent Workshop</arxiv:comment>
+    <arxiv:primary_category term="cs.CL"/>
+    <author>
+      <name>Hyunjun Kim</name>
+    </author>
+    <author>
+      <name>Sooyoung Ryu</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2510.07181v3</id>
+    <title>TIGeR: Tool-Integrated Geometric Reasoning in Vision-Language Models for Robotics</title>
+    <updated>2026-03-04T07:07:00Z</updated>
+    <link href="https://arxiv.org/abs/2510.07181v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2510.07181v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Vision-Language Models (VLMs) have shown remarkable capabilities in spatial reasoning, yet they remain fundamentally limited to qualitative precision and lack the computational precision required for real-world robotics. Current approaches fail to leverage metric cues from depth sensors and camera calibration, instead reducing geometric problems to pattern recognition tasks that cannot deliver the centimeter-level accuracy essential for robotic manipulation. We present TIGeR (Tool-Integrated Geometric Reasoning), a novel framework that transforms VLMs from perceptual estimators to geometric computers by enabling them to generate and execute precise geometric computations through external tools. Rather than attempting to internalize complex geometric operations within neural networks, TIGeR empowers models to recognize geometric reasoning requirements, synthesize appropriate computational code, and invoke specialized libraries for exact calculations. To support this paradigm, we introduce TIGeR-300K, a comprehensive tool-invocation-oriented dataset covering point transformations, pose estimation, and spatial compatibility verification, complete with tool invocation sequences and intermediate computations. Through a two-stage training pipeline combining supervised fine-tuning (SFT) and reinforcement fine-tuning (RFT) with our proposed hierarchical reward design, TIGeR achieves SOTA performance on geometric reasoning benchmarks while demonstrating centimeter-level precision in real-world robotic manipulation tasks.</summary>
+    <category term="cs.RO" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-10-08T16:20:23Z</published>
+    <arxiv:comment>8 pages, 6 figures</arxiv:comment>
+    <arxiv:primary_category term="cs.RO"/>
+    <author>
+      <name>Yi Han</name>
+    </author>
+    <author>
+      <name>Enshen Zhou</name>
+    </author>
+    <author>
+      <name>Shanyu Rong</name>
+    </author>
+    <author>
+      <name>Jingkun An</name>
+    </author>
+    <author>
+      <name>Pengwei Wang</name>
+    </author>
+    <author>
+      <name>Zhongyuan Wang</name>
+    </author>
+    <author>
+      <name>Cheng Chi</name>
+    </author>
+    <author>
+      <name>Lu Sheng</name>
+    </author>
+    <author>
+      <name>Shanghang Zhang</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2505.23752v3</id>
+    <title>ThinkGeo: Evaluating Tool-Augmented Agents for Remote Sensing Tasks</title>
+    <updated>2026-04-02T04:47:22Z</updated>
+    <link href="https://arxiv.org/abs/2505.23752v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2505.23752v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Recent progress in large language models (LLMs) has enabled tool-augmented agents capable of solving complex real-world tasks through step-by-step reasoning. However, existing evaluations often focus on general-purpose or multimodal scenarios, leaving a gap in domain-specific benchmarks that assess tool-use capabilities in complex remote sensing use cases. We present ThinkGeo, an agentic benchmark designed to evaluate LLM-driven agents on remote sensing tasks via structured tool use and multi-step planning. Inspired by tool-interaction paradigms, ThinkGeo includes human-curated queries spanning a wide range of real-world applications such as urban planning, disaster assessment and change analysis, environmental monitoring, transportation analysis, aviation monitoring, recreational infrastructure, and industrial site analysis. Queries are grounded in satellite or aerial imagery, including both optical RGB and SAR data, and require agents to reason through a diverse toolset. We implement a ReAct-style interaction loop and evaluate both open and closed-source LLMs (e.g., GPT-4o, Qwen2.5) on 486 structured agentic tasks with 1,778 expert-verified reasoning steps. The benchmark reports both step-wise execution metrics and final answer correctness. Our analysis reveals notable disparities in tool accuracy and planning consistency across models. ThinkGeo provides the first extensive testbed for evaluating how tool-enabled LLMs handle spatial reasoning in remote sensing.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-05-29T17:59:38Z</published>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Akashah Shabbir</name>
+    </author>
+    <author>
+      <name>Muhammad Akhtar Munir</name>
+    </author>
+    <author>
+      <name>Akshay Dudhane</name>
+    </author>
+    <author>
+      <name>Muhammad Umer Sheikh</name>
+    </author>
+    <author>
+      <name>Muhammad Haris Khan</name>
+    </author>
+    <author>
+      <name>Paolo Fraccaro</name>
+    </author>
+    <author>
+      <name>Juan Bernabe Moreno</name>
+    </author>
+    <author>
+      <name>Fahad Shahbaz Khan</name>
+    </author>
+    <author>
+      <name>Salman Khan</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2505.17677v2</id>
+    <title>Towards Dynamic 3D Reconstruction of Hand-Instrument Interaction in Ophthalmic Surgery</title>
+    <updated>2025-05-30T04:41:21Z</updated>
+    <link href="https://arxiv.org/abs/2505.17677v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2505.17677v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Accurate 3D reconstruction of hands and instruments is critical for vision-based analysis of ophthalmic microsurgery, yet progress has been hampered by the lack of realistic, large-scale datasets and reliable annotation tools. In this work, we introduce OphNet-3D, the first extensive RGB-D dynamic 3D reconstruction dataset for ophthalmic surgery, comprising 41 sequences from 40 surgeons and totaling 7.1 million frames, with fine-grained annotations of 12 surgical phases, 10 instrument categories, dense MANO hand meshes, and full 6-DoF instrument poses. To scalably produce high-fidelity labels, we design a multi-stage automatic annotation pipeline that integrates multi-view data observation, data-driven motion prior with cross-view geometric consistency and biomechanical constraints, along with a combination of collision-aware interaction constraints for instrument interactions. Building upon OphNet-3D, we establish two challenging benchmarks-bimanual hand pose estimation and hand-instrument interaction reconstruction-and propose two dedicated architectures: H-Net for dual-hand mesh recovery and OH-Net for joint reconstruction of two-hand-two-instrument interactions. These models leverage a novel spatial reasoning module with weak-perspective camera modeling and collision-aware center-based representation. Both architectures outperform existing methods by substantial margins, achieving improvements of over 2mm in Mean Per Joint Position Error (MPJPE) and up to 23% in ADD-S metrics for hand and instrument reconstruction, respectively.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-05-23T09:44:02Z</published>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Ming Hu</name>
+    </author>
+    <author>
+      <name>Zhengdi Yu</name>
+    </author>
+    <author>
+      <name>Feilong Tang</name>
+    </author>
+    <author>
+      <name>Kaiwen Chen</name>
+    </author>
+    <author>
+      <name>Yulong Li</name>
+    </author>
+    <author>
+      <name>Imran Razzak</name>
+    </author>
+    <author>
+      <name>Junjun He</name>
+    </author>
+    <author>
+      <name>Tolga Birdal</name>
+    </author>
+    <author>
+      <name>Kaijing Zhou</name>
+    </author>
+    <author>
+      <name>Zongyuan Ge</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2202.04755v1</id>
+    <title>DeepSSN: a deep convolutional neural network to assess spatial scene similarity</title>
+    <updated>2022-02-07T23:53:20Z</updated>
+    <link href="https://arxiv.org/abs/2202.04755v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2202.04755v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Spatial-query-by-sketch is an intuitive tool to explore human spatial knowledge about geographic environments and to support communication with scene database queries. However, traditional sketch-based spatial search methods perform insufficiently due to their inability to find hidden multi-scale map features from mental sketches. In this research, we propose a deep convolutional neural network, namely Deep Spatial Scene Network (DeepSSN), to better assess the spatial scene similarity. In DeepSSN, a triplet loss function is designed as a comprehensive distance metric to support the similarity assessment. A positive and negative example mining strategy using qualitative constraint networks in spatial reasoning is designed to ensure a consistently increasing distinction of triplets during the training process. Moreover, we develop a prototype spatial scene search system using the proposed DeepSSN, in which the users input spatial query via sketch maps and the system can automatically augment the sketch training data. The proposed model is validated using multi-source conflated map data including 131,300 labeled scene samples after data augmentation. The empirical results demonstrate that the DeepSSN outperforms baseline methods including k-nearest-neighbors, multilayer perceptron, AlexNet, DenseNet, and ResNet using mean reciprocal rank and precision metrics. This research advances geographic information retrieval studies by introducing a novel deep learning method tailored to spatial scene queries.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2022-02-07T23:53:20Z</published>
+    <arxiv:comment>28 pages, 10 figures, 8 tables</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <arxiv:journal_ref>Transactions in GIS, 2022</arxiv:journal_ref>
+    <author>
+      <name>Danhuai Guo</name>
+    </author>
+    <author>
+      <name>Shiyin Ge</name>
+    </author>
+    <author>
+      <name>Shu Zhang</name>
+    </author>
+    <author>
+      <name>Song Gao</name>
+    </author>
+    <author>
+      <name>Ran Tao</name>
+    </author>
+    <author>
+      <name>Yangang Wang</name>
+    </author>
+  </entry>
+</feed>

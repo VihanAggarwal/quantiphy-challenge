@@ -1,0 +1,1385 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/D0GePc6DU94i735KDp/1CmwuYeM</id>
+  <title>arXiv Query: search_query=abs:metric AND abs:spatial AND abs:"vision-language"&amp;id_list=&amp;start=0&amp;max_results=40</title>
+  <updated>2026-10-14T21:17:11Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=abs:metric+AND+(abs:spatial+AND+abs:%22vision-language%22)&amp;start=0&amp;max_results=40&amp;id_list=" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>40</opensearch:itemsPerPage>
+  <opensearch:totalResults>206</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/2610.18694v1</id>
+    <title>GeoReader: Learning Latent Geometry for Spatial Reasoning in Vision-Language Models</title>
+    <updated>2026-10-13T16:45:37Z</updated>
+    <link href="https://arxiv.org/abs/2610.18694v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.18694v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Vision-language models (VLMs) struggle with metric and multi-view relationships that remain implicit in RGB observations. Geometry foundation models recover this structure from RGB, but existing methods either fuse the estimated features with visual tokens and learn to use them from question answering alone, or align VLM latents with geometry features. Capturing geometry, however, does not ensure its use: zeroing the aligned latents of a released feature-alignment model leaves its accuracy unchanged. We introduce GeoReader, a framework that learns geometric representations for the VLM that reads them. First, we train lightweight Geometric Readers to produce continuous input tokens, supervising them with geometry descriptions decoded by a frozen VLM, so that the Readers express geometry in a form the target model can already read. We then freeze the Readers to preserve this interface while fine-tuning the VLM on spatial QA, with geometry injection conditioned on the question. Geometry descriptions serve only as training targets: at inference, the VLM answers directly from the continuous geometric tokens without generating a geometry chain of thought. With geometry predicted from RGB images, our approach reaches 94.3 on MindCube-Tiny with Qwen3-VL-4B and, with a multi-source QA mixture, an average of 72.5 across six additional spatial benchmarks with Qwen3.5-9B. These results suggest that a useful geometric representation is one the receiving model can use, not merely one from which geometry can be reconstructed.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.MM" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-13T16:45:37Z</published>
+    <arxiv:comment>35 pages, 11 figures, 15 tables; Project Page at https://iris0329.github.io/georeader-homepage/ GitHub Repo at https://github.com/iris0329/GeoReader</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Rong Li</name>
+    </author>
+    <author>
+      <name>Shijie Li</name>
+    </author>
+    <author>
+      <name>Jiangyong Huang</name>
+    </author>
+    <author>
+      <name>Lingdong Kong</name>
+    </author>
+    <author>
+      <name>Jiaming Zhou</name>
+    </author>
+    <author>
+      <name>Dongyue Lu</name>
+    </author>
+    <author>
+      <name>Zeying Gong</name>
+    </author>
+    <author>
+      <name>Baoxiong Jia</name>
+    </author>
+    <author>
+      <name>Junwei Liang</name>
+    </author>
+    <author>
+      <name>Siyuan Huang</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.17630v1</id>
+    <title>From Pixels to Executable Physics: Behavior-Grounded World Models for Embodied Action Consequence Prediction</title>
+    <updated>2026-10-13T02:56:21Z</updated>
+    <link href="https://arxiv.org/abs/2610.17630v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.17630v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>In outdoor environments, varying terrain and contact conditions can cause identical action commands to produce different motion outcomes for quadruped robots. Predicting these outcomes is essential for reliable navigation and informed path selection. Existing video world models can generate visually plausible futures, yet often struggle to capture robot dynamics and terrain interactions, leading to overly optimistic predictions of action outcomes. We present DR-WM, a physically consistent world model that incorporates robot-terrain contact dynamics to predict the consequences of quadruped actions. Starting from an initial RGB image, our method reconstructs scene geometry and integrates dense, dimensionless priors over terrain contact properties, calibrated using real-world action-response data. The resulting terrain model supports the simulation of physics with spatially varying contact properties such as friction. Given the initial state of the robot and candidate action sequences, we simulate its future motion and use the resulting camera trajectories and rendered geometry to guide the training of a video world model. The generated future observations are then used to update the terrain reconstruction, enabling iterative model rollouts without additional real-world images. Extensive experiments demonstrate that DR-WM substantially outperforms geometry-only baselines and baselines with uniform physical parameters on key physical metrics characterizing action outcomes, while achieving the best performance among the evaluated baselines. These physically grounded predictions support more informed action selection: across 90 challenging scenarios, an 8B vision-language model augmented with DR-WM outperforms an unassisted 32B vision-language model on five of six evaluation metrics.</summary>
+    <category term="cs.RO" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-13T02:56:21Z</published>
+    <arxiv:primary_category term="cs.RO"/>
+    <author>
+      <name>Ruo Chen</name>
+    </author>
+    <author>
+      <name>Jiahua Pang</name>
+    </author>
+    <author>
+      <name>Yingjie Niu</name>
+    </author>
+    <author>
+      <name>Hongyi Lin</name>
+    </author>
+    <author>
+      <name>Jun Tian</name>
+    </author>
+    <author>
+      <name>Yang Zhu</name>
+    </author>
+    <author>
+      <name>Chao Li</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.14589v1</id>
+    <title>Attribute-Centric Vision-Language Alignment for Fine-Grained Gait Understanding</title>
+    <updated>2026-10-10T05:08:08Z</updated>
+    <link href="https://arxiv.org/abs/2610.14589v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.14589v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Walking sequences reveal human-interpretable attributes related to body structure, posture, and motion. Gait attribute recognition provides a concrete route to fine-grained gait understanding by predicting these attributes. However, existing benchmarks provide limited fine-grained annotations, while classifier-based gait attribute recognition methods typically represent candidate classes through learned output weights rather than directly matching visual evidence with textual class representations. To address the annotation gap, we present RA-GAR, a large-scale, richly annotated multimodal benchmark for gait attribute recognition, containing 1,001 subjects, 242,729 walking sequences, and annotations for 15 static and motion gait attributes. We further propose Gait-VL, an attribute-centric vision-language alignment framework that recognizes gait attributes by matching attribute-specific multi-frame visual evidence with textual class prototypes. On the visual side, attribute-specific learnable queries aggregate RGB features across spatial locations and frames into per-attribute visual embeddings. On the language side, diverse descriptions expanded by a large language model are combined with context about relevant body regions to construct textual class prototypes. Beyond attribute recognition, we evaluate the transferability of the attribute-pretrained visual encoder by using it to replace generic upstream large vision models in identityoriented gait recognition pipelines; attribute pre-training uses no identity classification or metric-learning objectives. Experiments demonstrate state-of-the-art attribute recognition performance on RA-GAR and consistent improvements in downstream identity recognition across multiple pipelines and benchmarks, supporting the effectiveness and transferability of attribute-centric gait representation learning.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-10T05:08:08Z</published>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Saihui Hou</name>
+    </author>
+    <author>
+      <name>Chenye Wang</name>
+    </author>
+    <author>
+      <name>Wenpeng Lang</name>
+    </author>
+    <author>
+      <name>Qiannan Guo</name>
+    </author>
+    <author>
+      <name>Zhengxiang Lan</name>
+    </author>
+    <author>
+      <name>Chao Fan</name>
+    </author>
+    <author>
+      <name>Shiqi Yu</name>
+    </author>
+    <author>
+      <name>Yongzhen Huang</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.13910v1</id>
+    <title>When VLMs Destroy What They Know: Spatial Representations Fall Below Lexical Priors</title>
+    <updated>2026-10-09T17:50:03Z</updated>
+    <link href="https://arxiv.org/abs/2610.13910v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.13910v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Vision-Language Models (VLMs) increasingly analyze and reason about images, yet it remains unclear whether their internal representations faithfully encode the structured relations required for such reasoning. We introduce EICS (Evaluation-Invariant Concept Stability), a metric for testing whether representations consistently encode concepts under controlled one-concept interventions, and CASP-VL (Causally controlled Spatial Perturbations for Vision-Language models), a benchmark of causally controlled spatial perturbations derived from Visual Genome scene graphs. Across multiple VLM architectures, we find that spatial relations are represented substantially less faithfully than lexical information, even when the same models score well above chance on compositional benchmarks. Further analysis shows that the relation is identifiable at the predicate's own tokens but is lost when the sentence is aggregated into a global representation, whether through the (EOS) token or by mean pooling. These findings reveal a systematic failure invisible to output-based evaluation: VLMs do not preserve, in the representation used downstream, relational information that is present in their own input.</summary>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-09T17:50:03Z</published>
+    <arxiv:primary_category term="cs.CL"/>
+    <author>
+      <name>Shubh Garg</name>
+    </author>
+    <author>
+      <name>Chen Shani</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.13104v1</id>
+    <title>Robust Vision-Language Navigation with Awareness of Instruction-Execution Progress</title>
+    <updated>2026-10-09T06:57:43Z</updated>
+    <link href="https://arxiv.org/abs/2610.13104v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.13104v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>In Vision-Language Navigation (VLN) tasks involving multi-step instructions as guidance, an agent must associate its observations with the relevant instruction content at each decision point. Most graph-based methods commonly match candidate trajectories with the entire instruction, allowing already executed content to interfere with subsequent decisions. Although instruction-execution progress provides a direct cue for separating executed and pending content, existing progress estimation approaches often rely on explicit progress supervision, sophisticated progress-learning stages, or costly online reasoning with LLMs. In this paper, we propose a robust VLN framework with Awareness of Instruction-Execution Progress (VLN-AIEP), which couples progress estimation with navigation decision-making. VLN-AIEP associates the visited trajectory with the instruction to suppress embeddings corresponding to executed content, and then matches candidate locations with the pending content. This coupling makes correct navigation decisions depend on accurate progress estimation, allowing the progress estimator to learn directly from navigation decision labels without explicit progress annotations. To support progress estimation, we construct a landmark-anchored trajectory representation that encodes the semantic labels and viewpoint-relative geometry of instruction-referred landmarks. These landmarks serve as spatial references for associating the visited trajectory with executed instruction content. Extensive experiments on R2R, RxR, CVDN, and R2R-CE demonstrate that the proposed method achieves favorable performance across multiple metrics.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-09T06:57:43Z</published>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Jiagan Huang</name>
+    </author>
+    <author>
+      <name>Zikun Zhou</name>
+    </author>
+    <author>
+      <name>Hongpeng Wang</name>
+    </author>
+    <author>
+      <name>Guangming Lu</name>
+    </author>
+    <author>
+      <name>Jun Yu</name>
+    </author>
+    <author>
+      <name>Wenjie Pei</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.07982v1</id>
+    <title>M3SunAgent: Monocular 3D Spatial Understanding Agent for Metric Depth Estimation and 3D Visual Grounding</title>
+    <updated>2026-10-06T08:45:25Z</updated>
+    <link href="https://arxiv.org/abs/2610.07982v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.07982v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Monocular metric depth estimation and 3D visual grounding represent the two complementary cornerstones of monocular 3D spatial understanding (M3Sun), from which the fundamental 3D spatial information required by M3Sun can be acquired. However, these complementary tasks are generally conducted by separate frameworks, which pose challenges of inflexible and unaligned spatial information access for embodied intelligence systems. In this paper, we propose a unified agent for monocular 3D spatial understanding (M3SunAgent) that leverages a large language model (LLM) as a task planner for spatial visual programming, which flexibly generate structured programs and coordinate tools. For instance-level metric depth estimation task, M3SunAgent invokes an object detector tool to locate the target, estimates depth at selected points with a depth estimation tool, and aggregates these predictions into an instance-level depth estimate. We also construct the M3Sun Instance (M3SI) dataset, a benchmark with 2,910 samples for evaluation. For monocular 3D visual grounding task, M3SunAgent uses a vision-language model (VLM) tool to locate the target and output basic spatial attributes, then combines back-projection tool with a dimension-lifting tool to predict its 3D bounding box. Experimental results demonstrate the superior performance of M3SunAgent. Specifically, in evaluations of instance-level monocular metric depth estimation, M3SunAgent achieves the best performance among all compared models, 52.61% of predicted instances are distributed below depth error 0.25 ($δ&lt; 0.25$). In evaluations of monocular 3D visual grounding, M3SunAgent demonstrates overall competitive performance than vision and VLM models, reaching a 3D mean intersection over union (mIoU) of 41.73% and exceeding the state-of-the-art MonoVLM model by 3.62%.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-06T08:45:25Z</published>
+    <arxiv:comment>13 pages. 7 figures, submitted to IEEE Transactions on Circuits and Systems for Video Technology (TCSVT)</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Jinsong Zhang</name>
+    </author>
+    <author>
+      <name>Kejun Wu</name>
+    </author>
+    <author>
+      <name>Ming Zhu</name>
+    </author>
+    <author>
+      <name>Renjie Qiao</name>
+    </author>
+    <author>
+      <name>Chengtao Cai</name>
+    </author>
+    <author>
+      <name>Zhengguo Li</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.06413v1</id>
+    <title>SpatialChain: A Benchmark for Auditing Spatial Reasoning Faithfulness in VLMs</title>
+    <updated>2026-10-05T14:29:54Z</updated>
+    <link href="https://arxiv.org/abs/2610.06413v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.06413v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Thinking-enabled vision-language models (VLMs) report ever-higher accuracy on spatial benchmarks, yet final-answer scores cannot reveal whether a correct prediction reflects faithful spatial reasoning or a linguistic shortcut. We introduce SpatialChain, a dataset of 28,350 training and 899 test examples pairing spatially-oriented GQA questions with scene-graph-grounded reasoning chains, retained only when the generated answer matches the symbolic ground truth, and a two-axis evaluation combining objective chain-overlap metrics with a scene-graph-aware LLM judge that scores faithfulness and completeness independently of the final answer. Applied to nine thinking-enabled VLMs, the protocol surfaces three findings invisible to standard accuracy: (i) four of nine models achieve $\geq$79% VQA accuracy while exhibiting shortcut rates above 39%, i.e., correct answers whose reasoning the judge marks as unfaithful; (ii) chain quality significantly predicts answer correctness for seven of nine models, but the two exceptions (Claude Sonnet 4.6, InternVL3.5-8B) reveal qualitatively distinct failure modes, terse output vs. verbose-decorative reasoning, that benchmark accuracy alone conflates; (iii) SFT on SpatialChain improves Qwen3-VL-8B by +6.2 pp in-domain and reduces its shortcut rate to 22%, while a stylistic specialization effect on external benchmarks motivates replay-augmented training as mitigation. The faithfulness judge is validated against 198 human-annotated items, where judge-human agreement matches human-human agreement, and against a second judge from a different provider, which preserves the model ranking ($ρ$ = 0.88). Data, generation scripts, and evaluation code are released at https://github.com/spatialchain/SpatialChainBenchmark.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-05T14:29:54Z</published>
+    <arxiv:comment>Accepted at the 2nd Workshop on Embodied Spatial Reasoning (ESR), NeurIPS 2026. 29 pages (8 main), 9 figures, 18 tables. Code and data: https://github.com/spatialchain/SpatialChainBenchmark</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Rafael Teixeira Sousa</name>
+    </author>
+    <author>
+      <name>Vinícius Paulo Lopes de Oliveira</name>
+    </author>
+    <author>
+      <name>Elisa Ayumi Masasi de Oliveira</name>
+    </author>
+    <author>
+      <name>Luiza Martins de Freitas Cintra</name>
+    </author>
+    <author>
+      <name>Fernanda Bufon Färber</name>
+    </author>
+    <author>
+      <name>Igor Dias Aguiar</name>
+    </author>
+    <author>
+      <name>Julia Yasmim de Almeida Nobre</name>
+    </author>
+    <author>
+      <name>Arlindo Rodrigues Galvão Filho</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.05414v1</id>
+    <title>RMMBench: A Comprehensive Benchmark for Robotic Mobile Manipulation</title>
+    <updated>2026-10-04T17:55:26Z</updated>
+    <link href="https://arxiv.org/abs/2610.05414v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.05414v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Although the advancement of vision-language models (VLMs) has endowed robots with enhanced environmental understanding and task reasoning, a comprehensive evaluation methodology is important to advance the integration of VLMs in robotic navigation and manipulation. However, current benchmarks lack a comprehensive method to evaluate diverse robotic tasks, and evaluation metrics remain relatively constrained, making it difficult to assess the embodied capabilities of VLMs in a thorough and fine-grained manner. To address this issue, we propose RMMBench, an evaluation benchmark that requires robots to understand language instructions and perform long-horizon tasks in continuous spaces. RMMBench seamlessly integrates high- and low-level embodied tasks into a unified framework, constructing a "navigation-manipulation" task suite comprising 70 canonical task scenarios that range from localized manipulation to long-horizon composite navigation. The results reveal that leading VLMs still face major challenges in spatial localization when performing mobile manipulation tasks, and also highlight the necessity of enhancing the spatial perception capability of robots during long-horizon interactions. RMMBench can be accessed at https://mxxq-stack.github.io/rmmbench-project/</summary>
+    <category term="cs.RO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-04T17:55:26Z</published>
+    <arxiv:comment>Accepted to the Conference on Robot Learning (CoRL 2026), November 9-12, 2026, Austin, TX, USA</arxiv:comment>
+    <arxiv:primary_category term="cs.RO"/>
+    <author>
+      <name>Huapeng Li</name>
+    </author>
+    <author>
+      <name>Fuxiang Feng</name>
+    </author>
+    <author>
+      <name>Jinqiu Fan</name>
+    </author>
+    <author>
+      <name>Shuo Yang</name>
+    </author>
+    <author>
+      <name>Fengjiao Chen</name>
+    </author>
+    <author>
+      <name>Xuezhi Cao</name>
+    </author>
+    <author>
+      <name>Ran Song</name>
+    </author>
+    <author>
+      <name>Wei Zhang</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.05024v1</id>
+    <title>LightVLN: Efficient Aerial Vision-and-Language Navigation with Compact Memory and History-Guided Local Aggregation</title>
+    <updated>2026-10-04T07:37:44Z</updated>
+    <link href="https://arxiv.org/abs/2610.05024v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.05024v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Aerial vision-and-language navigation (VLN) enables unmanned aerial vehicles to execute long-horizon natural-language instructions from visual observations in complex three-dimensional environments. However, recent aerial VLN models often rely on large-scale vision-language backbones and dense visual histories, imposing substantial computation and memory costs that hinder onboard deployment. We propose LightVLN, a lightweight history-aware aerial VLN framework that combines a compact 0.5B language backbone with compact representations of both historical and current observations. LightVLN compresses each historical frame into a single token using visual features already computed by the policy. It further introduces history- and instruction-conditioned local aggregation to reduce the current observation from 256 to 32 visual tokens while preserving navigation-relevant spatial information. With up to 16 historical frames, the policy uses at most 48 observation-derived tokens. On the public OpenFly dataset, LightVLN achieves 50.93% Test-Seen and 36.14% Test-Unseen success rates (SR), outperforming the evaluated 7B language-backbone baselines on most reported metrics. It also achieves 25.83% SR on AerialVLN-S Val-Seen. In a reconstructed unseen campus, we deploy LightVLN on a DJI M350 RTK with an external Jetson Orin NX 16 GB for closed-loop onboard-compute real-to-sim hardware-in-the-loop (HIL) evaluation, achieving 14.61 Hz model inference and 11.13 Hz end-to-end decision updates. These results demonstrate the effectiveness and efficiency of LightVLN for aerial navigation.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.RO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-04T07:37:44Z</published>
+    <arxiv:comment>8 pages, 5 figures</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Yiming Zhao</name>
+    </author>
+    <author>
+      <name>Tianshun Li</name>
+    </author>
+    <author>
+      <name>Jingle He</name>
+    </author>
+    <author>
+      <name>Ruonan Chai</name>
+    </author>
+    <author>
+      <name>Xinhu Zheng</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.04139v1</id>
+    <title>From Sight to Foresight: Predictive Spatial Reasoning in Vision-Language Models</title>
+    <updated>2026-10-02T23:27:47Z</updated>
+    <link href="https://arxiv.org/abs/2610.04139v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.04139v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Predicting future spatial states supports collision avoidance and timely decision-making in dynamic environments. However, existing vision-language models (VLMs) and benchmarks for spatial reasoning primarily focus on observed scenes, leaving predictive spatial reasoning beyond the observed interval underexplored. To this end, we introduce SpatialMind, a metric-scale VLM for spatial reasoning and future prediction. Its metric depth adapter anchors spatial reasoning to real-world scale, while its progressive state chain establishes current spatial states and observed dynamics as the foundation for future prediction. Given a video prefix, SpatialMind predicts distances, motion directions, and spatial relations in both observed and unseen future frames. For training and evaluation, we build a scalable data engine that grounds entity descriptions in metric geometry to generate question-answer pairs and state supervision. Using this engine, we construct the SpatialMind-30K dataset and the SpatialMind-2K benchmark, both covering driving and everyday egocentric scenes. The benchmark spans eight tasks across three levels: current-state understanding, observed-dynamics understanding, and future prediction. Experiments show that SpatialMind substantially outperforms both general and spatially specialized models on our benchmark while achieving competitive zero-shot performance on VSI-Bench, OSI-Bench, and VLM4D.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-02T23:27:47Z</published>
+    <arxiv:comment>Project page: https://brack-wang.github.io/spatialmind/</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Feiran Wang</name>
+    </author>
+    <author>
+      <name>Xiaoqi Wang</name>
+    </author>
+    <author>
+      <name>Ziwei Li</name>
+    </author>
+    <author>
+      <name>Wenbin He</name>
+    </author>
+    <author>
+      <name>Yan Yan</name>
+    </author>
+    <author>
+      <name>Liu Ren</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.00854v2</id>
+    <title>Are Frontier VLM Agents Ready to Be Robot Generalists? An Empirical Study with the Embodied Agent Arena</title>
+    <updated>2026-10-05T09:07:06Z</updated>
+    <link href="https://arxiv.org/abs/2610.00854v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.00854v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Frontier vision-language models (VLMs) increasingly estimate scenes, ground interactions, and generate executable actions. How far these native capabilities support embodied generalism across diverse tasks remains unclear. We introduce Embodied Agent Arena to assess seven VLM agents across Geometry, Spatial Reasoning, Affordance, Task Planning, and Manipulation. The arena contains 1,000 cases drawn from 32 established sources and GeoProbe, our new benchmark for geometric estimation on Blender renders and real-scene images. A minimal harness preserves source observations and operations while leaving perception, reasoning, and action selection to the model. Separate measures of metric precision, functional grounding, and native goal completion connect local competence to complete task outcomes. Astra's strengths in precise estimation and usable-contact localization coexist with endpoint errors in tracing and low household-task completion. Supplementary comparisons of richer observations and multi-round review show model- and task-dependent effects. Current VLM agents thus fall short of embodied generalism: they often make partial progress without satisfying all task goals within allotted time and interaction budgets.</summary>
+    <category term="cs.RO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-01T00:14:50Z</published>
+    <arxiv:comment>44 pages, including appendices. Clarified evaluation scope and expanded related work, benchmark comparisons, and discussion of native capability and task execution; experimental results unchanged. Project page: https://embodied-agent-arena.github.io/embodied-agent-arena/</arxiv:comment>
+    <arxiv:primary_category term="cs.RO"/>
+    <author>
+      <name>Haojian Huang</name>
+    </author>
+    <author>
+      <name>Pukun Zhao</name>
+    </author>
+    <author>
+      <name>Zexi Li</name>
+    </author>
+    <author>
+      <name>Yehang Zhang</name>
+    </author>
+    <author>
+      <name>Yangkai Wei</name>
+    </author>
+    <author>
+      <name>Wenqian Li</name>
+    </author>
+    <author>
+      <name>Han Yang</name>
+    </author>
+    <author>
+      <name>Kaiwen Zhou</name>
+    </author>
+    <author>
+      <name>Ying-Cong Chen</name>
+    </author>
+    <author>
+      <name>Yinchuan Li</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2609.40091v1</id>
+    <title>GateSPINE: Gated Cross-View Fusion for Lumbar Spine MRI Report Generation</title>
+    <updated>2026-09-30T16:31:45Z</updated>
+    <link href="https://arxiv.org/abs/2609.40091v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2609.40091v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Automated report generation can ease the burden radiolo gists face when interpreting multi-sequence MRI studies. Unlike CT, MRI examinations comprise multiple sequences and imaging planes, each con tributing complementary diagnostic information. Existing methods en code a study as a single volume and combine multiple acquisitions by fixed rules. Findings visible in only one plane are thus diluted and of ten missed, lowering recall on clinical efficacy metrics, where a missed abnormality is most costly. We propose GateSPINE, a vision-language framework that fuses sagittal T1 and T2 volumes with a training-free operator, encodes the fused sagittal and axial volumes with two parallel 3D encoders, and decodes their combined representation into a report. Its core mechanism is a gated cross view fusion module that predicts, per feature channel and token, how much of each view to admit, so the more informative view dominates at each spatial location. We evaluate GateSPINE on three lumbar MRI datasets, comprising two public bench marks and a private cohort collected from Phenikaa University Hospital, using both natural language generation (NLG) and clinical efficacy (CE) metrics. GateSPINE achieves the highest CE F1 through improved re call on all three datasets; on SPIDER, which lacks an axial sequence, this reflects the sagittal fusion component rather than the gated cross-view mechanism, which is validated on the two cohorts with both imaging planes. GateSPINE also remains competitive on standard NLG metrics.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-09-30T16:31:45Z</published>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Hoang Nguyen Van</name>
+    </author>
+    <author>
+      <name>Cuong Vuong Tuan</name>
+    </author>
+    <author>
+      <name>Trang Mai Xuan</name>
+    </author>
+    <author>
+      <name>Bien Tran Van</name>
+    </author>
+    <author>
+      <name>Nam Tran Van</name>
+    </author>
+    <author>
+      <name>Thien Van Luong</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2609.38285v1</id>
+    <title>GaugeVLM: Structuring Spatial Supervision with Measured Geometric Interventions</title>
+    <updated>2026-09-29T16:26:13Z</updated>
+    <link href="https://arxiv.org/abs/2609.38285v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2609.38285v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Vision-language models (VLMs) can contradict themselves across views of the same spatial relation and fail to respond when that relation changes. Addressing these failures requires supervision that captures error magnitude and geometric dependencies across observations, both of which remain implicit in training on individual answers or ordinal preferences. Therefore, we introduce GaugeVLM, which makes this structure explicit through controlled object and camera interventions in explicit 3D scenes, producing linked observations with measured differences between spatial relations and shared truths across views. To translate this structure into learning signals, its core objective, GaugeDPO, converts measured errors into preference margins, directly supervises correct canonical rankings across views, and links intervention-induced answer-odds contrasts to measured relation changes with view-specific scales. Our analysis bounds canonical prediction error and establishes that the cross-view and intervention constraints can be jointly satisfied. Empirically, GaugeVLM improves all 10 established spatial metrics over supervised fine-tuning across three VLM backbones, with the main 7B model gaining 15.0 and 18.9 percentage points on MSMU distance and QSpatial+, respectively. These gains also extend to autonomous driving and embodied reasoning, demonstrating the robust generalization across domains.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-09-29T16:26:13Z</published>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Hongbo Wang</name>
+    </author>
+    <author>
+      <name>Zihan Lin</name>
+    </author>
+    <author>
+      <name>Wenkui Yang</name>
+    </author>
+    <author>
+      <name>Shiran Ge</name>
+    </author>
+    <author>
+      <name>Yuang Ai</name>
+    </author>
+    <author>
+      <name>Jie Cao</name>
+    </author>
+    <author>
+      <name>Huaibo Huang</name>
+    </author>
+    <author>
+      <name>Ran He</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2609.35249v1</id>
+    <title>Spatial Grafting: Grounding 3D Features for Flow-Matching Robot Policies</title>
+    <updated>2026-09-28T14:17:31Z</updated>
+    <link href="https://arxiv.org/abs/2609.35249v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2609.35249v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Pretrained robot manipulation policies such as vision-language-action models (VLAs) or world-action models (WAMs) leave interaction-relevant metric geometry implicit. Recent breakthroughs in spatial reconstruction can supply the necessary geometry reliably, but their features describe local shape without stating where it lies with respect to the robot. How best to deliver these features to a pretrained policy remains unresolved. We propose Spatial Grafting, a versatile, lightweight spatial module that binds frozen reconstruction features to metric, robot-relative geometry. Spatial Grafting constructs metric-grounded spatial tokens and injects them into the flow-matching action expert through cross-attention, without modifying the host's perceptual pathway, so the host retains the full benefit of its pretraining. We evaluate it more broadly than any geometry-aware policy we compare against: one graft architecture, with no per-host redesign, on two VLAs and two WAMs, across four simulation benchmarks that span short-horizon manipulation, visual robustness, clutter and long-horizon mobile manipulation, and on three real-robot platforms with single- and dual-arm configurations. On RoboTwin 2.0, a dual-arm manipulation benchmark, the graft improves every host across VLAs and WAMs. Grafted $π_{0.5}$ gains 11.3% and 15.6% on clean and randomized scenes, reaching 94.0% and 92.4%, above the strongest published 3D-conditioned policy, WAM4D (93.8% and 89.9%). The margin widens as the horizon lengthens: on tasks from BEHAVIOR-1K, a dual-arm mobile manipulation challenge scored by average task progress, it surpasses the 2025 challenge winner on five of six tasks,by up to 0.47 Q-score, and exceeds a map-conditioned spatial policy on average across the three tasks both report.</summary>
+    <category term="cs.RO" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-09-28T14:17:31Z</published>
+    <arxiv:comment>17 pages, 4 figures, 9 tables</arxiv:comment>
+    <arxiv:primary_category term="cs.RO"/>
+    <author>
+      <name>Dingsheng Liu</name>
+    </author>
+    <author>
+      <name>Yangzheng Wu</name>
+    </author>
+    <author>
+      <name>Mahboubeh Asadi</name>
+    </author>
+    <author>
+      <name>Zhiyuan Li</name>
+    </author>
+    <author>
+      <name>Jinbang Huang</name>
+    </author>
+    <author>
+      <name>Yixin Xiao</name>
+    </author>
+    <author>
+      <name>Tongtong Cao</name>
+    </author>
+    <author>
+      <name>Yingxue Zhang</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2609.34148v1</id>
+    <title>Geometric Encoding for Spatial Reasoning in Vision-Language Models</title>
+    <updated>2026-09-28T02:29:01Z</updated>
+    <link href="https://arxiv.org/abs/2609.34148v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2609.34148v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Vision-Language Models (VLMs) are far more reliable at recognizing what appears in a video than at reasoning about its spatial and temporal properties, such as metric distances, object dimensions, and consistent object identities across frames. We present Geometric Code, a perception-to-geometry pipeline that computes explicit spatial structure from video and supplies it to VLMs as context to augment reasoning. A perception layer segments and classifies objects and recovers depth, camera pose, and intrinsics from monocular RGB video. A deterministic geometric engine then back-projects, merges, and cleans these outputs into a spatial code, including per-object positions, dimensions, counts, inter-object distances, appearance order, and room geometry. The code is serialized into VLMs' prompts, either alongside the video or replacing it entirely. Specifically, there is no component trained or fine-tuned in our approach. On VSI-Bench, augmenting 2B and 4B open models with the spatial code improves average accuracy by +4.1 points over the frames-only baseline, with the largest gains on numeric estimation tasks such as absolute distance (+24.1 points). The results suggest that explicitly computed geometry, delivered through the language channel, recovers spatial competence that small VLMs cannot extract from pixels alone.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-09-28T02:29:01Z</published>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Antonio Jun</name>
+    </author>
+    <author>
+      <name>Haoshui Yu</name>
+    </author>
+    <author>
+      <name>Zhengyi Lu</name>
+    </author>
+    <author>
+      <name>Huirong Fu</name>
+    </author>
+    <author>
+      <name>Yao Qiang</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2609.32813v1</id>
+    <title>USAI-Quant: A Quantitative Reasoning Benchmark for Vision-Language Models in Built Environments</title>
+    <updated>2026-09-26T17:37:25Z</updated>
+    <link href="https://arxiv.org/abs/2609.32813v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2609.32813v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Large vision-language models (VLMs) have emerged as a powerful paradigm for urban and spatial AI. However, current state-of-the-art large VLMs still struggle with quantitative reasoning on remote sensing imagery. Existing benchmarks and algorithms are predominantly based on qualitative Visual Question Answering (VQA), providing limited insights into the quantitative reasoning capabilities of VLMs for built environment metrics. To address this gap, we develop Quantitative Urban and Spatial AI benchmark (USAI-Quant), the first benchmark designed to quantitatively evaluate VLM's reasoning capabilities on built environment metrics via remote sensing imagery. USAI-Quant is curated from the 335 largest U.S. cities, aligning high-resolution remote sensing images with quantitative built environment metrics. We then evaluate both general-purpose and remote sensing VLMs (RS-VLMs) by applying VQAs to tens of built environment metrics across three complexity levels. Our results reveal that current state-of-the-art models consistently fall short on numeric reasoning tasks. We further conduct in-depth analyses across models, question types, and geographic locations, uncovering insights into performance variability and task-specific challenges.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-09-26T17:37:25Z</published>
+    <arxiv:comment>10 pages, 13 figures</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Dongdong Wang</name>
+    </author>
+    <author>
+      <name>Qingqi Song</name>
+    </author>
+    <author>
+      <name>Yuzhou Chen</name>
+    </author>
+    <author>
+      <name>Deepak Balakrishnan</name>
+    </author>
+    <author>
+      <name>Ravi Shankar Srinivasan</name>
+    </author>
+    <author>
+      <name>Shenhao Wang</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2609.32427v1</id>
+    <title>CityToolVQA: Tool-Augmented Visual Question Answering for 3D Spatial Cognition in Urban Low-Altitude Environments</title>
+    <updated>2026-09-26T09:59:22Z</updated>
+    <link href="https://arxiv.org/abs/2609.32427v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2609.32427v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>CityToolVQA addresses the weak performance of Vision-Language Models (VLMs) on quantitative tasks in urban low-altitude visual question answering. We divide the seven tasks into qualitative and quantitative groups: qualitative questions are answered directly by the VLM, whereas quantitative questions are handled by an external visual-geometric toolchain that performs object grounding, segmentation, depth back-projection, and spatial computation. The toolchain can be attached to different VLMs in a zero-shot manner; a Depth-Assisted Prompt Inference (DAPI) fallback is triggered when the main-chain detection is invalid or unreliable, and CityToolVQA-SFT adapts the 8B backbone to tool-conditioned inputs. On the 73,324-question Open3D-VQA-v2 test set, CityToolVQA-SFT (Qwen3-VL-8B) reaches 67.6% overall accuracy, and attaching the toolchain to ten open-source VLMs improves quantitative-task accuracy by 12.7-36.9 percentage points. These results indicate that externalizing explicit 3D geometric computation effectively complements the limited ability of RGB-only VLMs to estimate metric distances and object sizes.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-09-26T09:59:22Z</published>
+    <arxiv:comment>10 pages, 3 figures, 3 tables</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Boao Yu</name>
+    </author>
+    <author>
+      <name>Yingzhen Nie</name>
+    </author>
+    <author>
+      <name>Yue Hu</name>
+    </author>
+    <author>
+      <name>Zhengqiu Zhu</name>
+    </author>
+    <author>
+      <name>Rusheng Ju</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2609.28757v1</id>
+    <title>Small yet Assistive: Spatially-Aware Post-Training for Low Vision</title>
+    <updated>2026-09-23T20:10:25Z</updated>
+    <link href="https://arxiv.org/abs/2609.28757v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2609.28757v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>An estimated 1 billion people worldwide live with vision impairment, yet current vision-language models (VLMs) produce descriptions too vague for safe navigation by blind and low-vision (BLV) users. Large VLMs can generate high-quality audio-description-compliant narrations but cannot run on mobile devices; small VLMs offer competitive latency but lack spatial detail, directional cues, and hazard awareness for navigational assistance. We present Smol-VL-BLV, a compact VLM for blind and low-vision users that closes this gap using a 500M decoder transformer model and two post-training mechanisms: (1) teacher-student distillation and (2) Group Relative Policy Optimization (GRPO) with a composite BLV reward targeting directional language, metric distances, and hazard detection. Because multi-stage post-training can induce catastrophic forgetting, we add a lightweight finetuning stage after the last stage GRPO finetuning to recover general descriptive quality while preserving BLV-specific spatial grounding. Our best model substantially outperforms the baseline across various benchmarks, including tasks: VQA, BLV captioning, OCR, and latency. Compared with the baseline for relative improvement, it improves the Spatial score gain of 19.3%, and the Social score gain of 14.8%. It also increases OCR-Bench by 101.5%, and raises TextVQA accuracy by 44.2%. These results show that BLV-focused post-training improves both accessibility-specific spatial grounding and general visual-text reasoning. Deployed on a mid-range Android smartphone via Mixed-Precision Quantization, the model remains approx. 450 MB and runs entirely on-device, offline and without network dependency, generating descriptions with latency dependent on host hardware capabilities. Our model, dataset, and code is publicly released at https://smol-vl-blv.github.io/Smol-VL-BLV-website/</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-09-23T20:10:25Z</published>
+    <arxiv:comment>14 pages, Accepted in EMNLP 2026</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Rishabh Choudhary</name>
+    </author>
+    <author>
+      <name>Shreyansh Raj</name>
+    </author>
+    <author>
+      <name>Umesh Goyal</name>
+    </author>
+    <author>
+      <name>Shubh Kashyap</name>
+    </author>
+    <author>
+      <name>Shrestha Kumar</name>
+    </author>
+    <author>
+      <name>Sushovan Jena</name>
+    </author>
+    <author>
+      <name>Komal Kumar</name>
+    </author>
+    <author>
+      <name>Hisham Cholakkal</name>
+    </author>
+    <author>
+      <name>Aditya Nigam</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2609.26408v1</id>
+    <title>SparseNav: Instruction-conditioned Sparse Semantic Perception for Training-Free Vision-Language Navigation</title>
+    <updated>2026-09-22T13:41:49Z</updated>
+    <link href="https://arxiv.org/abs/2609.26408v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2609.26408v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Map-based vision-language navigation (VLN) relies on persistent spatial representations to connect language understanding with geometric planning. However, acquiring semantics beyond the needs of the current instruction can introduce unnecessary perception cost and irrelevant annotations. Continuously accumulating unrelated objects may not only waste computation, but also clutter the visual-spatial representation consumed by the vision-language model (VLM) planner. To address this problem, we present SparseNav, a training-free framework that follows a less-is-more principle for semantic navigation. SparseNav persistently maintains a lightweight geometric bird's-eye-view (BEV) map and sparse landmark memory, acquiring new semantics on demand using the active sub-instruction to decide what is worth grounding. An instruction manager first tracks navigation progress and identifies the active landmark query. An instruction-conditioned perception mechanism then invokes open-vocabulary segmentation when the queried landmark is visible and its metric location can inform the next decision. The resulting landmark memory supports VLM selection among hybrid frontier and local directional waypoint candidates. Without any additional training, SparseNav achieves success rates of 42.8% on R2R-CE and 40.7% on RxR-CE, both on the Val-Unseen splits. Controlled ablations examine semantic perception strategies and the contributions of individual framework components. Furthermore, we successfully deployed SparseNav on a Unitree Go2 quadruped equipped with an Intel RealSense D455 RGB-D camera for geometric mapping and landmark grounding and a Livox MID-360 LiDAR for localization, without a prebuilt map. We validated its effectiveness across multiple indoor environments using instruction-conditioned waypoint navigation.</summary>
+    <category term="cs.RO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-09-22T13:41:49Z</published>
+    <arxiv:primary_category term="cs.RO"/>
+    <author>
+      <name>Quanhua Chen</name>
+    </author>
+    <author>
+      <name>Juhan Kang</name>
+    </author>
+    <author>
+      <name>Runfeng Lin</name>
+    </author>
+    <author>
+      <name>ZiFei Zhang</name>
+    </author>
+    <author>
+      <name>Enquang Feng</name>
+    </author>
+    <author>
+      <name>Chunran Zheng</name>
+    </author>
+    <author>
+      <name>Xiwang Dong</name>
+    </author>
+    <author>
+      <name>Jiarong Lin</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2609.25841v1</id>
+    <title>Metric-Bench: Exploring In-context Spatial Metric Reasoning in VLMs for Indoor Scenes</title>
+    <updated>2026-09-22T08:09:21Z</updated>
+    <link href="https://arxiv.org/abs/2609.25841v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2609.25841v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Metric reasoning is a critical and challenging task for Vision Language Models (VLMs), playing a pivotal role in embodied AI tasks such as robotic manipulation and autonomous navigation. However, current spatial reasoning remains bottlenecked by rigid pixel-level supervision; such localized optimization often compromises general multimodal intelligence, triggering performance degradation or catastrophic forgetting of broad reasoning capabilities. To address these limitations, we introduce Metric-Bench, a focused benchmark designed to guide metric-spatial reasoning using contextual information. By incorporating in-image reference objects with known physical dimensions, Metric-Bench guides models to implicitly learn the 2D-to-3D mapping without camera intrinsics. We further present MetricReasoner, a task-adapted reinforcement fine-tuning recipe for reference-grounded metric reasoning, using structured prompts and verifiable numerical rewards. Extensive experiments on Metric-Bench demonstrate that our approach significantly enhances spatial metric understanding, outperforming existing and even larger proprietary models by 43.1\%, while improving downstream embodied performance over a spatial-specialized counterpart by 30.4\% on RoboSpatial overall accuracy and 9.3\% on ERQA, and additionally delivering consistent gains on general benchmarks (15.9\% on V$\star$Bench, 88.9\% on BLINK), indicating that the proposed adaptation does not necessarily compromise general VLM capabilities.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.MM" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-09-22T08:09:21Z</published>
+    <arxiv:comment>Accepted to ECCV</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Yuling Xi</name>
+    </author>
+    <author>
+      <name>Haokai Zhang</name>
+    </author>
+    <author>
+      <name>Muzhi Zhu</name>
+    </author>
+    <author>
+      <name>Hao Zhong</name>
+    </author>
+    <author>
+      <name>Zongze Du</name>
+    </author>
+    <author>
+      <name>Hengyu Zhao</name>
+    </author>
+    <author>
+      <name>Chenchen Jing</name>
+    </author>
+    <author>
+      <name>Yufei Yin</name>
+    </author>
+    <author>
+      <name>Bin Qin</name>
+    </author>
+    <author>
+      <name>Yongjie Yang</name>
+    </author>
+    <author>
+      <name>Zhenbo Luo</name>
+    </author>
+    <author>
+      <name>Hao Chen</name>
+    </author>
+    <author>
+      <name>Chunhua Shen</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2609.25741v1</id>
+    <title>Fysiverse-3D-Vision Technical Report: Generating Executable 3D Worlds from Images through Unified Spatial Reasoning</title>
+    <updated>2026-09-22T06:22:31Z</updated>
+    <link href="https://arxiv.org/abs/2609.25741v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2609.25741v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Generative models have advanced image-conditioned 3D content creation, yet generating controllable and executable 3D scenes from a single image remains challenging. Existing 3D generative approaches can synthesize visually plausible objects and scenes, but their spatial layout estimation is coupled with specific asset generators. They struggle to jointly model object semantics, metric geometry, and scene-level spatial relationships, which are essential for interactive editing, physical simulation, and embodied applications. We propose Fysiverse-3D-Vision, a unified vision-language-geometry framework for generative 3D scene reconstruction and executable asset construction from a single image. We establish a shared representation where spatial reasoning and geometric reconstruction mutually enhance each other, allowing object layouts to be inferred beyond the constraints of individual asset generators. Our model integrates textual supervision, semantic visual cues, and geometric representations within a unified Transformer to capture scene context, metric geometry, and object-level interactions. An object-conditioned layout module performs cross-attention between target object representations and global geometric features to predict object translation, rotation, and scale. Training progressively learns geometry-language alignment, introduces layout reasoning while preserving reconstruction capability, and refines physical consistency through collision-aware optimization. By separating spatial layout reasoning from asset synthesis, Fysiverse-3D-Vision provides an adaptable interface for interactive scene editing, object-level manipulations, and executable 3D content generation. Experiments demonstrate that our framework achieves superior geometric consistency, layout estimation, rendering quality, and physical property understanding compared with existing approaches.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-09-22T06:22:31Z</published>
+    <arxiv:comment>Fysics AI Technical Report</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Dingkang Yang</name>
+    </author>
+    <author>
+      <name>Yizhou Liu</name>
+    </author>
+    <author>
+      <name>Wendong Cheng</name>
+    </author>
+    <author>
+      <name>Zizhi Chen</name>
+    </author>
+    <author>
+      <name>Shunli Wang</name>
+    </author>
+    <author>
+      <name>Yang Liu</name>
+    </author>
+    <author>
+      <name>Hongsheng Li</name>
+    </author>
+    <author>
+      <name>Lihua Zhang</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2609.23863v2</id>
+    <title>Grounded Action Model: 3D Grounding as a Foundation for Robotics</title>
+    <updated>2026-09-25T05:22:11Z</updated>
+    <link href="https://arxiv.org/abs/2609.23863v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2609.23863v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Manipulation policies must know which objects matter and where they are, yet the pretrained backbones that current robot foundation models build on, from language in vision-language-action models (VLAs) to video generation in world-action models (WAMs), do not directly require this metric grounding, leaving it to be learned implicitly from robot demonstrations. We propose Grounded Action Models (GAMs), a new paradigm of robot foundation models built with 3D grounding. GAM can be conditioned using language, points, or box prompts, which are first transformed into a shared object-centric representation of the selected objects. This representation captures target-focused visual features and metric object geometry, which is mixed with robot state history through a multi-stream transformer to predict action chunks. Although GAMs can be run autonomously, they can also serve as a low-level controller that a high-level planner controls using its various input modalities, allowing for long-horizon and memory-dependent manipulation. On RoboTwin 2.0, GAM achieves an average success rate of 55.3% across 50 tasks (vs. 52.0% for Spatial Forcing), including 47.6% under scene randomization (vs. 30.4% for Abot-M0), with its action policy trained only on clean-scene demonstrations. On LIBERO-PRO, it achieves a state-of-the-art average success rate of 61% (vs. 53% for $π_{0.5}$) across 16 perturbation settings, with the largest gains when targets are relocated or newly designated. On two real robots, GAM retains 17/20 successes under visual shift on a bimanual YAM versus 4/20 for $π_{0.5}$, while its composition with a Molmo2 planner on a Franka achieves 64.7% ID and 49.8% OOD step completion on long-horizon and memory-dependent tasks.</summary>
+    <category term="cs.RO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-09-20T20:35:39Z</published>
+    <arxiv:primary_category term="cs.RO"/>
+    <author>
+      <name>Gehao Zhang</name>
+    </author>
+    <author>
+      <name>Weikai Huang</name>
+    </author>
+    <author>
+      <name>Shailesh Shailesh</name>
+    </author>
+    <author>
+      <name>Yiyan Peng</name>
+    </author>
+    <author>
+      <name>Jiafei Duan</name>
+    </author>
+    <author>
+      <name>Ranjay Krishna</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2609.19815v1</id>
+    <title>SnapPhysics: A Physics-Aware Scene Graph from a Single View for Interactive Mixed Reality Scenes</title>
+    <updated>2026-09-17T07:26:56Z</updated>
+    <link href="https://arxiv.org/abs/2609.19815v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2609.19815v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We propose SnapPhysics, a training-free framework that reconstructs 3D objects and estimates their physical properties such as mass, friction, and center of gravity from a single image. For physically coherent interactions in mixed reality (MR), such properties are as important as geometry. Prior approaches infer them by analyzing object dynamics in video, which is computationally costly, or by querying vision-language models (VLMs) on single images, which lacks geometric grounding and inter-object relationships. We address these limitations by combining instance-level 3D reconstruction and spatial alignment with a physics-aware scene graph that encodes these relationships and per-object metric geometry as structured context for VLM-based property reasoning. Experiments on 3D-FRONT show that SnapPhysics improves scene-level F-Score by 18.6% over the best learning-based method, and on real captured scenes with ground-truth mass, it reduces the mean absolute log difference error (mALDE) by up to 20.5% and improves log-scale correlation ($r^2_{\mathrm{ls}}$) by up to 19.6% over VLM-only estimation. SnapPhysics enables physically interactive MR experiences without manual parameter tuning. Project page: https://snapphysics-ismar2026.github.io/.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-09-17T07:26:56Z</published>
+    <arxiv:comment>Accepted for publication in IEEE ISMAR, 2026</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Suji Kang</name>
+    </author>
+    <author>
+      <name>Seok-Young Kim</name>
+    </author>
+    <author>
+      <name>Young Bin Kim</name>
+    </author>
+    <author>
+      <name>Taewook Ha</name>
+    </author>
+    <author>
+      <name>Dieter Schmalstieg</name>
+    </author>
+    <author>
+      <name>Shohei Mori</name>
+    </author>
+    <author>
+      <name>Woontack Woo</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2609.19143v1</id>
+    <title>PANORAMA: Panoptic Grounded Captioning via Mask Proposal Selection</title>
+    <updated>2026-09-16T17:59:30Z</updated>
+    <link href="https://arxiv.org/abs/2609.19143v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2609.19143v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Intelligent systems that act in the world require image understanding that is both comprehensive and spatially grounded. Current vision-language models (VLMs) can generate fluent and detailed image captions, but reliably associating them with image pixels remains challenging. Existing methods that combine dense captioning with pixel-level grounding often produce either incomplete descriptions or inaccurate segmentation masks. We study this problem through panoptic grounded captioning, a task that requires a VLM to describe both foreground objects and background regions while grounding each referring phrase with pixel-level masks. We make three contributions. First, we introduce PanoCaps, a human-annotated benchmark constructed from panoptic segmentation datasets. It provides dense captions with near-complete pixel coverage and image-text alignments at the entity level, supporting both training and evaluation. We further propose a phrase-mask matching protocol and a generalized Panoptic Quality (gPQ) metric that jointly evaluates textual and mask agreement. Second, we formulate phrase grounding as selection from a phrase-conditioned pool of mask proposals and introduce PANORAMA, a VLM that conditions a pretrained segmenter on contextualized phrase representations to obtain candidate masks and learns to select those corresponding to each phrase. Training this interface jointly with caption generation enables PANORAMA to produce high-quality masks while allowing each phrase to refer to a single region or multiple instances. Third, PANORAMA achieves the best overall grounding on PanoCaps and matches or exceeds specialized models across several pixel-level grounding tasks. Experiments show that our method produces precise entity-level segmentations while maintaining detailed, mask-consistent captions. Code, data and models are available at https://www.di.ens.fr/willow/research/panorama/.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-09-16T17:59:30Z</published>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Sara Pieri</name>
+    </author>
+    <author>
+      <name>Evangelos Kazakos</name>
+    </author>
+    <author>
+      <name>Shizhe Chen</name>
+    </author>
+    <author>
+      <name>Josef Sivic</name>
+    </author>
+    <author>
+      <name>Cordelia Schmid</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2609.18243v2</id>
+    <title>Acting in Meters: Learning Metric Interactions for Precise Robotic Manipulation</title>
+    <updated>2026-09-20T10:01:14Z</updated>
+    <link href="https://arxiv.org/abs/2609.18243v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2609.18243v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Vision-Language-Action models and World-Action Models have advanced language-conditioned robotic manipulation, yet often leave metric relations among actions, objects, and scene geometry implicit. Human manipulation combines semantic understanding of task-relevant objects with spatial feedback that guides hand motion relative to objects and their surroundings. Inspired by this, we introduce a metric interaction framework that models object-level and scene-level interactions in physical Cartesian space at a shared metric scale. At the object level, Interaction-Centric Tokens (ICTs) explicitly represent end-effector pose trajectories relative to manipulated objects and are jointly denoised with actions, providing physically grounded interaction supervision. At the scene level, the Metric Action Interaction Field (MAIF) uses action and ICT queries to attend to metric scene point-cloud features and learns geometry-conditioned action corrections. Through two-stage adaptation, our framework improves diverse VLA and WAM baselines with a small number of additional parameters and training steps. Experiments demonstrate average success-rate gains of 0.80 and 3.59 percentage points on LIBERO and RoboTwin 2.0, respectively, alongside gains of 6.80 percentage points on real-world tasks and 7.45 percentage points on their out-of-distribution variants.</summary>
+    <category term="cs.RO" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-09-16T07:20:18Z</published>
+    <arxiv:primary_category term="cs.RO"/>
+    <author>
+      <name>Lijie Wang</name>
+    </author>
+    <author>
+      <name>Zheng Lu</name>
+    </author>
+    <author>
+      <name>Yiming Wang</name>
+    </author>
+    <author>
+      <name>Heyang Yu</name>
+    </author>
+    <author>
+      <name>Kenghou Hoi</name>
+    </author>
+    <author>
+      <name>Bowen Hu</name>
+    </author>
+    <author>
+      <name>Di Cui</name>
+    </author>
+    <author>
+      <name>Tianyu Xin</name>
+    </author>
+    <author>
+      <name>Haoran Liao</name>
+    </author>
+    <author>
+      <name>Wanqi Zhong</name>
+    </author>
+    <author>
+      <name>Xingjie Fan</name>
+    </author>
+    <author>
+      <name>Yizhao Xu</name>
+    </author>
+    <author>
+      <name>Ziliang Wang</name>
+    </author>
+    <author>
+      <name>Fei Gao</name>
+    </author>
+    <author>
+      <name>Yiming Li</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2609.16486v1</id>
+    <title>VPRef: A Cross-Domain Benchmark for Referring Remote Sensing Image Segmentation</title>
+    <updated>2026-09-15T01:18:06Z</updated>
+    <link href="https://arxiv.org/abs/2609.16486v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2609.16486v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Rapid advancements in vision-language models have propelled Referring Remote Sensing Image Segmentation (RRSIS) to the forefront of Earth observation. However, practical deployments suffer severe performance degradation under a coupled dual-drift paradigm: visual domain drift from cross-spatial-resolution mismatches and spectral variations, alongside textual logic drift from unconstrained, variable user-input granularities. To mitigate these bottlenecks, this paper establishes the first cross-domain RRSIS benchmark, designated as the Vaihingen-Potsdam Referring (VPRef) dataset, comprising 46,972 language-image-annotation triplets organized into a three-tier linguistic hierarchy. Building upon this benchmark, we develop a tailored parameter-efficient domain adaptation baseline anchored on the Segment Anything Model (SAM3) via Low-Rank Adaptation (LoRA). Our framework counteracts visual distribution discrepancies through pseudo-label-driven self-training and addresses textual logic drift via random multi-granularity text prompt mixing. Crucially, the distribution of empirical metrics across ablative variants suggests a potential decoupling between cross-modal semantic robustification and visual domain alignment, demonstrating that linguistic variance drives fine-grained semantic invariance while pseudo-label propagation governs macro-scale spatial grid alignment. Extensive benchmarks demonstrate the proposed framework achieves superior cross-domain segmentation boundaries while modifying merely 1.08\% of the foundational parameter footprint, establishing a robust baseline for future multi-modal remote sensing domain adaptation research. The dataset and code will be available at https://github.com/quanweiliu/VPRef.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-09-15T01:18:06Z</published>
+    <arxiv:comment>12 pages, 7 figures, 6 tables</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Quanwei Liu</name>
+    </author>
+    <author>
+      <name>Tao Huang</name>
+    </author>
+    <author>
+      <name>Jiaqi Yang</name>
+    </author>
+    <author>
+      <name>Wei Xiang</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2609.16074v1</id>
+    <title>World-Action Models for Robot Learning and Control: A Survey</title>
+    <updated>2026-09-13T16:35:56Z</updated>
+    <link href="https://arxiv.org/abs/2609.16074v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2609.16074v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Robots operating in open environments act under partial observability, physical constraints, and dynamic task contexts. Beyond mapping observations and language instructions to actions, they must anticipate how candidate actions may affect future states and task-relevant outcomes. Recent advances in world models, video generation, and Vision-Language-Action (VLA) policies have motivated the development of World-Action Models (WAMs), which couple future world prediction with executable action generation. This survey provides a robotics-oriented review of WAMs. We clarify their scope relative to conventional world models, model-based reinforcement learning, action-conditioned video generation, and reactive VLA policies, and organize existing methods through a unified taxonomy covering representations, transition modeling, action interfaces, architectures, training pipelines, data modalities, and scaling strategies. We further review applications of WAMs in manipulation, navigation, and autonomous driving, and we summarize the datasets, benchmarks, metrics, and protocols used to evaluate WAM systems. Finally, we discuss key challenges in action alignment, world-action factorization, spatial and multi-view consistency, long-horizon memory, neural simulation for closed-loop policy learning, and efficient inference. Taken together, this survey aims to provide a concise technical foundation for integrating predictive world modeling with action generation, toward more reliable embodied robot intelligence. Project page: https://rcl-robotics.github.io/Awesome-World-Action-Models.</summary>
+    <category term="cs.RO" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-09-13T16:35:56Z</published>
+    <arxiv:comment>19 pages</arxiv:comment>
+    <arxiv:primary_category term="cs.RO"/>
+    <author>
+      <name>Zuxing Lu</name>
+    </author>
+    <author>
+      <name>Hongjia Zhai</name>
+    </author>
+    <author>
+      <name>Guanzhi Wang</name>
+    </author>
+    <author>
+      <name>Huajian Zeng</name>
+    </author>
+    <author>
+      <name>Jiaqi Yang</name>
+    </author>
+    <author>
+      <name>Jingyu Liu</name>
+    </author>
+    <author>
+      <name>Lei Cheng</name>
+    </author>
+    <author>
+      <name>Yuantai Zhang</name>
+    </author>
+    <author>
+      <name>Yuheng Qiu</name>
+    </author>
+    <author>
+      <name>Zezhou Cheng</name>
+    </author>
+    <author>
+      <name>Ivan Laptev</name>
+    </author>
+    <author>
+      <name>Danfei Xu</name>
+    </author>
+    <author>
+      <name>Benjamin Riviere</name>
+    </author>
+    <author>
+      <name>Giuseppe Loianno</name>
+    </author>
+    <author>
+      <name>Eric Xing</name>
+    </author>
+    <author>
+      <name>Xingxing Zuo</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2609.13815v1</id>
+    <title>Beyond OCR Accuracy: Text-Centric VQA Under Image Degradation with Modular and End-to-End</title>
+    <updated>2026-09-12T08:57:29Z</updated>
+    <link href="https://arxiv.org/abs/2609.13815v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2609.13815v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Text-centric Visual Question Answering (VQA) requires reading and reasoning over text embedded in images, a task made substantially harder when images suffer from real-world degradation such as motion blur, low resolution, or compression artifacts. While modular OCR-based pipelines and end-to-end vision-language models are both widely used for this task, their comparative robustness under degraded conditions remains underexplored. We present an empirical study comparing two modular pipelines with SA-DBNet, a custom detector architecture combining ResNet-18 with self-attention spatial modeling and deformable convolutions against an end-to-end vision-language baseline, evaluated on 4013 degraded images with 7000 question-answer pairs. Fine-tuned modular pipelines achieve up to 57.50% exact-match accuracy versus 38.00% for the end-to-end baseline, with domain-specific fine-tuning yielding a gain of up to 29.50 percentage points. Critically, we find that conventional OCR error metrics like Character Error Rate and Word Error Rate are unreliable predictors of downstream VQA performance, as semantic reasoning can compensate for recognition failures when contextual cues are present. These findings highlight the importance of task-aware evaluation for text-centric VQA systems under realistic visual conditions. Codes are available here</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-09-12T08:57:29Z</published>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Ritali Vatsi</name>
+    </author>
+    <author>
+      <name>Rachapudi Jagadeesh</name>
+    </author>
+    <author>
+      <name>Shruti Singh Baghel</name>
+    </author>
+    <author>
+      <name>Himani Sharma</name>
+    </author>
+    <author>
+      <name>Amit Shukla</name>
+    </author>
+    <author>
+      <name>Pawan Goyal</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2609.12691v1</id>
+    <title>Semantically Aligned Gradient-Driven Context-Preserving Image Editing</title>
+    <updated>2026-09-11T10:37:32Z</updated>
+    <link href="https://arxiv.org/abs/2609.12691v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2609.12691v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Instruction-guided image editing has a training-time blind spot. Generative editors are never required to semantically verify whether their outputs actually satisfy the instruction. Supervision stops at reconstruction and input textual-level conditioning. This produces incomplete edits, spatial spillover, and poor localization. We present IABEdit, a model-agnostic framework that embeds differentiable semantic verification into training. A frozen vision-language model extracts spatially-aware descriptors from the ground-truth edit. A trainable aligner then reproduces them from the generated output. The residual between the two becomes a gradient that teaches the generator both what to edit and where, with no inference-time VLM cost. IABEdit is compatible with diverse backbones, including U-Net (Stable Diffusion) and MMDiT (FLUX), without altering their inference pipelines. On MagicBrush, it improves structural fidelity by +3.49 DINO-I over the best diffusion baseline and +1.26 over the best overall baseline, while remaining competitive on instruction alignment. It also achieves state-of-the-art instruction adherence performance on RealEdit and EMU Edit benchmarks based on embedding-based metrics. Most consequentially, on the D-LORD surveillance benchmark, it surpasses the proprietary Gemini agent by +5.13 DINO-P under heavy occlusion, where preserving identity is hardest. This shows that gradient-aligned VLM distillation holds up under real-world-like surveillance and occlusion conditions. Human and GPT-4o evaluations confirm perceptually precise, well-localized edits.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-09-11T10:37:32Z</published>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Chiranjeev Chiranjeev</name>
+    </author>
+    <author>
+      <name>Muskan Dosi</name>
+    </author>
+    <author>
+      <name>Mayank Vatsa</name>
+    </author>
+    <author>
+      <name>Richa Singh</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2609.12285v1</id>
+    <title>AnchorVLN: Geometry-Anchored Vision-Language Grounding Reasoning for Open-Vocabulary Navigation</title>
+    <updated>2026-09-10T23:32:22Z</updated>
+    <link href="https://arxiv.org/abs/2609.12285v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2609.12285v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Vision-Language Navigation (VLN) in unseen indoor environments is useful in real-world robotics, where an agent must follow natural-language instructions, locate objects, and answer spatial questions without a pre-built map or fixed object vocabulary. Multimodal vision-language models (VLMs) provide strong open-vocabulary grounding and zero-shot reasoning, but struggle to emit reliable metric quantities such as range, bearing, and comparative spatial relations directly from images. Existing approaches address this by folding geometry into hand-engineered pipelines or asking models to output waypoints, requiring changes to the control stack for different robots, tasks, or vocabularies. We introduce AnchorVLN, an open-vocabulary VLN system built on a simple rule: the VLM proposes semantics; geometry decides metrics. It is realised as EMBODIED-NAV-MCP, a Model Context Protocol (MCP) server driven by a VLM agent through a compact set of callable tools. Since no tool accepts distance in metres or bearing in radians, the schema enforces the semantic-geometry boundary without modifying the downstream autonomy stack. We benchmark both tasks of the CMU Vision-Language Navigation Challenge 2026: 30 instruction-following questions over 15 scenes and a frozen 45-question object-reference set. The full system achieves 64.4 percent on instruction following, dropping by 13.3 percentage points without controller modeling (t = 2.77). On object reference, geometric anchoring clears the challenge overlap threshold on 10 of 45 questions, versus 0 of 45 for direct coordinate estimation, reducing median center error from 3.37 m to 2.48 m.</summary>
+    <category term="cs.RO" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-09-10T23:32:22Z</published>
+    <arxiv:primary_category term="cs.RO"/>
+    <author>
+      <name>Long Giang Vu</name>
+    </author>
+    <author>
+      <name>Chengkai Yao</name>
+    </author>
+    <author>
+      <name>Yuxin Liu</name>
+    </author>
+    <author>
+      <name>FNU Aryan</name>
+    </author>
+    <author>
+      <name>Rajath Chandrashekar Aralikatti</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2609.05324v1</id>
+    <title>RoboSPA: Can VLA Models Go Beyond Simple Scenes and Short-Horizon Tasks?</title>
+    <updated>2026-09-04T16:19:01Z</updated>
+    <link href="https://arxiv.org/abs/2609.05324v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2609.05324v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Vision-Language-Action (VLA) models have shown promising progress in language-conditioned robotic manipulation. However, existing datasets and benchmarks mainly evaluate task completion under predefined settings, offering limited insight into model reasoning under increasing spatial and procedural complexity. We introduce \textbf{RoboSPA} (\textbf{Robo}t \textbf{S}patial-\textbf{P}rocedural \textbf{A}ssessment), a large-scale robotic manipulation dataset and benchmark for diagnosing embodied reasoning in VLA models. \texttt{RoboSPA} focuses on two core dimensions, Fine-Grained Spatial Reasoning and Long-Horizon Procedural Planning, covering 10 task categories and 56 base tasks. Each task is instantiated across five difficulty levels, yielding 280 variants with increasing spatial ambiguity and procedural complexity. We collect 527K trajectories across multiple embodiments and diverse scenes. Beyond binary success rate, \texttt{RoboSPA} introduces diagnostic metrics for more detailed evaluation. Experiments on representative VLA models show that current systems still struggle with complex spatial relations, precise low-level execution, and memory-intensive planning. These results establish \texttt{RoboSPA} as a challenging diagnostic benchmark for developing more capable, reliable, and generalizable embodied agents. Our data and code are available at https://github.com/fanzhenxuan/RoboSPA.</summary>
+    <category term="cs.RO" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-09-04T16:19:01Z</published>
+    <arxiv:comment>Accepted at the EMNLP 2026 Main Conference</arxiv:comment>
+    <arxiv:primary_category term="cs.RO"/>
+    <author>
+      <name>Zhenxuan Fan</name>
+    </author>
+    <author>
+      <name>Bo Zhang</name>
+    </author>
+    <author>
+      <name>Yutong Lin</name>
+    </author>
+    <author>
+      <name>Yuqian Yuan</name>
+    </author>
+    <author>
+      <name>Juekai Lin</name>
+    </author>
+    <author>
+      <name>Liang Liang</name>
+    </author>
+    <author>
+      <name>Zhuoyi Huang</name>
+    </author>
+    <author>
+      <name>Wenqiao Zhang</name>
+    </author>
+    <author>
+      <name>Juncheng Li</name>
+    </author>
+    <author>
+      <name>Siliang Tang</name>
+    </author>
+    <author>
+      <name>Jun Xiao</name>
+    </author>
+    <author>
+      <name>Yueting Zhuang</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2609.03806v1</id>
+    <title>SVG-Score: Human-Aligned Evaluation of Text-to-SVG Generation</title>
+    <updated>2026-09-03T13:12:37Z</updated>
+    <link href="https://arxiv.org/abs/2609.03806v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2609.03806v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Scalable Vector Graphics (SVG) generation is attracting increasing attention as generative models improve in expressiveness and controllability. Progress, however, is held back by the lack of domain-specific evaluation protocols: current practice relies on metrics designed for natural images, most notably CLIPScore, which was never trained on vector graphics and aligns only partially with human judgment. We introduce \textbf{\ours}, a human-aligned evaluation framework for text-to-SVG generation. Through controlled caption and image perturbations, we first show that CLIP-based scores barely react to the errors SVG generators actually make, such as wrong colors, counts, and spatial relations, and that off-the-shelf Vision-Language Model (VLM) judges, while more sensitive, respond unevenly across error types and SVG styles. We then introduce a human-annotated dataset for \textit{Semantic Alignment}, measuring how faithfully a generated SVG reflects its caption. Building on it, we develop two complementary evaluators: CLIP scorers adapted to vector graphics and then aligned to human preferences, for fast large-scale evaluation, and a VLM judge trained with supervised fine-tuning and reward-shaped reinforcement learning, for more expressive and interpretable assessment. Using both, we benchmark major open-source, commercial, and optimization-based SVG generators on an independent caption set.</summary>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-09-03T13:12:37Z</published>
+    <arxiv:primary_category term="cs.AI"/>
+    <author>
+      <name>Marco Cipriano</name>
+    </author>
+    <author>
+      <name>Leonardo Zini</name>
+    </author>
+    <author>
+      <name>Alexandra Schild</name>
+    </author>
+    <author>
+      <name>Valentin Teutschbein</name>
+    </author>
+    <author>
+      <name>Afsana Mimi</name>
+    </author>
+    <author>
+      <name>Marcella Cornia</name>
+    </author>
+    <author>
+      <name>Lorenzo Baraldi</name>
+    </author>
+    <author>
+      <name>Gerard de Melo</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2609.02207v1</id>
+    <title>LeakageBench: Document-Level Leakage Risk for Redacting Personally Identifiable Information in Document Images</title>
+    <updated>2026-09-02T07:21:24Z</updated>
+    <link href="https://arxiv.org/abs/2609.02207v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2609.02207v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Real-world personally identifiable information (PII) redaction often operates on document images---scans, screenshots, and PDF renderings---where OCR errors, layout structure, and visual noise determine whether sensitive information is actually removed. Existing PII benchmarks are mostly text-centric and do not measure document-level redaction risk: a page remains unsafe if even one identifier is missed. We introduce LeakageBench, a challenge set of 500 document images with 11,954 GDPR-aligned PII annotations spanning direct identifiers, linkage keys, and contextual re-identification surfaces. We evaluate generic OCR pipelines, commercial and task-adapted OCR-dependent detectors, and OCR-free vision-language models using entity-level F1, group-wise leakage, and document-level leakage metrics. Code Interpreter raises GPT-5.5 localization F1 from 0.090 to 0.249, but critical page-level leakage remains 0.968. These results show that stronger detection and tool assistance improve localization without making most pages safe for release. LeakageBench provides a diagnostic benchmark for high-recall, spatially grounded PII redaction in document images.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-09-02T07:21:24Z</published>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Vishnu Prasad Vijaya Kumar</name>
+    </author>
+    <author>
+      <name>Santhosh Venkatesh</name>
+    </author>
+    <author>
+      <name>Ivan P. Yamshchikov</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2609.01059v1</id>
+    <title>Dyn-3D: Unveiling and Resolving Ego-Motion Ambiguity in Vision-Language Models</title>
+    <updated>2026-09-01T10:54:27Z</updated>
+    <link href="https://arxiv.org/abs/2609.01059v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2609.01059v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>As Vision-Language Models (VLMs) tackle dynamic 3D spatial reasoning, ego-motion perception becomes essential to resolve monocular scale ambiguity. However, current models often overfit to smooth trajectory priors rather than genuinely understanding physical motion. Consequently, their spatial reasoning degrades severely under large displacements, a phenomenon we term Kinematic Collapse. This failure stems from spurious visual-motion correlations in natural videos and a lack of explicit physical supervision. To evaluate this, we introduce Dyn-3D, a benchmark using counterfactual 3D rendering to rigorously decouple visual changes from true kinematic properties. Furthermore, we propose the TempoVista framework, featuring the Kinematic-GSPO algorithm. By embedding metric physical ground truth into policy optimization, TempoVista explicitly grounds visual representations in 3D space. Experiments demonstrate that our approach significantly improves both motion estimation and robust spatial reasoning by utilizing camera dynamics as an effective geometric calibration signal.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-09-01T10:54:27Z</published>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Jiayu Ding</name>
+    </author>
+    <author>
+      <name>Zhuodong Liu</name>
+    </author>
+    <author>
+      <name>Lei Zhang</name>
+    </author>
+    <author>
+      <name>Manyu Xiong</name>
+    </author>
+    <author>
+      <name>Hongbo Jin</name>
+    </author>
+    <author>
+      <name>Haoran Tang</name>
+    </author>
+    <author>
+      <name>Hongbo Zhang</name>
+    </author>
+    <author>
+      <name>Changen Zhu</name>
+    </author>
+    <author>
+      <name>Wenbo Xing</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2608.23723v1</id>
+    <title>DriftAD: Visually-Guided Text Drift for Few-Shot Industrial Anomaly Detection</title>
+    <updated>2026-08-24T18:09:46Z</updated>
+    <link href="https://arxiv.org/abs/2608.23723v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2608.23723v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Few-shot anomaly detection (FSAD) has recently benefited from vision-language models such as CLIP, which enable anomaly de?tection by aligning visual features with text descriptions of normal and abnormal states. However, existing methods typically rely on static text prompts that are applied uniformly across the entire feature hierarchy and spatial dimensions. This rigid global-to-local matching fails to capture the highly localized and scale-dependent physical variations of industrial defects. To address this, we propose DriftAD, a FSAD framework built on three key modules. First, an Anomaly Signal Amplification (ASA) module enhances subtle defect signals through spatial and frequency branches before text-visual matching. Second, Visually-Guided Text Drift (VGTD) dynamically transforms frozen CLIP text embeddings, steering them into layer?wise, spatially-adaptive anomaly descriptors conditioned on local visual context at each encoder depth. Third, Drift-Guided Spatial Gating (DGSG) uses the drifted abnormal descriptor as a spatial probe to selectively enhance anomaly-relevant visual features. Addi?tionally, a drift separation loss prevents representational collapse of the drifted descriptors, and a gate supervision loss enforces spatially discriminative gating in DGSG. Extensive experiments on MVTec?AD and VisA demonstrate state-of-the-art performance across all 1-, 2-, and 4-shot settings on both image-level and pixel-level metrics. Code is available at https://github.com/wenyang001/DriftAD.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-08-24T18:09:46Z</published>
+    <arxiv:comment>Accepted by ACM Multimedia 2026 (ACM MM 2026)</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Wenyang Liu</name>
+    </author>
+    <author>
+      <name>Tianyi Liu</name>
+    </author>
+    <author>
+      <name>Dongshuo Zhang</name>
+    </author>
+    <author>
+      <name>Kejun Wu</name>
+    </author>
+    <author>
+      <name>Adams Wai-Kin Kong</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2608.17318v1</id>
+    <title>If, Then, Otherwise: Diagnosing Conditional Branching in Vision-Language Navigation</title>
+    <updated>2026-08-18T03:22:29Z</updated>
+    <link href="https://arxiv.org/abs/2608.17318v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2608.17318v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Vision-language navigation agents are often evaluated on their ability to follow route-like instructions toward a fixed goal. Yet, real navigation instructions often depend on observed states of the environment: if a condition holds, then follow one path, otherwise take another. Such instructions require an agent to evaluate scene evidence, select the correct logical branch, and execute the corresponding navigation behavior. Existing evaluations provide limited control over conditional branch execution, making it difficult to determine whether agents fail because of perception, grounding, navigation, or logical decision-making. We introduce CondVLN, a scene-graph-grounded benchmark for diagnosing conditional branching in vision-language navigation. CondVLN programmatically generates instructions whose branch conditions are grounded in verifiable 3D scene-graph predicates, with controlled variation in branch depth, dependency chain length, spatial composition, evidence observability, and instruction horizon. CondVLN contains over 11,500 generated conditional instructions across AI2-THOR, Matterport3D, Gibson, and ReplicaCAD, and evaluates agents using standard VLN metrics and branch-specific diagnostics: Branch Selection Accuracy and Conditional Success Rate. Evaluating four state-of-the-art VLN agents (VLN-Zero, NaVid, NaVILA, and Open-Nav) shows that conditional branching exposes failures that are not captured by standard success rate or path length alone: agents can navigate plausibly while committing to a branch inconsistent with the observed scene condition. We also present a lightweight neurosymbolic branch-selection model that separates condition grounding from navigation execution, improving performance by 2x. CondVLN provides a reusable testbed for measuring whether embodied agents can not only follow instructions, but follow the right instruction under the right condition.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.RO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-08-18T03:22:29Z</published>
+    <arxiv:comment>11 pages, 1 figure, 3 tables. Project page: https://condvln.github.io/</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Seoyoung Lee</name>
+    </author>
+    <author>
+      <name>Neel P. Bhatt</name>
+    </author>
+    <author>
+      <name>Pranay Samineni</name>
+    </author>
+    <author>
+      <name>Cong Liu</name>
+    </author>
+    <author>
+      <name>S P Sharan</name>
+    </author>
+    <author>
+      <name>Timothy Barclay</name>
+    </author>
+    <author>
+      <name>Gregory M. Wagner</name>
+    </author>
+    <author>
+      <name>Daniel Milan</name>
+    </author>
+    <author>
+      <name>Sandeep Chinchali</name>
+    </author>
+    <author>
+      <name>Ufuk Topcu</name>
+    </author>
+    <author>
+      <name>Atlas Wang</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2608.16480v1</id>
+    <title>RISE: Roadside Infrastructure Sequence Understanding across 3D Tracking and Structured Vision-Language Reasoning</title>
+    <updated>2026-08-17T12:22:15Z</updated>
+    <link href="https://arxiv.org/abs/2608.16480v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2608.16480v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We present RISE (Roadside Infrastructure Sequence Understanding and Evaluation), a framework spanning metric 3D tracking and structured vision-language reasoning in roadside sequences. For metric tracking, our image-only method combines SAM3 video identities with calibration-guided mask agreement for multi-view identity association, recovering persistent 3D tracks without LiDAR or task-specific 3D training. Its calibration-conditioned geometry allows the procedure to be instantiated at different calibrated multi-camera intersections without layout-specific retraining. On 20 human-reviewed clips from six intersections, the generated tracks achieve 66.9 MOTA within the defined multi-view evaluation scope. For structured vision-language reasoning, a human-reviewed MLLM pipeline mines high-value clips and uses a constrained full-context Oracle to construct bbox-grounded predictive QA without exposing future evidence to evaluated models. The resulting RISE-VQA dataset contains 33,910 QA pairs from 557 clips across 16 intersections and 61 roadside views. Its intersection-held-out RISE-Bench evaluates semantic choices, coordinates, future boxes, and interaction sets with deterministic task-specific metrics. Experiments show consistent benefits from domain adaptation and generally from temporal context, while revealing persistent challenges in spatial grounding, future localization, and interaction reasoning.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-08-17T12:22:15Z</published>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Yanbo Jiang</name>
+    </author>
+    <author>
+      <name>Haotian Zheng</name>
+    </author>
+    <author>
+      <name>Jiahao Wang</name>
+    </author>
+    <author>
+      <name>Hanxiao Ren</name>
+    </author>
+    <author>
+      <name>Yitao Xu</name>
+    </author>
+    <author>
+      <name>Yining Xing</name>
+    </author>
+    <author>
+      <name>Zehong Ke</name>
+    </author>
+    <author>
+      <name>Hao Cheng</name>
+    </author>
+    <author>
+      <name>Yiqian Tu</name>
+    </author>
+    <author>
+      <name>Jinhao Li</name>
+    </author>
+    <author>
+      <name>Zhiyuan Xuan</name>
+    </author>
+    <author>
+      <name>Fang Zhang</name>
+    </author>
+    <author>
+      <name>Jianqiang Wang</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2608.08077v1</id>
+    <title>Explore, Map, Remember, Decide: Are Embodied VLMs Ready for Safety-Critical Scenarios?</title>
+    <updated>2026-08-08T11:57:01Z</updated>
+    <link href="https://arxiv.org/abs/2608.08077v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2608.08077v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Theory of Space framework (ToS) assesses the spatial understanding of curiosity-driven Vision-Language Models (VLMs) under partial observability. As AI techniques are increasingly applied to safety-critical scenarios, it is crucial to understand whether VLMs possess robust spatial memory and make reliable decisions. In this paper, we assess whether VLMs' decisions are based on physical evidence or are corrupted by visual-language biases, if their memory processes align with human cognitive patterns, and how they respond to environmental hazards. We extend the ToS framework into a safety-critical, goal-driven pipeline, named Explore, Map, Remember, and Decide (EMRD). We then quantify Exploration Competence (Explore) through metrics of environmental coverage and temporal efficiency, assess Spatial Fidelity (Map), evaluate, with a suite of psychological metrics, Memory Persistence (Remember), and measure, using focal-point metrics, Cognitive Decision-Making (Decide). Our results show that in terms of decision-making capabilities, VLMs frequently select evacuation points based on pre-trained textual priors while lacking the spatial grounding to justify their choices. We also show that spatial reasoning degrades in low-light conditions, but it is not affected by texture and colour tampering. Our findings suggest that VLM memory fundamentally diverges from human cognition, creating unpredictable risks of misalignment.</summary>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.MA" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.RO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-08-08T11:57:01Z</published>
+    <arxiv:primary_category term="cs.AI"/>
+    <author>
+      <name>Gabriele La Malfa</name>
+    </author>
+    <author>
+      <name>Nitay Alon</name>
+    </author>
+    <author>
+      <name>Emanuele La Malfa</name>
+    </author>
+    <author>
+      <name>Reuth Mirsky</name>
+    </author>
+    <author>
+      <name>Stefan Sarkadi</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2608.07742v2</id>
+    <title>BRUCE: Benchmarking Robustness Under Corruption Escalation for Scientific Vision-Language Reasoning</title>
+    <updated>2026-08-28T21:20:59Z</updated>
+    <link href="https://arxiv.org/abs/2608.07742v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2608.07742v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Visual-language models (VLMs) frequently struggle with robustness issues in real-world situations due to low- or varying-quality input images. In this paper, we aim at analyzing VLMs' robustness by applying perturbations and distortions to the input images, such as blur or low contrast. Toward this goal, we propose BRUCE (Benchmarking Robustness Under Corruption Escalation), a multimodal reasoning fragility framework for scientific vision-language reasoning.
+  State-of-the-art evaluation frameworks/studies primarily focus on clean-task accuracy and rarely analyze how reasoning stability degrades across robustness dimensions. Besides varying over a wide-range of input perturbations, BRUCE employs two novel metrics -- Robustness Corruption Index (RCI) and Traversal-RCI (T-RCI) -- to quantify how rapidly multimodal reasoning performance deteriorates in VLMs as visual corruption severity increases under progressive perturbation scaling. We evaluate BRUCE across chemistry and mathematical reasoning tasks for multiple datasets, while analyzing corruption-induced prediction failures in terms of four high-level reasoning domains: OCR-dependent reasoning, spatial reasoning, symbolic reasoning, and semantic failures, with each containing fine-grained corruption specific failure subtypes, thereby enabling an interpretable failure analysis.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-08-07T20:19:11Z</published>
+    <arxiv:comment>Submitted to IEEE Access for review</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Saim Rehman</name>
+    </author>
+    <author>
+      <name>Muhammad Shafique</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2608.07117v1</id>
+    <title>Beyond Fluency: A Clinical Benchmark and Anomaly-Enhanced Baseline for Spine MRI Report Generation</title>
+    <updated>2026-08-07T11:21:33Z</updated>
+    <link href="https://arxiv.org/abs/2608.07117v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2608.07117v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Radiology reporting is time-consuming and subject to inter-rater variability, making automated report generation an attractive clinical application for Vision-Language Models (VLMs). We benchmark state-of-the-art VLMs on lumbar spine MRI with a focus on diagnostic accuracy and demonstrate that standard lexical and semantic metrics poorly reflect clinical correctness: fluent, well-structured reports can score highly while containing clinically meaningful diagnostic errors. To address this failure mode, we propose an architecture-agnostic framework that augments VLM inputs with spatially localized, disc-level anomaly heatmaps generated by a semi-supervised U-Net++ model. These heatmaps both improve anatomical sensitivity through explicit visual grounding and provide an independent interpretability output for clinical oversight, moving us closer to diagnostically reliable, visually grounded VLMs for lumbar spine MRI interpretation.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-08-07T11:21:33Z</published>
+    <arxiv:comment>Maria Monzon and Catherine R. Jutzeler contributed equally as shared last authors. Accepted at the CV4Clinic Workshop, CVPR 2026</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <arxiv:journal_ref>Proc. IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR) Workshops, 2026, pp. 6759-6770</arxiv:journal_ref>
+    <author>
+      <name>Bruno Palau</name>
+    </author>
+    <author>
+      <name>Franziska Vogt</name>
+    </author>
+    <author>
+      <name>Daria Laslo</name>
+    </author>
+    <author>
+      <name>Haobo Li</name>
+    </author>
+    <author>
+      <name>Ender Konukoglu</name>
+    </author>
+    <author>
+      <name>Maria Monzon</name>
+    </author>
+    <author>
+      <name>Catherine R. Jutzeler</name>
+    </author>
+  </entry>
+</feed>
