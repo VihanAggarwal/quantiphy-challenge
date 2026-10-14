@@ -1,0 +1,70 @@
+{
+ "video_id": "simulation_0009",
+ "model": "gpt-6.1-sol",
+ "effort": "high",
+ "status": "completed",
+ "n_frames": 18,
+ "secs": 171.0,
+ "usd": 0.07143,
+ "usage": {
+  "input_tokens": 17105,
+  "output_tokens": 10865
+ },
+ "answers": [
+  {
+   "value": 1.37,
+   "qid": 1044,
+   "how": "Depth-compensating the boat's motion from 0 to 1 s gives approximately 98.6 px/m at t=0. Its projected length is about 135 px.",
+   "unit": "m"
+  },
+  {
+   "value": 0.41,
+   "qid": 1045,
+   "how": "The boat's shorter crosswise extent is approximately 40 px; dividing by the motion-calibrated scale of 98.6 px/m gives its width.",
+   "unit": "m"
+  },
+  {
+   "value": 0.28,
+   "qid": 1046,
+   "how": "The hull's rim-to-bottom height is approximately 28 px, converted using the boat's calibrated scale.",
+   "unit": "m"
+  },
+  {
+   "value": 0.36,
+   "qid": 1047,
+   "how": "The pier's short edge measures approximately 22 px. Correcting the boat-derived scale to the pier's 18.920 m depth gives about 61.6 px/m.",
+   "unit": "m"
+  },
+  {
+   "value": 3.33,
+   "qid": 1048,
+   "how": "The shore-to-water-end extent is approximately 205 px, divided by the depth-corrected pier scale of 61.6 px/m.",
+   "unit": "m"
+  },
+  {
+   "value": 3.13,
+   "qid": 1049,
+   "how": "Extrapolated the boat's trajectory to 3 s, giving a depth near 15.81 m, then compared the nearest hull point with the pier's outer end in depth-corrected coordinates.",
+   "unit": "m"
+  },
+  {
+   "value": 0.83,
+   "qid": 1050,
+   "how": "The tread width is approximately 42 px. At the stairs' 23.125 m depth, the calibrated scale is approximately 50.4 px/m.",
+   "unit": "m"
+  },
+  {
+   "value": 0.45,
+   "qid": 1051,
+   "how": "Measured approximately 28 px vertically from the pier deck to the waterline and applied the pier's depth-corrected scale.",
+   "unit": "m"
+  },
+  {
+   "value": 0.4,
+   "qid": 1052,
+   "how": "Measured approximately 20 px vertically between the cabin floor and the ground, using the stairs' depth as the local depth reference.",
+   "unit": "m"
+  }
+ ],
+ "raw_text": "{\"answers\":[{\"value\":1.37,\"qid\":1044,\"how\":\"Depth-compensating the boat's motion from 0 to 1 s gives approximately 98.6 px/m at t=0. Its projected length is about 135 px.\",\"unit\":\"m\"},{\"value\":0.41,\"qid\":1045,\"how\":\"The boat's shorter crosswise extent is approximately 40 px; dividing by the motion-calibrated scale of 98.6 px/m gives its width.\",\"unit\":\"m\"},{\"value\":0.28,\"qid\":1046,\"how\":\"The hull's rim-to-bottom height is approximately 28 px, converted using the boat's calibrated scale.\",\"unit\":\"m\"},{\"value\":0.36,\"qid\":1047,\"how\":\"The pier's short edge measures approximately 22 px. Correcting the boat-derived scale to the pier's 18.920 m depth gives about 61.6 px/m.\",\"unit\":\"m\"},{\"value\":3.33,\"qid\":1048,\"how\":\"The shore-to-water-end extent is approximately 205 px, divided by the depth-corrected pier scale of 61.6 px/m.\",\"unit\":\"m\"},{\"value\":3.13,\"qid\":1049,\"how\":\"Extrapolated the boat's trajectory to 3 s, giving a depth near 15.81 m, then compared the nearest hull point with the pier's outer end in depth-corrected coordinates.\",\"unit\":\"m\"},{\"value\":0.83,\"qid\":1050,\"how\":\"The tread width is approximately 42 px. At the stairs' 23.125 m depth, the calibrated scale is approximately 50.4 px/m.\",\"unit\":\"m\"},{\"value\":0.45,\"qid\":1051,\"how\":\"Measured approximately 28 px vertically from the pier deck to the waterline and applied the pier's depth-corrected scale.\",\"unit\":\"m\"},{\"value\":0.40,\"qid\":1052,\"how\":\"Measured approximately 20 px vertically between the cabin floor and the ground, using the stairs' depth as the local depth reference.\",\"unit\":\"m\"}]}"
+}

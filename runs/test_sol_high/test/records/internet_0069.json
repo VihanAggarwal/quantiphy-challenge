@@ -1,0 +1,64 @@
+{
+ "video_id": "internet_0069",
+ "model": "gpt-6.1-sol",
+ "effort": "high",
+ "status": "completed",
+ "n_frames": 22,
+ "secs": 78.6,
+ "usd": 0.037188,
+ "usage": {
+  "input_tokens": 11783,
+  "output_tokens": 5081
+ },
+ "answers": [
+  {
+   "value": 14.0,
+   "qid": 3251,
+   "how": "The cup is about 251 pixels tall. Fitting its horizontal motion gives approximately 575 px/s\u00b2, so the prior gives a scale of 0.32/575 m/pixel.",
+   "unit": "cm"
+  },
+  {
+   "value": 0.49,
+   "qid": 3252,
+   "how": "A quadratic fit to the cup's horizontal positions estimates its velocity at 2.00 s; the pixel acceleration is scaled to the given 0.32 m/s\u00b2.",
+   "unit": "m/s"
+  },
+  {
+   "value": 0.522,
+   "qid": 3253,
+   "how": "Using the fitted velocity at 2.00 s and the given acceleration: 0.490 + 0.32 \u00d7 0.10.",
+   "unit": "m/s"
+  },
+  {
+   "value": 0.554,
+   "qid": 3254,
+   "how": "Using the fitted velocity at 2.00 s and the given acceleration: 0.490 + 0.32 \u00d7 0.20.",
+   "unit": "m/s"
+  },
+  {
+   "value": 0.586,
+   "qid": 3255,
+   "how": "Using the fitted velocity at 2.00 s and the given acceleration: 0.490 + 0.32 \u00d7 0.30.",
+   "unit": "m/s"
+  },
+  {
+   "value": 5.06,
+   "qid": 3256,
+   "how": "Converting the fitted pixel displacement using the acceleration-derived scale gives 100 \u00d7 (0.490 \u00d7 0.10 + 0.5 \u00d7 0.32 \u00d7 0.10\u00b2).",
+   "unit": "cm"
+  },
+  {
+   "value": 11.08,
+   "qid": 3257,
+   "how": "Converting the fitted pixel displacement gives 100 \u00d7 (0.522 \u00d7 0.20 + 0.5 \u00d7 0.32 \u00d7 0.20\u00b2).",
+   "unit": "cm"
+  },
+  {
+   "value": 12.36,
+   "qid": 3258,
+   "how": "The cup moves approximately 222 pixels between these frames. Applying the acceleration-derived scale gives about 12.36 cm.",
+   "unit": "cm"
+  }
+ ],
+ "raw_text": "{\"answers\":[{\"value\":14.0,\"qid\":3251,\"how\":\"The cup is about 251 pixels tall. Fitting its horizontal motion gives approximately 575 px/s\u00b2, so the prior gives a scale of 0.32/575 m/pixel.\",\"unit\":\"cm\"},{\"value\":0.49,\"qid\":3252,\"how\":\"A quadratic fit to the cup's horizontal positions estimates its velocity at 2.00 s; the pixel acceleration is scaled to the given 0.32 m/s\u00b2.\",\"unit\":\"m/s\"},{\"value\":0.522,\"qid\":3253,\"how\":\"Using the fitted velocity at 2.00 s and the given acceleration: 0.490 + 0.32 \u00d7 0.10.\",\"unit\":\"m/s\"},{\"value\":0.554,\"qid\":3254,\"how\":\"Using the fitted velocity at 2.00 s and the given acceleration: 0.490 + 0.32 \u00d7 0.20.\",\"unit\":\"m/s\"},{\"value\":0.586,\"qid\":3255,\"how\":\"Using the fitted velocity at 2.00 s and the given acceleration: 0.490 + 0.32 \u00d7 0.30.\",\"unit\":\"m/s\"},{\"value\":5.06,\"qid\":3256,\"how\":\"Converting the fitted pixel displacement using the acceleration-derived scale gives 100 \u00d7 (0.490 \u00d7 0.10 + 0.5 \u00d7 0.32 \u00d7 0.10\u00b2).\",\"unit\":\"cm\"},{\"value\":11.08,\"qid\":3257,\"how\":\"Converting the fitted pixel displacement gives 100 \u00d7 (0.522 \u00d7 0.20 + 0.5 \u00d7 0.32 \u00d7 0.20\u00b2).\",\"unit\":\"cm\"},{\"value\":12.36,\"qid\":3258,\"how\":\"The cup moves approximately 222 pixels between these frames. Applying the acceleration-derived scale gives about 12.36 cm.\",\"unit\":\"cm\"}]}"
+}
