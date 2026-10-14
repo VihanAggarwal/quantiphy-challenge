@@ -1,0 +1,55 @@
+primary reference: 222 (run,row) pairs, 80 rows, 29 clips; sd(log f_ref) across runs (median) 0.039, across rows within a clip 0.112
+secondary (prior-implied, fov_check ii): 31 clips
+reference disagreement primary vs secondary on 6 common clips: median |log| 0.163 (median signed +0.093)
+Depth Pro FOV for 35 clips (37 frames)
+
+PRIMARY reference (fact/val-implied):
+  DepthPro n=29  median log(f_model/f_ref) -0.221  median |e| 0.334  share |e|<=.10 0.14  <=.20 0.31
+  MoGe-2   n=29  median log(f_model/f_ref) -0.205  median |e| 0.229  share |e|<=.10 0.24  <=.20 0.45
+SECONDARY reference (prior-implied):
+  DepthPro n=11  median log(f_model/f_ref) -0.109  median |e| 0.328  share |e|<=.10 0.27  <=.20 0.45
+  MoGe-2   n=11  median log(f_model/f_ref) -0.417  median |e| 0.417  share |e|<=.10 0.09  <=.20 0.18
+POOLED (primary rows + secondary) per clip:
+  DepthPro n=34  median log(f_model/f_ref) -0.165  median |e| 0.335  share |e|<=.10 0.12  <=.20 0.32
+  MoGe-2   n=34  median log(f_model/f_ref) -0.243  median |e| 0.251  share |e|<=.10 0.21  <=.20 0.38
+
+per clip:
+                 hfov_dp  hfov_moge      f_dp    f_moge  f_ref_primary  f_ref_prior  n_frames_dp   e_dp  e_moge  hfov_ref
+video_id                                                                                                                 
+simulation_0009   56.577     70.204  1003.362   768.290        629.738          NaN            2  0.466   0.199    81.226
+simulation_0015   64.720     63.351   852.225   875.167        758.411      889.803            2  0.117   0.143    70.903
+simulation_0023   28.535     26.503  1887.605  2038.285       2641.924          NaN            1 -0.336  -0.259    20.595
+simulation_0024   21.105     26.119  2576.678  2069.303       3597.453          NaN            1 -0.334  -0.553    15.200
+simulation_0025   35.945     28.656  1479.718  1879.245       3461.783          NaN            1 -0.850  -0.611    15.788
+simulation_0026   32.033     26.488  1672.128  2039.482       2611.218     3391.683            1 -0.446  -0.247    20.832
+simulation_0027   21.622     28.561  2513.569  1885.773            NaN     2971.114            1    NaN     NaN       NaN
+simulation_0029   33.460     32.233  1596.874  1661.216       2276.785          NaN            1 -0.355  -0.315    23.810
+simulation_0031   12.647     19.844  4331.613  2744.065       5097.363          NaN            1 -0.163  -0.619    10.759
+simulation_0033   41.418     39.246  1428.393  1514.569       1524.185          NaN            1 -0.065  -0.006    39.017
+simulation_0034   18.174     26.040  3376.322  2335.264       3377.502     3250.213            1 -0.000  -0.369    18.167
+simulation_0035   30.423     34.274  1985.964  1751.267       3288.568     2785.052            1 -0.504  -0.630    18.650
+simulation_0036   33.682     36.608  1783.971  1632.408       2873.870     2477.126            1 -0.477  -0.566    21.284
+simulation_0039   46.705     42.937  1778.801  1952.843       7950.029          NaN            1 -1.497  -1.404    11.036
+simulation_0040   41.883     56.745  1411.067   999.855            NaN     7593.002            1    NaN     NaN       NaN
+simulation_0042   40.410     44.880  1467.296  1307.560       7524.590          NaN            1 -1.635  -1.750     8.210
+simulation_0055   41.293     34.550  1433.105  1736.421            NaN          NaN            1    NaN     NaN       NaN
+simulation_0058   59.535     62.134  1888.262  1792.653       2159.307          NaN            1 -0.134  -0.186    53.145
+simulation_0059   71.689     63.368  1495.001  1749.764       2148.570          NaN            1 -0.363  -0.205    53.374
+simulation_0060   74.053     59.361  1431.819  1894.937       1958.896          NaN            1 -0.313  -0.033    57.739
+simulation_0061   68.662     60.645  1581.372  1846.519       2148.129          NaN            1 -0.306  -0.151    53.383
+simulation_0062   67.735     66.658  1609.181  1642.340       2065.785          NaN            1 -0.250  -0.229    55.201
+simulation_0063   63.822     54.780  1734.337  2084.427       2162.892          NaN            1 -0.221  -0.037    53.069
+simulation_0064   54.230     55.108  2109.143  2069.893       2171.897          NaN            1 -0.029  -0.048    52.879
+simulation_0065   72.117     57.372  1483.298  1973.809       2247.594          NaN            1 -0.416  -0.130    51.330
+simulation_0066   89.290    106.773  1093.476   802.476        675.787          NaN            1  0.481   0.172   115.929
+simulation_0067   88.105     93.686  1116.328  1012.670        651.086          NaN            1  0.539   0.442   117.832
+simulation_0074   75.181     67.643  1402.892  1611.981       1664.641     1340.111            1 -0.171  -0.032    65.950
+simulation_0141   59.350     58.009  1684.772  1731.564       1630.733          NaN            1  0.033   0.060    60.970
+simulation_0170   21.359     68.539  5090.559  1408.912            NaN     2811.034            1    NaN     NaN       NaN
+simulation_0299   33.003     44.946  4320.750  3094.340       3366.103          NaN            1  0.250  -0.084    41.640
+simulation_0300   25.596     67.832  5634.917  1903.695       3099.468          NaN            1  0.598  -0.487    44.879
+simulation_0301   32.544     47.911  4385.187  2880.974       3655.507          NaN            1  0.182  -0.238    38.596
+simulation_0310   40.916     46.658  3431.197  2968.007            NaN     3826.899            1    NaN     NaN       NaN
+simulation_0311   27.327     49.464  5265.357  2778.803            NaN     3687.230            1    NaN     NaN       NaN
+
+STAGE 1 bar (primary): median |e| 0.334 <= .10 and share 0.14 >= .60 -> FAIL

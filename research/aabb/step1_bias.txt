@@ -1,0 +1,229 @@
+
+==== VALIDATION 3D non-lab size rows, 3-run log-median of direct answers (val runs): n=30 rows, 5 clips ====
+all: median log(pred/gt) -0.116, mean -0.130, frac under 0.77, MRA 0.763
+by dimension word:
+              n  med_lr  mean_lr  frac_under  frac_under_10pct  frac_over_10pct    MRA
+dim                                                                                   
+diameter    1.0   0.164    0.164       0.000             0.000            1.000  0.800
+height     11.0  -0.037   -0.002       0.727             0.364            0.273  0.764
+length      6.0  -0.189   -0.193       0.667             0.500            0.000  0.800
+thickness   1.0  -0.365   -0.365       1.000             1.000            0.000  0.600
+width      11.0  -0.160   -0.230       0.909             0.636            0.000  0.755
+by (elongated object, horizontal dim):
+                n  med_lr  mean_lr  frac_under  frac_under_10pct  frac_over_10pct    MRA
+elong horiz                                                                             
+False False   7.0  -0.070    0.010       0.714             0.429            0.286  0.714
+      True    4.0  -0.417   -0.366       0.750             0.750            0.000  0.625
+True  False   6.0  -0.032   -0.048       0.667             0.333            0.333  0.800
+      True   13.0  -0.148   -0.171       0.846             0.538            0.000  0.815
+elongated horizontal rows: mean log(pred/gt) -0.171, clip-bootstrap 90% [-0.274, -0.054] over 5 clips
+within-clip contrast, mean log(pred/gt) horizontal (True) vs height (False):
+horiz            False   True  horiz_minus_height
+video                                            
+simulation_0009 -0.511 -0.358               0.152
+simulation_0015  0.164 -0.204              -0.368
+simulation_0034 -0.037 -0.053              -0.017
+simulation_0060 -0.025 -0.180              -0.155
+simulation_0300 -0.026 -0.063              -0.037
+  mean contrast over 5 clips: -0.085 (clips with horizontal lower: 4/5)
+rows (sorted by log ratio):
+          video                                      obj       dim  pred    lab     lr  score
+simulation_0060                                     lane     width  5.80 11.800 -0.710    0.4
+simulation_0009                             wooden steps     width  0.90  1.560 -0.550    0.5
+simulation_0009                                     boat    height  0.45  0.750 -0.511    0.6
+simulation_0009                                     boat    length  2.20  3.620 -0.498    0.6
+simulation_0009                                     boat     width  0.80  1.230 -0.430    0.6
+simulation_0015                          open roof frame thickness  0.50  0.720 -0.365    0.6
+simulation_0015                 bench seat in the atrium    length  1.55  2.230 -0.364    0.6
+simulation_0009 pier from the shore-side edge to the wat    length  4.60  6.170 -0.294    0.7
+simulation_0015           freestanding art display panel     width  1.19  1.580 -0.283    0.7
+simulation_0015                 bench seat in the atrium     width  0.55  0.706 -0.250    0.7
+simulation_0060                       turning yellow car    height  1.35  1.650 -0.201    0.8
+simulation_0015                 central sculpture itself    height  1.67  1.970 -0.165    0.8
+simulation_0300                                      car     width  1.90  2.230 -0.160    0.8
+simulation_0060                       walking pedestrian    height  1.60  1.870 -0.156    0.8
+simulation_0060                                green car     width  1.75  2.030 -0.148    0.8
+simulation_0060                       turning yellow car    length  5.00  5.440 -0.084    0.9
+simulation_0060                       stacked trash bags    height  1.25  1.340 -0.070    0.9
+simulation_0034                                     boat     width  3.10  3.270 -0.053    0.9
+simulation_0034                                     boat    height  9.08  9.420 -0.037    1.0
+simulation_0300                                      car    height  1.12  1.150 -0.026    1.0
+simulation_0009                              wooden pier     width  1.50  1.530 -0.020    1.0
+simulation_0015           freestanding art display panel    height  1.98  2.000 -0.010    1.0
+simulation_0060                               purple car     width  1.85  1.860 -0.005    1.0
+simulation_0300                                      car    length  4.60  4.450  0.033    1.0
+simulation_0060                                white car    length  6.30  6.000  0.049    1.0
+simulation_0015                                 pedestal     width  1.58  1.460  0.079    0.9
+simulation_0060                            bicycle wheel  diameter  0.66  0.560  0.164    0.8
+simulation_0015                 bench seat in the atrium    height  0.62  0.450  0.320    0.6
+simulation_0060                                trash can    height  0.83  0.600  0.324    0.6
+simulation_0015                                 pedestal    height  1.00  0.600  0.511    0.3
+  run v1: n=30 median log(pred/gt) -0.075, elong-horiz median -0.084
+  run v2: n=30 median log(pred/gt) -0.139, elong-horiz median -0.207
+  run opus: n=30 median log(pred/gt) -0.061, elong-horiz median -0.026
+
+==== TEST stated size facts on 3D simulation (exact), 3-run log-median of direct answers (test runs): n=61 rows, 27 clips ====
+all: median log(pred/gt) -0.006, mean +0.102, frac under 0.51, MRA 0.797
+by dimension word:
+           n  med_lr  mean_lr  frac_under  frac_under_10pct  frac_over_10pct    MRA
+dim                                                                                
+height  14.0   0.047    0.234       0.214             0.071            0.357  0.700
+length  47.0  -0.026    0.063       0.596             0.213            0.213  0.826
+by (elongated object, horizontal dim):
+                n  med_lr  mean_lr  frac_under  frac_under_10pct  frac_over_10pct    MRA
+elong horiz                                                                             
+False False  12.0   0.064    0.273       0.250             0.083            0.417  0.650
+      True   13.0   0.118    0.351       0.231             0.154            0.615  0.585
+True  False   2.0   0.000    0.000       0.000             0.000            0.000  1.000
+      True   34.0  -0.040   -0.048       0.735             0.235            0.059  0.918
+elongated horizontal rows: mean log(pred/gt) -0.048, clip-bootstrap 90% [-0.085, -0.010] over 18 clips
+within-clip contrast, mean log(pred/gt) horizontal (True) vs height (False):
+horiz            False   True  horiz_minus_height
+video                                            
+simulation_0025  1.117  1.085              -0.033
+simulation_0031  0.522  0.192              -0.330
+simulation_0039 -0.321  0.658               0.979
+  mean contrast over 3 clips: +0.205 (clips with horizontal lower: 2/3)
+rows (sorted by log ratio):
+          video                obj    dim  pred   lab     lr  score
+simulation_0023              eagle length  0.50  0.80 -0.470    0.6
+simulation_0035              eagle length  0.57  0.80 -0.339    0.7
+simulation_0039             person height  1.27  1.75 -0.321    0.7
+simulation_0026               boat length  7.60 10.00 -0.274    0.7
+simulation_0023               boat length  7.60 10.00 -0.274    0.7
+simulation_0023               boat length  8.00 10.00 -0.223    0.7
+simulation_0026               boat length  8.20 10.00 -0.198    0.8
+simulation_0029               boat length  8.50 10.00 -0.163    0.8
+simulation_0029               boat length  8.80 10.00 -0.128    0.8
+simulation_0066          white car length  5.30  6.00 -0.124    0.8
+simulation_0067          white car length  5.40  6.00 -0.105    0.9
+simulation_0061 turning yellow car length  5.00  5.44 -0.084    0.9
+simulation_0066 turning yellow car length  5.10  5.44 -0.065    0.9
+simulation_0029              eagle length  0.75  0.80 -0.065    0.9
+simulation_0059 turning yellow car length  5.15  5.44 -0.055    0.9
+simulation_0058          white car length  5.70  6.00 -0.051    1.0
+simulation_0066          white car length  5.70  6.00 -0.051    1.0
+simulation_0061          white car length  5.70  6.00 -0.051    1.0
+simulation_0060 turning yellow car length  5.20  5.44 -0.045    1.0
+simulation_0064 turning yellow car length  5.20  5.44 -0.045    1.0
+simulation_0066 turning yellow car length  5.20  5.44 -0.045    1.0
+simulation_0062          white car length  5.80  6.00 -0.034    1.0
+simulation_0063          white car length  5.80  6.00 -0.034    1.0
+simulation_0301           forklift height  2.40  2.47 -0.029    1.0
+simulation_0058 turning yellow car length  5.30  5.44 -0.026    1.0
+simulation_0065 turning yellow car length  5.30  5.44 -0.026    1.0
+simulation_0062 turning yellow car length  5.30  5.44 -0.026    1.0
+simulation_0042               boat length  9.80 10.00 -0.020    1.0
+simulation_0059          white car length  5.90  6.00 -0.017    1.0
+simulation_0067 turning yellow car length  5.40  5.44 -0.007    1.0
+simulation_0141                man height  1.79  1.80 -0.006    1.0
+simulation_0300                car height  1.15  1.15  0.000    1.0
+simulation_0301                car height  1.15  1.15  0.000    1.0
+simulation_0024               boat length 10.00 10.00  0.000    1.0
+simulation_0024               boat length 10.10 10.00  0.010    1.0
+simulation_0074 turning yellow car length  5.50  5.44  0.011    1.0
+simulation_0063 turning yellow car length  5.50  5.44  0.011    1.0
+simulation_0029              eagle length  0.82  0.80  0.025    1.0
+simulation_0036             person height  1.80  1.75  0.028    1.0
+simulation_0055             person height  1.95  1.87  0.042    1.0
+simulation_0039               boat length 10.50 10.00  0.049    1.0
+simulation_0299           forklift height  2.60  2.47  0.051    0.9
+simulation_0035              eagle length  0.85  0.80  0.061    0.9
+simulation_0039               boat length 10.70 10.00  0.068    0.9
+simulation_0033             person height  2.02  1.87  0.077    0.9
+simulation_0060          white car length  6.50  6.00  0.080    0.9
+simulation_0042              eagle length  0.89  0.80  0.107    0.8
+simulation_0023              eagle length  0.90  0.80  0.118    0.8
+simulation_0031               boat length 11.50 10.00  0.140    0.8
+simulation_0036             person height  2.05  1.75  0.158    0.8
+simulation_0031               boat length 12.00 10.00  0.182    0.7
+simulation_0031              eagle length  1.00  0.80  0.223    0.7
+simulation_0031              eagle length  1.00  0.80  0.223    0.7
+simulation_0039              eagle length  1.20  0.80  0.405    0.5
+simulation_0031             person height  2.90  1.75  0.505    0.3
+simulation_0031             person height  3.00  1.75  0.539    0.2
+simulation_0025              eagle length  1.60  0.80  0.693    0.0
+simulation_0025             person height  5.20  1.75  1.089    0.0
+simulation_0025             person height  5.50  1.75  1.145    0.0
+simulation_0025              eagle length  3.50  0.80  1.476    0.0
+simulation_0039              eagle length  6.60  0.80  2.110    0.0
+
+==== VALIDATION 2D simulation size rows, val_hr_v1_high parsed_value: n=18 rows, 4 clips ====
+all: median log(pred/gt) +0.013, mean -0.181, frac under 0.44, MRA 0.750
+by dimension word:
+             n  med_lr  mean_lr  frac_under  frac_under_10pct  frac_over_10pct    MRA
+dim                                                                                  
+diameter  10.0  -0.006   -0.087       0.500             0.400              0.1  0.850
+height     3.0  -0.008   -1.172       0.667             0.333              0.0  0.633
+length     1.0   0.741    0.741       0.000             0.000              1.0  0.000
+width      4.0   0.134    0.097       0.250             0.250              0.5  0.775
+by (elongated object, horizontal dim):
+                n  med_lr  mean_lr  frac_under  frac_under_10pct  frac_over_10pct   MRA
+elong horiz                                                                            
+False False  13.0  -0.008   -0.337       0.538             0.385            0.077  0.80
+      True    5.0   0.226    0.226       0.200             0.200            0.600  0.62
+within-clip contrast, mean log(pred/gt) horizontal (True) vs height (False):
+horiz            False  True  horiz_minus_height
+video                                           
+simulation_0196  0.078 -0.06              -0.139
+  mean contrast over 1 clips: -0.139 (clips with horizontal lower: 1/1)
+rows (sorted by log ratio):
+          video                               obj      dim  pred    lab     lr  score
+simulation_0163               ball return opening   height 0.277 10.000 -3.588    0.0
+simulation_0193                 model of ganymede diameter 0.094  0.137 -0.380    0.6
+simulation_0193                 model of callisto diameter 0.104  0.137 -0.275    0.7
+simulation_0193                       model of io diameter 0.104  0.137 -0.275    0.7
+simulation_0193                   model of europa diameter 0.114  0.137 -0.180    0.8
+simulation_0196      “skynova” text on the bottle    width 0.002  0.002 -0.164    0.8
+simulation_0193                  model of jupiter diameter 1.717  1.760 -0.025    1.0
+simulation_0163                       bowling pin   height 0.318  0.320 -0.008    1.0
+simulation_0193                          io model diameter 3.351  3.310  0.012    1.0
+simulation_0193                    ganymede model diameter 5.620  5.550  0.013    1.0
+simulation_0193                    callisto model diameter 8.639  8.530  0.013    1.0
+simulation_0193                      europa model diameter 4.299  4.240  0.014    1.0
+simulation_0196                           droplet    width 0.002  0.002  0.043    1.0
+simulation_0196 “skynova” lettering on the bottle   height 0.015  0.014  0.078    0.9
+simulation_0196                       plunge tube diameter 0.004  0.003  0.215    0.7
+simulation_0089                          big bird    width 2.557  2.040  0.226    0.7
+simulation_0089                        small bird    width 1.724  1.300  0.282    0.6
+simulation_0089                          big bird   length 1.511  0.720  0.741    0.0
+
+==== VALIDATION 2D simulation size rows, val_hr_v1_high direct_value: n=18 rows, 4 clips ====
+all: median log(pred/gt) +0.003, mean -0.161, frac under 0.39, MRA 0.722
+by dimension word:
+             n  med_lr  mean_lr  frac_under  frac_under_10pct  frac_over_10pct   MRA
+dim                                                                                 
+diameter  10.0  -0.016   -0.089       0.500             0.400            0.100  0.84
+height     3.0   0.000   -1.147       0.333             0.333            0.333  0.60
+length     1.0   0.741    0.741       0.000             0.000            1.000  0.00
+width      4.0   0.207    0.173       0.250             0.000            0.750  0.70
+by (elongated object, horizontal dim):
+                n  med_lr  mean_lr  frac_under  frac_under_10pct  frac_over_10pct    MRA
+elong horiz                                                                             
+False False  13.0    0.00   -0.333       0.462             0.385            0.154  0.785
+      True    5.0    0.28    0.287       0.200             0.000            0.800  0.560
+within-clip contrast, mean log(pred/gt) horizontal (True) vs height (False):
+horiz            False   True  horiz_minus_height
+video                                            
+simulation_0196   0.17  0.031              -0.139
+  mean contrast over 1 clips: -0.139 (clips with horizontal lower: 1/1)
+rows (sorted by log ratio):
+          video                               obj      dim  pred    lab     lr  score
+simulation_0163               ball return opening   height 0.270 10.000 -3.612    0.0
+simulation_0193                 model of ganymede diameter 0.095  0.137 -0.366    0.6
+simulation_0193                       model of io diameter 0.100  0.137 -0.315    0.7
+simulation_0193                 model of callisto diameter 0.103  0.137 -0.285    0.7
+simulation_0193                   model of europa diameter 0.113  0.137 -0.193    0.8
+simulation_0196      “skynova” text on the bottle    width 0.002  0.002 -0.072    0.9
+simulation_0193                  model of jupiter diameter 1.700  1.760 -0.035    1.0
+simulation_0163                       bowling pin   height 0.320  0.320  0.000    1.0
+simulation_0193                      europa model diameter 4.250  4.240  0.002    1.0
+simulation_0193                          io model diameter 3.320  3.310  0.003    1.0
+simulation_0193                    callisto model diameter 8.560  8.530  0.004    1.0
+simulation_0193                    ganymede model diameter 5.570  5.550  0.004    1.0
+simulation_0196                           droplet    width 0.002  0.002  0.134    0.8
+simulation_0196 “skynova” lettering on the bottle   height 0.017  0.014  0.170    0.8
+simulation_0089                        small bird    width 1.720  1.300  0.280    0.6
+simulation_0196                       plunge tube diameter 0.004  0.003  0.289    0.6
+simulation_0089                          big bird    width 2.900  2.040  0.352    0.5
+simulation_0089                          big bird   length 1.510  0.720  0.741    0.0

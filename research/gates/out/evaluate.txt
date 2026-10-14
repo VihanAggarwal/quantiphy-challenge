@@ -1,0 +1,69 @@
+held-out rows: {'val': 131, 'facts': 129}
+rows fired on test (all / eligible-scored):
+  G3D: 29 / 10  by cat {'D3': 7, 'S3': 3}
+  G3D_no4: 232 / 52  by cat {'D3': 27, 'S3': 25}
+  G2D: 11 / 9  by cat {'D2': 9}
+
+== G3D ==
+  n_fire_test: 29
+  n_heldout: 4
+  mean_base: 0.8
+  mean_gated: 0.8
+  delta: 0.0
+  lo: 0.0
+  hi: 0.0
+  clips: 2
+  n_val: 0
+  n_facts: 4
+  per_cat: {'D3': (np.float64(0.0), 4)}
+  cand_rows: {'D3': 7, 'S3': 3}
+  exp_overall: 0.0
+  exp_overall_percat: 0.0
+  by_set: {'facts': {'mean': 0.0, 'size': 4}}
+  by_clip: {'simulation_0023': {'mean': 0.0, 'size': 2}, 'simulation_0031': {'mean': 0.0, 'size': 2}}
+  KILL TEST G3D: INCONCLUSIVE (n>=10 False, delta>=.01 False, CI lo>0 False, exp>=.002 False, no cat loss True)
+
+== G2D ==
+  n_fire_test: 11
+  n_heldout: 0
+  KILL TEST G2D: INCONCLUSIVE (n>=10 False, delta>=.01 False, CI lo>0 False, exp>=.002 False, no cat loss True)
+
+== G3D_full ==
+  n_fire_test: 29
+  n_heldout: 4
+  mean_base: 0.8
+  mean_gated: 0.7
+  delta: -0.1
+  lo: -0.2
+  hi: 0.0
+  clips: 2
+  n_val: 0
+  n_facts: 4
+  per_cat: {'D3': (np.float64(-0.1), 4)}
+  cand_rows: {'D3': 7, 'S3': 3}
+  exp_overall: -0.0003
+  exp_overall_percat: -0.0002
+  by_set: {'facts': {'mean': -0.1, 'size': 4}}
+  by_clip: {'simulation_0023': {'mean': 0.0, 'size': 2}, 'simulation_0031': {'mean': -0.2, 'size': 2}}
+
+== G3D_no4 ==
+  n_fire_test: 232
+  n_heldout: 71
+  mean_base: 0.7789
+  mean_gated: 0.7817
+  delta: 0.0028
+  lo: -0.0053
+  hi: 0.0106
+  clips: 18
+  n_val: 9
+  n_facts: 62
+  per_cat: {'D3': (np.float64(0.0044), 45), 'S3': (np.float64(0.0), 26)}
+  cand_rows: {'D3': 27, 'S3': 25}
+  exp_overall: 0.0001
+  exp_overall_percat: 0.0
+  by_set: {'facts': {'mean': 0.0048, 'size': 62}, 'val': {'mean': -0.0111, 'size': 9}}
+  by_clip: {'simulation_0015': {'mean': -0.033, 'size': 3}, 'simulation_0023': {'mean': 0.0, 'size': 4}, 'simulation_0024': {'mean': 0.0, 'size': 2}, 'simulation_0025': {'mean': 0.0, 'size': 4}, 'simulation_0026': {'mean': 0.0, 'size': 4}, 'simulation_0027': {'mean': 0.0, 'size': 2}, 'simulation_0029': {'mean': 0.0, 'size': 5}, 'simulation_0031': {'mean': 0.017, 'size': 6}, 'simulation_0034': {'mean': 0.0, 'size': 7}, 'simulation_0035': {'mean': 0.0, 'size': 5}, 'simulation_0036': {'mean': 0.02, 'size': 5}, 'simulation_0039': {'mean': 0.0, 'size': 7}, 'simulation_0042': {'mean': 0.0, 'size': 3}, 'simulation_0058': {'mean': 0.0, 'size': 3}, 'simulation_0059': {'mean': 0.067, 'size': 3}, 'simulation_0060': {'mean': 0.0, 'size': 2}, 'simulation_0061': {'mean': 0.033, 'size': 3}, 'simulation_0062': {'mean': -0.067, 'size': 3}}
+
+== G2D_direct ==
+  n_fire_test: 11
+  n_heldout: 0

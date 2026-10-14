@@ -1,0 +1,9 @@
+pair (a - b)            all52    size30   other22   clips a better / changed
+hr_v2    - hr_v1      +0.0038  -0.0067  +0.0182   1/5   per clip {'simulation_0009': 0.189, 'simulation_0015': -0.055, 'simulation_0034': 0.0, 'simulation_0060': -0.023, 'simulation_0170': -0.05, 'simulation_0300': -0.04}
+opus_v1  - hr_v1      +0.0077  +0.0267  -0.0182   2/6   per clip {'simulation_0009': 0.222, 'simulation_0015': -0.045, 'simulation_0034': -0.017, 'simulation_0060': -0.054, 'simulation_0170': -0.05, 'simulation_0300': 0.02}
+aabb     - hr_v1      +0.0327  +0.0800  -0.0318   3/6   per clip {'simulation_0009': 0.222, 'simulation_0015': -0.027, 'simulation_0034': 0.033, 'simulation_0060': 0.062, 'simulation_0170': -0.113, 'simulation_0300': -0.02}
+aabb     - hr_v2      +0.0288  +0.0867  -0.0500   5/6   per clip {'simulation_0009': 0.033, 'simulation_0015': 0.027, 'simulation_0034': 0.033, 'simulation_0060': 0.085, 'simulation_0170': -0.063, 'simulation_0300': 0.02}
+aabb     - opus_v1    +0.0250  +0.0533  -0.0136   3/5   per clip {'simulation_0009': 0.0, 'simulation_0015': 0.018, 'simulation_0034': 0.05, 'simulation_0060': 0.115, 'simulation_0170': -0.063, 'simulation_0300': -0.04}
+length/width  n=11: mean log shift aabb - hr_v1 +0.004; score aabb 0.873 vs hr_v1 0.855 (hr_v2 0.818, opus 0.845)
+height        n=10: mean log shift aabb - hr_v1 +0.011; score aabb 0.820 vs hr_v1 0.800 (hr_v2 0.760, opus 0.760)
+simulation_0009 boat length/width/height by run: {'hr_v1': [1.9, 0.7, 0.3], 'hr_v2': [2.2, 0.8, 0.45], 'opus_v1': [4.2, 1.2, 0.45], 'aabb': [3.9, 1.5, 0.65]} gt [3.62, 1.23, 0.75]

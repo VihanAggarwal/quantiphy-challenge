@@ -1,0 +1,34 @@
+model FOV for 35 clips; hfov quantiles: {0.0: 12.6, 0.1: 21.5, 0.25: 31.2, 0.5: 41.3, 0.75: 64.0, 0.9: 73.3, 1.0: 89.3}
+hfov bins: {Interval(0, 20, closed='right'): 2, Interval(20, 60, closed='right'): 23, Interval(60, 180, closed='right'): 10}
+
+(i) same-view pairs (thumbnail NCC >= .97): 3; median |log f ratio| 0.121, max 0.160
+              a               b   ncc  hfov_a  hfov_b  abslog
+simulation_0023 simulation_0026 0.999  28.535  32.033   0.121
+simulation_0035 simulation_0036 0.971  30.423  33.682   0.107
+simulation_0039 simulation_0042 0.996  46.705  40.410   0.160
+
+(ii) size-prior clips with depth and well-conditioned f: 11; log(f_prior/f_model) median +0.109, median |.| 0.328, share |.|<0.1: 0.27, <0.2: 0.45
+           size  median  <lambda_0>
+bin                                
+(0, 20]       1  -0.038       0.038
+(20, 60]      8   0.248       0.347
+(60, 180]     2  -0.006       0.040
+                  hfov  fov_prior  logr
+video_id                               
+simulation_0034  18.17      18.87 -0.04
+simulation_0170  21.36      37.71 -0.59
+simulation_0027  21.62      18.35  0.17
+simulation_0311  27.33      38.29 -0.36
+simulation_0035  30.42      21.95  0.34
+simulation_0026  32.03      16.11  0.71
+simulation_0036  33.68      24.60  0.33
+simulation_0310  40.92      36.99  0.11
+simulation_0040  41.88       8.14  1.68
+simulation_0015  64.27      62.51  0.03
+simulation_0074  75.18      77.73 -0.05
+
+(iii) model: 35 focal lengths; within 5% of a stock lens: 0.46 (uniform-in-log expectation ~0.42)
+   histogram of F_mm: [0, 2, 0, 4, 4, 4, 9, 7, 4, 0, 1, 0] bins [<16,16-19,19-22,22-26,26-31,31-40,40-60,60-90,90-115,115-160,160-220,>220]
+
+(iii) prior-implied: 11 focal lengths; within 5% of a stock lens: 0.27 (uniform-in-log expectation ~0.42)
+   histogram of F_mm: [0, 0, 0, 1, 1, 0, 3, 1, 3, 1, 0, 1] bins [<16,16-19,19-22,22-26,26-31,31-40,40-60,60-90,90-115,115-160,160-220,>220]

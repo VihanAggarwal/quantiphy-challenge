@@ -1,0 +1,71 @@
+stated facts on 2D test rows: 28 (dropped 6 also in validation); by category {'D2': 19, 'S2': 9}
+
+===== gcv =====
+  validation: n=9 clips=4 old 0.556 new 0.456 delta -0.1000 (90% clip CI -0.5667 .. +0.1333); item sum -0.90; better 2 worse 4
+  facts     : n=4 clips=4 old 0.900 new 0.900 delta +0.0000 (90% clip CI +0.0000 .. +0.0000); item sum +0.00; better 0 worse 0
+  POOLED    : n=13 clips=8 old 0.662 new 0.592 delta -0.0692 (90% clip CI -0.3400 .. +0.1000); item sum -0.90; better 2 worse 4
+  pooled S2 : n=9 clips=4 old 0.511 new 0.422 delta -0.0889 (90% clip CI -0.5333 .. +0.1333); item sum -0.80; better 2 worse 3
+  pooled D2 : n=4 clips=4 old 1.000 new 0.975 delta -0.0250 (90% clip CI -0.0500 .. +0.0000); item sum -0.10; better 0 worse 1
+  pooled target motion: n=13 clips=8 old 0.662 new 0.592 delta -0.0692 (90% clip CI -0.3400 .. +0.1000); item sum -0.90; better 2 worse 4
+  pooled target static: no affected rows
+  combo3 rows changed > 0.005: S2 52 D2 55; expected overall gain -0.00239
+  criteria: {'a_mean>=.01': False, 'b_ci_lo>0': False, 'c_no_cat_loss': False, 'd_gain>=.002': False, 'e_sources>=0': False} -> FAIL
+
+===== h010 =====
+  validation: n=9 clips=3 old 0.678 new 0.656 delta -0.0222 (90% clip CI -0.0400 .. -0.0125); item sum -0.20; better 0 worse 2
+  facts     : n=4 clips=4 old 0.825 new 0.800 delta -0.0250 (90% clip CI -0.1000 .. +0.0500); item sum -0.10; better 1 worse 2
+  POOLED    : n=13 clips=7 old 0.723 new 0.700 delta -0.0231 (90% clip CI -0.0538 .. +0.0000); item sum -0.30; better 1 worse 4
+  pooled S2 : n=10 clips=4 old 0.640 new 0.630 delta -0.0100 (90% clip CI -0.0333 .. +0.0400); item sum -0.10; better 1 worse 2
+  pooled D2 : n=3 clips=3 old 1.000 new 0.933 delta -0.0667 (90% clip CI -0.1000 .. -0.0333); item sum -0.20; better 0 worse 2
+  pooled target motion: n=13 clips=7 old 0.723 new 0.700 delta -0.0231 (90% clip CI -0.0538 .. +0.0000); item sum -0.30; better 1 worse 4
+  pooled target static: no affected rows
+  combo3 rows changed > 0.005: S2 53 D2 45; expected overall gain -0.00090
+  criteria: {'a_mean>=.01': False, 'b_ci_lo>0': False, 'c_no_cat_loss': False, 'd_gain>=.002': False, 'e_sources>=0': False} -> FAIL
+
+===== h025 =====
+  validation: n=10 clips=4 old 0.580 new 0.600 delta +0.0200 (90% clip CI -0.0500 .. +0.0375); item sum +0.20; better 5 worse 2
+  facts     : n=4 clips=4 old 0.875 new 0.925 delta +0.0500 (90% clip CI +0.0000 .. +0.1000); item sum +0.20; better 2 worse 0
+  POOLED    : n=14 clips=8 old 0.664 new 0.693 delta +0.0286 (90% clip CI -0.0125 .. +0.0500); item sum +0.40; better 7 worse 2
+  pooled S2 : n=10 clips=4 old 0.540 new 0.580 delta +0.0400 (90% clip CI +0.0000 .. +0.0500); item sum +0.40; better 6 worse 1
+  pooled D2 : n=4 clips=4 old 0.975 new 0.975 delta +0.0000 (90% clip CI -0.0500 .. +0.0500); item sum +0.00; better 1 worse 1
+  pooled target motion: n=14 clips=8 old 0.664 new 0.693 delta +0.0286 (90% clip CI -0.0125 .. +0.0500); item sum +0.40; better 7 worse 2
+  pooled target static: no affected rows
+  combo3 rows changed > 0.005: S2 71 D2 55; expected overall gain +0.00128
+  criteria: {'a_mean>=.01': True, 'b_ci_lo>0': False, 'c_no_cat_loss': True, 'd_gain>=.002': False, 'e_sources>=0': True} -> FAIL
+
+===== gcv_glock =====
+  validation: n=8 clips=3 old 0.500 new 0.387 delta -0.1125 (90% clip CI -0.6600 .. +0.1364); item sum -0.90; better 2 worse 4
+  facts     : n=4 clips=4 old 0.900 new 0.900 delta +0.0000 (90% clip CI +0.0000 .. +0.0000); item sum +0.00; better 0 worse 0
+  POOLED    : n=12 clips=7 old 0.633 new 0.558 delta -0.0750 (90% clip CI -0.3778 .. +0.1067); item sum -0.90; better 2 worse 4
+  pooled S2 : n=9 clips=4 old 0.511 new 0.422 delta -0.0889 (90% clip CI -0.5333 .. +0.1333); item sum -0.80; better 2 worse 3
+  pooled D2 : n=3 clips=3 old 1.000 new 0.967 delta -0.0333 (90% clip CI -0.0667 .. +0.0000); item sum -0.10; better 0 worse 1
+  pooled target motion: n=12 clips=7 old 0.633 new 0.558 delta -0.0750 (90% clip CI -0.3778 .. +0.1067); item sum -0.90; better 2 worse 4
+  pooled target static: no affected rows
+  combo3 rows changed > 0.005: S2 52 D2 56; expected overall gain -0.00250
+  criteria: {'a_mean>=.01': False, 'b_ci_lo>0': False, 'c_no_cat_loss': False, 'd_gain>=.002': False, 'e_sources>=0': False} -> FAIL
+
+--- secondary val_hires_val_hr_v2_high.csv ---
+  gcv: n=11 clips=4 old 0.518 new 0.418 delta -0.1000 (90% clip CI -0.5667 .. +0.1100); item sum -1.10; better 2 worse 3
+  h010: n=10 clips=3 old 0.470 new 0.480 delta +0.0100 (90% clip CI -0.0200 .. +0.0333); item sum +0.10; better 2 worse 1
+  h025: n=11 clips=4 old 0.527 new 0.636 delta +0.1091 (90% clip CI -0.0250 .. +0.1435); item sum +1.20; better 4 worse 2
+  gcv_glock: n=10 clips=3 old 0.470 new 0.360 delta -0.1100 (90% clip CI -0.6000 .. +0.1000); item sum -1.10; better 2 worse 3
+
+--- secondary val_val_opus_high.csv ---
+  gcv: n=10 clips=3 old 0.560 new 0.410 delta -0.1500 (90% clip CI -0.6800 .. +0.0267); item sum -1.50; better 2 worse 3
+  h010: n=10 clips=3 old 0.570 new 0.580 delta +0.0100 (90% clip CI +0.0000 .. +0.0133); item sum +0.10; better 1 worse 0
+  h025: n=9 clips=3 old 0.500 new 0.522 delta +0.0222 (90% clip CI -0.0667 .. +0.0400); item sum +0.20; better 4 worse 2
+  gcv_glock: n=11 clips=4 old 0.600 new 0.455 delta -0.1455 (90% clip CI -0.6000 .. +0.0227); item sum -1.60; better 2 worse 4
+
+--- secondary val_val_opus_med.csv ---
+  gcv: n=9 clips=3 old 0.533 new 0.344 delta -0.1889 (90% clip CI -0.6400 .. -0.0125); item sum -1.70; better 1 worse 3
+  h010: n=11 clips=3 old 0.609 new 0.618 delta +0.0091 (90% clip CI +0.0000 .. +0.0133); item sum +0.10; better 1 worse 0
+  h025: n=10 clips=4 old 0.560 new 0.570 delta +0.0100 (90% clip CI +0.0000 .. +0.0125); item sum +0.10; better 2 worse 1
+  gcv_glock: n=10 clips=4 old 0.580 new 0.410 delta -0.1700 (90% clip CI -0.5333 .. +0.0000); item sum -1.70; better 1 worse 3
+
+--- secondary val_val_opus_xhigh.csv ---
+  gcv: n=9 clips=3 old 0.544 new 0.367 delta -0.1778 (90% clip CI -0.6000 .. -0.0125); item sum -1.60; better 1 worse 3
+  h010: n=9 clips=2 old 0.567 new 0.567 delta +0.0000 (90% clip CI +0.0000 .. +0.0000); item sum +0.00; better 0 worse 0
+  h025: n=9 clips=4 old 0.656 new 0.689 delta +0.0333 (90% clip CI -0.0500 .. +0.0571); item sum +0.30; better 2 worse 2
+  gcv_glock: n=9 clips=3 old 0.544 new 0.367 delta -0.1778 (90% clip CI -0.6000 .. -0.0125); item sum -1.60; better 1 worse 3
+
+VERDICTS: {'gcv': 'FAIL', 'h010': 'FAIL', 'h025': 'FAIL', 'gcv_glock': 'FAIL'}

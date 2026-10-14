@@ -1,0 +1,90 @@
+
+== G3D2: fires 185 test rows, 48 eligible scored {'D3': 28, 'S3': 20}
+  n_fire_test: 185
+  n_heldout: 51
+  mean_base: 0.7745
+  mean_gated: 0.7804
+  delta: 0.0059
+  lo: -0.0036
+  hi: 0.0156
+  clips: 18
+  n_val: 4
+  n_facts: 47
+  per_cat: {'D3': (np.float64(0.0056), 36), 'S3': (np.float64(0.0067), 15)}
+  cand_rows: {'D3': 28, 'S3': 20}
+  exp_overall: 0.0001
+  exp_overall_percat: 0.0001
+  by_set: {'facts': {'mean': 0.0064, 'size': 47}, 'val': {'mean': 0.0, 'size': 4}}
+  by_clip: {'simulation_0015': {'mean': 0.0, 'size': 1}, 'simulation_0023': {'mean': 0.0, 'size': 4}, 'simulation_0024': {'mean': 0.0, 'size': 2}, 'simulation_0025': {'mean': 0.0, 'size': 4}, 'simulation_0026': {'mean': 0.0, 'size': 4}, 'simulation_0027': {'mean': 0.0, 'size': 1}, 'simulation_0029': {'mean': -0.033, 'size': 3}, 'simulation_0031': {'mean': 0.025, 'size': 4}, 'simulation_0034': {'mean': 0.0, 'size': 3}, 'simulation_0035': {'mean': 0.0, 'size': 4}, 'simulation_0036': {'mean': 0.05, 'size': 2}, 'simulation_0039': {'mean': 0.0, 'size': 4}, 'simulation_0042': {'mean': 0.0, 'size': 2}, 'simulation_0058': {'mean': 0.0, 'size': 3}, 'simulation_0059': {'mean': 0.067, 'size': 3}, 'simulation_0060': {'mean': 0.0, 'size': 2}, 'simulation_0061': {'mean': 0.033, 'size': 3}, 'simulation_0062': {'mean': -0.05, 'size': 2}}
+  KILL TEST G3D2: FAIL
+
+== G2D2: fires 41 test rows, 20 eligible scored {'D2': 20}
+  n_fire_test: 41
+  n_heldout: 1
+  mean_base: 0.6
+  mean_gated: 0.5
+  delta: -0.1
+  lo: -0.1
+  hi: -0.1
+  clips: 1
+  n_val: 0
+  n_facts: 1
+  per_cat: {'S2': (np.float64(-0.1), 1)}
+  cand_rows: {'D2': 20}
+  exp_overall: -0.0004
+  exp_overall_percat: 0.0
+  by_set: {'facts': {'mean': -0.1, 'size': 1}}
+  by_clip: {'simulation_0041': {'mean': -0.1, 'size': 1}}
+  KILL TEST G2D2: INCONCLUSIVE
+
+== GLAB2: fires 4 test rows, 0 eligible scored {}
+  n_fire_test: 4
+  n_heldout: 0
+  KILL TEST GLAB2: INCONCLUSIVE
+
+================ DIAGNOSTICS (held-out rows; mean item delta vs routed default) ================
+3D non-lab held-out rows: 145  direct 0.792  gm 0.746  geometry 0.683
+-- by R_dir tercile
+        n     lo     hi   d_gm  d_geo
+R_dir                                
+low    49  0.000  0.042 -0.018 -0.049
+mid    48  0.044  0.136 -0.062 -0.162
+high   48  0.140  1.322 -0.060 -0.119
+-- by R_geo tercile
+        n     lo     hi   d_gm  d_geo
+R_geo                                
+low    49  0.000  0.029  0.004  0.002
+mid    48  0.029  0.236 -0.029 -0.081
+high   48  0.237  2.084 -0.117 -0.252
+-- by u_geo tercile
+        n     lo     hi   d_gm  d_geo
+u_geo                                
+low    49  0.000  0.010 -0.043 -0.073
+mid    48  0.010  0.036  0.000 -0.015
+high   48  0.036  0.351 -0.098 -0.242
+-- by gd3 tercile
+       n     lo     hi   d_gm  d_geo
+gd3                                 
+low   49  0.000  0.024  0.002  0.002
+mid   48  0.025  0.133 -0.008 -0.023
+high  48  0.160  1.393 -0.135 -0.310
+-- by wellcond (all 3 runs)
+             n   d_gm  d_geo
+wellcond3                   
+False       32 -0.119 -0.228
+True       113 -0.027 -0.076
+
+2D held-out rows: 80  geometry 0.866  (all 2D kinds; S2 motion/internet are routed elsewhere in combo3)
+-- by gdbin
+          n  d_dir   d_gm
+gdbin                    
+<.05     61  0.005  0.003
+.05-.10   6 -0.117 -0.050
+.10-.25   6 -0.100 -0.050
+>.25      7 -0.171 -0.100
+-- by ubin
+          n  d_dir   d_gm
+ubin                     
+<.01     43 -0.016 -0.002
+.01-.03  22  0.027  0.009
+>.05     15 -0.140 -0.080

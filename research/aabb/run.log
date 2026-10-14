@@ -1,0 +1,94 @@
+simulation_0060: 13 q, 20 frames, est input 69446 tok, max_tokens 64000, worst $1.61; spent on this run so far $0.000
+  64679 in / 18306 out, $0.649, 13 answers, stop end_turn
+simulation_0015: 11 q, 19 frames, est input 36209 tok, max_tokens 56000, worst $1.29; spent on this run so far $0.649
+  31395 in / 6101 out, $0.249, 11 answers, stop end_turn
+simulation_0009: 9 q, 18 frames, est input 34064 tok, max_tokens 48000, worst $1.12; spent on this run so far $0.897
+  29022 in / 15640 out, $0.430, 9 answers, stop end_turn
+simulation_0170_segmented: 8 q, 26 frames, est input 77698 tok, max_tokens 44000, worst $1.25; spent on this run so far $1.327
+  71273 in / 8077 out, $0.448, 8 answers, stop end_turn
+simulation_0034_segmented: 6 q, 21 frames, est input 38670 tok, max_tokens 36000, worst $0.91; spent on this run so far $1.775
+  33564 in / 4605 out, $0.227, 6 answers, stop end_turn
+simulation_0300: 5 q, 21 frames, est input 108898 tok, max_tokens 32000, worst $1.15; spent on this run so far $2.002
+  101495 in / 15045 out, $0.708, 5 answers, stop end_turn
+answered by the aabb run: 52/52 (missing -> scored 0)
+base_hr_v1           0.7942
+aabb                 0.8269
+hr_v2                0.7981
+opus                 0.8019
+3run_v1_v2_opus      0.8096
+3run_aabb_v2_opus    0.8231
+4run_with_aabb       0.8154
+by group (size rows / other rows):
+       base_hr_v1    aabb   hr_v2    opus  3run_v1_v2_opus  3run_aabb_v2_opus  4run_with_aabb
+group                                                                                        
+other      0.8545  0.8227  0.8727  0.8364           0.8727             0.8773          0.8591
+size       0.7500  0.8300  0.7433  0.7767           0.7633             0.7833          0.7833
+aabb - base_hr_v1 (KILL TEST): delta +0.0327  clip-bootstrap 90% [-0.0370, +0.1062]  clips better 3/6 changed (of 6)
+   per clip: {'simulation_0009': 0.222, 'simulation_0015': -0.027, 'simulation_0034': 0.033, 'simulation_0060': 0.062, 'simulation_0170': -0.113, 'simulation_0300': -0.02}
+KILL TEST: FAIL
+3-run median, aabb replaces v1: delta +0.0135  clip-bootstrap 90% [-0.0091, +0.0475]  clips better 1/4 changed (of 6)
+   per clip: {'simulation_0009': 0.111, 'simulation_0015': -0.009, 'simulation_0034': 0.0, 'simulation_0060': -0.008, 'simulation_0170': 0.0, 'simulation_0300': -0.02}
+4-run median with aabb: delta +0.0058  clip-bootstrap 90% [+0.0000, +0.0120]  clips better 2/2 changed (of 6)
+   per clip: {'simulation_0009': 0.022, 'simulation_0015': 0.009, 'simulation_0034': 0.0, 'simulation_0060': 0.0, 'simulation_0170': 0.0, 'simulation_0300': 0.0}
+size rows: mean log(pred/gt) and its shift (aabb - base_hr_v1) by dimension group:
+             lr_base       lr_aabb        shift       sc_base       sc_aabb      
+                mean count    mean count   mean count    mean count    mean count
+dimg                                                                             
+height        -0.039    11   0.041    11  0.080    11   0.755    11   0.818    11
+length/width  -0.247    17  -0.076    17  0.171    17   0.753    17   0.859    17
+other         -0.123     2  -0.203     2 -0.079     2   0.700     2   0.650     2
+                    video                                                                      q     gt  base   new  shift  sc_base  sc_aabb
+          simulation_0009                              What is the height of the boat in meters?  0.750  0.30  0.65  0.773      0.3      0.8
+          simulation_0009                              What is the length of the boat in meters?  3.620  1.90  3.90  0.719      0.5      0.9
+          simulation_0009                               What is the width of the boat in meters?  1.230  0.70  1.50  0.762      0.5      0.7
+          simulation_0009                        What is the width of the wooden pier in meters?  1.530  1.50  1.60  0.065      1.0      1.0
+          simulation_0009 What is the length of the pier from the shore-side edge to the water-s  6.170  3.50  5.10  0.376      0.5      0.8
+          simulation_0009                       What is the width of the wooden steps in meters?  1.560  0.80  1.00  0.223      0.5      0.6
+          simulation_0015 What is the height of the central sculpture itself (excluding the pede  1.970  1.66  1.66  0.000      0.8      0.8
+          simulation_0015 What is the height of the pedestal (square base) of the central sculpt  0.600  1.03  1.00 -0.030      0.2      0.3
+          simulation_0015    What is the height of the freestanding art display panel in meters?  2.000  1.98  2.00  0.010      1.0      1.0
+          simulation_0015          What is the height of the bench seat in the atrium in meters?  0.450  0.52  0.50 -0.039      0.8      0.8
+          simulation_0015 What is the width of the pedestal (square base) of the central sculptu  1.460  1.58  1.58  0.000      0.9      0.9
+          simulation_0015     What is the width of the freestanding art display panel in meters?  1.580  1.16  1.19  0.026      0.7      0.7
+          simulation_0015           What is the width of the bench seat in the atrium in meters?  0.706  0.55  0.55  0.000      0.7      0.7
+          simulation_0015          What is the length of the bench seat in the atrium in meters?  2.230  1.60  1.50 -0.065      0.7      0.6
+          simulation_0015 What is the vertical depth (thickness) of the open roof frame (top edg  0.720  0.50  0.42 -0.174      0.6      0.5
+simulation_0034_segmented                              What is the height of the boat in meters?  9.420  9.20  9.20  0.000      1.0      1.0
+simulation_0034_segmented                               What is the width of the boat in meters?  3.270  3.10  3.40  0.092      0.9      1.0
+          simulation_0060                What is the height of the turning yellow car in meters?  1.650  1.45  1.60  0.098      0.8      1.0
+          simulation_0060                What is the height of the walking pedestrian in meters?  1.870  1.58  1.78  0.119      0.8      1.0
+          simulation_0060              What is the height of three stacked trash bags in meters?  1.340  1.35  1.40  0.036      1.0      1.0
+          simulation_0060                         What is the height of the trash can in meters?  0.600  0.83  0.85  0.024      0.6      0.5
+          simulation_0060                               What is the width of the lane in meters? 11.800  5.90 12.20  0.726      0.4      1.0
+          simulation_0060                         What is the length of the white car in meters？  6.000  6.20  6.10 -0.016      1.0      1.0
+          simulation_0060                What is the length of the turning yellow car in meters?  5.440  5.00  5.20  0.039      0.9      1.0
+          simulation_0060                          What is the width of the green car in meters?  2.030  1.90  1.90  0.000      0.9      0.9
+          simulation_0060                         What is the width of the purple car in meters?  1.860  1.85  1.95  0.053      1.0      1.0
+          simulation_0060                   What is the diameter of the bicycle wheel in meters?  0.560  0.63  0.64  0.016      0.8      0.8
+          simulation_0300                               What is the height of the car in meters?  1.150  1.12  1.00 -0.113      1.0      0.8
+          simulation_0300 What is the length ((from the front to the back) of the car in meters?  4.450  4.70  4.10 -0.137      0.9      0.9
+          simulation_0300 What is the width (from the left wheel to the right wheel) of the car   2.230  2.00  2.10  0.049      0.8      0.9
+other rows:
+                    video                                                            q     gt  base   new  sc_base  sc_aabb
+          simulation_0009 When t=3s, what is the minimum distance from the outer end o  1.950  2.60  2.20      0.6      0.8
+          simulation_0009 What is the height of the pier deck above the water surface   0.260  0.50  0.60      0.0      0.0
+          simulation_0009 What is the height of the cabin floor above the ground in me  0.850  0.55  0.80      0.6      0.9
+          simulation_0015 What is the clear height from the floor to the underside of  12.900 13.00 10.40      1.0      0.8
+          simulation_0015                What is the average speed of the bird in m/s?  1.300  1.00  1.00      0.7      0.7
+          simulation_0060          What is the average speed of the yellow car in m/s？  4.075  4.00  3.70      1.0      0.9
+          simulation_0060  What is the average speed of the walking pedestrian in m/s?  1.300  1.20  1.20      0.9      0.9
+          simulation_0060             What is the average speed of the bicycle in m/s?  5.330  5.10  5.00      1.0      0.9
+          simulation_0300                  What is the speed of the car at 1s, in m/s?  4.800  5.00  5.00      1.0      1.0
+          simulation_0300                  What is the speed of the car at 2s, in m/s?  9.800 10.00 10.00      1.0      1.0
+simulation_0170_segmented      What is the speed of the astronaut at time 0.5s in m/s?  3.533  3.50  3.50      1.0      1.0
+simulation_0170_segmented What is the acceleration of the astronaut at time 0.5s in m/  6.227  6.00  3.80      1.0      0.6
+simulation_0170_segmented        What is the speed of the astronaut at time 1s in m/s?  5.938  6.00  5.90      1.0      1.0
+simulation_0170_segmented What is the acceleration of the astronaut at time 1s in m/s^  3.604  3.00  4.00      0.8      0.8
+simulation_0170_segmented        What is the speed of the astronaut at time 2s in m/s?  6.812  6.80  7.00      1.0      1.0
+simulation_0170_segmented What is the acceleration of the astronaut at time 2s in m/s^  1.641  2.00  2.50      0.7      0.4
+simulation_0170_segmented        What is the speed of the astronaut at time 3s in m/s?  2.441  2.00  1.80      0.8      0.7
+simulation_0170_segmented What is the acceleration of the astronaut at time 3s in m/s^  6.885  6.00  5.50      0.8      0.7
+simulation_0034_segmented                What is the average speed of the boat in m/s?  4.000  4.05  4.07      1.0      1.0
+simulation_0034_segmented              What is the average speed of the person in m/s?  1.300  1.27  1.25      1.0      1.0
+simulation_0034_segmented What is the eagle’s wingspan (the distance from the tip of o  1.570  1.65  1.60      0.9      1.0
+simulation_0034_segmented               What is the average speed of the eagle in m/s? 12.000 11.80 11.80      1.0      1.0
