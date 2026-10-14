@@ -3,6 +3,7 @@ Budget-guarded on budget/ledger_gemini.jsonl (cap $15). Argon's price is not pub
 at a cautious $5 / $40 per MTok (input / output incl. thinking).
 
     .venv/bin/python research/consult/call_argon.py PROMPT.md OUT.md [ATTACH ...]
+    .venv/bin/python research/consult/call_argon.py --fetch batches/<id> OUT.md     # re-attach to a submitted job
 """
 from __future__ import annotations
 
@@ -25,6 +26,11 @@ def main():
             os.environ.setdefault(k.strip(), v.strip())
     from google import genai
     from google.genai import types
+    fetch = sys.argv[1] == "--fetch"
+    if fetch:
+        job_name, out_path = sys.argv[2], Path(sys.argv[3])
+        client = genai.Client(api_key=os.environ["GEMINI_API_KEY"])
+        return finish_job(client, client.batches.get(name=job_name), out_path)
     prompt_path, out_path, attach = Path(sys.argv[1]), Path(sys.argv[2]), [Path(p) for p in sys.argv[3:]]
     text = prompt_path.read_text()
     text = text.split("\n---\n", 1)[1] if "\n---\n" in text else text      # only the part below the line
@@ -46,6 +52,11 @@ def main():
     job = client.batches.create(model=MODEL, src=[types.InlinedRequest(contents=text, config=cfg)],
                                 config={"display_name": f"argon_{out_path.stem}"})
     print("batch", job.name, flush=True)
+    return finish_job(client, job, out_path)
+
+
+def finish_job(client, job, out_path):
+    t0, srcs, u, finish = time.time(), [], None, None
     while True:
         job = client.batches.get(name=job.name)
         st = job.state.name if job.state else ""
