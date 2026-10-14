@@ -16,7 +16,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 LEDGER = ROOT / "budget" / "ledger_gemini.jsonl"
-MODEL, PIN, POUT, CAP, MAX_OUT = "gemini-4-argon", 5.0, 40.0, 15.0, 32768
+MODEL, PIN, POUT, CAP, MAX_OUT = "gemini-4-argon", 1.0, 5.0, 15.0, 32768   # published batch price
 
 
 def main():

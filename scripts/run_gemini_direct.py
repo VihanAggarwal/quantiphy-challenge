@@ -35,7 +35,8 @@ from qp.data import load_split  # noqa: E402
 LEDGER = ROOT / "budget" / "ledger_gemini.jsonl"
 # $/MTok (input, output incl. thinking), prompts <= 200k tokens. Flash / Robotics-ER prices are not published
 # where we could check: priced as 3.1 Pro (an upper bound) so the cap stays safe.
-PRICES = {"gemini-3.1-pro-preview": (2.0, 12.0), "gemini-pro-latest": (2.0, 12.0)}
+PRICES = {"gemini-3.1-pro-preview": (2.0, 12.0), "gemini-pro-latest": (2.0, 12.0),
+          "gemini-4-argon": (2.0, 10.0)}   # Argon: published $2/$10 (intro, to Nov 30)
 DEFAULT_PRICE = (2.0, 12.0)
 RES = {"low": "MEDIA_RESOLUTION_LOW", "medium": "MEDIA_RESOLUTION_MEDIUM", "high": "MEDIA_RESOLUTION_HIGH"}
 

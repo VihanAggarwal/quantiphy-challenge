@@ -33,7 +33,7 @@ from qp.claude_annotate import (_question_block, frame_label, frame_plan, read_f
 from qp.data import load_split  # noqa: E402
 
 LEDGER = ROOT / "budget" / "ledger_openai.jsonl"
-PRICES = {"gpt-6-astra": (10.0, 1.0, 50.0)}          # $/MTok: input, cached input, output (incl. reasoning)
+PRICES = {"gpt-6-astra": (10.0, 1.0, 50.0), "gpt-6.1-sol": (2.0, 0.2, 10.0)}          # $/MTok: input, cached input, output (incl. reasoning)
 TOKENS_PER_IMAGE_EST = 1600                          # conservative; calibrated from the first responses
 
 SYSTEM = """You measure physical quantities in short videos. Each question gives a known quantity (the \
@@ -147,10 +147,14 @@ def main() -> None:
             rows = groups[v]
             content, n_frames = build_input(rows, args.max_side, args.frames, args.max_frames)
             t0 = time.time()
+            # background mode + polling: long reasoning requests are otherwise dropped by the proxy
             r = client.responses.create(
                 model=args.model, reasoning={"effort": args.effort}, max_output_tokens=max_out[v],
-                instructions=SYSTEM, input=[{"role": "user", "content": content}],
+                instructions=SYSTEM, input=[{"role": "user", "content": content}], background=True,
                 text={"format": {"type": "json_schema", "name": "answers", "schema": SCHEMA, "strict": True}})
+            while r.status in ("queued", "in_progress"):
+                time.sleep(5)
+                r = client.responses.retrieve(r.id)
             usd = price(args.model, r.usage)
             with _lock:
                 with LEDGER.open("a") as fh:
