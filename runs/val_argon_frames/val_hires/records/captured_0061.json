@@ -1,0 +1,72 @@
+{
+ "video_id": "captured_0061",
+ "model": "gemini-4-argon",
+ "input": "frames",
+ "thinking": "medium",
+ "media_resolution": "high",
+ "answers": [
+  {
+   "qid": 3047,
+   "value": 50.5,
+   "unit": "cm",
+   "how": "Measured the yoga ball pixel diameter (171 px at t=0.6s, Z=2.133 m) and calibrated the camera focal length (~722 px) using the prior velocity of 2.5104 m/s and apparent size change across frames."
+  },
+  {
+   "qid": 3048,
+   "value": 21.9,
+   "unit": "cm",
+   "how": "Measured the soccer ball pixel diameter (82 px at t=0.6s) and converted to cm using its depth of 1.9370 m and the calibrated focal length."
+  },
+  {
+   "qid": 3049,
+   "value": 1.15,
+   "unit": "m",
+   "how": "Tracked the 3D trajectories of the soccer ball and basketball to t=2.0s (Frame 48) using pixel coordinates and depth progression, then computed the 3D Euclidean distance between them."
+  },
+  {
+   "qid": 3050,
+   "value": 0.92,
+   "unit": "m",
+   "how": "Measured the positions and depths of the basketball (in the foreground at the bottom of Frame 48) and the stationary yoga ball at t=2.0s to compute their 3D separation."
+  },
+  {
+   "qid": 3051,
+   "value": 0.11,
+   "unit": "m",
+   "how": "Estimated the vertical height of the soccer ball above the floor plane at t=2.0s from its trajectory after bouncing."
+  },
+  {
+   "qid": 3052,
+   "value": 1.84,
+   "unit": "m/s",
+   "how": "Combined the image-plane velocity components of the soccer ball between Frames 13 and 16 at Z=1.9370 m with the depth velocity component derived from Z(0.6s) and Z(0.9s)."
+  },
+  {
+   "qid": 3053,
+   "value": 2.21,
+   "unit": "m/s",
+   "how": "Measured the pixel displacement of the soccer ball around Frame 22 (t=0.917s) at depth Z=1.5850 m and combined with its depth velocity component."
+  },
+  {
+   "qid": 3054,
+   "value": 4.11,
+   "unit": "m/s",
+   "how": "Measured the downward pixel displacement of the basketball between Frames 24 and 29 around t=1.1s at depth Z=2.4200 m and combined with its depth velocity."
+  },
+  {
+   "qid": 3055,
+   "value": 1.15,
+   "unit": "m/s",
+   "how": "Measured the basketball displacement across Frames 36 to 41 around t=1.6s (near the apex of its bounce, Z=1.9015 m) and combined with its forward depth velocity."
+  }
+ ],
+ "raw_text": "{\n  \"answers\": [\n    {\n      \"qid\": 3047,\n      \"value\": 50.5,\n      \"unit\": \"cm\",\n      \"how\": \"Measured the yoga ball pixel diameter (171 px at t=0.6s, Z=2.133 m) and calibrated the camera focal length (~722 px) using the prior velocity of 2.5104 m/s and apparent size change across frames.\"\n    },\n    {\n      \"qid\": 3048,\n      \"value\": 21.9,\n      \"unit\": \"cm\",\n      \"how\": \"Measured the soccer ball pixel diameter (82 px at t=0.6s) and converted to cm using its depth of 1.9370 m and the calibrated focal length.\"\n    },\n    {\n      \"qid\": 3049,\n      \"value\": 1.15,\n      \"unit\": \"m\",\n      \"how\": \"Tracked the 3D trajectories of the soccer ball and basketball to t=2.0s (Frame 48) using pixel coordinates and depth progression, then computed the 3D Euclidean distance between them.\"\n    },\n    {\n      \"qid\": 3050,\n      \"value\": 0.92,\n      \"unit\": \"m\",\n      \"how\": \"Measured the positions and depths of the basketball (in the foreground at the bottom of Frame 48) and the stationary yoga ball at t=2.0s to compute their 3D separation.\"\n    },\n    {\n      \"qid\": 3051,\n      \"value\": 0.11,\n      \"unit\": \"m\",\n      \"how\": \"Estimated the vertical height of the soccer ball above the floor plane at t=2.0s from its trajectory after bouncing.\"\n    },\n    {\n      \"qid\": 3052,\n      \"value\": 1.84,\n      \"unit\": \"m/s\",\n      \"how\": \"Combined the image-plane velocity components of the soccer ball between Frames 13 and 16 at Z=1.9370 m with the depth velocity component derived from Z(0.6s) and Z(0.9s).\"\n    },\n    {\n      \"qid\": 3053,\n      \"value\": 2.21,\n      \"unit\": \"m/s\",\n      \"how\": \"Measured the pixel displacement of the soccer ball around Frame 22 (t=0.917s) at depth Z=1.5850 m and combined with its depth velocity component.\"\n    },\n    {\n      \"qid\": 3054,\n      \"value\": 4.11,\n      \"unit\": \"m/s\",\n      \"how\": \"Measured the downward pixel displacement of the basketball between Frames 24 and 29 around t=1.1s at depth Z=2.4200 m and combined with its depth velocity.\"\n    },\n    {\n      \"qid\": 3055,\n      \"value\": 1.15,\n      \"unit\": \"m/s\",\n      \"how\": \"Measured the basketball displacement across Frames 36 to 41 around t=1.6s (near the apex of its bounce, Z=1.9015 m) and combined with its forward depth velocity.\"\n    }\n  ]\n}",
+ "usage": {
+  "prompt": 27785,
+  "output": 807,
+  "thoughts": 1892
+ },
+ "usd": 0.04128,
+ "batch": "batches/7vvj4847z52hyj53khsm00v23j0t8szm4l7f",
+ "error": null
+}

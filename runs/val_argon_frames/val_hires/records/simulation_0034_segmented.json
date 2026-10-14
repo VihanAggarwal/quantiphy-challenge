@@ -1,0 +1,54 @@
+{
+ "video_id": "simulation_0034_segmented",
+ "model": "gemini-4-argon",
+ "input": "frames",
+ "thinking": "high",
+ "media_resolution": "high",
+ "answers": [
+  {
+   "qid": 1828,
+   "value": 4.05,
+   "unit": "m/s",
+   "how": "The boat stays at a constant horizontal image position (x_norm = 853.6) while moving radially toward the camera from 96.8995 m at t=1s to 92.8490 m at t=2s, giving an average speed of (96.8995 - 92.8490) / 1.0 = 4.05 m/s."
+  },
+  {
+   "qid": 1829,
+   "value": 8.9,
+   "unit": "m",
+   "how": "At t=1s, the person (1.75 m tall at 92.1861 m) spans ~64.5 normalized vertical units, while the boat from bottom keel to mast tip at 96.8995 m spans 312 normalized units; scaling by apparent size and depth ratio gives 1.75 * (312 / 64.5) * (96.8995 / 92.1861) = 8.90 m."
+  },
+  {
+   "qid": 1830,
+   "value": 3.15,
+   "unit": "m",
+   "how": "At t=1s, the boat's horizontal extent is 104 normalized units across the hull (2.97 m) and 117 normalized units including the port-side davit (3.34 m); converting with the person scale and depth ratio gives ~3.15 m."
+  },
+  {
+   "qid": 1831,
+   "value": 1.19,
+   "unit": "m/s",
+   "how": "The person walks horizontally from x_norm = 180.3 at t=0.000s to x_norm = 310.3 at t=2.958s (43.93 units/s) at a nearly constant depth of 92.19 m; with 1.75 m corresponding to 64.5 normalized units at that depth, the speed is 1.75 * 43.93 / 64.5 = 1.19 m/s."
+  },
+  {
+   "qid": 1832,
+   "value": 1.62,
+   "unit": "m",
+   "how": "In Frame 5 (t=0.208s), the eagle's wings are fully spread horizontally across 66.2 normalized units; extrapolating the eagle's depth at t=0.208s from t=1s (91.6867 m) and t=2s (103.4262 m) gives D = 82.39 m, yielding a wingspan of 1.75 * (66.2 / 64.5) * (82.39 / 92.1861) = 1.62 m."
+  },
+  {
+   "qid": 1833,
+   "value": 11.82,
+   "unit": "m/s",
+   "how": "Reconstructing the eagle's 3D coordinates from image positions and depths at t=1s (91.6867 m) and t=2s (103.4262 m) gives displacement components dX = 1.19 m, dY = -0.62 m, dZ = 11.74 m over 1.0 s, for a 3D speed of sqrt(1.19^2 + 0.62^2 + 11.74^2) = 11.82 m/s."
+  }
+ ],
+ "raw_text": "{\"answers\": [{\"qid\": 1828, \"value\": 4.05, \"unit\": \"m/s\", \"how\": \"The boat stays at a constant horizontal image position (x_norm = 853.6) while moving radially toward the camera from 96.8995 m at t=1s to 92.8490 m at t=2s, giving an average speed of (96.8995 - 92.8490) / 1.0 = 4.05 m/s.\"}, {\"qid\": 1829, \"value\": 8.9, \"unit\": \"m\", \"how\": \"At t=1s, the person (1.75 m tall at 92.1861 m) spans ~64.5 normalized vertical units, while the boat from bottom keel to mast tip at 96.8995 m spans 312 normalized units; scaling by apparent size and depth ratio gives 1.75 * (312 / 64.5) * (96.8995 / 92.1861) = 8.90 m.\"}, {\"qid\": 1830, \"value\": 3.15, \"unit\": \"m\", \"how\": \"At t=1s, the boat's horizontal extent is 104 normalized units across the hull (2.97 m) and 117 normalized units including the port-side davit (3.34 m); converting with the person scale and depth ratio gives ~3.15 m.\"}, {\"qid\": 1831, \"value\": 1.19, \"unit\": \"m/s\", \"how\": \"The person walks horizontally from x_norm = 180.3 at t=0.000s to x_norm = 310.3 at t=2.958s (43.93 units/s) at a nearly constant depth of 92.19 m; with 1.75 m corresponding to 64.5 normalized units at that depth, the speed is 1.75 * 43.93 / 64.5 = 1.19 m/s.\"}, {\"qid\": 1832, \"value\": 1.62, \"unit\": \"m\", \"how\": \"In Frame 5 (t=0.208s), the eagle's wings are fully spread horizontally across 66.2 normalized units; extrapolating the eagle's depth at t=0.208s from t=1s (91.6867 m) and t=2s (103.4262 m) gives D = 82.39 m, yielding a wingspan of 1.75 * (66.2 / 64.5) * (82.39 / 92.1861) = 1.62 m.\"}, {\"qid\": 1833, \"value\": 11.82, \"unit\": \"m/s\", \"how\": \"Reconstructing the eagle's 3D coordinates from image positions and depths at t=1s (91.6867 m) and t=2s (103.4262 m) gives displacement components dX = 1.19 m, dY = -0.62 m, dZ = 11.74 m over 1.0 s, for a 3D speed of sqrt(1.19^2 + 0.62^2 + 11.74^2) = 11.82 m/s.\"}]}",
+ "usage": {
+  "prompt": 24773,
+  "output": 858,
+  "thoughts": 12460
+ },
+ "usd": 0.091363,
+ "batch": "batches/tcfnbqx1u4ff8wuzrx90ke2eyycismeko3li",
+ "error": null
+}

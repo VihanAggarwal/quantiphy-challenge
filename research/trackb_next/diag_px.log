@@ -1,0 +1,55 @@
+2D rows 69; item means: qwen 0.349 cv 0.351 cvq 0.480 claude 0.816
+
+qwen vs Claude tracks (|log ratio| of the pixel measurement; n with both):
+  prior_px (motion of the prior object, or its extent)    n  53 median 0.106  >15% 47%  >50% 36%
+  target_px (asked extent / motion)                       n  53 median 0.157  >15% 53%  >50% 32%
+               n     it  it_claude  prior_med  target_med
+cat tk                                                   
+D2  distance   3  0.467      1.000      0.017       0.012
+    size      26  0.315      0.892      0.017       0.153
+    speed      8  0.312      1.000      0.071       0.098
+S2  accel      7  0.143      0.414      0.057       0.939
+    distance   3  0.667      0.933      0.106       0.004
+    size       9  0.344      0.644      0.547       0.296
+    speed     13  0.454      0.815      0.254       0.062
+
+cvq vs Claude tracks (|log ratio| of the pixel measurement; n with both):
+  prior_px (motion of the prior object, or its extent)    n  55 median 0.009  >15% 16%  >50% 5%
+  target_px (asked extent / motion)                       n  55 median 0.132  >15% 47%  >50% 36%
+               n     it  it_claude  prior_med  target_med
+cat tk                                                   
+D2  distance   3  0.433      1.000      0.010       0.525
+    size      26  0.408      0.892      0.007       0.316
+    speed      8  0.638      1.000      0.001       0.021
+S2  accel      7  0.357      0.414      0.007       0.533
+    distance   3  0.833      0.933      0.070       0.005
+    size       9  0.244      0.644      0.308       0.525
+    speed     13  0.685      0.815      0.028       0.011
+
+cv vs Claude tracks (|log ratio| of the pixel measurement; n with both):
+  prior_px (motion of the prior object, or its extent)    n  46 median 0.033  >15% 35%  >50% 22%
+  target_px (asked extent / motion)                       n  46 median 0.111  >15% 48%  >50% 30%
+               n     it  it_claude  prior_med  target_med
+cat tk                                                   
+D2  distance   3  0.100      1.000      0.578       1.283
+    size      26  0.208      0.892      0.007       0.035
+    speed      8  0.388      1.000      0.007       0.031
+S2  accel      7  0.357      0.414      0.003       0.521
+    distance   3  0.767      0.933      0.131       0.006
+    size       9  0.222      0.644      0.313       0.417
+    speed     13  0.662      0.815      0.033       0.011
+
+largest Qwen target-extent misses (S2/D2 size rows):
+ qid                  video_id                                                                question  qwen_lt  cvq_lt  qwen_lp  cvq_lp  qwen_it  cvq_it  claude_it
+2168             internet_0005                   What is the side length of the floor tiles in meters?     2.17    2.29    -0.00   -0.01      0.0     0.0        1.0
+2201             internet_0013                     What is the width of the roundabout lane in meters?     1.68     NaN     2.00     NaN      0.7     0.0        1.0
+2162             internet_0004                          What is the thickness of the wood block in cm?     1.58     NaN     1.26     NaN      0.5     0.0        0.9
+2200             internet_0013               What is the width of the straight-through lane in meters?     1.55     NaN     2.00     NaN      0.6     0.0        1.0
+ 141           simulation_0089                          What is the width of the small bird in meters?    -1.13   -0.60    -0.55    0.31      0.7     0.5        0.6
+2152             internet_0001                           What is the width of the black car in meters?     0.89    0.95     2.42    2.42      0.1     0.2        0.8
+ 140           simulation_0089                            What is the width of the big bird in meters?    -0.78   -0.53    -0.55    0.31      1.0     0.5        0.7
+1899 simulation_0098_segmented                              What is the height of the shark in meters?    -0.55    0.00     0.07   -0.00      0.5     0.9        0.9
+ 403           simulation_0163                What is the height of the ball return opening in meters?    -0.30   -0.54    -0.25    0.03      0.0     0.0        0.0
+ 139           simulation_0089                           What is the length of the big bird in meters?    -0.27    0.42    -0.55    0.31      0.0     0.0        0.0
+2167             internet_0005 What is the length of the light right above the woman's head in meters?     0.26    0.00    -0.00   -0.01      0.2     0.6        0.6
+2228             internet_0019                                     What is the size of the ball in cm?     0.17    0.37    -0.02    0.01      1.0     0.8        0.8

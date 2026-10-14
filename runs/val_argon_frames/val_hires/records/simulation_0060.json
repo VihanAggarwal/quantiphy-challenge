@@ -1,0 +1,96 @@
+{
+ "video_id": "simulation_0060",
+ "model": "gemini-4-argon",
+ "input": "frames",
+ "thinking": "medium",
+ "media_resolution": "high",
+ "answers": [
+  {
+   "qid": 1343,
+   "value": 4.2,
+   "unit": "m/s",
+   "how": "Measure the pixel displacement of the yellow car during its turn, convert using the scale derived from the white van's 4 m/s^2 acceleration and depth info."
+  },
+  {
+   "qid": 1344,
+   "value": 12.0,
+   "unit": "m",
+   "how": "Compare the width of the road between sidewalks to the calibrated length of the white van at the intersection."
+  },
+  {
+   "qid": 1345,
+   "value": 6.2,
+   "unit": "m",
+   "how": "Track the white van's front bumper across frames to find the pixel-to-meter scale from a = 4 m/s^2, then measure the van's full pixel length in frame 43."
+  },
+  {
+   "qid": 1346,
+   "value": 5.3,
+   "unit": "m",
+   "how": "Measure the yellow car's length in pixels when viewed from the side and scale using its depth of 26.2 m relative to the white van."
+  },
+  {
+   "qid": 1347,
+   "value": 1.5,
+   "unit": "m",
+   "how": "Measure the vertical pixel extent of the yellow car and convert using the focal length and depth of 26.2 m."
+  },
+  {
+   "qid": 1348,
+   "value": 0.7,
+   "unit": "m",
+   "how": "Measure the pixel diameter of the bicycle wheel in frame 38 and convert to meters using the bike's depth of 23.2 m."
+  },
+  {
+   "qid": 1349,
+   "value": 1.2,
+   "unit": "m/s",
+   "how": "Use the change in distance_human_camera from 34.4785 m to 35.6486 m over the 1.00 s interval between t=0.58s and t=1.58s."
+  },
+  {
+   "qid": 1350,
+   "value": 1.8,
+   "unit": "m",
+   "how": "Measure the pedestrian's vertical height in pixels at t=0.58s and scale using the depth of 34.48 m."
+  },
+  {
+   "qid": 1351,
+   "value": 4.5,
+   "unit": "m/s",
+   "how": "Measure the horizontal pixel displacement of the bicycle across the intersection and convert to meters per second using the calibrated scale at depth 23.2 m."
+  },
+  {
+   "qid": 1352,
+   "value": 1.9,
+   "unit": "m",
+   "how": "Measure the pixel width of the foreground green car and scale using the perspective geometry of the road."
+  },
+  {
+   "qid": 1353,
+   "value": 1.9,
+   "unit": "m",
+   "how": "Measure the pixel width of the stationary dark car in the upper lane and convert using the road perspective scale at its depth."
+  },
+  {
+   "qid": 1354,
+   "value": 1.1,
+   "unit": "m",
+   "how": "Measure the vertical pixel height of the stacked trash bags on the road and convert using the estimated depth along the upper road."
+  },
+  {
+   "qid": 1355,
+   "value": 0.9,
+   "unit": "m",
+   "how": "Measure the vertical pixel height of the green trash can near the pedestrian and scale using the pedestrian's depth of 34.5 m."
+  }
+ ],
+ "raw_text": "{\"answers\": [{\"qid\": 1343, \"value\": 4.2, \"unit\": \"m/s\", \"how\": \"Measure the pixel displacement of the yellow car during its turn, convert using the scale derived from the white van's 4 m/s^2 acceleration and depth info.\"}, {\"qid\": 1344, \"value\": 12.0, \"unit\": \"m\", \"how\": \"Compare the width of the road between sidewalks to the calibrated length of the white van at the intersection.\"}, {\"qid\": 1345, \"value\": 6.2, \"unit\": \"m\", \"how\": \"Track the white van's front bumper across frames to find the pixel-to-meter scale from a = 4 m/s^2, then measure the van's full pixel length in frame 43.\"}, {\"qid\": 1346, \"value\": 5.3, \"unit\": \"m\", \"how\": \"Measure the yellow car's length in pixels when viewed from the side and scale using its depth of 26.2 m relative to the white van.\"}, {\"qid\": 1347, \"value\": 1.5, \"unit\": \"m\", \"how\": \"Measure the vertical pixel extent of the yellow car and convert using the focal length and depth of 26.2 m.\"}, {\"qid\": 1348, \"value\": 0.7, \"unit\": \"m\", \"how\": \"Measure the pixel diameter of the bicycle wheel in frame 38 and convert to meters using the bike's depth of 23.2 m.\"}, {\"qid\": 1349, \"value\": 1.2, \"unit\": \"m/s\", \"how\": \"Use the change in distance_human_camera from 34.4785 m to 35.6486 m over the 1.00 s interval between t=0.58s and t=1.58s.\"}, {\"qid\": 1350, \"value\": 1.8, \"unit\": \"m\", \"how\": \"Measure the pedestrian's vertical height in pixels at t=0.58s and scale using the depth of 34.48 m.\"}, {\"qid\": 1351, \"value\": 4.5, \"unit\": \"m/s\", \"how\": \"Measure the horizontal pixel displacement of the bicycle across the intersection and convert to meters per second using the calibrated scale at depth 23.2 m.\"}, {\"qid\": 1352, \"value\": 1.9, \"unit\": \"m\", \"how\": \"Measure the pixel width of the foreground green car and scale using the perspective geometry of the road.\"}, {\"qid\": 1353, \"value\": 1.9, \"unit\": \"m\", \"how\": \"Measure the pixel width of the stationary dark car in the upper lane and convert using the road perspective scale at its depth.\"}, {\"qid\": 1354, \"value\": 1.1, \"unit\": \"m\", \"how\": \"Measure the vertical pixel height of the stacked trash bags on the road and convert using the estimated depth along the upper road.\"}, {\"qid\": 1355, \"value\": 0.9, \"unit\": \"m\", \"how\": \"Measure the vertical pixel height of the green trash can near the pedestrian and scale using the pedestrian's depth of 34.5 m.\"}]}",
+ "usage": {
+  "prompt": 25672,
+  "output": 778,
+  "thoughts": 0
+ },
+ "usd": 0.029562,
+ "batch": "batches/7vvj4847z52hyj53khsm00v23j0t8szm4l7f",
+ "error": null
+}

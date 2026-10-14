@@ -1,0 +1,48 @@
+{
+ "video_id": "captured_0021x",
+ "model": "gemini-4-argon",
+ "input": "frames",
+ "thinking": "high",
+ "media_resolution": "high",
+ "answers": [
+  {
+   "qid": 2520,
+   "value": 122.0,
+   "unit": "cm/s",
+   "how": "From the given depth info at t=1.0s (151.1 cm) and t=1.4s (103.0 cm), the displacement over the 0.4s interval centered at t=1.2s is 48.1 cm, giving a midpoint velocity of 48.1 / 0.4 = 120.25 cm/s (and ~125 cm/s from local projective tracking of the ball between Frames 26 and 31)."
+  },
+  {
+   "qid": 2521,
+   "value": 102.0,
+   "unit": "cm/s",
+   "how": "Tracking the ball's contact point and apparent diameter across Frames 32 (t=1.333s, Z=107.2 cm) to 36 (t=1.500s, Z=91.7 cm) calibrated with Z=103.0 cm at t=1.4s gives an instantaneous velocity around t=1.4s of approximately 95-105 cm/s."
+  },
+  {
+   "qid": 2522,
+   "value": 48.1,
+   "unit": "cm",
+   "how": "Between t=1.0s and t=1.4s, the ball's distance from the camera changes from 1.511 m (151.1 cm) to 1.03 m (103.0 cm) with negligible transverse displacement (~1.8 cm), yielding a total displacement of 151.1 - 103.0 = 48.1 cm."
+  },
+  {
+   "qid": 2523,
+   "value": 59.5,
+   "unit": "cm",
+   "how": "Calibrating focal length from the 40 mm ping pong ball at the given depths (f \u2248 484 px at 853x480 resolution) and measuring the table's horizontal width of 188.7 px at the t=1.0s ball depth (151.1 cm) yields W = 188.7 * 151.1 / 484 \u2248 59.5 cm."
+  },
+  {
+   "qid": 2524,
+   "value": 72.5,
+   "unit": "cm",
+   "how": "From the perspective foreshortening of the table edges (back edge 181.5 px at Z_back \u2248 159.0 cm, front edge 333.0 px at Z_front \u2248 86.5 cm), the table length from back to front is 159.0 - 86.5 = 72.5 cm."
+  }
+ ],
+ "raw_text": "{\"answers\": [{\"qid\": 2520, \"value\": 122.0, \"unit\": \"cm/s\", \"how\": \"From the given depth info at t=1.0s (151.1 cm) and t=1.4s (103.0 cm), the displacement over the 0.4s interval centered at t=1.2s is 48.1 cm, giving a midpoint velocity of 48.1 / 0.4 = 120.25 cm/s (and ~125 cm/s from local projective tracking of the ball between Frames 26 and 31).\"}, {\"qid\": 2521, \"value\": 102.0, \"unit\": \"cm/s\", \"how\": \"Tracking the ball's contact point and apparent diameter across Frames 32 (t=1.333s, Z=107.2 cm) to 36 (t=1.500s, Z=91.7 cm) calibrated with Z=103.0 cm at t=1.4s gives an instantaneous velocity around t=1.4s of approximately 95-105 cm/s.\"}, {\"qid\": 2522, \"value\": 48.1, \"unit\": \"cm\", \"how\": \"Between t=1.0s and t=1.4s, the ball's distance from the camera changes from 1.511 m (151.1 cm) to 1.03 m (103.0 cm) with negligible transverse displacement (~1.8 cm), yielding a total displacement of 151.1 - 103.0 = 48.1 cm.\"}, {\"qid\": 2523, \"value\": 59.5, \"unit\": \"cm\", \"how\": \"Calibrating focal length from the 40 mm ping pong ball at the given depths (f \u2248 484 px at 853x480 resolution) and measuring the table's horizontal width of 188.7 px at the t=1.0s ball depth (151.1 cm) yields W = 188.7 * 151.1 / 484 \u2248 59.5 cm.\"}, {\"qid\": 2524, \"value\": 72.5, \"unit\": \"cm\", \"how\": \"From the perspective foreshortening of the table edges (back edge 181.5 px at Z_back \u2248 159.0 cm, front edge 333.0 px at Z_front \u2248 86.5 cm), the table length from back to front is 159.0 - 86.5 = 72.5 cm.\"}]}",
+ "usage": {
+  "prompt": 23288,
+  "output": 650,
+  "thoughts": 28479
+ },
+ "usd": 0.168933,
+ "batch": "batches/tcfnbqx1u4ff8wuzrx90ke2eyycismeko3li",
+ "error": null
+}

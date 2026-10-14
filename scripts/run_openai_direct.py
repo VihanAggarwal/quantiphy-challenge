@@ -111,6 +111,10 @@ def main() -> None:
     ap.add_argument("--workers", type=int, default=4)
     ap.add_argument("--cap-usd", type=float, default=45.0, help="hard cap on this ledger's total spend")
     ap.add_argument("--max-output", type=int, default=0, help="0 = 8000 + 2500 per question (max 40000)")
+    ap.add_argument("--service-tier", default="auto", choices=["auto", "default", "flex"],
+                    help="flex: half price, slower (billed at 50% only when the response reports tier flex)")
+    ap.add_argument("--sources", default="", help="comma-separated video_source values to keep (default: all)")
+    ap.add_argument("--skip-segmented", action="store_true", help="skip *_segmented twins (they reuse the original)")
     ap.add_argument("--dry-run", action="store_true")
     args = ap.parse_args()
     load_env()
@@ -118,6 +122,10 @@ def main() -> None:
     df = load_split(args.split)
     if args.videos:
         df = df[df.video_id.isin(args.videos.split(","))]
+    if args.sources:
+        df = df[df.video_source.isin(args.sources.split(","))]
+    if args.skip_segmented:
+        df = df[~df.video_id.str.endswith("_segmented")]
     out = ROOT / "runs" / args.name
     rec_dir = out / args.split / "records"
     rec_dir.mkdir(parents=True, exist_ok=True)
@@ -151,11 +159,12 @@ def main() -> None:
             r = client.responses.create(
                 model=args.model, reasoning={"effort": args.effort}, max_output_tokens=max_out[v],
                 instructions=SYSTEM, input=[{"role": "user", "content": content}], background=True,
+                service_tier=args.service_tier,
                 text={"format": {"type": "json_schema", "name": "answers", "schema": SCHEMA, "strict": True}})
             while r.status in ("queued", "in_progress"):
                 time.sleep(5)
                 r = client.responses.retrieve(r.id)
-            usd = price(args.model, r.usage)
+            usd = price(args.model, r.usage) * (0.5 if getattr(r, "service_tier", "") == "flex" else 1.0)
             with _lock:
                 with LEDGER.open("a") as fh:
                     fh.write(json.dumps({"ts": datetime.now(timezone.utc).isoformat(), "run": args.name,

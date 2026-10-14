@@ -719,3 +719,17 @@ review `research/consult/argon_research_review_2026-10-14.md`.
   credible.
 - Worth testing: Idea 4 (world-bounding-box/yaw prompt for S3 simulation, ~$3 pilot), Idea 3 (Track B open pointing +
   SAM-2 tracks into geometry), Idea 2 (synthetic Blender fine-tune, mainly Track B).
+
+## Track B next Colab run designed (2026-10-14, `research/trackb_next/`): RUN_PRESET "ctx" (not yet run)
+Diagnosis on validation (same solver; Claude tracks used only as a diagnostic yardstick, never in Track B answers):
+specs are not the problem (Qwen spec + Claude tracks .733 vs Claude spec + Qwen tracks .507 = Qwen/Qwen .507; spec
+swap -.000 [-.004,+.003], track swap +.226 [+.159,+.305]). With SAM 2 motion (cvq) in place, Claude-quality TARGET
+tracks add +.116 [+.051,+.175] (.554 -> .671), prior tracks only +.032: the dominant failure is the asked size /
+distance segment (floor-tile side, orbit diameter, lane width, slope length ...: object-name grounding without the
+question). S3 is direct-limited (Claude tracks do not help S3). Run: Qwen3.6-27B-FP8 annotates each video the Track A
+way (labelled frames + all questions -> spec, 0-1000-grid tracks, own answer; thinking), then context-extent pointing
+(full question, 3 frames + zoomed crop), SAM 2 on its boxes, hybrids ta / tacx / cvqcx / samcx. New files only
+(qp/open/ctx_annot.py, run_ctx.py, ctx_merge.py; notebook preset + section 13d via _build_notebook.py). CPU checks:
+mock replay reproduces the Claude-track solve on 157/159 rows; garbage replies do not crash; 682 tests pass.
+Pre-registered kill test in RESULT.md (evaluate_ctx.py). Expected ~+.02 Track B overall (0 to +.05). User steps:
+RUN_INSTRUCTIONS.md (~3-3.5 GPU-h, cap 7 h).

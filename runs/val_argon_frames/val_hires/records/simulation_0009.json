@@ -1,0 +1,72 @@
+{
+ "video_id": "simulation_0009",
+ "model": "gemini-4-argon",
+ "input": "frames",
+ "thinking": "medium",
+ "media_resolution": "high",
+ "answers": [
+  {
+   "qid": 1090,
+   "value": 3.2,
+   "unit": "m",
+   "how": "Measured the boat's displacement from t=0s to t=1s in pixels and combined with depth change (11.827m to 13.154m) and known speed (1.5 m/s) to find the camera focal length, then scaled the boat's length along its hull axis."
+  },
+  {
+   "qid": 1091,
+   "value": 1.3,
+   "unit": "m",
+   "how": "Measured the transverse beam of the boat in pixels at Frame 0, corrected for perspective foreshortening and scaled using the derived focal length and distance 11.827m."
+  },
+  {
+   "qid": 1092,
+   "value": 0.65,
+   "unit": "m",
+   "how": "Measured the vertical pixel extent of the boat hull from waterline/keel to gunwale at Frame 0 and scaled using distance 11.827m."
+  },
+  {
+   "qid": 1093,
+   "value": 1.6,
+   "unit": "m",
+   "how": "Measured the pixel width of the outer end of the wooden pier and scaled using distance_pier_camera = 18.920m."
+  },
+  {
+   "qid": 1094,
+   "value": 5.5,
+   "unit": "m",
+   "how": "Measured the pixel length of the pier from shore edge to water edge, accounting for viewing angle and distance 18.920m."
+  },
+  {
+   "qid": 1095,
+   "value": 4.8,
+   "unit": "m",
+   "how": "Extrapolated the boat's 3D position to t=3s using its constant velocity of 1.5 m/s away from the pier and computed the 3D distance to the pier's outer end."
+  },
+  {
+   "qid": 1096,
+   "value": 1.5,
+   "unit": "m",
+   "how": "Measured the horizontal pixel width of the wooden stairs leading to the cabin and scaled using distance_stairs_camera = 23.125m."
+  },
+  {
+   "qid": 1097,
+   "value": 0.6,
+   "unit": "m",
+   "how": "Measured the vertical pixel height of the pier deck above the water surface at the support posts and scaled using distance 18.920m."
+  },
+  {
+   "qid": 1098,
+   "value": 1.1,
+   "unit": "m",
+   "how": "Measured the vertical pixel rise from the ground at the base of the stairs to the cabin porch floor level and scaled using distance_stairs_camera = 23.125m."
+  }
+ ],
+ "raw_text": "{\"answers\": [{\"qid\": 1090, \"value\": 3.2, \"unit\": \"m\", \"how\": \"Measured the boat's displacement from t=0s to t=1s in pixels and combined with depth change (11.827m to 13.154m) and known speed (1.5 m/s) to find the camera focal length, then scaled the boat's length along its hull axis.\"}, {\"qid\": 1091, \"value\": 1.3, \"unit\": \"m\", \"how\": \"Measured the transverse beam of the boat in pixels at Frame 0, corrected for perspective foreshortening and scaled using the derived focal length and distance 11.827m.\"}, {\"qid\": 1092, \"value\": 0.65, \"unit\": \"m\", \"how\": \"Measured the vertical pixel extent of the boat hull from waterline/keel to gunwale at Frame 0 and scaled using distance 11.827m.\"}, {\"qid\": 1093, \"value\": 1.6, \"unit\": \"m\", \"how\": \"Measured the pixel width of the outer end of the wooden pier and scaled using distance_pier_camera = 18.920m.\"}, {\"qid\": 1094, \"value\": 5.5, \"unit\": \"m\", \"how\": \"Measured the pixel length of the pier from shore edge to water edge, accounting for viewing angle and distance 18.920m.\"}, {\"qid\": 1095, \"value\": 4.8, \"unit\": \"m\", \"how\": \"Extrapolated the boat's 3D position to t=3s using its constant velocity of 1.5 m/s away from the pier and computed the 3D distance to the pier's outer end.\"}, {\"qid\": 1096, \"value\": 1.5, \"unit\": \"m\", \"how\": \"Measured the horizontal pixel width of the wooden stairs leading to the cabin and scaled using distance_stairs_camera = 23.125m.\"}, {\"qid\": 1097, \"value\": 0.6, \"unit\": \"m\", \"how\": \"Measured the vertical pixel height of the pier deck above the water surface at the support posts and scaled using distance 18.920m.\"}, {\"qid\": 1098, \"value\": 1.1, \"unit\": \"m\", \"how\": \"Measured the vertical pixel rise from the ground at the base of the stairs to the cabin porch floor level and scaled using distance_stairs_camera = 23.125m.\"}]}",
+ "usage": {
+  "prompt": 21457,
+  "output": 612,
+  "thoughts": 0
+ },
+ "usd": 0.024517,
+ "batch": "batches/7vvj4847z52hyj53khsm00v23j0t8szm4l7f",
+ "error": null
+}

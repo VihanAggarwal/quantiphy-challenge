@@ -1,0 +1,54 @@
+{
+ "video_id": "internet_0013",
+ "model": "gemini-4-argon",
+ "input": "frames",
+ "thinking": "high",
+ "media_resolution": "high",
+ "answers": [
+  {
+   "qid": 2200,
+   "value": 3.9,
+   "unit": "m",
+   "how": "Measured the pedestrian displacement on the left sidewalk (~99.7 px over 9.267 s in 854x480 resolution, or 10.76 px/s) to establish the scale from the 1.1 m/s prior (0.1022 m/px). Measured the perpendicular width of the straight-through lane (~38 px) and converted to meters."
+  },
+  {
+   "qid": 2201,
+   "value": 4.24,
+   "unit": "m",
+   "how": "Using the scale derived from the pedestrian walking speed (0.1022 m/px in 854x480 resolution), measured the radial width of the circulatory roundabout lane between the inner apron curb (R=120.5 px) and the lane divider line (R=161.5 px), giving ~41.5 px or 4.24 m."
+  },
+  {
+   "qid": 2202,
+   "value": 20.5,
+   "unit": "m",
+   "how": "Measured the diameter of the circular center island planter (~199-201 px in 854x480 resolution) and multiplied by the scale factor of 0.1022 m/px derived from the pedestrian prior."
+  },
+  {
+   "qid": 2203,
+   "value": 5.9,
+   "unit": "m/s",
+   "how": "Tracked the white car in the roundabout across frames around t=3.0s (Frames 87 to 93, dt=0.200s, and Frames 74 to 111, dt=1.233s), obtaining an angular/linear speed of ~57.5 px/s in 854x480 resolution, which converts to 5.9 m/s using the 0.1022 m/px scale."
+  },
+  {
+   "qid": 2204,
+   "value": 3.76,
+   "unit": "m/s",
+   "how": "Tracked the bicycle on the upper-left cycle path around t=3.0s (from Frame 74 at t=2.467s to Frame 111 at t=3.700s, and Frame 87 to Frame 93), measuring a speed of ~36.8 px/s in 854x480 resolution, corresponding to 3.76 m/s."
+  },
+  {
+   "qid": 2205,
+   "value": 25.5,
+   "unit": "m",
+   "how": "Located the two black cars inside the roundabout at Frame 30 (t=1.000s) at (276.5, 151.0) and (524.0, 88.0) in 854x480 resolution, measured the distance between them (~250 px), and converted to meters using the 0.1022 m/px scale."
+  }
+ ],
+ "raw_text": "{\n  \"answers\": [\n    {\n      \"qid\": 2200,\n      \"value\": 3.9,\n      \"unit\": \"m\",\n      \"how\": \"Measured the pedestrian displacement on the left sidewalk (~99.7 px over 9.267 s in 854x480 resolution, or 10.76 px/s) to establish the scale from the 1.1 m/s prior (0.1022 m/px). Measured the perpendicular width of the straight-through lane (~38 px) and converted to meters.\"\n    },\n    {\n      \"qid\": 2201,\n      \"value\": 4.24,\n      \"unit\": \"m\",\n      \"how\": \"Using the scale derived from the pedestrian walking speed (0.1022 m/px in 854x480 resolution), measured the radial width of the circulatory roundabout lane between the inner apron curb (R=120.5 px) and the lane divider line (R=161.5 px), giving ~41.5 px or 4.24 m.\"\n    },\n    {\n      \"qid\": 2202,\n      \"value\": 20.5,\n      \"unit\": \"m\",\n      \"how\": \"Measured the diameter of the circular center island planter (~199-201 px in 854x480 resolution) and multiplied by the scale factor of 0.1022 m/px derived from the pedestrian prior.\"\n    },\n    {\n      \"qid\": 2203,\n      \"value\": 5.9,\n      \"unit\": \"m/s\",\n      \"how\": \"Tracked the white car in the roundabout across frames around t=3.0s (Frames 87 to 93, dt=0.200s, and Frames 74 to 111, dt=1.233s), obtaining an angular/linear speed of ~57.5 px/s in 854x480 resolution, which converts to 5.9 m/s using the 0.1022 m/px scale.\"\n    },\n    {\n      \"qid\": 2204,\n      \"value\": 3.76,\n      \"unit\": \"m/s\",\n      \"how\": \"Tracked the bicycle on the upper-left cycle path around t=3.0s (from Frame 74 at t=2.467s to Frame 111 at t=3.700s, and Frame 87 to Frame 93), measuring a speed of ~36.8 px/s in 854x480 resolution, corresponding to 3.76 m/s.\"\n    },\n    {\n      \"qid\": 2205,\n      \"value\": 25.5,\n      \"unit\": \"m\",\n      \"how\": \"Located the two black cars inside the roundabout at Frame 30 (t=1.000s) at (276.5, 151.0) and (524.0, 88.0) in 854x480 resolution, measured the distance between them (~250 px), and converted to meters using the 0.1022 m/px scale.\"\n  }\n  ]\n}",
+ "usage": {
+  "prompt": 24300,
+  "output": 797,
+  "thoughts": 8719
+ },
+ "usd": 0.07188,
+ "batch": "batches/tcfnbqx1u4ff8wuzrx90ke2eyycismeko3li",
+ "error": null
+}

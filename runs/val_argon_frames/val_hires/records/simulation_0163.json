@@ -1,0 +1,54 @@
+{
+ "video_id": "simulation_0163",
+ "model": "gemini-4-argon",
+ "input": "frames",
+ "thinking": "high",
+ "media_resolution": "high",
+ "answers": [
+  {
+   "qid": 398,
+   "value": 3.06,
+   "unit": "m/s",
+   "how": "In 1920x1080 coordinates, the bowling ball has a diameter of ~83.7 px, giving a scale of 0.21 m / 83.7 px = 0.002509 m/px. Around t = 0.5 s (Frame 12), the ball center moves from x = 470.5 px at Frame 10 (t = 0.417 s) to x = 674.0 px at Frame 14 (t = 0.583 s), which is 50.86 px/frame or 1220.6 px/s at 24 fps, corresponding to 3.06 m/s."
+  },
+  {
+   "qid": 399,
+   "value": 0.36,
+   "unit": "m/s^2",
+   "how": "Fitting the horizontal ball position across Frames 3 to 27 shows a uniform deceleration of ~0.245 to 0.25 px/frame^2 (velocity decreases from ~50.86 px/frame at Frame 12 to ~47.8 px/frame at Frame 24). At 24 fps and 0.002509 m/px, this acceleration magnitude is 0.25 * 24^2 * 0.002509 = 0.36 m/s^2."
+  },
+  {
+   "qid": 400,
+   "value": 2.88,
+   "unit": "m/s",
+   "how": "Around t = 1.0 s (Frame 24), the ball center moves from x = 1070 px at Frame 22 (t = 0.917 s) to x = 1261 px at Frame 26 (t = 1.083 s), giving a speed of 47.75 px/frame or 1146 px/s at 24 fps. Multiplying by the scale 0.21 m / 83.7 px gives 2.88 m/s."
+  },
+  {
+   "qid": 401,
+   "value": 0.36,
+   "unit": "m/s^2",
+   "how": "At t = 1.0 s (Frame 24), the ball is still rolling along the lane prior to pin impact with the same constant deceleration of ~0.25 px/frame^2 (144 px/s^2), which converts to a magnitude of 0.36 m/s^2 using the scale 0.21 m / 83.7 px."
+  },
+  {
+   "qid": 402,
+   "value": 0.31,
+   "unit": "m",
+   "how": "In 1920x1080 coordinates, the standing bowling pins measure ~121 to 127 px tall (mean ~124 px). Using the ball diameter prior of 0.21 m = 83.7 px, the pin height is 124 * (0.21 / 83.7) = 0.31 m."
+  },
+  {
+   "qid": 403,
+   "value": 0.26,
+   "unit": "m",
+   "how": "In 1920x1080 coordinates, the arched black ball return opening at the right end of the foreground lane hood extends vertically from y = 755 px to y = 860 px (105 px tall). Converting with the scale 0.21 m / 83.7 px gives 105 * 0.002509 = 0.26 m."
+  }
+ ],
+ "raw_text": "{\n  \"answers\": [\n    {\n      \"qid\": 398,\n      \"value\": 3.06,\n      \"unit\": \"m/s\",\n      \"how\": \"In 1920x1080 coordinates, the bowling ball has a diameter of ~83.7 px, giving a scale of 0.21 m / 83.7 px = 0.002509 m/px. Around t = 0.5 s (Frame 12), the ball center moves from x = 470.5 px at Frame 10 (t = 0.417 s) to x = 674.0 px at Frame 14 (t = 0.583 s), which is 50.86 px/frame or 1220.6 px/s at 24 fps, corresponding to 3.06 m/s.\"\n    },\n    {\n      \"qid\": 399,\n      \"value\": 0.36,\n      \"unit\": \"m/s^2\",\n      \"how\": \"Fitting the horizontal ball position across Frames 3 to 27 shows a uniform deceleration of ~0.245 to 0.25 px/frame^2 (velocity decreases from ~50.86 px/frame at Frame 12 to ~47.8 px/frame at Frame 24). At 24 fps and 0.002509 m/px, this acceleration magnitude is 0.25 * 24^2 * 0.002509 = 0.36 m/s^2.\"\n    },\n    {\n      \"qid\": 400,\n      \"value\": 2.88,\n      \"unit\": \"m/s\",\n      \"how\": \"Around t = 1.0 s (Frame 24), the ball center moves from x = 1070 px at Frame 22 (t = 0.917 s) to x = 1261 px at Frame 26 (t = 1.083 s), giving a speed of 47.75 px/frame or 1146 px/s at 24 fps. Multiplying by the scale 0.21 m / 83.7 px gives 2.88 m/s.\"\n    },\n    {\n      \"qid\": 401,\n      \"value\": 0.36,\n      \"unit\": \"m/s^2\",\n      \"how\": \"At t = 1.0 s (Frame 24), the ball is still rolling along the lane prior to pin impact with the same constant deceleration of ~0.25 px/frame^2 (144 px/s^2), which converts to a magnitude of 0.36 m/s^2 using the scale 0.21 m / 83.7 px.\"\n    },\n    {\n      \"qid\": 402,\n      \"value\": 0.31,\n      \"unit\": \"m\",\n      \"how\": \"In 1920x1080 coordinates, the standing bowling pins measure ~121 to 127 px tall (mean ~124 px). Using the ball diameter prior of 0.21 m = 83.7 px, the pin height is 124 * (0.21 / 83.7) = 0.31 m.\"\n    },\n    {\n      \"qid\": 403,\n      \"value\": 0.26,\n      \"unit\": \"m\",\n      \"how\": \"In 1920x1080 coordinates, the arched black ball return opening at the right end of the foreground lane hood extends vertically from y = 755 px to y = 860 px (105 px tall). Converting with the scale 0.21 m / 83.7 px gives 105 * 0.002509 = 0.26 m.\"\n    }\n  ]\n}",
+ "usage": {
+  "prompt": 24292,
+  "output": 965,
+  "thoughts": 10902
+ },
+ "usd": 0.083627,
+ "batch": "batches/tcfnbqx1u4ff8wuzrx90ke2eyycismeko3li",
+ "error": null
+}

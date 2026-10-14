@@ -1,0 +1,54 @@
+{
+ "video_id": "simulation_0089",
+ "model": "gemini-4-argon",
+ "input": "frames",
+ "thinking": "high",
+ "media_resolution": "high",
+ "answers": [
+  {
+   "qid": 139,
+   "value": 1.54,
+   "unit": "m",
+   "how": "Measured the horizontal body length (beak-to-tail extent) of the small bird across frames 0 to 8 as 106.6 px (55.5/1000 of image width) and the big bird across frames 0 to 4 as 174.7 px (91.0/1000 of image width). Using the prior length of the small bird = 0.94 m, the length of the big bird is 0.94 * (91.0 / 55.5) = 1.54 m."
+  },
+  {
+   "qid": 140,
+   "value": 2.48,
+   "unit": "m",
+   "how": "Using the scale from the small bird's length (0.94 m / 106.6 px = 0.00882 m/px in 1920x1080), measured the vertical wingspan extent of the big bird from its initial pose in frame 0 (225.8 px, 1.99 m) to its full flat wingspan in frame 4 (335.9 px, 2.96 m), giving a representative width of 2.48 m."
+  },
+  {
+   "qid": 141,
+   "value": 1.6,
+   "unit": "m",
+   "how": "Using the scale 0.00882 m/px from the small bird's body length (106.6 px = 0.94 m), measured the vertical wingspan extent of the small bird from frame 0 (167.4 px, 1.48 m) to its full flat wingspan in frames 2 and 4 (195.5 px, 1.72 m), giving a width of 1.60 m."
+  },
+  {
+   "qid": 142,
+   "value": 19.4,
+   "unit": "m/s",
+   "how": "Tracked the horizontal center of the small bird across frames 0, 2, 4, 6, and 8 (1178.4 px, 1269.6 px, 1453.9 px, 1638.2 px, 1822.6 px in 1920x1080). The bird moves at a steady rate of 92.16 px/frame (2211.8 px/s at 24 fps). Converting with 0.00882 m/px gives an average speed of ~19.4 m/s."
+  },
+  {
+   "qid": 143,
+   "value": 31.5,
+   "unit": "m/s",
+   "how": "Tracked the horizontal position of the big bird across frames 0, 2, 4, and 6 (tail tip at 787.2 px, 636.5 px, 336.0 px, and 35.5 px in 1920x1080). The big bird moves left at a constant rate of 150.24 px/frame (3605.8 px/s at 24 fps). Converting with 0.00882 m/px gives an average speed of ~31.5 m/s."
+  },
+  {
+   "qid": 144,
+   "value": 28.8,
+   "unit": "m",
+   "how": "Both birds fly along the same horizontal centerline (y = 555 px) in opposite directions. At t = 0 s, their centers are separated by 478.6 px (4.22 m), and their separation increases at a constant rate of 242.4 px/frame (2.138 m/frame, or 51.32 m/s). Extrapolating to t = 0.5 s (frame 12) gives a horizontal distance of 28.8 m."
+  }
+ ],
+ "raw_text": "{\n  \"answers\": [\n    {\n      \"qid\": 139,\n      \"value\": 1.54,\n      \"unit\": \"m\",\n      \"how\": \"Measured the horizontal body length (beak-to-tail extent) of the small bird across frames 0 to 8 as 106.6 px (55.5/1000 of image width) and the big bird across frames 0 to 4 as 174.7 px (91.0/1000 of image width). Using the prior length of the small bird = 0.94 m, the length of the big bird is 0.94 * (91.0 / 55.5) = 1.54 m.\"\n    },\n    {\n      \"qid\": 140,\n      \"value\": 2.48,\n      \"unit\": \"m\",\n      \"how\": \"Using the scale from the small bird's length (0.94 m / 106.6 px = 0.00882 m/px in 1920x1080), measured the vertical wingspan extent of the big bird from its initial pose in frame 0 (225.8 px, 1.99 m) to its full flat wingspan in frame 4 (335.9 px, 2.96 m), giving a representative width of 2.48 m.\"\n    },\n    {\n      \"qid\": 141,\n      \"value\": 1.6,\n      \"unit\": \"m\",\n      \"how\": \"Using the scale 0.00882 m/px from the small bird's body length (106.6 px = 0.94 m), measured the vertical wingspan extent of the small bird from frame 0 (167.4 px, 1.48 m) to its full flat wingspan in frames 2 and 4 (195.5 px, 1.72 m), giving a width of 1.60 m.\"\n    },\n    {\n      \"qid\": 142,\n      \"value\": 19.4,\n      \"unit\": \"m/s\",\n      \"how\": \"Tracked the horizontal center of the small bird across frames 0, 2, 4, 6, and 8 (1178.4 px, 1269.6 px, 1453.9 px, 1638.2 px, 1822.6 px in 1920x1080). The bird moves at a steady rate of 92.16 px/frame (2211.8 px/s at 24 fps). Converting with 0.00882 m/px gives an average speed of ~19.4 m/s.\"\n    },\n    {\n      \"qid\": 143,\n      \"value\": 31.5,\n      \"unit\": \"m/s\",\n      \"how\": \"Tracked the horizontal position of the big bird across frames 0, 2, 4, and 6 (tail tip at 787.2 px, 636.5 px, 336.0 px, and 35.5 px in 1920x1080). The big bird moves left at a constant rate of 150.24 px/frame (3605.8 px/s at 24 fps). Converting with 0.00882 m/px gives an average speed of ~31.5 m/s.\"\n    },\n    {\n      \"qid\": 144,\n      \"value\": 28.8,\n      \"unit\": \"m\",\n      \"how\": \"Both birds fly along the same horizontal centerline (y = 555 px) in opposite directions. At t = 0 s, their centers are separated by 478.6 px (4.22 m), and their separation increases at a constant rate of 242.4 px/frame (2.138 m/frame, or 51.32 m/s). Extrapolating to t = 0.5 s (frame 12) gives a horizontal distance of 28.8 m.\"\n    }\n  ]\n}",
+ "usage": {
+  "prompt": 18697,
+  "output": 1017,
+  "thoughts": 21425
+ },
+ "usd": 0.130907,
+ "batch": "batches/tcfnbqx1u4ff8wuzrx90ke2eyycismeko3li",
+ "error": null
+}

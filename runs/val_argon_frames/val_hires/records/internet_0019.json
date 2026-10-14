@@ -1,0 +1,60 @@
+{
+ "video_id": "internet_0019",
+ "model": "gemini-4-argon",
+ "input": "frames",
+ "thinking": "high",
+ "media_resolution": "high",
+ "answers": [
+  {
+   "qid": 2228,
+   "value": 21.5,
+   "unit": "cm",
+   "how": "Fitted the ball's vertical parabola across frames 3 to 36 (apex at t=0.731s, y=87.8px in 1280x720 coordinates) with g=9.8 m/s^2 to find a vertical acceleration of 774 px/s^2, giving a scale of 79.0 px/m. The ball's diameter in 1280x720 coordinates is ~17.0 px, which corresponds to 21.5 cm."
+  },
+  {
+   "qid": 2229,
+   "value": 184,
+   "unit": "cm",
+   "how": "Using the scale of 79.0 px/m derived from the ball's gravitational acceleration, the person standing in the middle spans ~145.5 px vertically from feet to top of head in 1280x720 coordinates, corresponding to 184 cm."
+  },
+  {
+   "qid": 2230,
+   "value": 160,
+   "unit": "cm",
+   "how": "When standing upright after kicking the ball (frames 21 to 36), the passer on the left spans ~126 px vertically in 1280x720 coordinates, which converts to 160 cm using the 79.0 px/m scale."
+  },
+  {
+   "qid": 2231,
+   "value": 183,
+   "unit": "cm",
+   "how": "When standing upright (frames 0 to 16), the receiver on the right spans ~144.5 px vertically in 1280x720 coordinates, which converts to 183 cm using the 79.0 px/m scale."
+  },
+  {
+   "qid": 2232,
+   "value": 4.8,
+   "unit": "m",
+   "how": "At t=0.00s (frame 0), the horizontal separation between the passer on the left (x~456 px) and the receiver on the right (x~831 px) in 1280x720 coordinates is ~375 px, which corresponds to 4.8 m at 79.0 px/m."
+  },
+  {
+   "qid": 2233,
+   "value": 3.36,
+   "unit": "m/s",
+   "how": "At t=1.00s (0.269s after the apex at t=0.731s), the vertical velocity component is v_y = g * 0.269s = 2.64 m/s and the horizontal velocity component is v_x = 2.08 m/s, giving a total speed of sqrt(2.08^2 + 2.64^2) = 3.36 m/s."
+  },
+  {
+   "qid": 2234,
+   "value": 2.08,
+   "unit": "m/s",
+   "how": "Between t=0.100s (frame 3, x=535 px) and t=1.200s (frame 36, x=715.5 px) in 1280x720 coordinates, the ball moves 180.5 px horizontally in 1.10s (164.1 px/s), which equals 2.08 m/s at 79.0 px/m."
+  }
+ ],
+ "raw_text": "{\n  \"answers\": [\n    {\n      \"qid\": 2228,\n      \"value\": 21.5,\n      \"unit\": \"cm\",\n      \"how\": \"Fitted the ball's vertical parabola across frames 3 to 36 (apex at t=0.731s, y=87.8px in 1280x720 coordinates) with g=9.8 m/s^2 to find a vertical acceleration of 774 px/s^2, giving a scale of 79.0 px/m. The ball's diameter in 1280x720 coordinates is ~17.0 px, which corresponds to 21.5 cm.\"\n    },\n    {\n      \"qid\": 2229,\n      \"value\": 184,\n      \"unit\": \"cm\",\n      \"how\": \"Using the scale of 79.0 px/m derived from the ball's gravitational acceleration, the person standing in the middle spans ~145.5 px vertically from feet to top of head in 1280x720 coordinates, corresponding to 184 cm.\"\n    },\n    {\n      \"qid\": 2230,\n      \"value\": 160,\n      \"unit\": \"cm\",\n      \"how\": \"When standing upright after kicking the ball (frames 21 to 36), the passer on the left spans ~126 px vertically in 1280x720 coordinates, which converts to 160 cm using the 79.0 px/m scale.\"\n    },\n    {\n      \"qid\": 2231,\n      \"value\": 183,\n      \"unit\": \"cm\",\n      \"how\": \"When standing upright (frames 0 to 16), the receiver on the right spans ~144.5 px vertically in 1280x720 coordinates, which converts to 183 cm using the 79.0 px/m scale.\"\n    },\n    {\n      \"qid\": 2232,\n      \"value\": 4.8,\n      \"unit\": \"m\",\n      \"how\": \"At t=0.00s (frame 0), the horizontal separation between the passer on the left (x~456 px) and the receiver on the right (x~831 px) in 1280x720 coordinates is ~375 px, which corresponds to 4.8 m at 79.0 px/m.\"\n    },\n    {\n      \"qid\": 2233,\n      \"value\": 3.36,\n      \"unit\": \"m/s\",\n      \"how\": \"At t=1.00s (0.269s after the apex at t=0.731s), the vertical velocity component is v_y = g * 0.269s = 2.64 m/s and the horizontal velocity component is v_x = 2.08 m/s, giving a total speed of sqrt(2.08^2 + 2.64^2) = 3.36 m/s.\"\n    },\n    {\n      \"qid\": 2234,\n      \"value\": 2.08,\n      \"unit\": \"m/s\",\n      \"how\": \"Between t=0.100s (frame 3, x=535 px) and t=1.200s (frame 36, x=715.5 px) in 1280x720 coordinates, the ball moves 180.5 px horizontally in 1.10s (164.1 px/s), which equals 2.08 m/s at 79.0 px/m.\"\n    }\n  ]\n}",
+ "usage": {
+  "prompt": 22118,
+  "output": 914,
+  "thoughts": 11113
+ },
+ "usd": 0.082253,
+ "batch": "batches/tcfnbqx1u4ff8wuzrx90ke2eyycismeko3li",
+ "error": null
+}

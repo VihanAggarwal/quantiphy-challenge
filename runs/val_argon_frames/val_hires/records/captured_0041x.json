@@ -1,0 +1,36 @@
+{
+ "video_id": "captured_0041x",
+ "model": "gemini-4-argon",
+ "input": "frames",
+ "thinking": "high",
+ "media_resolution": "high",
+ "answers": [
+  {
+   "qid": 2915,
+   "value": 22.0,
+   "unit": "cm",
+   "how": "From the prior velocity of 5.21 m/s at t=1.5s and the camera distance change from 2.5440 m to 2.0740 m between 1.5s and 1.6s, the transverse displacement of ~49 px corresponds to ~0.22 m, giving an effective focal length of ~590 px on the 1280x720 frame. At t=1.5s (d=2.5440 m) the ball's unblurred horizontal width is ~51 px (and ~64 px at t=1.6s, d=2.0740 m), yielding a physical diameter of 51 * 2.5440 / 590 = 0.22 m = 22.0 cm."
+  },
+  {
+   "qid": 2916,
+   "value": 0.52,
+   "unit": "m",
+   "how": "Using the prior velocity at 1.5s of 5.21 m/s over the 0.1s interval from 1.5s to 1.6s (consistent with the radial distance change of 2.5440 - 2.0740 = 0.470 m combined in quadrature with the ~0.22 m transverse displacement in the camera frame), the 3D displacement between 1.5s and 1.6s is 0.52 m."
+  },
+  {
+   "qid": 2917,
+   "value": 1.0,
+   "unit": "m",
+   "how": "Before the kick (frames 0-32), the ball is at the person's feet with an apparent width of ~41.5 px compared to ~51.5 px at t=1.5s (2.5440 m), placing the person at ~3.15 m from the camera (~0.60 m behind the ball at t=1.5s). Combining this ~0.60 m depth separation with the ~0.78 m vertical separation between the ball on the floor and the person's 3D centroid (~155 px above the floor) gives a 3D distance of sqrt(0.60^2 + 0.78^2 + 0.17^2) = 1.0 m."
+  }
+ ],
+ "raw_text": "{\"answers\": [{\"qid\": 2915, \"value\": 22.0, \"unit\": \"cm\", \"how\": \"From the prior velocity of 5.21 m/s at t=1.5s and the camera distance change from 2.5440 m to 2.0740 m between 1.5s and 1.6s, the transverse displacement of ~49 px corresponds to ~0.22 m, giving an effective focal length of ~590 px on the 1280x720 frame. At t=1.5s (d=2.5440 m) the ball's unblurred horizontal width is ~51 px (and ~64 px at t=1.6s, d=2.0740 m), yielding a physical diameter of 51 * 2.5440 / 590 = 0.22 m = 22.0 cm.\"}, {\"qid\": 2916, \"value\": 0.52, \"unit\": \"m\", \"how\": \"Using the prior velocity at 1.5s of 5.21 m/s over the 0.1s interval from 1.5s to 1.6s (consistent with the radial distance change of 2.5440 - 2.0740 = 0.470 m combined in quadrature with the ~0.22 m transverse displacement in the camera frame), the 3D displacement between 1.5s and 1.6s is 0.52 m.\"}, {\"qid\": 2917, \"value\": 1.0, \"unit\": \"m\", \"how\": \"Before the kick (frames 0-32), the ball is at the person's feet with an apparent width of ~41.5 px compared to ~51.5 px at t=1.5s (2.5440 m), placing the person at ~3.15 m from the camera (~0.60 m behind the ball at t=1.5s). Combining this ~0.60 m depth separation with the ~0.78 m vertical separation between the ball on the floor and the person's 3D centroid (~155 px above the floor) gives a 3D distance of sqrt(0.60^2 + 0.78^2 + 0.17^2) = 1.0 m.\"}]}",
+ "usage": {
+  "prompt": 22036,
+  "output": 572,
+  "thoughts": 23740
+ },
+ "usd": 0.143596,
+ "batch": "batches/tcfnbqx1u4ff8wuzrx90ke2eyycismeko3li",
+ "error": null
+}

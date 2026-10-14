@@ -1,0 +1,42 @@
+{
+ "video_id": "internet_0005",
+ "model": "gemini-4-argon",
+ "input": "frames",
+ "thinking": "high",
+ "media_resolution": "high",
+ "answers": [
+  {
+   "qid": 2165,
+   "value": 4.65,
+   "unit": "m",
+   "how": "Tracked the woman walking from the first black road sign (Frame 0, x \u2248 327 px) to the second black road sign (Frame 94, x \u2248 538 px). From her total horizontal displacement of 317 px over 5.68 s at 1.25 m/s, the pixel scale at her depth is 44.65 px/m. The distance between the two signs is ~208 px, corresponding to ~4.65 m."
+  },
+  {
+   "qid": 2166,
+   "value": 1.66,
+   "unit": "m",
+   "how": "Measured the vertical pixel extent of the woman in yellow from the bottom of her shoes (y \u2248 373 px) to the top of her head (y \u2248 299 px), giving a height of 74 px. Dividing by the scale of 44.65 px/m derived from her 1.25 m/s walking speed yields 1.66 m."
+  },
+  {
+   "qid": 2167,
+   "value": 1.15,
+   "unit": "m",
+   "how": "Measured the horizontal pixel length of the overhead light fixture directly above the woman's path (~46 px for the back row and ~58 px for the main beam row, averaging ~51 px) and converted using the 44.65 px/m scale derived from her walking velocity of 1.25 m/s."
+  },
+  {
+   "qid": 2168,
+   "value": 1.12,
+   "unit": "m",
+   "how": "Measured the horizontal spacing between consecutive floor tile grid lines along the woman's walking path (spaced regularly at ~50 px intervals, e.g. x \u2248 341, 391, 441, 491, 541 px) and divided by the 44.65 px/m scale derived from her 1.25 m/s walking speed."
+  }
+ ],
+ "raw_text": "{\n  \"answers\": [\n    {\n      \"qid\": 2165,\n      \"value\": 4.65,\n      \"unit\": \"m\",\n      \"how\": \"Tracked the woman walking from the first black road sign (Frame 0, x \u2248 327 px) to the second black road sign (Frame 94, x \u2248 538 px). From her total horizontal displacement of 317 px over 5.68 s at 1.25 m/s, the pixel scale at her depth is 44.65 px/m. The distance between the two signs is ~208 px, corresponding to ~4.65 m.\"\n    },\n    {\n      \"qid\": 2166,\n      \"value\": 1.66,\n      \"unit\": \"m\",\n      \"how\": \"Measured the vertical pixel extent of the woman in yellow from the bottom of her shoes (y \u2248 373 px) to the top of her head (y \u2248 299 px), giving a height of 74 px. Dividing by the scale of 44.65 px/m derived from her 1.25 m/s walking speed yields 1.66 m.\"\n    },\n    {\n      \"qid\": 2167,\n      \"value\": 1.15,\n      \"unit\": \"m\",\n      \"how\": \"Measured the horizontal pixel length of the overhead light fixture directly above the woman's path (~46 px for the back row and ~58 px for the main beam row, averaging ~51 px) and converted using the 44.65 px/m scale derived from her walking velocity of 1.25 m/s.\"\n    },\n    {\n      \"qid\": 2168,\n      \"value\": 1.12,\n      \"unit\": \"m\",\n      \"how\": \"Measured the horizontal spacing between consecutive floor tile grid lines along the woman's walking path (spaced regularly at ~50 px intervals, e.g. x \u2248 341, 391, 441, 491, 541 px) and divided by the 44.65 px/m scale derived from her 1.25 m/s walking speed.\"\n    }\n  ]\n}",
+ "usage": {
+  "prompt": 18586,
+  "output": 548,
+  "thoughts": 7131
+ },
+ "usd": 0.056981,
+ "batch": "batches/tcfnbqx1u4ff8wuzrx90ke2eyycismeko3li",
+ "error": null
+}

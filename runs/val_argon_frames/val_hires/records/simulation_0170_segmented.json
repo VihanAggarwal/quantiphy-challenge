@@ -1,0 +1,66 @@
+{
+ "video_id": "simulation_0170_segmented",
+ "model": "gemini-4-argon",
+ "input": "frames",
+ "thinking": "medium",
+ "media_resolution": "high",
+ "answers": [
+  {
+   "qid": 1989,
+   "value": 2.3,
+   "unit": "m/s",
+   "how": "Measured apparent length and 2D position of the astronaut across frames around t=0.5s, reconstructed 3D coordinates using the 2.2 m height prior and depth at t=1s (23.137 m), and computed the 3D speed."
+  },
+  {
+   "qid": 1990,
+   "value": 4.6,
+   "unit": "m/s^2",
+   "how": "Fitted a quadratic 3D trajectory to the reconstructed positions of the astronaut from apparent size and pixel coordinates to obtain the constant acceleration magnitude at t=0.5s."
+  },
+  {
+   "qid": 1991,
+   "value": 4.6,
+   "unit": "m/s",
+   "how": "Computed the 3D velocity at t=1s from the rate of change of apparent size (depth) and transverse pixel position scaled by the 2.2 m height prior at Z=23.137 m."
+  },
+  {
+   "qid": 1992,
+   "value": 4.6,
+   "unit": "m/s^2",
+   "how": "Derived from the second derivative of the reconstructed 3D position of the astronaut at t=1s."
+  },
+  {
+   "qid": 1993,
+   "value": 9.2,
+   "unit": "m/s",
+   "how": "Calculated 3D speed at t=2s from the reconstructed 3D positions using inverse-distance scaling of the astronaut's apparent pixel length."
+  },
+  {
+   "qid": 1994,
+   "value": 4.6,
+   "unit": "m/s^2",
+   "how": "Derived from the second derivative of the reconstructed 3D trajectory at t=2s."
+  },
+  {
+   "qid": 1995,
+   "value": 13.8,
+   "unit": "m/s",
+   "how": "Calculated 3D speed at t=3s from the rate of change of reconstructed 3D coordinates around frame 72."
+  },
+  {
+   "qid": 1996,
+   "value": 4.6,
+   "unit": "m/s^2",
+   "how": "Derived from the second derivative of the reconstructed 3D trajectory at t=3s."
+  }
+ ],
+ "raw_text": "{\"answers\": [{\"qid\": 1989, \"value\": 2.3, \"unit\": \"m/s\", \"how\": \"Measured apparent length and 2D position of the astronaut across frames around t=0.5s, reconstructed 3D coordinates using the 2.2 m height prior and depth at t=1s (23.137 m), and computed the 3D speed.\"}, {\"qid\": 1990, \"value\": 4.6, \"unit\": \"m/s^2\", \"how\": \"Fitted a quadratic 3D trajectory to the reconstructed positions of the astronaut from apparent size and pixel coordinates to obtain the constant acceleration magnitude at t=0.5s.\"}, {\"qid\": 1991, \"value\": 4.6, \"unit\": \"m/s\", \"how\": \"Computed the 3D velocity at t=1s from the rate of change of apparent size (depth) and transverse pixel position scaled by the 2.2 m height prior at Z=23.137 m.\"}, {\"qid\": 1992, \"value\": 4.6, \"unit\": \"m/s^2\", \"how\": \"Derived from the second derivative of the reconstructed 3D position of the astronaut at t=1s.\"}, {\"qid\": 1993, \"value\": 9.2, \"unit\": \"m/s\", \"how\": \"Calculated 3D speed at t=2s from the reconstructed 3D positions using inverse-distance scaling of the astronaut's apparent pixel length.\"}, {\"qid\": 1994, \"value\": 4.6, \"unit\": \"m/s^2\", \"how\": \"Derived from the second derivative of the reconstructed 3D trajectory at t=2s.\"}, {\"qid\": 1995, \"value\": 13.8, \"unit\": \"m/s\", \"how\": \"Calculated 3D speed at t=3s from the rate of change of reconstructed 3D coordinates around frame 72.\"}, {\"qid\": 1996, \"value\": 4.6, \"unit\": \"m/s^2\", \"how\": \"Derived from the second derivative of the reconstructed 3D trajectory at t=3s.\"}]}",
+ "usage": {
+  "prompt": 30128,
+  "output": 516,
+  "thoughts": 719
+ },
+ "usd": 0.036303,
+ "batch": "batches/7vvj4847z52hyj53khsm00v23j0t8szm4l7f",
+ "error": null
+}

@@ -86,6 +86,24 @@ CACHE_MODELS_ON_DRIVE = False   # True: Hugging Face model cache on Drive (survi
 GIT_NAME, GIT_EMAIL = "colab-runner", "colab-runner@users.noreply.github.com"
 AUTO_TERMINATE = True        # unattended run: release the GPU runtime when the run ends or a cell errors
 MAX_HOURS = 20               # ... and in any case after this many hours (caps compute units)
+
+RUN_PRESET = ""              # "q35": second run, Qwen3.5-27B writes the specs + grounding boxes (geometry, CV, cvq);
+                             # direct / Code-as-World / extra stages off (the trackb_v1 run has them)
+                             # "ctx": context-aware open annotation (section 13d, research/trackb_next): Qwen3.6-27B
+                             # annotates each video the Track A way + context extents + SAM 2 on its boxes; all other
+                             # stages off (reuses the trackb_v1 Code-as-World answers and SAM 2 tracks on Drive)
+CTX_MODEL = "Qwen/Qwen3.6-27B-FP8"   # ctx: the open VLM (Apache-2.0, ~31 GB)
+CTX_FALLBACK = "Qwen/Qwen3.6-27B"    # ctx: loaded if CTX_MODEL fails (bf16, ~56 GB)
+CTX_THINKING = True          # ctx: the per-video request reasons first (a bad reply is retried once without)
+CTX_BASE_RUN = "trackb_v1"   # ctx: earlier run on Drive: its caw/caw.csv (fallback answers) and cvq/annotate are reused
+CTX_MIN_GB = 44              # ctx: GPUs with less memory skip the ctx stage
+if RUN_PRESET == "q35":
+    RUN_NAME, MODEL = "trackb_q35", "Qwen/Qwen3.5-27B"
+    STAGES.update(caw=False, direct=False, direct_extra=False, submission=False)
+elif RUN_PRESET == "ctx":
+    RUN_NAME, SPLIT, MAX_HOURS = "trackb_ctx", "val+test", 7
+    STAGES = {k: False for k in STAGES} | {"score": True, "ctx": True, "ctx_merge": True, "ctx_sam": True}
+    PUSH_RECORDS_FOR = ("val", "test")    # the ta / cx / tasam records are needed for the CPU analysis
 ''')
 
 md("""
@@ -156,9 +174,13 @@ if VRAM_GB < 30 and STAGES.get("caw"):
 if VRAM_GB < EXTRA_DIRECT_MIN_GB and STAGES.get("direct_extra") and EXTRA_DIRECT:
     STAGES["direct_extra"] = False
     print(f"extra direct models {list(EXTRA_DIRECT.values())} skipped: need >= {EXTRA_DIRECT_MIN_GB} GB")
+if RUN_PRESET == "ctx" and VRAM_GB < CTX_MIN_GB:
+    STAGES["ctx"] = False
+    print(f"ctx stage skipped: {CTX_MODEL} needs >= {CTX_MIN_GB} GB, this GPU has {VRAM_GB:.0f} GB")
 print(f"GPU {GPU_NAME} ({VRAM_GB:.0f} GB) -> Qwen {MODEL} ({BACKEND}), SAM 2 {SAM_MODEL}, detector {DETECTOR}, "
       f"Code-as-World {'on' if STAGES.get('caw') else 'off'}, "
-      f"extra direct {list(EXTRA_DIRECT) if STAGES.get('direct_extra') else 'off'}")
+      f"extra direct {list(EXTRA_DIRECT) if STAGES.get('direct_extra') else 'off'}"
+      + (f", ctx {CTX_MODEL if STAGES.get('ctx') else 'off'}" if RUN_PRESET == "ctx" else ""))
 ''')
 
 md("""
@@ -286,7 +308,7 @@ do not.
 """)
 code('''
 DATA_DRIVE = f"{DRIVE_ROOT}/data"
-NEED_TEST = "test" in SPLITS or SYNC_TEST_DATA
+NEED_TEST = "test" in SPLITS or SYNC_TEST_DATA or RUN_PRESET == "ctx"   # ctx: validation on the full-res copies
 DOWNLOAD = r"""
 import os, sys, urllib.request
 from huggingface_hub import snapshot_download
@@ -316,6 +338,9 @@ pyrun("import sys\\nfrom qp.data import load_split\\nfor s in sys.argv[1:]: prin
       *SPLITS)
 
 CHECK_MODEL = "import sys\\nfrom huggingface_hub import model_info\\nmodel_info(sys.argv[1]); print('model ok:', sys.argv[1])"
+if RUN_PRESET == "ctx" and pyrun(CHECK_MODEL, CTX_MODEL)[0]:
+    print(f"{CTX_MODEL} not found on the Hub; using {CTX_FALLBACK}")
+    CTX_MODEL = CTX_FALLBACK
 if pyrun(CHECK_MODEL, MODEL)[0]:
     print(f"{MODEL} not found on the Hub; using {FALLBACK_MODEL}")
     MODEL = FALLBACK_MODEL
@@ -436,6 +461,7 @@ def _push_outputs(tag):
 
     PUSH_DIR, MAX_BYTES = "/content/outputs_push", 20 * 2**20
     RECORD_DIRS = {"specs", "annotate", "direct", "caw"}
+    DERIVED = {"tacx", "samcx", "cvqcx"}   # ctx hybrids: rebuilt on CPU by qp.open.ctx_merge, CSVs only
     shutil.rmtree(PUSH_DIR, ignore_errors=True)
     if sh(f"git clone -q --depth 1 --branch colab-outputs {REPO_URL} {PUSH_DIR}", check=False):
         os.makedirs(PUSH_DIR, exist_ok=True)  # first push: new orphan branch
@@ -447,7 +473,8 @@ def _push_outputs(tag):
         rel = os.path.relpath(root, src)
         parts = [] if rel == "." else rel.split(os.sep)   # <split>/<method>/<record dir>: only the third
         dirs[:] = [d for d in dirs if d not in ("cv_cache", "cache")   # level holds records (test/caw/ is kept)
-                   and (len(parts) < 2 or parts[0] in PUSH_RECORDS_FOR or d not in RECORD_DIRS)]
+                   and (len(parts) < 2 or parts[0] in PUSH_RECORDS_FOR or d not in RECORD_DIRS)
+                   and not (len(parts) == 2 and parts[1] in DERIVED and d in RECORD_DIRS)]
         for f in files:
             p = os.path.join(root, f)
             if not f.endswith((".csv", ".json", ".jsonl", ".txt")):
@@ -595,6 +622,59 @@ for name, model in EXTRA_DIRECT.items():
 ''')
 
 md("""
+## 13d. Context-aware open annotation (`RUN_PRESET = "ctx"`)
+Runs only with the ctx preset (steps and expected runtime: `research/trackb_next/RUN_INSTRUCTIONS.md`). Why: on
+validation the Track B geometry loses to Track A's because of the pixel tracks, not the question specs, and with SAM 2
+motion tracks in place the remaining loss is the asked size / distance segment (`research/trackb_next/RESULT.md`).
+Per split (validation runs on the full-resolution copies, split `val_hires`, like the test run):
+1. `python -m qp.open.run_ctx` (GPU, one model load): **ta** = one request per video with labelled frames and all its
+   questions; the model returns spec + tracks (0-1000 grid) + its own answer, the Track A recipe (`ta/`). **cx** = per
+   size / distance question the full question on 3 frames, then on a zoomed full-resolution crop -> segment end points
+   (`cx/`).
+2. `python -m qp.open.ctx_merge` (CPU): geometry on `ta`, `tacx` (ta tracks + cx segments) and `cvqcx` (the trackb_v1
+   SAM 2 motion tracks + cx segments), each with the Code-as-World fallback of `CTX_BASE_RUN`.
+3. Last (slowest): SAM 2 prompted with the ta boxes (`tasam/`), its geometry, and `samcx` (tasam motion + cx).
+Outputs are pushed after each split. The pre-registered pass bar is in `research/trackb_next/RESULT.md`.
+""")
+code('''
+CTX_SPLIT = {"val": "val_hires", "test": "test"}
+
+
+def ctx_paths(split):
+    """(output root, " --direct-from <CaW csv>", " --cvq <SAM 2 records>") of CTX_BASE_RUN where they exist."""
+    base = f"outputs/{CTX_BASE_RUN}/{split}"
+    caw, cvq = f"{base}/caw/caw.csv", f"{base}/cvq/annotate"
+    return (out_dir(split, "").rstrip("/"), f" --direct-from {caw}" if os.path.exists(caw) else "",
+            f" --cvq {cvq}" if os.path.isdir(cvq) else "")
+
+
+if RUN_PRESET == "ctx":
+    TH = "" if CTX_THINKING else " --no-thinking"
+    for split in SPLITS:
+        root, DF, CVQ = ctx_paths(split)
+        stage("ctx", split, f"python -m qp.open.run_ctx --split {CTX_SPLIT[split]} --out {root} --task ta,cx "
+                            f"--model {CTX_MODEL} --fallback-model {CTX_FALLBACK}{TH}{LIM}")
+        stage("ctx_merge", split, f"python -m qp.open.ctx_merge --split {CTX_SPLIT[split]} --root {root}{DF}{CVQ}")
+        push_outputs(f"interim-ctx-{split}")
+    for split in SPLITS:
+        root, DF, CVQ = ctx_paths(split)
+        if not os.path.isdir(f"{root}/ta/annotate"):
+            print(f"[ctx_sam/{split}] skipped: no ta records")
+            continue
+        stage("ctx_sam", split, f"python scripts/run_cv.py --split {CTX_SPLIT[split]} --specs {root}/ta/specs "
+                                f"--qwen-boxes {root}/ta/annotate --qwen-frames {CVQ_FRAMES} "
+                                f"--qwen-refine-iou {CVQ_REFINE_IOU} --out {root}/tasam/annotate --detector {DETECTOR} "
+                                f"--sam-model {SAM_MODEL} --solve{LIM}")
+        stage("ctx_sam", split, f"python scripts/run_open_vlm.py --split {CTX_SPLIT[split]} --task geometry "
+                                f"--name {RUN_NAME} --out {root}/tasam --specs-from {root}/ta/specs{DF}{LIM}")
+        stage("ctx_merge", split, f"python -m qp.open.ctx_merge --split {CTX_SPLIT[split]} --root {root}{DF}{CVQ} "
+                                  f"--variants samcx")
+    push_outputs("interim-ctx-sam")
+else:
+    print("skipped (RUN_PRESET is not 'ctx')")
+''')
+
+md("""
 ## 14. Scores on validation
 MRA of every method that produced a CSV (`scripts/score.py`), saved to `outputs/<RUN_NAME>/val/scores.csv`;
 the best one is used for the test submission when `SUBMISSION_FROM = "auto"`. 159 questions: differences
@@ -606,6 +686,9 @@ METHODS = {"qwen_direct": "qwen/direct.csv", "caw_direct": "caw/caw.csv", "qwen_
            "cvq_geometry": "cvq/geometry.csv", "cvq_geometry_only": "cvq/cv_geometry.csv",
            "qwen35_direct": "qwen35/direct.csv", "gemma4_direct": "gemma4/direct.csv"}
 METHODS.update({f"{n}_direct": f"{n}/direct.csv" for n in EXTRA_DIRECT})
+METHODS.update({"ctx_ta_geometry": "ta/geometry.csv", "ctx_ta_direct": "ta/direct.csv",
+                "ctx_tacx_geometry": "tacx/geometry.csv", "ctx_cvqcx_geometry": "cvqcx/geometry.csv",
+                "ctx_tasam_geometry": "tasam/geometry.csv", "ctx_samcx_geometry": "samcx/geometry.csv"})
 SCORE = r"""
 import sys
 import pandas as pd

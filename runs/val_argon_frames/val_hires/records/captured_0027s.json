@@ -1,0 +1,42 @@
+{
+ "video_id": "captured_0027s",
+ "model": "gemini-4-argon",
+ "input": "frames",
+ "thinking": "high",
+ "media_resolution": "high",
+ "answers": [
+  {
+   "qid": 2604,
+   "value": 24.5,
+   "unit": "cm/s",
+   "how": "Measured the red ball diameter at t=0.2s as 51.5 px in 1280x720 coordinates (scale = 7 cm / 51.5 px = 0.1359 cm/px) and tracked vertical position around Frame 5 (t=0.208s) to find a speed of ~180 px/s, converting to 24.5 cm/s."
+  },
+  {
+   "qid": 2605,
+   "value": 41.5,
+   "unit": "cm/s",
+   "how": "Scaled the pixel-to-cm ratio to t=0.6s using the depth ratio (1.1510 m / 1.0995 m) and measured ball diameter (~0.145 cm/px), then measured the ball displacement between Frames 13, 14, and 16 to get a speed of ~285 px/s, converting to 41.5 cm/s."
+  },
+  {
+   "qid": 2606,
+   "value": 500.0,
+   "unit": "cm/s^2",
+   "how": "Fitted the vertical trajectory across Frames 2, 3, 5, 6, and 7 around the lower turnaround point near t=0.2s to obtain an upward acceleration of ~3680 px/s^2, and converted using the scale 0.1359 cm/px at t=0.2s to get 500 cm/s^2."
+  },
+  {
+   "qid": 2607,
+   "value": 44.0,
+   "unit": "cm",
+   "how": "Using the camera scale calibrated from the 7 cm ball at 1.0995 m and scaling to the person's shoulder depth (mean 1.2528 m from 1.2750 m left and 1.2305 m right), the person's shoulder breadth corresponds to 44.0 cm."
+  }
+ ],
+ "raw_text": "{\"answers\": [{\"qid\": 2604, \"value\": 24.5, \"unit\": \"cm/s\", \"how\": \"Measured the red ball diameter at t=0.2s as 51.5 px in 1280x720 coordinates (scale = 7 cm / 51.5 px = 0.1359 cm/px) and tracked vertical position around Frame 5 (t=0.208s) to find a speed of ~180 px/s, converting to 24.5 cm/s.\"}, {\"qid\": 2605, \"value\": 41.5, \"unit\": \"cm/s\", \"how\": \"Scaled the pixel-to-cm ratio to t=0.6s using the depth ratio (1.1510 m / 1.0995 m) and measured ball diameter (~0.145 cm/px), then measured the ball displacement between Frames 13, 14, and 16 to get a speed of ~285 px/s, converting to 41.5 cm/s.\"}, {\"qid\": 2606, \"value\": 500.0, \"unit\": \"cm/s^2\", \"how\": \"Fitted the vertical trajectory across Frames 2, 3, 5, 6, and 7 around the lower turnaround point near t=0.2s to obtain an upward acceleration of ~3680 px/s^2, and converted using the scale 0.1359 cm/px at t=0.2s to get 500 cm/s^2.\"}, {\"qid\": 2607, \"value\": 44.0, \"unit\": \"cm\", \"how\": \"Using the camera scale calibrated from the 7 cm ball at 1.0995 m and scaling to the person's shoulder depth (mean 1.2528 m from 1.2750 m left and 1.2305 m right), the person's shoulder breadth corresponds to 44.0 cm.\"}]}",
+ "usage": {
+  "prompt": 25556,
+  "output": 491,
+  "thoughts": 21130
+ },
+ "usd": 0.133661,
+ "batch": "batches/tcfnbqx1u4ff8wuzrx90ke2eyycismeko3li",
+ "error": null
+}
