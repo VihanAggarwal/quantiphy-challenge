@@ -697,3 +697,15 @@ isolating questions removes that context. Kill test FAIL; not scaled up. Budget 
   Kill test FAIL. simulation_0170 swings +-0.3 between prompts (one clip dominates both pilots).
 Conclusion: Claude's per-clip batched prompt is already the best of the variants tried (isolation -.073, extra
 views -.064 in the full prompt). Claude budget now ~$149.4 of $200.
+
+## Scores 2026-10-13 (uploads 21:37 local), read vs physb2 = .817/.859/.766/.803 (.811)
+| file | S2 | D2 | S3 | D3 | overall |
+|---|---|---|---|---|---|
+| trackA_cand_combo2 | .827 (+.010) | .863 (+.004) | .767 (+.001) | .811 (+.008) | **.817** (new best) |
+| U1 | .819 (+.002 internet->direct) | .859 (0 sim static->direct) | .755 (-.011 sz 4 cm) | .804 (+.001 emu 3 cm) | .809 |
+| U2 | .822 (+.005 sim motion->gm) | .857 (-.002 internet->direct) | .762 (-.004 no path rows) | .805 (+.002 emu 4 cm) | .811 |
+| U3 | = | = | .769 (+.003 no mid-ball rows) | .801 (-.002 lab static->direct) | .811 |
+| U4 | = | = | .762 (-.004 lab static->direct) | .804 (+.001 lab static->gm) | .810 |
+Winners merged onto combo2 (merge_skip, ref physb2): `submissions/trackA_combo3_on_combo2.csv` = combo2 + U2 S2 sim motion gm
++ U1 S2 internet direct + U3 S3 no-mid + U2 D3 emu 4 cm + U4 D3 lab static gm (359 rows: S2 239, D3 84, S3 36).
+Expected ~.834/.863/.770/.814 = ~.820 (if the gains add; some D3 rows overlap combo2 and were kept as combo2).
