@@ -36,6 +36,8 @@ def main():
     text = text.split("\n---\n", 1)[1] if "\n---\n" in text else text      # only the part below the line
     for a in attach:
         text += f"\n\n===== ATTACHED FILE: {a.name} =====\n{a.read_text()}"
+    if os.environ.get("ARGON_NOTE"):
+        text += "\n\n" + os.environ["ARGON_NOTE"]
     client = genai.Client(api_key=os.environ["GEMINI_API_KEY"], http_options=types.HttpOptions(timeout=1_800_000))
     n_in = client.models.count_tokens(model=MODEL, contents=text).total_tokens
     spent = sum(json.loads(l).get("usd", 0) for l in LEDGER.read_text().splitlines() if l.strip())
@@ -44,7 +46,7 @@ def main():
     if spent + worst > CAP:
         raise SystemExit("over the Gemini cap")
     cfg = types.GenerateContentConfig(max_output_tokens=MAX_OUT,
-                                      thinking_config=types.ThinkingConfig(thinking_level="high"),
+                                      thinking_config=types.ThinkingConfig(thinking_level=os.environ.get("ARGON_THINKING", "high")),
                                       tools=[types.Tool(google_search=types.GoogleSearch())])
     t0 = time.time()
     body, srcs, u, finish = "", [], None, None
