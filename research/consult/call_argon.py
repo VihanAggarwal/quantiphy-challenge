@@ -41,26 +41,26 @@ def main():
                                       thinking_config=types.ThinkingConfig(thinking_level="high"),
                                       tools=[types.Tool(google_search=types.GoogleSearch())])
     t0 = time.time()
-    r = client.models.generate_content(model=MODEL, contents=text, config=cfg)
-    u = r.usage_metadata
-    p, o, th = u.prompt_token_count or 0, u.candidates_token_count or 0, u.thoughts_token_count or 0
+    body, srcs, u, finish = "", [], None, None
+    for ch in client.models.generate_content_stream(model=MODEL, contents=text, config=cfg):   # streaming: the
+        body += ch.text or ""                                                                   # proxy drops idle
+        u = ch.usage_metadata or u                                                              # long requests
+        for c in (ch.candidates or []):
+            finish = c.finish_reason or finish
+            for g in (getattr(getattr(c, "grounding_metadata", None), "grounding_chunks", None) or []):
+                if getattr(g, "web", None) is not None:
+                    srcs.append(f"- {g.web.title}: {g.web.uri}")
+    p, o, th = (u.prompt_token_count or 0, u.candidates_token_count or 0, u.thoughts_token_count or 0) if u else (0, 0, 0)
     usd = (p * PIN + (o + th) * POUT) / 1e6
     with LEDGER.open("a") as f:
         f.write(json.dumps({"ts": datetime.now(timezone.utc).isoformat(), "run": f"argon_{out_path.stem}",
                             "model": MODEL, "video": "", "prompt": p, "output": o, "thoughts": th,
                             "usd": round(usd, 6)}) + "\n")
-    body = r.text or ""
-    gm = getattr(r.candidates[0], "grounding_metadata", None) if r.candidates else None
-    srcs = []
-    for ch in (getattr(gm, "grounding_chunks", None) or []):
-        w = getattr(ch, "web", None)
-        if w is not None:
-            srcs.append(f"- {w.title}: {w.uri}")
     if srcs:
         body += "\n\n## Grounding sources (returned by the API)\n" + "\n".join(dict.fromkeys(srcs))
     out_path.write_text(body)
     print(f"done in {time.time() - t0:.0f}s: prompt {p}, output {o}, thoughts {th}, ${usd:.3f}; "
-          f"finish={r.candidates[0].finish_reason if r.candidates else None}; wrote {out_path}")
+          f"finish={finish}; wrote {out_path}")
 
 
 if __name__ == "__main__":
