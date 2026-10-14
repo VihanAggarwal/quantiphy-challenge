@@ -1,0 +1,46 @@
+{
+ "video_id": "captured_0021x",
+ "model": "gpt-6.1-sol",
+ "effort": "high",
+ "status": "completed",
+ "n_frames": 20,
+ "secs": 160.0,
+ "usd": 0.07828,
+ "usage": {
+  "input_tokens": 10635,
+  "output_tokens": 5701
+ },
+ "answers": [
+  {
+   "value": 115,
+   "qid": 2520,
+   "how": "Tracked the ball near 1.2 s, converted pixel positions to 3D positions using its diameter and the supplied depths, and estimated the local speed.",
+   "unit": "cm/s"
+  },
+  {
+   "value": 82,
+   "qid": 2521,
+   "how": "Used depth-corrected ball positions in frames surrounding 1.4 s to estimate the local speed.",
+   "unit": "cm/s"
+  },
+  {
+   "value": 48.6,
+   "qid": 2522,
+   "how": "Combined the supplied depth change with the transverse motion measured from the ball centers.",
+   "unit": "cm"
+  },
+  {
+   "value": 57,
+   "qid": 2523,
+   "how": "Measured the tabletop width and corrected its pixel scale for perspective using the ball diameter and supplied depths.",
+   "unit": "cm"
+  },
+  {
+   "value": 71,
+   "qid": 2524,
+   "how": "Reconstructed the depths of the tabletop\u2019s front and back edges using the ball-calibrated perspective scale.",
+   "unit": "cm"
+  }
+ ],
+ "raw_text": "{\"answers\":[{\"value\":115,\"qid\":2520,\"how\":\"Tracked the ball near 1.2 s, converted pixel positions to 3D positions using its diameter and the supplied depths, and estimated the local speed.\",\"unit\":\"cm/s\"},{\"value\":82,\"qid\":2521,\"how\":\"Used depth-corrected ball positions in frames surrounding 1.4 s to estimate the local speed.\",\"unit\":\"cm/s\"},{\"value\":48.6,\"qid\":2522,\"how\":\"Combined the supplied depth change with the transverse motion measured from the ball centers.\",\"unit\":\"cm\"},{\"value\":57,\"qid\":2523,\"how\":\"Measured the tabletop width and corrected its pixel scale for perspective using the ball diameter and supplied depths.\",\"unit\":\"cm\"},{\"value\":71,\"qid\":2524,\"how\":\"Reconstructed the depths of the tabletop\u2019s front and back edges using the ball-calibrated perspective scale.\",\"unit\":\"cm\"}]}"
+}

@@ -1,0 +1,94 @@
+{
+ "video_id": "simulation_0060",
+ "model": "gpt-6.1-sol",
+ "effort": "high",
+ "status": "completed",
+ "n_frames": 20,
+ "secs": 270.9,
+ "usd": 0.133494,
+ "usage": {
+  "input_tokens": 12142,
+  "output_tokens": 10921
+ },
+ "answers": [
+  {
+   "value": 3.7,
+   "qid": 1343,
+   "how": "Tracked the yellow car through its turn, corrected positions using the supplied distances, and converted its curved-path displacement using the white car's acceleration calibration.",
+   "unit": "m/s"
+  },
+  {
+   "value": 5.8,
+   "qid": 1344,
+   "how": "Measured approximately 185 pixels across one lane near the intersection and converted using the calibrated ground-plane perspective scale.",
+   "unit": "m"
+  },
+  {
+   "value": 6.0,
+   "qid": 1345,
+   "how": "Measured the white car at approximately 252 pixels long when nearly side-on. Its depth-corrected acceleration gives a local scale of about 42 pixels/m.",
+   "unit": "m"
+  },
+  {
+   "value": 4.8,
+   "qid": 1346,
+   "how": "Measured approximately 172 pixels along the yellow car's length before the turn and applied its depth-corrected scale of about 36 pixels/m.",
+   "unit": "m"
+  },
+  {
+   "value": 1.6,
+   "qid": 1347,
+   "how": "Measured approximately 56 pixels from the yellow car's highest point to the wheel-contact level and applied the calibrated scale at its supplied distance.",
+   "unit": "m"
+  },
+  {
+   "value": 0.61,
+   "qid": 1348,
+   "how": "Measured a bicycle-wheel diameter of approximately 24 pixels and converted at the bicycle's supplied distance, giving about 39 pixels/m.",
+   "unit": "m"
+  },
+  {
+   "value": 1.2,
+   "qid": 1349,
+   "how": "Combined the pedestrian's image-position change with the supplied distance change over the one-second interval, using the acceleration-derived perspective calibration.",
+   "unit": "m/s"
+  },
+  {
+   "value": 1.8,
+   "qid": 1350,
+   "how": "Measured approximately 47\u201349 pixels from the pedestrian's head to feet and converted using the supplied distances and calibrated perspective.",
+   "unit": "m"
+  },
+  {
+   "value": 5.0,
+   "qid": 1351,
+   "how": "Tracked approximately 199 pixels of bicycle displacement over one second and corrected both endpoint positions using the supplied distances.",
+   "unit": "m/s"
+  },
+  {
+   "value": 1.9,
+   "qid": 1352,
+   "how": "Measured the green car's body width and converted using its position on the calibrated ground plane, accounting for its closer perspective.",
+   "unit": "m"
+  },
+  {
+   "value": 1.8,
+   "qid": 1353,
+   "how": "Measured approximately 52 pixels across the purple car and applied the ground-plane perspective scale at its wheel-contact position.",
+   "unit": "m"
+  },
+  {
+   "value": 1.2,
+   "qid": 1354,
+   "how": "Measured approximately 22 pixels from the bottom to the top of the bag stack and converted using its ground-plane position.",
+   "unit": "m"
+  },
+  {
+   "value": 0.83,
+   "qid": 1355,
+   "how": "Measured approximately 22 pixels in trash-can height and converted using the calibrated perspective scale at its ground-contact position.",
+   "unit": "m"
+  }
+ ],
+ "raw_text": "{\"answers\":[{\"value\":3.7,\"qid\":1343,\"how\":\"Tracked the yellow car through its turn, corrected positions using the supplied distances, and converted its curved-path displacement using the white car's acceleration calibration.\",\"unit\":\"m/s\"},{\"value\":5.8,\"qid\":1344,\"how\":\"Measured approximately 185 pixels across one lane near the intersection and converted using the calibrated ground-plane perspective scale.\",\"unit\":\"m\"},{\"value\":6.0,\"qid\":1345,\"how\":\"Measured the white car at approximately 252 pixels long when nearly side-on. Its depth-corrected acceleration gives a local scale of about 42 pixels/m.\",\"unit\":\"m\"},{\"value\":4.8,\"qid\":1346,\"how\":\"Measured approximately 172 pixels along the yellow car's length before the turn and applied its depth-corrected scale of about 36 pixels/m.\",\"unit\":\"m\"},{\"value\":1.6,\"qid\":1347,\"how\":\"Measured approximately 56 pixels from the yellow car's highest point to the wheel-contact level and applied the calibrated scale at its supplied distance.\",\"unit\":\"m\"},{\"value\":0.61,\"qid\":1348,\"how\":\"Measured a bicycle-wheel diameter of approximately 24 pixels and converted at the bicycle's supplied distance, giving about 39 pixels/m.\",\"unit\":\"m\"},{\"value\":1.2,\"qid\":1349,\"how\":\"Combined the pedestrian's image-position change with the supplied distance change over the one-second interval, using the acceleration-derived perspective calibration.\",\"unit\":\"m/s\"},{\"value\":1.8,\"qid\":1350,\"how\":\"Measured approximately 47\u201349 pixels from the pedestrian's head to feet and converted using the supplied distances and calibrated perspective.\",\"unit\":\"m\"},{\"value\":5.0,\"qid\":1351,\"how\":\"Tracked approximately 199 pixels of bicycle displacement over one second and corrected both endpoint positions using the supplied distances.\",\"unit\":\"m/s\"},{\"value\":1.9,\"qid\":1352,\"how\":\"Measured the green car's body width and converted using its position on the calibrated ground plane, accounting for its closer perspective.\",\"unit\":\"m\"},{\"value\":1.8,\"qid\":1353,\"how\":\"Measured approximately 52 pixels across the purple car and applied the ground-plane perspective scale at its wheel-contact position.\",\"unit\":\"m\"},{\"value\":1.2,\"qid\":1354,\"how\":\"Measured approximately 22 pixels from the bottom to the top of the bag stack and converted using its ground-plane position.\",\"unit\":\"m\"},{\"value\":0.83,\"qid\":1355,\"how\":\"Measured approximately 22 pixels in trash-can height and converted using the calibrated perspective scale at its ground-contact position.\",\"unit\":\"m\"}]}"
+}

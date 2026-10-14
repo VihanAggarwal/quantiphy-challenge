@@ -1,0 +1,64 @@
+{
+ "video_id": "simulation_0171",
+ "model": "gpt-6.1-sol",
+ "effort": "high",
+ "status": "completed",
+ "n_frames": 26,
+ "secs": 212.4,
+ "usd": 0.11864,
+ "usage": {
+  "input_tokens": 13655,
+  "output_tokens": 9133
+ },
+ "answers": [
+  {
+   "value": 2.2,
+   "qid": 427,
+   "how": "Used the astronaut\u2019s approximately 132-pixel height to obtain 2.2/132 m per pixel, then fitted nearby positions around 0.5 s to estimate speed.",
+   "unit": "m/s"
+  },
+  {
+   "value": 2.1,
+   "qid": 428,
+   "how": "Converted the magnitude of the second derivative of a local position fit around 0.5 s using the astronaut-height scale.",
+   "unit": "m/s^2"
+  },
+  {
+   "value": 5.2,
+   "qid": 429,
+   "how": "Measured horizontal and vertical displacement around 1 s and combined the fitted velocity components using the astronaut-height scale.",
+   "unit": "m/s"
+  },
+  {
+   "value": 4.4,
+   "qid": 430,
+   "how": "Estimated acceleration from a local quadratic fit to tracked astronaut positions around 1 s, scaled by 2.2/132 m per pixel.",
+   "unit": "m/s^2"
+  },
+  {
+   "value": 2.2,
+   "qid": 431,
+   "how": "Estimated the velocity components from nearby frames around 2 s and converted their magnitude using the astronaut-height scale.",
+   "unit": "m/s"
+  },
+  {
+   "value": 0.9,
+   "qid": 432,
+   "how": "Estimated the magnitude of acceleration from the curvature of the tracked position near 2 s and applied the astronaut-height scale.",
+   "unit": "m/s^2"
+  },
+  {
+   "value": 1.44,
+   "qid": 433,
+   "how": "Fitted positions around 3 s to estimate horizontal and vertical velocity, then converted their magnitude using 2.2/132 m per pixel.",
+   "unit": "m/s"
+  },
+  {
+   "value": 1.85,
+   "qid": 434,
+   "how": "Used a local quadratic position fit around 3 s and converted the magnitude of its second derivative with the astronaut-height scale.",
+   "unit": "m/s^2"
+  }
+ ],
+ "raw_text": "{\"answers\":[{\"value\":2.2,\"qid\":427,\"how\":\"Used the astronaut\u2019s approximately 132-pixel height to obtain 2.2/132 m per pixel, then fitted nearby positions around 0.5 s to estimate speed.\",\"unit\":\"m/s\"},{\"value\":2.1,\"qid\":428,\"how\":\"Converted the magnitude of the second derivative of a local position fit around 0.5 s using the astronaut-height scale.\",\"unit\":\"m/s^2\"},{\"value\":5.2,\"qid\":429,\"how\":\"Measured horizontal and vertical displacement around 1 s and combined the fitted velocity components using the astronaut-height scale.\",\"unit\":\"m/s\"},{\"value\":4.4,\"qid\":430,\"how\":\"Estimated acceleration from a local quadratic fit to tracked astronaut positions around 1 s, scaled by 2.2/132 m per pixel.\",\"unit\":\"m/s^2\"},{\"value\":2.2,\"qid\":431,\"how\":\"Estimated the velocity components from nearby frames around 2 s and converted their magnitude using the astronaut-height scale.\",\"unit\":\"m/s\"},{\"value\":0.9,\"qid\":432,\"how\":\"Estimated the magnitude of acceleration from the curvature of the tracked position near 2 s and applied the astronaut-height scale.\",\"unit\":\"m/s^2\"},{\"value\":1.44,\"qid\":433,\"how\":\"Fitted positions around 3 s to estimate horizontal and vertical velocity, then converted their magnitude using 2.2/132 m per pixel.\",\"unit\":\"m/s\"},{\"value\":1.85,\"qid\":434,\"how\":\"Used a local quadratic position fit around 3 s and converted the magnitude of its second derivative with the astronaut-height scale.\",\"unit\":\"m/s^2\"}]}"
+}

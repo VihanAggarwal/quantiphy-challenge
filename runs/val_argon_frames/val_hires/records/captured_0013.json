@@ -1,0 +1,65 @@
+{
+ "video_id": "captured_0013",
+ "model": "gemini-4-argon",
+ "input": "frames",
+ "thinking": "high",
+ "media_resolution": "high",
+ "answers": [
+  {
+   "qid": 2345,
+   "value": 11.1,
+   "unit": "cm",
+   "how": "Calibrated camera focal length (f \u2248 608 px at 853x480 scale) from the slope geometry (far/near depths 1.345 m and 1.104 m) and the ball acceleration prior of 3.0 m/s^2. Measured the vertical extent of the cup as 56.0 px at depth 1.2100 m, giving 56.0 * 121.0 / 608 = 11.1 cm."
+  },
+  {
+   "qid": 2346,
+   "value": 13.8,
+   "unit": "cm",
+   "how": "Located the two endpoints of the pen on the desk plane at (345, 302) px and (387, 311) px (at 853x480 scale) around depth 1.1750 m, and computed its 3D length across horizontal and depth components on the table surface as 13.8 cm."
+  },
+  {
+   "qid": 2347,
+   "value": 6.8,
+   "unit": "cm",
+   "how": "Measured the cookie diameter as 34.8 px (at 853x480 scale) at distance 1.1820 m; using the calibrated focal length f = 608 px gives 34.8 * 118.2 / 608 = 6.8 cm."
+  },
+  {
+   "qid": 2348,
+   "value": 8.2,
+   "unit": "cm",
+   "how": "Measured the horizontal pixel width of the notebook as 52.0 px (at 853x480 scale) at distance 0.9620 m; converting with f = 608 px gives 52.0 * 96.2 / 608 = 8.2 cm."
+  },
+  {
+   "qid": 2349,
+   "value": 50.5,
+   "unit": "cm",
+   "how": "Measured the front edge of the desk from x = 278 px to x = 635 px (width = 357.0 px at 853x480 scale) at average depth 0.8605 m (from left 0.8690 m and right 0.8520 m), yielding 357.0 * 86.05 / 608 = 50.5 cm."
+  },
+  {
+   "qid": 2350,
+   "value": 27.1,
+   "unit": "cm",
+   "how": "From the ball's perspective-corrected fractional position u(t) along the slope between t=1.208s and t=1.583s (ddot{u} = 11.05 s^-2) and the prior acceleration a = 3.0 m/s^2, L = a / ddot{u} = 27.1 cm, consistent with sqrt((134.5 - 110.4)^2 + 12.4^2) = 27.1 cm."
+  },
+  {
+   "qid": 2351,
+   "value": 5.8,
+   "unit": "cm",
+   "how": "Measured the ball diameter as 26.5 px at the top of the slope (depth ~1.335 m) and 32.0 px at the bottom of the slope (depth 1.104 m) at 853x480 scale; converting with f = 608 px yields 5.8 cm."
+  },
+  {
+   "qid": 2352,
+   "value": 102.0,
+   "unit": "cm/s",
+   "how": "Tracked the 3D position s(t) of the ball along the 27.1 cm slope around t = 1.500s (Frame 36) using the prior acceleration of 3.0 m/s^2 and midpoint finite differences between Frames 34 and 38, obtaining v(1.5s) \u2248 102 cm/s."
+  }
+ ],
+ "raw_text": "{\n  \"answers\": [\n    {\n      \"qid\": 2345,\n      \"value\": 11.1,\n      \"unit\": \"cm\",\n      \"how\": \"Calibrated camera focal length (f \u2248 608 px at 853x480 scale) from the slope geometry (far/near depths 1.345 m and 1.104 m) and the ball acceleration prior of 3.0 m/s^2. Measured the vertical extent of the cup as 56.0 px at depth 1.2100 m, giving 56.0 * 121.0 / 608 = 11.1 cm.\"\n    },\n    {\n      \"qid\": 2346,\n      \"value\": 13.8,\n      \"unit\": \"cm\",\n      \"how\": \"Located the two endpoints of the pen on the desk plane at (345, 302) px and (387, 311) px (at 853x480 scale) around depth 1.1750 m, and computed its 3D length across horizontal and depth components on the table surface as 13.8 cm.\"\n    },\n    {\n      \"qid\": 2347,\n      \"value\": 6.8,\n      \"unit\": \"cm\",\n      \"how\": \"Measured the cookie diameter as 34.8 px (at 853x480 scale) at distance 1.1820 m; using the calibrated focal length f = 608 px gives 34.8 * 118.2 / 608 = 6.8 cm.\"\n    },\n    {\n      \"qid\": 2348,\n      \"value\": 8.2,\n      \"unit\": \"cm\",\n      \"how\": \"Measured the horizontal pixel width of the notebook as 52.0 px (at 853x480 scale) at distance 0.9620 m; converting with f = 608 px gives 52.0 * 96.2 / 608 = 8.2 cm.\"\n    },\n    {\n      \"qid\": 2349,\n      \"value\": 50.5,\n      \"unit\": \"cm\",\n      \"how\": \"Measured the front edge of the desk from x = 278 px to x = 635 px (width = 357.0 px at 853x480 scale) at average depth 0.8605 m (from left 0.8690 m and right 0.8520 m), yielding 357.0 * 86.05 / 608 = 50.5 cm.\"\n    },\n    {\n      \"qid\": 2350,\n      \"value\": 27.1,\n      \"unit\": \"cm\",\n      \"how\": \"From the ball's perspective-corrected fractional position u(t) along the slope between t=1.208s and t=1.583s (ddot{u} = 11.05 s^-2) and the prior acceleration a = 3.0 m/s^2, L = a / ddot{u} = 27.1 cm, consistent with sqrt((134.5 - 110.4)^2 + 12.4^2) = 27.1 cm.\"\n    },\n    {\n      \"qid\": 2351,\n      \"value\": 5.8,\n      \"unit\": \"cm\",\n      \"how\": \"Measured the ball diameter as 26.5 px at the top of the slope (depth ~1.335 m) and 32.0 px at the bottom of the slope (depth 1.104 m) at 853x480 scale; converting with f = 608 px yields 5.8 cm.\"\n    },\n    {\n      \"qid\": 2352,\n      \"value\": 102.0,\n      \"unit\": \"cm/s\",\n      \"how\": \"Tracked the 3D position s(t) of the ball along the 27.1 cm slope around t = 1.500s (Frame 36) using the prior acceleration of 3.0 m/s^2 and midpoint finite differences between Frames 34 and 38, obtaining v(1.5s) \u2248 102 cm/s.\"\n    }\n  ]\n}",
+ "usage": {
+  "prompt": 23486,
+  "output": 1087,
+  "thoughts": 27814
+ },
+ "usd": 0.335982,
+ "secs": 287.6
+}
