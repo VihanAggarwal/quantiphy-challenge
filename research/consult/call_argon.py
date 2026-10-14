@@ -42,14 +42,29 @@ def main():
                                       tools=[types.Tool(google_search=types.GoogleSearch())])
     t0 = time.time()
     body, srcs, u, finish = "", [], None, None
-    for ch in client.models.generate_content_stream(model=MODEL, contents=text, config=cfg):   # streaming: the
-        body += ch.text or ""                                                                   # proxy drops idle
-        u = ch.usage_metadata or u                                                              # long requests
-        for c in (ch.candidates or []):
-            finish = c.finish_reason or finish
-            for g in (getattr(getattr(c, "grounding_metadata", None), "grounding_chunks", None) or []):
-                if getattr(g, "web", None) is not None:
-                    srcs.append(f"- {g.web.title}: {g.web.uri}")
+    # Batch API: the job runs on Google's side and we poll, so no long-lived HTTP connection (the proxy drops them).
+    job = client.batches.create(model=MODEL, src=[types.InlinedRequest(contents=text, config=cfg)],
+                                config={"display_name": f"argon_{out_path.stem}"})
+    print("batch", job.name, flush=True)
+    while True:
+        job = client.batches.get(name=job.name)
+        st = job.state.name if job.state else ""
+        if st in ("JOB_STATE_SUCCEEDED", "JOB_STATE_FAILED", "JOB_STATE_CANCELLED", "JOB_STATE_EXPIRED"):
+            break
+        time.sleep(30)
+    print("state", st, flush=True)
+    if st != "JOB_STATE_SUCCEEDED":
+        raise SystemExit(f"batch ended {st}: {job.error}")
+    ir = job.dest.inlined_responses[0]
+    if ir.error:
+        raise SystemExit(f"request error: {ir.error}")
+    r = ir.response
+    body, u = r.text or "", r.usage_metadata
+    for c in (r.candidates or []):
+        finish = c.finish_reason
+        for g in (getattr(getattr(c, "grounding_metadata", None), "grounding_chunks", None) or []):
+            if getattr(g, "web", None) is not None:
+                srcs.append(f"- {g.web.title}: {g.web.uri}")
     p, o, th = (u.prompt_token_count or 0, u.candidates_token_count or 0, u.thoughts_token_count or 0) if u else (0, 0, 0)
     usd = (p * PIN + (o + th) * POUT) / 1e6
     with LEDGER.open("a") as f:
