@@ -1,0 +1,46 @@
+/home/user/quantiphy-challenge/research/labnoise/common.py:24: RuntimeWarning: invalid value encountered in cast
+  n = np.round(np.asarray(t, float) * fps).astype(int)
+s2route_test {'routed_rows': {'S2|internet|L': 123, 'S2|internet|V': 71, 'S2|segmentation|L': 33, 'S2|segmentation|V': 44, 'S2|simulation|A': 52, 'S2|simulation|L': 119, 'S2|simulation|V': 110}, 'nan_to_fallback': 0, 'nan_to_v3': 0}
+l6s_test 276
+l1 145
+l4 21
+clamp 47 rows {'car width': 44, 'person height': 3}
+wrote submissions/trackB_cand_B1.csv: 3289 rows, 764 KB, ready to upload
+wrote submissions/trackB_cand_B1.csv
+B1 vs uploaded v3, rows changed per category (all/scored): {'S2': '498/476', 'D2': '380/377', 'S3': '253/240', 'D3': '291/279'}
+base rebuild == uploaded v3: OK
+
+component | alone vs v3 (all/scored) | spill-over of the alone build (raw unchanged, final changed) | leave-one-out share of B1 (all/scored)
+/home/user/quantiphy-challenge/research/labnoise/common.py:24: RuntimeWarning: invalid value encountered in cast
+  n = np.round(np.asarray(t, float) * fps).astype(int)
+l2q      | {'S2': '0/0', 'D2': '0/0', 'S3': '164/156', 'D3': '228/218'} | in-target {'S2': '0/0', 'D2': '0/0', 'S3': '0/0', 'D3': '0/0'} other-cat {'S2': '0/0', 'D2': '0/0', 'S3': '0/0', 'D3': '0/0'} | {'S2': '0/0', 'D2': '0/0', 'S3': '164/156', 'D3': '228/218'}
+/home/user/quantiphy-challenge/research/labnoise/common.py:24: RuntimeWarning: invalid value encountered in cast
+  n = np.round(np.asarray(t, float) * fps).astype(int)
+s2route  | {'S2': '496/474', 'D2': '25/23', 'S3': '17/16', 'D3': '24/24'} | in-target {'S2': '2/2', 'D2': '0/0', 'S3': '0/0', 'D3': '0/0'} other-cat {'S2': '0/0', 'D2': '25/23', 'S3': '17/16', 'D3': '24/24'} | {'S2': '495/473', 'D2': '27/25', 'S3': '16/15', 'D3': '19/19'}
+/home/user/quantiphy-challenge/research/labnoise/common.py:24: RuntimeWarning: invalid value encountered in cast
+  n = np.round(np.asarray(t, float) * fps).astype(int)
+l6s      | {'S2': '13/13', 'D2': '344/341', 'S3': '1/1', 'D3': '38/38'} | in-target {'S2': '0/0', 'D2': '80/80', 'S3': '0/0', 'D3': '0/0'} other-cat {'S2': '13/13', 'D2': '0/0', 'S3': '1/1', 'D3': '38/38'} | {'S2': '13/13', 'D2': '338/335', 'S3': '1/1', 'D3': '33/33'}
+/home/user/quantiphy-challenge/research/labnoise/common.py:24: RuntimeWarning: invalid value encountered in cast
+  n = np.round(np.asarray(t, float) * fps).astype(int)
+l1       | {'S2': '0/0', 'D2': '0/0', 'S3': '149/142', 'D3': '0/0'} | in-target {'S2': '0/0', 'D2': '0/0', 'S3': '0/0', 'D3': '0/0'} other-cat {'S2': '0/0', 'D2': '0/0', 'S3': '0/0', 'D3': '0/0'} | {'S2': '0/0', 'D2': '0/0', 'S3': '145/138', 'D3': '0/0'}
+/home/user/quantiphy-challenge/research/labnoise/common.py:24: RuntimeWarning: invalid value encountered in cast
+  n = np.round(np.asarray(t, float) * fps).astype(int)
+l4       | {'S2': '0/0', 'D2': '21/21', 'S3': '0/0', 'D3': '0/0'} | in-target {'S2': '0/0', 'D2': '0/0', 'S3': '0/0', 'D3': '0/0'} other-cat {'S2': '0/0', 'D2': '0/0', 'S3': '0/0', 'D3': '0/0'} | {'S2': '0/0', 'D2': '21/21', 'S3': '0/0', 'D3': '0/0'}
+/home/user/quantiphy-challenge/research/labnoise/common.py:24: RuntimeWarning: invalid value encountered in cast
+  n = np.round(np.asarray(t, float) * fps).astype(int)
+clamp    | {'S2': '3/3', 'D2': '18/18', 'S3': '4/4', 'D3': '18/16'} | in-target {'S2': '0/0', 'D2': '0/0', 'S3': '0/0', 'D3': '0/0'} other-cat {'S2': '0/0', 'D2': '0/0', 'S3': '0/0', 'D3': '0/0'} | {'S2': '7/7', 'D2': '18/18', 'S3': '4/4', 'D3': '18/16'}
+wrote research/trackb_v5/B1_rows.csv
+
+validation (combined table; labels read only here, for scoring):
+  v3      MRA 0.6227 S2 0.5750 D2 0.5865 S3 0.6930 D3 0.6362
+  l2q     MRA 0.6264 S2 0.5750 D2 0.5865 S3 0.6930 D3 0.6511 | boot delta 0.0037 lo 0.0000 hi 0.0109 changed 16
+  s2route MRA 0.6336 S2 0.6187 D2 0.5865 S3 0.6930 D3 0.6362 | boot delta 0.0109 lo -0.0083 hi 0.0250 changed 30
+  l6s     MRA 0.6243 S2 0.5750 D2 0.5973 S3 0.6930 D3 0.6319 | boot delta 0.0016 lo -0.0019 hi 0.0083 changed 4
+/home/user/quantiphy-challenge/research/labnoise/common.py:24: RuntimeWarning: invalid value encountered in cast
+  n = np.round(np.asarray(t, float) * fps).astype(int)
+  l1      MRA 0.6291 S2 0.5750 D2 0.5865 S3 0.7186 D3 0.6362 | boot delta 0.0064 lo 0.0000 hi 0.0167 changed 8
+  l4      MRA 0.6227 S2 0.5750 D2 0.5865 S3 0.6930 D3 0.6362 | boot delta 0.0000 lo 0.0000 hi 0.0000 changed 0
+  clamp   MRA 0.6232 S2 0.5750 D2 0.5865 S3 0.6930 D3 0.6383 | boot delta 0.0005 lo 0.0000 hi 0.0012 changed 1
+/home/user/quantiphy-challenge/research/labnoise/common.py:24: RuntimeWarning: invalid value encountered in cast
+  n = np.round(np.asarray(t, float) * fps).astype(int)
+  ALL     MRA 0.6458 S2 0.6187 D2 0.5946 S3 0.7209 D3 0.6489 | boot delta 0.0231 lo -0.0000 hi 0.0432 changed 51

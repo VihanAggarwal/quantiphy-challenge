@@ -1,0 +1,86 @@
+s2route_test {'routed_rows': {'S2|internet|L': 123, 'S2|internet|V': 71, 'S2|segmentation|L': 33, 'S2|segmentation|V': 44, 'S2|simulation|A': 52, 'S2|simulation|L': 119, 'S2|simulation|V': 110}, 'nan_to_fallback': 0, 'nan_to_v3': 0}
+l6s_test 276
+l1 145
+l4 21
+clamp 47 rows {'car width': 44, 'person height': 3}
+wrote /tmp/tmp7if36btd/B1_audit.csv: 3289 rows, 764 KB, ready to upload
+wrote /tmp/tmp7if36btd/B1_audit.csv
+B1 vs uploaded v3, rows changed per category (all/scored): {'S2': '498/476', 'D2': '380/377', 'S3': '253/240', 'D3': '291/279'}
+1. build opened 636 data files (code / library files omitted); by directory:
+         1  /home/user/quantiphy-challenge/data/QuantiPhy
+         1  /home/user/quantiphy-challenge/data/QuantiPhy-validation
+         1  /home/user/quantiphy-challenge/data/submission_template
+         1  /home/user/quantiphy-challenge/research/labnoise/out
+         1  /home/user/quantiphy-challenge/research/path85b_phys
+         2  /home/user/quantiphy-challenge/research/r86/intel_tb_pseudolabel
+         6  /home/user/quantiphy-challenge/research/trackb_dense/out/test
+         7  /home/user/quantiphy-challenge/research/trackb_dense/out/val
+         1  /home/user/quantiphy-challenge/research/trackb_v5
+         3  /home/user/quantiphy-challenge/runs/_postprocess_cache
+         1  /home/user/quantiphy-challenge/submissions
+         1  /tmp
+         1  /tmp/claude-0/tb3/x/trackb_v1/test/caw
+         2  /tmp/claude-0/tb3/x/trackb_v1/test/cv
+         1  /tmp/claude-0/tb3/x/trackb_v1/test/cvq
+         1  /tmp/claude-0/tb3/x/trackb_v1/test/gemma4
+         2  /tmp/claude-0/tb3/x/trackb_v1/test/qwen
+       568  /tmp/claude-0/tb3/x/trackb_v1/test/qwen/specs
+         1  /tmp/claude-0/tb3/x/trackb_v1/test/qwen35
+         1  /tmp/claude-0/tb3/x/trackb_v1/val/caw
+         2  /tmp/claude-0/tb3/x/trackb_v1/val/cv
+         1  /tmp/claude-0/tb3/x/trackb_v1/val/cvq
+         1  /tmp/claude-0/tb3/x/trackb_v1/val/gemma4
+         2  /tmp/claude-0/tb3/x/trackb_v1/val/qwen
+        24  /tmp/claude-0/tb3/x/trackb_v1/val/qwen/specs
+         1  /tmp/claude-0/tb3/x/trackb_v1/val/qwen35
+         1  /tmp/claude-0/trackb_dense_cache
+         1  /tmp/tmp7if36btd
+   subprocesses: ['/home/user/quantiphy-challenge/.venv/bin/python /home/user/quantiphy-challenge/scripts/make_submission.py /tmp/tmpp8mcwwpa.csv /tmp/tmp7if36btd/B1_audit.csv']
+   Track A / closed-model files opened: none
+   routing table S2 rows (member names; pl_mra = development-time pseudo-label score, not used by the build):
+             cell             members
+    S2|internet|L              qwen35
+    S2|internet|V             cvq_geo
+S2|segmentation|L     caw+cv_geo_only
+S2|segmentation|V              cv_geo
+  S2|simulation|A cv_geo_only+cvq_geo
+  S2|simulation|L             cvq_geo
+  S2|simulation|V             cvq_geo
+   S2 fallback set (fallback_category_sets.json): ['cvq_geo', 'qwen_geo', 'qwen35']
+1b. L1 factors with the Track A fit_noise.json sigmas replaced by NaN: identical = True (199 rows with factor != 1)
+   audited rebuild == submission file: OK
+2. changed B1 rows: 1422; rows whose B1 value equals a value in any of 95 Track A files: 26. Open-pipeline origin of each:
+     qid 511 (simulation_0198, D2) B1 1.864 = L4 formula a*(t_k - t0 - 1/(2 fps))  [equal in 4 Track A file(s)]
+     qid 512 (simulation_0198, D2) B1 0.409 = L4 formula a*(t_k - t0 - 1/(2 fps))  [equal in 4 Track A file(s)]
+     qid 513 (simulation_0198, D2) B1 0.894 = L4 formula a*(t_k - t0 - 1/(2 fps))  [equal in 4 Track A file(s)]
+     qid 520 (simulation_0199, D2) B1 1.864 = L4 formula a*(t_k - t0 - 1/(2 fps))  [equal in 4 Track A file(s)]
+     qid 521 (simulation_0199, D2) B1 0.409 = L4 formula a*(t_k - t0 - 1/(2 fps))  [equal in 4 Track A file(s)]
+     qid 522 (simulation_0199, D2) B1 0.894 = L4 formula a*(t_k - t0 - 1/(2 fps))  [equal in 4 Track A file(s)]
+     qid 528 (simulation_0200, D2) B1 1.864 = L4 formula a*(t_k - t0 - 1/(2 fps))  [equal in 4 Track A file(s)]
+     qid 529 (simulation_0200, D2) B1 0.409 = L4 formula a*(t_k - t0 - 1/(2 fps))  [equal in 4 Track A file(s)]
+     qid 530 (simulation_0200, D2) B1 0.894 = L4 formula a*(t_k - t0 - 1/(2 fps))  [equal in 4 Track A file(s)]
+     qid 536 (simulation_0203, D2) B1 1.047 = L4 formula a*(t_k - t0 - 1/(2 fps))  [equal in 4 Track A file(s)]
+     qid 537 (simulation_0203, D2) B1 2.272 = L4 formula a*(t_k - t0 - 1/(2 fps))  [equal in 4 Track A file(s)]
+     qid 538 (simulation_0203, D2) B1 3.088 = L4 formula a*(t_k - t0 - 1/(2 fps))  [equal in 4 Track A file(s)]
+     qid 543 (simulation_0204, D2) B1 1.047 = L4 formula a*(t_k - t0 - 1/(2 fps))  [equal in 4 Track A file(s)]
+     qid 544 (simulation_0204, D2) B1 2.272 = L4 formula a*(t_k - t0 - 1/(2 fps))  [equal in 4 Track A file(s)]
+     qid 545 (simulation_0204, D2) B1 3.088 = L4 formula a*(t_k - t0 - 1/(2 fps))  [equal in 4 Track A file(s)]
+     qid 551 (simulation_0207, D2) B1 1.031 = L4 formula a*(t_k - t0 - 1/(2 fps))  [equal in 4 Track A file(s)]
+     qid 552 (simulation_0207, D2) B1 2.256 = L4 formula a*(t_k - t0 - 1/(2 fps))  [equal in 4 Track A file(s)]
+     qid 553 (simulation_0207, D2) B1 3.072 = L4 formula a*(t_k - t0 - 1/(2 fps))  [equal in 4 Track A file(s)]
+     qid 558 (simulation_0208, D2) B1 1.031 = L4 formula a*(t_k - t0 - 1/(2 fps))  [equal in 4 Track A file(s)]
+     qid 559 (simulation_0208, D2) B1 2.256 = L4 formula a*(t_k - t0 - 1/(2 fps))  [equal in 4 Track A file(s)]
+     qid 560 (simulation_0208, D2) B1 3.072 = L4 formula a*(t_k - t0 - 1/(2 fps))  [equal in 4 Track A file(s)]
+     qid 1368 (simulation_0074, S3) B1 2.3 = clamp bound  [equal in 11 Track A file(s)]
+     qid 2026 (internet_0004, S2) B1 10 = open member value qwen_direct/qwen35  [equal in 5 Track A file(s)]
+     qid 2084 (internet_0017, S2) B1 10.8 = open member value qwen35  [equal in 5 Track A file(s)]
+     qid 2141 (captured_0001, D3) B1 6.7 = open member value caw  [equal in 43 Track A file(s)]
+     qid 2948 (internet_0001_segmented, S2) B1 2.3 = clamp bound  [equal in 1 Track A file(s)]
+   unexplained: none
+2b. L4: 21 D2 rows; B1 value == a*(t_k - t0 - 1/(2 fps)) recomputed from test inputs: True
+3. stated-fact rows: 129; final answer changed vs v3: 0
+   raw s2route: fact rows changed 9, item 0.800 -> 0.856; by category {'S2': {'size': 9, 'mean': 0.056}}
+   raw l2q: fact rows changed 0, item nan -> nan; by category {}
+   raw l6s: fact rows changed 11, item 0.882 -> 0.982; by category {'D2': {'size': 11, 'mean': 0.1}}
+wrote /tmp/tmpu3ussdi0/resubmit.csv: 3289 rows, 764 KB, ready to upload
+4. scripts/make_submission.py: passes, values unchanged
