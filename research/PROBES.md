@@ -781,3 +781,12 @@ Pilot extended (21 validation clips, 120 rows matched to combo3), item means by 
 ROUTING FIXED HERE (before any test read): 3D sim -> agent; internet -> agent; 2D sim -> gm(agent, base); lab -> base;
 exact stated facts always kept. Container restart lost the running batches; 32 test clips + 27 pilot clips survived on disk
 (archived in research/blind/out/); the remaining 336 test clips were relaunched in 12 batches (3D sim first).
+
+### Agentic run resumed 2026-10-15 07:05 UTC (after the session usage limit)
+69/368 test clips were done (sim3 45, internet 24). Relaunched: 99 sim3+internet clips (6 workflows) and all 200 2D-sim clips
+(8 workflows); validation pilot extended to the last 3 unrun validation clips (simulation_0193, simulation_0196 2D sim;
+internet_0027). Partial build on the 69 clips: 314 scored rows replaced (D3 150, S2 88, S3 69, D2 7), median |log(agent/base)|
+.070, 7.6% beyond 1.5x, no power-of-ten unit slips; stated-fact check 68 rows / 31 clips agent .962 vs raw .774.
+PRE-REGISTERED (before any 2D-sim test answer exists): 2D-sim routing stays gm(agent, base) unless BOTH (a) the 29 held-out
+2D-sim stated-fact rows (22 clips, raw routed answer before the facts rule) give agent - gm >= +.03 mean item and (b) the
+extended 2D-sim validation (6 clips) gives agent >= gm; then 2D sim -> agent. If gm < raw on those facts by > .03, 2D sim -> base.
