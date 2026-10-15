@@ -760,3 +760,14 @@ derivatives, a-priori geometry/direct gates, world-AABB prompt (3/6 clips). Rese
 Sol blend: keep S2 and S3, drop D2. Next composite `trackA_cand_C1_solS2S3.csv` (expected ~.834/.868/.776/.814 = .823).
 Probe `trackA_probe_solw50S2S3_solD3_on_C1.csv`: S2/S3 Sol weight .5 (read vs the composite) and Sol .25 on D3 sim
 (393 rows; read D3 vs C1); D2 = C1.
+
+## BIG LEVER: blind agentic measurement (2026-10-15), research/blind/
+One Claude Code subagent per clip (full-res frames via Read, OpenCV, pinhole geometry in code, unlimited time), working in an
+isolated folder with only the video + test inputs (no labels; transcript audit: 0 accesses to repo data/runs). Pilot:
+- Validation (66 rows matched to combo3, 10 clips): 3D simulation agent .853 vs combo3 .724 (+.13/row); segmented .964 vs .943;
+  lab .726 vs .800 (agent worse -> keep the pipeline on lab).
+- Test stated facts the agent never saw (sibling-clip priors): 19 rows / 7 clips: agent .900 vs our raw .700 (+.20/row).
+  It fixes the clip-wide scale errors (boat 10.2 vs 10 where we had 8.0; eagle 0.80 vs 0.80 where we had 0.50).
+- Bugs found and fixed in the evaluator: val/test qid collision (score by clip+qid); negative accelerations -> magnitudes.
+Running: all 94 3D-simulation test videos (6 parallel batches), plus validation pilots on 6 internet + 6 2D-sim clips.
+Expected if it holds on test: S3 sim (221 scored rows) and D3 sim rows +.10-.13/row -> about +.02-.025 overall.

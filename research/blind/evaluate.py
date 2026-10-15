@@ -29,15 +29,16 @@ B = Path(sys.argv[1]) if len(sys.argv) > 1 and not sys.argv[1].startswith("/root
 TDIRS = [Path(p) for p in sys.argv[1:] if p.startswith("/root")]
 
 
-def agent_answers():
+def agent_answers(videos):
+    """answers of the given clips only (validation and test qids overlap, so never mix the two sets)"""
     out = {}
-    for d in sorted(B.iterdir()):
-        f = d / "answers.json"
-        if d.is_dir() and f.exists():
+    for v in videos:
+        f = B / v / "answers.json"
+        if f.exists():
             try:
-                for k, v in json.loads(f.read_text()).items():
+                for k, x in json.loads(f.read_text()).items():
                     try:
-                        out[int(k)] = float(v)
+                        out[int(k)] = abs(float(x))      # magnitudes (labels are positive)
                     except (TypeError, ValueError):
                         pass
             except json.JSONDecodeError:
@@ -47,8 +48,8 @@ def agent_answers():
 
 def main():
     man = pd.DataFrame(json.loads((B / "manifest.json").read_text()))
-    ag = agent_answers()
     done = [v for v in man.video_id if (B / v / "answers.json").exists()]
+    ag = agent_answers([x for x in man[man.set == "val"].video_id if x in done])
     print(f"clips answered: {len(done)}/{len(man)}")
     t = pd.read_pickle(ROOT / "research/r86/loss_audit/master.pkl")
     # ---- validation clips
@@ -76,12 +77,13 @@ def main():
         lo, hi = E.boot(d, clip[m])
         print(f"agent - combo3: {d.mean():+.4f} [{lo:+.4f}, {hi:+.4f}]; per clip: {d.groupby(clip[m]).mean().round(3).to_dict()}")
         rows = pd.DataFrame({"video": clip, "q": v.question.str[:70], "gt": gt, "agent": A, "combo3": c3})
-        rows["r_agent"] = rows.agent / rows.gt
-        rows["r_combo3"] = rows.combo3 / rows.gt
+        rows["r_agent"] = rows["agent"] / rows["gt"]
+        rows["r_combo3"] = rows["combo3"] / rows["gt"]
         rows.round(3).to_csv(ROOT / "research/blind/val_rows.csv")
     # ---- fact clips
     fv = [x for x in man[man.set == "fact"].video_id if x in done]
     f = t[t.video_id.isin(fv) & t.fact.notna()].copy()
+    ag = agent_answers(fv)
     if len(f):
         raw = f.r_parsed_value.where(~(f.category.isin(["S3", "D3"]) & f.srcg.eq("sim")), f.dmed)
         Af = ag.reindex(f.index)
