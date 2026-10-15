@@ -792,3 +792,13 @@ PRE-REGISTERED (before any 2D-sim test answer exists): 2D-sim routing stays gm(a
 extended 2D-sim validation (6 clips) gives agent >= gm; then 2D sim -> agent. If gm < raw on those facts by > .03, 2D sim -> base.
 Family pooling on top of the agent (research/blind/pool_check.py, pool rule without facts; 68 held-out fact rows, 61 pooled):
 .9618 -> .9618 (tau .15), .9603 (median), .9618 (max_dev 1.6), .9603 (mad .1): neutral -> not used.
+Pilot extended to 24 validation clips (131 rows matched to combo3), item means by clip type:
+| type | rows (clips) | agent | combo3 | gm(agent, combo3) |
+|---|---|---|---|---|
+| 3D simulation (+seg) | 44 (6) | **.914** | .848 | .882 |
+| internet | 28 (6) | **.950** | .900 | .918 |
+| 2D simulation (+seg) | 24 (6) | .763 | .758 | **.842** |
+| lab | 35 (6) | .726 | **.800** | .777 |
+Routing unchanged. 2D-sim gm edge is mostly simulation_0171 accelerations (agent and base err in opposite directions).
+Run-to-run variance is large (simulation_0025 eagle speed/length: pilot run 27.8 / 2.05, test run 11.8 / 0.87, facts 11.9 / 0.8), so a
+second independent pass on the 12 validation simulation clips (/tmp/blind_r2) tests median(agent1, agent2, base) vs gm vs agent.
