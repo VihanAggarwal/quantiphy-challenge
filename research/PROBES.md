@@ -810,3 +810,12 @@ Second independent agent pass (12 validation simulation clips, 68 rows with both
 Passes agree to a median 1-2% (|log a2/a1|): the agent's errors are systematic, not run noise, so a second pass buys
 ~nothing (3D sim gm(a1,a2) - a1 +.002 [-.014, +.017]). Third votes from Sol / Argon do not beat gm(agent, combo3) on 2D sim
 either (gm(a,c3) .842, +Sol .829, med(a,c3,Sol) .804, +Argon .833). Routing unchanged; no second test pass.
+Session limit hit ~09:00 UTC (resets 12:00); 191/368 test clips done. 12:05 UTC: remaining 177 (sim3 18, internet 50, sim2 109)
+relaunched in 12 workflows. Fallback `submissions/trackA_cand_agent_partial191.csv` (C1_solS2S3 + agent on the 191 clips;
+568 scored rows replaced + 470 sim2 gm rows). Held-out stated facts now 119 rows / 64 clips: agent .971 vs raw .845.
+By type: 2D sim (27 rows, 22 clips; easy size/speed facts) agent .996, gm .967, raw .930 -> agent - gm +.029, under the
+pre-registered +.03 bar, and validation has gm > agent -> 2D sim stays gm (agent-only goes to a leaderboard probe instead).
+3D sim (92 rows, 42 clips) agent .964, gm .882, raw .820.
+Estimates (validation per-type gains scaled by each test subset's room to 1.0; bucket estimates from loss_audit):
+partial191 ~.850 (S2 .863, D2 .883, S3 .813, D3 .840); full 368 ~.869 (S2 .897, D2 .918, S3 .816, D3 .847); unscaled .873.
+Range .845-.88; the 2D-sim gm gain (24 validation rows, mostly one clip) is the main uncertainty.
