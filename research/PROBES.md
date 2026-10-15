@@ -733,3 +733,18 @@ way (labelled frames + all questions -> spec, 0-1000-grid tracks, own answer; th
 mock replay reproduces the Claude-track solve on 157/159 rows; garbage replies do not crash; 682 tests pass.
 Pre-registered kill test in RESULT.md (evaluate_ctx.py). Expected ~+.02 Track B overall (0 to +.05). User steps:
 RUN_INSTRUCTIONS.md (~3-3.5 GPU-h, cap 7 h).
+
+## New frontier models + Sol blend (2026-10-14/15)
+Validation direct MRA (159 q): Claude v1 .765, 3-run median .762, **Gemini 4 Argon .762** (batch; 6 hard sim videos ran
+out of 32k tokens at high thinking and were re-run at medium), **GPT-6.1 Sol .762** (sim .819 vs Claude .774; lab .603
+vs .657). Both within ~5-7% median |log| of Claude: no step change. Cost: Argon ~$3 (Gemini ledger repriced to the
+published $2/$10, batch $1/$5), Sol $1.95 validation + $12.72 test (flex tier, 368 non-lab videos, 2053/2053 answered).
+Track A lever A1 (research/r86/PLAN.md): `submissions/trackA_cand_solblend_on_combo3.csv` = exp(.75 ln combo3 + .25 ln Sol)
+on scored non-fact rows of S2 (all), D2 non-lab, S3 sim+seg (1754 rows: D2 1051, S2 529, S3 174). Gates: coverage 95.3%
+(PASS); stated facts on raw routed answers +.0078 on 51 rows, no category negative (PASS). Expected +.004 (0 to +.008).
+C1 micro bundle (A2, `research/r86/c1/`): `submissions/trackA_cand_C1_on_combo3.csv`, 39 rows moved (S2 24 const-acc
+pooling, D2 11 fact transfers + 0020 rescale, S3 2, D3 2), verified; expected +.001.
+`submissions/trackA_cand_C1_solblend_on_combo3.csv` = C1 + A1 (C1's rows kept).
+Track A gates from Gemini/Argon (all FAIL, independently verified): Depth Pro FOV (median focal error .33), global spline
+derivatives, a-priori geometry/direct gates, world-AABB prompt (3/6 clips). Research plan: research/r86/PLAN.md
+(P(.86) < 2%; realistic ~.825).

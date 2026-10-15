@@ -1,0 +1,40 @@
+{
+ "video_id": "simulation_0270",
+ "model": "gpt-6.1-sol",
+ "effort": "high",
+ "status": "completed",
+ "n_frames": 23,
+ "secs": 104.5,
+ "usd": 0.045379,
+ "usage": {
+  "input_tokens": 11949,
+  "output_tokens": 6686
+ },
+ "answers": [
+  {
+   "value": 4.3,
+   "qid": 953,
+   "how": "The maximum horizontal extent is about 205 px. Tracking the flight gives approximately 96 px/s\u00b2, so the prior sets a scale of 48 px/m; 205/48 \u2248 4.3.",
+   "unit": "m"
+  },
+  {
+   "value": 3.2,
+   "qid": 954,
+   "how": "The maximum vertical extent is about 153 px. Using the acceleration-derived scale of 48 px/m gives 153/48 \u2248 3.2.",
+   "unit": "m"
+  },
+  {
+   "value": 1,
+   "qid": 955,
+   "how": "Fitting the flight trajectory while smoothing out flapping gives about 48 px/s at 0.5 s. Dividing by 48 px/m gives 1 m/s.",
+   "unit": "m/s"
+  },
+  {
+   "value": 2,
+   "qid": 956,
+   "how": "The smoothed flight trajectory gives about 96 px/s at 1.0 s. Dividing by the acceleration-derived scale of 48 px/m gives 2 m/s.",
+   "unit": "m/s"
+  }
+ ],
+ "raw_text": "{\"answers\":[{\"value\":4.3,\"qid\":953,\"how\":\"The maximum horizontal extent is about 205 px. Tracking the flight gives approximately 96 px/s\u00b2, so the prior sets a scale of 48 px/m; 205/48 \u2248 4.3.\",\"unit\":\"m\"},{\"value\":3.2,\"qid\":954,\"how\":\"The maximum vertical extent is about 153 px. Using the acceleration-derived scale of 48 px/m gives 153/48 \u2248 3.2.\",\"unit\":\"m\"},{\"value\":1,\"qid\":955,\"how\":\"Fitting the flight trajectory while smoothing out flapping gives about 48 px/s at 0.5 s. Dividing by 48 px/m gives 1 m/s.\",\"unit\":\"m/s\"},{\"value\":2,\"qid\":956,\"how\":\"The smoothed flight trajectory gives about 96 px/s at 1.0 s. Dividing by the acceleration-derived scale of 48 px/m gives 2 m/s.\",\"unit\":\"m/s\"}]}"
+}

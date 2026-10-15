@@ -1,0 +1,46 @@
+{
+ "video_id": "simulation_0311",
+ "model": "gpt-6.1-sol",
+ "effort": "high",
+ "status": "completed",
+ "n_frames": 21,
+ "secs": 248.0,
+ "usd": 0.069292,
+ "usage": {
+  "input_tokens": 11167,
+  "output_tokens": 11625
+ },
+ "answers": [
+  {
+   "value": 6.0,
+   "qid": 1493,
+   "how": "Tracked wheel and taillight positions around 1.0 s, converting pixel motion using the 1.15 m height and correcting for perspective with the supplied depths.",
+   "unit": "m/s"
+  },
+  {
+   "value": 7.0,
+   "qid": 1494,
+   "how": "Tracked wheel and taillight positions around 2.0 s, using the height prior and depth information to correct the apparent motion.",
+   "unit": "m/s"
+  },
+  {
+   "value": 4.7,
+   "qid": 1495,
+   "how": "Measured the front-to-back extent in unobstructed frames and converted it using the height prior, correcting for longitudinal foreshortening.",
+   "unit": "m"
+  },
+  {
+   "value": 2.0,
+   "qid": 1496,
+   "how": "Measured the transverse wheel-to-wheel extent and scaled it from the known car height, with perspective correction.",
+   "unit": "m"
+  },
+  {
+   "value": 1.0,
+   "qid": 1497,
+   "how": "Estimated the change in perspective-corrected speed near 1.0 s from neighboring frames.",
+   "unit": "m/s^2"
+  }
+ ],
+ "raw_text": "{\"answers\":[{\"value\":6.0,\"qid\":1493,\"how\":\"Tracked wheel and taillight positions around 1.0 s, converting pixel motion using the 1.15 m height and correcting for perspective with the supplied depths.\",\"unit\":\"m/s\"},{\"value\":7.0,\"qid\":1494,\"how\":\"Tracked wheel and taillight positions around 2.0 s, using the height prior and depth information to correct the apparent motion.\",\"unit\":\"m/s\"},{\"value\":4.7,\"qid\":1495,\"how\":\"Measured the front-to-back extent in unobstructed frames and converted it using the height prior, correcting for longitudinal foreshortening.\",\"unit\":\"m\"},{\"value\":2.0,\"qid\":1496,\"how\":\"Measured the transverse wheel-to-wheel extent and scaled it from the known car height, with perspective correction.\",\"unit\":\"m\"},{\"value\":1.0,\"qid\":1497,\"how\":\"Estimated the change in perspective-corrected speed near 1.0 s from neighboring frames.\",\"unit\":\"m/s^2\"}]}"
+}
