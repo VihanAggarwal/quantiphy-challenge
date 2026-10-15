@@ -30,7 +30,8 @@ def main():
     ap.add_argument("base")
     ap.add_argument("out")
     ap.add_argument("--root", default="/tmp/blind_test")
-    ap.add_argument("--types", default="sim3", help="comma list of sim3, sim2, internet")
+    ap.add_argument("--types", default="sim3", help="comma list of sim3, sim2, internet: agent answer replaces base")
+    ap.add_argument("--gm-types", default="", help="comma list: geometric mean of agent and base instead")
     a = ap.parse_args()
     t = pd.read_pickle(ROOT / "research/r86/loss_audit/master.pkl")
     d = pd.read_csv(a.base)
@@ -76,15 +77,19 @@ def main():
                 ans[i] = ans[j]
     is_fact = t.fact.notna() & np.isclose(base, t.fact.fillna(-1), rtol=1e-6)
     use = ans.notna() & pd.Series(np.isin(kind, list(types)), index=t.index) & ~is_fact
+    gmt = set(a.gm_types.split(",")) - {""}
+    use_gm = ans.notna() & pd.Series(np.isin(kind, list(gmt)), index=t.index) & ~is_fact
     out = base.copy()
     out[use] = ans[use]
+    out[use_gm] = np.exp((np.log(ans[use_gm]) + np.log(base[use_gm])) / 2)
+    print("gm rows:", int((use_gm & t.scored).sum()), t.loc[use_gm & t.scored].category.value_counts().to_dict())
     sc = use & t.scored
     print(f"agent answers: {len(ag)}; rows replaced {int(use.sum())} (scored {int(sc.sum())}):",
           t.loc[sc].category.value_counts().to_dict(), "| facts kept:", int((ans.notna() & is_fact).sum()))
     lr = np.log(ans[sc] / base[sc]).abs()
     print(f"median |log(agent/base)| {lr.median():.3f}; share > log 1.5: {(lr > np.log(1.5)).mean():.1%}")
     # held-out check on exact stated facts (agent never saw the sibling clips that state them)
-    fm = ans.notna() & t.fact.notna() & pd.Series(np.isin(kind, list(types)), index=t.index)
+    fm = ans.notna() & t.fact.notna() & pd.Series(np.isin(kind, list(types | gmt)), index=t.index)
     if fm.any():
         from qp.mra import item_scores
         raw = t.r_parsed_value.where(~(t.category.isin(["S3", "D3"]) & t.srcg.eq("sim")), t.dmed)
