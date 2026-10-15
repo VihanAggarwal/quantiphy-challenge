@@ -37,7 +37,7 @@ def main():
     d = pd.read_csv(a.base)
     base = d.rename(columns={d.columns[0]: "id"}).set_index("id")["parsed_value"].astype(float).reindex(t.index)
     root = Path(a.root)
-    arch = ROOT / "research/blind/out"
+    arch = ROOT / "research/blind/out" / root.name
     ag = {}
     for vd in sorted(p for p in root.iterdir() if p.is_dir()):
         f = vd / "answers.json"
