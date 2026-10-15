@@ -748,3 +748,15 @@ pooling, D2 11 fact transfers + 0020 rescale, S3 2, D3 2), verified; expected +.
 Track A gates from Gemini/Argon (all FAIL, independently verified): Depth Pro FOV (median focal error .33), global spline
 derivatives, a-priori geometry/direct gates, world-AABB prompt (3/6 clips). Research plan: research/r86/PLAN.md
 (P(.86) < 2%; realistic ~.825).
+
+## Scores 2026-10-15 (uploaded Oct 14 ~21:25 local)
+| file | S2 | D2 | S3 | D3 | overall |
+|---|---|---|---|---|---|
+| trackA_combo3_on_combo2 | .831 | .863 | .770 | .813 | .819 |
+| trackA_cand_C1_on_combo3 | .831 (0) | .868 (+.005) | .773 (+.003) | .814 (+.001) | **.821** |
+| trackA_cand_C1_solblend_on_combo3 | .834 (+.003 vs C1) | .858 (-.010) | .776 (+.003) | .814 | .821 |
+| trackA_cand_solblend_on_combo3 | .835 (+.004 vs combo3) | .853 (-.010) | .774 (+.004) | .813 | .819 |
+| trackB_cand_B1 (vs v3 .558/.663/.620/.641) | .638 (+.080) | .676 (+.013) | .639 (+.019) | .652 (+.011) | **.651** |
+Sol blend: keep S2 and S3, drop D2. Next composite `trackA_cand_C1_solS2S3.csv` (expected ~.834/.868/.776/.814 = .823).
+Probe `trackA_probe_solw50S2S3_solD3_on_C1.csv`: S2/S3 Sol weight .5 (read vs the composite) and Sol .25 on D3 sim
+(393 rows; read D3 vs C1); D2 = C1.
