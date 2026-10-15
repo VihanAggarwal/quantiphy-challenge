@@ -1,0 +1,132 @@
+route_test {'S2': {'routed_rows': {'S2|internet|L': 123, 'S2|internet|V': 71, 'S2|segmentation|L': 33, 'S2|segmentation|V': 44, 'S2|simulation|A': 52, 'S2|simulation|L': 119, 'S2|simulation|V': 110}, 'fallback_rows': 27, 'nan_to_fallback': 0, 'nan_to_b1set': 0}, 'D2': {'routed_rows': {'D2|internet|L': 169, 'D2|internet|V': 47, 'D2|segmentation|L': 138, 'D2|segmentation|V': 32, 'D2|simulation|L': 590, 'D2|simulation|V': 158}, 'fallback_rows': 29, 'nan_to_fallback': 0, 'nan_to_b1set': 0}, 'S3': {'routed_rows': {'S3|lab|L': 179, 'S3|lab|V': 143, 'S3|segmentation|L': 38, 'S3|simulation|L': 91, 'S3|simulation|V': 55}, 'fallback_rows': 72, 'nan_to_fallback': 0, 'nan_to_b1set': 0}, 'D3': {'routed_rows': {'D3|lab|L': 350, 'D3|lab|V': 101, 'D3|segmentation|L': 72, 'D3|simulation|L': 330, 'D3|simulation|V': 90}, 'fallback_rows': 26, 'nan_to_fallback': 0, 'nan_to_b1set': 0}}
+l6s_test 276
+l1 143
+l4 21
+clamp 30 rows {'car width': 18, 'person height': 12}
+wrote /tmp/tmpwswio4bl/B2.csv: 3289 rows, 768 KB, ready to upload
+wrote /tmp/tmpwswio4bl/B2.csv
+vs B1, rows changed per category (all/scored): {'S2': '17/16', 'D2': '856/836', 'S3': '462/430', 'D3': '832/798'}
+vs v3, rows changed per category (all/scored): {'S2': '498/476', 'D2': '1057/1034', 'S3': '482/450', 'D3': '832/798'}
+route_test {'S2': {'routed_rows': {'S2|internet|L': 123, 'S2|internet|V': 71, 'S2|segmentation|L': 33, 'S2|segmentation|V': 44, 'S2|simulation|A': 52, 'S2|simulation|L': 119, 'S2|simulation|V': 110}, 'fallback_rows': 27, 'nan_to_fallback': 0, 'nan_to_b1set': 0}}
+l6s_test 276
+l1 145
+l4 21
+clamp 66 rows {'car width': 63, 'person height': 3}
+wrote /tmp/tmpwswio4bl/B1c.csv: 3289 rows, 763 KB, ready to upload
+wrote /tmp/tmpwswio4bl/B1c.csv
+vs B1, rows changed per category (all/scored): {'S2': '5/5', 'D2': '6/6', 'S3': '1/1', 'D3': '7/7'}
+vs v3, rows changed per category (all/scored): {'S2': '498/476', 'D2': '381/378', 'S3': '253/240', 'D3': '291/279'}
+1. the two builds opened 639 data files (code / library files omitted); by directory:
+         1  /home/user/quantiphy-challenge/data/QuantiPhy
+         1  /home/user/quantiphy-challenge/data/QuantiPhy-validation
+         1  /home/user/quantiphy-challenge/data/submission_template
+         1  /home/user/quantiphy-challenge/research/labnoise/out
+         1  /home/user/quantiphy-challenge/research/path85b_phys
+         2  /home/user/quantiphy-challenge/research/r86/intel_tb_pseudolabel
+         6  /home/user/quantiphy-challenge/research/trackb_dense/out/test
+         7  /home/user/quantiphy-challenge/research/trackb_dense/out/val
+         1  /home/user/quantiphy-challenge/research/trackb_v5
+         3  /home/user/quantiphy-challenge/runs/_postprocess_cache
+         2  /home/user/quantiphy-challenge/submissions
+         2  /tmp
+         1  /tmp/claude-0/tb3/x/trackb_v1/test/caw
+         2  /tmp/claude-0/tb3/x/trackb_v1/test/cv
+         1  /tmp/claude-0/tb3/x/trackb_v1/test/cvq
+         1  /tmp/claude-0/tb3/x/trackb_v1/test/gemma4
+         2  /tmp/claude-0/tb3/x/trackb_v1/test/qwen
+       568  /tmp/claude-0/tb3/x/trackb_v1/test/qwen/specs
+         1  /tmp/claude-0/tb3/x/trackb_v1/test/qwen35
+         1  /tmp/claude-0/tb3/x/trackb_v1/val/caw
+         2  /tmp/claude-0/tb3/x/trackb_v1/val/cv
+         1  /tmp/claude-0/tb3/x/trackb_v1/val/cvq
+         1  /tmp/claude-0/tb3/x/trackb_v1/val/gemma4
+         2  /tmp/claude-0/tb3/x/trackb_v1/val/qwen
+        24  /tmp/claude-0/tb3/x/trackb_v1/val/qwen/specs
+         1  /tmp/claude-0/tb3/x/trackb_v1/val/qwen35
+         1  /tmp/claude-0/trackb_dense_cache
+         2  /tmp/tmpwswio4bl
+   subprocesses: ['/home/user/quantiphy-challenge/.venv/bin/python /home/user/quantiphy-challenge/scripts/make_submission.py /tmp/tmpzl61dgs_.csv <tmp>/B2.csv', '/home/user/quantiphy-challenge/.venv/bin/python /home/user/quantiphy-challenge/scripts/make_submission.py /tmp/tmp0z9vat1h.csv <tmp>/B1c.csv']
+   Track A / closed-model files opened: none
+   routing table (member names; n_fit / pl_mra are development-time pseudo-label numbers, not read by the build):
+             cell  n_fit              members
+    D2|internet|L    156       cvq_geo+qwen35
+    D2|internet|V     43              cvq_geo
+D2|segmentation|L    135              cvq_geo
+D2|segmentation|V     31     cvq_geo+qwen_geo
+  D2|simulation|L    577              cvq_geo
+  D2|simulation|V    155              cvq_geo
+         D3|lab|L    337       cvq_geo+qwen35
+         D3|lab|V     96        cv_geo+gemma4
+D3|segmentation|L     72               gemma4
+  D3|simulation|L    310        qwen35+gemma4
+  D3|simulation|V     85     cvq_geo+qwen_geo
+    S2|internet|L    117               qwen35
+    S2|internet|V     66              cvq_geo
+S2|segmentation|L     33      caw+cv_geo_only
+S2|segmentation|V     44               cv_geo
+  S2|simulation|A     46  cv_geo_only+cvq_geo
+  S2|simulation|L    114              cvq_geo
+  S2|simulation|V    102              cvq_geo
+         S3|lab|L    171     cvq_geo+qwen_geo
+         S3|lab|V    135 cv_geo_only+qwen_geo
+S3|segmentation|L     35       cvq_geo+qwen35
+  S3|simulation|L     82   qwen_direct+gemma4
+  S3|simulation|V     54          cv_geo_only
+   fallback sets: {'S2': ['cvq_geo', 'qwen_geo', 'qwen35'], 'D2': ['cv_geo_only', 'cvq_geo', 'gemma4'], 'S3': ['cv_geo', 'qwen_geo', 'gemma4'], 'D3': ['caw', 'cvq_geo', 'gemma4']}
+   audited rebuild == trackB_probe_B2route.csv: OK
+   audited rebuild == trackB_cand_B1clamp.csv: OK
+2. B2route: rows changed vs B1 2167; rows whose value equals a value in any of 99 Track A files: 12. Open-pipeline origin of each:
+     qid 1153 (simulation_0037, D3) 1.75 = open member value qwen_direct/qwen35/gemma4  [equal in 96 Track A file(s)]
+     qid 1210 (simulation_0050, D3) 0.15 = open member value qwen35/gemma4  [equal in 85 Track A file(s)]
+     qid 1319 (simulation_0065, D3) 3.5 = open member value qwen35/gemma4  [equal in 9 Track A file(s)]
+     qid 1342 (simulation_0066, D3) 1.8 = open member value caw/qwen35/gemma4  [equal in 9 Track A file(s)]
+     qid 1348 (simulation_0067, D3) 3.5 = open member value qwen35/gemma4  [equal in 9 Track A file(s)]
+     qid 1636 (simulation_0009_segmented, D3) 0.45 = open member value gemma4  [equal in 4 Track A file(s)]
+     qid 1641 (simulation_0009_segmented, D3) 0.6 = open member value gemma4  [equal in 8 Track A file(s)]
+     qid 1730 (simulation_0037_segmented, D3) 1.75 = open member value qwen_direct/qwen35/gemma4  [equal in 88 Track A file(s)]
+     qid 1735 (simulation_0038_segmented, D3) 1.75 = open member value caw/cv_geo/qwen_direct/gemma4  [equal in 85 Track A file(s)]
+     qid 1763 (simulation_0066_segmented, D3) 3.5 = open member value caw/qwen_direct/qwen35/gemma4  [equal in 9 Track A file(s)]
+     qid 1774 (simulation_0066_segmented, D3) 1.8 = open member value qwen35/gemma4  [equal in 9 Track A file(s)]
+     qid 1898 (simulation_0188_segmented, D3) 3.2 = open member value qwen_direct/gemma4  [equal in 4 Track A file(s)]
+   unexplained: none
+2. B1clamp: rows changed vs B1 19; rows whose value equals a value in any of 99 Track A files: 0. Open-pipeline origin of each:
+   unexplained: none
+3. B2route: stated-fact rows 129; final answer changed vs B1: 0
+3. B1clamp: stated-fact rows 129; final answer changed vs B1: 0
+   raw route D2 vs B1 raw: fact rows changed 8, item 0.787 -> 0.950; by category {'D2': {'size': 8, 'mean': 0.162}}
+   raw route S3 vs B1 raw: fact rows changed 12, item 0.692 -> 0.817; by category {'S3': {'size': 12, 'mean': 0.125}}
+   raw route D3 vs B1 raw: fact rows changed 50, item 0.788 -> 0.762; by category {'D3': {'size': 50, 'mean': -0.026}}
+   raw route D2+S3+D3 vs B1 raw: fact rows changed 70, item 0.771 -> 0.793; by category {'D2': {'size': 8, 'mean': 0.162}, 'D3': {'size': 50, 'mean': -0.026}, 'S3': {'size': 12, 'mean': 0.125}}
+4. B1clamp: rows changed vs B1 19 {'D3': 7, 'D2': 6, 'S2': 5, 'S3': 1}; rows matched only by the widened regex 19; changed rows all among them: True
+     qid    35 D2 simulation_0068            B1 3.573 -> 2.300  What is the width of the turning yellow car in meters?
+     qid    42 S2 simulation_0070            B1 3.573 -> 2.300  What is the width of the turning yellow car in meters?
+     qid    45 S2 simulation_0071            B1 3.573 -> 2.300  What is the width of the turning yellow car in meters?
+     qid    58 S2 simulation_0075            B1 3.573 -> 2.300  What is the width of the turning yellow car in meters?
+     qid    90 S2 simulation_0082            B1 5.461 -> 2.300  What is the width of the black and white car in meters?
+     qid    97 S2 simulation_0083            B1 5.461 -> 2.300  What is the width of the black and white car in meters?
+     qid   105 D2 simulation_0084            B1 5.461 -> 2.300  What is the width of the black and white car in meters?
+     qid   273 D2 simulation_0124            B1 4.126 -> 2.300  What is the width of the grey and red car in meters?
+     qid   293 D2 simulation_0127            B1 5.823 -> 2.300  What is the width of the dark green car in meters?
+     qid  1286 D3 simulation_0062            B1 3.573 -> 2.300  What is the width of the turning yellow car in meters?
+     qid  1299 D3 simulation_0063            B1 3.573 -> 2.300  What is the width of the turning yellow car in meters?
+     qid  1312 D3 simulation_0064            B1 3.573 -> 2.300  What is the width of the turning yellow car in meters?
+     qid  1324 D3 simulation_0065            B1 3.573 -> 2.300  What is the width of the turning yellow car in meters?
+     qid  1337 D3 simulation_0066            B1 3.573 -> 2.300  What is the width of the turning yellow car in meters?
+     qid  1354 D3 simulation_0067            B1 3.573 -> 2.300  What is the width of the turning yellow car in meters?
+     qid  1366 S3 simulation_0074            B1 3.573 -> 2.300  What is the width of the turning yellow car in meters?
+     qid  1769 D3 simulation_0066_segmented  B1 3.573 -> 2.300  What is the width of the turning yellow car in meters?
+     qid  1781 D2 simulation_0068_segmented  B1 3.573 -> 2.300  What is the width of the turning yellow car in meters?
+     qid  1840 D2 simulation_0124_segmented  B1 4.126 -> 2.300  What is the width of the grey and red car in meters?
+     not matched: qid   400 D2 B1 8.367  What is the width of the road that the bike and the car are on in meters?
+     not matched: qid  1396 D3 B1 12.000  What is the width of the road that the bike and the car are on in meters?
+     not matched: qid  1456 D3 B1 1.850  What is the width (from the left wheel to the right wheel) of the car in meters?
+     not matched: qid  1466 D3 B1 1.850  What is the width (from the left wheel to the right wheel) of the car in meters?
+     not matched: qid  1496 S3 B1 1.850  What is the width (from the left wheel to the right wheel) of the car in meters?
+     not matched: qid  1533 S3 B1 0.919  What is the width, in meters, of the 'B1' lettering on the wall behind the car?
+     not matched: qid  1536 S3 B1 1.430  What is the width, in meters, of the blue car?
+     not matched: qid  1541 S3 B1 1.793  What is the width, in meters, of the blue car?
+     not matched: qid  2011 S3 B1 0.904  What is the width, in meters, of the blue car?
+wrote /tmp/tmpwswio4bl/resub_B2route.csv: 3289 rows, 768 KB, ready to upload
+5. scripts/make_submission.py on trackB_probe_B2route.csv: passes, values unchanged
+wrote /tmp/tmpwswio4bl/resub_B1clamp.csv: 3289 rows, 763 KB, ready to upload
+5. scripts/make_submission.py on trackB_cand_B1clamp.csv: passes, values unchanged

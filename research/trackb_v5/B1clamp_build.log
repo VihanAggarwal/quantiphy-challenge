@@ -1,0 +1,21 @@
+route_test {'S2': {'routed_rows': {'S2|internet|L': 123, 'S2|internet|V': 71, 'S2|segmentation|L': 33, 'S2|segmentation|V': 44, 'S2|simulation|A': 52, 'S2|simulation|L': 119, 'S2|simulation|V': 110}, 'fallback_rows': 27, 'nan_to_fallback': 0, 'nan_to_b1set': 0}}
+l6s_test 276
+l1 145
+l4 21
+clamp 66 rows {'car width': 63, 'person height': 3}
+wrote submissions/trackB_cand_B1clamp.csv: 3289 rows, 763 KB, ready to upload
+wrote submissions/trackB_cand_B1clamp.csv
+vs B1, rows changed per category (all/scored): {'S2': '5/5', 'D2': '6/6', 'S3': '1/1', 'D3': '7/7'}
+vs v3, rows changed per category (all/scored): {'S2': '498/476', 'D2': '381/378', 'S3': '253/240', 'D3': '291/279'}
+rebuild of B1 (route S2, clamp b1) == submissions/trackB_cand_B1.csv: OK
+clamp wide vs b1 | {'S2': '5/5', 'D2': '6/6', 'S3': '1/1', 'D3': '7/7'}
+
+changed rows vs B1: winning component of the new value (top), by category:
+category         D2  D3  S2  S3
+new_winner                     
+clamp:car width   6   7   5   1
+wrote research/trackb_v5/B1clamp_rows.csv
+
+validation (combined table; labels read only here, for scoring):
+  B1       MRA 0.6458 S2 0.6187 D2 0.5946 S3 0.7209 D3 0.6489
+  BUILD    MRA 0.6458 S2 0.6187 D2 0.5946 S3 0.7209 D3 0.6489 | boot vs B1 delta 0.0000 lo 0.0000 hi 0.0000 changed 0

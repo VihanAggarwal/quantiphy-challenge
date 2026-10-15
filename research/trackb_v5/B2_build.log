@@ -1,0 +1,71 @@
+route_test {'S2': {'routed_rows': {'S2|internet|L': 123, 'S2|internet|V': 71, 'S2|segmentation|L': 33, 'S2|segmentation|V': 44, 'S2|simulation|A': 52, 'S2|simulation|L': 119, 'S2|simulation|V': 110}, 'fallback_rows': 27, 'nan_to_fallback': 0, 'nan_to_b1set': 0}, 'D2': {'routed_rows': {'D2|internet|L': 169, 'D2|internet|V': 47, 'D2|segmentation|L': 138, 'D2|segmentation|V': 32, 'D2|simulation|L': 590, 'D2|simulation|V': 158}, 'fallback_rows': 29, 'nan_to_fallback': 0, 'nan_to_b1set': 0}, 'S3': {'routed_rows': {'S3|lab|L': 179, 'S3|lab|V': 143, 'S3|segmentation|L': 38, 'S3|simulation|L': 91, 'S3|simulation|V': 55}, 'fallback_rows': 72, 'nan_to_fallback': 0, 'nan_to_b1set': 0}, 'D3': {'routed_rows': {'D3|lab|L': 350, 'D3|lab|V': 101, 'D3|segmentation|L': 72, 'D3|simulation|L': 330, 'D3|simulation|V': 90}, 'fallback_rows': 26, 'nan_to_fallback': 0, 'nan_to_b1set': 0}}
+l6s_test 276
+l1 143
+l4 21
+clamp 30 rows {'car width': 18, 'person height': 12}
+wrote submissions/trackB_probe_B2route.csv: 3289 rows, 768 KB, ready to upload
+wrote submissions/trackB_probe_B2route.csv
+vs B1, rows changed per category (all/scored): {'S2': '17/16', 'D2': '856/836', 'S3': '462/430', 'D3': '832/798'}
+vs v3, rows changed per category (all/scored): {'S2': '498/476', 'D2': '1057/1034', 'S3': '482/450', 'D3': '832/798'}
+rebuild of B1 (route S2, clamp b1) == submissions/trackB_cand_B1.csv: OK
+
+per routed category | B1 + this category alone vs B1 (all/scored) | its spill-over (raw unchanged, final changed) outside / inside the category | leave-one-out share of the build (all/scored)
+route_D2 | {'S2': '4/4', 'D2': '838/818', 'S3': '0/0', 'D3': '73/73'} | out {'S2': '4/4', 'D2': '0/0', 'S3': '0/0', 'D3': '73/73'} in {'S2': '0/0', 'D2': '83/83', 'S3': '0/0', 'D3': '0/0'} | {'S2': '6/6', 'D2': '844/824', 'S3': '2/2', 'D3': '85/85'}
+route_S3 | {'S2': '10/9', 'D2': '3/3', 'S3': '456/424', 'D3': '76/72'} | out {'S2': '10/9', 'D2': '3/3', 'S3': '0/0', 'D3': '76/72'} in {'S2': '0/0', 'D2': '0/0', 'S3': '0/0', 'D3': '0/0'} | {'S2': '7/6', 'D2': '8/8', 'S3': '459/427', 'D3': '84/81'}
+route_D3 | {'S2': '9/9', 'D2': '136/136', 'S3': '42/40', 'D3': '824/790'} | out {'S2': '9/9', 'D2': '136/136', 'S3': '42/40', 'D3': '0/0'} in {'S2': '0/0', 'D2': '0/0', 'S3': '0/0', 'D3': '10/10'} | {'S2': '7/7', 'D2': '113/113', 'S3': '48/45', 'D3': '825/790'}
+
+changed rows vs B1: winning component of the new value (top), by category:
+category                                           D2   D3  S2   S3
+new_winner                                                         
+cell:D2|internet|L                                156    0   0    0
+cell:D2|internet|V                                 28    0   0    0
+cell:D2|segmentation|L                              9    0   0    0
+cell:D2|segmentation|V                              2    0   0    0
+cell:D2|simulation|L                              199    0   0    0
+cell:D2|simulation|V                               47    0   0    0
+cell:D3|lab|L                                       0  324   0    0
+cell:D3|lab|V                                       0   99   0    0
+cell:D3|segmentation|L                              0   29   0    0
+cell:D3|simulation|L                                0  111   0    0
+cell:D3|simulation|V                                0   26   0    0
+cell:S2|segmentation|L                              0    0   1    0
+cell:S2|simulation|L                                0    0   4    0
+cell:S3|lab|L                                       0    0   0  148
+cell:S3|lab|V                                       0    0   0   17
+cell:S3|segmentation|L                              0    0   0   14
+cell:S3|simulation|L                                0    0   0   47
+cell:S3|simulation|V                                0    0   0   20
+clamp:person height                                 6    3   0    0
+fallback:D2                                        20    0   0    0
+fallback:D3                                         0    8   0    0
+fallback:S3                                         0    0   0   24
+l1 on cell:S3|lab|L                                 0    0   0   22
+l1 on cell:S3|lab|V                                 0    0   0  111
+l6s(over cell:D2|segmentation|L)                    4    0   0    0
+l6s(over cell:D2|segmentation|V)                    1    0   0    0
+l6s(over cell:D2|simulation|L)                      3    0   0    0
+rule:pool (raw cell:D2|simulation|L)              235    0   0    0
+rule:pool (raw cell:D2|simulation|V)               58    0   0    0
+rule:pool (raw cell:D3|segmentation|L)              0   24   0    0
+rule:pool (raw cell:D3|simulation|L)                0  160   0    0
+rule:pool (raw cell:D3|simulation|V)                0   46   0    0
+rule:pool (raw cell:S2|segmentation|L)              0    0   2    0
+rule:pool (raw cell:S2|simulation|L)                0    0  10    0
+rule:pool (raw cell:S3|segmentation|L)              0    0   0   21
+rule:pool (raw cell:S3|simulation|L)                0    0   0   35
+rule:pool (raw cell:S3|simulation|V)                0    0   0    3
+rule:pool (raw fallback:D3)                         0    2   0    0
+rule:pool (raw l6s(over cell:D2|segmentation|L))   33    0   0    0
+rule:pool (raw l6s(over cell:D2|segmentation|V))    6    0   0    0
+rule:pool (raw l6s(over cell:D2|simulation|L))     42    0   0    0
+rule:pool (raw l6s(over cell:D2|simulation|V))      7    0   0    0
+wrote research/trackb_v5/B2_rows.csv
+
+validation (combined table; labels read only here, for scoring):
+  B1       MRA 0.6458 S2 0.6187 D2 0.5946 S3 0.7209 D3 0.6489
+  +route_D2 MRA 0.6424 S2 0.6187 D2 0.5811 S3 0.7209 D3 0.6489 | boot vs B1 delta -0.0034 lo -0.0091 hi 0.0057 changed 26
+  +route_S3 MRA 0.6491 S2 0.6250 D2 0.5946 S3 0.7279 D3 0.6489 | boot vs B1 delta 0.0033 lo -0.0084 hi 0.0118 changed 39
+  +route_D3 MRA 0.6366 S2 0.6187 D2 0.5946 S3 0.7116 D3 0.6213 | boot vs B1 delta -0.0092 lo -0.0308 hi 0.0186 changed 43
+  BUILD    MRA 0.6371 S2 0.6250 D2 0.5811 S3 0.7209 D3 0.6213 | boot vs B1 delta -0.0087 lo -0.0359 hi 0.0232 changed 102
+  BUILD, routed sets verbatim (no L2' in routed sets) MRA 0.6371 S2 0.6250 D2 0.5811 S3 0.7209 D3 0.6213 | boot vs B1 delta -0.0087 lo -0.0354 hi 0.0224 changed 102
+  BUILD, routing wins over L6s (no l6s) MRA 0.6381 S2 0.6250 D2 0.5811 S3 0.7209 D3 0.6255 | boot vs B1 delta -0.0077 lo -0.0350 hi 0.0239 changed 105

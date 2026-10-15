@@ -1,0 +1,36 @@
+  D2|internet|L        n_fit  156 best cvq_geo+qwen35           pl 0.717 (runner-up cvq_geo+gemma4 0.695) | table cvq_geo+qwen35 -> OK
+  D2|internet|V        n_fit   43 best cvq_geo                  pl 0.619 (runner-up cv_geo_only+gemma4 0.612) | table cvq_geo -> OK
+  D2|segmentation|L    n_fit  135 best cvq_geo                  pl 0.755 (runner-up cv_geo_only+cvq_geo 0.739) | table cvq_geo -> OK
+  D2|segmentation|V    n_fit   31 best cvq_geo+qwen_geo         pl 0.690 (runner-up qwen_geo 0.687) | table cvq_geo+qwen_geo -> OK
+  D2|simulation|L      n_fit  577 best cvq_geo                  pl 0.731 (runner-up cvq_geo+qwen_geo 0.697) | table cvq_geo -> OK
+  D2|simulation|V      n_fit  155 best cvq_geo                  pl 0.751 (runner-up cv_geo_only+cvq_geo 0.739) | table cvq_geo -> OK
+  D3|lab|L             n_fit  337 best cvq_geo+qwen35           pl 0.658 (runner-up cvq_geo+qwen_direct 0.651) | table cvq_geo+qwen35 -> OK
+  D3|lab|V             n_fit   96 best cv_geo+gemma4            pl 0.529 (runner-up cv_geo+cvq_geo 0.528) | table cv_geo+gemma4 -> OK
+  D3|segmentation|L    n_fit   72 best gemma4                   pl 0.668 (runner-up qwen35+gemma4 0.646) | table gemma4 -> OK
+  D3|simulation|L      n_fit  310 best qwen35+gemma4            pl 0.712 (runner-up caw+qwen35 0.711) | table qwen35+gemma4 -> OK
+  D3|simulation|V      n_fit   85 best cvq_geo+qwen_geo         pl 0.749 (runner-up qwen_geo+gemma4 0.746) | table cvq_geo+qwen_geo -> OK
+  S2|internet|L        n_fit  117 best qwen35                   pl 0.685 (runner-up qwen35+gemma4 0.673) | table qwen35 -> OK
+  S2|internet|V        n_fit   66 best cvq_geo                  pl 0.655 (runner-up qwen_geo 0.647) | table cvq_geo -> OK
+  S2|segmentation|L    n_fit   33 best caw+cv_geo_only          pl 0.642 (runner-up caw+cv_geo 0.642) | table caw+cv_geo_only -> OK
+  S2|segmentation|V    n_fit   44 best cv_geo                   pl 0.727 (runner-up cvq_geo 0.714) | table cv_geo -> OK
+  S2|simulation|A      n_fit   46 best cv_geo_only+cvq_geo      pl 0.650 (runner-up cvq_geo 0.648) | table cv_geo_only+cvq_geo -> OK
+  S2|simulation|L      n_fit  114 best cvq_geo                  pl 0.662 (runner-up qwen35+gemma4 0.662) | table cvq_geo -> OK
+  S2|simulation|V      n_fit  102 best cvq_geo                  pl 0.822 (runner-up cv_geo+cvq_geo 0.792) | table cvq_geo -> OK
+  S3|lab|L             n_fit  171 best cvq_geo+qwen_geo         pl 0.745 (runner-up cv_geo+gemma4 0.737) | table cvq_geo+qwen_geo -> OK
+  S3|lab|V             n_fit  135 best cv_geo_only+qwen_geo     pl 0.729 (runner-up cv_geo+qwen_geo 0.729) | table cv_geo_only+qwen_geo -> OK
+  S3|segmentation|L    n_fit   35 best cvq_geo+qwen35           pl 0.674 (runner-up cvq_geo 0.660) | table cvq_geo+qwen35 -> OK
+  S3|simulation|L      n_fit   82 best qwen_direct+gemma4       pl 0.666 (runner-up qwen_direct+qwen35 0.662) | table qwen_direct+gemma4 -> OK
+  S3|simulation|V      n_fit   54 best cv_geo_only              pl 0.748 (runner-up cv_geo_only+cvq_geo 0.700) | table cv_geo_only -> OK
+all table cells re-derived: True | table cells == re-derived cells: True
+  fallback S2: re-derived ['cvq_geo', 'qwen_geo', 'qwen35'] pl 0.655 | file ['cvq_geo', 'qwen_geo', 'qwen35'] -> True
+  fallback D2: re-derived ['cv_geo_only', 'cvq_geo', 'gemma4'] pl 0.722 | file ['cv_geo_only', 'cvq_geo', 'gemma4'] -> True
+  fallback S3: re-derived ['cv_geo', 'qwen_geo', 'gemma4'] pl 0.677 | file ['cv_geo', 'qwen_geo', 'gemma4'] -> True
+  fallback D3: re-derived ['caw', 'cvq_geo', 'gemma4'] pl 0.664 | file ['caw', 'cvq_geo', 'gemma4'] -> True
+
+L2' diagnostic on lab cells (pseudo-label MRA on fit rows; development-time information only):
+  S3|lab|L   n_fit 171 set cvq_geo+qwen_geo       pl 0.745 | with qwen_fov 0.735 | best 1-2 set with qwen_fov as a 9th candidate: cvq_geo+qwen_geo 0.745
+  S3|lab|V   n_fit 135 set cv_geo_only+qwen_geo   pl 0.729 | with qwen_fov 0.741 | best 1-2 set with qwen_fov as a 9th candidate: cv_geo_only+qwen_fov 0.741
+  S3|lab|A   n_fit  11 set cv_geo+qwen_geo+gemma4 pl 0.409 | with qwen_fov 0.409 | best 1-2 set with qwen_fov as a 9th candidate: qwen_direct+qwen35 0.682
+  D3|lab|L   n_fit 337 set cvq_geo+qwen35         pl 0.658 | with qwen_fov 0.658 | best 1-2 set with qwen_fov as a 9th candidate: qwen_direct+qwen_fov 0.666
+  D3|lab|V   n_fit  96 set cv_geo+gemma4          pl 0.529 | with qwen_fov 0.529 | best 1-2 set with qwen_fov as a 9th candidate: cv_geo+gemma4 0.529
+  D3|lab|A   n_fit   6 set caw+cvq_geo+gemma4     pl 0.000 | with qwen_fov 0.000 | best 1-2 set with qwen_fov as a 9th candidate: qwen_fov 1.000

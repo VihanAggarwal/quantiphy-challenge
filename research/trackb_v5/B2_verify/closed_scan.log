@@ -1,0 +1,30 @@
+scan 1 files: 99
+scan 2 files: 109
+
+B2route: rows changed vs B1 2167
+  scan 1 (99 Track A parsed_value files): changed rows equal to a Track A value: 12
+    qid 1153 simulation_0037 D3 1.75 = own open member qwen_direct/qwen35/gemma4 [in 96 file(s)]
+    qid 1210 simulation_0050 D3 0.15 = own open member qwen35/gemma4 [in 85 file(s)]
+    qid 1319 simulation_0065 D3 3.5 = own open member qwen35/gemma4 [in 9 file(s)]
+    qid 1342 simulation_0066 D3 1.8 = own open member caw/qwen35/gemma4 [in 9 file(s)]
+    qid 1348 simulation_0067 D3 3.5 = own open member qwen35/gemma4 [in 9 file(s)]
+    qid 1636 simulation_0009_segmented D3 0.45 = own open member gemma4 [in 4 file(s)]
+    qid 1641 simulation_0009_segmented D3 0.6 = own open member gemma4 [in 8 file(s)]
+    qid 1730 simulation_0037_segmented D3 1.75 = own open member qwen_direct/qwen35/gemma4 [in 88 file(s)]
+    qid 1735 simulation_0038_segmented D3 1.75 = own open member caw/cv_geo/qwen_direct/gemma4 [in 85 file(s)]
+    qid 1763 simulation_0066_segmented D3 3.5 = own open member caw/qwen_direct/qwen35/gemma4 [in 9 file(s)]
+    qid 1774 simulation_0066_segmented D3 1.8 = own open member qwen35/gemma4 [in 9 file(s)]
+    qid 1898 simulation_0188_segmented D3 3.2 = own open member qwen_direct/gemma4 [in 4 file(s)]
+  scan 1 unexplained: none
+    scan-2-only qid 1224 simulation_0055 D3 0.15 = own open member qwen_direct/qwen35/gemma4
+    scan-2-only qid 1267 simulation_0060 D3 1.8 = own open member qwen35/gemma4
+    scan-2-only qid 1465 simulation_0301 D3 4.5 = own open member qwen_direct/qwen35/gemma4
+  scan 2 (109 files, all numeric columns): changed rows equal to a closed value of the same question: 15 (explanations {'own open': 15}); unexplained: none
+  context: all 3289 rows equal to a scan-2 value of the same question: B2route 229, B1 250
+
+B1clamp: rows changed vs B1 19
+  scan 1 (99 Track A parsed_value files): changed rows equal to a Track A value: 0
+  scan 1 unexplained: none
+    scan-2-only qid 1354 simulation_0067 D3 2.3 = clamp bound
+  scan 2 (109 files, all numeric columns): changed rows equal to a closed value of the same question: 1 (explanations {'clamp': 1}); unexplained: none
+  context: all 3289 rows equal to a scan-2 value of the same question: B1clamp 251, B1 250

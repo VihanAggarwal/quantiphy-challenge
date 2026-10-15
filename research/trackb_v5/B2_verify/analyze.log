@@ -1,0 +1,98 @@
+
+## 1. rows changed per category (all/scored), from the files
+B2route vs B1 : {'S2': '17/16', 'D2': '856/836', 'S3': '462/430', 'D3': '832/798'} total 2167
+B2route vs v3 : {'S2': '498/476', 'D2': '1057/1034', 'S3': '482/450', 'D3': '832/798'}
+B1clamp vs B1 : {'S2': '5/5', 'D2': '6/6', 'S3': '1/1', 'D3': '7/7'} total 19
+B1clamp vs v3 : {'S2': '498/476', 'D2': '381/378', 'S3': '253/240', 'D3': '291/279'}
+B1 vs v3      : {'S2': '498/476', 'D2': '380/377', 'S3': '253/240', 'D3': '291/279'}
+trackB_probe_B2route.csv: rows 3289, columns == B1 columns True, id order == B1 True, non-value columns identical to B1 True, all finite > 0 True, ids unique True
+trackB_cand_B1clamp.csv: rows 3289, columns == B1 columns True, id order == B1 True, non-value columns identical to B1 True, all finite > 0 True, ids unique True
+
+## 2. components inside B2route
+fallback rows by cell: {'D2': {'D2|simulation|A': 10, 'D2|lab|L': 9, 'D2|lab|V': 6, 'D2|segmentation|A': 3, 'D2|internet|A': 1}, 'S3': {'S3|segmentation|V': 27, 'S3|simulation|A': 23, 'S3|lab|A': 12, 'S3|segmentation|A': 10}, 'D3': {'D3|segmentation|V': 14, 'D3|lab|A': 6, 'D3|simulation|A': 5, 'D3|segmentation|A': 1}}
+routed-row empties / to b1set: {'S2_empty_routed': 0, 'S2_to_b1set': 0, 'D2_empty_routed': 0, 'D2_to_b1set': 0, 'S3_empty_routed': 0, 'S3_to_b1set': 0, 'D3_empty_routed': 0, 'D3_to_b1set': 0}
+rows where qwen_fov != qwen_geo: 757 all lab: True by category {'D2': 0, 'D3': 438, 'S2': 0, 'S3': 319}
+B2route S3 rows with qwen_fov in their raw set, among qwen_fov!=qwen_geo rows: {'S3|lab|L': 170, 'S3|lab|V': 143, 'S3|lab|A': 6} total 319
+B2route D3 rows with qwen_fov in their raw set, among qwen_fov!=qwen_geo rows: 0 | D3 lab rows where L2' had an effect in B1: 438
+L6s rows: 276 over which routed set: {'D2|segmentation|L = cvq_geo': 118, 'D2|simulation|L = cvq_geo': 113, 'D2|segmentation|V = cvq_geo+qwen_geo': 23, 'D2|simulation|V = cvq_geo': 22}
+L1 rows: B1 145, B2route 143, both 142, B1 only [2379, 2540, 2666], B2 only [2624]
+L4 rows: 21 final values equal B1: True
+stated rows: B1 166 B2route 166 same set True | final values changed on stated rows: 0
+clamp: B1 47 {'car width': 44, 'person height': 3}, B2route 30 {'car width': 18, 'person height': 12}, both 21, B1 only 26, new [8, 2266, 2271, 2276, 2293, 2312, 2331, 2973, 3151]
+   B1-only clamp rows: kinds {'car width': 26} B2route values (m): 1.800-2.207
+   new clamp row 8 simulation_0020 D2 person height: post-rule 12.94 m -> 2; raw source cell:D2|simulation|L:cvq_geo
+   new clamp row 2266 captured_0015 D2 person height: post-rule 310.3 cm -> 200; raw source fallback:cv_geo_only+cvq_geo+gemma4
+   new clamp row 2271 captured_0015s D2 person height: post-rule 317.5 cm -> 200; raw source fallback:cv_geo_only+cvq_geo+gemma4
+   new clamp row 2276 captured_0015x D2 person height: post-rule 313.3 cm -> 200; raw source fallback:cv_geo_only+cvq_geo+gemma4
+   new clamp row 2293 captured_0018 D3 person height: post-rule 128.3 cm -> 150; raw source cell:D3|lab|L:cvq_geo+qwen35
+   new clamp row 2312 captured_0018s D3 person height: post-rule 128.1 cm -> 150; raw source cell:D3|lab|L:cvq_geo+qwen35
+   new clamp row 2331 captured_0018x D3 person height: post-rule 128.1 cm -> 150; raw source cell:D3|lab|L:cvq_geo+qwen35
+   new clamp row 2973 internet_0019_segmented D2 person height: post-rule 143.9 cm -> 150; raw source cell:D2|segmentation|L:cvq_geo
+   new clamp row 3151 internet_0055 D2 person height: post-rule 2.007 m -> 2; raw source cell:D2|internet|L:cvq_geo+qwen35
+
+## 3. alone / leave-one-out / spill (scored and all)
+route D2 alone vs B1: {'S2': '4/4', 'D2': '838/818', 'S3': '0/0', 'D3': '73/73'} | pool spill (raw unchanged) outside {'S2': '4/4', 'D2': '0/0', 'S3': '0/0', 'D3': '73/73'} inside {'S2': '0/0', 'D2': '83/83', 'S3': '0/0', 'D3': '0/0'}
+route S3 alone vs B1: {'S2': '10/9', 'D2': '3/3', 'S3': '456/424', 'D3': '76/72'} | pool spill (raw unchanged) outside {'S2': '10/9', 'D2': '3/3', 'S3': '0/0', 'D3': '76/72'} inside {'S2': '0/0', 'D2': '0/0', 'S3': '0/0', 'D3': '0/0'}
+route D3 alone vs B1: {'S2': '9/9', 'D2': '136/136', 'S3': '42/40', 'D3': '824/790'} | pool spill (raw unchanged) outside {'S2': '9/9', 'D2': '136/136', 'S3': '42/40', 'D3': '0/0'} inside {'S2': '0/0', 'D2': '0/0', 'S3': '0/0', 'D3': '10/10'}
+B2route raw unchanged but final changed (pool spill): {'S2': '17/16', 'D2': '98/98', 'S3': '2/2', 'D3': '12/12'}
+   own only                                     {'S2': '0/0', 'D2': '742/722', 'S3': '413/384', 'D3': '668/637'}
+   own + other                                  {'S2': '0/0', 'D2': '102/102', 'S3': '46/43', 'D3': '156/153'}
+   other only                                   {'S2': '15/14', 'D2': '12/12', 'S3': '3/3', 'D3': '8/8'}
+   interaction only (no single drop undoes it)  {'S2': '2/2', 'D2': '0/0', 'S3': '0/0', 'D3': '0/0'}
+   rows touched by route D2 (leave-one-out) outside D2: {'S2': '6/6', 'D2': '0/0', 'S3': '2/2', 'D3': '85/85'}
+   rows touched by route S3 (leave-one-out) outside S3: {'S2': '7/6', 'D2': '8/8', 'S3': '0/0', 'D3': '84/81'}
+   rows touched by route D3 (leave-one-out) outside D3: {'S2': '7/7', 'D2': '113/113', 'S3': '48/45', 'D3': '0/0'}
+   interaction-only rows: [np.int64(12), np.int64(1746)]
+   qid 12: B1 8.129 -> B2 12.59; alone D2/S3/D3 changed: [False, True, True]
+   qid 1746: B1 8.129 -> B2 8.991; alone D2/S3/D3 changed: [False, True, True]
+
+## 4. alternatives
+routed sets verbatim (no L2' inside): {'S2': '0/0', 'D2': '0/0', 'S3': '319/302', 'D3': '0/0'} rows 319 | lab S3 rows among them 319
+routing wins over L6s: raw differs {'S2': '0/0', 'D2': '275/271', 'S3': '0/0', 'D3': '0/0'} | final differs {'S2': '11/11', 'D2': '337/334', 'S3': '1/1', 'D3': '41/41'}
+--keep S2,D2,S3 (independent): D3 rows == B1: True | other rows == B2route: True
+builder --keep S2,D2,S3 output == independent keep: True
+
+## 5. B1clamp
+B1clamp changed rows: [np.int64(35), np.int64(42), np.int64(45), np.int64(58), np.int64(90), np.int64(97), np.int64(105), np.int64(273), np.int64(293), np.int64(1286), np.int64(1299), np.int64(1312), np.int64(1324), np.int64(1337), np.int64(1354), np.int64(1366), np.int64(1769), np.int64(1781), np.int64(1840)] {'S2': '5/5', 'D2': '6/6', 'S3': '1/1', 'D3': '7/7'}
+   all scored: True | values (m): [np.float64(2.3)] | B1 values (m): [np.float64(3.573), np.float64(4.126), np.float64(5.461), np.float64(5.823)]
+   the 19 rows in B2route (m): 1.953-7.478 {np.int64(35): np.float64(5.32), np.int64(42): np.float64(5.19), np.int64(45): np.float64(5.188), np.int64(58): np.float64(5.307), np.int64(90): np.float64(5.685), np.int64(97): np.float64(5.685), np.int64(105): np.float64(5.685), np.int64(273): np.float64(4.126), np.int64(293): np.float64(7.478), np.int64(1286): np.float64(1.953), np.int64(1299): np.float64(1.953), np.int64(1312): np.float64(1.953), np.int64(1324): np.float64(1.953), np.int64(1337): np.float64(1.953), np.int64(1354): np.float64(1.953), np.int64(1366): np.float64(1.953), np.int64(1769): np.float64(1.953), np.int64(1781): np.float64(2.278), np.int64(1840): np.float64(4.126)}
+   independent B1clamp clamp rows 66 {'car width': 63, 'person height': 3}
+   builder wide regex vs my token parser on all 3289 test questions: disagreements []
+   questions with 'width' and 'car': 81 | matched by B1 regex 53 | by wide 72
+     not matched: 400 D2 B1 8.367 | What is the width of the road that the bike and the car are on in meters?
+     not matched: 1396 D3 B1 12.000 | What is the width of the road that the bike and the car are on in meters?
+     not matched: 1456 D3 B1 1.850 | What is the width (from the left wheel to the right wheel) of the car in meters?
+     not matched: 1466 D3 B1 1.850 | What is the width (from the left wheel to the right wheel) of the car in meters?
+     not matched: 1496 S3 B1 1.850 | What is the width (from the left wheel to the right wheel) of the car in meters?
+     not matched: 1533 S3 B1 0.919 | What is the width, in meters, of the 'B1' lettering on the wall behind the car?
+     not matched: 1536 S3 B1 1.430 | What is the width, in meters, of the blue car?
+     not matched: 1541 S3 B1 1.793 | What is the width, in meters, of the blue car?
+     not matched: 2011 S3 B1 0.904 | What is the width, in meters, of the blue car?
+   wide-only matches with 'toy' (skipped): [] | stated (skipped): []
+   wide-only phrases: {'turning yellow car': 13, 'black and white car': 3, 'grey and red car': 2, 'dark green car': 1}
+
+## 6. builder row files
+B2_rows.csv rows 2168 | changed==True rows 2167 == my changed set True
+   attribution column == my leave-one-out on all its rows: True
+   raw_changed == mine: True | spill == mine: True
+   new value == B2route file: True
+category                D2   D3  S2   S3
+row_0                                   
+L1 x routed              0    0   0  133
+L6s (pooling changed)    8    0   0    0
+clamp                    6    3   0    0
+fallback set            20    8   0   24
+pool rule              381  232  12   59
+routed cell            441  589   5  246
+   rows with winner 'pool rule' == changed rows where pool applied and no later step (L1/L4/clamp/stated): True
+B2_spillover.csv lines 419, distinct qids 419; my set (changed and raw-unchanged, or touched by another category's routing) 419; equal: True
+   kinds: {'own+cross': 304, 'own': 75, 'cross-only': 38, 'interaction-only': 2}
+B1clamp_rows.csv changed rows == mine: True
+
+## 7. stated-fact rows (values stated in the test priors) and validation-overlap rows
+fact rows 129 final changed vs B1 in B2route 0 | in B1clamp 0
+   raw route D2: fact rows changed 8, item 0.787 -> 0.950
+   raw route S3: fact rows changed 12, item 0.692 -> 0.817
+   raw route D3: fact rows changed 50, item 0.788 -> 0.762
+B2route: validation-overlap rows 131, changed vs B1 87, equal to their validation label [np.int64(1077)]
+B1clamp: validation-overlap rows 131, changed vs B1 0, equal to their validation label []
