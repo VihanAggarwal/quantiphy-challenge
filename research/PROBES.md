@@ -802,3 +802,11 @@ Pilot extended to 24 validation clips (131 rows matched to combo3), item means b
 Routing unchanged. 2D-sim gm edge is mostly simulation_0171 accelerations (agent and base err in opposite directions).
 Run-to-run variance is large (simulation_0025 eagle speed/length: pilot run 27.8 / 2.05, test run 11.8 / 0.87, facts 11.9 / 0.8), so a
 second independent pass on the 12 validation simulation clips (/tmp/blind_r2) tests median(agent1, agent2, base) vs gm vs agent.
+Second independent agent pass (12 validation simulation clips, 68 rows with both passes and base; research/blind/eval_r2.py):
+| | a1 | a2 | base | gm(a1,base) | gm(a1,a2) | med(a1,a2,base) | gm(a1,a2,base) |
+|---|---|---|---|---|---|---|---|
+| 2D sim (24) | .767 | .767 | .758 | **.846** | .779 | .775 | .804 |
+| 3D sim (44) | .914 | **.923** | .848 | .882 | .916 | .900 | .893 |
+Passes agree to a median 1-2% (|log a2/a1|): the agent's errors are systematic, not run noise, so a second pass buys
+~nothing (3D sim gm(a1,a2) - a1 +.002 [-.014, +.017]). Third votes from Sol / Argon do not beat gm(agent, combo3) on 2D sim
+either (gm(a,c3) .842, +Sol .829, med(a,c3,Sol) .804, +Argon .833). Routing unchanged; no second test pass.
