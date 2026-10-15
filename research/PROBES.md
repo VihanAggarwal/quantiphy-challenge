@@ -771,3 +771,13 @@ isolated folder with only the video + test inputs (no labels; transcript audit: 
 - Bugs found and fixed in the evaluator: val/test qid collision (score by clip+qid); negative accelerations -> magnitudes.
 Running: all 94 3D-simulation test videos (6 parallel batches), plus validation pilots on 6 internet + 6 2D-sim clips.
 Expected if it holds on test: S3 sim (221 scored rows) and D3 sim rows +.10-.13/row -> about +.02-.025 overall.
+Pilot extended (21 validation clips, 120 rows matched to combo3), item means by clip type:
+| type | n (clips) | agent | combo3 | gm(agent, combo3) |
+|---|---|---|---|---|
+| 3D simulation (+seg) | 44 (6) | **.914** | .848 | .882 |
+| internet | 23 (5) | **.970** | .909 | .930 |
+| 2D simulation (+seg) | 18 (4) | .717 | .722 | **.822** |
+| lab | 35 (6) | .726 | **.800** | .777 |
+ROUTING FIXED HERE (before any test read): 3D sim -> agent; internet -> agent; 2D sim -> gm(agent, base); lab -> base;
+exact stated facts always kept. Container restart lost the running batches; 32 test clips + 27 pilot clips survived on disk
+(archived in research/blind/out/); the remaining 336 test clips were relaunched in 12 batches (3D sim first).
