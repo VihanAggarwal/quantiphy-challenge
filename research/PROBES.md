@@ -790,3 +790,5 @@ internet_0027). Partial build on the 69 clips: 314 scored rows replaced (D3 150,
 PRE-REGISTERED (before any 2D-sim test answer exists): 2D-sim routing stays gm(agent, base) unless BOTH (a) the 29 held-out
 2D-sim stated-fact rows (22 clips, raw routed answer before the facts rule) give agent - gm >= +.03 mean item and (b) the
 extended 2D-sim validation (6 clips) gives agent >= gm; then 2D sim -> agent. If gm < raw on those facts by > .03, 2D sim -> base.
+Family pooling on top of the agent (research/blind/pool_check.py, pool rule without facts; 68 held-out fact rows, 61 pooled):
+.9618 -> .9618 (tau .15), .9603 (median), .9618 (max_dev 1.6), .9603 (mad .1): neutral -> not used.
