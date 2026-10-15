@@ -156,3 +156,12 @@ the top of this file decides on its outputs (`evaluate_ctx.py --root ... --lovo`
 Follow-ups after the run: if `ta_geo` / `tacx_geo` pass, route size / distance rows to them inside the median sets;
 if only `ta_direct` is strong, add it as a direct member; if nothing passes, the next lever is a per-question
 "which segment" pointing model fine-tuned on Blender renders (out of scope for 9 days).
+
+
+## Amendment 2026-10-15 (before any ctx output exists; tightening only, from VERIFY.md issues 1, 2, 6)
+- Criterion 4 baseline: the same LOVO member-set search WITHOUT the new methods (old 4 + cvq_geo, ~.5974), not v3's
+  old-4 search (.5793, which cvq_geo alone already beats). Bar: new >= baseline + .010 (~.6074).
+- Criterion 3 also requires the method to answer >= 90% of the stated-fact test rows (no pass on missing data).
+- cvqcx_geo is added to the pre-declared methods (closest to the diagnosed oracle).
+- Before scoring, check colab.log for the `ctx_merge ... fallback <path>` line: if CaW was missing and ta/direct was
+  used as the fallback, record it and treat the run as a deviation (VERIFY.md issue 3).

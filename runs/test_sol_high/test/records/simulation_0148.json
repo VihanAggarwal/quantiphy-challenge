@@ -1,0 +1,46 @@
+{
+ "video_id": "simulation_0148",
+ "model": "gpt-6.1-sol",
+ "effort": "high",
+ "status": "completed",
+ "n_frames": 18,
+ "secs": 78.4,
+ "usd": 0.030828,
+ "usage": {
+  "input_tokens": 9553,
+  "output_tokens": 4255
+ },
+ "answers": [
+  {
+   "value": 50.0,
+   "qid": 343,
+   "how": "A quadratic fit to tracked window positions gives the train's motion; extrapolating to 1 s and scaling 158 px to 1.8 m gives this speed.",
+   "unit": "m/s"
+  },
+  {
+   "value": 45.4,
+   "qid": 344,
+   "how": "Near 0.5 s, the train moves about 166 px per frame at 24 fps. Using 1.8 m per 158 px gives this speed.",
+   "unit": "m/s"
+  },
+  {
+   "value": 9.2,
+   "qid": 345,
+   "how": "Tracked windows give approximately 1.4 px/frame\u00b2 acceleration. Converting with 24 fps and 1.8 m per 158 px gives this value.",
+   "unit": "m/s^2"
+  },
+  {
+   "value": 2.05,
+   "qid": 346,
+   "how": "The door's vertical length is approximately 180 px, compared with the 158 px window width representing 1.8 m.",
+   "unit": "m"
+  },
+  {
+   "value": 3.37,
+   "qid": 347,
+   "how": "The central pillar is approximately 296 px tall. Scaling by the 158 px window width representing 1.8 m gives this height.",
+   "unit": "m"
+  }
+ ],
+ "raw_text": "{\"answers\":[{\"value\":50.0,\"qid\":343,\"how\":\"A quadratic fit to tracked window positions gives the train's motion; extrapolating to 1 s and scaling 158 px to 1.8 m gives this speed.\",\"unit\":\"m/s\"},{\"value\":45.4,\"qid\":344,\"how\":\"Near 0.5 s, the train moves about 166 px per frame at 24 fps. Using 1.8 m per 158 px gives this speed.\",\"unit\":\"m/s\"},{\"value\":9.2,\"qid\":345,\"how\":\"Tracked windows give approximately 1.4 px/frame\u00b2 acceleration. Converting with 24 fps and 1.8 m per 158 px gives this value.\",\"unit\":\"m/s^2\"},{\"value\":2.05,\"qid\":346,\"how\":\"The door's vertical length is approximately 180 px, compared with the 158 px window width representing 1.8 m.\",\"unit\":\"m\"},{\"value\":3.37,\"qid\":347,\"how\":\"The central pillar is approximately 296 px tall. Scaling by the 158 px window width representing 1.8 m gives this height.\",\"unit\":\"m\"}]}"
+}

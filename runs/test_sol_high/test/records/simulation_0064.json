@@ -1,0 +1,88 @@
+{
+ "video_id": "simulation_0064",
+ "model": "gpt-6.1-sol",
+ "effort": "high",
+ "status": "completed",
+ "n_frames": 24,
+ "secs": 301.4,
+ "usd": 0.1068,
+ "usage": {
+  "input_tokens": 13825,
+  "output_tokens": 18595
+ },
+ "answers": [
+  {
+   "value": 4.0,
+   "qid": 1306,
+   "how": "Used the white car\u2019s known acceleration to calibrate motion, then depth-corrected the yellow car\u2019s displacement around 2.5 s.",
+   "unit": "m/s"
+  },
+  {
+   "value": 12.5,
+   "qid": 1307,
+   "how": "Measured the visible curb-to-curb lane span and converted it using the perspective-corrected scale.",
+   "unit": "m"
+  },
+  {
+   "value": 2.1,
+   "qid": 1308,
+   "how": "Measured the white car vertically at its front, correcting for perspective and the roof\u2019s longitudinal extent.",
+   "unit": "m"
+  },
+  {
+   "value": 2.4,
+   "qid": 1309,
+   "how": "Measured the white car\u2019s horizontal extent, including mirrors, and applied its depth-corrected scale.",
+   "unit": "m"
+  },
+  {
+   "value": 5.6,
+   "qid": 1310,
+   "how": "Measured the yellow car nearly side-on after its turn and converted its bumper-to-bumper pixel length.",
+   "unit": "m"
+  },
+  {
+   "value": 1.7,
+   "qid": 1311,
+   "how": "Measured the yellow car from wheel-contact level to its highest point, with perspective correction.",
+   "unit": "m"
+  },
+  {
+   "value": 1.9,
+   "qid": 1312,
+   "how": "Measured the yellow car\u2019s transverse extent in the early, nearly frontal frames and corrected for depth.",
+   "unit": "m"
+  },
+  {
+   "value": 0.6,
+   "qid": 1313,
+   "how": "Measured the bicycle wheel\u2019s vertical diameter and applied the bicycle\u2019s depth-corrected scale.",
+   "unit": "m"
+  },
+  {
+   "value": 5.2,
+   "qid": 1314,
+   "how": "Measured the traffic-light assembly from the pole base to its highest point and corrected for perspective.",
+   "unit": "m"
+  },
+  {
+   "value": 1.2,
+   "qid": 1315,
+   "how": "Converted the pedestrian\u2019s horizontal displacement from 1.0 s to 2.958 s into distance and divided by elapsed time.",
+   "unit": "m/s"
+  },
+  {
+   "value": 1.7,
+   "qid": 1316,
+   "how": "Measured the pedestrian\u2019s head-to-foot pixel height and converted it using the supplied pedestrian depths.",
+   "unit": "m"
+  },
+  {
+   "value": 5.5,
+   "qid": 1317,
+   "how": "Tracked the bicycle across the clip, corrected its apparent motion for changing depth, and divided distance by elapsed time.",
+   "unit": "m/s"
+  }
+ ],
+ "raw_text": "{\"answers\":[{\"value\":4.0,\"qid\":1306,\"how\":\"Used the white car\u2019s known acceleration to calibrate motion, then depth-corrected the yellow car\u2019s displacement around 2.5 s.\",\"unit\":\"m/s\"},{\"value\":12.5,\"qid\":1307,\"how\":\"Measured the visible curb-to-curb lane span and converted it using the perspective-corrected scale.\",\"unit\":\"m\"},{\"value\":2.1,\"qid\":1308,\"how\":\"Measured the white car vertically at its front, correcting for perspective and the roof\u2019s longitudinal extent.\",\"unit\":\"m\"},{\"value\":2.4,\"qid\":1309,\"how\":\"Measured the white car\u2019s horizontal extent, including mirrors, and applied its depth-corrected scale.\",\"unit\":\"m\"},{\"value\":5.6,\"qid\":1310,\"how\":\"Measured the yellow car nearly side-on after its turn and converted its bumper-to-bumper pixel length.\",\"unit\":\"m\"},{\"value\":1.7,\"qid\":1311,\"how\":\"Measured the yellow car from wheel-contact level to its highest point, with perspective correction.\",\"unit\":\"m\"},{\"value\":1.9,\"qid\":1312,\"how\":\"Measured the yellow car\u2019s transverse extent in the early, nearly frontal frames and corrected for depth.\",\"unit\":\"m\"},{\"value\":0.6,\"qid\":1313,\"how\":\"Measured the bicycle wheel\u2019s vertical diameter and applied the bicycle\u2019s depth-corrected scale.\",\"unit\":\"m\"},{\"value\":5.2,\"qid\":1314,\"how\":\"Measured the traffic-light assembly from the pole base to its highest point and corrected for perspective.\",\"unit\":\"m\"},{\"value\":1.2,\"qid\":1315,\"how\":\"Converted the pedestrian\u2019s horizontal displacement from 1.0 s to 2.958 s into distance and divided by elapsed time.\",\"unit\":\"m/s\"},{\"value\":1.7,\"qid\":1316,\"how\":\"Measured the pedestrian\u2019s head-to-foot pixel height and converted it using the supplied pedestrian depths.\",\"unit\":\"m\"},{\"value\":5.5,\"qid\":1317,\"how\":\"Tracked the bicycle across the clip, corrected its apparent motion for changing depth, and divided distance by elapsed time.\",\"unit\":\"m/s\"}]}"
+}

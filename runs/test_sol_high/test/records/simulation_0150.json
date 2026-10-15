@@ -1,0 +1,76 @@
+{
+ "video_id": "simulation_0150",
+ "model": "gpt-6.1-sol",
+ "effort": "high",
+ "status": "completed",
+ "n_frames": 20,
+ "secs": 173.6,
+ "usd": 0.059344,
+ "usage": {
+  "input_tokens": 11069,
+  "output_tokens": 9655
+ },
+ "answers": [
+  {
+   "value": 4.7,
+   "qid": 1526,
+   "how": "The car spans about 517 pixels in the side view; the tire diameter is about 84 pixels. Thus 517 \u00d7 0.764 / 84 \u2248 4.70 m.",
+   "unit": "m"
+  },
+  {
+   "value": 0.73,
+   "qid": 1527,
+   "how": "The rear pillar markings are about 39 pixels tall. Correcting the tire scale to the approximately 23.44 m rear-wall depth gives about 0.73 m.",
+   "unit": "m"
+  },
+  {
+   "value": 0.96,
+   "qid": 1528,
+   "how": "The rear pillar's front face is approximately 51 pixels wide. Applying the depth-corrected tire scale gives about 0.96 m.",
+   "unit": "m"
+  },
+  {
+   "value": 6.2,
+   "qid": 1529,
+   "how": "A local fit to the front tire's horizontal positions gives approximately 682 pixels/s at 0.5 s. Multiplying by 0.764/84 converts this to 6.2 m/s.",
+   "unit": "m/s"
+  },
+  {
+   "value": 11.3,
+   "qid": 1530,
+   "how": "The local curvature of the tire-position trajectory near 0.5 s is approximately 1245 pixels/s\u00b2, giving 11.3 m/s\u00b2 using the tire scale.",
+   "unit": "m/s^2"
+  },
+  {
+   "value": 9.6,
+   "qid": 1531,
+   "how": "The tire moves at approximately 1055 pixels/s near 1 s. Using 0.764/84 meters per pixel gives 9.6 m/s.",
+   "unit": "m/s"
+  },
+  {
+   "value": 2.2,
+   "qid": 1532,
+   "how": "A local polynomial fit to tire positions around 1 s gives approximately 242 pixels/s\u00b2, equivalent to 2.2 m/s\u00b2.",
+   "unit": "m/s^2"
+  },
+  {
+   "value": 1.52,
+   "qid": 1533,
+   "how": "The B1 lettering spans approximately 81 pixels. Its scale is (0.764/84) \u00d7 (23.44/11.38) meters per pixel, giving 1.52 m.",
+   "unit": "m"
+  },
+  {
+   "value": 1.41,
+   "qid": 1534,
+   "how": "The lettering is approximately 75 pixels tall. Applying the tire scale and the 23.44/11.38 depth correction gives 1.41 m.",
+   "unit": "m"
+  },
+  {
+   "value": 6.3,
+   "qid": 1535,
+   "how": "Using the floor's vanishing point and the known rear-wall depth, successive corresponding pillar faces have an estimated depth spacing of about 6.3 m.",
+   "unit": "m"
+  }
+ ],
+ "raw_text": "{\"answers\":[{\"value\":4.7,\"qid\":1526,\"how\":\"The car spans about 517 pixels in the side view; the tire diameter is about 84 pixels. Thus 517 \u00d7 0.764 / 84 \u2248 4.70 m.\",\"unit\":\"m\"},{\"value\":0.73,\"qid\":1527,\"how\":\"The rear pillar markings are about 39 pixels tall. Correcting the tire scale to the approximately 23.44 m rear-wall depth gives about 0.73 m.\",\"unit\":\"m\"},{\"value\":0.96,\"qid\":1528,\"how\":\"The rear pillar's front face is approximately 51 pixels wide. Applying the depth-corrected tire scale gives about 0.96 m.\",\"unit\":\"m\"},{\"value\":6.2,\"qid\":1529,\"how\":\"A local fit to the front tire's horizontal positions gives approximately 682 pixels/s at 0.5 s. Multiplying by 0.764/84 converts this to 6.2 m/s.\",\"unit\":\"m/s\"},{\"value\":11.3,\"qid\":1530,\"how\":\"The local curvature of the tire-position trajectory near 0.5 s is approximately 1245 pixels/s\u00b2, giving 11.3 m/s\u00b2 using the tire scale.\",\"unit\":\"m/s^2\"},{\"value\":9.6,\"qid\":1531,\"how\":\"The tire moves at approximately 1055 pixels/s near 1 s. Using 0.764/84 meters per pixel gives 9.6 m/s.\",\"unit\":\"m/s\"},{\"value\":2.2,\"qid\":1532,\"how\":\"A local polynomial fit to tire positions around 1 s gives approximately 242 pixels/s\u00b2, equivalent to 2.2 m/s\u00b2.\",\"unit\":\"m/s^2\"},{\"value\":1.52,\"qid\":1533,\"how\":\"The B1 lettering spans approximately 81 pixels. Its scale is (0.764/84) \u00d7 (23.44/11.38) meters per pixel, giving 1.52 m.\",\"unit\":\"m\"},{\"value\":1.41,\"qid\":1534,\"how\":\"The lettering is approximately 75 pixels tall. Applying the tire scale and the 23.44/11.38 depth correction gives 1.41 m.\",\"unit\":\"m\"},{\"value\":6.3,\"qid\":1535,\"how\":\"Using the floor's vanishing point and the known rear-wall depth, successive corresponding pillar faces have an estimated depth spacing of about 6.3 m.\",\"unit\":\"m\"}]}"
+}

@@ -1,0 +1,46 @@
+{
+ "video_id": "simulation_0153",
+ "model": "gpt-6.1-sol",
+ "effort": "high",
+ "status": "completed",
+ "n_frames": 19,
+ "secs": 150.9,
+ "usd": 0.056858,
+ "usage": {
+  "input_tokens": 10028,
+  "output_tokens": 9366
+ },
+ "answers": [
+  {
+   "value": 1.91,
+   "qid": 348,
+   "how": "The car, including its extending wire, spans about 248 pixels; the tire diameter is about 48 pixels. Length = 248/48 \u00d7 0.369.",
+   "unit": "m"
+  },
+  {
+   "value": 4.0,
+   "qid": 349,
+   "how": "Tracking the same wheel across nearby frames gives approximately 520 pixels/s at 1 s. Converted using 0.369 m per 48 pixels.",
+   "unit": "m/s"
+  },
+  {
+   "value": 0.5,
+   "qid": 350,
+   "how": "A smooth local fit to the tracked positions gives approximately 65 pixels/s\u00b2 at 1 s. Converted using the tire scale.",
+   "unit": "m/s^2"
+  },
+  {
+   "value": 3.92,
+   "qid": 351,
+   "how": "Tracking the wheel across nearby frames gives approximately 510 pixels/s at 1.5 s. Converted using 0.369 m per 48 pixels.",
+   "unit": "m/s"
+  },
+  {
+   "value": 1.61,
+   "qid": 352,
+   "how": "A smooth local fit gives a deceleration magnitude of approximately 210 pixels/s\u00b2 at 1.5 s. Converted using the tire scale.",
+   "unit": "m/s^2"
+  }
+ ],
+ "raw_text": "{\"answers\":[{\"value\":1.91,\"qid\":348,\"how\":\"The car, including its extending wire, spans about 248 pixels; the tire diameter is about 48 pixels. Length = 248/48 \u00d7 0.369.\",\"unit\":\"m\"},{\"value\":4.0,\"qid\":349,\"how\":\"Tracking the same wheel across nearby frames gives approximately 520 pixels/s at 1 s. Converted using 0.369 m per 48 pixels.\",\"unit\":\"m/s\"},{\"value\":0.5,\"qid\":350,\"how\":\"A smooth local fit to the tracked positions gives approximately 65 pixels/s\u00b2 at 1 s. Converted using the tire scale.\",\"unit\":\"m/s^2\"},{\"value\":3.92,\"qid\":351,\"how\":\"Tracking the wheel across nearby frames gives approximately 510 pixels/s at 1.5 s. Converted using 0.369 m per 48 pixels.\",\"unit\":\"m/s\"},{\"value\":1.61,\"qid\":352,\"how\":\"A smooth local fit gives a deceleration magnitude of approximately 210 pixels/s\u00b2 at 1.5 s. Converted using the tire scale.\",\"unit\":\"m/s^2\"}]}"
+}

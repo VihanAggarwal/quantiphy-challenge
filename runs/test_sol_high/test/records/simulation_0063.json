@@ -1,0 +1,94 @@
+{
+ "video_id": "simulation_0063",
+ "model": "gpt-6.1-sol",
+ "effort": "high",
+ "status": "completed",
+ "n_frames": 22,
+ "secs": 322.0,
+ "usd": 0.114929,
+ "usage": {
+  "input_tokens": 13089,
+  "output_tokens": 20368
+ },
+ "answers": [
+  {
+   "value": 4.8,
+   "qid": 1293,
+   "how": "Calibrated motion using the white car\u2019s known acceleration, then measured the yellow car\u2019s depth-corrected displacement around 2.5 s.",
+   "unit": "m/s"
+  },
+  {
+   "value": 3.6,
+   "qid": 1294,
+   "how": "Measured the curb-to-curb road span in perspective and converted the corresponding lane width using the acceleration-calibrated scale.",
+   "unit": "m"
+  },
+  {
+   "value": 2.2,
+   "qid": 1295,
+   "how": "Measured the white car\u2019s roof-to-wheel-bottom extent and corrected its pixel scale for depth.",
+   "unit": "m"
+  },
+  {
+   "value": 5.8,
+   "qid": 1296,
+   "how": "Measured the white car\u2019s longitudinal extent, correcting for perspective and its visible width.",
+   "unit": "m"
+  },
+  {
+   "value": 5.5,
+   "qid": 1297,
+   "how": "Measured the yellow car\u2019s length in the earlier, nearly side-on frames and applied the depth-corrected scale.",
+   "unit": "m"
+  },
+  {
+   "value": 1.8,
+   "qid": 1298,
+   "how": "Measured the yellow car\u2019s full vertical extent and converted it using its supplied depth.",
+   "unit": "m"
+  },
+  {
+   "value": 2,
+   "qid": 1299,
+   "how": "Used the front-facing portion of the turn to measure transverse width, correcting for orientation and perspective.",
+   "unit": "m"
+  },
+  {
+   "value": 0.8,
+   "qid": 1300,
+   "how": "Measured the visible bicycle wheels\u2019 vertical diameters in later frames and corrected for depth.",
+   "unit": "m"
+  },
+  {
+   "value": 5.4,
+   "qid": 1301,
+   "how": "Measured the traffic-light assembly from its ground base to its top, using the calibrated ground-plane perspective.",
+   "unit": "m"
+  },
+  {
+   "value": 3.6,
+   "qid": 1302,
+   "how": "Converted the streetlights\u2019 base-to-top pixel extents using their ground-plane positions; several lights give consistent heights.",
+   "unit": "m"
+  },
+  {
+   "value": 1.25,
+   "qid": 1303,
+   "how": "Reconstructed the pedestrian\u2019s ground positions at the beginning and end and divided the traveled distance by 2.958 s.",
+   "unit": "m/s"
+  },
+  {
+   "value": 1.9,
+   "qid": 1304,
+   "how": "Measured head-to-foot height near both supplied pedestrian depths and averaged the converted measurements.",
+   "unit": "m"
+  },
+  {
+   "value": 5.4,
+   "qid": 1305,
+   "how": "Tracked the bicycle across the sequence, corrected perspective using its supplied depths, and divided total travel by elapsed time.",
+   "unit": "m/s"
+  }
+ ],
+ "raw_text": "{\"answers\":[{\"value\":4.8,\"qid\":1293,\"how\":\"Calibrated motion using the white car\u2019s known acceleration, then measured the yellow car\u2019s depth-corrected displacement around 2.5 s.\",\"unit\":\"m/s\"},{\"value\":3.6,\"qid\":1294,\"how\":\"Measured the curb-to-curb road span in perspective and converted the corresponding lane width using the acceleration-calibrated scale.\",\"unit\":\"m\"},{\"value\":2.2,\"qid\":1295,\"how\":\"Measured the white car\u2019s roof-to-wheel-bottom extent and corrected its pixel scale for depth.\",\"unit\":\"m\"},{\"value\":5.8,\"qid\":1296,\"how\":\"Measured the white car\u2019s longitudinal extent, correcting for perspective and its visible width.\",\"unit\":\"m\"},{\"value\":5.5,\"qid\":1297,\"how\":\"Measured the yellow car\u2019s length in the earlier, nearly side-on frames and applied the depth-corrected scale.\",\"unit\":\"m\"},{\"value\":1.8,\"qid\":1298,\"how\":\"Measured the yellow car\u2019s full vertical extent and converted it using its supplied depth.\",\"unit\":\"m\"},{\"value\":2,\"qid\":1299,\"how\":\"Used the front-facing portion of the turn to measure transverse width, correcting for orientation and perspective.\",\"unit\":\"m\"},{\"value\":0.8,\"qid\":1300,\"how\":\"Measured the visible bicycle wheels\u2019 vertical diameters in later frames and corrected for depth.\",\"unit\":\"m\"},{\"value\":5.4,\"qid\":1301,\"how\":\"Measured the traffic-light assembly from its ground base to its top, using the calibrated ground-plane perspective.\",\"unit\":\"m\"},{\"value\":3.6,\"qid\":1302,\"how\":\"Converted the streetlights\u2019 base-to-top pixel extents using their ground-plane positions; several lights give consistent heights.\",\"unit\":\"m\"},{\"value\":1.25,\"qid\":1303,\"how\":\"Reconstructed the pedestrian\u2019s ground positions at the beginning and end and divided the traveled distance by 2.958 s.\",\"unit\":\"m/s\"},{\"value\":1.9,\"qid\":1304,\"how\":\"Measured head-to-foot height near both supplied pedestrian depths and averaged the converted measurements.\",\"unit\":\"m\"},{\"value\":5.4,\"qid\":1305,\"how\":\"Tracked the bicycle across the sequence, corrected perspective using its supplied depths, and divided total travel by elapsed time.\",\"unit\":\"m/s\"}]}"
+}

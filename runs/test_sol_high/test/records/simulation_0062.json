@@ -1,0 +1,94 @@
+{
+ "video_id": "simulation_0062",
+ "model": "gpt-6.1-sol",
+ "effort": "high",
+ "status": "completed",
+ "n_frames": 22,
+ "secs": 234.9,
+ "usd": 0.08767,
+ "usage": {
+  "input_tokens": 13090,
+  "output_tokens": 14916
+ },
+ "answers": [
+  {
+   "value": 4.1,
+   "qid": 1280,
+   "how": "Estimated the yellow car\u2019s ground-plane path through the turn over 2.5 seconds, using the white car\u2019s acceleration to calibrate scale and correcting for depth.",
+   "unit": "m/s"
+  },
+  {
+   "value": 5.8,
+   "qid": 1281,
+   "how": "Measured the road between the curbs, corrected for perspective, and divided the two-lane width by two.",
+   "unit": "m"
+  },
+  {
+   "value": 2.1,
+   "qid": 1282,
+   "how": "Measured the white car\u2019s roof-to-wheel-bottom pixel height and converted using its acceleration-derived scale.",
+   "unit": "m"
+  },
+  {
+   "value": 5.7,
+   "qid": 1283,
+   "how": "Measured the white car\u2019s longitudinal extent in its side view and applied the acceleration-derived scale.",
+   "unit": "m"
+  },
+  {
+   "value": 5.0,
+   "qid": 1284,
+   "how": "Measured the yellow car in the early side-on frames, correcting its pixel length for depth and perspective.",
+   "unit": "m"
+  },
+  {
+   "value": 1.6,
+   "qid": 1285,
+   "how": "Measured the yellow car\u2019s vertical extent, including its roof sign, with perspective and depth correction.",
+   "unit": "m"
+  },
+  {
+   "value": 2.0,
+   "qid": 1286,
+   "how": "Measured the yellow car\u2019s width after it turned toward the camera and corrected for the front face\u2019s depth.",
+   "unit": "m"
+  },
+  {
+   "value": 0.66,
+   "qid": 1287,
+   "how": "Measured an unobstructed bicycle wheel\u2019s pixel diameter and applied the depth-corrected scale.",
+   "unit": "m"
+  },
+  {
+   "value": 5.1,
+   "qid": 1288,
+   "how": "Measured the foreground traffic light from its ground contact to the top sign and corrected for perspective.",
+   "unit": "m"
+  },
+  {
+   "value": 3.4,
+   "qid": 1289,
+   "how": "Measured the foreground streetlight from its base to its highest point and applied the local ground-plane scale.",
+   "unit": "m"
+  },
+  {
+   "value": 1.2,
+   "qid": 1290,
+   "how": "Reconstructed the pedestrian\u2019s ground-plane displacement using image positions and the supplied depths, then divided by elapsed time.",
+   "unit": "m/s"
+  },
+  {
+   "value": 1.8,
+   "qid": 1291,
+   "how": "Measured the pedestrian\u2019s head-to-foot pixel height and converted with the depth-corrected scale.",
+   "unit": "m"
+  },
+  {
+   "value": 5.3,
+   "qid": 1292,
+   "how": "Tracked the bicycle across the frames, converted its pixel displacement using its depth, and divided by elapsed time.",
+   "unit": "m/s"
+  }
+ ],
+ "raw_text": "{\"answers\":[{\"value\":4.1,\"qid\":1280,\"how\":\"Estimated the yellow car\u2019s ground-plane path through the turn over 2.5 seconds, using the white car\u2019s acceleration to calibrate scale and correcting for depth.\",\"unit\":\"m/s\"},{\"value\":5.8,\"qid\":1281,\"how\":\"Measured the road between the curbs, corrected for perspective, and divided the two-lane width by two.\",\"unit\":\"m\"},{\"value\":2.1,\"qid\":1282,\"how\":\"Measured the white car\u2019s roof-to-wheel-bottom pixel height and converted using its acceleration-derived scale.\",\"unit\":\"m\"},{\"value\":5.7,\"qid\":1283,\"how\":\"Measured the white car\u2019s longitudinal extent in its side view and applied the acceleration-derived scale.\",\"unit\":\"m\"},{\"value\":5.0,\"qid\":1284,\"how\":\"Measured the yellow car in the early side-on frames, correcting its pixel length for depth and perspective.\",\"unit\":\"m\"},{\"value\":1.6,\"qid\":1285,\"how\":\"Measured the yellow car\u2019s vertical extent, including its roof sign, with perspective and depth correction.\",\"unit\":\"m\"},{\"value\":2.0,\"qid\":1286,\"how\":\"Measured the yellow car\u2019s width after it turned toward the camera and corrected for the front face\u2019s depth.\",\"unit\":\"m\"},{\"value\":0.66,\"qid\":1287,\"how\":\"Measured an unobstructed bicycle wheel\u2019s pixel diameter and applied the depth-corrected scale.\",\"unit\":\"m\"},{\"value\":5.1,\"qid\":1288,\"how\":\"Measured the foreground traffic light from its ground contact to the top sign and corrected for perspective.\",\"unit\":\"m\"},{\"value\":3.4,\"qid\":1289,\"how\":\"Measured the foreground streetlight from its base to its highest point and applied the local ground-plane scale.\",\"unit\":\"m\"},{\"value\":1.2,\"qid\":1290,\"how\":\"Reconstructed the pedestrian\u2019s ground-plane displacement using image positions and the supplied depths, then divided by elapsed time.\",\"unit\":\"m/s\"},{\"value\":1.8,\"qid\":1291,\"how\":\"Measured the pedestrian\u2019s head-to-foot pixel height and converted with the depth-corrected scale.\",\"unit\":\"m\"},{\"value\":5.3,\"qid\":1292,\"how\":\"Tracked the bicycle across the frames, converted its pixel displacement using its depth, and divided by elapsed time.\",\"unit\":\"m/s\"}]}"
+}

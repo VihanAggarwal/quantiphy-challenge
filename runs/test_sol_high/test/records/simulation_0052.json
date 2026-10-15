@@ -1,0 +1,70 @@
+{
+ "video_id": "simulation_0052",
+ "model": "gpt-6.1-sol",
+ "effort": "high",
+ "status": "completed",
+ "n_frames": 21,
+ "secs": 105.1,
+ "usd": 0.053574,
+ "usage": {
+  "input_tokens": 20244,
+  "output_tokens": 6666
+ },
+ "answers": [
+  {
+   "value": 1.02,
+   "qid": 1211,
+   "how": "Orange-wheel tracking gives approximately 239 px/s\u00b2, so the acceleration prior gives 0.01197 m/px at the orange car. The hydrant is about 74 px tall; correcting by 17.737/15.436 gives 1.02 m.",
+   "unit": "m"
+  },
+  {
+   "value": 4.24,
+   "qid": 1212,
+   "how": "Measured streetlight height is approximately 310 px. Applied the acceleration-derived scale and the streetlight-to-orange depth ratio.",
+   "unit": "m"
+  },
+  {
+   "value": 13.1,
+   "qid": 1213,
+   "how": "Tracked green-car wheel centers near 1.0 s, giving approximately 1650 px/s. Applied the acceleration-derived scale and depth correction 10.250/15.436.",
+   "unit": "m/s"
+  },
+  {
+   "value": 4.85,
+   "qid": 1214,
+   "how": "Measured orange-car length is approximately 405 px; multiplied by the acceleration-derived scale of 0.01197 m/px.",
+   "unit": "m"
+  },
+  {
+   "value": 1.48,
+   "qid": 1215,
+   "how": "Measured orange-car height is approximately 124 px; multiplied by the acceleration-derived scale of 0.01197 m/px.",
+   "unit": "m"
+  },
+  {
+   "value": 0.25,
+   "qid": 1216,
+   "how": "Measured curb face is approximately 18 px tall. Applied the acceleration-derived scale, using the adjacent streetlights' depth for the curb.",
+   "unit": "m"
+  },
+  {
+   "value": 1.71,
+   "qid": 1217,
+   "how": "Measured green-car height is approximately 215 px. Applied the acceleration-derived scale and depth correction 10.250/15.436.",
+   "unit": "m"
+  },
+  {
+   "value": 5.36,
+   "qid": 1218,
+   "how": "Estimated the green car's bumper-to-bumper extent as approximately 675 px using adjacent frames to recover the clipped end. Applied the acceleration-derived scale and green-car depth correction.",
+   "unit": "m"
+  },
+  {
+   "value": 7.55,
+   "qid": 1219,
+   "how": "Measured approximately 552 px between the streetlight posts. Applied the acceleration-derived scale and the mean streetlight-to-orange depth ratio.",
+   "unit": "m"
+  }
+ ],
+ "raw_text": "{\"answers\":[{\"value\":1.02,\"qid\":1211,\"how\":\"Orange-wheel tracking gives approximately 239 px/s\u00b2, so the acceleration prior gives 0.01197 m/px at the orange car. The hydrant is about 74 px tall; correcting by 17.737/15.436 gives 1.02 m.\",\"unit\":\"m\"},{\"value\":4.24,\"qid\":1212,\"how\":\"Measured streetlight height is approximately 310 px. Applied the acceleration-derived scale and the streetlight-to-orange depth ratio.\",\"unit\":\"m\"},{\"value\":13.1,\"qid\":1213,\"how\":\"Tracked green-car wheel centers near 1.0 s, giving approximately 1650 px/s. Applied the acceleration-derived scale and depth correction 10.250/15.436.\",\"unit\":\"m/s\"},{\"value\":4.85,\"qid\":1214,\"how\":\"Measured orange-car length is approximately 405 px; multiplied by the acceleration-derived scale of 0.01197 m/px.\",\"unit\":\"m\"},{\"value\":1.48,\"qid\":1215,\"how\":\"Measured orange-car height is approximately 124 px; multiplied by the acceleration-derived scale of 0.01197 m/px.\",\"unit\":\"m\"},{\"value\":0.25,\"qid\":1216,\"how\":\"Measured curb face is approximately 18 px tall. Applied the acceleration-derived scale, using the adjacent streetlights' depth for the curb.\",\"unit\":\"m\"},{\"value\":1.71,\"qid\":1217,\"how\":\"Measured green-car height is approximately 215 px. Applied the acceleration-derived scale and depth correction 10.250/15.436.\",\"unit\":\"m\"},{\"value\":5.36,\"qid\":1218,\"how\":\"Estimated the green car's bumper-to-bumper extent as approximately 675 px using adjacent frames to recover the clipped end. Applied the acceleration-derived scale and green-car depth correction.\",\"unit\":\"m\"},{\"value\":7.55,\"qid\":1219,\"how\":\"Measured approximately 552 px between the streetlight posts. Applied the acceleration-derived scale and the mean streetlight-to-orange depth ratio.\",\"unit\":\"m\"}]}"
+}

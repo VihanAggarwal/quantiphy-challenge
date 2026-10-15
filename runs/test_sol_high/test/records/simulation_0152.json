@@ -1,0 +1,46 @@
+{
+ "video_id": "simulation_0152",
+ "model": "gpt-6.1-sol",
+ "effort": "high",
+ "status": "completed",
+ "n_frames": 18,
+ "secs": 151.4,
+ "usd": 0.055598,
+ "usage": {
+  "input_tokens": 9678,
+  "output_tokens": 9184
+ },
+ "answers": [
+  {
+   "value": 1.77,
+   "qid": 1541,
+   "how": "Measured the blue car's horizontal extent at about 249 pixels and its front tire diameter at about 52 pixels; used 0.369 m per tire diameter.",
+   "unit": "m"
+  },
+  {
+   "value": 9.4,
+   "qid": 1542,
+   "how": "Tracked the yellow front tire around 1 s, obtaining about 1080 pixels/s, and scaled using its approximately 88-pixel, 0.764 m diameter.",
+   "unit": "m/s"
+  },
+  {
+   "value": 2.0,
+   "qid": 1543,
+   "how": "Estimated the local curvature of the yellow tire's position-versus-time trajectory around 1 s and converted using the tire-diameter scale.",
+   "unit": "m/s^2"
+  },
+  {
+   "value": 3.7,
+   "qid": 1544,
+   "how": "Tracked the blue front tire around 1 s, obtaining about 516 pixels/s, and scaled using its approximately 52-pixel, 0.369 m diameter.",
+   "unit": "m/s"
+  },
+  {
+   "value": 1.2,
+   "qid": 1545,
+   "how": "Fit a smooth local trajectory to the blue front tire positions around 1 s and converted its second time derivative using the tire-diameter scale.",
+   "unit": "m/s^2"
+  }
+ ],
+ "raw_text": "{\"answers\":[{\"value\":1.77,\"qid\":1541,\"how\":\"Measured the blue car's horizontal extent at about 249 pixels and its front tire diameter at about 52 pixels; used 0.369 m per tire diameter.\",\"unit\":\"m\"},{\"value\":9.4,\"qid\":1542,\"how\":\"Tracked the yellow front tire around 1 s, obtaining about 1080 pixels/s, and scaled using its approximately 88-pixel, 0.764 m diameter.\",\"unit\":\"m/s\"},{\"value\":2.0,\"qid\":1543,\"how\":\"Estimated the local curvature of the yellow tire's position-versus-time trajectory around 1 s and converted using the tire-diameter scale.\",\"unit\":\"m/s^2\"},{\"value\":3.7,\"qid\":1544,\"how\":\"Tracked the blue front tire around 1 s, obtaining about 516 pixels/s, and scaled using its approximately 52-pixel, 0.369 m diameter.\",\"unit\":\"m/s\"},{\"value\":1.2,\"qid\":1545,\"how\":\"Fit a smooth local trajectory to the blue front tire positions around 1 s and converted its second time derivative using the tire-diameter scale.\",\"unit\":\"m/s^2\"}]}"
+}

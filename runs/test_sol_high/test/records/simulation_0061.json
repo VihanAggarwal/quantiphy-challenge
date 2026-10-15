@@ -1,0 +1,82 @@
+{
+ "video_id": "simulation_0061",
+ "model": "gpt-6.1-sol",
+ "effort": "high",
+ "status": "completed",
+ "n_frames": 22,
+ "secs": 276.4,
+ "usd": 0.097769,
+ "usage": {
+  "input_tokens": 12694,
+  "output_tokens": 17015
+ },
+ "answers": [
+  {
+   "value": 4.0,
+   "qid": 1269,
+   "how": "Measured the yellow car\u2019s displacement around 2.5 s and converted using the white car\u2019s acceleration-based scale, correcting for depth and direction.",
+   "unit": "m/s"
+  },
+  {
+   "value": 6.1,
+   "qid": 1270,
+   "how": "Measured the road cross-section, corrected its perspective, and divided the two-lane width by two.",
+   "unit": "m"
+  },
+  {
+   "value": 6.0,
+   "qid": 1271,
+   "how": "Measured the white car\u2019s longitudinal extent and calibrated it from its pixel acceleration of 4 m/s\u00b2.",
+   "unit": "m"
+  },
+  {
+   "value": 5.0,
+   "qid": 1272,
+   "how": "Compared the yellow car\u2019s longitudinal pixel extent with the calibrated white car, correcting for their different depths.",
+   "unit": "m"
+  },
+  {
+   "value": 1.6,
+   "qid": 1273,
+   "how": "Measured the yellow car\u2019s vertical extent relative to its wheel-contact plane and applied the depth-corrected scale.",
+   "unit": "m"
+  },
+  {
+   "value": 0.55,
+   "qid": 1274,
+   "how": "Measured approximately 12 pixels across a bicycle wheel and applied the calibrated scale at the bicycle\u2019s depth.",
+   "unit": "m"
+  },
+  {
+   "value": 5.0,
+   "qid": 1275,
+   "how": "Measured the traffic light from its ground base to its top and corrected for ground-plane perspective.",
+   "unit": "m"
+  },
+  {
+   "value": 3.5,
+   "qid": 1276,
+   "how": "Measured streetlight base-to-top extents and converted using their perspective-adjusted ground positions.",
+   "unit": "m"
+  },
+  {
+   "value": 1.2,
+   "qid": 1277,
+   "how": "Tracked the pedestrian from the first to the last frame, corrected the displacement for depth, and divided by 2.958 seconds.",
+   "unit": "m/s"
+  },
+  {
+   "value": 1.8,
+   "qid": 1278,
+   "how": "Measured approximately 50 pixels from head to feet and applied the calibrated scale at the pedestrian\u2019s depth.",
+   "unit": "m"
+  },
+  {
+   "value": 5.0,
+   "qid": 1279,
+   "how": "Tracked the bicycle across the clip and converted its displacement using the acceleration-calibrated, depth-corrected scale.",
+   "unit": "m/s"
+  }
+ ],
+ "raw_text": "{\"answers\":[{\"value\":4.0,\"qid\":1269,\"how\":\"Measured the yellow car\u2019s displacement around 2.5 s and converted using the white car\u2019s acceleration-based scale, correcting for depth and direction.\",\"unit\":\"m/s\"},{\"value\":6.1,\"qid\":1270,\"how\":\"Measured the road cross-section, corrected its perspective, and divided the two-lane width by two.\",\"unit\":\"m\"},{\"value\":6.0,\"qid\":1271,\"how\":\"Measured the white car\u2019s longitudinal extent and calibrated it from its pixel acceleration of 4 m/s\u00b2.\",\"unit\":\"m\"},{\"value\":5.0,\"qid\":1272,\"how\":\"Compared the yellow car\u2019s longitudinal pixel extent with the calibrated white car, correcting for their different depths.\",\"unit\":\"m\"},{\"value\":1.6,\"qid\":1273,\"how\":\"Measured the yellow car\u2019s vertical extent relative to its wheel-contact plane and applied the depth-corrected scale.\",\"unit\":\"m\"},{\"value\":0.55,\"qid\":1274,\"how\":\"Measured approximately 12 pixels across a bicycle wheel and applied the calibrated scale at the bicycle\u2019s depth.\",\"unit\":\"m\"},{\"value\":5.0,\"qid\":1275,\"how\":\"Measured the traffic light from its ground base to its top and corrected for ground-plane perspective.\",\"unit\":\"m\"},{\"value\":3.5,\"qid\":1276,\"how\":\"Measured streetlight base-to-top extents and converted using their perspective-adjusted ground positions.\",\"unit\":\"m\"},{\"value\":1.2,\"qid\":1277,\"how\":\"Tracked the pedestrian from the first to the last frame, corrected the displacement for depth, and divided by 2.958 seconds.\",\"unit\":\"m/s\"},{\"value\":1.8,\"qid\":1278,\"how\":\"Measured approximately 50 pixels from head to feet and applied the calibrated scale at the pedestrian\u2019s depth.\",\"unit\":\"m\"},{\"value\":5.0,\"qid\":1279,\"how\":\"Tracked the bicycle across the clip and converted its displacement using the acceleration-calibrated, depth-corrected scale.\",\"unit\":\"m/s\"}]}"
+}

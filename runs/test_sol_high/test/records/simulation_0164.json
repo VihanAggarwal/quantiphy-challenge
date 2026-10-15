@@ -1,0 +1,46 @@
+{
+ "video_id": "simulation_0164",
+ "model": "gpt-6.1-sol",
+ "effort": "high",
+ "status": "completed",
+ "n_frames": 20,
+ "secs": 156.6,
+ "usd": 0.055362,
+ "usage": {
+  "input_tokens": 10567,
+  "output_tokens": 8959
+ },
+ "answers": [
+  {
+   "value": 3.9,
+   "qid": 1386,
+   "how": "Tracked the ball across frames and converted its perspective-corrected motion using the known diameter and camera distance.",
+   "unit": "m/s"
+  },
+  {
+   "value": 0.35,
+   "qid": 1387,
+   "how": "Estimated the acceleration magnitude from a smooth fit to the perspective-corrected ball trajectory.",
+   "unit": "m/s^2"
+  },
+  {
+   "value": 3.72,
+   "qid": 1388,
+   "how": "Measured the ball's motion near 1 s, correcting the pixel scale for its decreasing apparent diameter.",
+   "unit": "m/s"
+  },
+  {
+   "value": 0.35,
+   "qid": 1389,
+   "how": "Estimated the acceleration magnitude from the change in perspective-corrected velocity.",
+   "unit": "m/s^2"
+  },
+  {
+   "value": 0.33,
+   "qid": 1390,
+   "how": "Compared the standing pin's pixel height with the ball's diameter at the pin location, correcting for perspective.",
+   "unit": "m"
+  }
+ ],
+ "raw_text": "{\"answers\":[{\"value\":3.9,\"qid\":1386,\"how\":\"Tracked the ball across frames and converted its perspective-corrected motion using the known diameter and camera distance.\",\"unit\":\"m/s\"},{\"value\":0.35,\"qid\":1387,\"how\":\"Estimated the acceleration magnitude from a smooth fit to the perspective-corrected ball trajectory.\",\"unit\":\"m/s^2\"},{\"value\":3.72,\"qid\":1388,\"how\":\"Measured the ball's motion near 1 s, correcting the pixel scale for its decreasing apparent diameter.\",\"unit\":\"m/s\"},{\"value\":0.35,\"qid\":1389,\"how\":\"Estimated the acceleration magnitude from the change in perspective-corrected velocity.\",\"unit\":\"m/s^2\"},{\"value\":0.33,\"qid\":1390,\"how\":\"Compared the standing pin's pixel height with the ball's diameter at the pin location, correcting for perspective.\",\"unit\":\"m\"}]}"
+}

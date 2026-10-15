@@ -9,8 +9,12 @@ the full-resolution test run where the validation question is also a test questi
 Criteria (all must hold for one method):
  1. val macro MRA >= cvq_geo + 0.030 and clip-bootstrap 90% CI lower bound of the delta > 0
  2. size / distance target rows: item mean >= cvq_geo + 0.05
- 3. fact rows the method changes vs cvq_geo: mean item change >= 0
- 4. (--lovo) LOVO macro of the per-category member-set search with the new methods >= LOVO of v3's search + 0.010
+ 3. fact rows the method changes vs cvq_geo: mean item change >= 0, AND the method answers >= 90% of the fact rows
+ 4. (--lovo) LOVO macro of the per-category member-set search with the new methods >= LOVO of the same search
+    without them (old 4 + cvq_geo) + 0.010
+Amendment 2026-10-15 (before any ctx output existed; tightening only, from the independent VERIFY.md): criterion 4
+baseline changed from v3's old-4 search (.5793, which cvq_geo alone beats) to old 4 + cvq_geo; criterion 3 requires
+fact coverage; cvqcx_geo added to the pre-declared methods.
 """
 from __future__ import annotations
 
@@ -37,7 +41,7 @@ from tbcommon import RUN, questions  # noqa: E402
 CATS = ("S2", "D2", "S3", "D3")
 NEW = {"ta_geo": "ta/geometry.csv", "tacx_geo": "tacx/geometry.csv", "samcx_geo": "samcx/geometry.csv",
        "cvqcx_geo": "cvqcx/geometry.csv", "tasam_geo": "tasam/geometry.csv", "ta_direct": "ta/direct.csv"}
-PRIMARY = ("ta_geo", "tacx_geo", "samcx_geo", "ta_direct")      # pre-declared in RESULT.md
+PRIMARY = ("ta_geo", "tacx_geo", "samcx_geo", "ta_direct", "cvqcx_geo")   # pre-declared (cvqcx added 10-15)
 FACTS = ROOT / "research" / "trackb_dense" / "out" / "fact_labels.csv"
 
 
@@ -106,8 +110,10 @@ def main(argv=None):
             t = read(root / "test" / rel, facts.qid)
             ch = np.isfinite(t) & ~np.isclose(t, ref_t, rtol=1e-6, equal_nan=False)
             gain = items(t, facts.lab)[ch] - items(ref_t, facts.lab)[ch]
-            r.update(fact_changed=int(ch.sum()), fact_gain=float(gain.mean()) if ch.any() else math.nan)
-        ok = (d >= 0.03 and lo > 0, d_sd >= 0.05, r.get("fact_changed", 0) == 0 or r.get("fact_gain", 0) >= 0)
+            r.update(fact_changed=int(ch.sum()), fact_gain=float(gain.mean()) if ch.any() else math.nan,
+                     fact_cov=float(np.isfinite(t).mean()))
+        ok = (d >= 0.03 and lo > 0, d_sd >= 0.05,
+              r.get("fact_cov", 0.0) >= 0.90 and (r.get("fact_changed", 0) == 0 or r.get("fact_gain", 0) >= 0))
         r["criteria_1_3"] = "".join("Y" if x else "n" for x in ok)
         verdict[name] = all(ok) and name in PRIMARY
         rows.append(r)
@@ -145,10 +151,11 @@ def lovo(root: Path, new: list[str]) -> None:
                 held[h] = I.loc[h, I.loc[tr, cols].mean().idxmax()]
         return float(np.mean([held[cat == c].mean() for c in CATS]))
 
-    old = [k for k in I.columns if all(m in base[:4] for m in k.split("+"))]
-    lo_old, lo_new = run(old), run(list(I.columns))
-    print(f"LOVO macro: v3's search (old 4) {lo_old:.4f}; with cvq + new methods {lo_new:.4f}; "
-          f"criterion 4 {'MET' if lo_new >= lo_old + 0.010 else 'not met'}")
+    old4 = [k for k in I.columns if all(m in base[:4] for m in k.split("+"))]
+    old5 = [k for k in I.columns if all(m in base for m in k.split("+"))]
+    lo_old4, lo_base, lo_new = run(old4), run(old5), run(list(I.columns))
+    print(f"LOVO macro: v3's search (old 4) {lo_old4:.4f}; old 4 + cvq_geo {lo_base:.4f}; with new methods "
+          f"{lo_new:.4f}; criterion 4 (new >= old4+cvq + 0.010) {'MET' if new and lo_new >= lo_base + 0.010 else 'not met'}")
     ins = {c: I.loc[cat == c].mean().idxmax() for c in CATS}
     print("in-sample best sets per category:", ins)
 

@@ -1,0 +1,70 @@
+{
+ "video_id": "simulation_0050",
+ "model": "gpt-6.1-sol",
+ "effort": "high",
+ "status": "completed",
+ "n_frames": 21,
+ "secs": 162.1,
+ "usd": 0.06031,
+ "usage": {
+  "input_tokens": 9050,
+  "output_tokens": 10252
+ },
+ "answers": [
+  {
+   "value": 1.42,
+   "qid": 1202,
+   "how": "Tracked approximately 77 px of walking motion from 1\u20132 s. Combined the known speed with the depth change to calibrate projection, then converted the person's approximately 119 px height at 1 s.",
+   "unit": "m"
+  },
+  {
+   "value": 2.64,
+   "qid": 1203,
+   "how": "Measured the booth height as approximately 153 px and applied the local perspective scale extrapolated from the walking person's motion.",
+   "unit": "m"
+  },
+  {
+   "value": 1.47,
+   "qid": 1204,
+   "how": "Measured the booth's full horizontal extent as approximately 85 px and applied its local perspective scale.",
+   "unit": "m"
+  },
+  {
+   "value": 3.3,
+   "qid": 1205,
+   "how": "Measured approximately 208 px between the pillar centers and converted using the walking-motion scale, accounting for perspective along the street.",
+   "unit": "m"
+  },
+  {
+   "value": 1.34,
+   "qid": 1206,
+   "how": "Measured bicycle lengths of approximately 108 px at 1 s and 78 px at 2 s, correcting for depth and its direction of travel.",
+   "unit": "m"
+  },
+  {
+   "value": 3.78,
+   "qid": 1207,
+   "how": "Tracked approximately 262 px of bicycle displacement from 1\u20132 s and reconstructed its displacement using the calibrated projection and supplied bicycle distances.",
+   "unit": "m/s"
+  },
+  {
+   "value": 0.65,
+   "qid": 1208,
+   "how": "Measured approximately 71 px from handlebar to ground at 1 s and 60 px at 2 s, then applied the respective depth-corrected scales.",
+   "unit": "m"
+  },
+  {
+   "value": 0.41,
+   "qid": 1209,
+   "how": "Measured wheel diameters of approximately 45 px at 1 s and 37 px at 2 s and converted using the bicycle's depths.",
+   "unit": "m"
+  },
+  {
+   "value": 0.12,
+   "qid": 1210,
+   "how": "Measured the nearer doorway's bottom step riser as approximately 10\u201311 px and applied the local vertical scale.",
+   "unit": "m"
+  }
+ ],
+ "raw_text": "{\"answers\":[{\"value\":1.42,\"qid\":1202,\"how\":\"Tracked approximately 77 px of walking motion from 1\u20132 s. Combined the known speed with the depth change to calibrate projection, then converted the person's approximately 119 px height at 1 s.\",\"unit\":\"m\"},{\"value\":2.64,\"qid\":1203,\"how\":\"Measured the booth height as approximately 153 px and applied the local perspective scale extrapolated from the walking person's motion.\",\"unit\":\"m\"},{\"value\":1.47,\"qid\":1204,\"how\":\"Measured the booth's full horizontal extent as approximately 85 px and applied its local perspective scale.\",\"unit\":\"m\"},{\"value\":3.3,\"qid\":1205,\"how\":\"Measured approximately 208 px between the pillar centers and converted using the walking-motion scale, accounting for perspective along the street.\",\"unit\":\"m\"},{\"value\":1.34,\"qid\":1206,\"how\":\"Measured bicycle lengths of approximately 108 px at 1 s and 78 px at 2 s, correcting for depth and its direction of travel.\",\"unit\":\"m\"},{\"value\":3.78,\"qid\":1207,\"how\":\"Tracked approximately 262 px of bicycle displacement from 1\u20132 s and reconstructed its displacement using the calibrated projection and supplied bicycle distances.\",\"unit\":\"m/s\"},{\"value\":0.65,\"qid\":1208,\"how\":\"Measured approximately 71 px from handlebar to ground at 1 s and 60 px at 2 s, then applied the respective depth-corrected scales.\",\"unit\":\"m\"},{\"value\":0.41,\"qid\":1209,\"how\":\"Measured wheel diameters of approximately 45 px at 1 s and 37 px at 2 s and converted using the bicycle's depths.\",\"unit\":\"m\"},{\"value\":0.12,\"qid\":1210,\"how\":\"Measured the nearer doorway's bottom step riser as approximately 10\u201311 px and applied the local vertical scale.\",\"unit\":\"m\"}]}"
+}

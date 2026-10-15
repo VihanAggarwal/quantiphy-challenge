@@ -1,0 +1,58 @@
+{
+ "video_id": "simulation_0149",
+ "model": "gpt-6.1-sol",
+ "effort": "high",
+ "status": "completed",
+ "n_frames": 21,
+ "secs": 270.6,
+ "usd": 0.08517,
+ "usage": {
+  "input_tokens": 11215,
+  "output_tokens": 14791
+ },
+ "answers": [
+  {
+   "value": 2.15,
+   "qid": 1519,
+   "how": "Scaled the car\u2019s transverse pixel span using the tire diameter, correcting for perspective and foreshortening.",
+   "unit": "m"
+  },
+  {
+   "value": 0.69,
+   "qid": 1520,
+   "how": "Compared the markings\u2019 approximately 54-pixel height with the tire\u2019s approximately 60-pixel diameter at comparable depth.",
+   "unit": "m"
+  },
+  {
+   "value": 1.26,
+   "qid": 1521,
+   "how": "Scaled the pillar face\u2019s approximately 99-pixel width using the tire reference at comparable depth.",
+   "unit": "m"
+  },
+  {
+   "value": 6.5,
+   "qid": 1522,
+   "how": "Tracked the front tire across frames, used its changing apparent diameter to correct depth, and differentiated the fitted physical trajectory at 0.5 s.",
+   "unit": "m/s"
+  },
+  {
+   "value": 10.2,
+   "qid": 1523,
+   "how": "Computed the second derivative of the perspective-corrected physical trajectory at 0.5 s.",
+   "unit": "m/s^2"
+  },
+  {
+   "value": 9.6,
+   "qid": 1524,
+   "how": "Differentiated the tire-scaled, perspective-corrected physical trajectory at 1 s.",
+   "unit": "m/s"
+  },
+  {
+   "value": 2.5,
+   "qid": 1525,
+   "how": "Computed the second derivative of the perspective-corrected physical trajectory at 1 s.",
+   "unit": "m/s^2"
+  }
+ ],
+ "raw_text": "{\"answers\":[{\"value\":2.15,\"qid\":1519,\"how\":\"Scaled the car\u2019s transverse pixel span using the tire diameter, correcting for perspective and foreshortening.\",\"unit\":\"m\"},{\"value\":0.69,\"qid\":1520,\"how\":\"Compared the markings\u2019 approximately 54-pixel height with the tire\u2019s approximately 60-pixel diameter at comparable depth.\",\"unit\":\"m\"},{\"value\":1.26,\"qid\":1521,\"how\":\"Scaled the pillar face\u2019s approximately 99-pixel width using the tire reference at comparable depth.\",\"unit\":\"m\"},{\"value\":6.5,\"qid\":1522,\"how\":\"Tracked the front tire across frames, used its changing apparent diameter to correct depth, and differentiated the fitted physical trajectory at 0.5 s.\",\"unit\":\"m/s\"},{\"value\":10.2,\"qid\":1523,\"how\":\"Computed the second derivative of the perspective-corrected physical trajectory at 0.5 s.\",\"unit\":\"m/s^2\"},{\"value\":9.6,\"qid\":1524,\"how\":\"Differentiated the tire-scaled, perspective-corrected physical trajectory at 1 s.\",\"unit\":\"m/s\"},{\"value\":2.5,\"qid\":1525,\"how\":\"Computed the second derivative of the perspective-corrected physical trajectory at 1 s.\",\"unit\":\"m/s^2\"}]}"
+}

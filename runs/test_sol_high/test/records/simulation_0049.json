@@ -1,0 +1,46 @@
+{
+ "video_id": "simulation_0049",
+ "model": "gpt-6.1-sol",
+ "effort": "high",
+ "status": "completed",
+ "n_frames": 21,
+ "secs": 138.0,
+ "usd": 0.053828,
+ "usage": {
+  "input_tokens": 11308,
+  "output_tokens": 8504
+ },
+ "answers": [
+  {
+   "value": 1.26,
+   "qid": 1197,
+   "how": "Combined the change in camera distance with the person's pixel displacement from 1 s to 2 s, using the bike's known motion to calibrate perspective.",
+   "unit": "m/s"
+  },
+  {
+   "value": 2.96,
+   "qid": 1198,
+   "how": "Measured the person's head-to-foot pixel height and converted it using the supplied person depths and bike-calibrated image scale.",
+   "unit": "m"
+  },
+  {
+   "value": 3.5,
+   "qid": 1199,
+   "how": "Measured the booth's top-to-base extent and corrected for perspective using its ground position and the bike-derived scale.",
+   "unit": "m"
+  },
+  {
+   "value": 0.7,
+   "qid": 1200,
+   "how": "Measured the separation of the indicated door pillars and corrected for their different depths along the building facade.",
+   "unit": "m"
+  },
+  {
+   "value": 0.74,
+   "qid": 1201,
+   "how": "Measured the moving bicycle wheel's vertical diameter and converted it using the bicycle depths and motion-calibrated scale.",
+   "unit": "m"
+  }
+ ],
+ "raw_text": "{\"answers\":[{\"value\":1.26,\"qid\":1197,\"how\":\"Combined the change in camera distance with the person's pixel displacement from 1 s to 2 s, using the bike's known motion to calibrate perspective.\",\"unit\":\"m/s\"},{\"value\":2.96,\"qid\":1198,\"how\":\"Measured the person's head-to-foot pixel height and converted it using the supplied person depths and bike-calibrated image scale.\",\"unit\":\"m\"},{\"value\":3.5,\"qid\":1199,\"how\":\"Measured the booth's top-to-base extent and corrected for perspective using its ground position and the bike-derived scale.\",\"unit\":\"m\"},{\"value\":0.7,\"qid\":1200,\"how\":\"Measured the separation of the indicated door pillars and corrected for their different depths along the building facade.\",\"unit\":\"m\"},{\"value\":0.74,\"qid\":1201,\"how\":\"Measured the moving bicycle wheel's vertical diameter and converted it using the bicycle depths and motion-calibrated scale.\",\"unit\":\"m\"}]}"
+}

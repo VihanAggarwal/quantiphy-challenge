@@ -1,0 +1,52 @@
+{
+ "video_id": "simulation_0048",
+ "model": "gpt-6.1-sol",
+ "effort": "high",
+ "status": "completed",
+ "n_frames": 21,
+ "secs": 166.9,
+ "usd": 0.058198,
+ "usage": {
+  "input_tokens": 8703,
+  "output_tokens": 9899
+ },
+ "answers": [
+  {
+   "value": 1.18,
+   "qid": 1191,
+   "how": "Tracked the person across frames near 1 s, calibrated image motion with the known height, and combined transverse motion with the supplied depth change.",
+   "unit": "m/s"
+  },
+  {
+   "value": 3.4,
+   "qid": 1192,
+   "how": "Measured the booth's full horizontal span against the walking person's pixel height and applied the 1.8 m reference scale.",
+   "unit": "m"
+  },
+  {
+   "value": 5.7,
+   "qid": 1193,
+   "how": "Measured the pillar-to-pillar image separation and converted it using the walking person's height scale.",
+   "unit": "m"
+  },
+  {
+   "value": 1.75,
+   "qid": 1194,
+   "how": "Measured handlebar-to-ground height and scaled it using the person's known height, correcting by the bicycle-to-person depth ratio at 1 s.",
+   "unit": "m"
+  },
+  {
+   "value": 5.2,
+   "qid": 1195,
+   "how": "Combined the supplied bicycle depth change with its depth-corrected image-position change across the timed frames.",
+   "unit": "m/s"
+  },
+  {
+   "value": 0.98,
+   "qid": 1196,
+   "how": "Measured the wheel's vertical diameter and converted it with the person-height scale and bicycle-to-person depth correction.",
+   "unit": "m"
+  }
+ ],
+ "raw_text": "{\"answers\":[{\"value\":1.18,\"qid\":1191,\"how\":\"Tracked the person across frames near 1 s, calibrated image motion with the known height, and combined transverse motion with the supplied depth change.\",\"unit\":\"m/s\"},{\"value\":3.4,\"qid\":1192,\"how\":\"Measured the booth's full horizontal span against the walking person's pixel height and applied the 1.8 m reference scale.\",\"unit\":\"m\"},{\"value\":5.7,\"qid\":1193,\"how\":\"Measured the pillar-to-pillar image separation and converted it using the walking person's height scale.\",\"unit\":\"m\"},{\"value\":1.75,\"qid\":1194,\"how\":\"Measured handlebar-to-ground height and scaled it using the person's known height, correcting by the bicycle-to-person depth ratio at 1 s.\",\"unit\":\"m\"},{\"value\":5.2,\"qid\":1195,\"how\":\"Combined the supplied bicycle depth change with its depth-corrected image-position change across the timed frames.\",\"unit\":\"m/s\"},{\"value\":0.98,\"qid\":1196,\"how\":\"Measured the wheel's vertical diameter and converted it with the person-height scale and bicycle-to-person depth correction.\",\"unit\":\"m\"}]}"
+}
