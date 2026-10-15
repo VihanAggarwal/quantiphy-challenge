@@ -819,3 +819,10 @@ pre-registered +.03 bar, and validation has gm > agent -> 2D sim stays gm (agent
 Estimates (validation per-type gains scaled by each test subset's room to 1.0; bucket estimates from loss_audit):
 partial191 ~.850 (S2 .863, D2 .883, S3 .813, D3 .840); full 368 ~.869 (S2 .897, D2 .918, S3 .816, D3 .847); unscaled .873.
 Range .845-.88; the 2D-sim gm gain (24 validation rows, mostly one clip) is the main uncertainty.
+### Agentic run complete (2026-10-15 ~13:45 UTC): 368/368 test clips, 2053 agent answers
+Built on `trackA_cand_C1_solS2S3.csv` (stated facts kept, 125 rows; lab untouched):
+- `trackA_cand_agent_full.csv` (pre-registered routing: sim3/internet agent, sim2 gm): 2130 scored rows changed
+  (D2 1046, S2 527, D3 385, S3 172). Stated-fact check 126 rows / 69 clips: agent .963 vs raw .844. Expected ~.869 (.845-.88).
+- `trackA_probe_agent_sim2agent.csv`: same, 2D sim = agent alone (1185 rows differ, S2 337 / D2 848).
+- `trackA_probe_agent_sim2base.csv`: same, 2D sim = base (the same 1185 rows). S3/D3 identical across the three.
+Read S2/D2 across the three to pick the 2D-sim routing; S3/D3 read the 3D-sim agent vs C1 (.776/.814 expected base).
