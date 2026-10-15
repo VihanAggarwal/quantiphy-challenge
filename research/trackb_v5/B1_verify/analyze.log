@@ -1,0 +1,21 @@
+B1 vs v3 changed (all/scored): {'S2': '498/476', 'D2': '380/377', 'S3': '253/240', 'D3': '291/279'} total 1422 1372
+raw changed vs base raw: {'S2': '505/483', 'D2': '276/272', 'S3': '164/156', 'D3': '229/219'}
+l2q      alone {'S2': '0/0', 'D2': '0/0', 'S3': '164/156', 'D3': '228/218'} | spill out-of-target {'S2': '0/0', 'D2': '0/0', 'S3': '0/0', 'D3': '0/0'} (n=0) in-target pool-only {'S2': '0/0', 'D2': '0/0', 'S3': '0/0', 'D3': '0/0'} | LOO {'S2': '0/0', 'D2': '0/0', 'S3': '164/156', 'D3': '228/218'}
+s2route  alone {'S2': '496/474', 'D2': '25/23', 'S3': '17/16', 'D3': '24/24'} | spill out-of-target {'S2': '0/0', 'D2': '25/23', 'S3': '17/16', 'D3': '24/24'} (n=66) in-target pool-only {'S2': '2/2', 'D2': '0/0', 'S3': '0/0', 'D3': '0/0'} | LOO {'S2': '495/473', 'D2': '27/25', 'S3': '16/15', 'D3': '19/19'}
+l6s      alone {'S2': '13/13', 'D2': '344/341', 'S3': '1/1', 'D3': '38/38'} | spill out-of-target {'S2': '13/13', 'D2': '0/0', 'S3': '1/1', 'D3': '38/38'} (n=52) in-target pool-only {'S2': '0/0', 'D2': '80/80', 'S3': '0/0', 'D3': '0/0'} | LOO {'S2': '13/13', 'D2': '338/335', 'S3': '1/1', 'D3': '33/33'}
+l1       alone {'S2': '0/0', 'D2': '0/0', 'S3': '149/142', 'D3': '0/0'} | spill out-of-target {'S2': '0/0', 'D2': '0/0', 'S3': '0/0', 'D3': '0/0'} (n=0) in-target pool-only {'S2': '0/0', 'D2': '0/0', 'S3': '149/142', 'D3': '0/0'} | LOO {'S2': '0/0', 'D2': '0/0', 'S3': '145/138', 'D3': '0/0'}
+l4       alone {'S2': '0/0', 'D2': '21/21', 'S3': '0/0', 'D3': '0/0'} | spill out-of-target {'S2': '0/0', 'D2': '0/0', 'S3': '0/0', 'D3': '0/0'} (n=0) in-target pool-only {'S2': '0/0', 'D2': '21/21', 'S3': '0/0', 'D3': '0/0'} | LOO {'S2': '0/0', 'D2': '21/21', 'S3': '0/0', 'D3': '0/0'}
+clamp    alone {'S2': '3/3', 'D2': '18/18', 'S3': '4/4', 'D3': '18/16'} | spill out-of-target {'S2': '0/0', 'D2': '0/0', 'S3': '0/0', 'D3': '0/0'} (n=0) in-target pool-only {'S2': '3/3', 'D2': '18/18', 'S3': '4/4', 'D3': '18/16'} | LOO {'S2': '7/7', 'D2': '18/18', 'S3': '4/4', 'D3': '18/16'}
+changed rows with no LOO attribution: 0
+B1_rows.csv rows 1422 changed rows 1422 == my changed set: True
+B1_rows.csv attribution identical: True
+B1_rows.csv values: b1 col == B1 file: True v3 col == v3 file: True
+B1_spillover.csv columns ['qid', 'video_id', 'category', 'scored', 'component', 'scope', 'v3', 'b1', 'changed_in_B1', 'B1_attribution'] rows 200
+spill-over rows (out-of-target) mine 110 | file 192 | file ⊇ mine True | all spill rows changed in B1 True
+spill rows incl. in-target pool-only: 192 == file set: True
+S3/D3 lab rows 791 differing from v5: 0
+non-lab S3/D3 rows differing from v5: {'D3': 63, 'S3': 20}
+stated rows (rule-set) base 166 B1 166 same set True changed vs v3: 0
+fact_labels rows 129 changed vs v3: 0
+validation-overlap test rows 131 changed in B1: {'S2': '22/0', 'D2': '3/0', 'S3': '13/0', 'D3': '12/0'}
+  changed overlap rows 50: B1 == validation label on 0 (v3 == label on 0)
