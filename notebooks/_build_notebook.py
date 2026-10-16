@@ -92,11 +92,23 @@ RUN_PRESET = ""              # "q35": second run, Qwen3.5-27B writes the specs +
                              # "ctx": context-aware open annotation (section 13d, research/trackb_next): Qwen3.6-27B
                              # annotates each video the Track A way + context extents + SAM 2 on its boxes; all other
                              # stages off (reuses the trackb_v1 Code-as-World answers and SAM 2 tracks on Drive)
+                             # "agent": open-weight agentic measurement (section 13e, research/trackb_agent): one
+                             # Qwen3.6-27B agent per clip with a frame viewer and a Python/OpenCV sandbox; all other
+                             # stages off (validation first, then test)
 CTX_MODEL = "Qwen/Qwen3.6-27B-FP8"   # ctx: the open VLM (Apache-2.0, ~31 GB)
 CTX_FALLBACK = "Qwen/Qwen3.6-27B"    # ctx: loaded if CTX_MODEL fails (bf16, ~56 GB)
 CTX_THINKING = True          # ctx: the per-video request reasons first (a bad reply is retried once without)
 CTX_BASE_RUN = "trackb_v1"   # ctx: earlier run on Drive: its caw/caw.csv (fallback answers) and cvq/annotate are reused
 CTX_MIN_GB = 44              # ctx: GPUs with less memory skip the ctx stage
+AGENT_MODEL = "Qwen/Qwen3.6-27B-FP8"   # agent: the open VLM driving each clip's agent (Apache-2.0, ~31 GB)
+AGENT_FALLBACK = "Qwen/Qwen3.6-27B"    # agent: loaded if AGENT_MODEL fails (bf16, ~56 GB)
+AGENT_THINKING = True        # agent: reason before each action (more tokens, better code)
+AGENT_CONCURRENCY = 32       # agent: clip conversations at once (their turns are batched by vLLM)
+AGENT_MAX_STEPS = 30         # agent: actions per clip (Python / FRAME); then one forced ANSWERS turn
+AGENT_CLIP_MINUTES = 8       # agent: wall time per clip before the forced ANSWERS turn
+AGENT_HOURS = {"val": 1.0, "test": 6.0}   # agent: per split, no new clip starts after this (Run all again resumes)
+AGENT_BASE_RUN = "trackb_v1" # agent: earlier run on Drive whose caw/caw.csv fills unanswered qids (agent_filled.csv)
+AGENT_MIN_GB = 44            # agent: GPUs with less memory skip the agent stage
 if RUN_PRESET == "q35":
     RUN_NAME, MODEL = "trackb_q35", "Qwen/Qwen3.5-27B"
     STAGES.update(caw=False, direct=False, direct_extra=False, submission=False)
@@ -104,6 +116,10 @@ elif RUN_PRESET == "ctx":
     RUN_NAME, SPLIT, MAX_HOURS = "trackb_ctx", "val+test", 7
     STAGES = {k: False for k in STAGES} | {"score": True, "ctx": True, "ctx_merge": True, "ctx_sam": True}
     PUSH_RECORDS_FOR = ("val", "test")    # the ta / cx / tasam records are needed for the CPU analysis
+elif RUN_PRESET == "agent":
+    RUN_NAME, SPLIT, MAX_HOURS = "trackb_agent", "val+test", 8
+    STAGES = {k: False for k in STAGES} | {"score": True, "agent": True}
+    PUSH_RECORDS_FOR = ("val", "test")    # answers / transcripts per clip are needed for the CPU routing
 ''')
 
 md("""
@@ -177,10 +193,14 @@ if VRAM_GB < EXTRA_DIRECT_MIN_GB and STAGES.get("direct_extra") and EXTRA_DIRECT
 if RUN_PRESET == "ctx" and VRAM_GB < CTX_MIN_GB:
     STAGES["ctx"] = False
     print(f"ctx stage skipped: {CTX_MODEL} needs >= {CTX_MIN_GB} GB, this GPU has {VRAM_GB:.0f} GB")
+if RUN_PRESET == "agent" and VRAM_GB < AGENT_MIN_GB:
+    STAGES["agent"] = False
+    print(f"agent stage skipped: {AGENT_MODEL} needs >= {AGENT_MIN_GB} GB, this GPU has {VRAM_GB:.0f} GB")
 print(f"GPU {GPU_NAME} ({VRAM_GB:.0f} GB) -> Qwen {MODEL} ({BACKEND}), SAM 2 {SAM_MODEL}, detector {DETECTOR}, "
       f"Code-as-World {'on' if STAGES.get('caw') else 'off'}, "
       f"extra direct {list(EXTRA_DIRECT) if STAGES.get('direct_extra') else 'off'}"
-      + (f", ctx {CTX_MODEL if STAGES.get('ctx') else 'off'}" if RUN_PRESET == "ctx" else ""))
+      + (f", ctx {CTX_MODEL if STAGES.get('ctx') else 'off'}" if RUN_PRESET == "ctx" else "")
+      + (f", agent {AGENT_MODEL if STAGES.get('agent') else 'off'}" if RUN_PRESET == "agent" else ""))
 ''')
 
 md("""
@@ -308,7 +328,7 @@ do not.
 """)
 code('''
 DATA_DRIVE = f"{DRIVE_ROOT}/data"
-NEED_TEST = "test" in SPLITS or SYNC_TEST_DATA or RUN_PRESET == "ctx"   # ctx: validation on the full-res copies
+NEED_TEST = "test" in SPLITS or SYNC_TEST_DATA or RUN_PRESET in ("ctx", "agent")   # validation on the full-res copies
 DOWNLOAD = r"""
 import os, sys, urllib.request
 from huggingface_hub import snapshot_download
@@ -341,6 +361,9 @@ CHECK_MODEL = "import sys\\nfrom huggingface_hub import model_info\\nmodel_info(
 if RUN_PRESET == "ctx" and pyrun(CHECK_MODEL, CTX_MODEL)[0]:
     print(f"{CTX_MODEL} not found on the Hub; using {CTX_FALLBACK}")
     CTX_MODEL = CTX_FALLBACK
+if RUN_PRESET == "agent" and pyrun(CHECK_MODEL, AGENT_MODEL)[0]:
+    print(f"{AGENT_MODEL} not found on the Hub; using {AGENT_FALLBACK}")
+    AGENT_MODEL = AGENT_FALLBACK
 if pyrun(CHECK_MODEL, MODEL)[0]:
     print(f"{MODEL} not found on the Hub; using {FALLBACK_MODEL}")
     MODEL = FALLBACK_MODEL
@@ -675,6 +698,37 @@ else:
 ''')
 
 md("""
+## 13e. Open-weight agentic measurement (`RUN_PRESET = "agent"`)
+Runs only with the agent preset (steps and expected runtime: `research/trackb_agent/RUN_INSTRUCTIONS.md`). The Track A
+recipe that gave the biggest jump (one measuring agent per clip, blind workspace with the video + its questions, a frame
+viewer and a Python/OpenCV sandbox, pinhole geometry in code), driven by an OPEN-WEIGHT model only: `AGENT_MODEL`
+(Qwen3.6-27B, Apache-2.0) on vLLM. Each reply is one action: a Python block (run on the CPU in the clip's workspace,
+60 s limit, no network), `FRAME t [x0 y0 x1 y1] [scale]` (full frame or zoomed crop with a pixel grid) or the final
+`ANSWERS {...}`; `AGENT_CONCURRENCY` clips run at once and their turns are batched. Validation (split `val_hires`, the
+full-resolution copies) runs first, then test; segmented twins reuse their original clip's answers. Writes
+`answers/`, `transcripts/`, `agent.csv` (agent answers only) and `agent_filled.csv` (the
+`AGENT_BASE_RUN` Code-as-World answers where the agent gave none) under `outputs/trackb_agent/<split>/`, pushed after
+each split. Finished clips are skipped on a re-run. The routing onto the Track B file is decided on CPU from the
+validation scores only (`research/trackb_agent/RESULT.md`).
+""")
+code('''
+if RUN_PRESET == "agent":
+    AGENT_SPLIT = {"val": "val_hires", "test": "test"}
+    ATH = "" if AGENT_THINKING else " --no-thinking"
+    for split in SPLITS:
+        root = out_dir(split, "").rstrip("/")
+        caw = f"outputs/{AGENT_BASE_RUN}/{split}/caw/caw.csv"
+        FB = f" --fallback-csv {caw}" if os.path.exists(caw) else ""
+        stage("agent", split, f"python -m qp.open.run_agent --split {AGENT_SPLIT[split]} --out {root} "
+                              f"--model {AGENT_MODEL} --fallback-model {AGENT_FALLBACK} --concurrency {AGENT_CONCURRENCY} "
+                              f"--max-steps {AGENT_MAX_STEPS} --clip-minutes {AGENT_CLIP_MINUTES} "
+                              f"--max-hours {AGENT_HOURS.get(split, 6)} --ws-root /content/agent_ws/{split}{ATH}{FB}{LIM}")
+        push_outputs(f"interim-agent-{split}")
+else:
+    print("skipped (RUN_PRESET is not 'agent')")
+''')
+
+md("""
 ## 14. Scores on validation
 MRA of every method that produced a CSV (`scripts/score.py`), saved to `outputs/<RUN_NAME>/val/scores.csv`;
 the best one is used for the test submission when `SUBMISSION_FROM = "auto"`. 159 questions: differences
@@ -689,6 +743,7 @@ METHODS.update({f"{n}_direct": f"{n}/direct.csv" for n in EXTRA_DIRECT})
 METHODS.update({"ctx_ta_geometry": "ta/geometry.csv", "ctx_ta_direct": "ta/direct.csv",
                 "ctx_tacx_geometry": "tacx/geometry.csv", "ctx_cvqcx_geometry": "cvqcx/geometry.csv",
                 "ctx_tasam_geometry": "tasam/geometry.csv", "ctx_samcx_geometry": "samcx/geometry.csv"})
+METHODS.update({"agent": "agent.csv", "agent_filled": "agent_filled.csv"})
 SCORE = r"""
 import sys
 import pandas as pd
