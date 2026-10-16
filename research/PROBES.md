@@ -842,3 +842,19 @@ internet D2 agent answers hurt or the rescoring moved D2; the old-set baseline i
 base (C1_solS2S3) to re-anchor, and `trackA_cand_agent_sim2agent_d2inetbase.csv` (sim2agent with the 214 D2 internet rows
 back to base) to read the internet D2 effect directly. Track B: B2route passes its kill bar by a wide margin (+.019 vs B1clamp
 same day); `trackB_cand_B2route_s2clamp_d3clamp.csv` = B2route with S2 from B1clamp (17 rows; no D3 clamp rows apply).
+
+## Track A next-jump research (2026-10-16, research/next/): 5 verified investigations, no big jump; merged +~.006
+- Scored set decoded: 3,010 = 3,289 - 277 (every question of the 24 validation families: clip, _segmented twin, lab s/x renders) - 2
+  (duplicate video+question in simulation_0263). New N: S2 532, D2 1109, S3 488, D3 881. Loss by subset on the current best:
+  S3 lab .782 (.032 overall pts), D3 lab .795 (.024), D2 2D sim .891 (.022), S2 2D sim .875 (.020), D3 3D sim .863 (.019),
+  S3 3D sim .856 (.015), S2 internet .842 (.014), D2 internet .810 (.009). .90 would need 35% of all remaining loss.
+- BUILD BUG found by 3 investigators: build_agent_sub protected only master.fact rows, so the agent overwrote sibling-stated
+  facts, PHYSB/PHYSB2 physical scale (internet 0047/0053/0054; the agent's notes say it kept the in-clip scale with riders
+  2.5-2.85 m), C1 stated-asset transfers and family facts (acorn 8 cm, cup 10.5 cm). Agent on those 38 lost fact rows .821.
+- nlres (adopt, +.0035), inet (adopt, +.002; also centre-to-centre distances), accounting (probe, +.003): overlapping restores.
+- labstatic (adopt without F, ~+.0024): 0024 book path 76->43, 0028 ping-pong max height 44->25, 0023 displacement, 0054a
+  soccer displacement, 0014 ball, slope width 27->24, book length 17.55->20.5 (measured on frames). F (trashbin) dropped.
+- labmot (reject): noise-ladder refit puts the ceiling at +.001-.003; render consensus ties on scored sibling renders.
+- residual (no lever beyond the build bug): blends, confidence routing, pooling, accel convention all fail one of val/facts.
+`submissions/trackA_cand_next_merge1.csv` = sim2agent + nlres/inet/accounting (per-row median where they differ; internet_0051
+left on the agent: coin flip) + labstatic without F: 114 rows (D2 57, D3 43, S2 11, S3 3). Expected ~+.006 (.846 -> ~.852).
