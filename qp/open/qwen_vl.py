@@ -364,23 +364,30 @@ def _balanced(text: str, start: int) -> str | None:
 
 
 def _loads(s: str):
+    """Lenient JSON / Python-literal parse of model text; None when it is not parseable. Never raises (model text
+    can hold anything: huge integers, deep nesting, non-strings)."""
+    if not isinstance(s, str):
+        return None
     try:
         return json.loads(s)
-    except ValueError:
+    except Exception:  # noqa: BLE001 - ValueError, RecursionError, int-digit limits, ...
         pass
-    fixed = re.sub(r",\s*([}\]])", r"\1", s)                      # trailing commas
-    fixed = re.sub(r"\bNone\b", "null", fixed)
-    fixed = re.sub(r"\bTrue\b", "true", re.sub(r"\bFalse\b", "false", fixed))
-    fixed = re.sub(r"(?<![\w.\"])-?(?:NaN|nan)\b", "null", fixed)
-    fixed = re.sub(r"//[^\n\"]*$", "", fixed, flags=re.MULTILINE)  # line comments
+    try:
+        fixed = re.sub(r",\s*([}\]])", r"\1", s)                      # trailing commas
+        fixed = re.sub(r"\bNone\b", "null", fixed)
+        fixed = re.sub(r"\bTrue\b", "true", re.sub(r"\bFalse\b", "false", fixed))
+        fixed = re.sub(r"(?<![\w.\"])-?(?:NaN|nan)\b", "null", fixed)
+        fixed = re.sub(r"//[^\n\"]*$", "", fixed, flags=re.MULTILINE)  # line comments
+    except Exception:  # noqa: BLE001
+        return None
     try:
         return json.loads(fixed)
-    except ValueError:
+    except Exception:  # noqa: BLE001
         pass
     try:
         return ast.literal_eval(re.sub(r"\bnull\b", "None", re.sub(r"\btrue\b", "True",
                                                                     re.sub(r"\bfalse\b", "False", fixed))))
-    except (ValueError, SyntaxError, MemoryError, RecursionError):
+    except Exception:  # noqa: BLE001 - ValueError, SyntaxError, MemoryError, RecursionError, TypeError, ...
         return None
 
 

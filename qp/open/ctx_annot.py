@@ -82,6 +82,40 @@ def _chat(processor, messages: list[dict], thinking: bool) -> str:
     return processor.apply_chat_template(messages, tokenize=False, add_generation_prompt=True, enable_thinking=thinking)
 
 
+# Qwen3-VL / Qwen3.5 / Qwen3.6 image processor defaults: 16 px patches merged 2x2 -> one token per 32x32 px;
+# size = {"shortest_edge": 65536, "longest_edge": 16777216} (pixel counts, the smart_resize min / max pixels)
+IMAGE_FACTOR, IMAGE_MIN_PIXELS, IMAGE_MAX_PIXELS = 32, 65536, 16777216
+
+
+def smart_resize(height: int, width: int, factor: int = IMAGE_FACTOR, min_pixels: int = IMAGE_MIN_PIXELS,
+                 max_pixels: int = IMAGE_MAX_PIXELS) -> tuple[int, int]:
+    """(h, w) the Qwen-VL image processor resizes an image to (transformers' qwen2_vl smart_resize): both sides
+    multiples of `factor`, the pixel count within [min_pixels, max_pixels]."""
+    height, width = max(1, int(height)), max(1, int(width))
+    h_bar = max(factor, round(height / factor) * factor)
+    w_bar = max(factor, round(width / factor) * factor)
+    if h_bar * w_bar > max_pixels:
+        beta = math.sqrt((height * width) / max_pixels)
+        h_bar = max(factor, math.floor(height / beta / factor) * factor)
+        w_bar = max(factor, math.floor(width / beta / factor) * factor)
+    elif h_bar * w_bar < min_pixels:
+        beta = math.sqrt(min_pixels / (height * width))
+        h_bar = math.ceil(height * beta / factor) * factor
+        w_bar = math.ceil(width * beta / factor) * factor
+    return h_bar, w_bar
+
+
+def image_tokens(width: int, height: int, factor: int = IMAGE_FACTOR, min_pixels: int = IMAGE_MIN_PIXELS,
+                 max_pixels: int = IMAGE_MAX_PIXELS) -> int:
+    """Prompt tokens of one image: ceil(w / factor) * ceil(h / factor) after the processor resize. Where the resize
+    only rounds the sides to multiples of `factor`, the ceil of the sent size is used (>= the rounded count)."""
+    h_bar, w_bar = smart_resize(height, width, factor, min_pixels, max_pixels)
+    n = math.ceil(w_bar / factor) * math.ceil(h_bar / factor)
+    if min_pixels <= h_bar * w_bar <= max_pixels and abs(h_bar - height) < factor and abs(w_bar - width) < factor:
+        n = max(n, math.ceil(int(width) / factor) * math.ceil(int(height) / factor))
+    return int(n)
+
+
 class CtxVLLM:
     """vLLM offline engine allowing up to `max_images` images per prompt (qwen_vl.VLLMBackend allows one) and a
     thinking switch per request. Shared images go first in each prompt, so prefix caching reuses them."""
@@ -94,11 +128,51 @@ class CtxVLLM:
         from transformers import AutoProcessor
         from vllm import LLM
         self.model = model
+        self._mm_kw = dict(engine_kw.get("mm_processor_kwargs") or {})
         self.processor = AutoProcessor.from_pretrained(model, revision=revision)
         self.llm = LLM(model=model, revision=revision, max_model_len=max_model_len,
                        gpu_memory_utilization=gpu_memory_utilization, quantization=quantization,
                        tensor_parallel_size=tensor_parallel_size, seed=seed,
                        limit_mm_per_prompt={"image": max_images, "video": 0}, **engine_kw)
+
+    def _image_params(self) -> tuple[int, int, int]:
+        """(factor, min_pixels, max_pixels) of the image processor, with the engine's mm_processor_kwargs applied."""
+        cached = getattr(self, "_img_params", None)
+        if cached:
+            return cached
+        def get(o, k):          # size is a dict, or an object with attributes (transformers' SizeDict)
+            return o.get(k) if isinstance(o, dict) else getattr(o, k, None)
+
+        ip = getattr(self.processor, "image_processor", None)
+        factor = int(getattr(ip, "patch_size", 0) or 16) * int(getattr(ip, "merge_size", 0) or 2)
+        size = getattr(ip, "size", None)
+        lo = get(size, "shortest_edge") or getattr(ip, "min_pixels", None) or IMAGE_MIN_PIXELS
+        hi = get(size, "longest_edge") or getattr(ip, "max_pixels", None) or IMAGE_MAX_PIXELS
+        mm = getattr(self, "_mm_kw", None) or {}
+        msize = mm.get("size")
+        lo = get(msize, "shortest_edge") or mm.get("min_pixels") or lo
+        hi = get(msize, "longest_edge") or mm.get("max_pixels") or hi
+        self._img_params = (factor, int(lo), int(hi))
+        return self._img_params
+
+    def count_tokens(self, req: Request) -> int:
+        """Exact prompt length of a request as the engine sees it: the rendered chat prompt tokenised with the real
+        tokenizer (one <|image_pad|> per image in the text) with each image's pad replaced by its image tokens."""
+        prompt = _chat(self.processor, req.messages, bool(getattr(req, "thinking", False)))
+        tok = getattr(self.processor, "tokenizer", None) or self.processor
+        ids = list(tok(prompt, add_special_tokens=False)["input_ids"])
+        imgs = list(getattr(req, "images", None) or [])
+        n_pad = 0
+        if imgs:
+            try:
+                pad = tok.convert_tokens_to_ids("<|image_pad|>")
+                if pad is not None and pad != getattr(tok, "unk_token_id", None):
+                    n_pad = ids.count(pad)
+            except Exception:  # noqa: BLE001 - no pad token known: count the placeholders as text (conservative)
+                n_pad = 0
+        factor, lo, hi = self._image_params()
+        return len(ids) - min(n_pad, len(imgs)) + sum(image_tokens(im.size[0], im.size[1], factor, lo, hi)
+                                                      for im in imgs)
 
     def generate(self, reqs: list[Request]) -> list[str | None]:
         from vllm import SamplingParams

@@ -109,6 +109,8 @@ AGENT_CLIP_MINUTES = 8       # agent: wall time per clip before the forced ANSWE
 AGENT_HOURS = {"val": 1.0, "test": 6.0}   # agent: per split, no new clip starts after this (Run all again resumes)
 AGENT_BASE_RUN = "trackb_v1" # agent: earlier run on Drive whose caw/caw.csv fills unanswered qids (agent_filled.csv)
 AGENT_MIN_GB = 44            # agent: GPUs with less memory skip the agent stage
+AGENT_PREFIX_CACHING = "on"  # agent: vLLM prefix caching, passed explicitly ("off" = fallback if the engine refuses it)
+AGENT_TEST_ROUTED_ONLY = True   # agent: after the validation gate, run test only on clips of types not routed to base
 if RUN_PRESET == "q35":
     RUN_NAME, MODEL = "trackb_q35", "Qwen/Qwen3.5-27B"
     STAGES.update(caw=False, direct=False, direct_extra=False, submission=False)
@@ -709,20 +711,82 @@ full-resolution copies) runs first, then test; segmented twins reuse their origi
 `answers/`, `transcripts/`, `agent.csv` (agent answers only) and `agent_filled.csv` (the
 `AGENT_BASE_RUN` Code-as-World answers where the agent gave none) under `outputs/trackb_agent/<split>/`, pushed after
 each split. Finished clips are skipped on a re-run. The routing onto the Track B file is decided on CPU from the
-validation scores only (`research/trackb_agent/RESULT.md`).
+validation scores only (`research/trackb_agent/RESULT.md`). `--prefix-caching` is passed explicitly
+(`AGENT_PREFIX_CACHING`, "on"; every turn re-sends the whole conversation, so without the cache each turn re-prefills it).
+
+**Validation gate before test**: after the validation split, `research/trackb_agent/evaluate.py --gate` (CPU, seconds)
+applies the pre-registered per-type rule to the validation answers (transcript audit first). If every clip type routes
+to `base`, the test split is skipped (the build would not use a single test answer) and the reason is printed;
+otherwise test runs, with `AGENT_TEST_ROUTED_ONLY` only on the clips of the non-base types plus the originals of their
+segmented twins (`run_agent --videos`). The gate is not applied (test runs on every clip) when validation is incomplete
+or evaluate.py fails (listed in the summary), and is information only in a smoke run (`LIMIT_VIDEOS`).
 """)
 code('''
+import json
+
+
+def agent_gate():
+    """Validation gate (CPU): research/trackb_agent/evaluate.py --gate on the validation answers -> its JSON, or None
+    if it failed."""
+    gate = f"{out_dir('val', '').rstrip('/')}/gate.json"
+    if os.path.exists(gate):
+        os.remove(gate)   # never act on a stale gate
+    rc = sh(f"python research/trackb_agent/evaluate.py --root outputs/{RUN_NAME} --gate {gate}", check=False)
+    if rc or not os.path.exists(gate):
+        return None
+    with open(gate) as fh:
+        return json.load(fh)
+
+
+def agent_test_args():
+    """(run the test split?, extra run_agent arguments) from the validation gate."""
+    if not STAGES.get("agent", True):
+        return True, ""   # the stage itself reports "skipped"
+    if "val" not in SPLITS:
+        print("[agent/gate] no validation split in this run: test runs on every clip")
+        return True, ""
+    g = agent_gate()
+    if g is None:
+        msg = "[agent/gate] evaluate.py failed: the gate is not applied, test runs on every clip"
+        print(msg)
+        FAILED.append(msg)
+        return True, ""
+    print(f"[agent/gate] decision {g['decision']}: {g['reason']}")
+    if LIMIT_VIDEOS:
+        print(f"[agent/gate] smoke run (LIMIT_VIDEOS = {LIMIT_VIDEOS}): gate not applied, test runs {LIMIT_VIDEOS} clips")
+        return True, ""
+    if not g["val_complete"]:
+        print(f"[agent/gate] validation incomplete ({g['val_clips_done']}/{g['val_clips']} clips): gate not applied, "
+              "test runs on every clip (Run all again later to finish validation first)")
+        return True, ""
+    if not g["run_test"]:
+        print("[agent/gate] TEST SKIPPED: every clip type routes to the base on validation, so the build would use no "
+              "test answer of the agent")
+        return False, ""
+    if AGENT_TEST_ROUTED_ONLY and g["test_videos"]:
+        print(f"[agent/gate] test restricted to {len(g['test_videos'])} clips (types not routed to base + originals of "
+              "their twins)")
+        return True, " --videos " + ",".join(g["test_videos"])
+    return True, ""
+
+
 if RUN_PRESET == "agent":
     AGENT_SPLIT = {"val": "val_hires", "test": "test"}
     ATH = "" if AGENT_THINKING else " --no-thinking"
     for split in SPLITS:
         root = out_dir(split, "").rstrip("/")
+        VID = ""
+        if split == "test":
+            run_test, VID = agent_test_args()
+            if not run_test:
+                continue
         caw = f"outputs/{AGENT_BASE_RUN}/{split}/caw/caw.csv"
         FB = f" --fallback-csv {caw}" if os.path.exists(caw) else ""
         stage("agent", split, f"python -m qp.open.run_agent --split {AGENT_SPLIT[split]} --out {root} "
                               f"--model {AGENT_MODEL} --fallback-model {AGENT_FALLBACK} --concurrency {AGENT_CONCURRENCY} "
                               f"--max-steps {AGENT_MAX_STEPS} --clip-minutes {AGENT_CLIP_MINUTES} "
-                              f"--max-hours {AGENT_HOURS.get(split, 6)} --ws-root /content/agent_ws/{split}{ATH}{FB}{LIM}")
+                              f"--prefix-caching {AGENT_PREFIX_CACHING} "
+                              f"--max-hours {AGENT_HOURS.get(split, 6)} --ws-root /content/agent_ws/{split}{ATH}{FB}{VID}{LIM}")
         push_outputs(f"interim-agent-{split}")
 else:
     print("skipped (RUN_PRESET is not 'agent')")
