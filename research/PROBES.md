@@ -826,3 +826,19 @@ Built on `trackA_cand_C1_solS2S3.csv` (stated facts kept, 125 rows; lab untouche
 - `trackA_probe_agent_sim2agent.csv`: same, 2D sim = agent alone (1185 rows differ, S2 337 / D2 848).
 - `trackA_probe_agent_sim2base.csv`: same, 2D sim = base (the same 1185 rows). S3/D3 identical across the three.
 Read S2/D2 across the three to pick the 2D-sim routing; S3/D3 read the 3D-sim agent vs C1 (.776/.814 expected base).
+
+## Scores 2026-10-16 (uploaded Oct 15 ~20:12 local). NOTE: leaderboard now reports 3,010 matched rows (was ~3,160 scored):
+## the scored set changed again, so only same-day comparisons are valid.
+| file | S2 | D2 | S3 | D3 | overall |
+|---|---|---|---|---|---|
+| trackA_cand_agent_full (sim2 gm) | .863 | .870 | .813 | .832 | .844 |
+| trackA_probe_agent_sim2agent | .863 | **.875** | .813 | .832 | **.846** |
+| trackA_probe_agent_sim2base | .852 | .853 | .813 | .832 | .838 |
+| trackB_probe_B2route | .633 | .698 | .672 | .680 | **.671** |
+| trackB_cand_B1clamp | .641 | .674 | .634 | .659 | .652 |
+2D sim: agent alone > gm > base (S2 +.011, D2 +.022 agent vs base): the pre-registered gm was too cautious; agent wins.
+D2 under sim2base (only the 198 internet D2 rows differ from C1_solS2S3) reads .853 vs C1's .868 on the OLD set: either the
+internet D2 agent answers hurt or the rescoring moved D2; the old-set baseline is no longer comparable. Next: re-upload the
+base (C1_solS2S3) to re-anchor, and `trackA_cand_agent_sim2agent_d2inetbase.csv` (sim2agent with the 214 D2 internet rows
+back to base) to read the internet D2 effect directly. Track B: B2route passes its kill bar by a wide margin (+.019 vs B1clamp
+same day); `trackB_cand_B2route_s2clamp_d3clamp.csv` = B2route with S2 from B1clamp (17 rows; no D3 clamp rows apply).
