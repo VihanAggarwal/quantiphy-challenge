@@ -1,5 +1,5 @@
 import numpy as np, json
-from scipy.optimize import least_squares
+from lm import lsq
 cx=640.; cy=360.
 C=json.load(open('board_corners_o.json'))
 frames=[k for k in sorted(C,key=int) if 20<=int(k)<=48]
@@ -23,7 +23,9 @@ def res(x,fixf=None):
 x0=[-0.17,0.69,0.46,0.33]
 for fixf in [711.,None]:
     xx=x0+([] if fixf else [711.])
-    sol=least_squares(lambda x:res(x,fixf),xx,loss='soft_l1',f_scale=0.03)
+    xs,fun=lsq(lambda x:res(x,fixf),xx,huber=0.03)
+    class S: pass
+    sol=S(); sol.x=xs; sol.fun=fun
     a,b,L,W=sol.x[:4]; n=nvec(a,b)
     print('fixf',fixf,'f',sol.x[4] if not fixf else fixf,'n',np.round(n,4),'L/h',round(L,4),'W/h',round(W,4),'aspect',round(L/W,3),'rms',round(np.sqrt(np.mean(sol.fun**2)),4))
     np.save('n_fit_%s.npy'%('711' if fixf else 'free'),np.r_[n,L,W,(sol.x[4] if not fixf else fixf)])
