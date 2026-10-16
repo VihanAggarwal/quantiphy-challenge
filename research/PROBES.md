@@ -858,3 +858,12 @@ same day); `trackB_cand_B2route_s2clamp_d3clamp.csv` = B2route with S2 from B1cl
 - residual (no lever beyond the build bug): blends, confidence routing, pooling, accel convention all fail one of val/facts.
 `submissions/trackA_cand_next_merge1.csv` = sim2agent + nlres/inet/accounting (per-row median where they differ; internet_0051
 left on the agent: coin flip) + labstatic without F: 114 rows (D2 57, D3 43, S2 11, S3 3). Expected ~+.006 (.846 -> ~.852).
+Lab family audit (research/next/labaudit, 31 scored lab families, 679 rows; one auditor per family + a blind second measurer):
+30 fixes proposed, 20 accepted by the pre-set rule (research/next/merge/collect_labaudit.py: re-measure moves the same way by
+>= 15% and is within 1.35x of the auditor; value = geometric mean). Biggest: 0054 b-camera ball speeds at 1.5 s were 2.6-4x
+low (image-plane speed at the 1.0 s depth while the ball falls along the line of sight) -> 4.1-4.7 m/s (7 rows); 0035b
+basketball displacement 71 -> 92 (3); 0062 foreshortening artefact 46-48 -> 61 (3) and render-inconsistent 12/30/21 -> 35.7 (3);
+0018s box width 11 -> 7.85; 0054b white ball 5.39 -> 6.75; 0014 v(0.6) 83.8 -> 118; 0030s 30 -> 46.6. 10 unverified (the
+weekly agent limit stopped 4 re-measurements: 0023/0024 pooled 11.28 -> 9.0 x6, 0031 2537, 0054 2830/2817/2825) stay unchanged.
+Most families: current answers confirmed within ~10% by two routes. `submissions/trackA_cand_next_merge2.csv` = merge1 + the 20
+fixes (D3 16, S3 4). Expected ~+.003 over merge1 (D3 ~+.010, S3 ~+.003) -> ~.855.
