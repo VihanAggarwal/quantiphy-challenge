@@ -43,11 +43,11 @@ F  trashbin height  captured_0052{,s,x}, captured_0053  D3  37.7 -> 41.5
 G  captured_0014  D3  "diameter of the ball"  5.71 -> 6.5
    Ball at rest at (544,296), stated 1.818 m: 25-26 px across in a 3x crop -> 6.5-6.6 cm; the s and x renders of
    the same event are 6.59 / 6.29.
-H  slope (white board) width  captured_0014s, captured_0023{,s,x}, captured_0024{,s,x}  D3  27.0-27.3 -> 24.3
+H  slope (white board) width  captured_0014s, captured_0023{,s,x}, captured_0024{,s,x}  D3  27.0-27.3 -> 24.0
    0023x frontal view, board mask per row: top edge 140-145 px at the stated far end 1.201 m -> 24.1-24.7 cm,
    bottom edge 182-184 px at the stated near end 0.9555 m -> 23.9-24.6 cm (both clicks back-projected at the
    edge's range). 0014 elevated view (another camera of the board): top 92.7 px at 1.854 m and bottom 101 px at
-   1.701 m -> 24.2 / 24.2 cm; 0014's own answer is 24.09. 27.0 = bottom-edge pixels times the slope's mean range.
+   1.701 m -> 23.7 / 23.7 cm; 0014's own answer is 24.09. 27.0 = bottom-edge pixels times the slope's mean range.
 I  book length  captured_0023{,s,x}, captured_0024, captured_0024x  D3  17.55 -> 20.5
    The sliding (teal) book of 0023/0024: at rest in 0023x (n = 38-44) 178 px across at the stated 0.851 m ->
    20.3-21.0 cm; on the slope at 1.0 s 130 px at the slope-line range 1.14 -> 20.6 cm, and 11.2 cm along the slope
@@ -83,8 +83,8 @@ CHANGES = {
     # G
     2234: ("G", 6.5),
     # H
-    2253: ("H", 24.3), 2413: ("H", 24.3), 2422: ("H", 24.3), 2431: ("H", 24.3),
-    2440: ("H", 24.3), 2450: ("H", 24.3), 2460: ("H", 24.3),
+    2253: ("H", 24.0), 2413: ("H", 24.0), 2422: ("H", 24.0), 2431: ("H", 24.0),
+    2440: ("H", 24.0), 2450: ("H", 24.0), 2460: ("H", 24.0),
     # I
     2409: ("I", 20.5), 2418: ("I", 20.5), 2427: ("I", 20.5), 2436: ("I", 20.5), 2456: ("I", 20.5),
 }
