@@ -886,3 +886,7 @@ Leaderboard 2026-10-16 21:00 UTC (research/r86/leaderboard_snapshot_2026-10-16T2
 intelligence .8232, IIIXR Lab .8202, Framewise Physics .8090, then .771 (we are .672): open-weight systems reach .82.
 Gross-outlier family correction (research/next/merge/outlier_pool.py, >1.4x off the median of >= 2 other clips): 0 changes on the
 103 held-out fact rows; the 31 candidate rows are bimodal name collisions (lane 7.0 vs 11.4 m, rock 9 vs 25 m) -> not used.
+Internet perspective check: the agent's notes mention perspective/ground-plane corrections in 30/74 internet clips (155 scored
+rows), but those rows sit only a median 4% from the planar base (18% beyond 1.2x): at most ~+-.005, no probe built.
+Twin fill (research/next/merge/twin_fill.py): 112 twin rows still at the pre-agent base; 17 have an equivalent question in the
+original clip answered by the agent -> copied. `trackA_cand_next_merge4.csv` = merge3 + those 17 rows (~+.0005).
