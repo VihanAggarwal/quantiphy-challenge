@@ -1088,3 +1088,39 @@ def test_audit_transcript_flags_suspicious_accesses(tmp_path, monkeypatch):
     df = _df(tmp_path)
     out = _run(tmp_path, df, Scripted(["```python\nfrom qptools import *\nprint(W)\n```", _answers]), [], monkeypatch)
     assert AL.audit_transcripts(out) == {}                 # a normal run is clean
+
+
+def test_qptools_measurement_helpers_on_a_synthetic_video(tmp_path):
+    """the sandbox helper module's measurement functions recover a known motion (square moving 6 px/frame)"""
+    import subprocess
+    import sys
+    import cv2
+    import numpy as np
+    from qp.open import agent_loop as al
+    vid = tmp_path / "src.mp4"
+    w, h, fps, n = 320, 240, 25, 30
+    vw = cv2.VideoWriter(str(vid), cv2.VideoWriter_fourcc(*"mp4v"), fps, (w, h))
+    for i in range(n):
+        im = np.zeros((h, w, 3), np.uint8)
+        x = 40 + 6 * i
+        im[100:120, x:x + 20] = 255
+        vw.write(im)
+    vw.release()
+    clip = al.Clip("synthetic_0001", str(vid), [dict(qid=1, question="What is the speed of the square in m/s?",
+                   prior="", depth_info="", fps=fps, video_type="D2SS", target_unit="m/s", video_source="internet")])
+    ws = tmp_path / "ws"
+    al.prepare_workspace(clip, ws)
+    (ws / "t.py").write_text(
+        "from qptools import *\n"
+        "bg = background(15)\n"
+        "b = blobs(motion_mask(10, bg))[0]\n"
+        "tr = track_motion(5, 25, (b['cx'], b['cy']), bg)\n"
+        "v = speeds([(p['cx'], p['cy']) for p in tr if p], kind='backward')\n"
+        "tt = track_template(10, 14, (b['x0'], b['y0'], b['x1'], b['y1']))\n"
+        "fx, fy = fit_line_track(tr, 1)\n"
+        "print(round(float(np.nanmedian(v)), 1), round(tt[-1]['cx'] - tt[0]['cx'], 1), round(float(fx.deriv()(0.5)), 1),\n"
+        "      round(dist3d(backproject(W / 2, H / 2, 2.0, focal_from_hfov(90)), (0, 0, 0)), 3))\n")
+    out = subprocess.run([sys.executable, "t.py"], cwd=ws, capture_output=True, text=True, timeout=120)
+    assert out.returncode == 0, out.stderr
+    med, dx, vx, rng = map(float, out.stdout.split())
+    assert abs(med - 150.0) < 8 and abs(dx - 18.0) < 2 and abs(vx - 150.0) < 8 and abs(rng - 2.0) < 1e-6
