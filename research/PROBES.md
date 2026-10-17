@@ -899,3 +899,4 @@ clip as the [2.0, 4.0] s capture window, P ~.7; under that reading the current v
 -> 275/248/409/353 cm/s, 87 -> 27, 133 -> 103, 74 -> 93 cm; 0010 a(0.6) 2.83 -> 6.8 (interpolated-range track lost the radial
 acceleration); 0029/0031/0032/0035a/0037/0040 S3 displacements and speeds 20-50%. Expected ~+.006 over merge4 (twins ~+.0015,
 3D-sim audit ~+.0015, lab round 2 ~+.003): ~.863 (range .858-.868).
+Leaderboard 2026-10-17 09:00 UTC (research/r86/leaderboard_snapshot_2026-10-17T0900Z.json): Track A Perch AI .8694, Cogworks .8603, us .8547 (3rd, merge2), iMak .8488; Track B JX .8232, IIIXR .8202, Framewise .8090, Aing .7761.
