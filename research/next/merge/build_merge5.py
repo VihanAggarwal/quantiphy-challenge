@@ -16,6 +16,9 @@ sn = pd.read_csv(ROOT / "research/next/scored_new.csv").set_index("qid").scored_
 rd = lambda p: (lambda d: d.set_index(d.columns[0]).parsed_value.astype(float).reindex(t.index))(pd.read_csv(ROOT / "submissions" / p))
 m4, m2, m3, pre = rd("trackA_cand_next_merge4.csv"), rd("trackA_cand_next_merge2.csv"), rd("trackA_cand_next_merge3.csv"), rd("trackA_cand_C1_solS2S3.csv")
 isfact = t.fact.notna() & np.isclose(m4, t.fact.fillna(-1), rtol=1e-6)
+# simulation_0075 lane-width rows: the auditor disclosed reading research notes that quote a validation outcome for the same
+# question on sibling clip simulation_0060 -> excluded (no validation labels in test answers), whatever the geometry says.
+EXCLUDE = {1246, 1281, 1307, 1319, 1331, 1763}
 
 def results(runs):
     for w in runs:
@@ -70,7 +73,7 @@ for v, qs in tq.items():
 for A in (a_sim, a_lab):
     for r in A[A.accepted].itertuples() if len(A) else []:
         q = int(r.qid)
-        if isfact.get(q, False): continue
+        if isfact.get(q, False) or q in EXCLUDE: continue
         if not np.isclose(r.current, m4[q], rtol=2e-2):
             print("WARN current mismatch", r.src, q, r.current, m4[q])
         out[q] = r.value; log.append((r.src, q, m4[q], r.value))
