@@ -867,3 +867,17 @@ basketball displacement 71 -> 92 (3); 0062 foreshortening artefact 46-48 -> 61 (
 weekly agent limit stopped 4 re-measurements: 0023/0024 pooled 11.28 -> 9.0 x6, 0031 2537, 0054 2830/2817/2825) stay unchanged.
 Most families: current answers confirmed within ~10% by two routes. `submissions/trackA_cand_next_merge2.csv` = merge1 + the 20
 fixes (D3 16, S3 4). Expected ~+.003 over merge1 (D3 ~+.010, S3 ~+.003) -> ~.855.
+
+## Scores 2026-10-17 (new scored set, 3,010 rows)
+| file | S2 | D2 | S3 | D3 | overall |
+|---|---|---|---|---|---|
+| trackA_cand_C1_solS2S3 (pre-agent base) | .836 | .867 | .767 | .817 | .822 |
+| trackA_cand_next_merge1 | .867 | .889 | .815 | .837 | .852 |
+| **trackA_cand_next_merge2** | .867 | .889 | .815 | **.846** | **.854** |
+| trackB_cand_B2route_s2clamp_d3clamp | .641 | .698 | .672 | .680 | **.672** |
+Attribution on the new set: agent (sim2agent .846) vs base: S2 +.027, D2 +.008, S3 +.046, D3 +.015. Restored levers (merge1 vs
+sim2agent): S2 +.004, D2 +.014, S3 +.002, D3 +.005 (predicted ~+.006 overall: observed +.006). Lab audit (merge2 vs merge1): D3 +.009
+(predicted +.010), S3 0 (predicted +.003). Every blind-re-measured auditor fix agreed (20/20).
+`submissions/trackA_cand_next_merge3.csv` = merge2 + the 10 auditor fixes whose blind re-measurement was cut off (auditor value;
+20/20 re-measured fixes had agreed) + 8 near-miss rows with two-route evidence (2852 0054as white v(1.5) 3.19->4.75; 0037 glass
+jar 10.2-10.65->9.1; 0038 displacement 17.3->20.2; 0018x box width 9->7.85). 18 lab rows (D3 11, S3 7). Expected ~+.002-.004.
