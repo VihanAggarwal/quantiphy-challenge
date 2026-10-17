@@ -53,38 +53,38 @@ labaudit2,2847,7.717864129674823,6.8,6.7,False,,"7.72 is a blur- and halo-inclus
 labaudit2,2523,77.52,60.0,62.5,True,61.237243569579455,"The base p8=80 is an eyeballed direct_answer with confidence 0.15 (runs/test_v1_high_854), not a measurement; it was then multiplied by a labnoise factor of 0.969. The tennis ball's speed at t=1.6 s ("
 labaudit2,2529,71.84,60.0,62.5,False,,"Same event and shared label as 2523 (s render). Same p8=80 eyeballed base, here times 0.898. The measured tennis speed at t=1.6 is ~60. Fix applied to all renders sharing the label."
 labaudit2,2534,71.84,60.0,62.5,False,,"Same event and shared label as 2523 (x render). Same p8=80 eyeballed base, here times 0.898. The measured tennis speed at t=1.6 is ~60. Fix applied to all renders sharing the label."
-labaudit2,2541,49.6,68.0,,False,,49.6 = Claude base 31 x labnoise cap factor 1.6. The labnoise track for this row has sin_psi = 0.99999: a purely lateral motion at constant range (round 1 found the stored track used the tennis ball's
-labaudit2,2547,49.6,68.0,,False,,"Same event and label as qid 2541 (captured_0032s render). 49.6 = 31 x 1.6 from a lateral-only, constant-range track (sin_psi = 1.0); the ball's motion is ~90% radial (61.5 cm/s radial + 23 lateral)."
-labaudit2,2553,49.6,68.0,,False,,"Same event and label as qid 2541 (captured_0032x render). 49.6 = 31 x 1.6 from a lateral-only, constant-range track (sin_psi = 1.0); the ball's motion is ~90% radial (61.5 cm/s radial + 23 lateral)."
-labaudit2,2196,2.829333006962195,6.8,,False,,The pipeline's 3D track interpolates range linearly between depth anchors 0.3 s apart (qp/geometry.py: piecewise-linear in time). At 0.6 s the ball is 3 capture frames before the near-side turning poi
-labaudit2,2202,2.822857142902228,6.8,,False,,"Same event and same label as 2196. The current value comes from the same pipeline track with linearly interpolated anchor ranges, which loses the radial acceleration near the 0.72 s turning point."
-labaudit2,2208,2.902705210503239,6.8,,False,,Same event and same label as 2196 (X render of the same capture). The pipeline's interpolated-range track loses the radial acceleration.
-labaudit2,2194,0.4327378541659224,0.692,,False,,"Between the anchors at t=0.6 (1.344) and t=0.9 (1.4605), the linear range interpolation makes the range rise by +1.55 cm/frame from c15 on. In fact the ball keeps approaching until the turning point a"
-labaudit2,2206,0.3878154582689305,0.692,,False,,"Same event and label as 2194. The pipeline's linearly interpolated range gives a receding radial velocity at c15->16 while the ball is still approaching the c18 turning point, so the speed is underest"
-labaudit2,2302,60.0,280.0,,False,,"VLM speed of the box sliding on the floor in the clip's last frames (3.4 s is past the clip end). Under the +2.0 s clock reading (3.4 s = c35, all four objects falling) the box falls at about 2.8 m/s."
-labaudit2,2321,60.0,280.0,,False,,"0018s copy of the shared label; same reasons as qid 2302 (end-of-clip box slide, not the fall at 3.4 s = c35)."
-labaudit2,2340,60.0,280.0,,False,,0018x copy of the shared label; same reasons as qid 2302.
-labaudit2,2303,23.41986773342261,248.0,,False,,"Near-rest speed of the rebounding ball at the clip end. At 3.4 s = c35 the soccer ball is in free fall at about 2.4-2.5 m/s, 10x the current value."
-labaudit2,2322,27.573672290815203,248.0,,False,,0018s copy; same reasons as qid 2303.
-labaudit2,2341,25.16673891410409,248.0,,False,,0018x copy; same reasons as qid 2303.
-labaudit2,2304,55.0,410.0,,False,,"End-of-clip bounce speed of the tennis ball. At 3.4 s = c35 the ball is about 0.1 s before floor contact, falling at about 4 m/s."
-labaudit2,2323,55.0,410.0,,False,,0018s copy; same reasons as qid 2304.
-labaudit2,2342,55.0,410.0,,False,,0018x copy; same reasons as qid 2304.
-labaudit2,2305,35.0,345.0,,False,,End-of-clip tumbling speed of the pineapple. At 3.4 s = c35 it falls at about 3.4 m/s just before landing.
-labaudit2,2324,35.0,345.0,,False,,0018s copy; same reasons as qid 2305.
-labaudit2,2343,35.0,345.0,,False,,0018x copy; same reasons as qid 2305.
-labaudit2,2306,87.0,25.5,,False,,"87 is the box-on-floor to ball-in-air separation in the last frame (my v48 geometry gives 81). At 3.0 s = c25 (held) the box is 62 px left of the ball and about 0.15 m nearer, about 25 cm apart. At th"
-labaudit2,2325,87.0,25.5,,False,,0018s copy; same reasons as qid 2306.
-labaudit2,2344,87.0,25.5,,False,,0018x copy; same reasons as qid 2306.
-labaudit2,2308,133.0,105.5,,False,,"End-of-clip layout (v48 gives 128). Held at 3.0 s, the box (Z 2.61) and tennis ball (Z 2.21) are 105 cm apart; at v39 they are 103."
-labaudit2,2327,133.0,105.5,,False,,0018s copy; same reasons as qid 2308.
-labaudit2,2346,133.0,105.5,,False,,0018x copy; same reasons as qid 2308.
-labaudit2,2309,74.0,92.0,,False,,VLM end-of-clip estimate; even the v48 layout gives 87. Held at 3.0 s the separation is about 93 (v39 gives 97). Every depth route is 15-38% above 74.
-labaudit2,2328,74.0,92.0,,False,,0018s copy; same reasons as qid 2309.
-labaudit2,2347,74.0,92.0,,False,,0018x copy; same reasons as qid 2309.
-labaudit2,2692,55.080000000000005,95.0,,False,,"The three renders share one label, but the s row was computed as base 60 x a per-render emulator factor of 0.918. That factor came from a faulty s-render agent track (sin_psi 0.55, against 1.0 for o/x"
-labaudit2,2686,76.56,95.0,,False,,"Same shared label as 2692 (captured_0037 o render). Included under the shared-label rule; on its own this row is -19%, below the 25% bar. The base of 60 misses that c35->c36 is the post-apex descent, "
-labaudit2,2698,75.89999999999999,95.0,,False,,"Same shared label as 2692 (x render). Included under the shared-label rule; on its own this row is -20%, below the 25% bar. The base of 60 underestimates the post-apex forward difference at c35->c36."
-labaudit2,2691,48.544,72.0,,False,,"Shared label, but the s row is base 41 x factor 1.184, while o/x use 1.44 (the s-render agent track gave sin_psi 0.68). The base of 41 is below the hard lower bound of the noise-free label: the v24->v"
-labaudit2,2685,58.999,72.0,,False,,"Same shared label as 2691 (o render). Included under the shared-label rule; on its own this row is -18%, below the 25% bar. The base of 41 misses the toward-camera component and is under the 53 cm/s z"
-labaudit2,2697,58.13799999999997,72.0,,False,,"Same shared label as 2691 (x render). Included under the shared-label rule; on its own this row is -19%, below the 25% bar. The base of 41 is under the zero-radial lower bound of the label-style value"
+labaudit2,2541,49.6,68.0,66.0,True,66.9925368977769,49.6 = Claude base 31 x labnoise cap factor 1.6. The labnoise track for this row has sin_psi = 0.99999: a purely lateral motion at constant range (round 1 found the stored track used the tennis ball's
+labaudit2,2547,49.6,68.0,66.0,True,66.9925368977769,"Same event and label as qid 2541 (captured_0032s render). 49.6 = 31 x 1.6 from a lateral-only, constant-range track (sin_psi = 1.0); the ball's motion is ~90% radial (61.5 cm/s radial + 23 lateral)."
+labaudit2,2553,49.6,68.0,66.0,True,66.9925368977769,"Same event and label as qid 2541 (captured_0032x render). 49.6 = 31 x 1.6 from a lateral-only, constant-range track (sin_psi = 1.0); the ball's motion is ~90% radial (61.5 cm/s radial + 23 lateral)."
+labaudit2,2196,2.829333006962195,6.8,6.8,True,6.8,The pipeline's 3D track interpolates range linearly between depth anchors 0.3 s apart (qp/geometry.py: piecewise-linear in time). At 0.6 s the ball is 3 capture frames before the near-side turning poi
+labaudit2,2202,2.822857142902228,6.8,6.8,True,6.8,"Same event and same label as 2196. The current value comes from the same pipeline track with linearly interpolated anchor ranges, which loses the radial acceleration near the 0.72 s turning point."
+labaudit2,2208,2.902705210503239,6.8,6.8,True,6.8,Same event and same label as 2196 (X render of the same capture). The pipeline's interpolated-range track loses the radial acceleration.
+labaudit2,2194,0.4327378541659224,0.692,0.44,False,,"Between the anchors at t=0.6 (1.344) and t=0.9 (1.4605), the linear range interpolation makes the range rise by +1.55 cm/frame from c15 on. In fact the ball keeps approaching until the turning point a"
+labaudit2,2206,0.3878154582689305,0.692,0.44,False,,"Same event and label as 2194. The pipeline's linearly interpolated range gives a receding radial velocity at c15->16 while the ball is still approaching the c18 turning point, so the speed is underest"
+labaudit2,2302,60.0,280.0,270.0,True,274.9545416973504,"VLM speed of the box sliding on the floor in the clip's last frames (3.4 s is past the clip end). Under the +2.0 s clock reading (3.4 s = c35, all four objects falling) the box falls at about 2.8 m/s."
+labaudit2,2321,60.0,280.0,270.0,True,274.9545416973504,"0018s copy of the shared label; same reasons as qid 2302 (end-of-clip box slide, not the fall at 3.4 s = c35)."
+labaudit2,2340,60.0,280.0,270.0,True,274.9545416973504,0018x copy of the shared label; same reasons as qid 2302.
+labaudit2,2303,23.41986773342261,248.0,248.0,True,248.0,"Near-rest speed of the rebounding ball at the clip end. At 3.4 s = c35 the soccer ball is in free fall at about 2.4-2.5 m/s, 10x the current value."
+labaudit2,2322,27.573672290815203,248.0,248.0,True,248.0,0018s copy; same reasons as qid 2303.
+labaudit2,2341,25.16673891410409,248.0,248.0,True,248.0,0018x copy; same reasons as qid 2303.
+labaudit2,2304,55.0,410.0,408.0,True,408.99877750428544,"End-of-clip bounce speed of the tennis ball. At 3.4 s = c35 the ball is about 0.1 s before floor contact, falling at about 4 m/s."
+labaudit2,2323,55.0,410.0,408.0,True,408.99877750428544,0018s copy; same reasons as qid 2304.
+labaudit2,2342,55.0,410.0,408.0,True,408.99877750428544,0018x copy; same reasons as qid 2304.
+labaudit2,2305,35.0,345.0,362.0,True,353.3977928623777,End-of-clip tumbling speed of the pineapple. At 3.4 s = c35 it falls at about 3.4 m/s just before landing.
+labaudit2,2324,35.0,345.0,362.0,True,353.3977928623777,0018s copy; same reasons as qid 2305.
+labaudit2,2343,35.0,345.0,362.0,True,353.3977928623777,0018x copy; same reasons as qid 2305.
+labaudit2,2306,87.0,25.5,28.0,True,26.720778431774775,"87 is the box-on-floor to ball-in-air separation in the last frame (my v48 geometry gives 81). At 3.0 s = c25 (held) the box is 62 px left of the ball and about 0.15 m nearer, about 25 cm apart. At th"
+labaudit2,2325,87.0,25.5,28.0,True,26.720778431774775,0018s copy; same reasons as qid 2306.
+labaudit2,2344,87.0,25.5,28.0,True,26.720778431774775,0018x copy; same reasons as qid 2306.
+labaudit2,2308,133.0,105.5,101.0,True,103.22548135029452,"End-of-clip layout (v48 gives 128). Held at 3.0 s, the box (Z 2.61) and tennis ball (Z 2.21) are 105 cm apart; at v39 they are 103."
+labaudit2,2327,133.0,105.5,101.0,True,103.22548135029452,0018s copy; same reasons as qid 2308.
+labaudit2,2346,133.0,105.5,101.0,True,103.22548135029452,0018x copy; same reasons as qid 2308.
+labaudit2,2309,74.0,92.0,94.5,True,93.24162160752032,VLM end-of-clip estimate; even the v48 layout gives 87. Held at 3.0 s the separation is about 93 (v39 gives 97). Every depth route is 15-38% above 74.
+labaudit2,2328,74.0,92.0,94.5,True,93.24162160752032,0018s copy; same reasons as qid 2309.
+labaudit2,2347,74.0,92.0,94.5,True,93.24162160752032,0018x copy; same reasons as qid 2309.
+labaudit2,2692,55.080000000000005,95.0,95.0,True,95.0,"The three renders share one label, but the s row was computed as base 60 x a per-render emulator factor of 0.918. That factor came from a faulty s-render agent track (sin_psi 0.55, against 1.0 for o/x"
+labaudit2,2686,76.56,95.0,95.0,True,95.0,"Same shared label as 2692 (captured_0037 o render). Included under the shared-label rule; on its own this row is -19%, below the 25% bar. The base of 60 misses that c35->c36 is the post-apex descent, "
+labaudit2,2698,75.89999999999999,95.0,95.0,True,95.0,"Same shared label as 2692 (x render). Included under the shared-label rule; on its own this row is -20%, below the 25% bar. The base of 60 underestimates the post-apex forward difference at c35->c36."
+labaudit2,2691,48.544,72.0,63.0,True,67.34983296193094,"Shared label, but the s row is base 41 x factor 1.184, while o/x use 1.44 (the s-render agent track gave sin_psi 0.68). The base of 41 is below the hard lower bound of the noise-free label: the v24->v"
+labaudit2,2685,58.999,72.0,63.0,False,,"Same shared label as 2691 (o render). Included under the shared-label rule; on its own this row is -18%, below the 25% bar. The base of 41 misses the toward-camera component and is under the 53 cm/s z"
+labaudit2,2697,58.13799999999997,72.0,63.0,False,,"Same shared label as 2691 (x render). Included under the shared-label rule; on its own this row is -19%, below the 25% bar. The base of 41 is under the zero-radial lower bound of the label-style value"

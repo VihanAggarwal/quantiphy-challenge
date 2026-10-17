@@ -890,3 +890,12 @@ Internet perspective check: the agent's notes mention perspective/ground-plane c
 rows), but those rows sit only a median 4% from the planar base (18% beyond 1.2x): at most ~+-.005, no probe built.
 Twin fill (research/next/merge/twin_fill.py): 112 twin rows still at the pre-agent base; 17 have an equivalent question in the
 original clip answered by the agent -> copied. `trackA_cand_next_merge4.csv` = merge3 + those 17 rows (~+.0005).
+`submissions/trackA_cand_next_merge5.csv` (final) = merge4 + 160 scored rows (research/next/merge/build_merge5.py, changes in
+changes_merge5.csv): twin agent answers for 41 twin clips (89 rows: D2 43, D3 18, S2 12, S3 16; 4 excluded where stronger
+evidence contradicts them), 3D-sim audit (20 families, 33 proposed / 30 accepted: S3 18, D3 6), lab round-2 audit (56 proposed /
+49 accepted: D3 27, S3 22) and merge3 verification (18 rows kept as gm with the re-measure). Biggest lab round-2 items:
+0018/s/x velocities at 3.4 s and object distances at 3.0 s (times past the 2.04 s clip; both measurers independently read the
+clip as the [2.0, 4.0] s capture window, P ~.7; under that reading the current values were last-frame VLM answers): 60/23-28/55/35
+-> 275/248/409/353 cm/s, 87 -> 27, 133 -> 103, 74 -> 93 cm; 0010 a(0.6) 2.83 -> 6.8 (interpolated-range track lost the radial
+acceleration); 0029/0031/0032/0035a/0037/0040 S3 displacements and speeds 20-50%. Expected ~+.006 over merge4 (twins ~+.0015,
+3D-sim audit ~+.0015, lab round 2 ~+.003): ~.863 (range .858-.868).

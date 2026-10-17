@@ -1,42 +1,45 @@
-import numpy as np, json
+import numpy as np
 from geo import *
-from lm import lsq
 G=9.8
-def frame_from_g(gd):
-    e3=gd/np.linalg.norm(gd)
-    a=np.array([1.,0,0]); e1=a-(a@e3)*e3; e1/=np.linalg.norm(e1); e2=np.cross(e3,e1)
-    return e1,e2,e3
-def unpack(p):
-    sp,pu,pv,L,ga,gb,th,ph,va,vb,gam,dt0=p
-    gd=np.array([np.sin(ga)*np.cos(gb),np.cos(ga),np.sin(ga)*np.sin(gb)])  # ga: angle from image-down axis
-    return sp,pu,pv,L,gd,th,ph,va,vb,gam,dt0
-def simulate(p,times,Rb=R):
-    sp,pu,pv,L,gd,th,ph,va,vb,gam,dt0=unpack(p)
-    P=sp*ray(pu,pv)
-    e1,e2,e3=frame_from_g(gd)
-    n=np.sin(th)*np.cos(ph)*e1+np.sin(th)*np.sin(ph)*e2+np.cos(th)*e3
-    eth=np.cos(th)*np.cos(ph)*e1+np.cos(th)*np.sin(ph)*e2-np.sin(th)*e3
-    eph=-np.sin(ph)*e1+np.cos(ph)*e2
-    x=P+L*n; v=va*eth+vb*eph
-    geff=G*L**2/(L**2+0.4*Rb**2)
-    gv=geff*e3
+H=0.002; TMAX=2.1
+def setup(p):
+    p=np.atleast_2d(p)
+    sp,pu,pv,L,ga,gb,th,ph,va,vb,gam=[p[:,k] for k in range(11)]
+    gd=np.stack([np.sin(ga)*np.cos(gb),np.cos(ga),np.sin(ga)*np.sin(gb)],-1)
+    e3=gd
+    a=np.array([1.,0,0])[None]
+    e1=a-(np.sum(a*e3,-1,keepdims=True))*e3; e1/=np.linalg.norm(e1,axis=-1,keepdims=True); e2=np.cross(e3,e1)
+    n=(np.sin(th)*np.cos(ph))[:,None]*e1+(np.sin(th)*np.sin(ph))[:,None]*e2+np.cos(th)[:,None]*e3
+    eth=(np.cos(th)*np.cos(ph))[:,None]*e1+(np.cos(th)*np.sin(ph))[:,None]*e2-np.sin(th)[:,None]*e3
+    eph=-np.sin(ph)[:,None]*e1+np.cos(ph)[:,None]*e2
+    P=sp[:,None]*ray(pu,pv)
+    x=P+L[:,None]*n; v=va[:,None]*eth+vb[:,None]*eph
+    geff=G*L**2/(L**2+0.4*R**2)
+    gv=geff[:,None]*e3
+    return P,L,x,v,gv,gam
+def simulate(p):
+    """returns grid times, X[B,T,3], Vel[B,T,3]"""
+    P,L,x,v,gv,gam=setup(p)
+    Lc=L[:,None]
     def acc(x,v):
-        nn=(x-P)/L
-        return gv-(gv@nn)*nn-(v@v)/L*nn-gam*v
-    h=1/1000.; t=0.0; out=[]; times=np.asarray(times); order=np.argsort(times); res=np.zeros((len(times),3)); vel=np.zeros((len(times),3))
-    k=0; ts=times[order]
-    while k<len(ts):
-        while k<len(ts) and ts[k]<=t+1e-12:
-            res[order[k]]=x; vel[order[k]]=v; k+=1
-        if k>=len(ts): break
-        hh=min(h,ts[k]-t) if ts[k]-t>1e-12 else h
+        nn=(x-P)/Lc
+        return gv-np.sum(gv*nn,-1,keepdims=True)*nn-np.sum(v*v,-1,keepdims=True)/Lc*nn-gam[:,None]*v
+    nT=int(round(TMAX/H))+1
+    X=np.empty((len(L),nT,3)); Vv=np.empty_like(X)
+    for i in range(nT):
+        X[:,i]=x; Vv[:,i]=v
         k1v=acc(x,v); k1x=v
-        k2v=acc(x+hh/2*k1x,v+hh/2*k1v); k2x=v+hh/2*k1v
-        k3v=acc(x+hh/2*k2x,v+hh/2*k2v); k3x=v+hh/2*k2v
-        k4v=acc(x+hh*k3x,v+hh*k3v); k4x=v+hh*k3v
-        x=x+hh/6*(k1x+2*k2x+2*k3x+k4x); v=v+hh/6*(k1v+2*k2v+2*k3v+k4v)
-        nn=(x-P); nn/=np.linalg.norm(nn); x=P+L*nn; v=v-(v@nn)*nn
-        t+=hh
-    return res,vel
+        k2v=acc(x+H/2*k1x,v+H/2*k1v); k2x=v+H/2*k1v
+        k3v=acc(x+H/2*k2x,v+H/2*k2v); k3x=v+H/2*k2v
+        k4v=acc(x+H*k3x,v+H*k3v); k4x=v+H*k3v
+        x=x+H/6*(k1x+2*k2x+2*k3x+k4x); v=v+H/6*(k1v+2*k2v+2*k3v+k4v)
+        nn=x-P; nn/=np.linalg.norm(nn,axis=-1,keepdims=True); x=P+Lc*nn; v=v-np.sum(v*nn,-1,keepdims=True)*nn
+    return np.arange(nT)*H,X,Vv
+def sample(tg,X,Vv,t):
+    """cubic Hermite sample at times t (array)"""
+    t=np.asarray(t,float); i=np.clip((t/H).astype(int),0,len(tg)-2); s=((t-tg[i])/H)[None,:,None]
+    x0=X[:,i];x1=X[:,i+1];v0=Vv[:,i]*H;v1=Vv[:,i+1]*H
+    h00=2*s**3-3*s**2+1;h10=s**3-2*s**2+s;h01=-2*s**3+3*s**2;h11=s**3-s**2
+    return h00*x0+h10*v0+h01*x1+h11*v1
 def project(X):
-    return cx+f*X[:,0]/X[:,2], cy+f*X[:,1]/X[:,2]
+    return cx+f*X[...,0]/X[...,2], cy+f*X[...,1]/X[...,2]

@@ -1,29 +1,31 @@
-import numpy as np, json, sys
+import numpy as np, sys, time
 from dyn import *
-use_anch=int(sys.argv[1]) if len(sys.argv)>1 else 0
+from lmb import lsqb
+wA=float(sys.argv[1]); dtfree=int(sys.argv[2]); tag=sys.argv[3]
 tvid=CAP/25.
-def resid(p):
-    dt0=p[-1]
-    X,_=simulate(p,np.concatenate([tvid,anch_t+dt0]))
-    Xi=X[:len(tvid)]; u,v=project(Xi)
-    r=[u-U,v-V]
-    if use_anch:
-        Xa=X[len(tvid):]; rng=np.linalg.norm(Xa,axis=1)-R
-        r.append((rng-anch_d)/0.01*use_anch)   # 1 cm ~ 1 px weight
-    return np.concatenate(r)
-# init
-p0=np.array([1.514,638,229,0.35,0.42,1.2,0.7,np.pi/2,0.,0.,0.05,0.0])
+def resid(Pm):
+    # Pm[:, :11] model, Pm[:,11] = anchor time offset
+    tg,X,Vv=simulate(Pm[:,:11])
+    Xi=sample(tg,X,Vv,tvid); u,v=project(Xi)
+    out=[u-U[None],v-V[None],((Pm[:,1]-638)/2.)[:,None],((Pm[:,2]-229)/2.)[:,None]]
+    if wA>0:
+        res=[]
+        for b in range(len(Pm)):
+            Xa=sample(tg,X[b:b+1],Vv[b:b+1],anch_t+(Pm[b,11] if dtfree else 0))[0]
+            res.append((np.linalg.norm(Xa,axis=1)-R-anch_d)/0.01*wA)
+        out.append(np.array(res))
+    return np.concatenate(out,1)
+t0=time.time()
 best=None
-for th0 in [0.6,0.75]:
-  for ph0 in [np.pi/2,-np.pi/2,0.0,np.pi]:
-    p0[6]=th0;p0[7]=ph0
-    try:
-        p,r=lsq(resid,p0,iters=60)
-    except Exception as e:
-        continue
+for th0 in [0.6,0.8]:
+  for ph0 in np.linspace(-np.pi,np.pi,8,endpoint=False):
+    p0=np.array([1.514,638,229,0.35,0.42,1.2,th0,ph0,0.,0.,0.05,0.0])
+    p,r=lsqb(resid,p0,iters=40)
     c=(r[:2*len(U)]**2).mean()**.5
-    print('init',th0,ph0,'rms px',round(c,3),np.round(p,4)); sys.stdout.flush()
     if best is None or c<best[0]: best=(c,p)
-p,r=lsq(resid,best[1],iters=300)
-print('FINAL rms px',(r[:2*len(U)]**2).mean()**.5, np.round(p,5))
-np.save('dynfit_anch%d.npy'%use_anch,p)
+print('init search done',time.time()-t0, best[0]); sys.stdout.flush()
+p,r=lsqb(resid,best[1],iters=300)
+c=(r[:2*len(U)]**2).mean()**.5
+print('FINAL rms px %.3f'%c, 'params',np.round(p,5).tolist())
+if wA>0: print('anchor resid (cm)',np.round(r[2*len(U)+2:]/wA,2))
+np.save(f'dyn_{tag}.npy',p)
