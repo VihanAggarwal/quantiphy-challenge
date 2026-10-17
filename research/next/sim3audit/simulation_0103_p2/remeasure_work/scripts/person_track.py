@@ -14,5 +14,5 @@ for k,f in enumerate(fr):
     out.append([k, xs.mean()+x0, ys.mean()+y0, xs.min()+x0, xs.max()+x0, ys.min()+y0, ys.max()+y0])
 out=np.array(out)
 np.set_printoptions(suppress=True, precision=1, linewidth=150)
-print(out[::4])
+#print
 np.savetxt(W+'person_%s.txt'%v, out, fmt='%.2f')
