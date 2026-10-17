@@ -22,3 +22,5 @@ def project(F,q):
 if __name__=='__main__':
     for n in CFG:
         F=frame_of(n); print(n,'cam pos in boat frame',np.round(F['C'],2),'speed',round(F['speed'],3),'Vz',round(F['vz'],3))
+CFG['C4']=dict(f=3450,d=0.36,c=(480,480),a1=(320,580),disp=(-91.08,-3.19),D=(103.1570,106.0906))
+CFG['C3']=dict(f=8550,d=54.6,c=(768,768),a1=(560,1340),disp=(-185.76,-52.12),D=(177.2077,177.9993))

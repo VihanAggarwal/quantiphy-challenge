@@ -4,7 +4,7 @@ ids=[int(a) for a in sys.argv[2].split(',')]; out=sys.argv[1]; sc=4
 W,H=180,110
 tiles=[]
 for i in ids:
-    cx,cy=int(sm[0,i]),int(sm[1,i]); x0,y0=cx-90+10,cy-70
+    cx,cy=int(sm[0,i]),int(sm[1,i]); x0,y0=cx-90+10,cy-int(sys.argv[3]) if len(sys.argv)>3 else cy-70
     c=F[i][y0:y0+H,x0:x0+W]
     d=np.abs(c.astype(int)-bg[y0:y0+H,x0:x0+W]).sum(2); d=np.clip(d*2,0,255).astype(np.uint8)
     a=cv2.resize(c,None,fx=sc,fy=sc,interpolation=cv2.INTER_CUBIC)
