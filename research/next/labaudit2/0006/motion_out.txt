@@ -1,0 +1,44 @@
+== displacement 1.0->1.2 s (stated ranges at the clicks v24 and v29)
+  range model: 36.5 cm
+  if the stated values were Z-depths: 40.6 cm
+  yellow-only centre at v29: 36.3 cm
+  MC (3 px clicks): median 36.5, 10-90% 36.1-36.8 cm
+
+== v at 1.2 s: 25*|P(c31)-P(c30)|, P(c30) at the stated 1.065 m
+  route a, linear range extrapolation: R31 = 0.9976
+  route c, Z linear c30 -> table contact c33 (Z 0.866): R31 = 0.9940
+  route c, Z linear c30 -> table contact c33 (Z 0.889): R31 = 1.0018
+  route c, Z linear c30 -> table contact c33 (Z 0.920): R31 = 1.0122
+  route b, ballistic fit v25-v31 with stated ranges: R31 = 0.9571 (model R30 1.037), physical |V|(1.2) 2.70, fit FD 2.85, Vz -1.70, apex 0.990
+  route b, ballistic fit v26-v31 with stated ranges: R31 = 0.9507 (model R30 1.031), physical |V|(1.2) 2.71, fit FD 2.86, Vz -1.73, apex 0.991
+  route b, ballistic fit v26-v30 with stated ranges: R31 = 0.9918 (model R30 1.063), physical |V|(1.2) 2.53, fit FD 2.69, Vz -1.49, apex 0.995
+  R31 0.998 -> label-style 2.70 m/s
+  R31 0.990 -> label-style 2.82 m/s
+  R31 1.000 -> label-style 2.67 m/s
+  R31 1.010 -> label-style 2.53 m/s
+  R31 1.020 -> label-style 2.41 m/s
+  R31 1.040 -> label-style 2.25 m/s
+  R31 1.065 -> label-style 2.18 m/s
+  MC (clicks 3 px both frames, R31 = route a/b/c spread 0.993-1.003, ToF sigma at c31 of 2/3/4 cm; c30 range fixed as stated):
+   sigma 2 cm: median 2.71, 10-90% 2.35-3.15; expected score for answers [2.1 2.3 2.4 2.5 2.6 2.7 2.8]: [0.779 0.849 0.879 0.901 0.914 0.916 0.909]
+   sigma 3 cm: median 2.71, 10-90% 2.26-3.37; expected score for answers [2.1 2.3 2.4 2.5 2.6 2.7 2.8]: [0.775 0.838 0.861 0.876 0.883 0.883 0.876]
+   sigma 4 cm: median 2.70, 10-90% 2.20-3.61; expected score for answers [2.1 2.3 2.4 2.5 2.6 2.7 2.8]: [0.77  0.827 0.845 0.855 0.857 0.854 0.846]
+
+== v at first desk impact
+  c32->c33 (last airborne -> first on table) Z 0.925/0.889: 2.63 m/s
+  c32->c33 (last airborne -> first on table) Z 0.925/0.866: 2.81 m/s
+  c32->c33 (last airborne -> first on table) Z 0.940/0.900: 2.69 m/s
+  c32->c33 (last airborne -> first on table) Z 0.910/0.870: 2.61 m/s
+  c33->c34 (first on table -> bounce) Z 0.889/0.889: 0.63 m/s
+  c33->c34 (first on table -> bounce) Z 0.866/0.866: 0.62 m/s
+  c33->c34 (first on table -> bounce) Z 0.900/0.900: 0.64 m/s
+  c33->c34 (first on table -> bounce) Z 0.870/0.870: 0.62 m/s
+  physical (fit v25-v31, cam 0.174 above top, r 0.050): impact t=1.313 s, Z 0.825, |V| 3.61 (vertical 3.16)
+  physical (fit v25-v31, cam 0.174 above top, r 0.045): impact t=1.315 s, Z 0.822, |V| 3.62 (vertical 3.18)
+  physical (fit v25-v31, cam 0.220 above top, r 0.050): impact t=1.327 s, Z 0.801, |V| 3.73 (vertical 3.30)
+  physical (fit v26-v31, cam 0.174 above top, r 0.050): impact t=1.313 s, Z 0.816, |V| 3.62 (vertical 3.15)
+  physical (fit v26-v31, cam 0.174 above top, r 0.045): impact t=1.315 s, Z 0.813, |V| 3.63 (vertical 3.17)
+  physical (fit v26-v31, cam 0.220 above top, r 0.050): impact t=1.327 s, Z 0.791, |V| 3.74 (vertical 3.30)
+  physical (fit v26-v30, cam 0.174 above top, r 0.050): impact t=1.316 s, Z 0.870, |V| 3.50 (vertical 3.15)
+  physical (fit v26-v30, cam 0.174 above top, r 0.045): impact t=1.317 s, Z 0.868, |V| 3.51 (vertical 3.16)
+  physical (fit v26-v30, cam 0.220 above top, r 0.050): impact t=1.331 s, Z 0.849, |V| 3.63 (vertical 3.29)
