@@ -19,6 +19,9 @@ isfact = t.fact.notna() & np.isclose(m4, t.fact.fillna(-1), rtol=1e-6)
 # simulation_0075 lane-width rows: the auditor disclosed reading research notes that quote a validation outcome for the same
 # question on sibling clip simulation_0060 -> excluded (no validation labels in test answers), whatever the geometry says.
 EXCLUDE = {1246, 1281, 1307, 1319, 1331, 1763}
+# twin answers that contradict stronger evidence: 1649/1650 (0012s bird length/wingspan: C1 stated-asset transfer 1.19, leaderboard
+# supported), 1730/1735 (person height 1.75: confirmed by the simulation_0038 family auditor; twin agents repeat the oblique-walk error)
+EXCLUDE_TWIN = {1649, 1650, 1730, 1735}
 
 def results(runs):
     for w in runs:
@@ -67,7 +70,7 @@ for v, qs in tq.items():
         x = ans.get(str(q))
         try: x = abs(float(x))
         except Exception: continue
-        if x > 0 and math.isfinite(x) and not isfact[q]:
+        if x > 0 and math.isfinite(x) and not isfact[q] and q not in EXCLUDE_TWIN:
             out[q] = x; log.append(("twin", q, m4[q], x))
 # (2) audit fixes (override twin answers)
 for A in (a_sim, a_lab):
