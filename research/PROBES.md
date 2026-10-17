@@ -881,3 +881,8 @@ sim2agent): S2 +.004, D2 +.014, S3 +.002, D3 +.005 (predicted ~+.006 overall: ob
 `submissions/trackA_cand_next_merge3.csv` = merge2 + the 10 auditor fixes whose blind re-measurement was cut off (auditor value;
 20/20 re-measured fixes had agreed) + 8 near-miss rows with two-route evidence (2852 0054as white v(1.5) 3.19->4.75; 0037 glass
 jar 10.2-10.65->9.1; 0038 displacement 17.3->20.2; 0018x box width 9->7.85). 18 lab rows (D3 11, S3 7). Expected ~+.002-.004.
+Leaderboard 2026-10-16 21:00 UTC (research/r86/leaderboard_snapshot_2026-10-16T2100Z.json): Track A Perch AI .8654, Cogworks
+.8603, Blindfolded .8465, us .8457 (4th, sim2agent; merge2 .854 uploaded after the snapshot), Quantumonster .8437. Track B: JX
+intelligence .8232, IIIXR Lab .8202, Framewise Physics .8090, then .771 (we are .672): open-weight systems reach .82.
+Gross-outlier family correction (research/next/merge/outlier_pool.py, >1.4x off the median of >= 2 other clips): 0 changes on the
+103 held-out fact rows; the 31 candidate rows are bimodal name collisions (lane 7.0 vs 11.4 m, rock 9 vs 25 m) -> not used.
